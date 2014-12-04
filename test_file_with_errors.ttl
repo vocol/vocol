@@ -1,0 +1,130 @@
+@prefix mv: <http://purl.org/net/mobivoc/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+#@prefix xsd
+
+# CLASSES
+
+mv:ParkingFacility
+	a rdfs:Class , owl:Class ; 
+	rdfs:comment "A parking lot or other parking facility with several parking spaces for vehicles." ;
+	rdfs:label "parking facility"@en , "Parkeinrichtung"@de .
+
+mv:ParkingFacilityFeature
+	a rdfs:Class , owl:Class ;
+	rdfs:comment "Features of the parking facility (e.g. parking for handicapped people)." ;
+	rdfs:label "parking facility feature"@en , "Ausstattung der Parkeinrichtung"@de .
+
+mv:ParkingFacilityService
+	a rdfs:Class , owl:Class ;
+	rdfs:comment "Service available at the parking facility." #at
+	rdfs:label "services of parking facility"@en , "Serviceangebot der Parkeinrichtung"@de .
+
+mv:ParkingLot
+	a rdfs:Class, owl:Class ;
+	rdfs:subClassOf mv:ParkingFacility ;
+	rdfs:comment "Area used for parking vehicles with several parking spaces."
+	skos:prefLabel "parking lot"@en-US , "car park"@en-UK , "Parkplatz"@de ;
+	skos:hiddenLabel "car lot"@en , "Parkfläche"@de .
+
+mv:ParkingGarage
+	a rdfs:Class, owl:Class ;
+	rdfs:subClassOf mv:ParkingFacility ;
+	rdfs:comment "Building used for parking vehicles with one or several parking decks."
+	skos:prefLabel "parking garage"@en , "Parkhaus"@de ;
+	skos:hiddenLabel "multi-storey car park"@en , "parking structure"@en , "parking ramp"@en , "parkade"@en , 		"parking building"@en , "indoor parking"@en , "Hochgarage"@de .
+
+mv:UndergroundParkingGarage
+	a rdfs:Class, owl:Class ;
+	rdfs:subClassOf mv:ParkingFacility ;
+	rdfs:comment "Underground parking lot for parking vehicles with one or several parking decks."
+	skos:prefLabel "underground parking garage"@en , "Tiefgarage"@de ;
+	skos:hiddenLabel "Rampengarage"@de .
+
+
+#INSTANCES
+
+## Parking Facility Features
+
+mv:ParkingSpaceForDisabledPerson #man könnte ja auch die Anzahl der Behindertenparkplätze angeben wollen, dann brauch ich doch ein Konzept?
+	a mv:ParkingFacilityFeature ;
+	rdfs:label "parking space for disabled persons"@en , "Behindertenparkplatz"@de.
+
+mv:LadiesParkingSpace # wenn keine spezielleren Infos dran hängen, reicht eine property aus zb hasfrauenparkplätze und dann zahl.
+	a mv:ParkingFacilityFeature ;
+	rdfs:label "ladies' parking space" , "Frauenparkplatz"@de .
+
+mv:XXLParkingSpace
+	a mv:ParkingFacilityFeature ;
+	rdfs:label "XXL parking space" , "XXL-Parkplatz"@de ;
+	skos:altLabel "extra-breiter Stellplatz"@de .
+
+mv:VideoSurveillance
+	a mv:ParkingFacilityFeature ;
+	rdfs:label "video surveillance"@en , "Videoüberwachung"@de .
+
+mv:SurveillanceBySecurityGuards #check englische Bezeichnung
+	a mv:ParkingFacilityFeature ;
+	rdfs:label "surveillance by security guards"@en , "Bewacht durch Personal"@de ;
+	skos:altLabel "personenbewacht"@de . #prüfen, ob das so hieß
+
+mv:PayStation
+	a mv:ParkingFacilityFeature ;
+	rdfs:label "pay station"@en , "Kassenautomat"@de .
+
+mv:ParkingBarrier
+	a mv:ParkingFacilityFeature ;
+	skos:preflabel "parking barrier"@en , "Parkschranke"@de.
+	skos:altlabel "park barrier"@en
+
+## Parking Facility Services
+
+mv:ChargingPoint #welche konsequenzen hat hier die verwendung von charging point?-->als Property hasChargingPoints der ParkingFacility
+	a mv:ParkingFacilityService
+	# siehe ChargingPoint
+	rdfs:label "charging point"@en , "Ladestation"@de .
+
+mv:CarCleaningandMaintenance
+	a mv:ParkingFacilityService ;
+	rdfs:label "car cleaning and maintenance"@en , "Pkw-Reinigung und -Pflege"@de .
+
+
+#PROPERTIES
+
+mv:hasParkingFacilityFeatures
+	a rdf:Property , owl:ObjectProperty ;
+	rdfs:label "has parking facility feature" ;
+	rdfs:comment "Indicates which features the parking facility provides."
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range mv:ParkingFacilityFeature .
+
+mv:offersServices
+	a rdf:Property , owl:ObjectProperty ;
+	rdfs:label "offers services" ;
+	rdfs:comment "Indicates which services are available at the parking facility." #at
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range mv:ParkingFacilityService .
+
+mv:maximumNumberOfParkingSpaces
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:label "maximum number of parking spaces" ;
+	rdfs:comment "Indicates the maximum number of parking spaces of the parking facility." ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range xsd:integer .
+
+mv:parkingSpacesOccupied
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:label "parking spaces occupied" ;
+	rdfs:comment "Indicates how many parking spaces of the parking facility are currently occupied." ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range xsd:integer .
+	
+mv:parkingSpacesVacant
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:label "parking spaces vacant" ;
+	rdfs:comment "Indicates how many parking spaces of the parking facility are currently vacant." ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range xsd:integer .
+

@@ -1,0 +1,1850 @@
+[
+  {
+    "sha": "1b186b4a634eaf9afe05748b9275cc6fc812bcba",
+    "commit": {
+      "author": {
+        "name": "Christoph Lange",
+        "email": "math.semantic.web@gmail.com",
+        "date": "2014-12-02T15:36:27Z"
+      },
+      "committer": {
+        "name": "Christoph Lange",
+        "email": "math.semantic.web@gmail.com",
+        "date": "2014-12-02T15:36:27Z"
+      },
+      "message": "fixed some syntax errors",
+      "tree": {
+        "sha": "3198a8083dd93fab22a6fd2e91c8c0fd35427625",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/git/trees/3198a8083dd93fab22a6fd2e91c8c0fd35427625"
+      },
+      "url": "https://api.github.com/repos/mobivoc/mobivoc/git/commits/1b186b4a634eaf9afe05748b9275cc6fc812bcba",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/1b186b4a634eaf9afe05748b9275cc6fc812bcba",
+    "html_url": "https://github.com/mobivoc/mobivoc/commit/1b186b4a634eaf9afe05748b9275cc6fc812bcba",
+    "comments_url": "https://api.github.com/repos/mobivoc/mobivoc/commits/1b186b4a634eaf9afe05748b9275cc6fc812bcba/comments",
+    "author": {
+      "login": "clange",
+      "id": 649182,
+      "avatar_url": "https://avatars.githubusercontent.com/u/649182?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/clange",
+      "html_url": "https://github.com/clange",
+      "followers_url": "https://api.github.com/users/clange/followers",
+      "following_url": "https://api.github.com/users/clange/following{/other_user}",
+      "gists_url": "https://api.github.com/users/clange/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/clange/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/clange/subscriptions",
+      "organizations_url": "https://api.github.com/users/clange/orgs",
+      "repos_url": "https://api.github.com/users/clange/repos",
+      "events_url": "https://api.github.com/users/clange/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/clange/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "clange",
+      "id": 649182,
+      "avatar_url": "https://avatars.githubusercontent.com/u/649182?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/clange",
+      "html_url": "https://github.com/clange",
+      "followers_url": "https://api.github.com/users/clange/followers",
+      "following_url": "https://api.github.com/users/clange/following{/other_user}",
+      "gists_url": "https://api.github.com/users/clange/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/clange/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/clange/subscriptions",
+      "organizations_url": "https://api.github.com/users/clange/orgs",
+      "repos_url": "https://api.github.com/users/clange/repos",
+      "events_url": "https://api.github.com/users/clange/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/clange/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "ee2ebb509aa60c91cf20992a1e5cf94801207920",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/ee2ebb509aa60c91cf20992a1e5cf94801207920",
+        "html_url": "https://github.com/mobivoc/mobivoc/commit/ee2ebb509aa60c91cf20992a1e5cf94801207920"
+      }
+    ]
+  },
+  {
+    "sha": "ee2ebb509aa60c91cf20992a1e5cf94801207920",
+    "commit": {
+      "author": {
+        "name": "aweilandt",
+        "email": "aweilandt@brox.de",
+        "date": "2014-12-02T14:34:07Z"
+      },
+      "committer": {
+        "name": "aweilandt",
+        "email": "aweilandt@brox.de",
+        "date": "2014-12-02T14:34:07Z"
+      },
+      "message": "Update parking.ttl",
+      "tree": {
+        "sha": "19bfe95c324ef6788b13fa25f1d26314a8310cd2",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/git/trees/19bfe95c324ef6788b13fa25f1d26314a8310cd2"
+      },
+      "url": "https://api.github.com/repos/mobivoc/mobivoc/git/commits/ee2ebb509aa60c91cf20992a1e5cf94801207920",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/ee2ebb509aa60c91cf20992a1e5cf94801207920",
+    "html_url": "https://github.com/mobivoc/mobivoc/commit/ee2ebb509aa60c91cf20992a1e5cf94801207920",
+    "comments_url": "https://api.github.com/repos/mobivoc/mobivoc/commits/ee2ebb509aa60c91cf20992a1e5cf94801207920/comments",
+    "author": {
+      "login": "aweilandt",
+      "id": 7240244,
+      "avatar_url": "https://avatars.githubusercontent.com/u/7240244?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/aweilandt",
+      "html_url": "https://github.com/aweilandt",
+      "followers_url": "https://api.github.com/users/aweilandt/followers",
+      "following_url": "https://api.github.com/users/aweilandt/following{/other_user}",
+      "gists_url": "https://api.github.com/users/aweilandt/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/aweilandt/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/aweilandt/subscriptions",
+      "organizations_url": "https://api.github.com/users/aweilandt/orgs",
+      "repos_url": "https://api.github.com/users/aweilandt/repos",
+      "events_url": "https://api.github.com/users/aweilandt/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/aweilandt/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "aweilandt",
+      "id": 7240244,
+      "avatar_url": "https://avatars.githubusercontent.com/u/7240244?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/aweilandt",
+      "html_url": "https://github.com/aweilandt",
+      "followers_url": "https://api.github.com/users/aweilandt/followers",
+      "following_url": "https://api.github.com/users/aweilandt/following{/other_user}",
+      "gists_url": "https://api.github.com/users/aweilandt/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/aweilandt/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/aweilandt/subscriptions",
+      "organizations_url": "https://api.github.com/users/aweilandt/orgs",
+      "repos_url": "https://api.github.com/users/aweilandt/repos",
+      "events_url": "https://api.github.com/users/aweilandt/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/aweilandt/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "b4f0a987103df24086a4b6accc26b49f29b50c85",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/b4f0a987103df24086a4b6accc26b49f29b50c85",
+        "html_url": "https://github.com/mobivoc/mobivoc/commit/b4f0a987103df24086a4b6accc26b49f29b50c85"
+      }
+    ]
+  },
+  {
+    "sha": "b4f0a987103df24086a4b6accc26b49f29b50c85",
+    "commit": {
+      "author": {
+        "name": "aweilandt",
+        "email": "aweilandt@brox.de",
+        "date": "2014-12-02T12:14:15Z"
+      },
+      "committer": {
+        "name": "aweilandt",
+        "email": "aweilandt@brox.de",
+        "date": "2014-12-02T12:14:15Z"
+      },
+      "message": "Update parking.ttl",
+      "tree": {
+        "sha": "27d70053ec62e9833ed31c0cfd5a0bfddfbd6e7c",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/git/trees/27d70053ec62e9833ed31c0cfd5a0bfddfbd6e7c"
+      },
+      "url": "https://api.github.com/repos/mobivoc/mobivoc/git/commits/b4f0a987103df24086a4b6accc26b49f29b50c85",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/b4f0a987103df24086a4b6accc26b49f29b50c85",
+    "html_url": "https://github.com/mobivoc/mobivoc/commit/b4f0a987103df24086a4b6accc26b49f29b50c85",
+    "comments_url": "https://api.github.com/repos/mobivoc/mobivoc/commits/b4f0a987103df24086a4b6accc26b49f29b50c85/comments",
+    "author": {
+      "login": "aweilandt",
+      "id": 7240244,
+      "avatar_url": "https://avatars.githubusercontent.com/u/7240244?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/aweilandt",
+      "html_url": "https://github.com/aweilandt",
+      "followers_url": "https://api.github.com/users/aweilandt/followers",
+      "following_url": "https://api.github.com/users/aweilandt/following{/other_user}",
+      "gists_url": "https://api.github.com/users/aweilandt/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/aweilandt/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/aweilandt/subscriptions",
+      "organizations_url": "https://api.github.com/users/aweilandt/orgs",
+      "repos_url": "https://api.github.com/users/aweilandt/repos",
+      "events_url": "https://api.github.com/users/aweilandt/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/aweilandt/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "aweilandt",
+      "id": 7240244,
+      "avatar_url": "https://avatars.githubusercontent.com/u/7240244?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/aweilandt",
+      "html_url": "https://github.com/aweilandt",
+      "followers_url": "https://api.github.com/users/aweilandt/followers",
+      "following_url": "https://api.github.com/users/aweilandt/following{/other_user}",
+      "gists_url": "https://api.github.com/users/aweilandt/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/aweilandt/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/aweilandt/subscriptions",
+      "organizations_url": "https://api.github.com/users/aweilandt/orgs",
+      "repos_url": "https://api.github.com/users/aweilandt/repos",
+      "events_url": "https://api.github.com/users/aweilandt/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/aweilandt/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "6141236aa3d23ece7c7576a95c6dfa4eab2464e6",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/6141236aa3d23ece7c7576a95c6dfa4eab2464e6",
+        "html_url": "https://github.com/mobivoc/mobivoc/commit/6141236aa3d23ece7c7576a95c6dfa4eab2464e6"
+      }
+    ]
+  },
+  {
+    "sha": "6141236aa3d23ece7c7576a95c6dfa4eab2464e6",
+    "commit": {
+      "author": {
+        "name": "marcofranke",
+        "email": "fma@biba.uni-bremen.de",
+        "date": "2014-11-26T08:49:30Z"
+      },
+      "committer": {
+        "name": "marcofranke",
+        "email": "fma@biba.uni-bremen.de",
+        "date": "2014-11-26T08:49:30Z"
+      },
+      "message": "Update LowEmissionZone.ttl\n\nAdd Engine and Vehicles",
+      "tree": {
+        "sha": "5d6819b58dc99f70ec2688da3b11bd79df7dbb82",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/git/trees/5d6819b58dc99f70ec2688da3b11bd79df7dbb82"
+      },
+      "url": "https://api.github.com/repos/mobivoc/mobivoc/git/commits/6141236aa3d23ece7c7576a95c6dfa4eab2464e6",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/6141236aa3d23ece7c7576a95c6dfa4eab2464e6",
+    "html_url": "https://github.com/mobivoc/mobivoc/commit/6141236aa3d23ece7c7576a95c6dfa4eab2464e6",
+    "comments_url": "https://api.github.com/repos/mobivoc/mobivoc/commits/6141236aa3d23ece7c7576a95c6dfa4eab2464e6/comments",
+    "author": {
+      "login": "marcofranke",
+      "id": 9033191,
+      "avatar_url": "https://avatars.githubusercontent.com/u/9033191?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/marcofranke",
+      "html_url": "https://github.com/marcofranke",
+      "followers_url": "https://api.github.com/users/marcofranke/followers",
+      "following_url": "https://api.github.com/users/marcofranke/following{/other_user}",
+      "gists_url": "https://api.github.com/users/marcofranke/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/marcofranke/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/marcofranke/subscriptions",
+      "organizations_url": "https://api.github.com/users/marcofranke/orgs",
+      "repos_url": "https://api.github.com/users/marcofranke/repos",
+      "events_url": "https://api.github.com/users/marcofranke/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/marcofranke/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "marcofranke",
+      "id": 9033191,
+      "avatar_url": "https://avatars.githubusercontent.com/u/9033191?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/marcofranke",
+      "html_url": "https://github.com/marcofranke",
+      "followers_url": "https://api.github.com/users/marcofranke/followers",
+      "following_url": "https://api.github.com/users/marcofranke/following{/other_user}",
+      "gists_url": "https://api.github.com/users/marcofranke/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/marcofranke/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/marcofranke/subscriptions",
+      "organizations_url": "https://api.github.com/users/marcofranke/orgs",
+      "repos_url": "https://api.github.com/users/marcofranke/repos",
+      "events_url": "https://api.github.com/users/marcofranke/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/marcofranke/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "aa8777bdde328d62de09291465d8db0a8b3a7a9b",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/aa8777bdde328d62de09291465d8db0a8b3a7a9b",
+        "html_url": "https://github.com/mobivoc/mobivoc/commit/aa8777bdde328d62de09291465d8db0a8b3a7a9b"
+      }
+    ]
+  },
+  {
+    "sha": "aa8777bdde328d62de09291465d8db0a8b3a7a9b",
+    "commit": {
+      "author": {
+        "name": "Niklas Petersen",
+        "email": "niklas.petersen@iais-extern.fraunhofer.de",
+        "date": "2014-11-20T13:55:05Z"
+      },
+      "committer": {
+        "name": "Niklas Petersen",
+        "email": "niklas.petersen@iais-extern.fraunhofer.de",
+        "date": "2014-11-20T13:55:05Z"
+      },
+      "message": "removed faulty file",
+      "tree": {
+        "sha": "9aa0d1f69d2a0798c0fbd065a387d39312dc817f",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/git/trees/9aa0d1f69d2a0798c0fbd065a387d39312dc817f"
+      },
+      "url": "https://api.github.com/repos/mobivoc/mobivoc/git/commits/aa8777bdde328d62de09291465d8db0a8b3a7a9b",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/aa8777bdde328d62de09291465d8db0a8b3a7a9b",
+    "html_url": "https://github.com/mobivoc/mobivoc/commit/aa8777bdde328d62de09291465d8db0a8b3a7a9b",
+    "comments_url": "https://api.github.com/repos/mobivoc/mobivoc/commits/aa8777bdde328d62de09291465d8db0a8b3a7a9b/comments",
+    "author": null,
+    "committer": null,
+    "parents": [
+      {
+        "sha": "48ee1021db85f7c096b9ce8beb0c0c747bc53783",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/48ee1021db85f7c096b9ce8beb0c0c747bc53783",
+        "html_url": "https://github.com/mobivoc/mobivoc/commit/48ee1021db85f7c096b9ce8beb0c0c747bc53783"
+      }
+    ]
+  },
+  {
+    "sha": "48ee1021db85f7c096b9ce8beb0c0c747bc53783",
+    "commit": {
+      "author": {
+        "name": "Niklas Petersen",
+        "email": "niklas.petersen@iais-extern.fraunhofer.de",
+        "date": "2014-11-20T13:53:49Z"
+      },
+      "committer": {
+        "name": "Niklas Petersen",
+        "email": "niklas.petersen@iais-extern.fraunhofer.de",
+        "date": "2014-11-20T13:53:49Z"
+      },
+      "message": "changed links to DBPedia and fixed file LowEmissionZone",
+      "tree": {
+        "sha": "04a1768b4da37d09a5beb8f01e1292f06305e778",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/git/trees/04a1768b4da37d09a5beb8f01e1292f06305e778"
+      },
+      "url": "https://api.github.com/repos/mobivoc/mobivoc/git/commits/48ee1021db85f7c096b9ce8beb0c0c747bc53783",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/48ee1021db85f7c096b9ce8beb0c0c747bc53783",
+    "html_url": "https://github.com/mobivoc/mobivoc/commit/48ee1021db85f7c096b9ce8beb0c0c747bc53783",
+    "comments_url": "https://api.github.com/repos/mobivoc/mobivoc/commits/48ee1021db85f7c096b9ce8beb0c0c747bc53783/comments",
+    "author": null,
+    "committer": null,
+    "parents": [
+      {
+        "sha": "7be192301ffff4cff72d1fe045349404803cc3df",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/7be192301ffff4cff72d1fe045349404803cc3df",
+        "html_url": "https://github.com/mobivoc/mobivoc/commit/7be192301ffff4cff72d1fe045349404803cc3df"
+      }
+    ]
+  },
+  {
+    "sha": "7be192301ffff4cff72d1fe045349404803cc3df",
+    "commit": {
+      "author": {
+        "name": "marcofranke",
+        "email": "fma@biba.uni-bremen.de",
+        "date": "2014-11-18T14:40:36Z"
+      },
+      "committer": {
+        "name": "marcofranke",
+        "email": "fma@biba.uni-bremen.de",
+        "date": "2014-11-18T14:40:36Z"
+      },
+      "message": "Create LowEmissionZone\n\nVery early draft. It will be regularly updated in the next days",
+      "tree": {
+        "sha": "930bf8bfbd3ef8d2ab00a7db8717ae4291f71435",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/git/trees/930bf8bfbd3ef8d2ab00a7db8717ae4291f71435"
+      },
+      "url": "https://api.github.com/repos/mobivoc/mobivoc/git/commits/7be192301ffff4cff72d1fe045349404803cc3df",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/7be192301ffff4cff72d1fe045349404803cc3df",
+    "html_url": "https://github.com/mobivoc/mobivoc/commit/7be192301ffff4cff72d1fe045349404803cc3df",
+    "comments_url": "https://api.github.com/repos/mobivoc/mobivoc/commits/7be192301ffff4cff72d1fe045349404803cc3df/comments",
+    "author": {
+      "login": "marcofranke",
+      "id": 9033191,
+      "avatar_url": "https://avatars.githubusercontent.com/u/9033191?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/marcofranke",
+      "html_url": "https://github.com/marcofranke",
+      "followers_url": "https://api.github.com/users/marcofranke/followers",
+      "following_url": "https://api.github.com/users/marcofranke/following{/other_user}",
+      "gists_url": "https://api.github.com/users/marcofranke/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/marcofranke/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/marcofranke/subscriptions",
+      "organizations_url": "https://api.github.com/users/marcofranke/orgs",
+      "repos_url": "https://api.github.com/users/marcofranke/repos",
+      "events_url": "https://api.github.com/users/marcofranke/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/marcofranke/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "marcofranke",
+      "id": 9033191,
+      "avatar_url": "https://avatars.githubusercontent.com/u/9033191?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/marcofranke",
+      "html_url": "https://github.com/marcofranke",
+      "followers_url": "https://api.github.com/users/marcofranke/followers",
+      "following_url": "https://api.github.com/users/marcofranke/following{/other_user}",
+      "gists_url": "https://api.github.com/users/marcofranke/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/marcofranke/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/marcofranke/subscriptions",
+      "organizations_url": "https://api.github.com/users/marcofranke/orgs",
+      "repos_url": "https://api.github.com/users/marcofranke/repos",
+      "events_url": "https://api.github.com/users/marcofranke/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/marcofranke/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "a5b7e69a6ebe10b84e9a7a16784ede8623a046e9",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/a5b7e69a6ebe10b84e9a7a16784ede8623a046e9",
+        "html_url": "https://github.com/mobivoc/mobivoc/commit/a5b7e69a6ebe10b84e9a7a16784ede8623a046e9"
+      }
+    ]
+  },
+  {
+    "sha": "a5b7e69a6ebe10b84e9a7a16784ede8623a046e9",
+    "commit": {
+      "author": {
+        "name": "np00",
+        "email": "niklas.petersen@openmailbox.org",
+        "date": "2014-11-13T16:19:27Z"
+      },
+      "committer": {
+        "name": "np00",
+        "email": "niklas.petersen@openmailbox.org",
+        "date": "2014-11-13T16:19:27Z"
+      },
+      "message": "conflict test",
+      "tree": {
+        "sha": "6422d2c43834c79e4c30387e1b26b773878fcf5f",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/git/trees/6422d2c43834c79e4c30387e1b26b773878fcf5f"
+      },
+      "url": "https://api.github.com/repos/mobivoc/mobivoc/git/commits/a5b7e69a6ebe10b84e9a7a16784ede8623a046e9",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/a5b7e69a6ebe10b84e9a7a16784ede8623a046e9",
+    "html_url": "https://github.com/mobivoc/mobivoc/commit/a5b7e69a6ebe10b84e9a7a16784ede8623a046e9",
+    "comments_url": "https://api.github.com/repos/mobivoc/mobivoc/commits/a5b7e69a6ebe10b84e9a7a16784ede8623a046e9/comments",
+    "author": {
+      "login": "np00",
+      "id": 8628062,
+      "avatar_url": "https://avatars.githubusercontent.com/u/8628062?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/np00",
+      "html_url": "https://github.com/np00",
+      "followers_url": "https://api.github.com/users/np00/followers",
+      "following_url": "https://api.github.com/users/np00/following{/other_user}",
+      "gists_url": "https://api.github.com/users/np00/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/np00/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/np00/subscriptions",
+      "organizations_url": "https://api.github.com/users/np00/orgs",
+      "repos_url": "https://api.github.com/users/np00/repos",
+      "events_url": "https://api.github.com/users/np00/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/np00/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "np00",
+      "id": 8628062,
+      "avatar_url": "https://avatars.githubusercontent.com/u/8628062?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/np00",
+      "html_url": "https://github.com/np00",
+      "followers_url": "https://api.github.com/users/np00/followers",
+      "following_url": "https://api.github.com/users/np00/following{/other_user}",
+      "gists_url": "https://api.github.com/users/np00/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/np00/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/np00/subscriptions",
+      "organizations_url": "https://api.github.com/users/np00/orgs",
+      "repos_url": "https://api.github.com/users/np00/repos",
+      "events_url": "https://api.github.com/users/np00/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/np00/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "51e3f8d90de0be82127ba3028eeb846dd2763ff6",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/51e3f8d90de0be82127ba3028eeb846dd2763ff6",
+        "html_url": "https://github.com/mobivoc/mobivoc/commit/51e3f8d90de0be82127ba3028eeb846dd2763ff6"
+      }
+    ]
+  },
+  {
+    "sha": "51e3f8d90de0be82127ba3028eeb846dd2763ff6",
+    "commit": {
+      "author": {
+        "name": "Christoph Lange",
+        "email": "math.semantic.web@gmail.com",
+        "date": "2014-11-13T16:18:13Z"
+      },
+      "committer": {
+        "name": "Christoph Lange",
+        "email": "math.semantic.web@gmail.com",
+        "date": "2014-11-13T16:18:13Z"
+      },
+      "message": "formatting test",
+      "tree": {
+        "sha": "87c64772a3f1d998c8978118e0f227e11b5a9c13",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/git/trees/87c64772a3f1d998c8978118e0f227e11b5a9c13"
+      },
+      "url": "https://api.github.com/repos/mobivoc/mobivoc/git/commits/51e3f8d90de0be82127ba3028eeb846dd2763ff6",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/51e3f8d90de0be82127ba3028eeb846dd2763ff6",
+    "html_url": "https://github.com/mobivoc/mobivoc/commit/51e3f8d90de0be82127ba3028eeb846dd2763ff6",
+    "comments_url": "https://api.github.com/repos/mobivoc/mobivoc/commits/51e3f8d90de0be82127ba3028eeb846dd2763ff6/comments",
+    "author": {
+      "login": "clange",
+      "id": 649182,
+      "avatar_url": "https://avatars.githubusercontent.com/u/649182?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/clange",
+      "html_url": "https://github.com/clange",
+      "followers_url": "https://api.github.com/users/clange/followers",
+      "following_url": "https://api.github.com/users/clange/following{/other_user}",
+      "gists_url": "https://api.github.com/users/clange/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/clange/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/clange/subscriptions",
+      "organizations_url": "https://api.github.com/users/clange/orgs",
+      "repos_url": "https://api.github.com/users/clange/repos",
+      "events_url": "https://api.github.com/users/clange/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/clange/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "clange",
+      "id": 649182,
+      "avatar_url": "https://avatars.githubusercontent.com/u/649182?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/clange",
+      "html_url": "https://github.com/clange",
+      "followers_url": "https://api.github.com/users/clange/followers",
+      "following_url": "https://api.github.com/users/clange/following{/other_user}",
+      "gists_url": "https://api.github.com/users/clange/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/clange/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/clange/subscriptions",
+      "organizations_url": "https://api.github.com/users/clange/orgs",
+      "repos_url": "https://api.github.com/users/clange/repos",
+      "events_url": "https://api.github.com/users/clange/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/clange/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "0a74c3cb5f4ca58e9d590331573a996b9c3f496a",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/0a74c3cb5f4ca58e9d590331573a996b9c3f496a",
+        "html_url": "https://github.com/mobivoc/mobivoc/commit/0a74c3cb5f4ca58e9d590331573a996b9c3f496a"
+      }
+    ]
+  },
+  {
+    "sha": "0a74c3cb5f4ca58e9d590331573a996b9c3f496a",
+    "commit": {
+      "author": {
+        "name": "Christoph Lange",
+        "email": "math.semantic.web@gmail.com",
+        "date": "2014-11-13T16:15:37Z"
+      },
+      "committer": {
+        "name": "Christoph Lange",
+        "email": "math.semantic.web@gmail.com",
+        "date": "2014-11-13T16:15:37Z"
+      },
+      "message": "recoded into UTF-8",
+      "tree": {
+        "sha": "ab64ef89324c35f6bc89faf050e4f04cffe62ef6",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/git/trees/ab64ef89324c35f6bc89faf050e4f04cffe62ef6"
+      },
+      "url": "https://api.github.com/repos/mobivoc/mobivoc/git/commits/0a74c3cb5f4ca58e9d590331573a996b9c3f496a",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/0a74c3cb5f4ca58e9d590331573a996b9c3f496a",
+    "html_url": "https://github.com/mobivoc/mobivoc/commit/0a74c3cb5f4ca58e9d590331573a996b9c3f496a",
+    "comments_url": "https://api.github.com/repos/mobivoc/mobivoc/commits/0a74c3cb5f4ca58e9d590331573a996b9c3f496a/comments",
+    "author": {
+      "login": "clange",
+      "id": 649182,
+      "avatar_url": "https://avatars.githubusercontent.com/u/649182?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/clange",
+      "html_url": "https://github.com/clange",
+      "followers_url": "https://api.github.com/users/clange/followers",
+      "following_url": "https://api.github.com/users/clange/following{/other_user}",
+      "gists_url": "https://api.github.com/users/clange/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/clange/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/clange/subscriptions",
+      "organizations_url": "https://api.github.com/users/clange/orgs",
+      "repos_url": "https://api.github.com/users/clange/repos",
+      "events_url": "https://api.github.com/users/clange/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/clange/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "clange",
+      "id": 649182,
+      "avatar_url": "https://avatars.githubusercontent.com/u/649182?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/clange",
+      "html_url": "https://github.com/clange",
+      "followers_url": "https://api.github.com/users/clange/followers",
+      "following_url": "https://api.github.com/users/clange/following{/other_user}",
+      "gists_url": "https://api.github.com/users/clange/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/clange/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/clange/subscriptions",
+      "organizations_url": "https://api.github.com/users/clange/orgs",
+      "repos_url": "https://api.github.com/users/clange/repos",
+      "events_url": "https://api.github.com/users/clange/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/clange/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "17f4070d61acbb35ca1194cde1c07acccd386b62",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/17f4070d61acbb35ca1194cde1c07acccd386b62",
+        "html_url": "https://github.com/mobivoc/mobivoc/commit/17f4070d61acbb35ca1194cde1c07acccd386b62"
+      }
+    ]
+  },
+  {
+    "sha": "17f4070d61acbb35ca1194cde1c07acccd386b62",
+    "commit": {
+      "author": {
+        "name": "Christoph Lange",
+        "email": "math.semantic.web@gmail.com",
+        "date": "2014-11-13T16:12:57Z"
+      },
+      "committer": {
+        "name": "Christoph Lange",
+        "email": "math.semantic.web@gmail.com",
+        "date": "2014-11-13T16:12:57Z"
+      },
+      "message": "English label",
+      "tree": {
+        "sha": "6603146d89a5adde2596b4fa201961a2d99f85e9",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/git/trees/6603146d89a5adde2596b4fa201961a2d99f85e9"
+      },
+      "url": "https://api.github.com/repos/mobivoc/mobivoc/git/commits/17f4070d61acbb35ca1194cde1c07acccd386b62",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/17f4070d61acbb35ca1194cde1c07acccd386b62",
+    "html_url": "https://github.com/mobivoc/mobivoc/commit/17f4070d61acbb35ca1194cde1c07acccd386b62",
+    "comments_url": "https://api.github.com/repos/mobivoc/mobivoc/commits/17f4070d61acbb35ca1194cde1c07acccd386b62/comments",
+    "author": {
+      "login": "clange",
+      "id": 649182,
+      "avatar_url": "https://avatars.githubusercontent.com/u/649182?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/clange",
+      "html_url": "https://github.com/clange",
+      "followers_url": "https://api.github.com/users/clange/followers",
+      "following_url": "https://api.github.com/users/clange/following{/other_user}",
+      "gists_url": "https://api.github.com/users/clange/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/clange/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/clange/subscriptions",
+      "organizations_url": "https://api.github.com/users/clange/orgs",
+      "repos_url": "https://api.github.com/users/clange/repos",
+      "events_url": "https://api.github.com/users/clange/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/clange/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "clange",
+      "id": 649182,
+      "avatar_url": "https://avatars.githubusercontent.com/u/649182?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/clange",
+      "html_url": "https://github.com/clange",
+      "followers_url": "https://api.github.com/users/clange/followers",
+      "following_url": "https://api.github.com/users/clange/following{/other_user}",
+      "gists_url": "https://api.github.com/users/clange/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/clange/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/clange/subscriptions",
+      "organizations_url": "https://api.github.com/users/clange/orgs",
+      "repos_url": "https://api.github.com/users/clange/repos",
+      "events_url": "https://api.github.com/users/clange/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/clange/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "88c26fd31d01d3180628ff7e85f442efd0c82612",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/88c26fd31d01d3180628ff7e85f442efd0c82612",
+        "html_url": "https://github.com/mobivoc/mobivoc/commit/88c26fd31d01d3180628ff7e85f442efd0c82612"
+      }
+    ]
+  },
+  {
+    "sha": "88c26fd31d01d3180628ff7e85f442efd0c82612",
+    "commit": {
+      "author": {
+        "name": "aweilandt",
+        "email": "aweilandt@brox.de",
+        "date": "2014-11-10T05:12:50Z"
+      },
+      "committer": {
+        "name": "aweilandt",
+        "email": "aweilandt@brox.de",
+        "date": "2014-11-10T05:12:50Z"
+      },
+      "message": "Update parking.ttl",
+      "tree": {
+        "sha": "e281e4055dc77f5ef90df5c7a7041d8104576903",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/git/trees/e281e4055dc77f5ef90df5c7a7041d8104576903"
+      },
+      "url": "https://api.github.com/repos/mobivoc/mobivoc/git/commits/88c26fd31d01d3180628ff7e85f442efd0c82612",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/88c26fd31d01d3180628ff7e85f442efd0c82612",
+    "html_url": "https://github.com/mobivoc/mobivoc/commit/88c26fd31d01d3180628ff7e85f442efd0c82612",
+    "comments_url": "https://api.github.com/repos/mobivoc/mobivoc/commits/88c26fd31d01d3180628ff7e85f442efd0c82612/comments",
+    "author": {
+      "login": "aweilandt",
+      "id": 7240244,
+      "avatar_url": "https://avatars.githubusercontent.com/u/7240244?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/aweilandt",
+      "html_url": "https://github.com/aweilandt",
+      "followers_url": "https://api.github.com/users/aweilandt/followers",
+      "following_url": "https://api.github.com/users/aweilandt/following{/other_user}",
+      "gists_url": "https://api.github.com/users/aweilandt/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/aweilandt/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/aweilandt/subscriptions",
+      "organizations_url": "https://api.github.com/users/aweilandt/orgs",
+      "repos_url": "https://api.github.com/users/aweilandt/repos",
+      "events_url": "https://api.github.com/users/aweilandt/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/aweilandt/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "aweilandt",
+      "id": 7240244,
+      "avatar_url": "https://avatars.githubusercontent.com/u/7240244?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/aweilandt",
+      "html_url": "https://github.com/aweilandt",
+      "followers_url": "https://api.github.com/users/aweilandt/followers",
+      "following_url": "https://api.github.com/users/aweilandt/following{/other_user}",
+      "gists_url": "https://api.github.com/users/aweilandt/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/aweilandt/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/aweilandt/subscriptions",
+      "organizations_url": "https://api.github.com/users/aweilandt/orgs",
+      "repos_url": "https://api.github.com/users/aweilandt/repos",
+      "events_url": "https://api.github.com/users/aweilandt/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/aweilandt/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "72ecaa9672e8503cd85b2df84e430f13360a786b",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/72ecaa9672e8503cd85b2df84e430f13360a786b",
+        "html_url": "https://github.com/mobivoc/mobivoc/commit/72ecaa9672e8503cd85b2df84e430f13360a786b"
+      }
+    ]
+  },
+  {
+    "sha": "72ecaa9672e8503cd85b2df84e430f13360a786b",
+    "commit": {
+      "author": {
+        "name": "nfriesen",
+        "email": "natalja.friesen@iais-extern.fraunhofer.d",
+        "date": "2014-11-06T14:22:49Z"
+      },
+      "committer": {
+        "name": "nfriesen",
+        "email": "natalja.friesen@iais-extern.fraunhofer.d",
+        "date": "2014-11-06T14:22:49Z"
+      },
+      "message": "errors are fixed",
+      "tree": {
+        "sha": "7cae13877003e365be761e56ed393766d0891668",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/git/trees/7cae13877003e365be761e56ed393766d0891668"
+      },
+      "url": "https://api.github.com/repos/mobivoc/mobivoc/git/commits/72ecaa9672e8503cd85b2df84e430f13360a786b",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/72ecaa9672e8503cd85b2df84e430f13360a786b",
+    "html_url": "https://github.com/mobivoc/mobivoc/commit/72ecaa9672e8503cd85b2df84e430f13360a786b",
+    "comments_url": "https://api.github.com/repos/mobivoc/mobivoc/commits/72ecaa9672e8503cd85b2df84e430f13360a786b/comments",
+    "author": null,
+    "committer": null,
+    "parents": [
+      {
+        "sha": "19e98e02c9aa410dcd35153a781443d7f6fc6eac",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/19e98e02c9aa410dcd35153a781443d7f6fc6eac",
+        "html_url": "https://github.com/mobivoc/mobivoc/commit/19e98e02c9aa410dcd35153a781443d7f6fc6eac"
+      }
+    ]
+  },
+  {
+    "sha": "19e98e02c9aa410dcd35153a781443d7f6fc6eac",
+    "commit": {
+      "author": {
+        "name": "nfriesen",
+        "email": "natalja.friesen@iais-extern.fraunhofer.d",
+        "date": "2014-11-06T14:15:59Z"
+      },
+      "committer": {
+        "name": "nfriesen",
+        "email": "natalja.friesen@iais-extern.fraunhofer.d",
+        "date": "2014-11-06T14:15:59Z"
+      },
+      "message": "description of properties is added",
+      "tree": {
+        "sha": "11d932e3dee404e04f9eb9a65e5c0d0f156b848d",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/git/trees/11d932e3dee404e04f9eb9a65e5c0d0f156b848d"
+      },
+      "url": "https://api.github.com/repos/mobivoc/mobivoc/git/commits/19e98e02c9aa410dcd35153a781443d7f6fc6eac",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/19e98e02c9aa410dcd35153a781443d7f6fc6eac",
+    "html_url": "https://github.com/mobivoc/mobivoc/commit/19e98e02c9aa410dcd35153a781443d7f6fc6eac",
+    "comments_url": "https://api.github.com/repos/mobivoc/mobivoc/commits/19e98e02c9aa410dcd35153a781443d7f6fc6eac/comments",
+    "author": null,
+    "committer": null,
+    "parents": [
+      {
+        "sha": "68794cb7f9062098822adf4b92d99f198aad18f7",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/68794cb7f9062098822adf4b92d99f198aad18f7",
+        "html_url": "https://github.com/mobivoc/mobivoc/commit/68794cb7f9062098822adf4b92d99f198aad18f7"
+      }
+    ]
+  },
+  {
+    "sha": "68794cb7f9062098822adf4b92d99f198aad18f7",
+    "commit": {
+      "author": {
+        "name": "nfriesen",
+        "email": "natalja.friesen@iais-extern.fraunhofer.d",
+        "date": "2014-11-06T12:55:01Z"
+      },
+      "committer": {
+        "name": "nfriesen",
+        "email": "natalja.friesen@iais-extern.fraunhofer.d",
+        "date": "2014-11-06T12:55:01Z"
+      },
+      "message": "Property availableFromTime is added",
+      "tree": {
+        "sha": "e37fca8eb533c35e5d76004d680a847a6a844037",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/git/trees/e37fca8eb533c35e5d76004d680a847a6a844037"
+      },
+      "url": "https://api.github.com/repos/mobivoc/mobivoc/git/commits/68794cb7f9062098822adf4b92d99f198aad18f7",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/68794cb7f9062098822adf4b92d99f198aad18f7",
+    "html_url": "https://github.com/mobivoc/mobivoc/commit/68794cb7f9062098822adf4b92d99f198aad18f7",
+    "comments_url": "https://api.github.com/repos/mobivoc/mobivoc/commits/68794cb7f9062098822adf4b92d99f198aad18f7/comments",
+    "author": null,
+    "committer": null,
+    "parents": [
+      {
+        "sha": "f05869df50e7204003fda55fb0f9b0418a6a6954",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/f05869df50e7204003fda55fb0f9b0418a6a6954",
+        "html_url": "https://github.com/mobivoc/mobivoc/commit/f05869df50e7204003fda55fb0f9b0418a6a6954"
+      }
+    ]
+  },
+  {
+    "sha": "f05869df50e7204003fda55fb0f9b0418a6a6954",
+    "commit": {
+      "author": {
+        "name": "Niklas Petersen",
+        "email": "niklas.petersen@iais-extern.fraunhofer.de",
+        "date": "2014-11-06T10:04:49Z"
+      },
+      "committer": {
+        "name": "Niklas Petersen",
+        "email": "niklas.petersen@iais-extern.fraunhofer.de",
+        "date": "2014-11-06T10:04:49Z"
+      },
+      "message": "fixed minor bugs and added links to Wikipedia + Images for Plug instances",
+      "tree": {
+        "sha": "6b89a72821cea1eab4719854ab2d303638fc01c5",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/git/trees/6b89a72821cea1eab4719854ab2d303638fc01c5"
+      },
+      "url": "https://api.github.com/repos/mobivoc/mobivoc/git/commits/f05869df50e7204003fda55fb0f9b0418a6a6954",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/f05869df50e7204003fda55fb0f9b0418a6a6954",
+    "html_url": "https://github.com/mobivoc/mobivoc/commit/f05869df50e7204003fda55fb0f9b0418a6a6954",
+    "comments_url": "https://api.github.com/repos/mobivoc/mobivoc/commits/f05869df50e7204003fda55fb0f9b0418a6a6954/comments",
+    "author": null,
+    "committer": null,
+    "parents": [
+      {
+        "sha": "b3066b465945283c3729a21f06285f0ec82753d7",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/b3066b465945283c3729a21f06285f0ec82753d7",
+        "html_url": "https://github.com/mobivoc/mobivoc/commit/b3066b465945283c3729a21f06285f0ec82753d7"
+      }
+    ]
+  },
+  {
+    "sha": "b3066b465945283c3729a21f06285f0ec82753d7",
+    "commit": {
+      "author": {
+        "name": "Sebastian Tramp",
+        "email": "mail@sebastian.tramp.name",
+        "date": "2014-10-17T12:19:45Z"
+      },
+      "committer": {
+        "name": "Sebastian Tramp",
+        "email": "mail@sebastian.tramp.name",
+        "date": "2014-10-17T12:21:34Z"
+      },
+      "message": "fix wrong Resource link",
+      "tree": {
+        "sha": "694b074aca5913c76d11da90c9501fc47cbea176",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/git/trees/694b074aca5913c76d11da90c9501fc47cbea176"
+      },
+      "url": "https://api.github.com/repos/mobivoc/mobivoc/git/commits/b3066b465945283c3729a21f06285f0ec82753d7",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/b3066b465945283c3729a21f06285f0ec82753d7",
+    "html_url": "https://github.com/mobivoc/mobivoc/commit/b3066b465945283c3729a21f06285f0ec82753d7",
+    "comments_url": "https://api.github.com/repos/mobivoc/mobivoc/commits/b3066b465945283c3729a21f06285f0ec82753d7/comments",
+    "author": {
+      "login": "seebi",
+      "id": 510452,
+      "avatar_url": "https://avatars.githubusercontent.com/u/510452?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/seebi",
+      "html_url": "https://github.com/seebi",
+      "followers_url": "https://api.github.com/users/seebi/followers",
+      "following_url": "https://api.github.com/users/seebi/following{/other_user}",
+      "gists_url": "https://api.github.com/users/seebi/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/seebi/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/seebi/subscriptions",
+      "organizations_url": "https://api.github.com/users/seebi/orgs",
+      "repos_url": "https://api.github.com/users/seebi/repos",
+      "events_url": "https://api.github.com/users/seebi/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/seebi/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "seebi",
+      "id": 510452,
+      "avatar_url": "https://avatars.githubusercontent.com/u/510452?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/seebi",
+      "html_url": "https://github.com/seebi",
+      "followers_url": "https://api.github.com/users/seebi/followers",
+      "following_url": "https://api.github.com/users/seebi/following{/other_user}",
+      "gists_url": "https://api.github.com/users/seebi/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/seebi/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/seebi/subscriptions",
+      "organizations_url": "https://api.github.com/users/seebi/orgs",
+      "repos_url": "https://api.github.com/users/seebi/repos",
+      "events_url": "https://api.github.com/users/seebi/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/seebi/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "5af94b6e9b717440f458cf907b679a80d297541d",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/5af94b6e9b717440f458cf907b679a80d297541d",
+        "html_url": "https://github.com/mobivoc/mobivoc/commit/5af94b6e9b717440f458cf907b679a80d297541d"
+      }
+    ]
+  },
+  {
+    "sha": "5af94b6e9b717440f458cf907b679a80d297541d",
+    "commit": {
+      "author": {
+        "name": "Sebastian Tramp",
+        "email": "mail@sebastian.tramp.name",
+        "date": "2014-10-17T12:02:45Z"
+      },
+      "committer": {
+        "name": "Sebastian Tramp",
+        "email": "mail@sebastian.tramp.name",
+        "date": "2014-10-17T12:21:34Z"
+      },
+      "message": "fix Payment link",
+      "tree": {
+        "sha": "f18dae61e8108dd8d7d275f1e3882a43efbdb6a2",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/git/trees/f18dae61e8108dd8d7d275f1e3882a43efbdb6a2"
+      },
+      "url": "https://api.github.com/repos/mobivoc/mobivoc/git/commits/5af94b6e9b717440f458cf907b679a80d297541d",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/5af94b6e9b717440f458cf907b679a80d297541d",
+    "html_url": "https://github.com/mobivoc/mobivoc/commit/5af94b6e9b717440f458cf907b679a80d297541d",
+    "comments_url": "https://api.github.com/repos/mobivoc/mobivoc/commits/5af94b6e9b717440f458cf907b679a80d297541d/comments",
+    "author": {
+      "login": "seebi",
+      "id": 510452,
+      "avatar_url": "https://avatars.githubusercontent.com/u/510452?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/seebi",
+      "html_url": "https://github.com/seebi",
+      "followers_url": "https://api.github.com/users/seebi/followers",
+      "following_url": "https://api.github.com/users/seebi/following{/other_user}",
+      "gists_url": "https://api.github.com/users/seebi/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/seebi/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/seebi/subscriptions",
+      "organizations_url": "https://api.github.com/users/seebi/orgs",
+      "repos_url": "https://api.github.com/users/seebi/repos",
+      "events_url": "https://api.github.com/users/seebi/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/seebi/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "seebi",
+      "id": 510452,
+      "avatar_url": "https://avatars.githubusercontent.com/u/510452?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/seebi",
+      "html_url": "https://github.com/seebi",
+      "followers_url": "https://api.github.com/users/seebi/followers",
+      "following_url": "https://api.github.com/users/seebi/following{/other_user}",
+      "gists_url": "https://api.github.com/users/seebi/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/seebi/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/seebi/subscriptions",
+      "organizations_url": "https://api.github.com/users/seebi/orgs",
+      "repos_url": "https://api.github.com/users/seebi/repos",
+      "events_url": "https://api.github.com/users/seebi/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/seebi/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "7d7e951dff151130090381dcac3dda4a33c95508",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/7d7e951dff151130090381dcac3dda4a33c95508",
+        "html_url": "https://github.com/mobivoc/mobivoc/commit/7d7e951dff151130090381dcac3dda4a33c95508"
+      }
+    ]
+  },
+  {
+    "sha": "7d7e951dff151130090381dcac3dda4a33c95508",
+    "commit": {
+      "author": {
+        "name": "aweilandt",
+        "email": "aweilandt@brox.de",
+        "date": "2014-10-16T10:24:04Z"
+      },
+      "committer": {
+        "name": "aweilandt",
+        "email": "aweilandt@brox.de",
+        "date": "2014-10-16T10:24:04Z"
+      },
+      "message": "Update parking.ttl",
+      "tree": {
+        "sha": "21113fb88e39c63f3fa91c485ee615aff1dd96d8",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/git/trees/21113fb88e39c63f3fa91c485ee615aff1dd96d8"
+      },
+      "url": "https://api.github.com/repos/mobivoc/mobivoc/git/commits/7d7e951dff151130090381dcac3dda4a33c95508",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/7d7e951dff151130090381dcac3dda4a33c95508",
+    "html_url": "https://github.com/mobivoc/mobivoc/commit/7d7e951dff151130090381dcac3dda4a33c95508",
+    "comments_url": "https://api.github.com/repos/mobivoc/mobivoc/commits/7d7e951dff151130090381dcac3dda4a33c95508/comments",
+    "author": {
+      "login": "aweilandt",
+      "id": 7240244,
+      "avatar_url": "https://avatars.githubusercontent.com/u/7240244?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/aweilandt",
+      "html_url": "https://github.com/aweilandt",
+      "followers_url": "https://api.github.com/users/aweilandt/followers",
+      "following_url": "https://api.github.com/users/aweilandt/following{/other_user}",
+      "gists_url": "https://api.github.com/users/aweilandt/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/aweilandt/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/aweilandt/subscriptions",
+      "organizations_url": "https://api.github.com/users/aweilandt/orgs",
+      "repos_url": "https://api.github.com/users/aweilandt/repos",
+      "events_url": "https://api.github.com/users/aweilandt/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/aweilandt/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "aweilandt",
+      "id": 7240244,
+      "avatar_url": "https://avatars.githubusercontent.com/u/7240244?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/aweilandt",
+      "html_url": "https://github.com/aweilandt",
+      "followers_url": "https://api.github.com/users/aweilandt/followers",
+      "following_url": "https://api.github.com/users/aweilandt/following{/other_user}",
+      "gists_url": "https://api.github.com/users/aweilandt/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/aweilandt/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/aweilandt/subscriptions",
+      "organizations_url": "https://api.github.com/users/aweilandt/orgs",
+      "repos_url": "https://api.github.com/users/aweilandt/repos",
+      "events_url": "https://api.github.com/users/aweilandt/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/aweilandt/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "5ed74b251823a9ae93b6ef582f6c97fe52caeed8",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/5ed74b251823a9ae93b6ef582f6c97fe52caeed8",
+        "html_url": "https://github.com/mobivoc/mobivoc/commit/5ed74b251823a9ae93b6ef582f6c97fe52caeed8"
+      }
+    ]
+  },
+  {
+    "sha": "5ed74b251823a9ae93b6ef582f6c97fe52caeed8",
+    "commit": {
+      "author": {
+        "name": "aweilandt",
+        "email": "aweilandt@brox.de",
+        "date": "2014-10-16T10:23:10Z"
+      },
+      "committer": {
+        "name": "aweilandt",
+        "email": "aweilandt@brox.de",
+        "date": "2014-10-16T10:23:10Z"
+      },
+      "message": "Update parking.ttl",
+      "tree": {
+        "sha": "92dd02684373c67cb9c48af595cc0330398cdd17",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/git/trees/92dd02684373c67cb9c48af595cc0330398cdd17"
+      },
+      "url": "https://api.github.com/repos/mobivoc/mobivoc/git/commits/5ed74b251823a9ae93b6ef582f6c97fe52caeed8",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/5ed74b251823a9ae93b6ef582f6c97fe52caeed8",
+    "html_url": "https://github.com/mobivoc/mobivoc/commit/5ed74b251823a9ae93b6ef582f6c97fe52caeed8",
+    "comments_url": "https://api.github.com/repos/mobivoc/mobivoc/commits/5ed74b251823a9ae93b6ef582f6c97fe52caeed8/comments",
+    "author": {
+      "login": "aweilandt",
+      "id": 7240244,
+      "avatar_url": "https://avatars.githubusercontent.com/u/7240244?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/aweilandt",
+      "html_url": "https://github.com/aweilandt",
+      "followers_url": "https://api.github.com/users/aweilandt/followers",
+      "following_url": "https://api.github.com/users/aweilandt/following{/other_user}",
+      "gists_url": "https://api.github.com/users/aweilandt/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/aweilandt/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/aweilandt/subscriptions",
+      "organizations_url": "https://api.github.com/users/aweilandt/orgs",
+      "repos_url": "https://api.github.com/users/aweilandt/repos",
+      "events_url": "https://api.github.com/users/aweilandt/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/aweilandt/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "aweilandt",
+      "id": 7240244,
+      "avatar_url": "https://avatars.githubusercontent.com/u/7240244?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/aweilandt",
+      "html_url": "https://github.com/aweilandt",
+      "followers_url": "https://api.github.com/users/aweilandt/followers",
+      "following_url": "https://api.github.com/users/aweilandt/following{/other_user}",
+      "gists_url": "https://api.github.com/users/aweilandt/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/aweilandt/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/aweilandt/subscriptions",
+      "organizations_url": "https://api.github.com/users/aweilandt/orgs",
+      "repos_url": "https://api.github.com/users/aweilandt/repos",
+      "events_url": "https://api.github.com/users/aweilandt/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/aweilandt/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "97fdc1752b5e325f70b88a40d1ee5ac122f118ad",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/97fdc1752b5e325f70b88a40d1ee5ac122f118ad",
+        "html_url": "https://github.com/mobivoc/mobivoc/commit/97fdc1752b5e325f70b88a40d1ee5ac122f118ad"
+      }
+    ]
+  },
+  {
+    "sha": "97fdc1752b5e325f70b88a40d1ee5ac122f118ad",
+    "commit": {
+      "author": {
+        "name": "Sebastian Tramp",
+        "email": "mail@sebastian.tramp.name",
+        "date": "2014-10-16T08:13:32Z"
+      },
+      "committer": {
+        "name": "Sebastian Tramp",
+        "email": "mail@sebastian.tramp.name",
+        "date": "2014-10-16T08:13:32Z"
+      },
+      "message": "add xturtle / eclipse project file",
+      "tree": {
+        "sha": "0169dc7141a437d752adc4709d151170e0f13011",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/git/trees/0169dc7141a437d752adc4709d151170e0f13011"
+      },
+      "url": "https://api.github.com/repos/mobivoc/mobivoc/git/commits/97fdc1752b5e325f70b88a40d1ee5ac122f118ad",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/97fdc1752b5e325f70b88a40d1ee5ac122f118ad",
+    "html_url": "https://github.com/mobivoc/mobivoc/commit/97fdc1752b5e325f70b88a40d1ee5ac122f118ad",
+    "comments_url": "https://api.github.com/repos/mobivoc/mobivoc/commits/97fdc1752b5e325f70b88a40d1ee5ac122f118ad/comments",
+    "author": {
+      "login": "seebi",
+      "id": 510452,
+      "avatar_url": "https://avatars.githubusercontent.com/u/510452?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/seebi",
+      "html_url": "https://github.com/seebi",
+      "followers_url": "https://api.github.com/users/seebi/followers",
+      "following_url": "https://api.github.com/users/seebi/following{/other_user}",
+      "gists_url": "https://api.github.com/users/seebi/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/seebi/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/seebi/subscriptions",
+      "organizations_url": "https://api.github.com/users/seebi/orgs",
+      "repos_url": "https://api.github.com/users/seebi/repos",
+      "events_url": "https://api.github.com/users/seebi/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/seebi/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "seebi",
+      "id": 510452,
+      "avatar_url": "https://avatars.githubusercontent.com/u/510452?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/seebi",
+      "html_url": "https://github.com/seebi",
+      "followers_url": "https://api.github.com/users/seebi/followers",
+      "following_url": "https://api.github.com/users/seebi/following{/other_user}",
+      "gists_url": "https://api.github.com/users/seebi/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/seebi/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/seebi/subscriptions",
+      "organizations_url": "https://api.github.com/users/seebi/orgs",
+      "repos_url": "https://api.github.com/users/seebi/repos",
+      "events_url": "https://api.github.com/users/seebi/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/seebi/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "c33ee83291a6207f2b9118ccf9daffe77add22ee",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/c33ee83291a6207f2b9118ccf9daffe77add22ee",
+        "html_url": "https://github.com/mobivoc/mobivoc/commit/c33ee83291a6207f2b9118ccf9daffe77add22ee"
+      }
+    ]
+  },
+  {
+    "sha": "c33ee83291a6207f2b9118ccf9daffe77add22ee",
+    "commit": {
+      "author": {
+        "name": "Christoph Lange",
+        "email": "math.semantic.web@gmail.com",
+        "date": "2014-10-06T18:31:42Z"
+      },
+      "committer": {
+        "name": "Christoph Lange",
+        "email": "math.semantic.web@gmail.com",
+        "date": "2014-10-06T18:31:42Z"
+      },
+      "message": "pointer to vocol",
+      "tree": {
+        "sha": "58ff234b514ad6b5940b8bea34a8d687c84aaea9",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/git/trees/58ff234b514ad6b5940b8bea34a8d687c84aaea9"
+      },
+      "url": "https://api.github.com/repos/mobivoc/mobivoc/git/commits/c33ee83291a6207f2b9118ccf9daffe77add22ee",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/c33ee83291a6207f2b9118ccf9daffe77add22ee",
+    "html_url": "https://github.com/mobivoc/mobivoc/commit/c33ee83291a6207f2b9118ccf9daffe77add22ee",
+    "comments_url": "https://api.github.com/repos/mobivoc/mobivoc/commits/c33ee83291a6207f2b9118ccf9daffe77add22ee/comments",
+    "author": {
+      "login": "clange",
+      "id": 649182,
+      "avatar_url": "https://avatars.githubusercontent.com/u/649182?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/clange",
+      "html_url": "https://github.com/clange",
+      "followers_url": "https://api.github.com/users/clange/followers",
+      "following_url": "https://api.github.com/users/clange/following{/other_user}",
+      "gists_url": "https://api.github.com/users/clange/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/clange/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/clange/subscriptions",
+      "organizations_url": "https://api.github.com/users/clange/orgs",
+      "repos_url": "https://api.github.com/users/clange/repos",
+      "events_url": "https://api.github.com/users/clange/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/clange/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "clange",
+      "id": 649182,
+      "avatar_url": "https://avatars.githubusercontent.com/u/649182?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/clange",
+      "html_url": "https://github.com/clange",
+      "followers_url": "https://api.github.com/users/clange/followers",
+      "following_url": "https://api.github.com/users/clange/following{/other_user}",
+      "gists_url": "https://api.github.com/users/clange/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/clange/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/clange/subscriptions",
+      "organizations_url": "https://api.github.com/users/clange/orgs",
+      "repos_url": "https://api.github.com/users/clange/repos",
+      "events_url": "https://api.github.com/users/clange/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/clange/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "a4dd28948f5a105e3b8c1e44d5a8bcb8c27a2a83",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/a4dd28948f5a105e3b8c1e44d5a8bcb8c27a2a83",
+        "html_url": "https://github.com/mobivoc/mobivoc/commit/a4dd28948f5a105e3b8c1e44d5a8bcb8c27a2a83"
+      }
+    ]
+  },
+  {
+    "sha": "a4dd28948f5a105e3b8c1e44d5a8bcb8c27a2a83",
+    "commit": {
+      "author": {
+        "name": "soeren1611",
+        "email": "soeren.auer@gmail.com",
+        "date": "2014-10-06T16:34:21Z"
+      },
+      "committer": {
+        "name": "soeren1611",
+        "email": "soeren.auer@gmail.com",
+        "date": "2014-10-06T16:34:21Z"
+      },
+      "message": "Update README.org",
+      "tree": {
+        "sha": "1fa14a110ec34963db52743c17ccb4353854b437",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/git/trees/1fa14a110ec34963db52743c17ccb4353854b437"
+      },
+      "url": "https://api.github.com/repos/mobivoc/mobivoc/git/commits/a4dd28948f5a105e3b8c1e44d5a8bcb8c27a2a83",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/a4dd28948f5a105e3b8c1e44d5a8bcb8c27a2a83",
+    "html_url": "https://github.com/mobivoc/mobivoc/commit/a4dd28948f5a105e3b8c1e44d5a8bcb8c27a2a83",
+    "comments_url": "https://api.github.com/repos/mobivoc/mobivoc/commits/a4dd28948f5a105e3b8c1e44d5a8bcb8c27a2a83/comments",
+    "author": {
+      "login": "soeren1611",
+      "id": 2800423,
+      "avatar_url": "https://avatars.githubusercontent.com/u/2800423?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/soeren1611",
+      "html_url": "https://github.com/soeren1611",
+      "followers_url": "https://api.github.com/users/soeren1611/followers",
+      "following_url": "https://api.github.com/users/soeren1611/following{/other_user}",
+      "gists_url": "https://api.github.com/users/soeren1611/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/soeren1611/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/soeren1611/subscriptions",
+      "organizations_url": "https://api.github.com/users/soeren1611/orgs",
+      "repos_url": "https://api.github.com/users/soeren1611/repos",
+      "events_url": "https://api.github.com/users/soeren1611/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/soeren1611/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "soeren1611",
+      "id": 2800423,
+      "avatar_url": "https://avatars.githubusercontent.com/u/2800423?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/soeren1611",
+      "html_url": "https://github.com/soeren1611",
+      "followers_url": "https://api.github.com/users/soeren1611/followers",
+      "following_url": "https://api.github.com/users/soeren1611/following{/other_user}",
+      "gists_url": "https://api.github.com/users/soeren1611/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/soeren1611/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/soeren1611/subscriptions",
+      "organizations_url": "https://api.github.com/users/soeren1611/orgs",
+      "repos_url": "https://api.github.com/users/soeren1611/repos",
+      "events_url": "https://api.github.com/users/soeren1611/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/soeren1611/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "4bcab4ab9500bc1e485801514c91a7ae41326445",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/4bcab4ab9500bc1e485801514c91a7ae41326445",
+        "html_url": "https://github.com/mobivoc/mobivoc/commit/4bcab4ab9500bc1e485801514c91a7ae41326445"
+      }
+    ]
+  },
+  {
+    "sha": "4bcab4ab9500bc1e485801514c91a7ae41326445",
+    "commit": {
+      "author": {
+        "name": "nfriesen",
+        "email": "natalja.friesen@iais-extern.fraunhofer.d",
+        "date": "2014-10-06T16:01:16Z"
+      },
+      "committer": {
+        "name": "nfriesen",
+        "email": "natalja.friesen@iais-extern.fraunhofer.d",
+        "date": "2014-10-06T16:01:16Z"
+      },
+      "message": "extended\n Please enter the commit message for your changes. Lines starting",
+      "tree": {
+        "sha": "59f04b35124b10238e00cdb121420d6df6647bd7",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/git/trees/59f04b35124b10238e00cdb121420d6df6647bd7"
+      },
+      "url": "https://api.github.com/repos/mobivoc/mobivoc/git/commits/4bcab4ab9500bc1e485801514c91a7ae41326445",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/4bcab4ab9500bc1e485801514c91a7ae41326445",
+    "html_url": "https://github.com/mobivoc/mobivoc/commit/4bcab4ab9500bc1e485801514c91a7ae41326445",
+    "comments_url": "https://api.github.com/repos/mobivoc/mobivoc/commits/4bcab4ab9500bc1e485801514c91a7ae41326445/comments",
+    "author": null,
+    "committer": null,
+    "parents": [
+      {
+        "sha": "374a73fbb19162b99fff25594c0b34840a71657f",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/374a73fbb19162b99fff25594c0b34840a71657f",
+        "html_url": "https://github.com/mobivoc/mobivoc/commit/374a73fbb19162b99fff25594c0b34840a71657f"
+      }
+    ]
+  },
+  {
+    "sha": "374a73fbb19162b99fff25594c0b34840a71657f",
+    "commit": {
+      "author": {
+        "name": "Christoph Lange",
+        "email": "math.semantic.web@gmail.com",
+        "date": "2014-10-06T12:14:06Z"
+      },
+      "committer": {
+        "name": "Christoph Lange",
+        "email": "math.semantic.web@gmail.com",
+        "date": "2014-10-06T12:14:06Z"
+      },
+      "message": "Beispiel Zahlungsmittel",
+      "tree": {
+        "sha": "c941fab57a1e2e6eba12810895653babf1c50603",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/git/trees/c941fab57a1e2e6eba12810895653babf1c50603"
+      },
+      "url": "https://api.github.com/repos/mobivoc/mobivoc/git/commits/374a73fbb19162b99fff25594c0b34840a71657f",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/374a73fbb19162b99fff25594c0b34840a71657f",
+    "html_url": "https://github.com/mobivoc/mobivoc/commit/374a73fbb19162b99fff25594c0b34840a71657f",
+    "comments_url": "https://api.github.com/repos/mobivoc/mobivoc/commits/374a73fbb19162b99fff25594c0b34840a71657f/comments",
+    "author": {
+      "login": "clange",
+      "id": 649182,
+      "avatar_url": "https://avatars.githubusercontent.com/u/649182?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/clange",
+      "html_url": "https://github.com/clange",
+      "followers_url": "https://api.github.com/users/clange/followers",
+      "following_url": "https://api.github.com/users/clange/following{/other_user}",
+      "gists_url": "https://api.github.com/users/clange/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/clange/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/clange/subscriptions",
+      "organizations_url": "https://api.github.com/users/clange/orgs",
+      "repos_url": "https://api.github.com/users/clange/repos",
+      "events_url": "https://api.github.com/users/clange/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/clange/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "clange",
+      "id": 649182,
+      "avatar_url": "https://avatars.githubusercontent.com/u/649182?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/clange",
+      "html_url": "https://github.com/clange",
+      "followers_url": "https://api.github.com/users/clange/followers",
+      "following_url": "https://api.github.com/users/clange/following{/other_user}",
+      "gists_url": "https://api.github.com/users/clange/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/clange/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/clange/subscriptions",
+      "organizations_url": "https://api.github.com/users/clange/orgs",
+      "repos_url": "https://api.github.com/users/clange/repos",
+      "events_url": "https://api.github.com/users/clange/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/clange/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "51582002217e61e10f5a835301bbb2a490a1a730",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/51582002217e61e10f5a835301bbb2a490a1a730",
+        "html_url": "https://github.com/mobivoc/mobivoc/commit/51582002217e61e10f5a835301bbb2a490a1a730"
+      }
+    ]
+  },
+  {
+    "sha": "51582002217e61e10f5a835301bbb2a490a1a730",
+    "commit": {
+      "author": {
+        "name": "aweilandt",
+        "email": "aweilandt@brox.de",
+        "date": "2014-10-06T09:03:04Z"
+      },
+      "committer": {
+        "name": "aweilandt",
+        "email": "aweilandt@brox.de",
+        "date": "2014-10-06T09:03:04Z"
+      },
+      "message": "Update and rename parking to parking.ttl",
+      "tree": {
+        "sha": "08222783db3253a20f5a18f7b2daf936e773bb11",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/git/trees/08222783db3253a20f5a18f7b2daf936e773bb11"
+      },
+      "url": "https://api.github.com/repos/mobivoc/mobivoc/git/commits/51582002217e61e10f5a835301bbb2a490a1a730",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/51582002217e61e10f5a835301bbb2a490a1a730",
+    "html_url": "https://github.com/mobivoc/mobivoc/commit/51582002217e61e10f5a835301bbb2a490a1a730",
+    "comments_url": "https://api.github.com/repos/mobivoc/mobivoc/commits/51582002217e61e10f5a835301bbb2a490a1a730/comments",
+    "author": {
+      "login": "aweilandt",
+      "id": 7240244,
+      "avatar_url": "https://avatars.githubusercontent.com/u/7240244?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/aweilandt",
+      "html_url": "https://github.com/aweilandt",
+      "followers_url": "https://api.github.com/users/aweilandt/followers",
+      "following_url": "https://api.github.com/users/aweilandt/following{/other_user}",
+      "gists_url": "https://api.github.com/users/aweilandt/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/aweilandt/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/aweilandt/subscriptions",
+      "organizations_url": "https://api.github.com/users/aweilandt/orgs",
+      "repos_url": "https://api.github.com/users/aweilandt/repos",
+      "events_url": "https://api.github.com/users/aweilandt/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/aweilandt/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "aweilandt",
+      "id": 7240244,
+      "avatar_url": "https://avatars.githubusercontent.com/u/7240244?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/aweilandt",
+      "html_url": "https://github.com/aweilandt",
+      "followers_url": "https://api.github.com/users/aweilandt/followers",
+      "following_url": "https://api.github.com/users/aweilandt/following{/other_user}",
+      "gists_url": "https://api.github.com/users/aweilandt/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/aweilandt/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/aweilandt/subscriptions",
+      "organizations_url": "https://api.github.com/users/aweilandt/orgs",
+      "repos_url": "https://api.github.com/users/aweilandt/repos",
+      "events_url": "https://api.github.com/users/aweilandt/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/aweilandt/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "913c70c8a0667e0b21959c03e2e22f6a48525b56",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/913c70c8a0667e0b21959c03e2e22f6a48525b56",
+        "html_url": "https://github.com/mobivoc/mobivoc/commit/913c70c8a0667e0b21959c03e2e22f6a48525b56"
+      }
+    ]
+  },
+  {
+    "sha": "913c70c8a0667e0b21959c03e2e22f6a48525b56",
+    "commit": {
+      "author": {
+        "name": "aweilandt",
+        "email": "aweilandt@brox.de",
+        "date": "2014-10-02T13:47:46Z"
+      },
+      "committer": {
+        "name": "aweilandt",
+        "email": "aweilandt@brox.de",
+        "date": "2014-10-02T13:47:46Z"
+      },
+      "message": "Create parking",
+      "tree": {
+        "sha": "e3cd1221eb85eac46f6adbbb260cab00213a5e53",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/git/trees/e3cd1221eb85eac46f6adbbb260cab00213a5e53"
+      },
+      "url": "https://api.github.com/repos/mobivoc/mobivoc/git/commits/913c70c8a0667e0b21959c03e2e22f6a48525b56",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/913c70c8a0667e0b21959c03e2e22f6a48525b56",
+    "html_url": "https://github.com/mobivoc/mobivoc/commit/913c70c8a0667e0b21959c03e2e22f6a48525b56",
+    "comments_url": "https://api.github.com/repos/mobivoc/mobivoc/commits/913c70c8a0667e0b21959c03e2e22f6a48525b56/comments",
+    "author": {
+      "login": "aweilandt",
+      "id": 7240244,
+      "avatar_url": "https://avatars.githubusercontent.com/u/7240244?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/aweilandt",
+      "html_url": "https://github.com/aweilandt",
+      "followers_url": "https://api.github.com/users/aweilandt/followers",
+      "following_url": "https://api.github.com/users/aweilandt/following{/other_user}",
+      "gists_url": "https://api.github.com/users/aweilandt/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/aweilandt/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/aweilandt/subscriptions",
+      "organizations_url": "https://api.github.com/users/aweilandt/orgs",
+      "repos_url": "https://api.github.com/users/aweilandt/repos",
+      "events_url": "https://api.github.com/users/aweilandt/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/aweilandt/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "aweilandt",
+      "id": 7240244,
+      "avatar_url": "https://avatars.githubusercontent.com/u/7240244?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/aweilandt",
+      "html_url": "https://github.com/aweilandt",
+      "followers_url": "https://api.github.com/users/aweilandt/followers",
+      "following_url": "https://api.github.com/users/aweilandt/following{/other_user}",
+      "gists_url": "https://api.github.com/users/aweilandt/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/aweilandt/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/aweilandt/subscriptions",
+      "organizations_url": "https://api.github.com/users/aweilandt/orgs",
+      "repos_url": "https://api.github.com/users/aweilandt/repos",
+      "events_url": "https://api.github.com/users/aweilandt/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/aweilandt/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "a2a34759fa96b4a677fa59600fa3cda7326bd4e3",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/a2a34759fa96b4a677fa59600fa3cda7326bd4e3",
+        "html_url": "https://github.com/mobivoc/mobivoc/commit/a2a34759fa96b4a677fa59600fa3cda7326bd4e3"
+      }
+    ]
+  },
+  {
+    "sha": "a2a34759fa96b4a677fa59600fa3cda7326bd4e3",
+    "commit": {
+      "author": {
+        "name": "Natalja Friesen",
+        "email": "friesen.natalja@googlemail.com",
+        "date": "2014-09-03T13:42:56Z"
+      },
+      "committer": {
+        "name": "Natalja Friesen",
+        "email": "friesen.natalja@googlemail.com",
+        "date": "2014-09-03T13:42:56Z"
+      },
+      "message": "Update ChargingPoints.ttl",
+      "tree": {
+        "sha": "b473dfa11947e60771853332b6480cb4f6d6294e",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/git/trees/b473dfa11947e60771853332b6480cb4f6d6294e"
+      },
+      "url": "https://api.github.com/repos/mobivoc/mobivoc/git/commits/a2a34759fa96b4a677fa59600fa3cda7326bd4e3",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/a2a34759fa96b4a677fa59600fa3cda7326bd4e3",
+    "html_url": "https://github.com/mobivoc/mobivoc/commit/a2a34759fa96b4a677fa59600fa3cda7326bd4e3",
+    "comments_url": "https://api.github.com/repos/mobivoc/mobivoc/commits/a2a34759fa96b4a677fa59600fa3cda7326bd4e3/comments",
+    "author": {
+      "login": "nfriesen",
+      "id": 6178592,
+      "avatar_url": "https://avatars.githubusercontent.com/u/6178592?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/nfriesen",
+      "html_url": "https://github.com/nfriesen",
+      "followers_url": "https://api.github.com/users/nfriesen/followers",
+      "following_url": "https://api.github.com/users/nfriesen/following{/other_user}",
+      "gists_url": "https://api.github.com/users/nfriesen/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/nfriesen/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/nfriesen/subscriptions",
+      "organizations_url": "https://api.github.com/users/nfriesen/orgs",
+      "repos_url": "https://api.github.com/users/nfriesen/repos",
+      "events_url": "https://api.github.com/users/nfriesen/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/nfriesen/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "nfriesen",
+      "id": 6178592,
+      "avatar_url": "https://avatars.githubusercontent.com/u/6178592?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/nfriesen",
+      "html_url": "https://github.com/nfriesen",
+      "followers_url": "https://api.github.com/users/nfriesen/followers",
+      "following_url": "https://api.github.com/users/nfriesen/following{/other_user}",
+      "gists_url": "https://api.github.com/users/nfriesen/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/nfriesen/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/nfriesen/subscriptions",
+      "organizations_url": "https://api.github.com/users/nfriesen/orgs",
+      "repos_url": "https://api.github.com/users/nfriesen/repos",
+      "events_url": "https://api.github.com/users/nfriesen/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/nfriesen/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "534a738b147094e02bc0856877426dad446b6e57",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/534a738b147094e02bc0856877426dad446b6e57",
+        "html_url": "https://github.com/mobivoc/mobivoc/commit/534a738b147094e02bc0856877426dad446b6e57"
+      }
+    ]
+  },
+  {
+    "sha": "534a738b147094e02bc0856877426dad446b6e57",
+    "commit": {
+      "author": {
+        "name": "nfriesen",
+        "email": "natalja.friesen@iais-extern.fraunhofer.de",
+        "date": "2014-09-02T08:26:36Z"
+      },
+      "committer": {
+        "name": "nfriesen",
+        "email": "natalja.friesen@iais-extern.fraunhofer.de",
+        "date": "2014-09-02T08:26:36Z"
+      },
+      "message": "Update",
+      "tree": {
+        "sha": "2fbab62d54870e198bbb999b85885d3d5c003e0f",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/git/trees/2fbab62d54870e198bbb999b85885d3d5c003e0f"
+      },
+      "url": "https://api.github.com/repos/mobivoc/mobivoc/git/commits/534a738b147094e02bc0856877426dad446b6e57",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/534a738b147094e02bc0856877426dad446b6e57",
+    "html_url": "https://github.com/mobivoc/mobivoc/commit/534a738b147094e02bc0856877426dad446b6e57",
+    "comments_url": "https://api.github.com/repos/mobivoc/mobivoc/commits/534a738b147094e02bc0856877426dad446b6e57/comments",
+    "author": {
+      "login": "nfriesen",
+      "id": 6178592,
+      "avatar_url": "https://avatars.githubusercontent.com/u/6178592?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/nfriesen",
+      "html_url": "https://github.com/nfriesen",
+      "followers_url": "https://api.github.com/users/nfriesen/followers",
+      "following_url": "https://api.github.com/users/nfriesen/following{/other_user}",
+      "gists_url": "https://api.github.com/users/nfriesen/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/nfriesen/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/nfriesen/subscriptions",
+      "organizations_url": "https://api.github.com/users/nfriesen/orgs",
+      "repos_url": "https://api.github.com/users/nfriesen/repos",
+      "events_url": "https://api.github.com/users/nfriesen/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/nfriesen/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "nfriesen",
+      "id": 6178592,
+      "avatar_url": "https://avatars.githubusercontent.com/u/6178592?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/nfriesen",
+      "html_url": "https://github.com/nfriesen",
+      "followers_url": "https://api.github.com/users/nfriesen/followers",
+      "following_url": "https://api.github.com/users/nfriesen/following{/other_user}",
+      "gists_url": "https://api.github.com/users/nfriesen/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/nfriesen/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/nfriesen/subscriptions",
+      "organizations_url": "https://api.github.com/users/nfriesen/orgs",
+      "repos_url": "https://api.github.com/users/nfriesen/repos",
+      "events_url": "https://api.github.com/users/nfriesen/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/nfriesen/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "b5abf5ff9b3410ea985983402277f764d1244c00",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/b5abf5ff9b3410ea985983402277f764d1244c00",
+        "html_url": "https://github.com/mobivoc/mobivoc/commit/b5abf5ff9b3410ea985983402277f764d1244c00"
+      }
+    ]
+  },
+  {
+    "sha": "b5abf5ff9b3410ea985983402277f764d1244c00",
+    "commit": {
+      "author": {
+        "name": "Natalja Friesen",
+        "email": "friesen.natalja@googlemail.com",
+        "date": "2014-09-02T08:07:54Z"
+      },
+      "committer": {
+        "name": "Natalja Friesen",
+        "email": "friesen.natalja@googlemail.com",
+        "date": "2014-09-02T08:07:54Z"
+      },
+      "message": "Update ChargingPoints.ttl",
+      "tree": {
+        "sha": "e876e4510dc34bed06af5581a4b5be269d69d6f4",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/git/trees/e876e4510dc34bed06af5581a4b5be269d69d6f4"
+      },
+      "url": "https://api.github.com/repos/mobivoc/mobivoc/git/commits/b5abf5ff9b3410ea985983402277f764d1244c00",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/b5abf5ff9b3410ea985983402277f764d1244c00",
+    "html_url": "https://github.com/mobivoc/mobivoc/commit/b5abf5ff9b3410ea985983402277f764d1244c00",
+    "comments_url": "https://api.github.com/repos/mobivoc/mobivoc/commits/b5abf5ff9b3410ea985983402277f764d1244c00/comments",
+    "author": {
+      "login": "nfriesen",
+      "id": 6178592,
+      "avatar_url": "https://avatars.githubusercontent.com/u/6178592?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/nfriesen",
+      "html_url": "https://github.com/nfriesen",
+      "followers_url": "https://api.github.com/users/nfriesen/followers",
+      "following_url": "https://api.github.com/users/nfriesen/following{/other_user}",
+      "gists_url": "https://api.github.com/users/nfriesen/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/nfriesen/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/nfriesen/subscriptions",
+      "organizations_url": "https://api.github.com/users/nfriesen/orgs",
+      "repos_url": "https://api.github.com/users/nfriesen/repos",
+      "events_url": "https://api.github.com/users/nfriesen/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/nfriesen/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "nfriesen",
+      "id": 6178592,
+      "avatar_url": "https://avatars.githubusercontent.com/u/6178592?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/nfriesen",
+      "html_url": "https://github.com/nfriesen",
+      "followers_url": "https://api.github.com/users/nfriesen/followers",
+      "following_url": "https://api.github.com/users/nfriesen/following{/other_user}",
+      "gists_url": "https://api.github.com/users/nfriesen/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/nfriesen/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/nfriesen/subscriptions",
+      "organizations_url": "https://api.github.com/users/nfriesen/orgs",
+      "repos_url": "https://api.github.com/users/nfriesen/repos",
+      "events_url": "https://api.github.com/users/nfriesen/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/nfriesen/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "83dcc34db63eb9a2bf2b1991c8852d56f5aa5798",
+        "url": "https://api.github.com/repos/mobivoc/mobivoc/commits/83dcc34db63eb9a2bf2b1991c8852d56f5aa5798",
+        "html_url": "https://github.com/mobivoc/mobivoc/commit/83dcc34db63eb9a2bf2b1991c8852d56f5aa5798"
+      }
+    ]
+  }
+]
