@@ -182,9 +182,8 @@ public class FirstEx {
 	 catch (RiotNotFoundException e) {
 		System.out.println("File not found.Please verify location!");
 	} catch (IOException e) {
-			// TODO Auto-generated catch block
-			//e.printStackTrace();
-			System.out.println("File not found.Please verify location!");
+
+			System.out.println("Other Exception!");
 		}
 		
 		
