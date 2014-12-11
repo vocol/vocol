@@ -16,7 +16,7 @@ import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.util.FileManager;
 
-public class FirstEx {
+public class HtmlGenerator {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
