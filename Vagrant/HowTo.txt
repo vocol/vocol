@@ -3,5 +3,5 @@
 3.	Create a folder in specific location
 4.	Copy Files: Vagrantfile and bootstrap.sh into folder above
 5.	Navigate to folder with files above through Command Line Terminal
-6.	Run “vagrant up” command,
-7.	Optional: After Installation completed, run “vagrant ssh”
+6.	Run â€œvagrant upâ€ command,
+7.	Optional: After Installation completed, run â€œvagrant sshâ€ .
