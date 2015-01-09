@@ -7,6 +7,8 @@ sudo apt-get -y install unzip
 sudo apt-get -y install openjdk-7-jdk
 sudo apt-get -y install git
 sudo apt-get -y install python
+sudo apt-get install python-pip
+pip install PyGithub
 export LC_ALL=en_US.UTF-8
 export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64/
 echo "export LC_ALL=en_US.UTF-8" >> .bashrc
