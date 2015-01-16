@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# update system and install tools like below :
+# update system and install tools like below:
 sudo apt-get update
 sudo apt-get -y install raptor2-utils
 sudo apt-get -y install wget
