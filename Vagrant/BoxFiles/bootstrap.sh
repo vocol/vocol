@@ -48,6 +48,7 @@ sudo java -cp .:jena-arq-2.12.1.jar:jena-core-2.12.1.jar:jena-iri-1.1.1.jar:log4
 #move to google_appengine
 cd /home/vagrant/google_appengine/
 
-#run Schema.org through Google_AppEngine ./dev_appserver.py /home/vagrant/schemaorg/app.yaml
+#run Schema.org through Google_AppEngine 
+./dev_appserver.py /home/vagrant/schemaorg/app.yaml
 
 
