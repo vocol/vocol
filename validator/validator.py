@@ -9,11 +9,11 @@ from subprocess import Popen, PIPE, call
 import re
 import sys, getopt
 
-g = Github("np00", "VRGGF4zf")
+g = Github("np00", "EcuYr1m")
 repo = g.get_repo("mobivoc/mobivoc")
 fileType = ".ttl"
 startTime = datetime.datetime(2014, 12, 1, 0, 0, 0)
-endTime = datetime.datetime(2014, 12, 31, 0, 0, 0)
+endTime = datetime.datetime(2014, 12, 5, 0, 0, 0)
 
 numberOfCommits = 0   # needed global variable
 
@@ -30,9 +30,9 @@ class FileReport:
 	def addEditor(self, editor):
 		self.editors.append(editor)
 
-	def addError(self, title, lineNumber):
-		self.errorDetail = ErrorDetails(title, lineNumber)		
-		self.errors.append(errorDetail)
+	def addError(self, errorDesc, errorLine, lineText):
+		newError = ErrorDetails(errorDesc, errorLine, lineText)		
+		self.errors.append(newError)
 
 	def getErrors(self):
 		return self.errors
@@ -47,28 +47,33 @@ class FileReport:
 		return self.sha
 
 class ErrorDetails:
-	def __init__(self, title, lineNumber):
-		self.title = title
-		self.lineNumber = lineNumber
+	def __init__(self, errorText, errorLine, lineText):
+		self.errorText = errorText
+		self.errorLine = errorLine
+		self.lineText = lineText
 
-	def setTitle(self, title):
-		self.title = title
+	def setErrorText(self, errorText):
+		self.errorText = errorText
 
 	def setLineNumber(self, lineNumber):
-		self.lineNumber = lineNumber
+		self.errorLine = lineNumber
 
 	def getTitle(self):
-		return self.title
+		return self.errorText
+
+	def errorLine(self):
+		return self.errorLine
 
 	def getLineNumber(self):
-		return self.lineNumber
+		return self.lineText
 
 def printDetails(counter, commit):
 	print "-------------------------"
 	print counter
 	print "Process Commit: " + commit.sha
-	print "Name: " + commit.commit.message
-	print "Commit Date: " + commit.commit.committer.date.ctime()
+	print "Message: " + commit.commit.message
+	print "Committer: " + commit.commit.author.name
+	print "Date: " + commit.commit.committer.date.ctime()
 
 # not the optimal way, but paginatedList can't be so easily counted
 def getTotalCommitCount(commitList):
@@ -83,136 +88,83 @@ def getTotalCommitCount(commitList):
 
 fileReportDict = {}
 
-def getCommits():
+# collect necessary commit data for later processing
+def collectCommitData():
 	commitList = repo.get_commits(since=startTime, until=endTime)
 	commitCounter = getTotalCommitCount(commitList)
 	counter_turtle_files_found = 0	
-
+	
+	# iterate through all commits
 	for commit in commitList:
-	#reverse traversel, since the list is returned with the newest first
 		printDetails(commitCounter, commit)
-		#create directory
-		dir_name = 'c_'  + str(commitCounter)
-		os.makedirs(dir_name)
-		dir_path = os.path.join(os.getcwd(), dir_name)
 
+		# check for commits in which vocabulary files were changed
 		for file in commit.files:
 			if file.filename.endswith(fileType):
-
-				## HIER WEITERMACHEN
 				global fileReportDict
 
+				# save details about these files (editor, sha)
 				if file.filename in fileReportDict:
-					print "file exists"
 					if not fileReportDict[file.filename].editorExists(commit.commit.author.name):
 						fileReportDict[file.filename].addEditor(commit.commit.author.name)
 				else:
 					fileReport = FileReport(file.filename, commit.sha)
 					fileReport.addEditor(commit.commit.author.name)
 					fileReportDict[file.filename] = fileReport
-
-				print file.filename
-				file_content = repo.get_contents(file.filename, ref=commit.sha)
-				file_data = base64.b64decode(file_content.content)		
-				full_path = os.path.join(dir_path, file.filename)
-				file_out = open(full_path, "w")
-				file_out.write(file_data)
-				file_out.close()
 	
 		commitCounter = commitCounter - 1
 
+# Get a specific line from a file
+def getLineText(fileName, lineNr):
+	print "getlineText _________________"
+	print "file: " + fileName
+	print "line number: " + lineNr
 
+	with open(fileName) as f:
+   		i = 1
+    		for line in f:
+        		if i == (int(lineNr)):
+            			break
+        		i += 1
+	print (line)
 
+# validate details
 def validate():
-	max = numberOfCommits+1
-	for counter in range(1, max):
-		dir = 'c_' + str(counter)
-		os.chdir(dir)
+	# create folder structure
+	os.makedirs("tmp")
+	os.chdir("tmp")
 
-		files = os.listdir('.')
-		for file in files:
-			run_rapper(counter, file)
-		os.chdir('..')
+	global fileReportDict
 
-
-def run_rapper(counter, file):
-	cmd = 'rapper -i turtle -o turtle ' + file + '> /dev/null' 
-	output = Popen(cmd, stderr=PIPE, shell=True) 
-	
-	for line in output.stderr:
-		if ".ttl:" in line:
-			print file
-			print os.getcwd()
-                        lineNumber = re.search('.ttl:(.+?) ', line).group(1)
-                        searchDef = lineNumber + ' - '
-                        regex = re.escape(searchDef) + '(.+)'
-                        errorText = re.search(regex, line, re.IGNORECASE).group(1)
-
-			print errorText
-			print lineNumber
-
-
-			with open(file) as f:
-   				 i = 1
-   				 for line in f:
-       				 	if i == (int(lineNumber)):
-        		         		break
-       				 	i += 1
-			print (line)
-
-	
-			#number = int(lineNumber)
-			#print "Number: " + str(number)
-			#print "line: " + lines[23]
-			#print lines[23]
-			#print "line: " + lines[number]	
-	
-			#number = int(lineNumber)
-			#print number
-					
-			#print lines[number]
-			#f.close()
-
-
-                        
-                        # create issue
-                      #  bodytext = "File " + url + " contains at line number " + lineNumber + " the following error: " + errorText 
-                        
-                       # print bodytext
-                       # print "author: " + assignee.login
-                        #repo.create_issue(title=errorText, body=bodytext, assignee=assignee.login)
-                       
-	
-	#print 'rapper: commit: ' + str(counter) + ', file:' + file +  ', errors found: ' + str(errorCounter)
-
-
-				#os.chdir(commit.sha)
-
-				# run Validator
-				#cmd = 'rapper -i turtle -o turtle ' + file.filename +  ' > /dev/null'
-				#rawErrorDesc = Popen(cmd, stderr=PIPE, shell=True) 
-
-				#processErrors(url=file.blob_url, rawErrorDesc=rawErrorDesc, assignee='np00')
-				#os.chdir('..')	
+	# download files
+	for key in fileReportDict.keys():
+		filename = fileReportDict[key].getFileName()
+		sha = fileReportDict[key].getSha()
+		file_content = repo.get_contents(filename, ref=sha)
+		file_data = base64.b64decode(file_content.content)		
+		file_out = open(filename, "w")
+		file_out.write(file_data)
+		file_out.close()
 		
+		# validate each file
+		cmd = 'rapper -i turtle -o turtle ' + filename + '> /dev/null' 
+		output = Popen(cmd, stderr=PIPE, shell=True) 		
 
-
-#if new vocabulary revision exists then
-#	if new vocabulary revision validates then
-#		publish new human-friendly documentation ;
-#		publish new machine-comprehensible LOD ;
-#	else
-#		if errors have not been reported already then
-#			report errors to the revision author ;
-#		end
-#	end
-#end
-
+		for line in output.stderr:
+			if ".ttl:" in line:
+				# error found -> processing
+                	        lineNumber = re.search('.ttl:(.+?) ', line).group(1)
+                	        searchDef = lineNumber + ' - '
+                	        regex = re.escape(searchDef) + '(.+)'
+                	        errorText = re.search(regex, line, re.IGNORECASE).group(1)
+				lineText = getLineText(filename, lineNumber)
+				fileReportDict[filename].addError(errorText, lineNumber, lineText)
+		
 
 
 	
 def cleanUp():
-	cmd = "rm -r c_*"
+	cmd = "rm -r tmp/"
 	call(cmd, shell=True)
 
 
@@ -225,6 +177,8 @@ def printReport():
 		print fileReportDict[key].getSha()
 		print fileReportDict[key].getEditors()
 		print fileReportDict[key].getErrors()
+		for error in fileReportDict[key].getErrors():
+			print error.getTitle()
 
 
 #	fileReport = FileReport()
@@ -236,8 +190,8 @@ def printReport():
 #	print fileReport.errors[0].getLineNumber()
 #
 
-getCommits()
-#validate()
+collectCommitData()
+validate()
 printReport()
 cleanUp()
 
