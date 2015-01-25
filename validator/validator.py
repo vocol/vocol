@@ -1,28 +1,24 @@
 from github import Github
 from github import Repository
-import time
-import datetime
+import time, datetime, base64, os, re, sys, getopt
 from datetime import date
-import base64
-import os
 from subprocess import Popen, PIPE, call
-import re
-import sys, getopt
 
-g = Github("np00", "EcuYr1m")
+g = Github(<usernamer>, <password>)
 repo = g.get_repo("mobivoc/mobivoc")
 fileType = ".ttl"
-startTime = datetime.datetime(2014, 12, 1, 0, 0, 0)
-endTime = datetime.datetime(2014, 12, 5, 0, 0, 0)
+startTime = datetime.datetime(2015, 1, 1, 0, 0, 0)
+endTime = datetime.datetime(2015, 1, 31, 0, 0, 0)
 
 numberOfCommits = 0   # needed global variable
 
 class FileReport:
-	def __init__(self, fileName, sha):
+	def __init__(self, fileName, sha, url):
         	self.fileName = fileName
 		self.sha = sha
 		self.editors = []
 		self.errors = []
+		self.link = url
 
 	def editorExists(self, editor):
 		return editor in self.editors
@@ -46,6 +42,9 @@ class FileReport:
 	def getSha(self):
 		return self.sha
 
+	def getLink(self):
+		return self.link
+
 class ErrorDetails:
 	def __init__(self, errorText, errorLine, lineText):
 		self.errorText = errorText
@@ -58,14 +57,14 @@ class ErrorDetails:
 	def setLineNumber(self, lineNumber):
 		self.errorLine = lineNumber
 
-	def getTitle(self):
+	def getErrorText(self):
 		return self.errorText
 
-	def errorLine(self):
-		return self.errorLine
+	def getErrorLine(self):
+		return self.lineText
 
 	def getLineNumber(self):
-		return self.lineText
+		return self.errorLine
 
 def printDetails(counter, commit):
 	print "-------------------------"
@@ -75,7 +74,7 @@ def printDetails(counter, commit):
 	print "Committer: " + commit.commit.author.name
 	print "Date: " + commit.commit.committer.date.ctime()
 
-# not the optimal way, but paginatedList can't be so easily counted
+# local commit counter, since the GitHub API doesn't offer it
 def getTotalCommitCount(commitList):
 	totalCommits = 0
 	for commit in commitList:
@@ -105,30 +104,26 @@ def collectCommitData():
 
 				# save details about these files (editor, sha)
 				if file.filename in fileReportDict:
-					if not fileReportDict[file.filename].editorExists(commit.commit.author.name):
-						fileReportDict[file.filename].addEditor(commit.commit.author.name)
+					if not fileReportDict[file.filename].editorExists(commit.author.login):
+						fileReportDict[file.filename].addEditor(commit.author.login)
 				else:
-					fileReport = FileReport(file.filename, commit.sha)
-					fileReport.addEditor(commit.commit.author.name)
+					fileReport = FileReport(file.filename, commit.sha, file.blob_url)
+					fileReport.addEditor(commit.author.login)
 					fileReportDict[file.filename] = fileReport
 	
 		commitCounter = commitCounter - 1
 
 # Get a specific line from a file
 def getLineText(fileName, lineNr):
-	print "getlineText _________________"
-	print "file: " + fileName
-	print "line number: " + lineNr
-
 	with open(fileName) as f:
    		i = 1
     		for line in f:
         		if i == (int(lineNr)):
             			break
         		i += 1
-	print (line)
+	return (line)
 
-# validate details
+
 def validate():
 	# create folder structure
 	os.makedirs("tmp")
@@ -152,7 +147,7 @@ def validate():
 
 		for line in output.stderr:
 			if ".ttl:" in line:
-				# error found -> processing
+				# save error data
                 	        lineNumber = re.search('.ttl:(.+?) ', line).group(1)
                 	        searchDef = lineNumber + ' - '
                 	        regex = re.escape(searchDef) + '(.+)'
@@ -160,42 +155,60 @@ def validate():
 				lineText = getLineText(filename, lineNumber)
 				fileReportDict[filename].addError(errorText, lineNumber, lineText)
 		
-
-
 	
+
+
+def generateIssues():
+	print "------------------------------------------"
+	print "start generate Issues"	
+	
+	labels = [repo.get_label("syntax error")]
+
+	issueList = repo.get_issues(state='open', labels=labels)
+
+	for fileReport in fileReportDict.keys():
+		for error in fileReportDict[fileReport].getErrors():
+			
+			issueTitle = "[" + fileReportDict[fileReport].getFileName() + "] " + error.getErrorText() 
+			# check if issue List contains errors 	
+			issueExist = False
+			
+			for issue in issueList:
+				if issueTitle == issue.title:
+					
+					print "Similar Issue report found"
+					issueExist = True
+
+					# TODO Improve "existing issue detection" with better REGEX
+					#body = issue.body;
+					#print body
+					#lineText = re.search('` \\n(.+?) \\n', body)
+					#print lineText
+					#print "title is equal"	
+
+			# no issue found: generate new issue
+			if not issueExist:
+				print "Generate new issue"
+				issueBody = "**Original Line:** \n ``` \n" + error.getErrorLine() + " \n ``` \n **File:** " + fileReportDict[fileReport].getLink() + "#L" + error.getLineNumber() + "; \n"
+			
+				editorString = "**Person(s) who edited the file:** "
+				for editor in fileReportDict[fileReport].getEditors():
+					editorString += "@" + editor + " "
+
+				issueBody += editorString 
+				
+				repo.create_issue(title=issueTitle, body=issueBody, labels=labels, assignee=fileReportDict[fileReport].getEditors()[0])
+
+
 def cleanUp():
-	cmd = "rm -r tmp/"
+	cmd = "rm -r tmp"
 	call(cmd, shell=True)
 
 
-def printReport():
-	print "start printReport() ________________-"
-
-	for key in fileReportDict.keys():
-		print "new report: _________________"
-		print fileReportDict[key].getFileName()	
-		print fileReportDict[key].getSha()
-		print fileReportDict[key].getEditors()
-		print fileReportDict[key].getErrors()
-		for error in fileReportDict[key].getErrors():
-			print error.getTitle()
-
-
-#	fileReport = FileReport()
-#	editor = 'niklas'
-#	fileReport.addEditor(editor)
-#	print fileReport.editorExists('junior')
-#	fileReport.addError('testError', '17')
-#	print fileReport.errors[0].getTitle()
-#	print fileReport.errors[0].getLineNumber()
-#
-
 collectCommitData()
 validate()
-printReport()
+generateIssues()
 cleanUp()
-
-#test()
 
 #def main(argv):
 #   user = ''
