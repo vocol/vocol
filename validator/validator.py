@@ -4,7 +4,7 @@ import time, datetime, base64, os, re, sys, getopt
 from datetime import date
 from subprocess import Popen, PIPE, call
 
-g = Github(<usernamer>, <password>)
+g = Github("<usernamer>", "<password>")
 repo = g.get_repo("mobivoc/mobivoc")
 fileType = ".ttl"
 startTime = datetime.datetime(2015, 1, 1, 0, 0, 0)
