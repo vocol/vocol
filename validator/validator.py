@@ -4,13 +4,10 @@ import time, datetime, base64, os, re, sys, getopt
 from datetime import date
 from subprocess import Popen, PIPE, call
 
-g = Github("username", "password")
-repo = g.get_repo("mobivoc/mobivoc")
+repo = None
 fileType = ".ttl"
-startTime = datetime.datetime(2015, 1, 1, 0, 0, 0)
-endTime = datetime.datetime(2015, 1, 31, 0, 0, 0)
-
 numberOfCommits = 0   # needed global variable
+interval = 0
 
 class FileReport:
 	def __init__(self, fileName, sha, url):
@@ -89,9 +86,17 @@ fileReportDict = {}
 
 # collect necessary commit data for later processing
 def collectCommitData():
-	commitList = repo.get_commits(since=startTime, until=endTime)
+        endTime = datetime.datetime.now()
+        startTime = endTime - datetime.timedelta(seconds=60*interval)
+
+        print "Get commits between: " + str(startTime) + " and " + str(endTime)
+
+        commitList = repo.get_commits(since=startTime, until=endTime)
 	commitCounter = getTotalCommitCount(commitList)
-	counter_turtle_files_found = 0	
+
+        page = commitList.get_page(0)
+        if len(page) == 0:
+                print "No new commits found" 
 	
 	# iterate through all commits
 	for commit in commitList:
@@ -118,14 +123,18 @@ def getLineText(fileName, lineNr):
 	with open(fileName) as f:
    		i = 1
     		for line in f:
-        		if i == (int(lineNr)):
+                        if i == (int(lineNr)):
             			break
         		i += 1
 	return (line)
 
 
 def validate():
-	# create folder structure
+        #prepare structure
+        if os.path.exists("tmp/"):
+            cmd = "rm -r tmp"
+	    call(cmd, shell=True)
+
 	os.makedirs("tmp")
 	os.chdir("tmp")
 
@@ -159,13 +168,17 @@ def validate():
 
 
 def generateIssues():
-	print "------------------------------------------"
-	print "start generate Issues"	
+     
+        
+
+
+        print "------------------------------------------"
+	print "start generating Issues"	
 	
 	labels = [repo.get_label("syntax error")]
 
 	issueList = repo.get_issues(state='open', labels=labels)
-
+        
 	for fileReport in fileReportDict.keys():
 		for error in fileReportDict[fileReport].getErrors():
 			
@@ -176,7 +189,7 @@ def generateIssues():
 			for issue in issueList:
 				if issueTitle == issue.title:
 					
-					print "Similar Issue report found"
+					print "Issuereport already found for error: " + error
 					issueExist = True
 
 					# TODO Improve "existing issue detection" with better REGEX
@@ -188,7 +201,7 @@ def generateIssues():
 
 			# no issue found: generate new issue
 			if not issueExist:
-				print "Generate new issue"
+				print "Issuereport generated for: " + error
 				issueBody = "**Original Line:** \n ``` \n" + error.getErrorLine() + " \n ``` \n **File:** " + fileReportDict[fileReport].getLink() + "#L" + error.getLineNumber() + "; \n"
 			
 				editorString = "**Person(s) who edited the file:** "
@@ -205,35 +218,50 @@ def cleanUp():
 	cmd = "rm -r tmp"
 	call(cmd, shell=True)
 
+
+def init(user, password, repository, intervalInMin):
+     print "Checking if user exist: " + user
+     g = Github(user, password)
+     g.get_user(user) # some random request to check if the user can make requests
+     print "User: " + user + " exists."
+     print "Getting repository..."
+     global repo
+     repo =  g.get_repo(repository)
+     print "Repository: " + repository + " exists."
+
+     global interval
+     interval = intervalInMin
+
+
+def main(argv):
+   try:
+      opts, args = getopt.getopt(argv,"hu:p:r:i:",["user","password","repository", "interval"])
+   except getopt.GetoptError:
+      print 'test.py -u <user> -p <password> -r <repository> -i <interval in minutes>'
+      sys.exit(2)
+   for opt, arg in opts:
+      if opt == '-h':
+         print 'test.py -u <user> -p <password> -r <repository> -i <intervall>'
+         sys.exit()
+      elif opt in ("-u", "--user"):
+         user = arg
+      elif opt in ("-p", "--password"):
+         password = arg
+      elif opt in ("-r", "--repository"):
+         repository = arg
+      elif opt in ("-i", "--interval"):
+         intervalInMin = int(arg)
+
+   init(user, password, repository, intervalInMin)
+
+if __name__ == "__main__":
+   main(sys.argv[1:])
+
+
 collectCommitData()
 validate()
-generateIssues()
+
+if not (len(fileReportDict) == 0):
+    generateIssues()
+
 cleanUp()
-
-#def main(argv):
-#   user = ''
-#   password = ''
-#   repository = ''
-#   try:
-#      opts, args = getopt.getopt(argv,"hu:p:r:",["user=","password=","repository"])
-#   except getopt.GetoptError:
-#      print 'test.py -u <user> -p <password> -r <repository>'
-#      sys.exit(2)
-#   for opt, arg in opts:
-#      if opt == '-h':
-#         print 'test.py -u <user> -p <password> -r <repository>'
-#         sys.exit()
-#      elif opt in ("-u", "--user"):
-#         user = arg
-#      elif opt in ("-p", "--password"):
-#         password = arg
-#      elif opt in ("-r", "--repository"):
-#         repository = arg
-#   print 'User:', user
-#   print 'Repository:', repository
-#
-#if __name__ == "__main__":
-#   main(sys.argv[1:])
-
-
-
