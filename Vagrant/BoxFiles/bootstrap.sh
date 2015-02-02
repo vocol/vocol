@@ -2,15 +2,17 @@
 # update system and install tools like below :
 sudo apt-get update
 sudo apt-get --yes install apache2
-sudo apt-get -y install raptor2-utils
 sudo apt-get -y install wget
 sudo apt-get -y install curl
 sudo apt-get -y install unzip
 sudo apt-get -y install openjdk-7-jdk
 sudo apt-get -y install git
 sudo apt-get -y install python
-sudo apt-get install python-pip
-pip install PyGithub
+sudo apt-get -y install python-pip
+sudo apt-get -y install make
+sudo pip install PyGithub
+
+# TODO at some point, when no root permission is necessary any more, execute the further commands as user "vagrant"
 
 # setup the system variables
 export LC_ALL=en_US.UTF-8
@@ -25,14 +27,30 @@ echo "update-alternatives --set java /usr/lib/jvm/java-7-openjdk-amd64/jre/bin/j
 curl -O http://apache.websitebeheerjd.nl//jena/binaries/apache-jena-2.12.1.zip  
 unzip apache-jena-2.12.1.zip
 
+#install latest version of rapper
+curl -O http://download.librdf.org/source/raptor2-2.0.15.tar.gz
+tar -zxvf raptor2-2.0.15.tar.gz
+cd raptor2-2.0.15
+sudo apt-get install libxml2-dev libxslt1-dev python-dev
+sudo ./configure
+sudo make
+sudo make install
+sudo apt-get -y install raptor2-utils
+cd ..
+
 #download and unzip google_appengine
 curl -O https://storage.googleapis.com/appengine-sdks/featured/google_appengine_1.9.17.zip
 unzip google_appengine_1.9.17.zip
 
 #clone repositories like below
 git clone https://github.com/rvguha/schemaorg.git
+#(cd schemaorg; git checkout 1a0ba4ddf551a66ab51462b07b0400dbfcd2b60d)
 git clone https://github.com/mobivoc/mobivoc.git
 git clone https://github.com/mobivoc/vocol.git
+
+#download and unzip Jena Fuseki
+curl -O http://mirror.dkd.de/apache//jena/binaries/jena-fuseki-1.1.1-distribution.tar.gz
+tar xf jena-fuseki-1.1.1-distribution.tar.gz
 
 #move libraries of appache-jena to src folder of HTML Documentation Generator
 sudo mv apache-jena-2.12.1/lib/* vocol/HtmlGenerator/src/
@@ -59,8 +77,13 @@ sudo /etc/init.d/apache2 restart
 #add a cronjob to excecute every 5 min
 cat <(crontab -l) <(echo "*/5 * * * * bash /home/vagrant/vocol/HtmlGenerator/HowTo/RepeatedJobs.sh") | crontab -
 
-#move to google_appengine
-cd /home/vagrant/google_appengine/
-
 #run Schema.org through Google_AppEngine 
-./dev_appserver.py /home/vagrant/schemaorg/app.yaml --skip_sdk_update_check
+/home/vagrant/google_appengine/dev_appserver.py /home/vagrant/schemaorg/app.yaml --skip_sdk_update_check &
+
+#go to java source file of HTML Documentation Generator
+cd /home/vagrant/jena-fuseki-1.1.1/
+#sudo chmod -R 777 .
+chmod +x fuseki-server s-*
+
+#run fuseki
+./fuseki-server --update --file=/home/vagrant/mobivoc/ChargingPoints.ttl /myDataset
