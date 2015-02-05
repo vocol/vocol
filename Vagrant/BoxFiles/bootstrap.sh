@@ -5,12 +5,16 @@ sudo apt-get --yes install apache2
 sudo apt-get -y install wget
 sudo apt-get -y install curl
 sudo apt-get -y install unzip
+# TODO on SUSE: zypper install java-1_7_0-openjdk-devel
+# TODO on SLES: first run zypper addrepo http://download.opensuse.org/repositories/Java:/Factory/SLE_11_SP3/Java:Factory.repo
 sudo apt-get -y install openjdk-7-jdk
+# TODO on SLES: first run zypper addrepo  http://download.opensuse.org/repositories/devel:/tools:/scm/SLE_11_SP3/devel:tools:scm.repo
 sudo apt-get -y install git
 sudo apt-get -y install python
 sudo apt-get -y install python-pip
 sudo apt-get -y install make
-# TODO on SUSE: zypper in python-PyGithub
+# TODO on SUSE: zypper install python-PyGithub
+# TODO on SLES: first run zypper addrepo http://download.opensuse.org/repositories/devel:/languages:/python/SLE_11_SP3/devel:languages:python.repo
 sudo pip install PyGithub
 
 # TODO at some point, when no root permission is necessary any more, execute the further commands as user "vagrant"
@@ -32,6 +36,7 @@ unzip apache-jena-2.12.1.zip
 curl -O http://download.librdf.org/source/raptor2-2.0.15.tar.gz
 tar -zxvf raptor2-2.0.15.tar.gz
 cd raptor2-2.0.15
+# TODO on SLES: first run zypper addrepo http://download.opensuse.org/repositories/home:/tanty:/openSUSEBackports/SLE_11_SP3/home:tanty:openSUSEBackports.repo
 sudo apt-get install libxml2-dev libxslt1-dev python-dev
 sudo ./configure
 sudo make
@@ -60,7 +65,6 @@ sudo mv apache-jena-2.12.1/lib/* vocol/HtmlGenerator/src/
 cd vocol/HtmlGenerator/src/
 
 #Compile HTML Documentation Generator
-# TODO on SUSE: zypper in java-1_7_0-openjdk-devel
 sudo javac -cp .:jena-arq-2.12.1.jar:jena-core-2.12.1.jar:jena-iri-1.1.1.jar:log4j-1.2.17.jar:slf4j-api-1.7.6.jar:xercesImpl-2.11.0.jar:xml-apis-1.4.01.jar HtmlGenerator.java
 
 #run HTML Documentation Generator
