@@ -84,12 +84,12 @@ sudo /etc/init.d/apache2 restart
 cat <(crontab -l) <(echo "*/5 * * * * bash $HOME/vocol/HtmlGenerator/HowTo/RepeatedJobs.sh") | crontab -
 
 #run Schema.org through Google_AppEngine 
-/home/vagrant/google_appengine/dev_appserver.py /home/vagrant/schemaorg/app.yaml --skip_sdk_update_check &
+~/google_appengine/dev_appserver.py ~/schemaorg/app.yaml --skip_sdk_update_check &
 
 #go to java source file of HTML Documentation Generator
-cd /home/vagrant/jena-fuseki-1.1.1/
+cd ~/jena-fuseki-1.1.1/
 #sudo chmod -R 777 .
 chmod +x fuseki-server s-*
 
 #run fuseki
-./fuseki-server --update --file=/home/vagrant/mobivoc/ChargingPoints.ttl /myDataset
+./fuseki-server --update --file=$HOME/mobivoc/ChargingPoints.ttl /myDataset
