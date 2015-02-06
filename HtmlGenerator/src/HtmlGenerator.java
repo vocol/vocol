@@ -208,7 +208,7 @@ public class HtmlGenerator {
 					outputStream.println(htmlString);
 				}
 				outputStream.close();
-				System.out.println("File has been generated succesfully.");
+				System.out.println("File has been generated successfully.");
 	
 
 	}
@@ -298,7 +298,7 @@ public class HtmlGenerator {
 			outputStream.println(htmlString);
 		}
 		outputStream.close();
-		System.out.println("SchemasHTML has been generated succesfully.");
+		System.out.println("SchemasHTML has been generated successfully.");
 
 	}
 
