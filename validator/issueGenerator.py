@@ -94,6 +94,11 @@ def collectCommitData():
 			if file.filename.endswith(fileType):
 				global fileReportDict
 
+				# print "commit.committer.login = " + commit.committer.login
+				# print "commit.committer.name = " + commit.committer.name
+				# print "commit.author.login = " + commit.author.login
+				# print "commit.author.name = " + commit.author.name
+
 				# save details about these files (editor, sha)
 				if file.filename in fileReportDict:
 					if not fileReportDict[file.filename].editorExists(commit.author.login):
@@ -191,7 +196,9 @@ def generateIssues():
 
 				issueBody += editorString 
 				
-				repo.create_issue(title=issueTitle, body=issueBody, labels=labels, assignee=fileReportDict[fileReport].getEditors()[0])
+				print fileReportDict[fileReport].getEditors()[0]
+				# repo.create_issue(title=issueTitle, body=issueBody, labels=labels, assignee=fileReportDict[fileReport].getEditors()[0])
+				repo.create_issue(title=issueTitle, body=issueBody, labels=labels)
 
 
 
@@ -201,9 +208,9 @@ def cleanUp():
 	call(cmd, shell=True)
 
 
-def init(client_id, client_secret, repository, intervalInMin):
-     print "Checking if client_id exist: " + client_id
-     g = Github(client_id=client_id, client_secret=client_secret)
+def init(client_token, repository, intervalInMin):
+     print "Checking if client_token exists: " + client_token
+     g = Github(login_or_token=client_token)
      print "Getting repository..."
      global repo
      repo =  g.get_repo(repository)
@@ -214,24 +221,22 @@ def init(client_id, client_secret, repository, intervalInMin):
      
 def main(argv):
    try:
-      opts, args = getopt.getopt(argv,"hc:s:r:i:",["client_id", "client_secret", "repository", "interval"])
+      opts, args = getopt.getopt(argv,"ht:r:i:",["client_token", "repository", "interval"])
    except getopt.GetoptError:
-      print 'issueGenerator.py -c <client_id> -s <client_secret> -r <repository>'
+      print 'issueGenerator.py -t <client_token> -r <repository>'
       sys.exit(2)
    for opt, arg in opts:
       if opt == '-h':
-         print 'issueGenerator.py -c <client_id> -s <client_secret> -r <repository>'
+         print 'issueGenerator.py -t <client_token> -r <repository>'
          sys.exit()
-      elif opt in ("-c", "--client_id"):
-         client_id = arg
+      elif opt in ("-t", "--client_token"):
+         client_token = arg
       elif opt in ("-r", "--repository"):
          repository = arg
       elif opt in ("-i", "--interval"):
          intervalInMin = arg
-      elif opt in ("-s", "--client_secret"):
-         client_secret = arg
 
-   init(client_id, client_secret, repository, intervalInMin)
+   init(client_token, repository, intervalInMin)
 
 if __name__ == "__main__":
    main(sys.argv[1:])

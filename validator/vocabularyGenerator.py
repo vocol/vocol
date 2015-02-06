@@ -80,10 +80,9 @@ def getTurtleFiles():
         else:
                 print "The vocabulary contains errors: No new version was created"
 
-     
-def init(client_id, client_secret, repository, intervalInMin):
-     print "Checking if client_id exist: " + client_id
-     g = Github(client_id=client_id, client_secret=client_secret)
+def init(client_token, repository, intervalInMin):
+     print "Checking if client_token exists: " + client_token
+     g = Github(login_or_token=client_token)
      print "Getting repository..."
      global repo
      repo =  g.get_repo(repository)
@@ -94,24 +93,22 @@ def init(client_id, client_secret, repository, intervalInMin):
      
 def main(argv):
    try:
-      opts, args = getopt.getopt(argv,"hc:s:r:i:",["client_id", "client_secret", "repository", "interval"])
+      opts, args = getopt.getopt(argv,"ht:r:i:",["client_token", "repository", "interval"])
    except getopt.GetoptError:
-      print 'vocabularyGenerator.py -c <client_id> -s <client_secret> -r <repository>'
+      print 'vocabularyGenerator.py -t <client_token> -r <repository>'
       sys.exit(2)
    for opt, arg in opts:
       if opt == '-h':
-         print 'vocabularyGenerator.py -c <client_id> -s <client_secret> -r <repository>'
+         print 'vocabularyGenerator.py -t <client_token> -r <repository>'
          sys.exit()
-      elif opt in ("-c", "--client_id"):
-         client_id = arg
+      elif opt in ("-t", "--client_token"):
+         client_token = arg
       elif opt in ("-r", "--repository"):
          repository = arg
       elif opt in ("-i", "--interval"):
          intervalInMin = arg
-      elif opt in ("-s", "--client_secret"):
-         client_secret = arg
 
-   init(client_id, client_secret, repository, intervalInMin)
+   init(client_token, repository, intervalInMin)
 
 if __name__ == "__main__":
    main(sys.argv[1:])
