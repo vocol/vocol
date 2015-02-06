@@ -1,16 +1,15 @@
 #!/usr/bin/env bash
 
-GITHUB_CLIENT_ID=<client_id>
-GITHUB_CLIENT_SECRET=<client_secret>
+GITHUB_TOKEN=<client_token>
 GITHUB_REPOSITORY="Mobivoc/Mobivoc"
 INTERVAL=1  # (minutes) in which the repository is checked
 
 
 # generate Issues, if new errors exist
-python validator/issueGenerator.py -c "$GITHUB_CLIENT_ID" -r "$GITHUB_REPOSITORY" -s "$GITHUB_CLIENT_SECRET" -i "$INTERVAL"
+python validator/issueGenerator.py -t "$GITHUB_TOKEN" -r "$GITHUB_REPOSITORY" -i "$INTERVAL"
 
 # generate a new vocabulary version, if it is valid & necessary (=new changes)
-python validator/vocabularyGenerator.py -c "$GITHUB_CLIENT_ID" -s "$GITHUB_CLIENT_SECRET" -r "$GITHUB_REPOSITORY" -i "$INTERVAL"
+python validator/vocabularyGenerator.py -t "$GITHUB_TOKEN" -r "$GITHUB_REPOSITORY" -i "$INTERVAL"
 
 LAST_VOCAB_MODIFICATION_DATE=$(date -r deploy/Mobivoc.ttl +%s)
 DATE_NOW=$(date +%s)
