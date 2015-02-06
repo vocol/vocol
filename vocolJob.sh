@@ -1,9 +1,9 @@
 #!/bin/bash
 
-GITHUB_CLIENT_ID=<client_id>
-GITHUB_CLIENT_SECRET=<client_secret>
+GITHUB_CLIENT_ID="2210b5af0648f5d4b157"
+GITHUB_CLIENT_SECRET="b108e6adcb7ccde3940a0d14c4c8fcd0fa46a1e8"
 GITHUB_REPOSITORY="Mobivoc/Mobivoc"
-INTERVAL=1  # (minutes) in which the repository is checked
+INTERVAL=5  # (minutes) in which the repository is checked
 
 
 # generate Issues, if new errors exist
