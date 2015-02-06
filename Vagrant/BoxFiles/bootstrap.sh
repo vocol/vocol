@@ -69,6 +69,7 @@ sudo javac -cp .:jena-arq-2.12.1.jar:jena-core-2.12.1.jar:jena-iri-1.1.1.jar:log
 
 #run HTML Documentation Generator
 sudo java -cp .:jena-arq-2.12.1.jar:jena-core-2.12.1.jar:jena-iri-1.1.1.jar:log4j-1.2.17.jar:slf4j-api-1.7.6.jar:xercesImpl-2.11.0.jar:xml-apis-1.4.01.jar HtmlGenerator ~/mobivoc/ChargingPoints.ttl ~/schemaorg/data/schema.rdfa ~/vocol/HtmlGenerator/Templates/template.html ~/schemaorg/docs/schemas.html ~/vocol/HtmlGenerator/Templates/schemasTemplate.html
+ #sudo java -cp "*:." vocol.HtmlGenerator.src.HtmlGenerator /home/vagrant/mobivoc/ChargingPoints.ttl /home/vagrant/schemaorg/data/schema.rdfa //home/vagrant/vocol/HtmlGenerator/Templates/template.html /home/vagrant/schemaorg/docs/schemas.html /home/vagrant/vocol/HtmlGenerator/Templates/schemasTemplate.html
 
 #Configuring Apache
 sudo rm /etc/apache2/sites-enabled/000-default
@@ -81,7 +82,7 @@ sudo a2enmod rewrite
 sudo /etc/init.d/apache2 restart
 
 #add a cronjob to excecute every 5 min
-cat <(crontab -l) <(echo "*/5 * * * * bash $HOME/vocol/HtmlGenerator/HowTo/RepeatedJobs.sh") | crontab -
+cat <(crontab -l) <(echo "*/5 * * * * bash $HOME/vocol/vocolJob.sh") | crontab -
 
 #run Schema.org through Google_AppEngine 
 ~/google_appengine/dev_appserver.py ~/schemaorg/app.yaml --skip_sdk_update_check &
