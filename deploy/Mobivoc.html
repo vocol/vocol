@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Schemas - schema.org</title>
+    <meta name="description" content="Schema.org is a set of extensible schemas that enables webmasters to embed
+    structured data on their web pages for use by search engines and other applications." />
+    <link rel="stylesheet" type="text/css"
+          href="/docs/schemaorg.css" />
+
+</head>
+<body>
+    <div id="container">
+        <div id="intro">
+            <div id="pageHeader">
+              <div class="wrapper">
+                <h1>schema.org</h1>
+
+<div id="cse-search-form" style="width: 400px;"></div>
+
+<script type="text/javascript" src="//www.google.com/jsapi"></script>
+<script type="text/javascript">
+  google.load('search', '1', {language : 'en', style : google.loader.themes.ESPRESSO});
+  google.setOnLoadCallback(function() {
+    var customSearchControl = new google.search.CustomSearchControl('013516846811604855281:nj5laplixaa');
+    customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+    var options = new google.search.DrawOptions();
+    options.enableSearchboxOnly("../docs/search_results.html", null, false, '#');
+    customSearchControl.draw('cse-search-form', options);
+  }, true);
+</script>
+
+
+              </div>
+            </div>
+        </div>
+    </div>
+
+            <div id="selectionbar">
+               <div class="wrapper">
+                <ul>
+                    <li >
+                      <a href="/docs/documents.html">Documentation</a></li>
+                    <li class="activelink">
+                      <a href="/docs/schemas.html">Schemas</a></li>
+                    <li >
+                      <a href="/">Home</a></li>
+                </ul>
+                </div>
+
+            </div>
+        <div style="padding: 14px; float: right;" id="languagebox"></div>
+
+  <div id="mainContent" class="faq">
+
+<a href="http://192.168.33.10:3030">Sparql EndPoint</a> &nbsp;&nbsp;<a href="http://vowl.visualdataweb.org/webvowl/index.html#iri=https://raw.githubusercontent.com/mobivoc/mobivoc/master/ChargingPoints.ttl">Visualisation with WebVOWL</a>
+<h1>Organization of Schemas</h1>
+The schemas are a set of 'types', each associated with a set of properties. The types are arranged in a hierarchy.
+<br />
+
+<ul>
+<br><b>Instances</b><li><a href="../"></a></li>
+<br><b>Properties</b><li><a href="../hasEngine">hasEngine</a></li>
+<br><b>Classes</b><li><a href="../AccessInformation">AccessInformation</a></li>
+<li><a href="../AccessType">AccessType</a></li>
+<li><a href="../BookingType">BookingType</a></li>
+<li><a href="../Charger">Charger</a></li>
+<li><a href="../ChargingPoint">ChargingPoint</a></li>
+<li><a href="../ChargingPointFees">ChargingPointFees</a></li>
+<li><a href="../ChargingPointLocation">ChargingPointLocation</a></li>
+<li><a href="../ChargingPointOwner">ChargingPointOwner</a></li>
+<li><a href="../ChargingSpeed">ChargingSpeed</a></li>
+<li><a href="../IdentificationSystem">IdentificationSystem</a></li>
+<li><a href="../ParkingFacility">ParkingFacility</a></li>
+<li><a href="../ParkingFacilityConfiguration">ParkingFacilityConfiguration</a></li>
+<li><a href="../ParkingFacilityConnection">ParkingFacilityConnection</a></li>
+<li><a href="../ParkingFacilityFeature">ParkingFacilityFeature</a></li>
+<li><a href="../ParkingFacilityLocation">ParkingFacilityLocation</a></li>
+<li><a href="../ParkingFacilityOwner">ParkingFacilityOwner</a></li>
+<li><a href="../ParkingFacilityStatus">ParkingFacilityStatus</a></li>
+<li><a href="../ParkingFees">ParkingFees</a></li>
+<li><a href="../Payment">Payment</a></li>
+<li><a href="../Plug">Plug</a></li>
+<li><a href="../PlugType">PlugType</a></li>
+<li><a href="../VehicleType">VehicleType</a></li>
+<br><b>Properties</b><li><a href="../access">access</a></li>
+<li><a href="../accessTimes">accessTimes</a></li>
+<li><a href="../accessible">accessible</a></li>
+<li><a href="../additionalInformation">additionalInformation</a></li>
+<li><a href="../availableFromTime">availableFromTime</a></li>
+<li><a href="../booking">booking</a></li>
+<li><a href="../brand">brand</a></li>
+<li><a href="../cableAvailable">cableAvailable</a></li>
+<li><a href="../chargingSpeed">chargingSpeed</a></li>
+<li><a href="../configuration">configuration</a></li>
+<li><a href="../coveredLocation">coveredLocation</a></li>
+<li><a href="../currentType">currentType</a></li>
+<li><a href="../description">description</a></li>
+<li><a href="../energyType">energyType</a></li>
+<li><a href="../exitRate">exitRate</a></li>
+<li><a href="../features">features</a></li>
+<li><a href="../feesDescription">feesDescription</a></li>
+<li><a href="../fillRate">fillRate</a></li>
+<li><a href="../hasCharger">hasCharger</a></li>
+<li><a href="../hasChargingPoint">hasChargingPoint</a></li>
+<li><a href="../hasHeightLimit">hasHeightLimit</a></li>
+<li><a href="../hasOpeningHours">hasOpeningHours</a></li>
+<li><a href="../hasParkingFees">hasParkingFees</a></li>
+<li><a href="../hasPlug">hasPlug</a></li>
+<li><a href="../hasWidthLimit">hasWidthLimit</a></li>
+<li><a href="../identification">identification</a></li>
+<li><a href="../intensity">intensity</a></li>
+<li><a href="../isConnectedTo">isConnectedTo</a></li>
+<li><a href="../isLocated">isLocated</a></li>
+<li><a href="../isOwnedBy">isOwnedBy</a></li>
+<li><a href="../isPaidChargingPoint">isPaidChargingPoint</a></li>
+<li><a href="../lockerAvailable">lockerAvailable</a></li>
+<li><a href="../model">model</a></li>
+<li><a href="../numberOfLadiesParkingSpaces">numberOfLadiesParkingSpaces</a></li>
+<li><a href="../numberOfOccupiedParkingSpaces">numberOfOccupiedParkingSpaces</a></li>
+<li><a href="../numberOfParkingPlaces">numberOfParkingPlaces</a></li>
+<li><a href="../numberOfParkingSpacesForDisabledPersons">numberOfParkingSpacesForDisabledPersons</a></li>
+<li><a href="../numberOfVacantParkingSpaces">numberOfVacantParkingSpaces</a></li>
+<li><a href="../numberOfXXLParkingSpaces">numberOfXXLParkingSpaces</a></li>
+<li><a href="../occupancy">occupancy</a></li>
+<li><a href="../payment">payment</a></li>
+<li><a href="../picture">picture</a></li>
+<li><a href="../placeName">placeName</a></li>
+<li><a href="../placeType">placeType</a></li>
+<li><a href="../plugCondition">plugCondition</a></li>
+<li><a href="../plugInformation">plugInformation</a></li>
+<li><a href="../power">power</a></li>
+<li><a href="../queuingTime">queuingTime</a></li>
+<li><a href="../status">status</a></li>
+<li><a href="../statusParkingFacility">statusParkingFacility</a></li>
+<li><a href="../threePhasedCurrentavailable">threePhasedCurrentavailable</a></li>
+<li><a href="../totalCapacity">totalCapacity</a></li>
+<li><a href="../vehicleType">vehicleType</a></li>
+<li><a href="../voltage">voltage</a></li>
+<br><b>Instances</b><li><a href="../"></a></li>
+<li><a href="../Bicycle">Bicycle</a></li>
+<li><a href="../Car">Car</a></li>
+<li><a href="../Caravan">Caravan</a></li>
+<li><a href="../Motorcycle">Motorcycle</a></li>
+<li><a href="../CHAdeMOPlug">CHAdeMOPlug</a></li>
+<li><a href="../ComboPlug">ComboPlug</a></li>
+<li><a href="../EUDomesticPlug">EUDomesticPlug</a></li>
+<li><a href="../SchukoPlug">SchukoPlug</a></li>
+<li><a href="../Type1Plug">Type1Plug</a></li>
+<li><a href="../Type2Plug">Type2Plug</a></li>
+<li><a href="../Type3Plug">Type3Plug</a></li>
+<li><a href="../UnknownPlug">UnknownPlug</a></li>
+<li><a href="../AllParkingFacilitiesFull">AllParkingFacilitiesFull</a></li>
+<li><a href="../Closed">Closed</a></li>
+<li><a href="../EnoughParkingSpacesAvailable">EnoughParkingSpacesAvailable</a></li>
+<li><a href="../Faulty">Faulty</a></li>
+<li><a href="../Full">Full</a></li>
+<li><a href="../NoParkAndRideInformation">NoParkAndRideInformation</a></li>
+<li><a href="../NoParkingAllowed">NoParkingAllowed</a></li>
+<li><a href="../NoParkingInformationAvailable">NoParkingInformationAvailable</a></li>
+<li><a href="../NormalParkingRestrictionsLifted">NormalParkingRestrictionsLifted</a></li>
+<li><a href="../OnlyAFewParkingSpacesAvailable">OnlyAFewParkingSpacesAvailable</a></li>
+<li><a href="../ParkAndRideServiceNotOperating">ParkAndRideServiceNotOperating</a></li>
+<li><a href="../ParkAndRideServiceOperating">ParkAndRideServiceOperating</a></li>
+<li><a href="../SpecialParkingRestrictionsInForce">SpecialParkingRestrictionsInForce</a></li>
+<li><a href="../StatusUnknown">StatusUnknown</a></li>
+<li><a href="../LadiesParkingSpace">LadiesParkingSpace</a></li>
+<li><a href="../ParkingBarrier">ParkingBarrier</a></li>
+<li><a href="../ParkingSpaceForDisabledPersons">ParkingSpaceForDisabledPersons</a></li>
+<li><a href="../PayStation">PayStation</a></li>
+<li><a href="../SurveillanceBySecurityGuards">SurveillanceBySecurityGuards</a></li>
+<li><a href="../VideoSurveillance">VideoSurveillance</a></li>
+<li><a href="../XXLParkingSpace">XXLParkingSpace</a></li>
+<li><a href="../BikeAndRide">BikeAndRide</a></li>
+<li><a href="../Carpooling">Carpooling</a></li>
+<li><a href="../ParkAndFly">ParkAndFly</a></li>
+<li><a href="../ParkAndRail">ParkAndRail</a></li>
+<li><a href="../ParkAndRide">ParkAndRide</a></li>
+<li><a href="../MultiStorey">MultiStorey</a></li>
+<li><a href="../SingleLevel">SingleLevel</a></li>
+<li><a href="../Underground">Underground</a></li>
+<li><a href="../Car">Car</a></li>
+<li><a href="../AccessCode">AccessCode</a></li>
+<li><a href="../BadgeHasToBeOrdered">BadgeHasToBeOrdered</a></li>
+<li><a href="../BadgeIsAvailable">BadgeIsAvailable</a></li>
+<li><a href="../CreditCard">CreditCard</a></li>
+<li><a href="../Key">Key</a></li>
+<li><a href="../MobileApplication">MobileApplication</a></li>
+<li><a href="../None">None</a></li>
+<li><a href="../PhoneCall">PhoneCall</a></li>
+<li><a href="../TextMessage">TextMessage</a></li>
+<li><a href="../Undefined">Undefined</a></li>
+<li><a href="../UndefinedIdentificationSystem">UndefinedIdentificationSystem</a></li>
+<li><a href="../Acelerated">Acelerated</a></li>
+<li><a href="../Fast">Fast</a></li>
+<li><a href="../Standard">Standard</a></li>
+<li><a href="../Impossible">Impossible</a></li>
+<li><a href="../Mandatory">Mandatory</a></li>
+<li><a href="../Optional">Optional</a></li>
+<li><a href="../BrandsCustomers">BrandsCustomers</a></li>
+<li><a href="../CustomerOfPremise">CustomerOfPremise</a></li>
+<li><a href="../EmployeesOnly">EmployeesOnly</a></li>
+<li><a href="../IdentifiedPerson">IdentifiedPerson</a></li>
+<li><a href="../InhabitantsOnly">InhabitantsOnly</a></li>
+<li><a href="../Undefined">Undefined</a></li>
+<li><a href="../UndefinedAccessType">UndefinedAccessType</a></li>
+
+</ul>
+
+<br />
+We also have a small set of <a href="../DataType">primitive data types</a> for numbers, text, etc. More details about the data model, etc. are available <a href="datamodel.html">here</a>.
+<br />
+<br />
+
+
+  </div>
+
+
+<div id="footer"><p>
+  <a href="../docs/terms.html">Terms and conditions</a></p>
+</div>
+
+</body>
+</html>
+
