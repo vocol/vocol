@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 GITHUB_CLIENT_ID=<client_id>
 GITHUB_CLIENT_SECRET=<client_secret>
