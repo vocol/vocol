@@ -9,7 +9,7 @@ GITHUB_REPOSITORY="Mobivoc/Mobivoc"
 INTERVAL=5  # (minutes) in which the repository is checked
 
 DEPLOY_PATH="./deploy"
-SCHEMAORG_PATH="$HOME/mobivoc"
+SCHEMAORG_PATH="$HOME/schemaorg"
 VOCOL_PATH="."
 
 # generate Issues, if new errors exist
