@@ -72,6 +72,7 @@ sudo javac -cp .:jena-arq-2.12.1.jar:jena-core-2.12.1.jar:jena-iri-1.1.1.jar:log
 #sudo java -cp "*:." vocol.HtmlGenerator.src.HtmlGenerator /home/vagrant/mobivoc/ChargingPoints.ttl /home/vagrant/schemaorg/data/schema.rdfa //home/vagrant/vocol/HtmlGenerator/Templates/template.html /home/vagrant/schemaorg/docs/schemas.html /home/vagrant/vocol/HtmlGenerator/Templates/schemasTemplate.html
 
 #Configuring Apache
+# TODO on SUSE the virtual hosts are in /etc/apache2/vhosts.d.  On a running system, where the VHost configuration file exists already, it should be _adapted_ rather than overwritten.
 sudo rm /etc/apache2/sites-enabled/000-default
 sudo cp ~/vocol/Vagrant/Apache/000-default.conf /etc/apache2/sites-enabled/000-default.conf
 
@@ -79,13 +80,20 @@ sudo a2enmod proxy
 sudo a2enmod proxy_http
 sudo a2enmod rewrite
 
+# TODO also make sure that apache2 service is started on system startup (e.g. in the runlevel configuration)
 sudo /etc/init.d/apache2 restart
 
 #add a cronjob to excecute every 5 min
 cat <(crontab -l) <(echo "*/5 * * * * bash $HOME/vocol/vocolJob.sh") | crontab -
 
 #run Schema.org through Google_AppEngine 
+# TODO if you had to install Python 2.7 manually, you may have to run the *.py script by explicitly invoking "python27".
+# Manual installation of Python 2.7 requires packages sqlite3-devel
 ~/google_appengine/dev_appserver.py ~/schemaorg/app.yaml --skip_sdk_update_check &
+
+# TODO instead of starting Google App Engine _here_ only, make sure that it is started on system startup, e.g. by an init script.  Many distributions have an init script for "local services to start after everything else has been started"; e.g. on SUSE it's /etc/init.d/after.local.  There, put something like the following:
+# sudo -u mobivoc -i python2.7 ~mobivoc/google_appengine/dev_appserver.py ~mobivoc/schemaorg/app.yaml --skip_sdk_update_check &
+# TODO for a perfect configuration (Christoph was too lazy for this) we should also shut down Google App Engine (e.g. by killing the Python process) from /etc/init.d/halt.local (that's the path on SUSE).
 
 #go to java source file of HTML Documentation Generator
 cd ~/jena-fuseki-1.1.1/
