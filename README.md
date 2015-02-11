@@ -17,7 +17,7 @@ Vocabulary collaboration and build environment.
 		* INTERVAL= <intervall_in_minutes> (e.g.: 5)
 	2. Setting up a cron job on the web server which executes vocolJob.sh in the defined interval. 
 
-## Installation using a Virtual Machine Image (Vagrant): 
+## Installation using a Virtual Machine Image (Vagrant)
 Within the /vargrant folder, you will find the required BoxFiles for setting up the whole environment. 
 
 ##How it works
