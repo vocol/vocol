@@ -12,9 +12,9 @@ Vocabulary collaboration and build environment.
 
 ##Installation on a web server
 	1. Configuring vocolJob.sh
-		* `GITHUB_TOKEN=<client_token>`
-		* `GITHUB_REPOSITORY=<git_repository_path>` (e.g.: "Mobivoc/Mobivoc")
-		* `INTERVAL= <intervall_in_minutes>` (e.g.: 5)
+		* GITHUB_TOKEN=<client_token>
+		* GITHUB_REPOSITORY=<git_repository_path> (e.g.: "Mobivoc/Mobivoc")
+		* INTERVAL= <intervall_in_minutes> (e.g.: 5)
 	2. Setting up a cron job on the web server which executes vocolJob.sh in the defined interval. 
 
 ## Installation using a Virtual Machine Image (Vagrant): 
