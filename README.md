@@ -19,7 +19,7 @@ Vocabulary collaboration and build environment.
 
 ##How VoCol works
 
-By running vocolJob.sh in a predefined interval (e.g. 5min) as a cron job on some Webserver, it checks for new commits of a predefined github repository and collected all touched vocabulary files. These files are validates and in case of syntax errors, they are automatically reports as GitHub issues. In case the new vocabulary version is valid, it is automaticially published in a human-friend and machine-comprehensible way. 
+By running vocolJob.sh in a predefined interval (e.g. 5min) as a cron job on some Webserver, it checks for new commits in the defined github repository and collectes all touched vocabulary files. These files are validated and in case of syntax errors, they are automatically reported as GitHub issues (with a notification to the commiter). In case the new vocabulary version is valid, it is automaticially published in a human-friend and machine-comprehensible way. 
 
 
 Please visit our project homage, where VoCol is employed: [mobivoc](http://github.com/mobivoc/mobivoc/). 
