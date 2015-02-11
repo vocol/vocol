@@ -4,11 +4,11 @@ VoCol
 Vocabulary collaboration and build environment.
 
 ##Required libraries
-	* Python 2.7
-	* Java 1.7+
-	* [Raptor RDF Syntax Library](http://librdf.org/raptor/)
-	* [Schemaorg engine](https://github.com/schemaorg/schemaorg)
-	* Some Webserver for running VoCol
+	- Python 2.7
+	- Java 1.7+
+	- [Raptor RDF Syntax Library](http://librdf.org/raptor/)
+	- [Schemaorg engine](https://github.com/schemaorg/schemaorg)
+	- Some Webserver for running VoCol
 
 ##Installation on a web server
 	1. Configuring vocolJob.sh
