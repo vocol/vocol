@@ -38,8 +38,8 @@ tar -zxvf raptor2-2.0.15.tar.gz
 cd raptor2-2.0.15
 # TODO on SLES: first run zypper addrepo http://download.opensuse.org/repositories/home:/tanty:/openSUSEBackports/SLE_11_SP3/home:tanty:openSUSEBackports.repo
 sudo apt-get install libxml2-dev libxslt1-dev python-dev
-sudo ./configure
-sudo make
+./configure
+make
 sudo make install
 sudo apt-get -y install raptor2-utils
 cd ..
@@ -50,7 +50,6 @@ unzip google_appengine_1.9.17.zip
 
 #clone repositories like below
 git clone https://github.com/rvguha/schemaorg.git
-#(cd schemaorg; git checkout 1a0ba4ddf551a66ab51462b07b0400dbfcd2b60d)
 git clone https://github.com/mobivoc/mobivoc.git
 git clone https://github.com/mobivoc/vocol.git
 
@@ -89,7 +88,6 @@ cat <(crontab -l) <(echo "*/5 * * * * bash $HOME/vocol/vocolJob.sh") | crontab -
 #run Schema.org through Google_AppEngine 
 # TODO if you had to install Python 2.7 manually, you may have to run the *.py script by explicitly invoking "python27".
 # Manual installation of Python 2.7 requires packages sqlite3-devel
-~/google_appengine/dev_appserver.py ~/schemaorg/app.yaml --skip_sdk_update_check &
 
 # TODO instead of starting Google App Engine _here_ only, make sure that it is started on system startup, e.g. by an init script.  Many distributions have an init script for "local services to start after everything else has been started"; e.g. on SUSE it's /etc/init.d/after.local.  There, put something like the following:
 # sudo -u mobivoc -i python2.7 ~mobivoc/google_appengine/dev_appserver.py ~mobivoc/schemaorg/app.yaml --skip_sdk_update_check &
@@ -100,5 +98,11 @@ cd ~/jena-fuseki-1.1.1/
 #sudo chmod -R 777 .
 chmod +x fuseki-server s-*
 
-#run fuseki
-./fuseki-server --update --file=$HOME/mobivoc/ChargingPoints.ttl /myDataset
+sudo touch /etc/init.d/RunMobivocTools
+sudo chmod +x /etc/init.d/RunMobivocTools
+
+sudo sh -c 'echo "/home/vagrant/google_appengine/dev_appserver.py /home/vagrant//schemaorg/app.yaml --skip_sdk_update_check &" >> /etc/init.d/RunMobivocTools'
+sudo sh -c 'echo  "FUSEKI_HOME=/home/vagrant/jena-fuseki-1.1.1 /home/vagrant/jena-fuseki-1.1.1/fuseki-server --update --file=/home/vagrant/mobivoc/ChargingPoints.ttl /myDataset &" >> /etc/init.d/RunMobivocTools'
+
+sudo update-rc.d RunMobivocTools defaults
+bash /etc/init.d/RunMobivocTools
