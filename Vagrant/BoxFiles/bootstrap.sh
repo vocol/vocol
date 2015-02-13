@@ -73,7 +73,7 @@ sudo javac -cp .:jena-arq-2.12.1.jar:jena-core-2.12.1.jar:jena-iri-1.1.1.jar:log
 #Configuring Apache
 # TODO on SUSE the virtual hosts are in /etc/apache2/vhosts.d.  On a running system, where the VHost configuration file exists already, it should be _adapted_ rather than overwritten.
 sudo rm /etc/apache2/sites-enabled/000-default
-sudo cp ~/vocol/Vagrant/Apache/000-default.conf /etc/apache2/sites-enabled/000-default.conf
+sudo cp /home/vagrant/vocol/Vagrant/Apache/000-default.conf /etc/apache2/sites-enabled/000-default.conf
 
 sudo a2enmod proxy
 sudo a2enmod proxy_http
@@ -83,6 +83,7 @@ sudo a2enmod rewrite
 sudo /etc/init.d/apache2 restart
 
 #add a cronjob to excecute every 5 min
+sudo apt-get -y install gnome-schedule
 cat <(crontab -l) <(echo "*/5 * * * * bash $HOME/vocol/vocolJob.sh") | crontab -
 
 #run Schema.org through Google_AppEngine 
@@ -95,13 +96,12 @@ cat <(crontab -l) <(echo "*/5 * * * * bash $HOME/vocol/vocolJob.sh") | crontab -
 
 #go to java source file of HTML Documentation Generator
 cd ~/jena-fuseki-1.1.1/
-#sudo chmod -R 777 .
-chmod +x fuseki-server s-*
+sudo chmod +x fuseki-server s-*
 
 sudo touch /etc/init.d/RunMobivocTools
 sudo chmod +x /etc/init.d/RunMobivocTools
 
-sudo sh -c 'echo "/home/vagrant/google_appengine/dev_appserver.py /home/vagrant//schemaorg/app.yaml --skip_sdk_update_check &" >> /etc/init.d/RunMobivocTools'
+sudo sh -c 'echo "/home/vagrant/google_appengine/dev_appserver.py /home/vagrant/schemaorg/app.yaml --skip_sdk_update_check &" >> /etc/init.d/RunMobivocTools'
 sudo sh -c 'echo  "FUSEKI_HOME=/home/vagrant/jena-fuseki-1.1.1 /home/vagrant/jena-fuseki-1.1.1/fuseki-server --update --file=/home/vagrant/mobivoc/ChargingPoints.ttl /myDataset &" >> /etc/init.d/RunMobivocTools'
 
 sudo update-rc.d RunMobivocTools defaults
