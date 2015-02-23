@@ -12,7 +12,7 @@ The source code is in the directory
 in the `vocol` repository.
 
 Some open source libraries are included. Licenses can be found in the
-source files.
+source files. Tested with Chromium 39 and Firefox 35.
 
 ## Further ideas
 
