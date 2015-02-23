@@ -1,6 +1,7 @@
 // see https://www.npmjs.com/package/github-client
 // and http://getbootstrap.com/css/ (styles for prettiness)
 // and http://codemirror.net/ (text editor with syntax highlighting)
+// and https://github.com/RubenVerborgh/N3.js (Turtle parser)
 
 define(['jquery', 'github', 'N3', 'lib/codemirror', 'mode/turtle/turtle',
         'logger'],
