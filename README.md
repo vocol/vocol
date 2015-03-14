@@ -1,7 +1,16 @@
-VoCol
+VoCol - Vocabulary collaboration and build environment.
 =====
 
-Vocabulary collaboration and build environment.
+Vocabularies typically reflect a consensus among experts in a certain application domain. They are thus implemented in collaboration of domain experts and knowledge engineers. Particularly the presence of domain experts with little technical background requires a low-threshold vocabulary engineering methodology. This methodology should be implementable without dependencies on complex software components, it should provide collaborators with comprehensible feedback on syntax
+and semantics errors in a tight loop, and it should give access to a human-readable presentation of the vocabulary. 
+
+Inspired by agile software and content development methodologies, the VoCol methodology and tool environment addresses these requirements. The VoCol environment is employing loose coupling of validation and documentation generation components
+on top of a standard Git repository. All of these components, even the repository engine, can be exchanged with little effort. 
+
+More information about VoCol can be found in the paper: 
+*VoCol: An Agile Methodology and Environment for Collaborative Vocabulary Development*
+by Petersen, Niklas ; Halilaj, Lavdim ; Lange, Christoph ; Auer, Sören
+https://zenodo.org/record/15023
 
 ##Required libraries
 	- Python 2.7
