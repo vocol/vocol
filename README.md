@@ -1,13 +1,16 @@
 VoCol - Vocabulary collaboration and build environment.
 =====
 
-Vocabularies typically reflect a consensus among experts in a certain application domain. They are thus implemented in collaboration of domain experts and knowledge engineers. Particularly the presence of domain experts with little technical background requires a low-threshold vocabulary engineering methodology. This methodology should be implementable without dependencies on complex software components, it should provide collaborators with comprehensible feedback on syntax
-and semantics errors in a tight loop, and it should give access to a human-readable presentation of the vocabulary. 
+Linked Data vocabularies are a crucial building block of the Semantic Data Web and semantic-aware data-value chains.
+Vocabularies  reflect a consensus among experts in a certain application domain. 
+They are thus implemented in collaboration of domain experts and knowledge engineers. Particularly the presence of domain experts with little technical background requires a low-threshold vocabulary engineering environment.
 
-Inspired by agile software and content development methodologies, the VoCol methodology and tool environment addresses these requirements. The VoCol environment is employing loose coupling of validation and documentation generation components
-on top of a standard Git repository. All of these components, even the repository engine, can be exchanged with little effort. 
+Inspired by agile software and content development methodologies, the VoCol methodology and tool environment addresses this requirement. 
+VoCol is implemented without dependencies on complex software components, it provides collaborators with comprehensible feedback on syntax and semantics errors in a tight loop, and gives access to a human-readable presentation of the vocabulary. 
+The VoCol environment is employing loose coupling of validation and documentation generation components on top of a standard Git repository. 
+All VoCol components, even the repository engine, can be exchanged with little effort. 
 
-More information about VoCol can be found in the paper: 
+More information about VoCol can be found at http://eis.iai.uni-bonn.de/Projects/VoCol.html and in the paper: 
 *VoCol: An Agile Methodology and Environment for Collaborative Vocabulary Development*
 by Petersen, Niklas ; Halilaj, Lavdim ; Lange, Christoph ; Auer, Sören
 https://zenodo.org/record/15023
