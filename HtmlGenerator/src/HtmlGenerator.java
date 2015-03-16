@@ -22,17 +22,20 @@ public class HtmlGenerator {
 	public static void main(String[] args) {
 
 		try {
+			GenerateResourceDetails("/home/lavdim/Downloads/ChargingPoints.ttl", "/home/lavdim/Downloads/schema-org/schemaorg/data/schema.rdfa", 
+					"/home/lavdim/Downloads/schema-org/bin/Templates/template.html","prefix mv: <http://purl.org/net/mobivoc/>");
+			
+			GenerateResourceList("/home/lavdim/Downloads/ChargingPoints.ttl", "/home/lavdim/Downloads/schema-org/schemaorg/docs/schemas.html", 
+					"/home/lavdim/Downloads/schema-org/bin/Templates/schemasTemplate.html","prefix mv: <http://purl.org/net/mobivoc/>" );
+			
+			//GenerateResourceList(args[0], args[3], args[4],args[5] );
 
-			if (args.length == 5) {
-				GenerateSchemasHTML(args[0], args[3], args[4]);
-			}
-
-			GenerateSchemaRDFa(args[0], args[1], args[2]);
+			//GenerateResourceDetails(args[0], args[1], args[2],args[5]);
 
 		} catch (ArrayIndexOutOfBoundsException e) {
 			System.out
 					.println("Missing argument! 1st:SourceFile; 2nd: DestinationFile;"
-							+ "3rd: Template; 4th (Optional): schemas.html Path; 5th (Optional): schemas.html Template Path!");
+							+ "3rd: Template; 4th: Resousce Details Template Path; 5th: Resource List Template Path; 6th: Vocabulary Prefix!");
 		} catch (RiotNotFoundException e) {
 			System.out.println("File not found.Please verify file location!");
 		} catch (FileNotFoundException e) {
@@ -41,21 +44,21 @@ public class HtmlGenerator {
 			System.out
 					.println(e.getMessage() + " \n on file: " + args[0] + "!");
 		} catch (IOException e) {
-			e.printStackTrace();
+			e.printStackTrace(); 
 		}
-
 	}
 
-	public static void GenerateSchemaRDFa(String _source, String _destination,
-			String _template) throws IOException {
+	@SuppressWarnings("resource")
+	public static void GenerateResourceDetails(String _source, String _destination,
+			String _template,String _prefix) throws IOException {
 		
 			FileManager.get()
 					.addLocatorClassLoader(Main.class.getClassLoader());
 
 			Model model = FileManager.get().loadModel(_source);
-
-			String queryString = "PREFIX mv: <http://purl.org/net/mobivoc/> "
-					+ "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> "
+			
+			String mainQuery = _prefix
+					+ " PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> "
 					+ "PREFIX owl: <http://www.w3.org/2002/07/owl#> "
 					+ "PREFIX rdf:    		<http://www.w3.org/1999/02/22-rdf-syntax-ns#> "
 					+ "PREFIX xsd:     		<http://www.w3.org/2001/XMLSchema#> "
@@ -67,14 +70,19 @@ public class HtmlGenerator {
 					+ "PREFIX vcard:		        <http://www.w3.org/2001/vcard-rdf/3.0#> "
 					+ "PREFIX skos: 			<http://www.w3.org/2004/02/skos/core#> "
 					+ "PREFIX dbr: 			<http://dbpedia.org/resource/> "
-					+ "SELECT DISTINCT ?subject ?o WHERE { ?subject a ?o. FILTER(?o not in(owl:Class, owl:ObjectProperty, owl:DatatypeProperty ))}"
+					+ "	SELECT distinct ?subject ?o "
+					+ "	    WHERE { ?subject a ?obj. "
+                    + "	            BIND(REPLACE(REPLACE(str(?obj), '^.*(#|/)', \"\"),\"[^/]*Property[^/]*\",\"Property\") AS ?o)"                           
+                    + "	} order by ?o"
 					+ "";
 
-			QueryExecution qexec = QueryExecutionFactory.create(queryString,
+			QueryExecution qexec = QueryExecutionFactory.create(mainQuery,
 					model);
 
 			BufferedReader in;
 			String strLine, htmlString = "", body = "";
+			
+
 
 			in = new BufferedReader(new FileReader(_template));
 			while ((strLine = in.readLine()) != null) {
@@ -90,29 +98,23 @@ public class HtmlGenerator {
 
 					RDFNode node;
 
-					/*
-					 * node = soln.get("subject"); body +=
-					 * "<div typeof=\"rdfs:Class\" resource=\"http://schema.org/"
-					 * + node.asResource().getLocalName()+ "\">\n";
-					 */
-
-					String resourceType = soln.get("o").asResource().toString();
+					String resourceType = soln.get("o").toString();
 					node = soln.get("subject");
 
 					if (resourceType.contains("Class")) {
-
 						body += "<div typeof=\"rdfs:Class\" resource=\"http://schema.org/"
 								+ node.asResource().getLocalName() + "\">\n";
-
-					} else {
-
+					} else if (resourceType.contains("Property")){
 						body += "<div typeof=\"rdf:Property\" resource=\"http://schema.org/"
 								+ node.asResource().getLocalName() + "\">\n";
-
+					}
+					else {
+						body += "<div typeof=\"rdfs:Class\" resource=\"http://schema.org/"
+								+ node.asResource().getLocalName() + "\">\n";
 					}
 
-					queryString = "PREFIX mv: <http://purl.org/net/mobivoc/> "
-							+ "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> "
+					String queryString = _prefix
+							+ " PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> "
 							+ "PREFIX owl: <http://www.w3.org/2002/07/owl#> "
 							+ "PREFIX rdf:    		<http://www.w3.org/1999/02/22-rdf-syntax-ns#> "
 							+ "PREFIX xsd:     		<http://www.w3.org/2001/XMLSchema#> "
@@ -124,7 +126,7 @@ public class HtmlGenerator {
 							+ "PREFIX vcard:		        <http://www.w3.org/2001/vcard-rdf/3.0#> "
 							+ "PREFIX skos: 			<http://www.w3.org/2004/02/skos/core#> "
 							+ "PREFIX dbr: 			<http://dbpedia.org/resource/> "
-							+ "SELECT ?s ?pr ?o ?language ?pureText WHERE { mv:"
+							+ "SELECT ?s ?pr ?o ?language ?pureText WHERE { "+_prefix.split(" ")[1]
 							+ node.asResource().getLocalName()
 							+ " ?pr ?o . "
 							+ " "
@@ -142,8 +144,6 @@ public class HtmlGenerator {
 						resourceName = soln.get("pr").toString();
 
 						if (resourceName.contains("label")) {
-							// body +=
-							// "<span class=\"h\" property=\"rdfs:label\" >";
 							body += "<span class=\"h\" property=\"rdfs:label\" lang=\""
 									+ soln.get("language").toString() + "\">";
 							resourceName = soln.get("pureText").toString();
@@ -182,12 +182,8 @@ public class HtmlGenerator {
 							resourceName = " href=\"http://schema.org/"
 									+ soln.get("o").asResource().getLocalName()
 									+ "\" />";
-							// resourceName = " href=\"" +
-							// soln.get("o").toString()
-							// + "\" />";
 							body += resourceName;
 						}
-
 					}
 
 					body += "</div>";
@@ -198,8 +194,6 @@ public class HtmlGenerator {
 
 				PrintWriter outputStream = null;
 
-				// outputStream = new PrintWriter(new
-				// FileOutputStream("/home/lavdim/Downloads/schema-org/schemaorg/data/schema.rdfa"));
 				outputStream = new PrintWriter(new FileOutputStream(
 						_destination));
 
@@ -208,19 +202,17 @@ public class HtmlGenerator {
 					outputStream.println(htmlString);
 				}
 				outputStream.close();
-				System.out.println("File has been generated successfully.");
-	
-
+				System.out.println("File with resource details has been generated successfully.");
 	}
 
-	public static void GenerateSchemasHTML(String _source, String _destination, String _template) throws IOException {
+	public static void GenerateResourceList(String _source, String _destination, String _template, String _prefix) throws IOException {
 
 		FileManager.get().addLocatorClassLoader(Main.class.getClassLoader());
 
 		Model model = FileManager.get().loadModel(_source);
-
-		String queryString = "PREFIX mv: <http://purl.org/net/mobivoc/> "
-				+ "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> "
+		
+		String query = _prefix
+				+ " PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> "
 				+ "PREFIX owl: <http://www.w3.org/2002/07/owl#> "
 				+ "PREFIX rdf:    		<http://www.w3.org/1999/02/22-rdf-syntax-ns#> "
 				+ "PREFIX xsd:     		<http://www.w3.org/2001/XMLSchema#> "
@@ -232,10 +224,14 @@ public class HtmlGenerator {
 				+ "PREFIX vcard:		        <http://www.w3.org/2001/vcard-rdf/3.0#> "
 				+ "PREFIX skos: 			<http://www.w3.org/2004/02/skos/core#> "
 				+ "PREFIX dbr: 			<http://dbpedia.org/resource/> "
-				+ "SELECT DISTINCT ?subject ?o WHERE { ?subject a ?o. FILTER(?o not in(owl:Class, owl:ObjectProperty, owl:DatatypeProperty ))}"
-				+ "  ORDER BY DESC(?o)";
+				+ "	SELECT distinct ?subject ?o "
+				+ "	    WHERE { ?subject a ?obj. "
+                + "	            BIND(REPLACE(REPLACE(str(?obj), '^.*(#|/)', \"\"),\"[^/]*Property[^/]*\",\"Property\") AS ?interVal)"
+                + "	            BIND(REPLACE(?interVal,\"^((?!Class|Property).)*$\",\"Z\"+?interVal) AS ?o)"                             
+                + "	} order by ?o"
+				+ "";
 
-		QueryExecution qexec = QueryExecutionFactory.create(queryString, model);
+		QueryExecution qexec = QueryExecutionFactory.create(query, model);
 
 		BufferedReader in = new BufferedReader(new FileReader(_template));
 
@@ -244,9 +240,9 @@ public class HtmlGenerator {
 			htmlString += strLine + "\n";
 		}
 
-		ResultSet result = qexec.execSelect(), resultProperties;
+		ResultSet result = qexec.execSelect();
 
-		String resourceName = "", entityType="";
+		String entityType="";
 
 		while (result.hasNext()) {
 
@@ -254,7 +250,7 @@ public class HtmlGenerator {
 
 			RDFNode node = soln.get("subject");
 			
-			String resourceType = soln.get("o").asResource().toString();
+			String resourceType = soln.get("o").toString();
 			
 			if (resourceType.contains("Class")) {
 
@@ -279,12 +275,10 @@ public class HtmlGenerator {
 					entityType="Intance";
 					body += "<br><b>Instances</b>"; 
 				}
-
 			}
 
-			body += "<li><a href=\"../" + node.asResource().getLocalName()
-					+ "\">" + node.asResource().getLocalName() + "</a></li>\n";
-
+			if(!node.asResource().getLocalName().equals(""))
+			   body += "<li><a href=\"../" + node.asResource().getLocalName() + "\">" + node.asResource().getLocalName() + "</a></li>\n";
 		}
 
 		htmlString = htmlString.replace("$li", body);
@@ -298,7 +292,7 @@ public class HtmlGenerator {
 			outputStream.println(htmlString);
 		}
 		outputStream.close();
-		System.out.println("SchemasHTML has been generated successfully.");
+		System.out.println("File with list of resources has been generated successfully.");
 
 	}
 
