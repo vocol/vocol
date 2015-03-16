@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<!-- see comment in js/app/github-ttl-editor.js for some links -->
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Editing Turtle on GitHub</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/codemirror.css" rel="stylesheet">
+
+    <script src="js/config.js"></script>
+    <script data-main="github-ttl-editor" src="js/lib/require.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+
+      <header class="page-header">
+        <h1>Editing Turtle on GitHub</h1>
+        <p class="lead">
+	  Load, view, edit, and save one turtle file on GitHub.
+        </p>
+        <p class="lead">
+	  Note: you need to provide your username and password only if you
+	  want to save the file. For a quick tour leave those fields blank
+	  and just click the <em>Load File</em> button followed by
+	  <em>Check syntax</em>.
+        </p>
+      </header>
+
+      <section id="logging" class="bg-danger"></section>
+      <form>
+	<div class="row">
+          <div class="col-md-3">
+	    <div class="form-group">
+	      <label for="inputUsername">Username (for login)</label>
+	      <input type="text" class="form-control" id="inputUsername"
+		     placeholder="Enter your username on GitHub">
+            </div>
+	    <div class="form-group">
+	      <label for="inputPassword">Password</label>
+	      <input type="password" class="form-control"
+		     id="inputPassword" placeholder="Password">
+            </div>
+	    <div class="form-group">
+	      <label for="inputOwner">Owner of Repository (username)</label>
+	      <input type="text" class="form-control" id="inputOwner"
+		     placeholder="Owner's username on GitHub">
+            </div>
+	    <div class="form-group">
+	      <label for="inputRepo">Repository</label>
+	      <input type="text" class="form-control" id="inputRepo"
+		     value="main">
+	    </div>
+	    <div class="form-group">
+	      <label for="inputBranch">Branch</label>
+	      <input type="text" class="form-control" id="inputBranch"
+		     value="master">
+	    </div>
+	    <div class="form-group">
+	      <label for="inputFilename">Filename</label>
+	      <input type="text" class="form-control" id="inputFilename"
+		     placeholder="Path/to/file.ttl">
+	    </div>
+	    <div class="form-group">
+	      <button type="button" id="loadFileButton"
+		      class="btn btn-primary">Load File</button>
+	      <button type="button" id="saveFileButton"
+		      class="btn btn-default">Save File</button>
+            </div>
+	    <div class="form-group">
+	      <button type="button" id="syntaxButton"
+		      class="btn btn-default">Check syntax</button>
+            </div>
+          </div>
+          <div class="col-md-9">
+	    <div class="form-group">
+	      <label for="inputContents">Content editor</label>
+	      <textarea id="inputContents"
+			placeholder="File content will appear here"
+			rows="24" wrap="hard"></textarea>
+	    </div>
+	    <div class="form-group">
+	      <label for="inputMessage">Commit message</label>
+	      <input type="text" class="form-control" id="inputMessage"
+			value="Some changes were made.">
+	   </div>
+          </div>
+        </div>
+      </form>
+    </div><!-- /.container -->
+  </body>
+</html>
