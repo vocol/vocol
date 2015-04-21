@@ -22,15 +22,10 @@ public class HtmlGenerator {
 	public static void main(String[] args) {
 
 		try {
-			GenerateResourceDetails("/home/lavdim/Downloads/ChargingPoints.ttl", "/home/lavdim/Downloads/schema-org/schemaorg/data/schema.rdfa", 
-					"/home/lavdim/Downloads/schema-org/bin/Templates/template.html","prefix mv: <http://purl.org/net/mobivoc/>");
-			
-			GenerateResourceList("/home/lavdim/Downloads/ChargingPoints.ttl", "/home/lavdim/Downloads/schema-org/schemaorg/docs/schemas.html", 
-					"/home/lavdim/Downloads/schema-org/bin/Templates/schemasTemplate.html","prefix mv: <http://purl.org/net/mobivoc/>" );
-			
-			//GenerateResourceList(args[0], args[3], args[4],args[5] );
+	
+			GenerateResourceList(args[0], args[3], args[4],args[5] );
 
-			//GenerateResourceDetails(args[0], args[1], args[2],args[5]);
+			GenerateResourceDetails(args[0], args[1], args[2],args[5]);
 
 		} catch (ArrayIndexOutOfBoundsException e) {
 			System.out
