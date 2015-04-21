@@ -144,7 +144,7 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger) {
   buttonSyntax.bind("click", checkSyntax);
 
   // pre-fill some input fields for a quick example
-  inputOwner.val("mobivoc");
+  inputOwner.val("vocol");
   inputRepo.val("mobivoc");
   inputFilename.val("Parking.ttl");
   
