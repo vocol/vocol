@@ -40,9 +40,13 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger) {
                                              });
 
 
-  editor.on("gutterClick", function(cm, n) {
-    var info = cm.lineInfo(n);
-    cm.setGutterMarker(n, "breakpoints", info.gutterMarkers ? null : makeMarker());
+
+  editor.on("cursorActivity", function(cm, n) {
+    logger.debug(null, "some cursor activity");
+  /* var info = cm.lineInfo(n);
+    logger.debug(null, info); */
+    buttonSyntax.click();
+
   });
 
   function makeMarker(errorMessage) {
@@ -120,7 +124,7 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger) {
           inputOwner.attr("disabled", "disabled");
           inputRepo.attr("disabled", "disabled");
           inputBranch.attr("disabled", "disabled");
-          editor.focus();
+        //  editor.focus();
         })
         .fail(function(err) {
           logger.error("Read from GitHub failed", err);
@@ -148,9 +152,12 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger) {
 
   var parserHandler = function (error, triple, prefixes) {
       
+      logger.debug(null, error);
       if (error) {
-        logger.error(null, error.message);
-        editor.focus();
+
+
+     //   logger.error(null, error.message);
+     //   editor.focus();
         /* editor.setCursor({line: (error.line || 1) - 1, ch: 0});   */
 
         /* extract line Number, only consider the end of the string after "line" */
@@ -158,7 +165,7 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger) {
         var errorLineNumber = parseInt(errorSubString) -1;
 
         /* set cursor */
-        editor.setCursor(errorLineNumber);
+     //   editor.setCursor(errorLineNumber);
 
         /* add background color, gutter + tooltip*/
         editor.getDoc().addLineClass(errorLineNumber, "wrap", "ErrorLine-background");
