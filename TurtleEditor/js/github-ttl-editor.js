@@ -40,14 +40,7 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger) {
                                              });
 
 
-
-  editor.on("cursorActivity", function(cm, n) {
-    logger.debug(null, "some cursor activity");
-  /* var info = cm.lineInfo(n);
-    logger.debug(null, info); */
-    buttonSyntax.click();
-
-  });
+  editor.on("change", function(cm, o)  { buttonSyntax.click();});
 
   function makeMarker(errorMessage) {
     var marker = document.createElement("div");
@@ -57,12 +50,6 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger) {
     return marker;
   }
 
-/*
-  $(document).mouseover( function(e) 
-  {
-    logger.debug(null, $(this));
-  });
-*/
          
   var toggleLoadButton = function () {
     buttonLoad.toggleClass("btn-primary");
@@ -152,7 +139,7 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger) {
 
   var parserHandler = function (error, triple, prefixes) {
       
-      logger.debug(null, error);
+  /*    logger.debug(null, error); */
       if (error) {
 
 
