@@ -1,3 +1,10 @@
+
+/* Vocol definitions:  */
+.ErrorLine-background {background: #F2DEDE;} /* light red */
+
+.breakpoints {width: .8em;}
+.breakpoint { color: #822; }
+
 /* BASICS */
 
 .CodeMirror {
