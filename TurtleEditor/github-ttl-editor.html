@@ -19,7 +19,7 @@
   <body>
     <div class="container">
 
-      <header class="page-header">
+      <header class="page-header" style="display: none;">
         <h1>Editing Turtle on GitHub</h1>
         <p class="lead">
 	  Load, view, edit, and save one turtle file on GitHub.
@@ -36,17 +36,17 @@
       <form>
 	<div class="row">
           <div class="col-md-3">
-	    <div class="form-group">
+	    <div class="form-group" style="display: none;">
 	      <label for="inputUsername">Username (for login)</label>
 	      <input type="text" class="form-control" id="inputUsername"
 		     placeholder="Enter your username on GitHub">
             </div>
-	    <div class="form-group">
+	    <div class="form-group" style="display: none;">
 	      <label for="inputPassword">Password</label>
 	      <input type="password" class="form-control"
 		     id="inputPassword" placeholder="Password">
             </div>
-	    <div class="form-group">
+	    <div class="form-group"  style="display: none;">
 	      <label for="inputOwner">Owner of Repository (username)</label>
 	      <input type="text" class="form-control" id="inputOwner"
 		     placeholder="Owner's username on GitHub">
@@ -56,16 +56,19 @@
 	      <input type="text" class="form-control" id="inputRepo"
 		     value="main">
 	    </div>
-	    <div class="form-group">
+	    <div class="form-group" style="display: none;">
 	      <label for="inputBranch">Branch</label>
 	      <input type="text" class="form-control" id="inputBranch"
 		     value="master">
 	    </div>
 	    <div class="form-group">
 	      <label for="inputFilename">Filename</label>
-	      <input type="text" class="form-control" id="inputFilename"
-		     placeholder="Path/to/file.ttl">
+	      <select id="selectFile">
+  		   </select>
+
+
 	    </div>
+
 	    <div class="form-group">
 	      <button type="button" id="loadFileButton"
 		      class="btn btn-primary">Load File</button>
@@ -82,7 +85,7 @@
 	      <label for="inputContents">Content editor</label>
 	      <textarea id="inputContents"
 			placeholder="File content will appear here"
-			rows="24" wrap="hard"></textarea>
+			rows="54" wrap="hard"></textarea>
 	    </div>
 	    <div class="form-group">
 	      <label for="inputMessage">Commit message</label>
