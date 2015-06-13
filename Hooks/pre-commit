@@ -1,0 +1,76 @@
+#!/bin/sh
+#
+# An example hook script to verify what is about to be committed.
+# Called by "git commit" with no arguments.  The hook should
+# exit with non-zero status after issuing an appropriate message if
+# it wants to stop the commit.
+#
+# To enable this hook, rename this file to "pre-commit".
+
+currentBranch=$(git symbolic-ref HEAD)
+
+if [ "$currentBranch" = "refs/heads/master1" ]; then
+	 echo "\t\033[31mYou are not allowed to commit to master branch! ${file}\033[0m"
+	 exit 1
+else
+
+	files=$(git diff --cached --name-only --diff-filter=ACM | grep ".ttl$")
+	if [ "$files" = "" ]; then 
+	    exit 0 
+	fi
+
+	pass=true	
+
+	echo "\nValidating Turtle:\n"
+
+	for file in ${files}; do
+
+	    res=$(rapper -i turtle "${files}" -c 2>&1)
+
+	    if echo $res | grep -q "Error"; then
+		echo "\t\033[31mValidation Failed! ${file}\033[0m"
+		echo $res
+		pass=false
+	    else
+	       echo "\t\033[32mValidation Passed! ${file}\033[0m"
+	    fi
+
+	done
+
+        if ! $pass; then
+	 
+          for file in ${files}; do
+
+           fileContent=`cat ${files}`
+
+	   result="<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+	   <OOPSRequest>
+		<OntologyUrl></OntologyUrl>
+		<OntologyContent>${fileContent}</OntologyContent>
+		<Pitfalls>10</Pitfalls>
+		<OutputFormat></OutputFormat>
+	   </OOPSRequest>"
+
+	   res=$(curl -X POST -d "$result" -H "Content-Type: application/xml" http://oops-ws.oeg-upm.net/rest)
+
+	   if echo $res | grep -q "Error"; then
+		echo $res
+                pass = false
+
+	    fi
+
+	  done
+
+	fi
+
+	echo "\Turtle validation complete\n"
+
+	if ! $pass; then
+	    echo "\033[41mCOMMIT FAILED:\033[0m Your commit contains files that should pass Validation but do not. Please fix the errors and try again.\n"
+	    echo ${file}
+	    exit 1
+	else
+	    echo "\033[42mCOMMIT SUCCEEDED\033[0m\n"
+	fi
+
+fi
