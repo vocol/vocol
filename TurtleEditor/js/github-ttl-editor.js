@@ -3,8 +3,11 @@
 // and http://codemirror.net/ (text editor with syntax highlighting)
 // and https://github.com/RubenVerborgh/N3.js (Turtle parser)
 
+
 define(['jquery', 'github', 'N3', 'lib/codemirror', 'mode/turtle/turtle',
         'logger'],
+
+
 function($, Github, N3, CodeMirror, ModeTurtle, logger) {
 
   var isBinary = false;
@@ -25,12 +28,28 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger) {
   var buttonSave    = $("#saveFileButton");
   var buttonSyntax  = $("#syntaxButton");
 
+
+
+
   var myTextarea = inputContents[0];
   var editor = CodeMirror.fromTextArea(myTextarea,
                                              { mode: "turtle",
                                                autofocus: false,
-                                               lineNumbers: true
+                                               lineNumbers: true,
+                                               gutters: ["CodeMirror-linenumbers", "breakpoints"]
                                              });
+
+
+  editor.on("change", function(cm, o)  { buttonSyntax.click();});
+
+  function makeMarker(errorMessage) {
+    var marker = document.createElement("div");
+    marker.style.color = "#822";
+    marker.innerHTML = "●";
+    marker.title = errorMessage;
+    return marker;
+  }
+
          
   var toggleLoadButton = function () {
     buttonLoad.toggleClass("btn-primary");
@@ -92,7 +111,7 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger) {
           inputOwner.attr("disabled", "disabled");
           inputRepo.attr("disabled", "disabled");
           inputBranch.attr("disabled", "disabled");
-          editor.focus();
+        //  editor.focus();
         })
         .fail(function(err) {
           logger.error("Read from GitHub failed", err);
@@ -119,10 +138,25 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger) {
   }
 
   var parserHandler = function (error, triple, prefixes) {
+      
+  /*    logger.debug(null, error); */
       if (error) {
-        logger.error(null, error.message);
-        editor.focus();
-        editor.setCursor({line: (error.line || 1) - 1, ch: 0});
+
+
+     //   logger.error(null, error.message);
+     //   editor.focus();
+        /* editor.setCursor({line: (error.line || 1) - 1, ch: 0});   */
+
+        /* extract line Number, only consider the end of the string after "line" */
+        var errorSubString = error.message.substr(error.message.indexOf("line")+4);
+        var errorLineNumber = parseInt(errorSubString) -1;
+
+        /* set cursor */
+     //   editor.setCursor(errorLineNumber);
+
+        /* add background color, gutter + tooltip*/
+        editor.getDoc().addLineClass(errorLineNumber, "wrap", "ErrorLine-background");
+        editor.setGutterMarker(errorLineNumber, "breakpoints", makeMarker(error.message));
 
       } else if (!triple) {
         successSignal();
@@ -130,6 +164,12 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger) {
     }
 
   var checkSyntax = function () {
+
+    /* remove all previous errors */ 
+    editor.eachLine(function(line)
+            { editor.getDoc().removeLineClass(line, "wrap");
+              editor.clearGutter("breakpoints");}) ;
+
     var parser, content;
     logger.clear();
     if (fileIsLoaded) {
