@@ -1,0 +1,38 @@
+#!/bin/sh
+
+files=$(git diff --cached --name-only --diff-filter=ACM | grep ".ttl$")
+if [ "$files" = "" ]; then 
+    exit 0 
+fi	
+
+for file in ${files}; do
+
+    #Generate documentation using Parrot
+    java -jar tools/parrot-jar-with-dependencies.jar -i "${file}" -o "${file}".html
+    
+    #Generate documentation using Widoco
+    # java -jar  @path/widoco-0.0.1-jar-with-dependencies.jar -ontFile "${file}" -outFolder /home/
+
+    #Generate documentation using Specgen
+    # @path/specgen6.py --indir=onto/olo/ --ns=http://purl.org/mobivoc#  --prefix=olo --ontofile="${file}" --outdir=spec/olo/ --templatedir=onto/olo/ --    
+    # outfile="${file}".html
+
+    #Generate documentation using CustomTool from https://github.com/vocol/vocol/tree/master/HtmlGenerator in combination with Schema.org and Google Appi Engine
+    #  java \
+    #    -cp  .:jena-arq-2.12.1.jar:jena-core-2.12.1.jar:jena-iri-1.1.1.jar:log4j-1.2.17.jar:slf4j-api-1.7.6.jar:xercesImpl-2.11.0.jar:xml-apis-1.4.01.jar \
+    #    HtmlGenerator \
+    #    "${DEPLOY_PATH}/"${file}" \
+    #    "${SCHEMAORG_PATH}/data/schema.rdfa" \
+    #    "${VOCOL_PATH}/HtmlGenerator/Templates/template.html" \
+    #    "${SCHEMAORG_PATH}/docs/schemas.html" \
+    #    "${VOCOL_PATH}/HtmlGenerator/Templates/schemasTemplate.html"
+ 
+    #Generate documentation using Dowl
+    # $(dowl "${file}" > owldoc/"${file}".html)
+
+done
+
+echo "\Documentation Generation completed.\n"
+
+exit 1
+
