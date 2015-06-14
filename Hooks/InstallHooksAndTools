@@ -7,6 +7,7 @@ do
  if [ $file != "InstallHooksAndTools" ]; then
    echo $file 
    cp hooks/$file .git/hooks/$file
+   sudo chmod +x .git/hooks/$file
  fi
 done
 
@@ -35,4 +36,16 @@ fi
 #Install Parrot
 if [ ! -e "parrot-jar-with-dependencies.jar" ]; then
   curl -O https://github.com/vocol/vocol/raw/master/Hooks/tools/parrot-jar-with-dependencies.jar
+fi
+
+cd ..
+
+#Ignore tools folder using .gitignore
+if [ ! -e ".gitignore" ]; then
+  touch .gitignore
+  echo "tools/" >> .gitignore
+else
+  if ! grep -q "tools" ".gitignore"; then
+   echo "tools/" >> .gitignore
+  fi
 fi
