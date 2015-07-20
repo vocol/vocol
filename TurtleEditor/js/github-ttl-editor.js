@@ -13,7 +13,6 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger) {
   var isBinary = false;
 
   var gh, repo, branch;
-  var fileIsLoaded = false;
 
   var header        = $(".page-header");
   var inputUsername = $("#inputUsername");
@@ -35,9 +34,15 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger) {
                                                lineNumbers: true,
                                                gutters: ["CodeMirror-linenumbers", "breakpoints"]
                                              });
+  var wasChanged = false;
+
+  var state = {
+    syntaxCheck: "pending", // can be one of "passed", "pending" or "failed"
+    fileIsLoaded: false
+  };
 
 
-  editor.on("change", function(cm, o) { checkSyntax(); });
+  editor.on("change", function(cm, o) { wasChanged = true; syntaxCheck = "pending"; });
 
   function makeMarker(errorMessage) {
     var marker = document.createElement("div");
@@ -56,18 +61,6 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger) {
     buttonSave.toggleClass("btn-default");
     buttonSave.toggleClass("btn-danger");
   };
-
-  var toggleSyntaxButton = function () {
-    buttonSyntax.toggleClass("btn-default");
-    buttonSyntax.toggleClass("btn-primary");
-  };
-
-  var successSignal = function () {
-    header.toggleClass("bg-success");
-    window.setTimeout(function () {
-      header.toggleClass("bg-success");           
-    }, 1500);
-  };
   
   var loadFromGitHub = function () {
     var user;
@@ -76,9 +69,10 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger) {
     var reponame = inputRepo.val().trim();
     var branchname = inputBranch.val().trim();
     var filename = inputFilename.val().trim();
-    logger.clear();
-    if (fileIsLoaded) {
-      alert("File already loaded!");
+
+    //logger.clear();
+    if (state.fileIsLoaded) {
+      logger.info("File already loaded!");
     } else {
       gh = new Github({
         username: username,
@@ -88,7 +82,7 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger) {
       user = gh.getUser();
       logger.debug("user", user);
       if (!user) {
-        logger.warning("NOT logged in: ", username);
+        logger.warning("Not logged in.", username);
       }
       
       repo = gh.getRepo(ownername, reponame);
@@ -96,12 +90,11 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger) {
       branch.read(filename, isBinary)
         .done(function(contents) {
           editor.setValue(contents.content);
-          fileIsLoaded = true;
+          state.fileIsLoaded = true;
           toggleLoadButton();
           if (user) {
             toggleSaveButton();
           }
-          toggleSyntaxButton();
           inputUsername.attr("disabled", "disabled");
           inputPassword.attr("disabled", "disabled");
           inputOwner.attr("disabled", "disabled");
@@ -113,6 +106,7 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger) {
           logger.error("Read from GitHub failed", err);
         });
     }
+    wasChanged = true;
   };
   
   var storeToGitHub = function () {
@@ -120,7 +114,7 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger) {
     var content = editor.getValue().trim();
     var message = inputMessage.val().trim();
     logger.clear();
-    if (fileIsLoaded) {
+    if (state.fileIsLoaded) {
       branch.write(filename, content, message, isBinary)
         .done(function() {
           successSignal();
@@ -155,7 +149,8 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger) {
         editor.setGutterMarker(errorLineNumber, "breakpoints", makeMarker(error.message));
 
       } else if (!triple) {
-        successSignal();
+        //successSignal();
+        logger.success("No errors found.");
       }
     };
 
@@ -167,11 +162,17 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger) {
               editor.clearGutter("breakpoints");}) ;
 
     var parser, content;
-    logger.clear();
-    if (fileIsLoaded) {
+    if (state.fileIsLoaded) {
       content= editor.getValue();
       parser = N3.Parser();
       parser.parse(content, parserHandler);
+    }
+  };
+
+  var checkForUpdates = function () {
+    if (wasChanged) {
+      wasChanged = false;
+      checkSyntax();
     }
   };
   
@@ -184,4 +185,5 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger) {
   inputRepo.val("mobivoc");
   inputFilename.val("Parking.ttl");
   
+  window.setInterval(checkForUpdates, 3000);
 });

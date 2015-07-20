@@ -8,22 +8,22 @@
     <title>Editing Turtle on GitHub</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/codemirror.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
     <script src="js/config.js"></script>
     <script data-main="github-ttl-editor" src="js/lib/require.js"></script>
 </head>
 
 <body>
+    <section id="message-queue"></section>
     <div class="container">
-        <header class="page-header">
-            <h1>Editing Turtle on GitHub</h1>
+        <header>
+            <div class="page-header">
+                <h1>Editing Turtle on GitHub <small>Load, view, edit, and save a turtle file on GitHub.</small></h1>
+            </div>
             <p class="lead">
-                Load, view, edit, and save one turtle file on GitHub.
-            </p>
-            <p class="lead">
-                Note: you need to provide your username and password only if you want to save the file. For a quick tour leave those fields blank and just click the <em>Load File</em> button.
+                Note: You need to provide your username and password only if you want to save the file. For a quick tour leave those fields blank and just click the <em>Load File</em> button.
             </p>
         </header>
-        <section id="logging" class="bg-danger"></section>
         <form>
             <div class="row">
                 <div class="col-md-3">
