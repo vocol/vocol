@@ -8,6 +8,9 @@ define(['jquery'], function($) {
     if (messageQueue.length > 0 && Date.now() - messageQueue[0].time >= 5000) {
       messageQueue[0].element.remove();
       messageQueue.shift();
+      if (messageQueue.length >= 3) {
+        messageQueue[2].element.show();
+      }
     }
   };
 
@@ -55,18 +58,21 @@ define(['jquery'], function($) {
 
     if (messageQueue.length === 0 || messageQueue[0].type !== type || messageQueue[0].description !== description) {
       container.append(alert.element);
-      messageQueue.push(alert);  
+      messageQueue.push(alert);
+      if (messageQueue.length > 3) {
+        alert.element.hide();
+      } 
     } else {
       messageQueue[0].count++;
       if (messageQueue[0].count === 2) {
-        messageQueue[0].element.append("<span class='badge'>2</span>");
+        messageQueue[0].element.append(" <span class='badge'>2</span>");
       } else {
         messageQueue[0].element.find(".badge").html(messageQueue[0].count);
       }
     }
   };
   
-  var error = function (description, data) { 
+  var error = function (description, data) {
     logConsole("ERROR", description, data);
     logDocument("error", description);
   };

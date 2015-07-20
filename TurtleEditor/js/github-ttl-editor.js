@@ -34,15 +34,11 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger) {
                                                lineNumbers: true,
                                                gutters: ["CodeMirror-linenumbers", "breakpoints"]
                                              });
-  var wasChanged = false;
 
   var state = {
-    syntaxCheck: "pending", // can be one of "passed", "pending" or "failed"
+    syntaxCheck: "pending",
     fileIsLoaded: false
   };
-
-
-  editor.on("change", function(cm, o) { wasChanged = true; syntaxCheck = "pending"; });
 
   function makeMarker(errorMessage) {
     var marker = document.createElement("div");
@@ -72,7 +68,7 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger) {
 
     //logger.clear();
     if (state.fileIsLoaded) {
-      logger.info("File already loaded!");
+      logger.info("File already loaded.");
     } else {
       gh = new Github({
         username: username,
@@ -103,27 +99,27 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger) {
         //  editor.focus();
         })
         .fail(function(err) {
-          logger.error("Read from GitHub failed", err);
+          logger.error("Read from GitHub failed.", err);
         });
-    }
-    wasChanged = true;
+      state.syntaxCheck = "pending";
+    }    
   };
   
   var storeToGitHub = function () {
     var filename = inputFilename.val().trim();
     var content = editor.getValue().trim();
     var message = inputMessage.val().trim();
-    logger.clear();
+
     if (state.fileIsLoaded) {
       branch.write(filename, content, message, isBinary)
         .done(function() {
-          successSignal();
+          logger.success("Saving to GitHub completed.")
         })
         .fail(function(err) {
-          logger.error("Saving to GitHub failed", err);
+          logger.error("Saving to GitHub failed.", err);
         });
     } else {
-      alert("Nothing to save!");
+      logger.info("Nothing to save.");
     }
   };
 
@@ -148,30 +144,33 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger) {
         editor.getDoc().addLineClass(errorLineNumber, "wrap", "ErrorLine-background");
         editor.setGutterMarker(errorLineNumber, "breakpoints", makeMarker(error.message));
 
+        logger.error("Syntax check failed.", error);
+        state.syntaxCheck = "failed";
       } else if (!triple) {
-        //successSignal();
-        logger.success("No errors found.");
+        logger.success("Syntax check passed.");
+        state.syntaxCheck = "passed";
       }
     };
 
   var checkSyntax = function () {
 
     /* remove all previous errors */ 
-    editor.eachLine(function(line)
-            { editor.getDoc().removeLineClass(line, "wrap");
-              editor.clearGutter("breakpoints");}) ;
+    editor.eachLine(function(line) { 
+      editor.getDoc().removeLineClass(line, "wrap");
+      editor.clearGutter("breakpoints");
+    });
 
     var parser, content;
     if (state.fileIsLoaded) {
-      content= editor.getValue();
-      parser = N3.Parser();
+      content = editor.getValue();
+      parser  = N3.Parser();
       parser.parse(content, parserHandler);
     }
   };
 
   var checkForUpdates = function () {
-    if (wasChanged) {
-      wasChanged = false;
+    if (state.syntaxCheck === "pending") {
+      state.syntaxCheck = "working";
       checkSyntax();
     }
   };
@@ -179,6 +178,8 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger) {
   buttonLoad.on("click", loadFromGitHub);
   buttonSave.on("click", storeToGitHub);
   buttonSyntax.on("click", checkSyntax);
+
+  editor.on("change", function(cm, o) { syntaxCheck = "pending"; });
 
   // pre-fill some input fields for a quick example
   inputOwner.val("vocol");
