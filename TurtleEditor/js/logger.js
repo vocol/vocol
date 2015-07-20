@@ -54,20 +54,23 @@ define(['jquery'], function($) {
   };
   
   var logDocument = function (type, description) {
-    var alert = new Alert(type, description);
+    var len  = messageQueue.length;
+    var last = messageQueue[len - 1];
 
-    if (messageQueue.length === 0 || messageQueue[0].type !== type || messageQueue[0].description !== description) {
+    if (len === 0 || last.type !== type || last.description !== description) {
+      var alert = new Alert(type, description);
       container.append(alert.element);
       messageQueue.push(alert);
-      if (messageQueue.length > 3) {
+      if (len >= 3) {
         alert.element.hide();
-      } 
+      }
     } else {
-      messageQueue[0].count++;
-      if (messageQueue[0].count === 2) {
-        messageQueue[0].element.append(" <span class='badge'>2</span>");
+      last.count++;
+      last.time = Date.now();
+      if (last.count === 2) {
+        last.element.append(" <span class='badge'>2</span>");
       } else {
-        messageQueue[0].element.find(".badge").html(messageQueue[0].count);
+        last.element.find(".badge").html(messageQueue[0].count);
       }
     }
   };
