@@ -9,7 +9,7 @@ define(['jquery'], function($) {
     } else {
       console.log(type + ":", text);
     }
-  }
+  };
   
   var logDocument = function (prefix, text, data) {
     var li;
@@ -30,7 +30,7 @@ define(['jquery'], function($) {
       }
       logList.append(li);
     }
-  }
+  };
   
   var error = function (text, data) {
     var type = "<strong>ERROR</strong>"; 

@@ -28,9 +28,6 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger) {
   var buttonSave    = $("#saveFileButton");
   var buttonSyntax  = $("#syntaxButton");
 
-
-
-
   var myTextarea = inputContents[0];
   var editor = CodeMirror.fromTextArea(myTextarea,
                                              { mode: "turtle",
@@ -40,7 +37,7 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger) {
                                              });
 
 
-  editor.on("change", function(cm, o)  { buttonSyntax.click();});
+  editor.on("change", function(cm, o) { checkSyntax(); });
 
   function makeMarker(errorMessage) {
     var marker = document.createElement("div");
@@ -49,7 +46,6 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger) {
     marker.title = errorMessage;
     return marker;
   }
-
          
   var toggleLoadButton = function () {
     buttonLoad.toggleClass("btn-primary");
@@ -135,7 +131,7 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger) {
     } else {
       alert("Nothing to save!");
     }
-  }
+  };
 
   var parserHandler = function (error, triple, prefixes) {
       
@@ -161,7 +157,7 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger) {
       } else if (!triple) {
         successSignal();
       }
-    }
+    };
 
   var checkSyntax = function () {
 
@@ -177,11 +173,11 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger) {
       parser = N3.Parser();
       parser.parse(content, parserHandler);
     }
-  }
+  };
   
-  buttonLoad.bind("click", loadFromGitHub);
-  buttonSave.bind("click", storeToGitHub);
-  buttonSyntax.bind("click", checkSyntax);
+  buttonLoad.on("click", loadFromGitHub);
+  buttonSave.on("click", storeToGitHub);
+  buttonSyntax.on("click", checkSyntax);
 
   // pre-fill some input fields for a quick example
   inputOwner.val("vocol");
