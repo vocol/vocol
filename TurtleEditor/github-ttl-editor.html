@@ -19,29 +19,28 @@
   <body>
     <div class="container">
 
-      <header class="page-header" style="display: none;">
-        <h1>Editing Turtle on GitHub</h1>
+      <header class="page-header">
+        <h1>VoCol Turtle Editor</h1>
         <p class="lead">
 	  Load, view, edit, and save one turtle file on GitHub.
         </p>
-        <p class="lead">
+        <p class="lead" style="display: none;">
 	  Note: you need to provide your username and password only if you
 	  want to save the file. For a quick tour leave those fields blank
 	  and just click the <em>Load File</em> button followed by
 	  <em>Check syntax</em>.
         </p>
       </header>
-
       <section id="logging" class="bg-danger"></section>
       <form>
 	<div class="row">
           <div class="col-md-3">
-	    <div class="form-group" style="display: none;">
+	    <div class="form-group" >
 	      <label for="inputUsername">Username (for login)</label>
 	      <input type="text" class="form-control" id="inputUsername"
 		     placeholder="Enter your username on GitHub">
             </div>
-	    <div class="form-group" style="display: none;">
+	    <div class="form-group" >
 	      <label for="inputPassword">Password</label>
 	      <input type="password" class="form-control"
 		     id="inputPassword" placeholder="Password">
@@ -52,7 +51,7 @@
 		     placeholder="Owner's username on GitHub">
             </div>
 	    <div class="form-group">
-	      <label for="inputRepo">Repository</label>
+	      <label for="inputRepo">Choose a Repository (GitHub)</label>
 	      <input type="text" class="form-control" id="inputRepo"
 		     value="main">
 	    </div>
@@ -65,18 +64,14 @@
 	      <label for="inputFilename">Filename</label>
 	      <select id="selectFile">
   		   </select>
-
-
 	    </div>
 
 	    <div class="form-group">
 	      <button type="button" id="loadFileButton"
-		      class="btn btn-primary">Load File</button>
-	      <button type="button" id="saveFileButton"
-		      class="btn btn-default">Save File</button>
+		      class="btn btn-primary">Load File(s)</button>
             </div>
 	    <div class="form-group">
-	      <button type="button" id="syntaxButton"
+	      <button type="button" id="syntaxButton" style="display: none;"
 		      class="btn btn-default">Check syntax</button>
             </div>
           </div>
@@ -91,7 +86,27 @@
 	      <label for="inputMessage">Commit message</label>
 	      <input type="text" class="form-control" id="inputMessage"
 			value="Some changes were made.">
+ 		</br>
+		   <button type="button" id="saveFileButton"
+
+		      class="btn btn-default">Save Changes</button>
 	   </div>
+
+	    <div class="form-group">
+	      <label for="sparqlQuery">SPARQL editor</label>
+	      <textarea id="sparqlQuery"
+			placeholder="File content will appear here"
+			rows="5" columns="5" wrap="hard">SELECT * { ?s ?p ?o }</textarea>
+
+			 		</br>
+		   <button type="button" id="buttonRunSparql"
+				  class="btn btn-primary">Run Query</button>
+
+				</br>
+ 			<table border="1" id="resultTable" style="width:100%">
+			</table> 
+	    </div>
+
           </div>
         </div>
       </form>
