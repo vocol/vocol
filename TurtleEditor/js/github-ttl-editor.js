@@ -5,16 +5,15 @@
 // and https://github.com/antoniogarrote/rdfstore-js (rdfstore for sparql query processing)
 
 
-define(['jquery', 'github', 'N3', 'lib/codemirror', 'mode/turtle/turtle',
+define(['jquery', 'github', 'N3', 'lib/codemirror', 'addon/hint/show-hint', 'mode/turtle/turtle', 'hint/turtle-hint',
         'logger', 'lib/rdfstore'],
 
 
-function($, Github, N3, CodeMirror, ModeTurtle, logger, rdfstore) {
+function($, Github, N3, CodeMirror, ShowHint, ModeTurtle, HintTurtle, logger, rdfstore) {
 
   var isBinary = false;
 
   var gh, repo, branch;
-  var fileIsLoaded = false;
   var currentFile;
 
   var header        = $(".page-header");
@@ -23,24 +22,33 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger, rdfstore) {
   var inputOwner    = $("#inputOwner");
   var inputRepo     = $("#inputRepo");
   var inputBranch   = $("#inputBranch");
- // var inputFilename = $("#inputFilename");
+  //var inputFilename = $("#inputFilename");
   var inputContents = $("#inputContents");
   var sparqlEditor   = $("#sparqlQuery");
   var inputMessage  = $("#inputMessage");
   var buttonLoad    = $("#loadFileButton");
   var buttonSave    = $("#saveFileButton");
+
+  var status        = $("#status");
+  var statusIcon    = $("#status-icon");
   var buttonSyntax  = $("#syntaxButton");
   var buttonRunSparql  = $("#buttonRunSparql");
   var selectedFile  = $("#selectFile");
   var resultTable  = $("#resultTable");
   var myTextarea    = inputContents[0];
   var myTestAreaSparql = sparqlEditor[0];
+
+CodeMirror.commands.autocomplete = function(cm) {
+  cm.showHint({hint: CodeMirror.hint.turtle});
+};
+
   var editor = CodeMirror.fromTextArea(myTextarea,
                                              { mode: "turtle",
                                                autofocus: false,
                                                lineNumbers: true,
                                                height: 40,
-                                               gutters: ["CodeMirror-linenumbers", "breakpoints"]
+                                               gutters: ["CodeMirror-linenumbers", "breakpoints"],
+                                               extraKeys: {"Ctrl-Space": "autocomplete"}
                                              });
    var sparqlEditor = CodeMirror.fromTextArea(myTestAreaSparql,
                                              { mode: "turtle",
@@ -51,8 +59,10 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger, rdfstore) {
                                              });
 
 
-
-  editor.on("change", function(cm, o)  { buttonSyntax.click();});
+  var state = {
+    syntaxCheck: "pending",
+    fileIsLoaded: false
+  };
 
 
 
@@ -73,19 +83,7 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger, rdfstore) {
     buttonSave.toggleClass("btn-default");
     buttonSave.toggleClass("btn-danger");
   };
-
-  var toggleSyntaxButton = function () {
-    buttonSyntax.toggleClass("btn-default");
-    buttonSyntax.toggleClass("btn-primary");
-  };
-
-  var successSignal = function () {
-    header.toggleClass("bg-success");
-    window.setTimeout(function () {
-      header.toggleClass("bg-success");           
-    }, 1500);
-  };
-
+  
   var loadFromGitHub = function () {
 
     var user;
@@ -93,9 +91,11 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger, rdfstore) {
     var ownername = inputOwner.val().trim();
     var reponame = inputRepo.val().trim();
     var branchname = inputBranch.val().trim();
-    logger.clear();
-    if (fileIsLoaded) {
-      alert("File already loaded!");
+    //var filename = inputFilename.val().trim();
+
+    //logger.clear();
+    if (state.fileIsLoaded) {
+      logger.info("File already loaded.");
     } else {
       gh = new Github({
         username: username,
@@ -104,14 +104,16 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger, rdfstore) {
 
       user = gh.getUser();
       logger.debug("user", user);
-     // if (!user) {
-     //   logger.warning("NOT logged in: ", username);
-      //}
+    
+      if (!user) {
+        logger.warning("Not logged in.", username);
+      }
       
       repo = gh.getRepo(ownername, reponame);
       branch = repo.getBranch(branchname);
 
-      var tree = repo.git.getTree("master", null)
+
+            var tree = repo.git.getTree("master", null)
               .done(function(tree) 
                 {
                      for (var i = 0; i < tree.length; i++) 
@@ -127,7 +129,11 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger, rdfstore) {
                       }
                       readFile();
                 });
-    };
+      changeSyntaxCheckState("pending"); 
+      
+
+
+    }
   };
 
   var readFile = function()
@@ -140,7 +146,7 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger, rdfstore) {
                   editor.setValue(contents.content);
 
 
-                  fileIsLoaded = true;
+                  state.fileIsLoaded = true;
                   toggleLoadButton();
                   if (user) 
                   {
@@ -158,28 +164,28 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger, rdfstore) {
                 .fail(function(err) {
                     logger.error("Read from GitHub failed", err);
                 });
+        changeSyntaxCheckState("pending");
       };
 
   var storeToGitHub = function () {
-    var filename = inputFilename.val().trim();
+    var filename = selectedFile.val();
     var content = editor.getValue().trim();
     var message = inputMessage.val().trim();
-    logger.clear();
-    if (fileIsLoaded) {
+
+    if (state.fileIsLoaded) {
       branch.write(filename, content, message, isBinary)
         .done(function() {
-          successSignal();
+          logger.success("Saving to GitHub completed.")
         })
         .fail(function(err) {
-          logger.error("Saving to GitHub failed", err);touch
+          logger.error("Saving to GitHub failed.", err);
         });
     } else {
-      alert("Nothing to save!");
+      logger.info("Nothing to save.");
     }
-  }
+  };
 
   var parserHandler = function (error, triple, prefixes) {
-      
       if (error) {
 
         /* extract line Number, only consider the end of the string after "line" */
@@ -190,13 +196,32 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger, rdfstore) {
         editor.getDoc().addLineClass(errorLineNumber, "wrap", "ErrorLine-background");
         editor.setGutterMarker(errorLineNumber, "breakpoints", makeMarker(error.message));
 
+        changeSyntaxCheckState("failed");
       } else if (!triple) {
-        successSignal();
+        changeSyntaxCheckState("passed");      
       }
+  };
+
+  var changeSyntaxCheckState = function (newState) {
+    if (newState !== state.syntaxCheck) {
+      state.syntaxCheck = newState;
+      if (newState === "failed") {
+        statusIcon.attr("src", "img/red_orb.png").attr("alt", "A red orb.");
+        status.html(" Syntax check failed.");
+      } else if (newState === "working") {
+        statusIcon.attr("src", "img/yellow_orb.png").attr("alt", "A yellow orb.");
+        status.html(" Syntax checker working.");
+      } else if (newState === "pending") {
+        statusIcon.attr("src", "img/yellow_orb.png").attr("alt", "A yellow orb.");
+        status.html(" Syntax check pending...");
+      } else if (newState === "passed") {
+        statusIcon.attr("src", "img/green_orb.png").attr("alt", "A green orb.");
+        status.html(" Syntax check passed.");
+      }
+    }
   }
 
   var checkSyntax = function () {
-
     /* remove all previous errores  */
     /* TODO: IMPROVE EFFICIENCY */ 
     editor.eachLine(function(line)
@@ -204,13 +229,26 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger, rdfstore) {
               editor.clearGutter("breakpoints");}) ;
 
     var parser, content;
-    logger.clear();
-    if (fileIsLoaded) {
-      content= editor.getValue();
-      parser = N3.Parser();
+    if (state.fileIsLoaded) {
+      content = editor.getValue();
+      parser  = N3.Parser();
       parser.parse(content, parserHandler);
     }
-  }
+
+  };
+
+  var checkForUpdates = function () {
+    if (state.syntaxCheck === "pending" && state.fileIsLoaded) {
+      changeSyntaxCheckState("working");
+      checkSyntax();
+    }
+  };
+  
+  buttonLoad.on("click", loadFromGitHub);
+  buttonSave.on("click", storeToGitHub);
+
+  editor.on("change", function(cm, o) { changeSyntaxCheckState("pending"); });
+
 
    var runQuery = function() {
 
@@ -254,16 +292,17 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger, rdfstore) {
 	})};
 
   
-  buttonLoad.bind("click", loadFromGitHub);
-  buttonSave.bind("click", storeToGitHub);
-  buttonSyntax.bind("click", checkSyntax);
   selectedFile.bind("change", readFile);
   buttonRunSparql.bind("click", runQuery);
+
 
   // pre-fill some input fields for a quick example
   inputOwner.val("vocol");
   inputRepo.val("mobivoc");
-});
+  //inputFilename.val("Parking.ttl");
+  
+  window.setInterval(checkForUpdates, 1000);
+
 
 
 
@@ -272,3 +311,5 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger, rdfstore) {
 function endsWith(str, suffix) {
     return str.indexOf(suffix, str.length - suffix.length) !== -1;
 }
+
+});   

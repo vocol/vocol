@@ -1,0 +1,11 @@
+#message-queue {
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    z-index: 10;
+}
+
+#status-icon {
+    width: 29px;
+    height: 32px;
+}
