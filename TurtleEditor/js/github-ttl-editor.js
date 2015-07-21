@@ -5,16 +5,15 @@
 // and https://github.com/antoniogarrote/rdfstore-js (rdfstore for sparql query processing)
 
 
-define(['jquery', 'github', 'N3', 'lib/codemirror', 'mode/turtle/turtle',
+define(['jquery', 'github', 'N3', 'lib/codemirror', 'addon/hint/show-hint', 'mode/turtle/turtle', 'hint/turtle-hint',
         'logger', 'lib/rdfstore'],
 
 
-function($, Github, N3, CodeMirror, ModeTurtle, logger, rdfstore) {
+function($, Github, N3, CodeMirror, ShowHint, ModeTurtle, HintTurtle, logger, rdfstore) {
 
   var isBinary = false;
 
   var gh, repo, branch;
-  var fileIsLoaded = false;
   var currentFile;
 
   var header        = $(".page-header");
@@ -39,12 +38,17 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger, rdfstore) {
   var myTextarea    = inputContents[0];
   var myTestAreaSparql = sparqlEditor[0];
 
+CodeMirror.commands.autocomplete = function(cm) {
+  cm.showHint({hint: CodeMirror.hint.turtle});
+};
+
   var editor = CodeMirror.fromTextArea(myTextarea,
                                              { mode: "turtle",
                                                autofocus: false,
                                                lineNumbers: true,
                                                height: 40,
-                                               gutters: ["CodeMirror-linenumbers", "breakpoints"]
+                                               gutters: ["CodeMirror-linenumbers", "breakpoints"],
+                                               extraKeys: {"Ctrl-Space": "autocomplete"}
                                              });
    var sparqlEditor = CodeMirror.fromTextArea(myTestAreaSparql,
                                              { mode: "turtle",
@@ -164,7 +168,7 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger, rdfstore) {
       };
 
   var storeToGitHub = function () {
-    var filename = inputFilename.val().trim();
+    var filename = selectedFile.val();
     var content = editor.getValue().trim();
     var message = inputMessage.val().trim();
 
@@ -234,7 +238,7 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger, rdfstore) {
   };
 
   var checkForUpdates = function () {
-    if (state.syntaxCheck === "pending") {
+    if (state.syntaxCheck === "pending" && state.fileIsLoaded) {
       changeSyntaxCheckState("working");
       checkSyntax();
     }
@@ -297,7 +301,7 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger, rdfstore) {
   inputRepo.val("mobivoc");
   //inputFilename.val("Parking.ttl");
   
-  window.setInterval(checkForUpdates, 2000);
+  window.setInterval(checkForUpdates, 1000);
 
 
 
