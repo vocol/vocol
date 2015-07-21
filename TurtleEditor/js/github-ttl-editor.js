@@ -125,7 +125,7 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger) {
   };
 
   var parserHandler = function (error, triple, prefixes) {
-      console.log(error, triple);
+
   /*    logger.debug(null, error); */
       if (error) {
 
@@ -162,7 +162,7 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger) {
         status.html(" Syntax checker working.");
       } else if (newState === "pending") {
         statusIcon.attr("src", "img/yellow_orb.png").attr("alt", "A yellow orb.");
-        status.html(" Syntax check pending.");
+        status.html(" Syntax check pending...");
       } else if (newState === "passed") {
         statusIcon.attr("src", "img/green_orb.png").attr("alt", "A green orb.");
         status.html(" Syntax check passed.");
