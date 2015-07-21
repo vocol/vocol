@@ -25,7 +25,8 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger) {
   var inputMessage  = $("#inputMessage");
   var buttonLoad    = $("#loadFileButton");
   var buttonSave    = $("#saveFileButton");
-  var buttonSyntax  = $("#syntaxButton");
+  var status        = $("#status");
+  var statusIcon    = $("#status-icon");
 
   var myTextarea = inputContents[0];
   var editor = CodeMirror.fromTextArea(myTextarea,
@@ -101,7 +102,7 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger) {
         .fail(function(err) {
           logger.error("Read from GitHub failed.", err);
         });
-      state.syntaxCheck = "pending";
+      changeSyntaxCheckState("pending");
     }    
   };
   
@@ -124,7 +125,7 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger) {
   };
 
   var parserHandler = function (error, triple, prefixes) {
-      
+      console.log(error, triple);
   /*    logger.debug(null, error); */
       if (error) {
 
@@ -144,13 +145,30 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger) {
         editor.getDoc().addLineClass(errorLineNumber, "wrap", "ErrorLine-background");
         editor.setGutterMarker(errorLineNumber, "breakpoints", makeMarker(error.message));
 
-        logger.error("Syntax check failed.", error);
-        state.syntaxCheck = "failed";
+        changeSyntaxCheckState("failed");
       } else if (!triple) {
-        logger.success("Syntax check passed.");
-        state.syntaxCheck = "passed";
+        changeSyntaxCheckState("passed");      
       }
     };
+
+  var changeSyntaxCheckState = function (newState) {
+    if (newState !== state.syntaxCheck) {
+      state.syntaxCheck = newState;
+      if (newState === "failed") {
+        statusIcon.attr("src", "img/red_orb.png").attr("alt", "A red orb.");
+        status.html(" Syntax check failed.");
+      } else if (newState === "working") {
+        statusIcon.attr("src", "img/yellow_orb.png").attr("alt", "A yellow orb.");
+        status.html(" Syntax checker working.");
+      } else if (newState === "pending") {
+        statusIcon.attr("src", "img/yellow_orb.png").attr("alt", "A yellow orb.");
+        status.html(" Syntax check pending.");
+      } else if (newState === "passed") {
+        statusIcon.attr("src", "img/green_orb.png").attr("alt", "A green orb.");
+        status.html(" Syntax check passed.");
+      }
+    }
+  };
 
   var checkSyntax = function () {
 
@@ -177,14 +195,13 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger) {
   
   buttonLoad.on("click", loadFromGitHub);
   buttonSave.on("click", storeToGitHub);
-  buttonSyntax.on("click", checkSyntax);
 
-  editor.on("change", function(cm, o) { syntaxCheck = "pending"; });
+  editor.on("change", function(cm, o) { changeSyntaxCheckState("pending"); });
 
   // pre-fill some input fields for a quick example
   inputOwner.val("vocol");
   inputRepo.val("mobivoc");
   inputFilename.val("Parking.ttl");
   
-  window.setInterval(checkForUpdates, 3000);
+  window.setInterval(checkForUpdates, 2000);
 });

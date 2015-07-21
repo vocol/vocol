@@ -6,7 +6,9 @@ define(['jquery'], function($) {
 
   var updateMessageQueue = function () {
     if (messageQueue.length > 0 && Date.now() - messageQueue[0].time >= 5000) {
-      messageQueue[0].element.remove();
+      messageQueue[0].element.fadeOut("slow", function() {
+        this.remove();
+      });
       messageQueue.shift();
       if (messageQueue.length >= 3) {
         messageQueue[2].element.show();
@@ -32,7 +34,7 @@ define(['jquery'], function($) {
       heading   = "Warning";
     } else if (type === "info") {
       classname = "alert-info";
-      heading   = "Information";
+      heading   = "Info";
     } else if (type === "success") {
       classname = "alert-success";
       heading   = "Success";
@@ -59,7 +61,7 @@ define(['jquery'], function($) {
 
     if (len === 0 || last.type !== type || last.description !== description) {
       var alert = new Alert(type, description);
-      container.append(alert.element);
+      container.append(alert.element).hide().fadeIn("fast");
       messageQueue.push(alert);
       if (len >= 3) {
         alert.element.hide();
