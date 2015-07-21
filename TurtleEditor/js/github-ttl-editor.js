@@ -2,17 +2,20 @@
 // and http://getbootstrap.com/css/ (styles for prettiness)
 // and http://codemirror.net/ (text editor with syntax highlighting)
 // and https://github.com/RubenVerborgh/N3.js (Turtle parser)
+// and https://github.com/antoniogarrote/rdfstore-js (rdfstore for sparql query processing)
 
 
 define(['jquery', 'github', 'N3', 'lib/codemirror', 'mode/turtle/turtle',
-        'logger'],
+        'logger', 'lib/rdfstore'],
 
 
-function($, Github, N3, CodeMirror, ModeTurtle, logger) {
+function($, Github, N3, CodeMirror, ModeTurtle, logger, rdfstore) {
 
   var isBinary = false;
 
   var gh, repo, branch;
+  var fileIsLoaded = false;
+  var currentFile;
 
   var header        = $(".page-header");
   var inputUsername = $("#inputUsername");
@@ -22,24 +25,42 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger) {
   var inputBranch   = $("#inputBranch");
   var inputFilename = $("#inputFilename");
   var inputContents = $("#inputContents");
+  var sparqlEditor   = $("#sparqlQuery");
   var inputMessage  = $("#inputMessage");
   var buttonLoad    = $("#loadFileButton");
   var buttonSave    = $("#saveFileButton");
+
   var status        = $("#status");
   var statusIcon    = $("#status-icon");
+  var buttonSyntax  = $("#syntaxButton");
+  var buttonRunSparql  = $("#buttonRunSparql");
+  var selectedFile  = $("#selectFile");
+  var resultTable  = $("#resultTable");
+  var myTextarea    = inputContents[0];
+  var myTestAreaSparql = sparqlEditor[0];
 
-  var myTextarea = inputContents[0];
   var editor = CodeMirror.fromTextArea(myTextarea,
                                              { mode: "turtle",
                                                autofocus: false,
                                                lineNumbers: true,
+                                               height: 40,
                                                gutters: ["CodeMirror-linenumbers", "breakpoints"]
                                              });
+   var sparqlEditor = CodeMirror.fromTextArea(myTestAreaSparql,
+                                             { mode: "turtle",
+                                               autofocus: false,
+                                               lineNumbers: true,
+                                                 height: 10,
+                                               gutters: ["CodeMirror-linenumbers", "breakpoints"]
+                                             });
+
 
   var state = {
     syntaxCheck: "pending",
     fileIsLoaded: false
   };
+
+
 
   function makeMarker(errorMessage) {
     var marker = document.createElement("div");
@@ -60,6 +81,7 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger) {
   };
   
   var loadFromGitHub = function () {
+
     var user;
     var username = inputUsername.val().trim();
     var ownername = inputOwner.val().trim();
@@ -78,6 +100,7 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger) {
 
       user = gh.getUser();
       logger.debug("user", user);
+    
       if (!user) {
         logger.warning("Not logged in.", username);
       }
@@ -103,9 +126,65 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger) {
           logger.error("Read from GitHub failed.", err);
         });
       changeSyntaxCheckState("pending");
-    }    
+       }  
+/* =======
+     // if (!user) {
+     //   logger.warning("NOT logged in: ", username);
+      //}
+      
+      repo = gh.getRepo(ownername, reponame);
+      branch = repo.getBranch(branchname);
+
+      var tree = repo.git.getTree("master", null)
+              .done(function(tree) 
+                {
+                     for (var i = 0; i < tree.length; i++) 
+                     {
+                        if(tree[i].path.endsWith(".ttl"))
+                        {
+                          var opt = tree[i].path;
+                          var el = document.createElement("option");
+                          el.textContent = opt;
+                          el.value = opt;
+                          selectedFile.append(el);
+                        }
+                      }
+                      readFile();
+                });
+    };
+>>>>>>> master-origin */
   };
-  
+
+  var readFile = function()
+   {
+      file = selectedFile.val()
+
+      branch.read(file, isBinary)
+              .done(function(contents) 
+               {
+                  editor.setValue(contents.content);
+
+
+                  fileIsLoaded = true;
+                  toggleLoadButton();
+                  if (user) 
+                  {
+                    toggleSaveButton();
+                  }
+                  
+                  toggleSyntaxButton();
+                  inputUsername.attr("disabled", "disabled");
+                  inputPassword.attr("disabled", "disabled");
+                  inputOwner.attr("disabled", "disabled");
+                  inputRepo.attr("disabled", "disabled");
+                  inputBranch.attr("disabled", "disabled");
+
+                })
+                .fail(function(err) {
+                    logger.error("Read from GitHub failed", err);
+                });
+      };
+
   var storeToGitHub = function () {
     var filename = inputFilename.val().trim();
     var content = editor.getValue().trim();
@@ -125,23 +204,14 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger) {
   };
 
   var parserHandler = function (error, triple, prefixes) {
-
-  /*    logger.debug(null, error); */
+      
       if (error) {
-
-
-     //   logger.error(null, error.message);
-     //   editor.focus();
-        /* editor.setCursor({line: (error.line || 1) - 1, ch: 0});   */
 
         /* extract line Number, only consider the end of the string after "line" */
         var errorSubString = error.message.substr(error.message.indexOf("line")+4);
         var errorLineNumber = parseInt(errorSubString) -1;
 
-        /* set cursor */
-     //   editor.setCursor(errorLineNumber);
-
-        /* add background color, gutter + tooltip*/
+        /* add background color, gutter + tooltip */
         editor.getDoc().addLineClass(errorLineNumber, "wrap", "ErrorLine-background");
         editor.setGutterMarker(errorLineNumber, "breakpoints", makeMarker(error.message));
 
@@ -149,7 +219,7 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger) {
       } else if (!triple) {
         changeSyntaxCheckState("passed");      
       }
-    };
+  };
 
   var changeSyntaxCheckState = function (newState) {
     if (newState !== state.syntaxCheck) {
@@ -168,15 +238,15 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger) {
         status.html(" Syntax check passed.");
       }
     }
-  };
+  }
 
   var checkSyntax = function () {
 
-    /* remove all previous errors */ 
-    editor.eachLine(function(line) { 
-      editor.getDoc().removeLineClass(line, "wrap");
-      editor.clearGutter("breakpoints");
-    });
+    /* remove all previous errores  */
+    /* TODO: IMPROVE EFFICIENCY */ 
+    editor.eachLine(function(line)
+            { editor.getDoc().removeLineClass(line, "wrap");
+              editor.clearGutter("breakpoints");}) ;
 
     var parser, content;
     if (state.fileIsLoaded) {
@@ -184,6 +254,7 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger) {
       parser  = N3.Parser();
       parser.parse(content, parserHandler);
     }
+
   };
 
   var checkForUpdates = function () {
@@ -198,10 +269,67 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger) {
 
   editor.on("change", function(cm, o) { changeSyntaxCheckState("pending"); });
 
+
+   var runQuery = function() {
+
+  //  testString = "@prefix doc: <http://example.org/#ns> . <http://example.org/path> a doc:Document . "
+
+    liveString = editor.getValue();
+    queryString = sparqlEditor.getValue();
+
+    // create graph store
+	rdfstore.create(function(err, store) {
+		store.load("text/turtle", liveString, function(err, results) 
+		{   
+			if(err)
+			{
+				logger.debug("store load error", err);
+				logger.error("Could not Run SPARQL Query:", err.message);
+
+			}else
+			{
+				// run query
+				store.execute(queryString, function(err, results)
+				{
+
+					// generate table
+					var firstRow =  "<tr><td><b>Subject</b></td><td><b>Predicate</b></td><td><b>Object</b></td></tr>";
+
+					resultTable.append(firstRow);	
+
+				    for (var i = 0; i < results.length; i++) 
+		            {
+		            	// generate row for subjects, predicate and object
+						var rowString =  "<tr><td>" + results[i].s.value  + "</td><td>" + results[i].p.value + "</td><td>" + results[i].o.value    + "</td></tr>";
+
+						resultTable.append(rowString);	
+
+		                logger.debug("arrayNode", results[i]);
+		            };
+				});
+			};
+		});
+	})};
+
+  
+  selectedFile.bind("change", readFile);
+  buttonRunSparql.bind("click", runQuery);
+
+
   // pre-fill some input fields for a quick example
   inputOwner.val("vocol");
   inputRepo.val("mobivoc");
   inputFilename.val("Parking.ttl");
   
   window.setInterval(checkForUpdates, 2000);
-});
+
+
+
+
+
+// helper function
+function endsWith(str, suffix) {
+    return str.indexOf(suffix, str.length - suffix.length) !== -1;
+}
+
+});   

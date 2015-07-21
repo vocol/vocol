@@ -24,54 +24,61 @@
                 Note: You need to provide your username and password only if you want to save the file. For a quick tour leave those fields blank and just click the <em>Load File</em> button.
             </p>
         </header>
-        <form>
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <label for="inputUsername">Username (for login)</label>
-                        <input type="text" class="form-control" id="inputUsername" placeholder="Enter your username on GitHub">
-                    </div>
-                    <div class="form-group">
-                        <label for="inputPassword">Password</label>
-                        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-                    </div>
-                    <div class="form-group">
-                        <label for="inputOwner">Owner of Repository (username)</label>
-                        <input type="text" class="form-control" id="inputOwner" placeholder="Owner's username on GitHub">
-                    </div>
-                    <div class="form-group">
-                        <label for="inputRepo">Repository</label>
-                        <input type="text" class="form-control" id="inputRepo" value="main">
-                    </div>
-                    <div class="form-group">
-                        <label for="inputBranch">Branch</label>
-                        <input type="text" class="form-control" id="inputBranch" value="master">
-                    </div>
-                    <div class="form-group">
-                        <label for="inputFilename">Filename</label>
-                        <input type="text" class="form-control" id="inputFilename" placeholder="Path/to/file.ttl">
-                    </div>
-                    <div class="form-group">
-                        <button type="button" id="loadFileButton" class="btn btn-primary">Load File</button>
-                        <button type="button" id="saveFileButton" class="btn btn-default">Save File</button>
-                    </div>
-                </div><!-- /.col-md-3 -->
-                <div class="col-md-9">
-                    <div class="form-group">
-                        <label for="inputContents">Content editor</label>
-                        <textarea id="inputContents" placeholder="File content will appear here" rows="24" wrap="hard"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputMessage">Commit message</label>
-                        <input type="text" class="form-control" id="inputMessage" value="Some changes were made.">
-                    </div>
-                    <p>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="inputUsername">Username (for login)</label>
+                    <input type="text" class="form-control" id="inputUsername" placeholder="Enter your username on GitHub">
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword">Password</label>
+                    <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <label for="inputOwner">Owner of Repository (username)</label>
+                    <input type="text" class="form-control" id="inputOwner" placeholder="Owner's username on GitHub">
+                </div>
+                <div class="form-group">
+                    <label for="inputRepo">Repository</label>
+                    <input type="text" class="form-control" id="inputRepo" value="main">
+                </div>
+                <div class="form-group">
+                    <label for="inputBranch">Branch</label>
+                    <input type="text" class="form-control" id="inputBranch" value="master">
+                </div>
+                <div class="form-group">
+                    <label for="inputFilename">Filename</label>
+                    <input type="text" class="form-control" id="inputFilename" placeholder="Path/to/file.ttl">
+                </div>
+                <div class="form-group">
+                    <button type="button" id="loadFileButton" class="btn btn-primary">Load File</button>
+                    <button type="button" id="saveFileButton" class="btn btn-default">Save File</button>
+                </div>
+            </div><!-- /.col-md-3 -->
+            <div class="col-md-9">
+                <div class="form-group">
+                    <label for="inputContents">Content editor</label>
+                    <textarea id="inputContents" placeholder="File content will appear here" rows="24" wrap="hard"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="inputMessage">Commit message</label>
+                    <input type="text" class="form-control" id="inputMessage" value="Some changes were made.">
+                </div>
+		            <p>
                         <img src="img/yellow_orb.png" alt="A yellow orb." id="status-icon"><span id="status"> Syntax check pending...</span>
                     </p>
-                </div><!-- /.col-md-9 -->
-            </div><!-- /.row -->
-        </form>
+                <div class="form-group">
+                    <div class="form-group">
+                        <label for="sparqlQuery">SPARQL editor</label>
+                        <textarea id="sparqlQuery" placeholder="File content will appear here" rows="5" columns="5" wrap="hard">SELECT * { ?s ?p ?o }</textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" id="buttonRunSparql" class="btn btn-primary">Run Query</button>
+                    </div>
+			        <table border="1" id="resultTable" style="width:100%"></table> 
+                </div>   
+            </div><!-- /.col-md-9 -->
+        </div><!-- /.row -->
     </div><!-- /.container -->
 </body>
-
 </html>
