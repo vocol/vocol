@@ -16,42 +16,45 @@
 <body>
     <section id="message-queue"></section>
     <div class="container">
-        <header>
-            <div class="page-header">
-                <h1>Editing Turtle on GitHub <small>Load, view, edit, and save a turtle file on GitHub.</small></h1>
-            </div>
+        <header class="page-header">
+            <h1>Editing Turtle on GitHub <small>Load, view, edit, and save a turtle file on GitHub.</small></h1>
             <p class="lead">
                 Note: You need to provide your username and password only if you want to save the file. For a quick tour leave those fields blank and just click the <em>Load File</em> button.
             </p>
         </header>
         <div class="row">
             <div class="col-md-3">
+                <div class="form-group" >
+                  <label for="inputUsername">Username (for login)</label>
+                  <input type="text" class="form-control" id="inputUsername"
+                     placeholder="Enter your username on GitHub">
+                    </div>
+                <div class="form-group" >
+                  <label for="inputPassword">Password</label>
+                  <input type="password" class="form-control"
+                     id="inputPassword" placeholder="Password">
+                    </div>
+                <div class="form-group"  style="display: none;">
+                  <label for="inputOwner">Owner of Repository (username)</label>
+                  <input type="text" class="form-control" id="inputOwner"
+                     placeholder="Owner's username on GitHub">
+                    </div>
                 <div class="form-group">
-                    <label for="inputUsername">Username (for login)</label>
-                    <input type="text" class="form-control" id="inputUsername" placeholder="Enter your username on GitHub">
+                  <label for="inputRepo">Choose a Repository (GitHub)</label>
+                  <input type="text" class="form-control" id="inputRepo"
+                     value="main">
+                </div>
+                <div class="form-group" style="display: none;">
+                  <label for="inputBranch">Branch</label>
+                  <input type="text" class="form-control" id="inputBranch"
+                     value="master">
                 </div>
                 <div class="form-group">
-                    <label for="inputPassword">Password</label>
-                    <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                  <label for="inputFilename">Filename</label>
+                  <select class="form-control" id="selectFile"></select>
                 </div>
                 <div class="form-group">
-                    <label for="inputOwner">Owner of Repository (username)</label>
-                    <input type="text" class="form-control" id="inputOwner" placeholder="Owner's username on GitHub">
-                </div>
-                <div class="form-group">
-                    <label for="inputRepo">Repository</label>
-                    <input type="text" class="form-control" id="inputRepo" value="main">
-                </div>
-                <div class="form-group">
-                    <label for="inputBranch">Branch</label>
-                    <input type="text" class="form-control" id="inputBranch" value="master">
-                </div>
-                <div class="form-group">
-                    <label for="inputFilename">Filename</label>
-                    <input type="text" class="form-control" id="inputFilename" placeholder="Path/to/file.ttl">
-                </div>
-                <div class="form-group">
-                    <button type="button" id="loadFileButton" class="btn btn-primary">Load File</button>
+                    <button type="button" id="loadFileButton" class="btn btn-primary">Load File(s)</button>
                     <button type="button" id="saveFileButton" class="btn btn-default">Save File</button>
                 </div>
             </div><!-- /.col-md-3 -->
@@ -60,13 +63,13 @@
                     <label for="inputContents">Content editor</label>
                     <textarea id="inputContents" placeholder="File content will appear here" rows="24" wrap="hard"></textarea>
                 </div>
+                <p>
+                    <img src="img/yellow_orb.png" alt="A yellow orb." id="status-icon"><span id="status"> Syntax check pending...</span>
+                </p>
                 <div class="form-group">
                     <label for="inputMessage">Commit message</label>
                     <input type="text" class="form-control" id="inputMessage" value="Some changes were made.">
                 </div>
-		            <p>
-                        <img src="img/yellow_orb.png" alt="A yellow orb." id="status-icon"><span id="status"> Syntax check pending...</span>
-                    </p>
                 <div class="form-group">
                     <div class="form-group">
                         <label for="sparqlQuery">SPARQL editor</label>

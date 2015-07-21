@@ -23,7 +23,7 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger, rdfstore) {
   var inputOwner    = $("#inputOwner");
   var inputRepo     = $("#inputRepo");
   var inputBranch   = $("#inputBranch");
-  var inputFilename = $("#inputFilename");
+  //var inputFilename = $("#inputFilename");
   var inputContents = $("#inputContents");
   var sparqlEditor   = $("#sparqlQuery");
   var inputMessage  = $("#inputMessage");
@@ -87,7 +87,7 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger, rdfstore) {
     var ownername = inputOwner.val().trim();
     var reponame = inputRepo.val().trim();
     var branchname = inputBranch.val().trim();
-    var filename = inputFilename.val().trim();
+    //var filename = inputFilename.val().trim();
 
     //logger.clear();
     if (state.fileIsLoaded) {
@@ -107,35 +107,9 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger, rdfstore) {
       
       repo = gh.getRepo(ownername, reponame);
       branch = repo.getBranch(branchname);
-      branch.read(filename, isBinary)
-        .done(function(contents) {
-          editor.setValue(contents.content);
-          state.fileIsLoaded = true;
-          toggleLoadButton();
-          if (user) {
-            toggleSaveButton();
-          }
-          inputUsername.attr("disabled", "disabled");
-          inputPassword.attr("disabled", "disabled");
-          inputOwner.attr("disabled", "disabled");
-          inputRepo.attr("disabled", "disabled");
-          inputBranch.attr("disabled", "disabled");
-        //  editor.focus();
-        })
-        .fail(function(err) {
-          logger.error("Read from GitHub failed.", err);
-        });
-      changeSyntaxCheckState("pending");
-       }  
-/* =======
-     // if (!user) {
-     //   logger.warning("NOT logged in: ", username);
-      //}
-      
-      repo = gh.getRepo(ownername, reponame);
-      branch = repo.getBranch(branchname);
 
-      var tree = repo.git.getTree("master", null)
+
+            var tree = repo.git.getTree("master", null)
               .done(function(tree) 
                 {
                      for (var i = 0; i < tree.length; i++) 
@@ -151,8 +125,11 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger, rdfstore) {
                       }
                       readFile();
                 });
-    };
->>>>>>> master-origin */
+      changeSyntaxCheckState("pending"); 
+      
+
+
+    }
   };
 
   var readFile = function()
@@ -165,7 +142,7 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger, rdfstore) {
                   editor.setValue(contents.content);
 
 
-                  fileIsLoaded = true;
+                  state.fileIsLoaded = true;
                   toggleLoadButton();
                   if (user) 
                   {
@@ -183,6 +160,7 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger, rdfstore) {
                 .fail(function(err) {
                     logger.error("Read from GitHub failed", err);
                 });
+        changeSyntaxCheckState("pending");
       };
 
   var storeToGitHub = function () {
@@ -204,7 +182,6 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger, rdfstore) {
   };
 
   var parserHandler = function (error, triple, prefixes) {
-      
       if (error) {
 
         /* extract line Number, only consider the end of the string after "line" */
@@ -241,7 +218,6 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger, rdfstore) {
   }
 
   var checkSyntax = function () {
-
     /* remove all previous errores  */
     /* TODO: IMPROVE EFFICIENCY */ 
     editor.eachLine(function(line)
@@ -259,7 +235,7 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger, rdfstore) {
 
   var checkForUpdates = function () {
     if (state.syntaxCheck === "pending") {
-      state.syntaxCheck = "working";
+      changeSyntaxCheckState("working");
       checkSyntax();
     }
   };
@@ -319,7 +295,7 @@ function($, Github, N3, CodeMirror, ModeTurtle, logger, rdfstore) {
   // pre-fill some input fields for a quick example
   inputOwner.val("vocol");
   inputRepo.val("mobivoc");
-  inputFilename.val("Parking.ttl");
+  //inputFilename.val("Parking.ttl");
   
   window.setInterval(checkForUpdates, 2000);
 
