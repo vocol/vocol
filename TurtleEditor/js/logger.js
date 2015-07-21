@@ -72,7 +72,7 @@ define(['jquery'], function($) {
       if (last.count === 2) {
         last.element.append(" <span class='badge'>2</span>");
       } else {
-        last.element.find(".badge").html(messageQueue[0].count);
+        last.element.find(".badge").html(messageQueue[len - 1].count);
       }
     }
   };
