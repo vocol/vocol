@@ -1,70 +1,111 @@
 define(['jquery'], function($) {
 
-  var container = $("#logging");
-  var logList = null;
+  var container = $("#message-queue");
+
+  var messageQueue = [];
+
+  var updateMessageQueue = function () {
+    if (messageQueue.length > 0 && Date.now() - messageQueue[0].time >= 10000) {
+      messageQueue[0].element.fadeOut("slow", function() {
+        this.remove();
+      });
+      messageQueue.shift();
+      if (messageQueue.length >= 3) {
+        messageQueue[2].element.show();
+      }
+    }
+  };
+
+  window.setInterval(updateMessageQueue, 2500);
+
+  var Alert = function (type, description) {
+    this.type = type;
+    this.description = description;
+    this.time = Date.now();
+    this.count = 1;
+
+    var classname,
+        heading;
+    if (type === "error") {
+      classname = "alert-danger";
+      heading   = "Error"; 
+    } else if (type === "warning") {
+      classname = "alert-warning";
+      heading   = "Warning";
+    } else if (type === "info") {
+      classname = "alert-info";
+      heading   = "Info";
+    } else if (type === "success") {
+      classname = "alert-success";
+      heading   = "Success";
+    }
+
+    this.element = $(
+      "<div class='alert " + classname  + "' role='alert'>" + 
+        "<strong>" + heading + ":</strong> " + description +
+      "</div>"
+    );
+  };
   
-  var logConsole = function (type, text, data) {
+  var logConsole = function (type, description, data) {
     if (data) {
-      console.log(type + ":", text, data);
+      console.log(type + ": " + description, data);
     } else {
-      console.log(type + ":", text);
+      console.log(type + ": " + description);
     }
-  }
+  };
   
-  var logDocument = function (prefix, text, data) {
-    var li;
+  var logDocument = function (type, description) {
+    var len  = messageQueue.length;
+    var last = messageQueue[len - 1];
 
-    if (container) {
-      if (!logList) {
-        container.append("<h1>Messages</h1>");
-        logList = $("<ul>");
-        container.append(logList);
+    if (len === 0 || last.type !== type || last.description !== description) {
+      var alert = new Alert(type, description);
+      container.append(alert.element).hide().fadeIn("fast");
+      messageQueue.push(alert);
+      if (len >= 3) {
+        alert.element.hide();
       }
-      li = $("<li>");
-      li.append(prefix);
-      if (text) {
-        $("<span>").text(": " + text).appendTo(li);
+    } else {
+      last.count++;
+      last.time = Date.now();
+      if (last.count === 2) {
+        last.element.append(" <span class='badge'>2</span>");
+      } else {
+        last.element.find(".badge").html(messageQueue[len - 1].count);
       }
-      if (data) {
-        $("<span>").text(" " + data).appendTo(li);
-      }
-      logList.append(li);
     }
-  }
+  };
   
-  var error = function (text, data) {
-    var type = "<strong>ERROR</strong>"; 
-    logConsole("ERROR", text, data);
-    logDocument("<strong>ERROR</strong>", text, data);
+  var error = function (description, data) {
+    logConsole("ERROR", description, data);
+    logDocument("error", description);
   };
 
-  var warning = function (text, data) {
-    var type = "<em>Warning</em>"; 
-    logConsole("Warning", text, data);
-    logDocument("<em>Warning</em>", text, data);
+  var warning = function (description, data) {
+    logConsole("Warning", description, data);
+    logDocument("warning", description);
   };
 
-  var info = function (text, data) {
-    var type = "<span>Info</span>"; 
-    logConsole("<span>Info</span>", text, data);
-    logDocument("Info", text, data);
+  var info = function (description, data) {
+    logConsole("Info", description, data);
+    logDocument("info", description);
   };
 
-  var debug = function (text, data) {
-    logConsole("Debug " + text + ":", data);
+  var success = function (description, data) {
+    logConsole("Success", description, data);
+    logDocument("success", description);
   };
 
-  var clear = function () {
-    container.empty();
-    logList = null;
+  var debug = function (description, data) {
+    logConsole("Debug", description, data);
   };
 
   return {
     error: error,
     warning: warning,
     info: info,
-    debug: debug,
-    clear: clear
+    success: success,
+    debug: debug
   };
-  
-}); 
+});

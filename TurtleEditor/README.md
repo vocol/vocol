@@ -24,4 +24,3 @@ the current file to one or more of these web services for checking.
 
 This will provide immediate feedback in the browser,
 allowing the user to edit the file accordingly.
-

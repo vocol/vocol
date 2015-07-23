@@ -1,16 +1,9 @@
-
-/* Vocol definitions:  */
-.ErrorLine-background {background: #F2DEDE;} /* light red */
-
-.breakpoints {width: .8em;}
-.breakpoint { color: #822; }
-
 /* BASICS */
 
 .CodeMirror {
   /* Set height, width, borders, and global font properties here */
   font-family: monospace;
-  height: 250px;
+  height: 300px;
 }
 
 /* PADDING */
