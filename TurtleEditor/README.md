@@ -2,7 +2,7 @@
 
 ## It's working!
 
-[Click and try out the little demo.](https://rawgit.com/mobivoc/vocol/master/TurtleEditor/github-ttl-editor.html)
+[Click and try out the little demo.](https://rawgit.com/mobivoc/vocol/master/TurtleEditor/turtle-editor.html)
 Currently the first syntax error is found and the cursor jumps to the
 line where the error is. So the workflow would be to correct the error
 and click the button *Check syntax* again.
