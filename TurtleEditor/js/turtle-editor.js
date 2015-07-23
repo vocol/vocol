@@ -81,7 +81,7 @@ function($, Github, N3, CodeMirror, ShowHint, ModeTurtle, HintTurtle, logger) {
   // Prefill some fields for a quick example
   inputElements.owner.val("vocol");
   inputElements.repo.val("mobivoc");
-  inputElements.password.val("229ac930b3b35663473271c93099282117e2722a");
+  // inputElements.password.val("token");
 
   // Github Interaction -------------------------------------------------------
   
