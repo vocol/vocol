@@ -23,8 +23,8 @@
             <!-- <p class="lead">
             </p> --> 
         </header>
-
-        <div class="row">
+   
+     <div class="row">
             <div class="col-md-3">
                 <div class="form-group" >
                     <label for="input-username">Username (for login)</label>
@@ -57,7 +57,7 @@
             </div><!-- /.col-md-3 -->
             <div class="col-md-9">
                 <div class="form-group">
-                    <label for="input-contents">Content editor: <span class="current-filename"></span></label>
+                    <label for="input-contents">Content editor: <span class="current-filename"></span></label>                           
                     <textarea id="input-contents" placeholder="File content will appear here" rows="24" wrap="hard"></textarea>
                 </div>
                 <div id="syntax-check">
@@ -87,12 +87,19 @@
                     <input type="text" class="form-control" id="input-message"
 			   value="Turtle file edited, just for testing the editor.">
                 </div>
-		<div>
-		  <a id="webvowl-link" href="" target="vowl-view">View <span class="current-filename">-</span> in WebVOWL</a>
+		<div class="">
+		  <a id="webvowl-link" href="" target="vowl-view">View <span class="current-filename">-</span> in WebVOWL</a> 
 		</div>
             </div><!-- /.col-md-9 -->
         </div><!-- /.row -->
 	<hr>
+
+
+        <div id="menu">
+           <a id="doc-link" href="http://ok-mobivoc.iais.fraunhofer.de/docs/schemas.html" target="doc-view">Documentation</a> |
+           <a id="sparql-link" href="" target="github-view">SPARQL processor</a> |
+           <a id="github-link" href="" target="github-view">View on GitHub</a>
+        </div>
 	<div class="row">
           <div class="col-md-12">
 	    <div class="help">

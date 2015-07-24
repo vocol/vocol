@@ -12,6 +12,8 @@ function($, Github, N3, CodeMirror, ShowHint, ModeTurtle, HintTurtle, logger) {
 
   // HTML elements ------------------------------------------------------------
 
+  var menu =  $("#menu");
+
   var inputElements = {
     username: $("#input-username"),
     password: $("#input-password"),
@@ -23,9 +25,10 @@ function($, Github, N3, CodeMirror, ShowHint, ModeTurtle, HintTurtle, logger) {
     message:  $("#input-message"),
     load:     $("#button-load"),
     save:     $("#button-save"),
-
     fileDisp: $(".current-filename"),
-    vowlLink: $("#webvowl-link")
+    vowlLink: $("#webvowl-link"),
+    ghLink:   $("#github-link"),
+    sparqlURL:$("#sparql-link")
   };
 
   var syntaxCheckElements = {
@@ -134,6 +137,10 @@ function($, Github, N3, CodeMirror, ShowHint, ModeTurtle, HintTurtle, logger) {
                 readFile();
           });
 
+      // add links ////////////////////////////////////////////////////////////////
+      // set GitHubLink
+
+      //////////////////////////////////////////////////////////////////////////////
 
       inputElements.username.prop("disabled", true);
       inputElements.password.prop("disabled", true);
@@ -193,9 +200,17 @@ function($, Github, N3, CodeMirror, ShowHint, ModeTurtle, HintTurtle, logger) {
     var reponame = inputElements.repo.val().trim();
     var branchname = inputElements.branch.val().trim();
     var specific = ownername + "/" + reponame + "/" + branchname;
-    inputElements.fileDisp.html(filename);
+    inputElements.fileDisp.html(filename)
     inputElements.vowlLink.removeAttr("href");
     inputElements.vowlLink.attr("href", baseUri + specific + "/" + filename);
+
+    // external links //////////////////////////
+    var githubURI = "https://github.com";
+    inputElements.ghLink.attr("href", githubURI + "/" + ownername + "/" + reponame + "/");
+    var sparqlProcessorURI = "../SparqlProcessor/sparql-processor.html";
+
+    inputElements.sparqlURL.attr("href", sparqlProcessorURI + "#" + ownername + "/" + reponame + "/" + filename);
+    $("#menu").show();
   };
 
   // "http://vowl.visualdataweb.org/webvowl/index.html#iri=https://raw.githubusercontent.com/mobivoc/mobivoc/master/"
