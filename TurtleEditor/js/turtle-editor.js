@@ -116,7 +116,9 @@ function($, Github, N3, CodeMirror, ShowHint, ModeTurtle, HintTurtle, logger) {
       repo = gh.getRepo(ownername, reponame);
       branch = repo.getBranch(branchname);
 
-
+      // TODO:
+      // the next call is redundant: branch already contains list of files,
+      // and this should not be "master" but the selected branch:
       var tree = repo.git.getTree("master", null)
         .done(function(tree) 
           {
@@ -134,7 +136,7 @@ function($, Github, N3, CodeMirror, ShowHint, ModeTurtle, HintTurtle, logger) {
                 readFile();
           });
 
-
+      // TODO: disable immediately
       inputElements.username.prop("disabled", true);
       inputElements.password.prop("disabled", true);
       inputElements.owner.prop("disabled", true);
