@@ -56,7 +56,6 @@ function($, Github, N3, CodeMirror, ShowHint, ModeTurtle, HintTurtle, logger, rd
   // Github Interaction -------------------------------------------------------
   
   var loadFromGitHub = function () {
-        console.log("start G");
       var gh = new Github({
           username: "",
           password: ""
@@ -64,7 +63,6 @@ function($, Github, N3, CodeMirror, ShowHint, ModeTurtle, HintTurtle, logger, rd
 
     repo = gh.getRepo(orga, repo);
     branch = repo.getBranch("master");
-
     branch.read(file, "true")
       .done(function(contents) {
            editor.setValue(contents.content);
@@ -73,11 +71,12 @@ function($, Github, N3, CodeMirror, ShowHint, ModeTurtle, HintTurtle, logger, rd
           logger.error("Read from GitHub failed", err);
       }
     );
-              console.log("finish G");
   };
 
    var runQuery = function() 
    {
+       resultTable.children().remove();
+
        vocabulary = editor.getValue();
        queryString = sparqlEditor.getValue();
 
@@ -95,20 +94,30 @@ function($, Github, N3, CodeMirror, ShowHint, ModeTurtle, HintTurtle, logger, rd
             // run query
             store.execute(queryString, function(err, results)
             {
-              // generate table
-              var firstRow =  "<tr><td><b>Subject</b></td><td><b>Predicate</b></td><td><b>Object</b></td></tr>";
-
+              // build first row
+              var listOfSelects = Object.keys(results[0]);
+             
+              var firstRow = "<tr>";
+              for(var key in listOfSelects)
+              {
+                firstRow += "<th>" + listOfSelects[key] + "</th>";
+              }
+              firstRow += "</tr>";
               resultTable.append(firstRow); 
 
+              // print results
               for (var i = 0; i < results.length; i++) 
               {
-                    // generate row for subjects, predicate and object
-                    var rowString =  "<tr><td>" + results[i].s.value  + "</td><td>" + results[i].p.value + "</td><td>" + results[i].o.value    + "</td></tr>";
-
-                    resultTable.append(rowString);  
-
-                    logger.debug("arrayNode", results[i]);
-             };
+                  var resultSet = results[i];
+                  console.log("resultSet: " + resultSet);
+                  var newRow = "<tr>";
+                  for(var key in resultSet)
+                  { 
+                    newRow += "<td>" + resultSet[key].value + "</td>";
+                  }
+                  newRow += "</tr>";
+                  resultTable.append(newRow)
+               };
           });
         };
       });
