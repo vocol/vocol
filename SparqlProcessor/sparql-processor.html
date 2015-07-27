@@ -34,10 +34,22 @@
                         placeholder="File content will appear here"
                         rows="54" wrap="hard"></textarea>
              </div>
-
                 <div class="form-group">
                     <label for="sparqlQuery">SPARQL editor: <span class="current-filename"></span></label>                           
-                    <textarea id="sparqlQuery" placeholder="File content will appear here" rows="24" wrap="hard">SELECT * { ?s ?p ?o }</textarea>
+                    <textarea id="sparqlQuery" placeholder="File content will appear here" rows="24" wrap="hard">PREFIX mv: <http://purl.org/net/mobivoc/>
+PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX schema: <http://schema.org> 
+
+SELECT ?fuelname ?price ?stationName
+WHERE 
+{
+  ?station a mv:FillingStation .
+  ?station rdfs:label ?stationName .
+  ?station mv:hasOffer ?fuel .
+  ?fuel rdfs:label ?fuelname .
+  ?fuel mv:hasPrice ?price .
+ }
+ </textarea>
                 </div>
 
                  <div class="form-group">

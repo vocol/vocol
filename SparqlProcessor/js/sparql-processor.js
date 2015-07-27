@@ -65,6 +65,9 @@ function($, Github, N3, CodeMirror, ShowHint, ModeTurtle, HintTurtle, logger, rd
     branch = repo.getBranch("master");
     branch.read(file, "true")
       .done(function(contents) {
+        // clean up result
+           contents.content = contents.content.substring(0, contents.content.length - 1);
+
            editor.setValue(contents.content);
       })
       .fail(function(err) {
@@ -126,6 +129,28 @@ function($, Github, N3, CodeMirror, ShowHint, ModeTurtle, HintTurtle, logger, rd
 
     buttonQuery.bind("click", runQuery);
 
+  $('query1').click( function() { 
+     var query1 = "PREFIX mv: <http://purl.org/net/mobivoc/> \
+                    PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>  \
+                    PREFIX schema: <http://schema.org> \
+\
+                    SELECT ?name ?openingHours ?streetAddress ?postCode ?city\
+                    WHERE \
+                    {\
+                      ?station a mv:FillingStation .\
+                      ?station rdfs:label ?name .\
+                      ?station mv:hasOpeningHours ?openingHours .\
+                      ?station mv:isLocated ?location .\
+                      ?location schema:streetAddress ?streetAddress .\
+                      ?location schema:postalCode ?postCode .\
+                      ?location schema:addressLocality ?city .\
+                     }"
+        sparqlEditor.setValue(query1);
+        return false; 
+
+   } );
+  $('query2').click( function() { your_code_here; 
+  return false; } );
 
   $(document).ready(function() {
      readLocationHash();
