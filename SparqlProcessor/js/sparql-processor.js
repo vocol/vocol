@@ -50,6 +50,10 @@ function($, Github, N3, CodeMirror, ShowHint, ModeTurtle, HintTurtle, logger, rd
     orga = arr[0];
     repo = arr[1];
     file = arr[2];
+
+    // set link
+    var githubURI = "https://github.com";
+    $("#github-link").attr("href", githubURI + "/" + orga + "/" + repo + "/");
   };
 
 
@@ -149,8 +153,6 @@ function($, Github, N3, CodeMirror, ShowHint, ModeTurtle, HintTurtle, logger, rd
         return false; 
 
    } );
-  $('query2').click( function() { your_code_here; 
-  return false; } );
 
   $(document).ready(function() {
      readLocationHash();
