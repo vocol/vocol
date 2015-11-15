@@ -57,7 +57,7 @@ https://zenodo.org/record/15023
 - CKEditor: http://ckeditor.com/
 - Jena FUSEKI: https://jena.apache.org/documentation/serving_data/
 - TippedJS: http://www.tippedjs.com/
-- TurtleEditor
+- TurtleEditor: https://github.com/vocol/vocol/tree/master/TurtleEditor
 - Google App Engine: https://cloud.google.com/appengine
 - Apache Web Server
 
