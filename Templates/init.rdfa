@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+  <meta name="description" />
+  <link rel="stylesheet" type="text/css" href="/docs/style.css"/>
+  <meta charset="UTF-8" />
+  <style type="text/css">
+    span.h {
+      padding-left: 0px;
+      font-weight: bold;
+    }
+
+    span {
+      display: block;
+      padding-left: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/"></a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+
+          <li> <a href="/">Home</a> </li>
+
+           <li class="active"><a href="/docs/schemas.html">SchemaOrg Documentation</a></li> 
+
+          <!--Widoco <li><a href="/docs/Widoco/widocoGen/index.html">Widoco Documentation</a></li> Widoco-->
+
+           <li><a href="/docs/webvowl/index.html">Visualization</a> </li> 
+
+           <li><a href="/fuseki/dataset.html">Sparql</a> </li> 
+
+           <li><a href="/docs/syntax_validation.html">Syntax Validation Report</a> </li> 
+
+           <li  ><a href="/docs/evolution.html">Evolution Report</a> </li> 
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <p>It is represented in a form based on W3C RDF/RDFS. We encourage proposals for schema.org improvements to be expressed in this same style. For Discussion please use the W3C <a href="mailto:public-vocabs@w3.org">Web schemas</a> group.</p>
+    <p>
+      See <a href="http://schema.org/docs/datamodel.html">datamodel</a> for more details.
+    </p>
+    <p>
+      Note: the style of RDFa used here may change in the future. To see the substantive content of the schema, view the HTML source markup. We use a simple subset of RDFa for syntax, including prefixes that are declared in the
+      <a href="http://www.w3.org/2011/rdfa-context/rdfa-1.1">RDFa initial context</a>.
+    </p>
+
+    <hr />
+
+
+    <div typeof="rdfs:Class" resource="http://schema.org/Enumeration">
+      <span class="h" property="rdfs:label">Enumeration</span>
+      <span property="rdfs:comment">Lists or enumerations&amp;#x2014;for example, a list of cuisines or music genres, etc.</span>
+      <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Intangible">Intangible</a></span>
+    </div>
+
+    <div typeof="rdfs:Class" resource="http://schema.org/Class">
+      <span class="h" property="rdfs:label">Class</span>
+      <span property="rdfs:comment">A class, also often called a &#39;Type&#39;; equivalent to rdfs:Class.</span>
+      <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Intangible">Intangible</a></span>
+    </div>
+
+    <div typeof="rdfs:Class" resource="http://schema.org/Property">
+      <span class="h" property="rdfs:label">Property</span>
+      <span property="rdfs:comment">A property, used to indicate attributes and relationships of some Thing; equivalent to rdf:Property.</span>
+      <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Intangible">Intangible</a></span>
+    </div>
+
+    <div typeof="rdfs:Class" resource="http://schema.org/DataType">
+      <span class="h" property="rdfs:label">DataType</span>
+      <span property="rdfs:comment">The basic data types such as Integers, Strings, etc.</span>
+    </div>
+
+    <div typeof="rdfs:Class" resource="http://schema.org/Boolean">
+      <span class="h" property="rdfs:label">Boolean</span>
+      <span property="rdfs:comment">Boolean: True or False.</span>
+      <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/DataType">DataType</a></span>
+    </div>
+
+    <div typeof="http://schema.org/Boolean" resource="http://schema.org/False">
+      <span class="h" property="rdfs:label">False</span>
+      <span property="rdfs:comment">The boolean value false</span>
+      <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Boolean">Boolean</a></span>
+    </div>
+
+    <div typeof="rdfs:Class" resource="http://schema.org/Thing">
+      <span class="h" property="rdfs:label">Thing</span>
+      <span property="rdfs:comment">The most generic type of item.</span>
+    </div>
+
+    <div typeof="rdf:Property" resource="http://schema.org/sameAs">
+      <span class="h" property="rdfs:label">sameAs</span>
+      <span property="rdfs:comment">URL of a reference Web page that unambiguously indicates the item&#39;s identity. E.g. the URL of the item&#39;s Wikipedia page, Freebase page, or official website.</span>
+      <span>Domain: <a property="http://schema.org/domainIncludes" href="http://schema.org/Thing">Thing</a></span>
+      <span>Range: <a property="http://schema.org/rangeIncludes" href="http://schema.org/URL">URL</a></span>
+    </div>
+
+
+    <div typeof="rdf:Property" resource="http://schema.org/url">
+      <span class="h" property="rdfs:label">url</span>
+      <span property="rdfs:comment">URL of the item.</span>
+      <span>Domain: <a property="http://schema.org/domainIncludes" href="http://schema.org/Thing">Thing</a></span>
+      <span>Range: <a property="http://schema.org/rangeIncludes" href="http://schema.org/URL">URL</a></span>
+    </div>
+
+
+    <div typeof="rdfs:Class" resource="http://schema.org/ActionStatusType">
+      <span class="h" property="rdfs:label">ActionStatusType</span>
+      <span property="rdfs:comment">The status of an Action.</span>
+      <span>Subclass of: <a property="rdfs:subClassOf" href="http://schema.org/Enumeration">Enumeration</a></span>
+    </div>
+
+  </div>
+</body>
+
+</html>
+

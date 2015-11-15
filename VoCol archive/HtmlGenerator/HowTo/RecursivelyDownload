@@ -1,0 +1,2 @@
+wget --mirror -p --convert-links -P ./Test http://localhost:8080
+                                   (location) 

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!-- see comment in js/app/github-ttl-editor.js for some links -->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Editing Turtle on GitHub</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/codemirror.css" rel="stylesheet">
+    <link href="css/show-hint.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <script src="js/config.js" defer></script>
+    <script data-main="turtle-editor" src="js/lib/require.js" defer></script>
+</head>
+
+<body>
+    <section id="message-queue"></section>
+    <div class="container">
+        <header>
+            <div class="page-header">
+                <h1>Editing Turtle on GitHub <small>Load, view, edit, check, and save a turtle file on GitHub.</small></h1>
+            </div>
+        </header>
+
+     <div class="row">
+            <div class="col-md-3">
+                <div class="form-group" >
+                    <label for="input-username">Username (for login)</label>
+                    <input type="text" class="form-control" id="input-username" placeholder="Enter your username on GitHub">
+                </div>
+                <div class="form-group" >
+                    <label for="input-password">Password or Token</label>
+                    <input type="password" class="form-control" id="input-password" placeholder="Password or Token">
+                </div>
+                <div class="form-group">
+                    <label for="input-owner">Owner of Repository</label>
+                    <input type="text" class="form-control" id="input-owner" placeholder="Owner's username on GitHub">
+                </div>
+                <div class="form-group">
+                    <label for="input-repo">Repository</label>
+                    <input type="text" class="form-control" id="input-repo" value="main">
+                </div>
+                <div class="form-group">
+                    <label for="input-branch">Branch</label>
+                    <input type="text" class="form-control" id="input-branch" value="master">
+                </div>
+                <div class="form-group">
+                    <label for="input-filename">Filename</label>
+                    <select class="form-control" id="input-file"></select>
+                </div>
+                <div class="form-group">
+                    <button type="button" id="button-load" class="btn btn-primary">Load Files</button>
+                    <button type="button" id="button-save" class="btn btn-primary">Save File</button>
+                </div>
+            </div><!-- /.col-md-3 -->
+            <div class="col-md-9">
+                <div class="form-group">
+                    <label for="input-contents">Content editor: <span class="current-filename"></span></label>
+                    <textarea id="input-contents" placeholder="File content will appear here" rows="24" wrap="hard"></textarea>
+                </div>
+                <div id="syntax-check">
+                    <p id="syntax-check-failed" style="display: none">
+                        <img src="img/red_orb.png" alt="A red orb." class="status-icon">
+			<span class="status">Syntax check failed.</span>
+                    </p>
+                    <p id="syntax-check-working" style="display: none">
+                        <img src="img/yellow_orb.png" alt="A yellow orb." class="status-icon">
+			<span class="status">Syntax checker working.</span>
+                    </p>
+                    <p id="syntax-check-pending">
+                        <img src="img/yellow_orb.png" alt="A yellow orb." class="status-icon">
+			<span class="status">Syntax check pending...</span>
+                    </p>
+                    <p id="syntax-check-off" style="display: none">
+                        <img src="img/yellow_orb.png" alt="A yellow orb." class="status-icon">
+			<span class="status">Syntax checking is disabled. Click to enable.</span>
+                    </p>
+                    <p id="syntax-check-passed" style="display: none">
+                        <img src="img/green_orb.png" alt="A green orb." class="status-icon">
+			<span class="status">Syntax check passed.</span>
+                    </p>
+                </div>
+                <div class="form-group">
+                    <label for="input-message">Commit message</label>
+                    <input type="text" class="form-control" id="input-message"
+			   value="Turtle file edited, just for testing the editor.">
+                </div>
+            </div><!-- /.col-md-9 -->
+        </div><!-- /.row -->
+	<hr>
+	<div class="row">
+          <div class="col-md-12">
+	    <div class="help">
+	      <h2>Further Information and Help</h2>
+	      <ul>
+		<li>For a quick tour leave the fields <em>Username</em> and <em>Password</em> blank and just click the <em>Load Files</em> button.
+		<li>Select individual files for viewing/editing in the field <em>Filename</em>.
+		<li>To use the autocomplete function, type <em>Ctrl+Space</em>.
+		<li>Click the colored sphere to temporarily disable syntax checking.
+                <li>You need to provide your username and password only if you want to save the files after editing, or if the repository is private.
+		<li>To authenticate with a GitHub personal access token, leave the fields <em>Username</em> empty
+		  and paste the token into the field <em>Password or Token</em>.
+	    </div>
+          </div>
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</body>
+</html>

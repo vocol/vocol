@@ -1,0 +1,24 @@
+# Turn off MultiViews
+Options -MultiViews
+
+# Directive to ensure *.rdf files served as appropriate content type,
+# if not present in main apache config
+AddType application/rdf+xml .rdf
+AddType text/turtle .ttl
+
+# Rewrite engine setup
+RewriteEngine On
+RewriteBase /
+
+# Rewrite rule 1: to serve HTML content from the namespace URI if requested
+RewriteCond %{HTTP_ACCEPT} !application/rdf\+xml.*(text/html|text/turtle|application/xhtml\$
+RewriteCond %{HTTP_ACCEPT} text/html [OR]
+RewriteCond %{HTTP_ACCEPT} text/turtle [OR]
+RewriteCond %{HTTP_ACCEPT} application/xhtml\+xml [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Mozilla/.*
+RewriteRule ^$ index.html [R=303]
+
+# Rewrite rule 3: to serve Turtle content is requested
+#RewriteCond %{HTTP_ACCEPT} application/rdf\+xml
+RewriteCond %{HTTP_ACCEPT} text/turtle
+RewriteRule ^$ /SingleVoc.ttl [R=303]

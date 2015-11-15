@@ -1,0 +1,184 @@
+#!/bin/bash
+#
+
+repository=repositoryParam
+server=serverParam
+user=userParam
+password=passwordParam
+
+clientHooks="clientHooksParam"
+webHook="webHookParam"
+turtleEditor="turtleEditorParam"
+
+repoNameOnly="repoNameOnlyParam"
+
+#GitLab repositoryNamespace=${repository:19}
+#GitLab repositoryService="GitLab"
+
+#BitBucket repositoryNamespace=${repository:22}
+#BitBucket repositoryService="BitBucket"
+
+#GitHub fullRepositoryURL="${repository}.git"
+#GitHub repositoryService="GitHub"
+
+#GitLab fullRepositoryURL="${repository}.git"
+
+#BitBucket fullRepositoryURL=https://bitbucket.org/"${repositoryNamespace}".git
+
+removeHistory=false
+
+cd ~/
+
+if [ -d "$repoFolder" ]; then
+
+cd repoFolder
+
+localRepository=$(git ls-remote --get-url)
+
+ if [ "$localRepository" = "$fullRepositoryURL" ]; then
+    git checkout branchNameParam
+    git reset --hard
+    git pull 
+ else
+    cd ..
+    rm -r -f repoFolder
+    git clone "${fullRepositoryURL}" repoFolder
+    cd repoFolder
+    removeHistory=true
+ fi
+ else 
+    git clone "${fullRepositoryURL}" repoFolder 
+    cd repoFolder
+    removeHistory=true 
+fi
+
+
+if [ ! -d "$VoColClient" ]; then
+ git rm -r -f VoColClient
+fi
+
+attachClientSideTools=false
+
+if [ "$clientHooks" == "clientHooksChecked" ]; then
+
+mkdir -p ~/repoFolder/VoColClient
+
+cp -r /home/vagrant/VoColClient/Hooks /home/vagrant/repoFolder/VoColClient
+
+cd VoColClient/Hooks
+
+serverURL="${server//\//\\/}"
+
+sed -i "s/ServerURL/${serverURL}/g" pre-commit
+
+attachClientSideTools=true
+
+git add .
+
+cd ../../
+
+fi
+
+if [ "$turtleEditor" == "turtleEditorChecked" ] && [ "$repositoryService" == "GitHub" ]; then
+
+mkdir -p ~/repoFolder/VoColClient
+
+cp -r /home/vagrant/VoColClient/TurtleEditor /home/vagrant/repoFolder/VoColClient
+
+cd VoColClient/TurtleEditor
+
+turtleEditorURL="${user}\/${repoNameOnly}"
+
+sed -i "s/TurtleEditorURL/${turtleEditorURL}/g" github-ttl-editor.html
+
+sed -i "s/TurtleEditorURL/${turtleEditorURL}/g" README.md
+
+sed -i "s/user_to_replace/${user}/g" js/turtle-editor.js
+
+sed -i "s/repo_to_replace/${repoNameOnly}/g" js/turtle-editor.js
+
+attachClientSideTools=true
+
+git add .
+
+cd ../../
+
+fi
+
+if $attachClientSideTools; then
+
+git commit -m "configuration of repository"
+
+#GitHub git push "${repository:0:8}${user}:${password}@${repository:8}.git"
+
+#GitLab git push https://${user}:${password}@gitlab.com/"${repositoryNamespace}".git master
+
+#BitBucket git push https://${user}:${password}@bitbucket.org/"${repositoryNamespace}".git
+
+fi
+
+
+if [ "$webHook" == "webHookChecked" ]; then
+ 
+ #GitHub curl -u "${user}:${password}" -i  https://api.github.com/hub -F "hub.mode=subscribe"  -F "hub.topic=${repository}/events/push.json"  -F "hub.callback=${server}/push"
+
+ #GitLab res=$(curl https://gitlab.com/api/v3/session --data "login=${user}&password=${password}")
+
+ #GitLab private_token=""
+
+ #GitLab temp=`echo $res | sed 's/\\\\\//\//g' | sed 's/[{}]//g' | awk -v k="private_token" '{n=split($0,a,","); for (i=1; i<=n; i++) print a[i]}' | sed 's/\"\:\"/\|/g' | sed 's/[\,]/ /g' | sed 's/\"//g' | grep -w private_token`
+ #GitLab   private_token=${temp##*|}
+
+ #GitLab repositoryNamespaceReplaced="${repositoryNamespace/\//%2F}"
+
+ #GitLab curl --header "PRIVATE-TOKEN: ${private_token}" -H "Accept: application/json" -H "Content-type: application/json" -X POST -d "{ \"id\": \"${repositoryNamespace}\", \"url\": \"${server}/push\", \"push_events\": \"true\"}" https://gitlab.com/api/v3/projects/"${repositoryNamespaceReplaced}"/hooks 
+
+ #BitBucket curl -v -H "Content-Type: application/json" -X POST --data "{\"description\": \"VoCol\", \"url\": \"${server}/push\", \"active\": true, \"events\": [  \"repo:push\",  \"issue:created\", \"issue:updated\" ] }" https://${user}:${password}@api.bitbucket.org/2.0/repositories/${repositoryNamespace}/hooks
+
+fi
+
+
+cd ~/VoCol/tools
+fuser -k 3002/tcp
+#Rapper java -jar WSRapperSyntaxValidation.jar &
+#JenaRiot java -jar WSJenaRiotSyntaxValidation.jar &
+
+cd ..
+fuser -k 3001/tcp
+node webHookListener.js &
+
+#Evolution cp ~/VoCol/templates/evolutionTemplate.html ~/schemaorg/docs/evolution.html 
+#Evolution rm ~/VoCol/evolution/SingleVoc.ttl
+#Evolution echo -n "[]" > ~/schemaorg/docs/data.json
+
+#Evolution if [ "$removeHistory" = true ]; then
+
+#Evolution cp ~/VoCol/templates/evolutionTemplate.html ~/schemaorg/docs/evolution.html 
+#Evolution rm ~/VoCol/evolution/SingleVoc.ttl
+#Evolution echo -n "[]" > ~/schemaorg/docs/data.json
+
+#Evolution fi
+
+rm -rf ~/schemaorg/docs/otherBranches/*
+echo -n "[]" > ~/schemaorg/docs/otherBranches.json
+
+rm -rf ~/schemaorg/data/*
+cp ~/VoCol/templates/init.rdfa ~/schemaorg/data/init.rdfa
+
+cp ~/VoCol/templates/schemasTemplate.html ~/schemaorg/docs/schemas.html
+sed -i "s/\$li//g" ~/schemaorg/docs/schemas.html
+
+rm -f ~/schemaorg/docs/webvowl/js/data/SingleVoc.json
+
+cd ~/fuseki/apache-jena-fuseki-2.3.0/
+./fuseki-server --mem /myDataset &
+
+rm -rf ~/VoCol/serializations/*
+
+cd ~/VoCol
+bash mainBranchScript.sh "" branchNameParam
+
+echo "" > repoConfiguration.sh
+
+fuser -k 3000/tcp
+mv ~/schemaorg/docs/configuration_page.html ~/VoCol/configuration_page.html

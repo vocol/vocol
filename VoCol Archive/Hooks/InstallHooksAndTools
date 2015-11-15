@@ -1,0 +1,51 @@
+#!/bin/sh
+
+cd ..
+#Copy implemented hooks 
+for file in `ls -1 hooks`
+do
+ if [ $file != "InstallHooksAndTools" ]; then
+   echo $file 
+   cp hooks/$file .git/hooks/$file
+   sudo chmod +x .git/hooks/$file
+ fi
+done
+
+#Create directory tools
+mkdir -p "tools"
+
+cd "tools"
+
+#Install Raptor
+if [ ! -d "$Raptor" ]; then
+
+  curl -O http://download.librdf.org/source/raptor2-2.0.15.tar.gz
+  
+  tar -zxvf raptor2-2.0.15.tar.gz
+  mv raptor2-2.0.15 Raptor
+  cd Raptor
+  
+  sudo apt-get install libxml2-dev libxslt1-dev python-dev
+  sudo apt-get -y install raptor2-utils
+  ./configure
+  make
+  sudo make install
+  cd ..
+fi
+
+#Install Parrot
+if [ ! -e "parrot-jar-with-dependencies.jar" ]; then
+  curl -O https://github.com/vocol/vocol/raw/master/Hooks/tools/parrot-jar-with-dependencies.jar
+fi
+
+cd ..
+
+#Ignore tools folder using .gitignore
+if [ ! -e ".gitignore" ]; then
+  touch .gitignore
+  echo "tools/" >> .gitignore
+else
+  if ! grep -q "tools" ".gitignore"; then
+   echo "tools/" >> .gitignore
+  fi
+fi

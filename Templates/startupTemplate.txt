@@ -1,0 +1,37 @@
+#!/bin/bash
+#
+
+if ! lsof -i:8080
+then
+  cd ~/
+  google_appengine/dev_appserver.py schemaorg/app.yaml &
+fi
+
+if ! lsof -i:3000
+then
+  cd ~/VoCol
+  node configurationApp.js & 
+fi
+
+if ! lsof -i:3001
+then
+  cd ~/VoCol
+  node webHookListener.js &
+fi
+
+if ! lsof -i:3002
+then
+ cd ~/VoCol/tools
+ #Rapper java -jar WSRapperSyntaxValidation.jar &
+ #JenaRiot java -jar WSJenaRiotSyntaxValidation.jar &
+fi
+
+if ! lsof -i:3030
+then
+  cd ~/fuseki/apache-jena-fuseki-2.3.0/
+  ./fuseki-server --mem /myDataset &
+fi
+
+if [ ! -f ~/schemaorg/docs/configuration_page.html ]; then
+    mv ~/VoCol/configuration_page.html ~/schemaorg/docs/configuration_page.html
+fi

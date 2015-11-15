@@ -1,0 +1,7 @@
+
+
+# add this line in the end of the file .bashrc that corresponds to the location of owl2vcs tool
+
+export PATH="$PATH:/home/vagrant/othertools/owl2vcs"
+
+
