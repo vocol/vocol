@@ -49,6 +49,10 @@ https://zenodo.org/record/15023
 - Java v1.8+
 - NodeJS v1.8+
 - NPM v2.8+
+  - Express Package
+  - Body-Parser Package
+  - Node-UUID Package
+  - FFI
 - Apache Web Server
 - Raptor RDF Syntax Library: http://librdf.org/raptor/
 - Jena Riot: https://jena.apache.org/documentation/io/
@@ -73,6 +77,12 @@ Installation of VoCol Environment using Vagrant technology is very straightforwa
 3. You can customize the VoCol Environment by installing new tools to perform other Vocabulary Development related tasks, and share it with others as Vagrant Box.
 
 4. Since it works as an isolated operating system, you can easily manage a Vagrant Box, by stopping, starting, replacing or moving to different machine it without affecting the other running systems.
+
+5. It is easy to have always the latest version of VoCol, since we will provide regular updates of VoCol Box in Vagrant Cloud.
+
+6. You have to install only VirtualBox and Vagrant, and all other necessary libraries and tools are within VoCol Box. 
+
+The required time for complete installation and configuration of VoCol environment (after you install VirtualBox and Vagrant and download the VoCol Box) is less than 10 minutes.
 
 ###Installation and Configuration of VoCol Environment
 
