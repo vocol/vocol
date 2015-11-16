@@ -31,7 +31,7 @@ https://zenodo.org/record/15023
     - [Server Side](#server-side)
 - [Developing Vocabularies with VoCol Environment](#developing-vocabularies-with-vocol-environment)
     - [Vocabulary Language and Representation](#vocabulary-language-and-representation)
-  - [Branching and Merging](#branching-and-merging)
+    - [Branching and Merging](#branching-and-merging)
     - [Vocabulary Organization Structure](#vocabulary-organization-structure)
     - [Labeling of Release Versions](#labeling-of-release-versions)
   - [Best Practices for Vocabulary Development](#best-practices-for-vocabulary-development)
@@ -212,7 +212,7 @@ In server-side, VoCol performs several tasks related to validation and publicati
 **Publishing Artefacts for Humans and Machines** After syntax validation process has been passed successfully, different artefacts are published and can be accessed publicly from interested parts. First, a human-readable HTML representation of vocabulary is generated using tools like: *Schema.org* or *Widoco*. In addition, *Turtle*, *RDF/XML* and *NTriple* are generated as machine comprehensible formats. VoCol serve these through a web server configured to perform content negotiation according to the best practices for publishing vocabularies. For visualization purposes, the *WebVOWL* is used,to create graphical depictions for vocabulary elements by implementing the Visual Notation for OWL Ontologies (VOWL). Furthermore, a *SPARQL* endpoint service using *Jena Fuseki* is provided. Users will be able to perform *SPARQL* queries and export results in different formats. In case of existing *semantic diffs* between previous and current version of vocabulary, an evolution report is generated using tool *Owl2VCS*. All of the above mentioned actions will be performed for main branch, whereas, for all other branches Syntax Validation Report and Documentation Generation will be generated.
 
 
-#Developing Vocabularies with VoCol Environment
+##Developing Vocabularies with VoCol Environment
 
 ###Vocabulary Language and Representation
 
@@ -227,7 +227,7 @@ rdfs:label "Enable".
 ```
 For more about turtle format in http://www.w3.org/TR/turtle/.
 
-##Branching and Merging
+###Branching and Merging
 
 It is considered that the branching strategy affects the quality of the vocabularies. In order to design a branching model, it is important to understand the possible activities that a team can perform. Table below presents common activities of collaborative vocabulary development. These activities are classified into three categories: (1) *basic activities* (ACT1, ACT7, ACT9), (2) *semantic issues* (ACT2, ACT3, ACT4, ACT5, ACT6, ACT8) and (3) *structural issues* (ACT10, ACT11). The following figure depicts different branches to handle the mentioned categories. Basic activities have to be performed in the *Develop Branch*. Branch called *Semantic Issues* is proposed for the second category. In case of the third category a branch named *Structural Issues* has to be applied. This not restricts the flexibility of Git regarding branches. On the contrary, other branches can be used as well to complement this model. 
 
