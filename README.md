@@ -48,6 +48,7 @@ https://zenodo.org/record/15023
 - Java v1.8+
 - NodeJS v1.8+
 - NPM v2.8+
+- Apache Web Server
 - Raptor RDF Syntax Library: http://librdf.org/raptor/
 - Jena Riot: https://jena.apache.org/documentation/io/
 - Widoco: https://github.com/dgarijo/Widoco
@@ -59,9 +60,18 @@ https://zenodo.org/record/15023
 - TippedJS: http://www.tippedjs.com/
 - TurtleEditor: https://github.com/vocol/vocol/tree/master/TurtleEditor
 - Google App Engine: https://cloud.google.com/appengine
-- Apache Web Server
 
 ##Installation using a Virtual Machine Image (Vagrant Box)
+
+Installation of VoCol Environment using Vagrant technology is very straightforward and you will receive a number of benefits.
+
+1. Vagrant allows running several VoCol boxes in single machine, which can be configured to monitor different repositories.
+
+2. Using Vagrant Share mechanism and DynDNS, the content of the VoCol Envorinment can be accessed publicly.
+
+3. You can customize the VoCol Environment by installing new tools to perform other Vocabulary Development related tasks, and share it with others as Vagrant Box.
+
+4. Since it works as an isolated operating system, you can easily manage a Vagrant Box, by stopping, starting, replacing or moving to different machine it without affecting the other running systems.
 
 ###Installation and Configuration of VoCol Environment
 
@@ -77,19 +87,19 @@ Install VirtualBox and Vagrant, these are standard procedures and found on their
 		 
    1.5. Run command: **vagrant ssh** (to enter in the vagrant box)
 
-   1.6. Run command: bash startup.sh 
+   1.6. Run command: **bash startup.sh**
 
    1.7. Open new terminal and navigate to the folder
 
    1.8. Create a public accessible URL, by running the command: **vagrant share --http 80 --name (desired name)**, 
 	  e.g. **vagrant share --http 80 --name vocol** . 
-        This will generate url: vocol.vagrantshare.com
+        This will generate url: *vocol.vagrantshare.com*
 
-   1.9. If you want to reset VoCol in initial state, run script resetVocol, i.e.: bash resetVoCol.sh
+   1.9. If you want to reset VoCol in initial state, run script resetVocol, i.e.: **bash resetVoCol.sh**
   
 ###Configuration of the VoCol Environment
 
-2.1. Open Web Page: http://192.168.33.10/docs/configuration_page.html
+2.1. Open Web Page: *http://192.168.33.10/docs/configuration_page.html*
 
 2.2. In the section **General info** provide the following information:
  
@@ -288,7 +298,7 @@ Naming conventions help to avoid lexical inaccuracies and increase the robustnes
 
 ###Dereferenceability
 
-Adopting HTTP URIs for identifying things is appropriate due to the following reasons: (1) it is simple to create global unique keys in a decentralized fashion and (2) the generated key is not used just as a name but also as an identifier. This will the server to provide adequate content for a resource based on the type of request through *Content Negotiation* mechanism. There are three different strategies to make URIs of resources dereferenceable: (1) slash URIs; (2) hash URIs and (3) a combination between them.
+Adopting HTTP URIs for identifying things is appropriate due to the following reasons: (1) it is simple to create global unique keys in a decentralized fashion and (2) the generated key is not used just as a name but also as an identifier. This will help the server to provide adequate content for a resource based on the type of request through *Content Negotiation* mechanism. There are three different strategies to make URIs of resources dereferenceable: (1) slash URIs; (2) hash URIs and (3) a combination between them.
 
 * **P-D1 Use slash URIs** When the client request a resource from server by providing its URIs, the server response will be 303 see other. Slash URI should be used when dealing with large datasets. This makes the server to response only with requested resource. For example, the *ChargingPoint* resource is identified as follows *http://purl.org/net/mobivoc/ChargingPoint*. The URI of turtle representation of above resource  is *http://purl.org/net/mobivoc/ChargingPoint.ttl* and the URI of html representation is *http://purl.org/net/mobivoc/ChargingPoint.html*.
 
