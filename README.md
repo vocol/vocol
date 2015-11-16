@@ -28,7 +28,8 @@ https://zenodo.org/record/15023
       - [VoCol on the GitHub](#vocol-on-the-github)
   - [How it works](#how-it-works)
     - [Client Side](#client-side)
-    - [Server Side](#server-side)
+    - [Server Side](#server-side) 
+ 
 - [Developing Vocabularies with VoCol Environment](#developing-vocabularies-with-vocol-environment)
     - [Vocabulary Language and Representation](#vocabulary-language-and-representation)
     - [Branching and Merging](#branching-and-merging)
@@ -67,7 +68,7 @@ Installation of VoCol Environment using Vagrant technology is very straightforwa
 
 1. Vagrant allows running several VoCol boxes in single machine, which can be configured to monitor different repositories.
 
-2. Using Vagrant Share mechanism and DynDNS, the content of the VoCol Envorinment can be accessed publicly.
+2. Using Vagrant Share mechanism, the content of the VoCol Envorinment can be accessed publicly.
 
 3. You can customize the VoCol Environment by installing new tools to perform other Vocabulary Development related tasks, and share it with others as Vagrant Box.
 
