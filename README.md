@@ -82,6 +82,8 @@ Installation of VoCol Environment using Vagrant technology is very straightforwa
 
 6. You have to install only VirtualBox and Vagrant, and all other necessary libraries and tools are within VoCol Box. 
 
+7. This solution is compatible with all Operating Systems that are supported by Vagrant and VirtualBox.
+
 The required time for complete installation and configuration of VoCol environment (after you install VirtualBox and Vagrant and download the VoCol Box) is less than 10 minutes.
 
 ###Installation and Configuration of VoCol Environment
@@ -179,7 +181,7 @@ The following steps are needed to setup the VoCol Environment on your server.
 
 After the above mentioned steps are finished, continue with VoCol configuration by running the command: **bash startup.sh** and then follow steps defined in the section **Configuration of the VoCol Environment**.
 
-VoCol is tested in OS Ubuntu 14.04 LTS.
+This solution is tested in OS Ubuntu 14.04 LTS.
 
 ###Working with VoCol
 
