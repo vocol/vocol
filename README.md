@@ -17,7 +17,7 @@ by Petersen, Niklas ; Halilaj, Lavdim ; Lange, Christoph ; Auer, Sören
 https://zenodo.org/record/15023
 
 **Table of Contents**
-
+  - [VoCol Features](#vocol-features)
   - [Required libraries and tools](#required-libraries-and-tools)
   - [Installation using a Virtual Machine Image (Vagrant Box)](#installation-using-a-virtual-machine-image-vagrant-box)
     - [Installation and Configuration of VoCol Environment](#installation-and-configuration-of-vocol-environment)
@@ -44,6 +44,19 @@ https://zenodo.org/record/15023
     - [Validation](#validation)
     - [Authoring](#authoring)
     - [Utilization of SKOS Vocabulary](#utilization-of-skos-vocabulary)
+
+##VoCol Features
+
+Below are tasks that are performed automatically by VoCol on push event:
+- Syntax Validation: Rapper or JenaRiot,
+- Documentation Generation: Schema.Org or Widoco,
+- Visualization: WebVOWL,
+- Sparql EndPoint: Jena Fuseki,
+- Evolution Report: Owl2Diff,
+- Content Negotiation,
+- Generates Syntax Validation Report and Documentation for all branches.
+
+See [online demo](http://butterbur06.iai.uni-bonn.de/).
 
 ##Required libraries and tools
 - Java v1.8+
