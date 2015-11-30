@@ -47,13 +47,14 @@ https://zenodo.org/record/15023
 
 ##VoCol Features
 
-Below are tasks that are performed automatically by VoCol on push event:
+Below are tasks that are performed automatically by VoCol on pre-commit and push events:
 - Syntax Validation: Rapper or JenaRiot,
 - Documentation Generation: Schema.Org or Widoco,
 - Visualization: WebVOWL,
 - Sparql EndPoint: Jena Fuseki,
-- Evolution Report: Owl2Diff,
+- Evolution Report: OWL2VCS,
 - Content Negotiation,
+- Dereferenceable URI's using Schema.Org,
 - Generates Syntax Validation Report and Documentation for all branches.
 
 See [online demo](http://butterbur06.iai.uni-bonn.de/).
@@ -133,7 +134,7 @@ Install VirtualBox and Vagrant, these are standard procedures and found on their
 
  2.2.2. Copy the URL generated from command in step 1.8. and put in the field **Domain Name**.
       
-     In our case was: http://vocol.vagrantshare.com
+     In our case was: http://vocol.vagrantshare.com (be sure to provide server url without */* in the end, a Web Hook that will be created to your repository will be is this format: http://<your server url>/push , in our case http://vocol.vagrantshare.com/push)
 
  2.2.3. Check **Web Hook** to put a web hook in client repository. 
        
@@ -157,10 +158,13 @@ Install VirtualBox and Vagrant, these are standard procedures and found on their
      Important Note: Since these information will be used create a Web Hook in the repository service, the user has be the owner of the repository. In addition, the TurtleEditor and Client Side Hooks will be attached to the repository if they are selected in the "Additional Services" section.
 		
      Note: Credentials will be removed immediately after the configuration process is finished.
- 
-2.3. Select the tool for syntax validation.
+     Note: If you do not prefer to write the repository credentials, then:
+     1. Uncheck the following options: "Web Hook", "Turtle Editor", "Client Side Hooks" and put arbitrary data on the respective textboxes.
+     2. Create a Web Hook to your repository in this format: http://<your server url>/push
+     
+2.3. Select the tool for **Syntax Validation**.
 
-2.4. Select the tool for Documentation Generation.
+2.4. Select the tool for **Documentation Generation**.
 
 2.5. In the **Additional Services** section, select the services the you want to be performed by VoCol and to be shown in VoCol Web Application.
 		 
