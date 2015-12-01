@@ -174,7 +174,7 @@ Install VirtualBox and Vagrant, these are standard procedures and found on their
 	
 2.3. Click **Save Configuration**
 		  
-     Wait few moments until new configuration will be applied. You may check the repository to see if the latest changes were applied.
+     Wait few moments until new configuration will be applied. You may verify this by checking if the web hook is created and a *VoColClient* is attached to the repository (if you already checked the respective services).
 
 Process of installing and configuration of VoCol is finished here.
 
@@ -190,11 +190,12 @@ alt="VoCol Installation and Configuration" width="240" height="180" border="10" 
 The following steps are needed to setup the VoCol Environment on your server.
 
 1. Install libraries: Java, NodeJS, NPM and Apache with respective versions as listed in section **Required libraries and tools**. 
-2. Unzip the file VoCol.zip which contains all the other necessary libraries and tools in home directory. A new directory will called **vagrant** will be created into **/home** directory. 
+2. Unzip the file VoCol.zip which contains all the other necessary libraries and tools in home directory. A new directory will called **vagrant** will be created into **/home** directory.
 3. Install Google App Engine into **/home/vagrant** directory. 
 4. Install Jena Fuseki into **/home/vagrant/fuseki** directory. 
 5. Install Rapper for syntax validation. 
 6. Apply configuration files that are found in *config files* folder of this repository.
+7. Navigate to *repoFolder* and run the command **owl2enable**.
 
 After the above mentioned steps are finished, continue with VoCol configuration by running the command: **bash startup.sh** and then follow steps defined in the section **Configuration of the VoCol Environment**.
 
