@@ -47,8 +47,8 @@ https://zenodo.org/record/15023
 
 ##VoCol Features
 
-Below are tasks that are performed automatically by VoCol on pre-commit and push events:
-- Syntax Validation: Rapper or JenaRiot,
+Below are tasks that are performed automatically by VoCol on push event:
+- Syntax Validation: Rapper or JenaRiot (in pre-commit event as well),
 - Documentation Generation: Schema.Org or Widoco,
 - Visualization: WebVOWL,
 - Sparql EndPoint: Jena Fuseki,
