@@ -16,7 +16,7 @@ All VoCol components, even the repository engine, can be exchanged with little e
   - [VoCol Features](#vocol-features)
   - [Required libraries and tools](#required-libraries-and-tools)
   - [Installation using a Virtual Machine Image (Vagrant Box)](#installation-using-a-virtual-machine-image-vagrant-box)
-    - [Installation and Configuration of VoCol Environment](#installation-and-configuration-of-vocol-environment)
+    - [Installation of the VoCol Environment](#installation-and-configuration-of-vocol-environment)
     - [Configuration of the VoCol Environment](#configuration-of-the-vocol-environment)
   - [Installation on a Web Server](#installation-on-a-web-server)
     - [Working with VoCol](#working-with-vocol)
@@ -179,7 +179,7 @@ This process needs to be done only once.
 The following screen cast shows in details all steps listed above.
 
 <a href="https://drive.google.com/file/d/0By1pR7FDcH8obUV6OEpxeDZ3MFk/view?usp=sharing" target="_blank"><img src="https://raw.githubusercontent.com/vocol/vocol/master/Images/VoColInstallingAndConfiguring.png" 
-alt="VoCol Installation and Configuration" width="240" height="180" border="10" /></a>
+alt="VoCol Installation and Configuration"  width="440" height="280" border="10" /></a>
 
 ##Installation on a Web Server
 
@@ -219,14 +219,14 @@ By using Turtle Editor which is attached to the repository, contributors can dir
 The following screen cast shows using of VoCol for vocabulary development.
 
 <a href="https://drive.google.com/file/d/0By1pR7FDcH8oTFpIRWxfUHdNS1k/view?usp=sharing" target="_blank"><img src="https://raw.githubusercontent.com/vocol/vocol/master/Images/WorkingwithVoCol.png" 
-alt="VoCol Usage" width="240" height="180" border="10" /></a>
+alt="VoCol Usage" width="440" height="280" border="10" /></a>
 
 
 ##How it works
 
 ###Client Side 
 
-VoCol in client-side deals with commit event by enforcing users to realize specific requirements before pushing changes to the remote repository. Pre-commit hook allows the user to push the modified vocabulary files only if syntax validation succeeded. 
+VoCol in client-side deals with commit event by enforcing users to realize specific requirements before pushing changes to the remote repository. Pre-commit hook get the modified files and sent to a listening service on VoCol server where these files are checked for syntax errors. Users do not have to install any tool on their machines. They just have to apply a pre-commit hook as described in [VoCol on local machine](#vocol-on-local-machine). User is allowed to push the modified vocabulary files to the remote repository only if syntax validation succeeded. 
 
 ###Server Side
 
