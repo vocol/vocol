@@ -44,7 +44,7 @@ All VoCol components, even the repository engine, can be exchanged with little e
 ##VoCol Features
 
 Below are tasks that are performed automatically by VoCol on push event:
-- Syntax Validation: Rapper or JenaRiot (in pre-commit event as well by sending the modified file to a listening service for syntax validation in VoCol Server),
+- Syntax Validation: Rapper or JenaRiot (in pre-commit event as well by sending the modified files to a listening service for syntax validation in VoCol Server),
 - Documentation Generation: Schema.Org or Widoco,
 - Visualization: WebVOWL,
 - Sparql EndPoint: Jena Fuseki,
@@ -97,7 +97,7 @@ Installation of VoCol Environment using Vagrant technology is very straightforwa
 
 The required time for complete installation and configuration of VoCol environment (after you install VirtualBox and Vagrant and download the VoCol Box) is less than 10 minutes.
 
-###Installation and Configuration of VoCol Environment
+###Installation of the VoCol Environment
 
 Install VirtualBox and Vagrant, these are standard procedures and found on their respective Web Sites.
 
@@ -111,7 +111,7 @@ Install VirtualBox and Vagrant, these are standard procedures and found on their
 		 
    1.5. Run command: **vagrant ssh** (to enter in the vagrant box)
 
-   1.6. Run command: **bash startup.sh**
+   1.6. Run command: **bash startup.sh** (installation is finished here, for making public accesible, follow steps 1.7 and 1.8)
 
    1.7. Open new terminal and navigate to the folder
 
