@@ -44,14 +44,15 @@ All VoCol components, even the repository engine, can be exchanged with little e
 ##VoCol Features
 
 Below are tasks that are performed automatically by VoCol on push event:
-- Syntax Validation: Rapper or JenaRiot (in pre-commit event as well),
+- Syntax Validation: Rapper or JenaRiot (in pre-commit event as well by sending the modified file to a listening service for syntax validation in VoCol Server),
 - Documentation Generation: Schema.Org or Widoco,
 - Visualization: WebVOWL,
 - Sparql EndPoint: Jena Fuseki,
 - Evolution Report: OWL2VCS,
 - Content Negotiation,
 - Dereferenceable URI's using Schema.Org,
-- Generates Syntax Validation Report and Documentation for all branches.
+- Generates Syntax Validation Report and Documentation for all branches,
+- Upload and list sparql queries defined in .rq files (file name will be used as the query name) into SPARQL enpoint.
 
 See [online demo](http://butterbur06.iai.uni-bonn.de/).
 
