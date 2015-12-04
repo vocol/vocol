@@ -52,7 +52,7 @@ Below are tasks that are performed automatically by VoCol on push event:
 - Content Negotiation,
 - Dereferenceable URI's using Schema.Org,
 - Generates Syntax Validation Report and Documentation for all branches,
-- Upload and list sparql queries defined in .rq files (file name will be used as the query name) into SPARQL enpoint.
+- Upload and list sparql queries defined in .rq files (file name will be used as the query name) into SPARQL endpoint.
 
 See [online demo](http://butterbur06.iai.uni-bonn.de/).
 
