@@ -11,6 +11,7 @@ VoCol is implemented without dependencies on complex software components, it pro
 The VoCol environment is employing loose coupling of validation and documentation generation components on top of a standard Git repository. 
 All VoCol components, even the repository engine, can be exchanged with little effort. 
 
+See [online demo](http://butterbur06.iai.uni-bonn.de/).
 
 **Table of Contents**
   - [VoCol Features](#vocol-features)
@@ -53,8 +54,6 @@ Below are tasks that are performed automatically by VoCol on push event:
 - Dereferenceable URI's using Schema.Org,
 - Generates Syntax Validation Report and Documentation for all branches,
 - Upload and list sparql queries defined in .rq files (file name will be used as the query name) into SPARQL endpoint.
-
-See [online demo](http://butterbur06.iai.uni-bonn.de/).
 
 ##Required libraries and tools
 - Java v1.8+
