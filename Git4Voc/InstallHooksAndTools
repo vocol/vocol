@@ -14,6 +14,9 @@ done
 #Create directory tools
 mkdir -p "tools"
 
+#Create directory artifacts
+mkdir -p "artifacts"
+
 cd "tools"
 
 #Install Raptor
@@ -33,12 +36,43 @@ if [ ! -d "$Raptor" ]; then
   cd ..
 fi
 
-#Install Parrot
-if [ ! -e "parrot-jar-with-dependencies.jar" ]; then
-  curl -O https://github.com/vocol/vocol/raw/master/Hooks/tools/parrot-jar-with-dependencies.jar
+#Install Owl2VCS
+if [ ! -d "$owl2vcs" ]; then
+
+  curl -O https://dl.dropbox.com/u/62722148/owl2vcs-releases/owl2vcs-0.30-bin.zip
+  
+  unzip owl2vcs-0.30-bin.zip
+  mv owl2vcs-0.30-bin owl2vcs
+  cd owl2vcs
+  
+  export PATH=$PATH:$(pwd)
+fi
+
+#Download Widoco
+if [ ! -e "rdf-toolkit.jar" ]; then
+  curl -O https://github.com/vocol/vocol/blob/master/Git4Voc/tools/widoco.jar
+fi
+
+#Download Parrot
+if [ ! -e "parrot.jar" ]; then
+  curl -O https://github.com/vocol/vocol/blob/master/Git4Voc/tools/parrot.jar
+fi
+
+#Download RDF-Toolkit
+if [ ! -e "rdf-toolkit.jar" ]; then
+  curl -O https://github.com/vocol/vocol/blob/master/Git4Voc/tools/rdf-toolkit.jar
+fi
+
+#Download EvolutionTemplate
+if [ ! -e "templates.zip" ]; then
+  curl -O https://github.com/vocol/vocol/blob/master/Git4Voc/tools/templates.zip
+  
+  unzip templates.zip -d ../artifacts
 fi
 
 cd ..
+
+owl2enable
 
 #Ignore tools folder using .gitignore
 if [ ! -e ".gitignore" ]; then

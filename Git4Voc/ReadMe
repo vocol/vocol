@@ -3,8 +3,9 @@ In order to use Git4Voc, following steps must be performed:
 
 1. Hooks folder should be copied to your repository.
 
-2. Script InstallHooksAndTools should be executed (this will copy predefined hooks to .git/hooks folder and install tools: (1) Rapper and (2) Parrot).
+2. Script InstallHooksAndTools should be executed (this will copy predefined hooks to .git/hooks folder and download tools: (1) [Widoco](https://github.com/dgarijo/Widoco); (2) [Parrot](https://bitbucket.org/fundacionctic/parrot/wiki/Home); (3) [RDF-Toolkit](https://github.com/edmcouncil/rdf-toolkit) and (4) [Owl2VCS](https://github.com/utapyngo/owl2vcs) and file templates.zip which contains templates used for generating artefacts).
 
-After successful installation, pre-commit hook will be executed on each commit to perform syntax validation using Rapper and scanning for pitfalls using OOPS web service.
+After successful installation, pre-commit hook will be executed on each commit to perform syntax validation using Rapper and scanning for pitfalls using OOPS web service and rdf-toolkit for normalization/formatting of vocabulary files.
 
-Post-commit hooks will generate documentation for modified files using Parrot.
+Post-commit hooks will generate documentation for modified files using Widoco and generate semantic diffs using Owl2VCS.
+
