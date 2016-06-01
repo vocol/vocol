@@ -46,7 +46,7 @@ See [online demo](http://butterbur06.iai.uni-bonn.de/).
 
 New features:
 - Formatting ontology/vocabulary files with unified canonical structure during the pre-commit event. This allows users to work with different Ontology/Vocabulday editors on their local working copies and prevent from false-positive conflicts. This functionality is implemented using [RDF-Tookit](https://github.com/edmcouncil/rdf-toolkit)
-- Displaying sparql query result with different visualization graphs using [D3sparql](http://biohackathon.org/d3sparql/)
+- Displaying sparql query results with different visualization graphs using [D3sparql](http://biohackathon.org/d3sparql/)
 - A docker image of VoCol is also provided on: https://hub.docker.com/r/lavdim/vocol/
 
 Below are tasks that are performed automatically by VoCol on push event:
