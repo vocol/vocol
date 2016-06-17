@@ -53,12 +53,12 @@ Below are tasks that are performed automatically by VoCol on push event:
 - Syntax Validation: Rapper or JenaRiot (in pre-commit event as well by sending the modified files to a listening service for syntax validation in VoCol Server),
 - Documentation Generation: Schema.Org or Widoco,
 - Visualization: WebVOWL,
-- Sparql EndPoint: Jena Fuseki,
+- Provide latest version of vocabulary through SPARQL Endpoint: Jena Fuseki,
 - Evolution Report: OWL2VCS,
 - Content Negotiation,
 - Dereferenceable URI's using Schema.Org,
 - Generates Syntax Validation Report and Documentation for all branches,
-- Upload and list sparql queries defined in .rq files (file name will be used as the query name) into SPARQL endpoint.
+- Upload and list SPARQL into Jena Fuseki interface all queries defined in .rq files, where the file name will be used as the query name and the file content as the query.
 
 ##Required libraries and tools
 - Java v1.8+
