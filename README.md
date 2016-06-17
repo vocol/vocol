@@ -45,7 +45,7 @@ See [online demo](http://butterbur06.iai.uni-bonn.de/).
 ##VoCol Features
 
 New features:
-- Automatic formatting ontology/vocabulary files with unified serialization during the pre-commit event. This allows users to work with different Ontology/Vocabulary editors on their local working copies and prevent Git from indicating of false-positive conflicts. This functionality is implemented using [RDF-Toolkit](https://github.com/edmcouncil/rdf-toolkit),
+- Automatic formatting Ontology/Vocabulary files with unified serialization during the pre-commit event. This allows users to work with different Ontology/Vocabulary editors on their local working copies and prevent Git from the indication of false-positive conflicts. This functionality is implemented using [RDF-Toolkit](https://github.com/edmcouncil/rdf-toolkit),
 - Displaying SPARQL query results with different visualization graphs using [D3sparql](http://biohackathon.org/d3sparql/),
 - A docker image of VoCol is also provided on: https://hub.docker.com/r/lavdim/vocol/.
 
@@ -103,7 +103,7 @@ The required time for complete installation and configuration of VoCol environme
 
 ###Installation of the VoCol Environment
 
-Install VirtualBox and Vagrant, these are standard procedures and found on their respective Web Sites.
+Prerequisite: Install VirtualBox and Vagrant, these are standard procedures and can be found on their respective Web Sites.
 
    1.1. Create a new folder.
 
@@ -127,7 +127,7 @@ Install VirtualBox and Vagrant, these are standard procedures and found on their
   
 ###Configuration of the VoCol Environment
 
-2.1. Open Web Page: *http://192.168.33.10/docs/configuration_page.html*
+2.1. Open Web Page: *http://192.168.33.10/docs/configuration_page.html* (this is default IP address of the Guest machine when Vagrant is used for installing VoCol)
 
 2.2. In the section **General info** provide the following information:
  
