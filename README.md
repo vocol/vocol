@@ -110,6 +110,9 @@ Prerequisite: Install VirtualBox and Vagrant, these are standard procedures and 
    1.2. Open terminal to the location of the created folder.
 
    1.3. Run command: **vagrant init eis/vocol**
+   
+   1.3.1. Open the file Vagrantfile, which is created from the above command and uncomment the line that has the following content: 
+	*config.vm.network "private_network", ip: "192.168.33.10"*
 		 
    1.4. Run command: **vagrant up --provider virtualbox**
 		 
