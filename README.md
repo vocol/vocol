@@ -11,7 +11,7 @@ VoCol is implemented without dependencies on complex software components, it pro
 The VoCol environment is employing loose coupling of validation and documentation generation components on top of a standard Git repository. 
 All VoCol components, even the repository engine, can be exchanged with little effort. 
 
-See [online demo](http://butterbur06.iai.uni-bonn.de/).
+Check out a list of projects that are currently using [VoCol](http://vocol.iais.fraunhofer.de/).
 
 **Table of Contents**
   - [VoCol Features](#vocol-features)
