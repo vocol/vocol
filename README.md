@@ -42,7 +42,7 @@ Check out a list of projects that are currently using [VoCol](http://vocol.iais.
     - [Authoring](#authoring)
     - [Utilization of SKOS Vocabulary](#utilization-of-skos-vocabulary)
 
-##VoCol Features
+## VoCol Features
 
 New features:
 - Automatic formatting Ontology/Vocabulary files with unified serialization during the pre-commit event. This allows users to work with different Ontology/Vocabulary editors on their local working copies and prevent Git from the indication of false-positive conflicts. This functionality is implemented using [RDF-Toolkit](https://github.com/edmcouncil/rdf-toolkit),
@@ -60,7 +60,7 @@ Below are tasks that are performed automatically by VoCol on push event:
 - Generates Syntax Validation Report and Documentation for all branches,
 - Upload and list SPARQL into Jena Fuseki interface all queries defined in .rq files, where the file name will be used as the query name and the file content as the query.
 
-##Required libraries and tools
+## Required libraries and tools
 - Java v1.8+
 - NodeJS v1.8+
 - NPM v2.8+
@@ -81,7 +81,7 @@ Below are tasks that are performed automatically by VoCol on push event:
 - TurtleEditor: https://github.com/vocol/vocol/tree/master/TurtleEditor
 - Google App Engine: https://cloud.google.com/appengine
 
-##Installation using a Virtual Machine Image (Vagrant Box)
+## Installation using a Virtual Machine Image (Vagrant Box)
 
 Installation of VoCol Environment using Vagrant technology is very straightforward and you will receive a number of benefits.
 
@@ -101,7 +101,7 @@ Installation of VoCol Environment using Vagrant technology is very straightforwa
 
 The required time for complete installation and configuration of VoCol environment (after you install VirtualBox and Vagrant and download the VoCol Box) is less than 10 minutes.
 
-###Installation of the VoCol Environment
+### Installation of the VoCol Environment
 
 Prerequisite: Install VirtualBox and Vagrant, these are standard procedures and can be found on their respective Web Sites.
 
@@ -128,7 +128,7 @@ Prerequisite: Install VirtualBox and Vagrant, these are standard procedures and 
 
    1.9. If you want to reset VoCol in initial state, run script resetVocol, i.e.: **bash resetVoCol.sh**
   
-###Configuration of the VoCol Environment
+### Configuration of the VoCol Environment
 
 2.1. Open Web Page: *http://192.168.33.10/docs/configuration_page.html* (this is default IP address of the Guest machine when Vagrant is used for installing VoCol)
 
@@ -189,7 +189,7 @@ The following screen cast shows in details all steps listed above.
 <a href="https://drive.google.com/file/d/0By1pR7FDcH8obUV6OEpxeDZ3MFk/view?usp=sharing" target="_blank"><img src="https://raw.githubusercontent.com/vocol/vocol/master/Images/VoColInstallingAndConfiguring.png" 
 alt="VoCol Installation and Configuration"  width="440" height="280" border="10" /></a>
 
-##Installation on a Web Server
+## Installation on a Web Server
 
 The following steps are needed to setup the VoCol Environment on your server.
 
@@ -205,9 +205,9 @@ After the above mentioned steps are finished, continue with VoCol configuration 
 
 This solution is tested in OS Ubuntu 14.04 LTS.
 
-###Working with VoCol
+### Working with VoCol
 
-####VoCol on local machine
+#### VoCol on local machine
 
 The only step that vocabulary contributors need to perform after cloning the repository, is to install pre-commit hook by running the following command (Windows): **VoColClient\Hooks\InstallHooks.sh** 
 
@@ -220,7 +220,7 @@ This will prevent users from pushing turtle files which contain syntactic errors
 
 Yet, this step is optional. In any case the syntax validation will be performed in VoCol server.
 
-####VoCol on the GitHub
+#### VoCol on the GitHub
 
 By using Turtle Editor which is attached to the repository, contributors can directly edit turtle files on GitHub Web Front-End. They will benefit from just-in-time syntax validation.
 
@@ -230,13 +230,13 @@ The following screen cast shows using of VoCol for vocabulary development.
 alt="VoCol Usage" width="440" height="280" border="10" /></a>
 
 
-##How it works
+## How it works
 
-###Client Side 
+### Client Side 
 
 VoCol in client-side deals with commit event by enforcing users to realize specific requirements before pushing changes to the remote repository. Pre-commit hook get the modified files and sent to a listening service on VoCol server where these files are checked for syntax errors. Users do not have to install any tool on their machines. They just have to apply a pre-commit hook as described in [VoCol on local machine](#vocol-on-local-machine). User is allowed to push the modified vocabulary files to the remote repository only if syntax validation succeeded. 
 
-###Server Side
+### Server Side
 
 In server-side, VoCol performs several tasks related to validation and publication in human and machine comprehensible formats. These tasks facilitates collaboration between team members and ensure delivering high quality vocabularies. 
 
@@ -247,9 +247,9 @@ In server-side, VoCol performs several tasks related to validation and publicati
 **Publishing Artefacts for Humans and Machines** After syntax validation process has been passed successfully, different artefacts are published and can be accessed publicly from interested parts. First, a human-readable HTML representation of vocabulary is generated using tools like: *Schema.org* or *Widoco*. In addition, *Turtle*, *RDF/XML* and *NTriple* are generated as machine comprehensible formats. VoCol serve these through a web server configured to perform content negotiation according to the best practices for publishing vocabularies. For visualization purposes, the *WebVOWL* is used,to create graphical depictions for vocabulary elements by implementing the Visual Notation for OWL Ontologies (VOWL). Furthermore, a *SPARQL* endpoint service using *Jena Fuseki* is provided. Users will be able to perform *SPARQL* queries and export results in different formats. In case of existing *semantic diffs* between previous and current version of vocabulary, an evolution report is generated using tool *Owl2VCS*. All of the above mentioned actions will be performed for main branch, whereas, for all other branches Syntax Validation Report and Documentation Generation will be generated.
 
 
-##Developing Vocabularies with VoCol Environment
+## Developing Vocabularies with VoCol Environment
 
-###Vocabulary Language and Representation
+### Vocabulary Language and Representation
 
 As a vocabulary representation language format, we propose *Turtle*, the most widely used plain text serialization of RDF (and RDF Schema), which has been designed for easy readability and writability by human users.  We recommend editing *Turtle* with a text editor rather than a visual IDE, because visual editors tend to change the structure of the source document on saving or exporting it. Such changes increase the risk of editing conflicts and make it harder for other collaborators to retrace the evolution of a vocabulary file over its history of revisions.
 
@@ -262,7 +262,7 @@ rdfs:label "Enable".
 ```
 For more about turtle format in http://www.w3.org/TR/turtle/.
 
-###Branching and Merging
+### Branching and Merging
 
 It is considered that the branching strategy affects the quality of the vocabularies. In order to design a branching model, it is important to understand the possible activities that a team can perform. Table below presents common activities of collaborative vocabulary development. These activities are classified into three categories: (1) *basic activities* (ACT1, ACT7, ACT9), (2) *semantic issues* (ACT2, ACT3, ACT4, ACT5, ACT6, ACT8) and (3) *structural issues* (ACT10, ACT11). The following figure depicts different branches to handle the mentioned categories. Basic activities have to be performed in the *Develop Branch*. Branch called *Semantic Issues* is proposed for the second category. In case of the third category a branch named *Structural Issues* has to be applied. This not restricts the flexibility of Git regarding branches. On the contrary, other branches can be used as well to complement this model. 
 
@@ -270,7 +270,7 @@ It is considered that the branching strategy affects the quality of the vocabula
 
 ![Branching Model](https://raw.githubusercontent.com/vocol/vocol/master/Images/BranchingModel.png "Branching Model")
 
-###Vocabulary Organization Structure
+### Vocabulary Organization Structure
 
 In order to enable easy collaboration between different contributors, we propose some guidelines for organizing the vocabulary in files where each file represents a module. Considering the fact that each line should represent a triple and based on the insights from software development, we propose that files should not contain more than 300 triples. We highlight three possible forms of organizing the files.
 
@@ -283,14 +283,14 @@ In order to enable easy collaboration between different contributors, we propose
 * **Vocabulary modules are stored in files and folders** For huge vocabularies that comprises complex domains, splitting it into files is not sufficient. This would lead to a large amount of files within a single folder. Therefore, if the sub domains are large enough to be split into files they should be represented by folders. Each folder contains files which represents modules. In this case, the folder and file structure should reflect the complex hierarchy of the overall domain. 
 
 
-###Labeling of Release Versions
+### Labeling of Release Versions
 
 Proper labeling of release versions is vital, as it facilitates re-usability. Based on the above mentioned categories of activities, different versions should be tagged according to the following pattern: *v[StI.SeI.BA]*, where *StI* stands for *Structural Issues*, *SeI* for *Semantic Issues* and *BaA* for *Basic Activities*. Each category is related with a number, in the respective position. Changes in the vocabulary regarding to the categories are commonly reflected by increasing the numbers. For instance, the difference between releases *v[1.0.0]* and *v[2.0.0]* shows structural issue changes (*StI*).
 
 
-##Best Practices for Vocabulary Development
+## Best Practices for Vocabulary Development
 
-###Reuse
+### Reuse
 
 Reuse of existing terms is considered to be a best-practice in vocabulary construction. Therefore, in the following important practices regarding reuse are presented.
 
@@ -309,7 +309,7 @@ A comprised list with these vocabularies can be found on http://eis-bonn.github.
 * **P-R6 Establishing alignments with existing vocabularies** Instead of the strong semantic commitment of reusing identifiers from non-authoritative vocabularies, alignments using *owl:sameAs*, *owl:equivalentClass*, *owl:equivalentProperty*, *rdfs:subClassOf*, *rdfs:subPropertyOf* can be established.
 
 
-###Naming Conventions
+### Naming Conventions
 
 Naming conventions help to avoid lexical inaccuracies and increase the robustness and exportability, specifically in cases when vocabularies should be interlinked and aligned with each other. In the following, some of the practices to be considered in the process of naming elements in vocabularies:
 
@@ -331,7 +331,7 @@ Naming conventions help to avoid lexical inaccuracies and increase the robustnes
 *SAP*, *Daimler AG*, etc).
 
 
-###Dereferenceability
+### Dereferenceability
 
 Adopting HTTP URIs for identifying things is appropriate due to the following reasons: (1) it is simple to create global unique keys in a decentralized fashion and (2) the generated key is not used just as a name but also as an identifier. This will help the server to provide adequate content for a resource based on the type of request through *Content Negotiation* mechanism. There are three different strategies to make URIs of resources dereferenceable: (1) slash URIs; (2) hash URIs and (3) a combination between them.
 
@@ -342,7 +342,7 @@ Adopting HTTP URIs for identifying things is appropriate due to the following re
 * **P-D3 Use combination between slash and hash URIs** This allows a large dataset to be split into multiple fractions. Use this solution when datasets may grow to some point where it is not practical to serve all resources in single document(e.g. *http://purl.org/eis/vocab/scor/Process#this*).
 
 
-###Multilinguality
+### Multilinguality
 
 Providing multilingual vocabularies is desirable but not an straightforward issue. Below are presented best-practices that allows multilingual vocabularies.
 
@@ -361,7 +361,7 @@ rdfs:comment "Eine Lieferkette ist ..."@de.
 This approach should be followed with all the elements starting from the basics ones like *rdfs:label* and *rdfs:comment* but also for the external annotation properties (i.e. *skos:prefLabel*).
 
 
-###Documentation
+### Documentation
 
 Providing user friendly view of vocabularies for non-experts is crucial for integrating Semantic Web with everyday Web. Tools for documentation generation requires that following information should be present for each resource to enable generation process.
 
@@ -370,7 +370,7 @@ Providing user friendly view of vocabularies for non-experts is crucial for inte
 * **P-Do2 Generate human-readable documentation** If during vocabulary creation slash URIs are used for identifying resources then tools like Schema.org documentation generation should be used for documentation generation. Tools like Widoco are appropriate if hash URIs or combination between slash and hash URIs are used for identifying resources.
 
 
-###Validation
+### Validation
 
 Validation is an important aspect in the vocabulary development process. Criteria used for validation activity are: (1) correctness; (2) completeness and (3) consistency. Address the above mentioned criteria, with the following practices. 
 
@@ -383,7 +383,7 @@ Validation is an important aspect in the vocabulary development process. Criteri
 * **P-V4 Linked Data validation** Use [Vapour](http://validator.linkeddata.org/vapour) to verify whether data are correctly published according Linked Data principles.
 
 
-###Authoring
+### Authoring
 
 General guidelines to be followed in the process of designing vocabularies.
 
@@ -393,7 +393,7 @@ General guidelines to be followed in the process of designing vocabularies.
 
 * **P-A3 Use of class disjointness** Use class disjointness to logically avoid overlapping classes. Even though disjointness has been used in authoritative vocabularies, it should be carefully examined because it can easily lead to semantic inconsistencies.
 
-###Utilization of SKOS Vocabulary
+### Utilization of SKOS Vocabulary
 
 The Simple Knowledge Organization System SKOS is a W3C recommendation for modeling vocabularies in the Web. Use following practices to utilize your vocabulary with *SKOS* concepts. 
 
