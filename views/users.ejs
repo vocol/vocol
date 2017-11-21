@@ -1,0 +1,120 @@
+<% include header %>
+    <!--
+    <h1><%-title %></h1>
+-->
+
+<div class="ui form segment">
+      <p>Let's go ahead and get you signed up.</p>
+      <div class="two fields">
+        <div class="field">
+          <label>First Name</label>
+          <input placeholder="First Name" name="first-name" type="text">
+        </div>
+        <div class="field error">
+          <label>Last Name</label>
+          <input placeholder="Last Name" name="last-name" type="text">
+        <div class="ui red pointing prompt label transition visible" style="display: inline-block;">Please enter your last name
+        </div></div>
+      </div>
+      <div class="field error">
+        <label>Username</label>
+        <input placeholder="Username" name="username" type="text">
+      <div class="ui red pointing prompt label transition visible" style="display: inline-block;">Please enter a username</div></div>
+      <div class="field error">
+        <label>Password</label>
+        <input type="password" name="password">
+      <div class="ui red pointing prompt label transition visible" style="display: inline-block;">Please enter a password</div></div>
+      <div class="inline field">
+        <div class="ui checkbox">
+          <input type="checkbox" name="terms">
+          <label>I agree to the Terms and Conditions</label>
+        </div>
+      </div>
+      <div class="ui blue submit button">Submit</div>
+    </div>
+
+<!-- <div class="ui form segment">
+      <p>Let's go ahead and get you signed up.</p>
+      <div class="two fields">
+        <div class="field">
+          <label>First Name</label>
+          <input placeholder="First Name" name="first-name" type="text">
+        </div>
+        <div class="field">
+          <label>Last Name</label>
+          <input placeholder="Last Name" name="last-name" type="text">
+        </div>
+      </div>
+      <div class="field">
+        <label>Username</label>
+        <input placeholder="Username" name="username" type="text">
+      </div>
+      <div class="field">
+        <label>Password</label>
+        <input type="password" name="password">
+      </div>
+      <div class="inline field">
+        <div class="ui checkbox">
+          <input type="checkbox" name="terms">
+          <label>I agree to the terms and conditions</label>
+        </div>
+      </div>
+      <div class="ui blue submit button">Submit</div>
+    </div>
+ -->
+    <% include footer %>
+<script>
+$('.ui.form')
+  .form({
+    name: {
+      identifier  : 'name',
+      rules: [
+        {
+          type   : 'empty',
+          prompt : 'Please enter your name'
+        }
+      ]
+    },
+    gender: {
+      identifier  : 'gender',
+      rules: [
+        {
+          type   : 'empty',
+          prompt : 'Please select a gender'
+        }
+      ]
+    },
+    username: {
+      identifier : 'username',
+      rules: [
+        {
+          type   : 'empty',
+          prompt : 'Please enter a username'
+        }
+      ]
+    },
+    password: {
+      identifier : 'password',
+      rules: [
+        {
+          type   : 'empty',
+          prompt : 'Please enter a password'
+        },
+        {
+          type   : 'length[6]',
+          prompt : 'Your password must be at least 6 characters'
+        }
+      ]
+    },
+    terms: {
+      identifier : 'terms',
+      rules: [
+        {
+          type   : 'checked',
+          prompt : 'You must agree to the terms and conditions'
+        }
+      ]
+    }
+  })
+;
+</script>

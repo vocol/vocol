@@ -1,0 +1,38 @@
+<% include header %>
+
+  <div style="margin-top: 3% !important;"></div>
+
+  <div class="ui grid">
+    <div class="ui container">
+      <h1><%- title %></h1>
+      <% if(isExistSyntaxError)  { %>
+        <%- syntaxErrors %>
+          <h5 style="color:red">Please fix the error(s) in the turtle file(s).</h5>
+          <% } else{%>
+            <h5>No errors were found</h5>
+            <% }%>
+    </div>
+  </div>
+
+  <% include footer %>
+
+    <script>
+      // to blink if there is syntax errors
+      if (<%- isExistSyntaxError %>) {
+        setInterval(function() {
+          $('#validationLi').transition('flash');
+          $("#validationLi").css({
+            "backgroundColor": "yellow"
+          });
+        }, 1000);
+        if (<%- hasPreviousValidOntology %>) {
+          $('#editingLi').remove();
+          $('#visualizationLi').remove();
+          $('#documentationLi').remove();
+          $('#queryingLi').remove();
+          $('#evolutionLi').remove();
+          $('#leftHeaderUl').append('<li><a href="./config">Configuration Form</a></li>');
+          $('#homeLi').remove();
+        }
+      }
+    </script>

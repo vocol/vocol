@@ -1,0 +1,37 @@
+@prefix mv: <http://eccenca.com/mobivoc/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vCard:   <http://www.w3.org/2001/vcard-rdf/3.0#> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+
+mv:Country
+	a rdfs:Class , owl:Class ;
+	rdfs:comment "A country is a region identified as a distinct entity in political geography." ;
+	rdfs:isDefinedBy <https://en.wikipedia.org/wiki/Country> ;
+	rdfs:label "Country"@en , "Land"@de .
+
+#Properties
+
+mv:hasFuelTransportationRegulation
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Regulations existing in each country concerning the fuel transportation." ; 
+	rdfs:label "Fuel transportation regulation"@en , "Gas Verkehr Regulierung" @de ;
+	rdfs:domain mv:Country ; 
+	rdfs:range rdfs:Literal .
+	
+mv:hasNumberOfFuelStations
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Represents the number of fuel stations in a specific country." ; 
+	rdfs:label "Number of fuel stations"@en , "Tankstelle Menge" @de ;
+	rdfs:domain mv:Country ; 
+	rdfs:range rdfs:integer .
+	
+mv:hasNumberOfChargingStations
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Represents the number of charging stations in a specific country." ; 
+	rdfs:label "Number of charging stations"@en , "Ladestation Menge" @de ;
+	rdfs:domain mv:Country ; 
+	rdfs:range rdfs:integer .
+	

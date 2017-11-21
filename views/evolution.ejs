@@ -1,0 +1,67 @@
+<% if (showEmptyPge){ %>
+<% include emptyPage %>
+<% }else{ %>
+  <% include header %>
+
+  <div style="margin-top: 3% !important;"></div>
+  <div class="ui grid">
+    <div class="ui container">
+  <h2> <%- title %></h2>
+  <p>
+    You can move and zoom the timeline, and select items.</p>
+  <div id="visualization">
+  </div>
+  <div id='commitDetails'>
+  </div>
+</div>
+
+  <% include footer %>
+  <% } %>
+
+    <script type="text/javascript">
+      // DOM element where the Timeline will be attached
+      var container = document.getElementById('visualization');
+      // Create a DataSet (allows two way data-binding)
+      var items = new vis.DataSet(<%- JSON.stringify(history) %>);
+      // Configuration for the Timeline
+      var options = {
+        'width': '100%',
+        'height': '300px'
+      };
+
+
+      // Create a Timeline
+      var timeline = new vis.Timeline(container, items, options);
+      timeline.on('select', function(properties) {
+        $(location).attr('href', items._data[properties.items[0]].link)
+      });
+
+
+      var commitData = <%- JSON.stringify(evolutionReport) %>;
+
+      console.log(commitData);
+      var versionsJSONArray = _.uniqBy(commitData, v => [ v.commitTimestamp].join());
+
+      console.log(versionsJSONArray);
+      versionsJSONArray.forEach(function(item) {
+        $("#commitDetails").append("<br /><div  id=" + item.commitTimestamp + "><h4>User: &quot;"+item.pusher+"&quot; - Commit Message: &quot;" + item.commitMessage + '&quot; - Timestamp: &quot;' + item.commitTimestamp + "&quot;</h4>");
+        commitData.forEach(function(element) {
+          if (element.commitTimestamp === item.commitTimestamp) {
+            if (element.event === 'add')
+              $("#commitDetails").append("<h6><p class='bg-success text-default' style='margin-right:440px;'> + " + element.value + "</p></h6>");
+            // else if (element.event === 'del')
+            //   $("#commitDetails").append("<h6><p class='bg-danger text-danger' style='margin-right:390px;'>  - " + element.value + "</p></h6>");
+
+          }
+        })
+        commitData.forEach(function(element) {
+          if (element.commitTimestamp === item.commitTimestamp) {
+            if (element.event === 'del')
+              $("#commitDetails").append("<h6><p class='bg-danger text-default' style='margin-right:440px;'>  - " + element.value  + "</p></h6>");
+
+          }
+        })
+        $("#commitDetails").append("</div>");
+
+      });
+    </script>

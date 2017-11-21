@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>
+    Configuration Page
+  </title>
+  <link rel="stylesheet" href="./javascripts/bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="./javascripts/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./javascripts/bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" type="text/css" href="./semantic/dist/semantic.min.css">
+  <link rel="stylesheet" href="./stylesheets/style.css">
+  <script src="./javascripts/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="./javascripts/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="./semantic/dist/semantic.min.js"></script>
+  <script src="https://cdn.ckeditor.com/4.7.3/standard/ckeditor.js"></script>
+
+</head>
+
+<body style=" padding: 10px; ">
+  <div class="ui container" style="overflow:hidden">
+    <h1 style="padding-top:10px">Configuration Page</h1>
+    <div class="ui two column stackable grid">
+      <div class="column">
+        <form class="ui form" action="./config" method="post">
+          <!-- onsubmit="return validateFormOnSubmit(this)" -->
+          <div class="ui styled accordion">
+            <div id="generalInfoTitle" class="active title">
+              <i class="dropdown icon"></i> General Info
+            </div>
+            <div id="generalInfoContent" class="active content">
+              <div class="field" style="margin-bottom:5px">
+                <div class="ui corner  labeled input">
+                  <a class="ui left label" style="width: 150px;">
+          Vocabulary Name
+        </a>
+                  <input type="text" id="vocabularyName" name="vocabularyName" placeholder="Enter vocabulary name" value="Mobivoc"  />
+                  <div class="ui corner label">
+                    <i class="asterisk icon"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="field" style="margin-bottom:5px">
+                <div class="ui labeled input">
+                  <a class="ui left label" style="width: 150px;">
+          Domain name
+        </a>
+                  <input type="text" id="server" name="server" placeholder="Enter domain name" value="http://vocol.vagrantshare.com"  />
+                  <div class="ui corner label">
+                    <i class="asterisk icon"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui checkbox">
+                  <input type="checkbox" name="webHook" value="true">
+                  <label>Web Hook</label>
+                </div>
+              </div>
+            </div>
+            <div id="repositoryInfoTitle" class="title">
+              <i class="dropdown icon"></i> Repository info
+            </div>
+            <div id="repositoryInfoContent" class="content">
+              <div class="field" style="margin-bottom:5px">
+                <div class="ui labeled input">
+                  <a class="ui label" style="width: 150px;">
+          Repository URL
+        </a>
+                  <input type="text" id="repositoryURL" name="repositoryURL" placeholder="Enter repository address" value="https://github.com/repositoryOwner/repositoryName.git      "  />
+                  <div class="ui corner label">
+                    <i class="asterisk icon"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="field" style="margin-bottom:5px">
+                <div class="ui labeled input">
+                  <a class="ui label" style="width: 150px;">
+          Repository owner
+        </a>
+                  <input type="text" id="repositoryOwner" name="repositoryOwner" placeholder="Enter repository owner" value="repositoryOwner"  />
+                </div>
+              </div>
+              <div class="field" style="margin-bottom:5px">
+                <div class="ui labeled input">
+                  <a class="ui label" style="width: 150px;">
+          Repository name
+        </a>
+                  <input type="text" id="repositoryName" name="repositoryName" placeholder="Enter repository name" value="repositoryName"  />
+                </div>
+              </div>
+
+              <div class="field" style="margin-bottom:5px">
+                <div class="ui labeled input">
+                  <a class="ui label" style="width: 150px;">
+          Branch Name
+        </a>
+                  <input type="text" id="branchName" name="branchName" placeholder="Enter branch name" value="master"  />
+                  <div class="ui corner label">
+                    <i class="asterisk icon"></i>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="field" style="margin-bottom:5px">
+                <div class="ui labeled input">
+                  <a class="ui label" style="width: 150px;">
+          User
+        </a>
+                  <input type="text" id="user" name="user" placeholder="Enter repository user" value="lavhal"  />
+                  <div class="ui corner label">
+                    <i class="asterisk icon"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="field" style="margin-bottom:5px">
+                <div class="ui labeled input">
+                  <a class="ui label" style="width: 150px;">
+          Password
+        </a>
+                  <input type="password" id="password" name="password" placeholder="Enter repository password"  />
+                  <div class="ui corner label">
+                    <i class="asterisk icon"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="inline fields" style="margin-bottom:5px;paddin">
+                <div class="ui labeled input">
+                  <a class="ui label" style="width: 150px;margin-right: 20px;">
+Repository service         </a>
+                </div>
+
+                <div class="field">
+                  <div class="ui radio checkbox">
+                    <input type="radio" name="repositoryService" value="gitHub" checked>
+                    <label>GitHub</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui radio checkbox">
+                    <input type="radio" name="repositoryService" value="gitLab">
+                    <label>GitLab</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui radio checkbox">
+                    <input type="radio" name="repositoryService" value="bitBucket">
+                    <label>BitBucket</label>
+                  </div>
+                </div>
+              </div>
+              <div class="inline fields" style="margin-bottom:5px;paddin">
+                <div class="ui labeled input">
+                  <a class="ui label" style="width: 150px;margin-right: 20px;">
+Repository Type         </a>
+                </div>
+
+                <div class="field">
+                  <div class="ui radio checkbox">
+                    <input type="radio" name="repositoryType" value="public" checked>
+                    <label>public</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui radio checkbox">
+                    <input type="radio" name="repositoryType" value="private">
+                    <label>private</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="additionalServicesTitle" class="title">
+              <i class="dropdown icon"></i> Additional Services
+            </div>
+            <div id="additionalServicesContent" class="content">
+              <div class="field">
+                <div class="ui checkbox">
+                  <input type="checkbox" name="visualization" value="true" checked>
+                  <label>Visualization</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui checkbox">
+                  <input type="checkbox" name="sparqlEndPoint" value="true" checked>
+                  <label>SPARQL Endpoint</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui checkbox">
+                  <input type="checkbox" name="documentationGeneration" value="true" checked>
+                  <label>Documentation Generation</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui checkbox">
+                  <input type="checkbox" name="evolutionReport" value="true" checked>
+                  <label>Schema Evolution Report</label>
+                </div>
+              </div>
+
+              <div class="field">
+                <div class="ui checkbox">
+                  <input type="checkbox" name="clientHooks" value="true" checked>
+                  <label>Client Side Hooks</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui checkbox">
+                  <input type="checkbox" name="turtleEditor" value="true" checked>
+                  <label>Turtle Editor</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui checkbox">
+                  <input type="checkbox" name="analytics" value="true" checked>
+                  <label>Analytics</label>
+                </div>
+              </div>
+            </div>
+            <div id="serializationFormatTitle" class="title">
+              <i class="dropdown icon"></i> Serializations Format
+            </div>
+            <div id="serializationFormatContent" class="content">
+              <div class="field">
+                <div class="ui  checkbox">
+                  <input type="checkbox" name="rdfxml" value="true">
+                  <label>RdfXML</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui  checkbox">
+                  <input type="checkbox" name="ntriples" value="true">
+                  <label>NTriples</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <input type="hidden" name="text" id="text" />
+          <div class="field">
+            <div class="ui large right floated buttons">
+              <button id="restBtn" class="ui reset button">Reset</button>
+              <div class="or"></div>
+              <button type="submit" class="ui blue submit button" value="Save Configuration">Save Configuration</button>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui error message"></div>
+          </div>
+        </form>
+      </div>
+      <div class="column">
+        <ul class="nav nav-tabs" role="tablist" id="sourceCodeTabs">
+          <li role="presentation" class="active"><a href="#homepage" aria-controls="homepage" role="tab" data-toggle="tab">Homepage Description</a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="homepage">
+            <textarea id="editor1" name="editor1" onchange="submition();" style="overflow:auto; width:540px;height:382px">
+            </textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+
+<script type="text/javascript">
+  $('.ui.checkbox').checkbox();
+  $('.ui.accordion').accordion();
+
+  // form validation
+  $('.ui.form')
+    .form({
+      fields: {
+        vocabularyName: {
+          identifier: 'vocabularyName',
+          rules: [{
+            type: 'empty',
+            prompt: 'You must give the vocabulary name'
+
+          }]
+        },
+        repository: {
+          identifier: 'repository',
+          rules: [{
+            type: 'empty',
+            prompt: 'You must fill the repository name'
+          }]
+        },
+        server: {
+          identifier: 'server',
+          rules: [{
+            type: 'empty',
+            prompt: 'The server URL is missing'
+          }]
+        },
+        branchName: {
+          identifier: 'branchName',
+          rules: [{
+            type: 'empty',
+            prompt: 'You must give the github branch name'
+          }]
+        },
+        username: {
+          identifier: 'username',
+          rules: [{
+            type: 'empty',
+            prompt: 'The user name is missing'
+          }]
+        },
+        password: {
+          identifier: 'password',
+          rules: [{
+              type: 'empty',
+              prompt: 'password cannot be empty'
+            },
+            {
+              type: 'minLength[6]',
+              prompt: 'Your password must be at least {ruleValue} characters'
+            }
+          ]
+        }
+      }
+    });
+
+  // reset button is clicked to reset the form
+  $('#restBtn').on('click', function(event) {
+    event.preventDefault();
+    location.reload("/config");
+  });
+
+  var text = '<h3>Supporting human mobility by data mobility</h3>' +
+    '<p>New mobility concepts and better data networking are both crucial factors for global economic development. To invent innovative and sustainable mobility concepts, new data-based value-added services are required.</p>' +
+    '<p>For example:</p>' +
+    '<ul>' +
+    '<li>' +
+    '<h4>Route Planning</h4>' +
+    '<p>Route planning taking into account places of interest, energy saving aspects (e.g. for electric vehicles) or complex travel arrangements</p>' +
+    '</li>' +
+    '<li>' +
+    '<h4>Multimodal Mobility</h4>' +
+    '<p>Linking various multimodal mobility services with regard to complex environment conditions and current or forecast events like weather or traffic volume</p>' +
+    '</li>' +
+    '<li>' +
+    '<h4>Alternative Scenarios</h4>' +
+    '<p>Dynamic and interactive planning of alternative mobility services in the event of unforeseen circumstances (e.g. breakdown in public transport, congestions)</p>' +
+    '</li>' +
+    '</ul>' +
+    '<p>To implement such innovative data-based services for mobility support it is necessary to link and integrate data coming from a vast number of different sources. Some examples are map data, vehicle data, weather data, mobility' +
+    'service descriptions or events information. These data sets come from various stakeholders and organisations and they often have proprietary data structures.</p>' +
+    '<p>Our goal is to significantly improve the data mobility between all stakeholders by providing a standardized vocabulary using Semantic Web technologies and ontologies. For the open vocabulary covering various mobility aspects we' +
+    'use RDF (Resource Description Framework) - a recommended specification of the World Wide Web Consortium (W3C) and the so-called lingua franca for the integration of data and web. We invite everyone who is interested to join our' +
+    'MobiVoc initiative and to participate in the development of the Open Mobility Vocabulary.</p>' +
+    '<p><img alt="Logo: ITA" src="http://www.ita-int.org/wp-content/uploads/2015/07/ita_logo_left_small-110x59.png" style="height:22px; width:40px" /></p>' +
+    '<p>MobiVoc is a project of <a href="http://www.ita-int.org">ITA</a> in cooperation with our <a href="partners.html">partners</a>.</p>' +
+    '<p>Click <a target="_blank" href="https://github.com/lavhal/testProj">here</a> for more about GitHub repository.</p>'
+
+  $('textarea').html(text);
+  CKEDITOR.replace('editor1');
+  //CKEDITOR.instances['#editor1'].updateElement();
+  //alert($('.ckeditor').val());
+  $('#text').val(text);
+  CKEDITOR.instances['editor1'].on('change', function() {
+    $('#text').val(CKEDITOR.instances.editor1.getData());
+  });
+
+</script>
+</body>
+
+</html>

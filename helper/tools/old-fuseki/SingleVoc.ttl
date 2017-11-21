@@ -1,0 +1,365 @@
+<http://purl.org/net/mobivoc/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<http://purl.org/net/mobivoc/ChargingPoint> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://purl.org/net/mobivoc/ChargingPoint> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/mobivoc/ChargingPoint> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines the public or semi-public charging points for electric vehicles available worldwide. " .
+<http://purl.org/net/mobivoc/ChargingPoint> <http://www.w3.org/2000/01/rdf-schema#label> "Ladestation"@de .
+<http://purl.org/net/mobivoc/ChargingPoint> <http://www.w3.org/2000/01/rdf-schema#label> "Charging Point"@en .
+<http://purl.org/net/mobivoc/ChargingPoint> <http://www.w3.org/2000/01/rdf-schema#label> "Point de charge"@fr .
+<http://purl.org/net/mobivoc/ChargingPoint> <http://www.w3.org/2000/01/rdf-schema#label> "Punto de Recarga"@es .
+<http://purl.org/net/mobivoc/ChargingPoint> <http://www.w3.org/2000/01/rdf-schema#label> "Pikat rimbushese"@al .
+<http://purl.org/net/mobivoc/ChargingPointOwner> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://purl.org/net/mobivoc/ChargingPointOwner> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/mobivoc/ChargingPointOwner> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://xmlns.com/foaf/0.1/Agent> .
+<http://purl.org/net/mobivoc/ChargingPointOwner> <http://www.w3.org/2000/01/rdf-schema#comment> "Captures information about the owner of charging point." .
+<http://purl.org/net/mobivoc/ChargingPointOwner> <http://www.w3.org/2000/01/rdf-schema#label> "Charging Point Owner"@en .
+<http://purl.org/net/mobivoc/ChargingPointOwner> <http://www.w3.org/2000/01/rdf-schema#label> "Besitzer der Ladestation"@de .
+<http://purl.org/net/mobivoc/ChargingPointLocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://purl.org/net/mobivoc/ChargingPointLocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/mobivoc/ChargingPointLocation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://schema.org/Place> .
+<http://purl.org/net/mobivoc/ChargingPointLocation> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes the charging point location." .
+<http://purl.org/net/mobivoc/ChargingPointLocation> <http://www.w3.org/2000/01/rdf-schema#label> "Charging Point Location"@en .
+<http://purl.org/net/mobivoc/ChargingPointLocation> <http://www.w3.org/2000/01/rdf-schema#label> "Lokalisierung der Ladestation"@de .
+<http://purl.org/net/mobivoc/AccessInformation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://purl.org/net/mobivoc/AccessInformation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/mobivoc/AccessInformation> <http://www.w3.org/2000/01/rdf-schema#comment> "Access information of the charging point." .
+<http://purl.org/net/mobivoc/AccessInformation> <http://www.w3.org/2000/01/rdf-schema#label> "Access Information"@en .
+<http://purl.org/net/mobivoc/AccessInformation> <http://www.w3.org/2000/01/rdf-schema#label> "Zugagsinformation"@de .
+<http://purl.org/net/mobivoc/AccessType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://purl.org/net/mobivoc/AccessType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/mobivoc/AccessType> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes access type of the charging point." .
+<http://purl.org/net/mobivoc/AccessType> <http://www.w3.org/2000/01/rdf-schema#label> "Access Type"@en .
+<http://purl.org/net/mobivoc/AccessType> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://xmlns.com/foaf/0.1/Access> .
+<http://purl.org/net/mobivoc/Plug> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://purl.org/net/mobivoc/Plug> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/mobivoc/Plug> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes  plug characteristics." .
+<http://purl.org/net/mobivoc/Plug> <http://www.w3.org/2000/01/rdf-schema#label> "Plug"@en .
+<http://purl.org/net/mobivoc/Plug> <http://www.w3.org/2000/01/rdf-schema#label> "Anschluss"@de .
+<http://purl.org/net/mobivoc/Charger> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://purl.org/net/mobivoc/Charger> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/mobivoc/Charger> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes characteristics of the charger." .
+<http://purl.org/net/mobivoc/Charger> <http://www.w3.org/2000/01/rdf-schema#label> "Charger"@en .
+<http://purl.org/net/mobivoc/Charger> <http://www.w3.org/2000/01/rdf-schema#label> "Laderger\u00E4t"@de .
+<http://purl.org/net/mobivoc/IdentificationSystem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://purl.org/net/mobivoc/IdentificationSystem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/mobivoc/IdentificationSystem> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes identification system of the charging point." .
+<http://purl.org/net/mobivoc/IdentificationSystem> <http://www.w3.org/2000/01/rdf-schema#label> "Identification System"@en .
+<http://purl.org/net/mobivoc/ChargingPointFees> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://purl.org/net/mobivoc/ChargingPointFees> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/mobivoc/ChargingPointFees> <http://www.w3.org/2000/01/rdf-schema#comment> "Captures information about the charging point fees." .
+<http://purl.org/net/mobivoc/ChargingPointFees> <http://www.w3.org/2000/01/rdf-schema#label> "Charging Point Fees"@en .
+<http://purl.org/net/mobivoc/BookingType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://purl.org/net/mobivoc/BookingType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/mobivoc/BookingType> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes booking type of the charging point." .
+<http://purl.org/net/mobivoc/BookingType> <http://www.w3.org/2000/01/rdf-schema#label> "Booking Type"@en .
+<http://purl.org/net/mobivoc/VehicleType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://purl.org/net/mobivoc/VehicleType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/mobivoc/VehicleType> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes  types of vehicle tht can be loaded by charging point." .
+<http://purl.org/net/mobivoc/VehicleType> <http://www.w3.org/2000/01/rdf-schema#label> "Vehicle Type"@en .
+<http://purl.org/net/mobivoc/VehicleType> <http://www.w3.org/2000/01/rdf-schema#label> "Fahrzeugstyp"@de .
+<http://purl.org/net/mobivoc/PlugType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://purl.org/net/mobivoc/PlugType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/mobivoc/PlugType> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes  type of available plug." .
+<http://purl.org/net/mobivoc/PlugType> <http://www.w3.org/2000/01/rdf-schema#label> "Plug Type"@en .
+<http://purl.org/net/mobivoc/PlugType> <http://www.w3.org/2000/01/rdf-schema#label> "Steckertyp"@de .
+<http://purl.org/net/mobivoc/Payment> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://purl.org/net/mobivoc/Payment> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/mobivoc/Payment> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://purl.org/goodrelations/v1#PaymentMethod> .
+<http://purl.org/net/mobivoc/Payment> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines  payment method." .
+<http://purl.org/net/mobivoc/Payment> <http://www.w3.org/2000/01/rdf-schema#label> "Payment"@en .
+<http://purl.org/net/mobivoc/Payment> <http://www.w3.org/2000/01/rdf-schema#label> "Zahlung"@de .
+<http://purl.org/net/mobivoc/ChargingSpeed> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://purl.org/net/mobivoc/ChargingSpeed> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/mobivoc/ChargingSpeed> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes speed types available at the  types of vehicle the can be loaded by charging point." .
+<http://purl.org/net/mobivoc/ChargingSpeed> <http://www.w3.org/2000/01/rdf-schema#label> "Charging Speed"@en .
+<http://purl.org/net/mobivoc/EUDomesticPlug> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/net/mobivoc/PlugType> .
+<http://purl.org/net/mobivoc/EUDomesticPlug> <http://www.w3.org/2002/07/owl#sameAs> <http://dbpedia.org/resource/Europlug> .
+<http://purl.org/net/mobivoc/EUDomesticPlug> <http://www.w3.org/2000/01/rdf-schema#label> "EU Domestic Plug"@en .
+<http://purl.org/net/mobivoc/UnknownPlug> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/net/mobivoc/PlugType> .
+<http://purl.org/net/mobivoc/UnknownPlug> <http://www.w3.org/2000/01/rdf-schema#label> "Unknown Plug"@en .
+<http://purl.org/net/mobivoc/UnknownPlug> <http://www.w3.org/2000/01/rdf-schema#label> "Unbekannter Anschluss"@de .
+<http://purl.org/net/mobivoc/SchukoPlug> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/net/mobivoc/PlugType> .
+<http://purl.org/net/mobivoc/SchukoPlug> <http://www.w3.org/2002/07/owl#sameAs> <http://dbpedia.org/resource/Schuko> .
+<http://purl.org/net/mobivoc/SchukoPlug> <http://xmlns.com/foaf/0.1/depiction> <http://upload.wikimedia.org/wikipedia/commons/e/ef/Schuko_plug_and_socket.png> .
+<http://purl.org/net/mobivoc/SchukoPlug> <http://www.w3.org/2000/01/rdf-schema#label> "Schuko Plug"@en .
+<http://purl.org/net/mobivoc/ComboPlug> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/net/mobivoc/PlugType> .
+<http://purl.org/net/mobivoc/ComboPlug> <http://www.w3.org/2000/01/rdf-schema#label> "Combo Plug"@en .
+<http://purl.org/net/mobivoc/CHAdeMOPlug> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/net/mobivoc/PlugType> .
+<http://purl.org/net/mobivoc/CHAdeMOPlug> <http://www.w3.org/2000/01/rdf-schema#label> "CHAdeMO"@en .
+<http://purl.org/net/mobivoc/CHAdeMOPlug> <http://www.w3.org/2002/07/owl#sameAs> <http://dbpedia.org/resource/CHAdeMO> .
+<http://purl.org/net/mobivoc/CHAdeMOPlug> <http://xmlns.com/foaf/0.1/depiction> <http://upload.wikimedia.org/wikipedia/commons/f/f3/VDE-AR-E_2623-2-2-plug.jpg> .
+<http://purl.org/net/mobivoc/Type1Plug> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/net/mobivoc/PlugType> .
+<http://purl.org/net/mobivoc/Type1Plug> <http://www.w3.org/2000/01/rdf-schema#label> "Type1 Plug"@en .
+<http://purl.org/net/mobivoc/Type1Plug> <http://www.w3.org/2004/02/skos/core#altLabel> "SAE J1772" .
+<http://purl.org/net/mobivoc/Type1Plug> <http://www.w3.org/2002/07/owl#sameAs> <http://dbpedia.org/resource/SAE_J1772> .
+<http://purl.org/net/mobivoc/Type1Plug> <http://xmlns.com/foaf/0.1/depiction> <http://commons.wikimedia.org/wiki/Special:FilePath/SAE_J1772_7058855567.jpg> .
+<http://purl.org/net/mobivoc/Type2Plug> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/net/mobivoc/PlugType> .
+<http://purl.org/net/mobivoc/Type2Plug> <http://www.w3.org/2000/01/rdf-schema#label> "Type2 Plug"@en .
+<http://purl.org/net/mobivoc/Type2Plug> <http://www.w3.org/2004/02/skos/core#altLabel> "EN 62196-2" .
+<http://purl.org/net/mobivoc/Type2Plug> <http://www.w3.org/2002/07/owl#sameAs> "http://en.wikipedia.org/wiki/IEC_62196#Type_2:_VDE-AR-E_2623-2-2" .
+<http://purl.org/net/mobivoc/Type2Plug> <http://xmlns.com/foaf/0.1/depiction> <http://upload.wikimedia.org/wikipedia/commons/f/f3/VDE-AR-E_2623-2-2-plug.jpg> .
+<http://purl.org/net/mobivoc/Type3Plug> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/net/mobivoc/PlugType> .
+<http://purl.org/net/mobivoc/Type3Plug> <http://www.w3.org/2000/01/rdf-schema#label> "Type3 Plug"@en .
+<http://purl.org/net/mobivoc/Type3Plug> <http://www.w3.org/2004/02/skos/core#altLabel> "EV Plug" .
+<http://purl.org/net/mobivoc/TextMessage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/net/mobivoc/IdentificationSystem> .
+<http://purl.org/net/mobivoc/TextMessage> <http://www.w3.org/2000/01/rdf-schema#label> "TextMessage"@en .
+<http://purl.org/net/mobivoc/Undefined> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/net/mobivoc/IdentificationSystem> .
+<http://purl.org/net/mobivoc/Undefined> <http://www.w3.org/2000/01/rdf-schema#label> "Undefined"@en .
+<http://purl.org/net/mobivoc/Undefined> <http://www.w3.org/2000/01/rdf-schema#label> "Nicht bekannt"@de .
+<http://purl.org/net/mobivoc/Key> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/net/mobivoc/IdentificationSystem> .
+<http://purl.org/net/mobivoc/Key> <http://www.w3.org/2000/01/rdf-schema#label> "Key"@en .
+<http://purl.org/net/mobivoc/Key> <http://www.w3.org/2000/01/rdf-schema#label> "Schl\u00FCssel"@de .
+<http://purl.org/net/mobivoc/None> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/net/mobivoc/IdentificationSystem> .
+<http://purl.org/net/mobivoc/None> <http://www.w3.org/2000/01/rdf-schema#label> "None"@en .
+<http://purl.org/net/mobivoc/None> <http://www.w3.org/2000/01/rdf-schema#label> "Keine"@en .
+<http://purl.org/net/mobivoc/PhoneCall> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/net/mobivoc/IdentificationSystem> .
+<http://purl.org/net/mobivoc/PhoneCall> <http://www.w3.org/2000/01/rdf-schema#label> "PhoneCall"@en .
+<http://purl.org/net/mobivoc/MobileApplication> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/net/mobivoc/IdentificationSystem> .
+<http://purl.org/net/mobivoc/MobileApplication> <http://www.w3.org/2000/01/rdf-schema#label> "MobileApplication"@en .
+<http://purl.org/net/mobivoc/CreditCard> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/net/mobivoc/IdentificationSystem> .
+<http://purl.org/net/mobivoc/CreditCard> <http://www.w3.org/2000/01/rdf-schema#label> "CreditCard"@en .
+<http://purl.org/net/mobivoc/CreditCard> <http://www.w3.org/2000/01/rdf-schema#label> "Kreditkarte"@de .
+<http://purl.org/net/mobivoc/AccessCode> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/net/mobivoc/IdentificationSystem> .
+<http://purl.org/net/mobivoc/AccessCode> <http://www.w3.org/2000/01/rdf-schema#label> "AccessCode"@en .
+<http://purl.org/net/mobivoc/AccessCode> <http://www.w3.org/2000/01/rdf-schema#label> "Zugangskode"@en .
+<http://purl.org/net/mobivoc/BadgeIsAvailable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/net/mobivoc/IdentificationSystem> .
+<http://purl.org/net/mobivoc/BadgeIsAvailable> <http://www.w3.org/2000/01/rdf-schema#label> "BadgeIsAvailable"@en .
+<http://purl.org/net/mobivoc/BadgeHasToBeOrdered> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/net/mobivoc/IdentificationSystem> .
+<http://purl.org/net/mobivoc/BadgeHasToBeOrdered> <http://www.w3.org/2000/01/rdf-schema#label> "BadgeHasToBeOrdered"@en .
+<http://purl.org/net/mobivoc/InhabitantsOnly> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/net/mobivoc/AccessType> .
+<http://purl.org/net/mobivoc/InhabitantsOnly> <http://www.w3.org/2000/01/rdf-schema#label> "InhabitantsOnly"@en .
+<http://purl.org/net/mobivoc/InhabitantsOnly> <http://www.w3.org/2000/01/rdf-schema#label> "Nur Einwohner"@de .
+<http://purl.org/net/mobivoc/EmployeesOnly> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/net/mobivoc/AccessType> .
+<http://purl.org/net/mobivoc/EmployeesOnly> <http://www.w3.org/2000/01/rdf-schema#label> "EmployeesOnly"@en .
+<http://purl.org/net/mobivoc/EmployeesOnly> <http://www.w3.org/2000/01/rdf-schema#label> "Nur Angestellte"@de .
+<http://purl.org/net/mobivoc/Undefined> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/net/mobivoc/AccessType> .
+<http://purl.org/net/mobivoc/Undefined> <http://www.w3.org/2000/01/rdf-schema#label> "Undefined"@en .
+<http://purl.org/net/mobivoc/Undefined> <http://www.w3.org/2000/01/rdf-schema#label> "Undefiniert"@de .
+<http://purl.org/net/mobivoc/IdentifiedPerson> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/net/mobivoc/AccessType> .
+<http://purl.org/net/mobivoc/IdentifiedPerson> <http://www.w3.org/2000/01/rdf-schema#label> "IdentifiedPerson"@en .
+<http://purl.org/net/mobivoc/IdentifiedPerson> <http://www.w3.org/2000/01/rdf-schema#label> "Autorisierte Person"@de .
+<http://purl.org/net/mobivoc/CustomerOfPremise> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/net/mobivoc/AccessType> .
+<http://purl.org/net/mobivoc/CustomerOfPremise> <http://www.w3.org/2000/01/rdf-schema#label> "CustomerOfPremise"@en .
+<http://purl.org/net/mobivoc/BrandsCustomers> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/net/mobivoc/AccessType> .
+<http://purl.org/net/mobivoc/BrandsCustomers> <http://www.w3.org/2000/01/rdf-schema#label> "BrandsCustomers"@en .
+<http://purl.org/net/mobivoc/Standard> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/net/mobivoc/ChargingSpeed> .
+<http://purl.org/net/mobivoc/Standard> <http://www.w3.org/2000/01/rdf-schema#label> "Standard"@en .
+<http://purl.org/net/mobivoc/Acelerated> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/net/mobivoc/ChargingSpeed> .
+<http://purl.org/net/mobivoc/Acelerated> <http://www.w3.org/2000/01/rdf-schema#label> "Acelerated"@en .
+<http://purl.org/net/mobivoc/Fast> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/net/mobivoc/ChargingSpeed> .
+<http://purl.org/net/mobivoc/Fast> <http://www.w3.org/2000/01/rdf-schema#label> "Fast"@en .
+<http://purl.org/net/mobivoc/Mandatory> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/net/mobivoc/BookingType> .
+<http://purl.org/net/mobivoc/Mandatory> <http://www.w3.org/2000/01/rdf-schema#label> "Mandatory"@en .
+<http://purl.org/net/mobivoc/Optional> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/net/mobivoc/BookingType> .
+<http://purl.org/net/mobivoc/Optional> <http://www.w3.org/2000/01/rdf-schema#label> "Optional"@en .
+<http://purl.org/net/mobivoc/Impossible> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/net/mobivoc/BookingType> .
+<http://purl.org/net/mobivoc/Impossible> <http://www.w3.org/2000/01/rdf-schema#label> "Impossible"@en .
+<http://purl.org/net/mobivoc/isLocated> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/isLocated> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/net/mobivoc/isLocated> <http://www.w3.org/2000/01/rdf-schema#label> "isLocated"@en .
+<http://purl.org/net/mobivoc/isLocated> <http://www.w3.org/2000/01/rdf-schema#comment> "Location of the charging point." .
+<http://purl.org/net/mobivoc/isLocated> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/ChargingPoint> .
+<http://purl.org/net/mobivoc/isLocated> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/mobivoc/ChargingPointLocation> .
+<http://purl.org/net/mobivoc/isOwnedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/isOwnedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/net/mobivoc/isOwnedBy> <http://www.w3.org/2000/01/rdf-schema#label> "isOwnedBy"@en .
+<http://purl.org/net/mobivoc/isOwnedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Charging point's owner." .
+<http://purl.org/net/mobivoc/isOwnedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/ChargingPoint> .
+<http://purl.org/net/mobivoc/isOwnedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/mobivoc/ChargingPointOwner> .
+<http://purl.org/net/mobivoc/placeName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/placeName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/mobivoc/placeName> <http://www.w3.org/2000/01/rdf-schema#label> "placeName"@en .
+<http://purl.org/net/mobivoc/placeName> <http://www.w3.org/2000/01/rdf-schema#comment> "Place name where charging point is located." .
+<http://purl.org/net/mobivoc/placeName> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/ChargingPoint> .
+<http://purl.org/net/mobivoc/placeName> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/net/mobivoc/placeType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/placeType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/mobivoc/placeType> <http://www.w3.org/2000/01/rdf-schema#label> "placeType"@en .
+<http://purl.org/net/mobivoc/placeType> <http://www.w3.org/2000/01/rdf-schema#comment> "Place type where charging point is located, e.g. airport, restaurant." .
+<http://purl.org/net/mobivoc/placeType> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/ChargingPoint> .
+<http://purl.org/net/mobivoc/placeType> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/net/mobivoc/status> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/status> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/mobivoc/status> <http://www.w3.org/2000/01/rdf-schema#label> "status"@en .
+<http://purl.org/net/mobivoc/status> <http://www.w3.org/2000/01/rdf-schema#comment> "Current status of the charging point, e.g. out-of-order or functional." .
+<http://purl.org/net/mobivoc/status> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/ChargingPoint> .
+<http://purl.org/net/mobivoc/status> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/net/mobivoc/description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/mobivoc/description> <http://www.w3.org/2000/01/rdf-schema#label> "Description"@en .
+<http://purl.org/net/mobivoc/description> <http://www.w3.org/2000/01/rdf-schema#comment> "Description of charging point." .
+<http://purl.org/net/mobivoc/description> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/ChargingPoint> .
+<http://purl.org/net/mobivoc/description> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/net/mobivoc/additionalInformation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/additionalInformation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/mobivoc/additionalInformation> <http://www.w3.org/2000/01/rdf-schema#label> "Additional Information"@en .
+<http://purl.org/net/mobivoc/additionalInformation> <http://www.w3.org/2000/01/rdf-schema#comment> "Other information about the charging point." .
+<http://purl.org/net/mobivoc/additionalInformation> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/ChargingPoint> .
+<http://purl.org/net/mobivoc/additionalInformation> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/net/mobivoc/hasPlug> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/hasPlug> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/net/mobivoc/hasPlug> <http://www.w3.org/2000/01/rdf-schema#label> "has plugs"@en .
+<http://purl.org/net/mobivoc/hasPlug> <http://www.w3.org/2000/01/rdf-schema#comment> "Plugs available at the charging point." .
+<http://purl.org/net/mobivoc/hasPlug> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/ChargingPoint> .
+<http://purl.org/net/mobivoc/hasPlug> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/mobivoc/Plug> .
+<http://purl.org/net/mobivoc/hasCharger> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/hasCharger> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/net/mobivoc/hasCharger> <http://www.w3.org/2000/01/rdf-schema#label> "has charger"@en .
+<http://purl.org/net/mobivoc/hasCharger> <http://www.w3.org/2000/01/rdf-schema#comment> "Charging point charger." .
+<http://purl.org/net/mobivoc/hasCharger> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/ChargingPoint> .
+<http://purl.org/net/mobivoc/hasCharger> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/mobivoc/Charger> .
+<http://purl.org/net/mobivoc/accessible> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/accessible> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/net/mobivoc/accessible> <http://www.w3.org/2000/01/rdf-schema#label> "has charger"@en .
+<http://purl.org/net/mobivoc/accessible> <http://www.w3.org/2000/01/rdf-schema#comment> "Access information of the charging point." .
+<http://purl.org/net/mobivoc/accessible> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/ChargingPoint> .
+<http://purl.org/net/mobivoc/accessible> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/mobivoc/AccessInformation> .
+<http://purl.org/net/mobivoc/picture> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/picture> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/net/mobivoc/picture> <http://www.w3.org/2000/01/rdf-schema#label> "picture"@en .
+<http://purl.org/net/mobivoc/picture> <http://www.w3.org/2000/01/rdf-schema#comment> "Picture of charging point." .
+<http://purl.org/net/mobivoc/picture> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/ChargingPoint> .
+<http://purl.org/net/mobivoc/picture> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Resource> .
+<http://purl.org/net/mobivoc/access> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/access> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/net/mobivoc/access> <http://www.w3.org/2000/01/rdf-schema#label> "access"@en .
+<http://purl.org/net/mobivoc/access> <http://www.w3.org/2000/01/rdf-schema#comment> "Access types of charging point. " .
+<http://purl.org/net/mobivoc/access> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/AccessInformation> .
+<http://purl.org/net/mobivoc/access> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/mobivoc/AccessType> .
+<http://purl.org/net/mobivoc/isPaidChargingPoint> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/isPaidChargingPoint> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/mobivoc/isPaidChargingPoint> <http://www.w3.org/2000/01/rdf-schema#label> "Is paid charging point"@en .
+<http://purl.org/net/mobivoc/isPaidChargingPoint> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicated whether it is paid charging point." .
+<http://purl.org/net/mobivoc/isPaidChargingPoint> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/ChargingPointFees> .
+<http://purl.org/net/mobivoc/isPaidChargingPoint> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/net/mobivoc/feesDescription> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/feesDescription> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/mobivoc/feesDescription> <http://www.w3.org/2000/01/rdf-schema#label> "Fees description"@en .
+<http://purl.org/net/mobivoc/feesDescription> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines recharging fees." .
+<http://purl.org/net/mobivoc/feesDescription> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/ChargingPointFees> .
+<http://purl.org/net/mobivoc/feesDescription> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/net/mobivoc/payment> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/payment> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/net/mobivoc/payment> <http://www.w3.org/2000/01/rdf-schema#label> "Payment forms"@en .
+<http://purl.org/net/mobivoc/payment> <http://www.w3.org/2000/01/rdf-schema#comment> "Available payment forms for recharging fees." .
+<http://purl.org/net/mobivoc/payment> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/ChargingPointFees> .
+<http://purl.org/net/mobivoc/payment> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/mobivoc/Payment> .
+<http://purl.org/net/mobivoc/booking> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/booking> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/net/mobivoc/booking> <http://www.w3.org/2000/01/rdf-schema#label> "Booking"@en .
+<http://purl.org/net/mobivoc/booking> <http://www.w3.org/2000/01/rdf-schema#comment> "Booking types for charging point. " .
+<http://purl.org/net/mobivoc/booking> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/AccessInformation> .
+<http://purl.org/net/mobivoc/booking> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/mobivoc/BookingType> .
+<http://purl.org/net/mobivoc/availableFromTime> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/availableFromTime> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/mobivoc/availableFromTime> <http://www.w3.org/2000/01/rdf-schema#label> "availableFromTime"@en .
+<http://purl.org/net/mobivoc/availableFromTime> <http://www.w3.org/2000/01/rdf-schema#comment> "Intormation when the charging point will be available. " .
+<http://purl.org/net/mobivoc/availableFromTime> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/AccessInformation> .
+<http://purl.org/net/mobivoc/availableFromTime> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/net/mobivoc/coveredLocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/coveredLocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/mobivoc/coveredLocation> <http://www.w3.org/2000/01/rdf-schema#label> "Covered Location"@en .
+<http://purl.org/net/mobivoc/coveredLocation> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates whether the location of the charging point is covered." .
+<http://purl.org/net/mobivoc/coveredLocation> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/AccessInformation> .
+<http://purl.org/net/mobivoc/coveredLocation> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/net/mobivoc/accessTimes> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/accessTimes> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/mobivoc/accessTimes> <http://www.w3.org/2000/01/rdf-schema#label> "Access Time"@en .
+<http://purl.org/net/mobivoc/accessTimes> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines access time of the charging point. " .
+<http://purl.org/net/mobivoc/accessTimes> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/AccessInformation> .
+<http://purl.org/net/mobivoc/accessTimes> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/net/mobivoc/numberOfParkingPlaces> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/numberOfParkingPlaces> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/mobivoc/numberOfParkingPlaces> <http://www.w3.org/2000/01/rdf-schema#label> "number of parking places"@en .
+<http://purl.org/net/mobivoc/numberOfParkingPlaces> <http://www.w3.org/2000/01/rdf-schema#comment> "Number of parking places. " .
+<http://purl.org/net/mobivoc/numberOfParkingPlaces> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/AccessInformation> .
+<http://purl.org/net/mobivoc/numberOfParkingPlaces> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/net/mobivoc/identification> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/identification> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/net/mobivoc/identification> <http://www.w3.org/2000/01/rdf-schema#label> "identification"@en .
+<http://purl.org/net/mobivoc/identification> <http://www.w3.org/2000/01/rdf-schema#comment> "Identification system to assess charging point. " .
+<http://purl.org/net/mobivoc/identification> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/AccessInformation> .
+<http://purl.org/net/mobivoc/identification> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/mobivoc/IdentificationSystem> .
+<http://purl.org/net/mobivoc/energyType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/energyType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/mobivoc/energyType> <http://www.w3.org/2000/01/rdf-schema#label> "energy type"@en .
+<http://purl.org/net/mobivoc/energyType> <http://www.w3.org/2000/01/rdf-schema#comment> "Energy type of the charging point. " .
+<http://purl.org/net/mobivoc/energyType> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/Charger> .
+<http://purl.org/net/mobivoc/energyType> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/net/mobivoc/brand> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/brand> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/mobivoc/brand> <http://www.w3.org/2000/01/rdf-schema#label> "Brand"@en .
+<http://purl.org/net/mobivoc/brand> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines the charger brand. " .
+<http://purl.org/net/mobivoc/brand> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/Charger> .
+<http://purl.org/net/mobivoc/brand> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/net/mobivoc/model> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/model> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/mobivoc/model> <http://www.w3.org/2000/01/rdf-schema#label> "Model"@en .
+<http://purl.org/net/mobivoc/model> <http://www.w3.org/2000/01/rdf-schema#comment> "Charger model of the charging point. " .
+<http://purl.org/net/mobivoc/model> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/Charger> .
+<http://purl.org/net/mobivoc/model> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/net/mobivoc/vehicleType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/vehicleType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.org/net/mobivoc/vehicleType> <http://www.w3.org/2000/01/rdf-schema#label> "vehicle type"@en .
+<http://purl.org/net/mobivoc/vehicleType> <http://www.w3.org/2000/01/rdf-schema#comment> "Vehicle type. " .
+<http://purl.org/net/mobivoc/vehicleType> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/Plug> .
+<http://purl.org/net/mobivoc/vehicleType> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/mobivoc/VehicleType> .
+<http://purl.org/net/mobivoc/chargingSpeed> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/chargingSpeed> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/mobivoc/chargingSpeed> <http://www.w3.org/2000/01/rdf-schema#label> "Charging Speed"@en .
+<http://purl.org/net/mobivoc/chargingSpeed> <http://www.w3.org/2000/01/rdf-schema#comment> "Charging speed of plug. " .
+<http://purl.org/net/mobivoc/chargingSpeed> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/Plug> .
+<http://purl.org/net/mobivoc/chargingSpeed> <http://www.w3.org/2000/01/rdf-schema#range> <http://purl.org/net/mobivoc/ChargingSpeed> .
+<http://purl.org/net/mobivoc/power> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/power> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/mobivoc/power> <http://www.w3.org/2000/01/rdf-schema#label> "Power"@en .
+<http://purl.org/net/mobivoc/power> <http://www.w3.org/2000/01/rdf-schema#comment> "Plug power. " .
+<http://purl.org/net/mobivoc/power> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/Plug> .
+<http://purl.org/net/mobivoc/power> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/net/mobivoc/cableAvailable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/cableAvailable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/mobivoc/cableAvailable> <http://www.w3.org/2000/01/rdf-schema#label> "Cable available"@en .
+<http://purl.org/net/mobivoc/cableAvailable> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates whether plug has a cable. " .
+<http://purl.org/net/mobivoc/cableAvailable> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/Plug> .
+<http://purl.org/net/mobivoc/cableAvailable> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/net/mobivoc/lockerAvailable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/lockerAvailable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/mobivoc/lockerAvailable> <http://www.w3.org/2000/01/rdf-schema#label> "Locker available"@en .
+<http://purl.org/net/mobivoc/lockerAvailable> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates whether plug has a locker. " .
+<http://purl.org/net/mobivoc/lockerAvailable> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/Plug> .
+<http://purl.org/net/mobivoc/lockerAvailable> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/net/mobivoc/plugCondition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/plugCondition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/mobivoc/plugCondition> <http://www.w3.org/2000/01/rdf-schema#label> "Plug Condition"@en .
+<http://purl.org/net/mobivoc/plugCondition> <http://www.w3.org/2000/01/rdf-schema#comment> "Plug condition. " .
+<http://purl.org/net/mobivoc/plugCondition> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/Plug> .
+<http://purl.org/net/mobivoc/plugCondition> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/net/mobivoc/plugInformation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/plugInformation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/mobivoc/plugInformation> <http://www.w3.org/2000/01/rdf-schema#label> "Plug Information"@en .
+<http://purl.org/net/mobivoc/plugInformation> <http://www.w3.org/2000/01/rdf-schema#comment> "Captures information about plug. " .
+<http://purl.org/net/mobivoc/plugInformation> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/Plug> .
+<http://purl.org/net/mobivoc/plugInformation> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/net/mobivoc/intensity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/intensity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/mobivoc/intensity> <http://www.w3.org/2000/01/rdf-schema#label> "Intensity"@en .
+<http://purl.org/net/mobivoc/intensity> <http://www.w3.org/2000/01/rdf-schema#comment> "Plug intensity.  " .
+<http://purl.org/net/mobivoc/intensity> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/Plug> .
+<http://purl.org/net/mobivoc/intensity> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/net/mobivoc/voltage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/voltage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/mobivoc/voltage> <http://www.w3.org/2000/01/rdf-schema#label> "Voltage"@en .
+<http://purl.org/net/mobivoc/voltage> <http://www.w3.org/2000/01/rdf-schema#comment> "Plug voltage.  " .
+<http://purl.org/net/mobivoc/voltage> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/Plug> .
+<http://purl.org/net/mobivoc/voltage> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/net/mobivoc/currentType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/currentType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/mobivoc/currentType> <http://www.w3.org/2000/01/rdf-schema#label> "CurrentType"@en .
+<http://purl.org/net/mobivoc/currentType> <http://www.w3.org/2000/01/rdf-schema#comment> "Current type.  " .
+<http://purl.org/net/mobivoc/currentType> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/Plug> .
+<http://purl.org/net/mobivoc/currentType> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/net/mobivoc/threePhasedCurrentavailable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/threePhasedCurrentavailable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/mobivoc/threePhasedCurrentavailable> <http://www.w3.org/2000/01/rdf-schema#label> "Three-phased current available"@en .
+<http://purl.org/net/mobivoc/threePhasedCurrentavailable> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates whether Three-phased current is available.  " .
+<http://purl.org/net/mobivoc/threePhasedCurrentavailable> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/Plug> .
+<http://purl.org/net/mobivoc/threePhasedCurrentavailable> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .

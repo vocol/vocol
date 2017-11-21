@@ -1,0 +1,195 @@
+@prefix mv: <http://eccenca.com/mobivoc/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+mv:ElectricVehicleBattery
+	a rdfs:Class , owl:Class ;
+	rdfs:comment "A battery used to power the propulsion of a battery electric vehicle." ;
+	rdfs:label "Electric Vehicle Battery"@en , "Traktionsbatterie"@de ;
+	rdfs:altlabel "Traction battery"@en , "Traktionsakku"@de ;
+	skos:hiddenLabel "EVB"@en,"Antriebsbatterie"@de .
+	
+mv:DeepCycle
+	rdfs:subClassOf mv:LeadAcid ;
+	rdfs:comment "A lead-acid battery designed to be regularly deeply discharged using most of its capacity." ;
+	rdfs:label "Deep-Cycle Battery"@en , "****Batterie"@de .
+	
+mv:FloodedLeadAcid
+	rdfs:subClassOf mv:LeadAcid ;
+	rdfs:comment "Flooded lead acid batteries have cells with liquid electrolyte and are available in flat and tubular plate constructions with a wide variety of plate sizes." ;
+	rdfs:label "Flooded Lead-Acid Battery"@en , " Blei-Säure-Batterie"@de .
+	
+mv:LeadAcid
+	rdfs:subClassOf mv:Battery ;
+	rdfs:comment "The oldest type of rechargeable battery. The cells have a relatively large power-to-weight ratio and these batteries have low cost." ;
+	rdfs:label "Lead-Acid Battery"@en , "Bleiakkumulator"@de .
+	
+mv:LithiumIon
+	rdfs:subClassOf mv:Battery ;
+	rdfs:comment "One of the most popular types of rechargeable batteries for electric vehicles. They use an intercalated lithium compound as one electrode material." ;
+	rdfs:label "Lithium-ion Battery"@en , "Lithium-Ionen-Akkumulator"@de ;
+	rdfs:altlabel "Li-ion battery"@en , "Lithium-Akkumulator"@de ;
+	skos:hiddenLabel "LIB"@en .
+	
+mv:LithiumIonPolymer
+	rdfs:subClassOf mv:Battery ; #maybe subclass of LithiumIon
+	rdfs:comment "A rechargeable battery of lithium-ion technology in a pouch format." ;
+	rdfs:label "Lithium Polymer Battery"@en , "Lithium-Polymer-Akkumulator"@de ;
+	rdfs:altlabel "LiPo"@en , "LiPoly"@de .
+
+mv:LithiumTitanate
+	rdfs:subClassOf mv:Battery ;
+	rdfs:comment "A type of rechargeable battery, which has the advantage of being faster to charge than other lithium-ion batteries." ;
+	rdfs:label "Lithium–titanate Battery"@en , "Lithium–titanate-Akkumulator"@de .
+
+mv:MoltenSalt
+	rdfs:subClassOf mv:Battery ;
+	rdfs:comment "A type of battery that uses molten salts as an electrolyte and offers both a high energy density and a high power density." ;
+	rdfs:label "Molten salt Battery"@en , "Thermalbatterie"@de .
+
+mv:NickelCadmium
+	rdfs:subClassOf mv:Battery ;
+	rdfs:comment "A type of rechargeable battery using nickel oxide hydroxide and metallic cadmium as electrodes." ;
+	rdfs:label "Nickel–cadmium battery"@en , "Nickel-Cadmium-Akkumulator"@de ;
+	rdfs:altlabel "NiCd"@en , "NiCd-Akku"@de ;
+	skos:hiddenLabel "NiCad"@en .
+
+mv:NickelMetalHydride
+	rdfs:subClassOf mv:Battery ;
+	rdfs:comment "A type of rechargeable battery. The chemical reaction at the positive electrode (cathode) is similar to that of the nickel–cadmium cell." ;
+	rdfs:label "Nickel–metal hydride battery"@en , "Nickel-Metallhydrid-Akkumulator"@de ;
+	rdfs:altlabel "NiMH"@en , "NiMH"@de ;
+	skos:hiddenLabel "Ni–MH"@en .
+	
+mv:NickelZinc
+	rdfs:subClassOf mv:Battery ;
+	rdfs:comment "A type of rechargeable battery which uses a stabilized zinc electrode system." ;
+	rdfs:label "Nickel-Zinc Battery"@en , "Nickel-Zink-Akkumulator"@de ;
+	rdfs:altlabel "NiZn"@en .
+	
+mv:ValveRegulatedLeadAcid
+	rdfs:subClassOf mv:LeadAcid ;
+	rdfs:comment "Α type of lead-acid rechargeable battery" ;
+	rdfs:label "Valve-regulated lead-acid battery"@en , "VRLA-Akkumulator"@de ;
+	rdfs:altlabel "sealed battery"@en ;
+	skos:hiddenLabel "VRLA "@en .
+
+mv:ZincAir
+	rdfs:subClassOf mv:Battery ;
+	rdfs:comment "A metal-air battery powered by oxidizing zinc with oxygen from the air. These batteries have high energy densities and are relatively inexpensive to produce." ;
+	rdfs:label "Zinc–air battery"@en , "Zink-Luft-Batterie"@de .
+
+#I haven't found anything for these two on the internet
+mv:DieselBatteryHybrid
+	rdfs:subClassOf mv:Battery ;
+	rdfs:comment "*****" ;
+	rdfs:label "DieselBatteryHybrid"@en , "DieselBatterieHybrid"@de .
+	
+mv:petrolBatteryHybrid
+	rdfs:subClassOf mv:Battery ;
+	rdfs:comment "****" ;
+	rdfs:label "PetrolBatteryHybrid"@en , "PetrolBatterieHybrid"@de .
+
+
+#Properties 
+
+mv:Ampere
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Represents the flow rate of electric charge." ; 
+	rdfs:label "Ampere"@en , "Ampere"@de ;
+	rdfs:domain mv:Battery ; 
+	rdfs:range rdfs:Literal .
+
+mv:hasCapacity
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "It is the amount of electric charge it can deliver at the rated voltage. It is measured in units such as Ampere-hour (Ah), Watt-hour (Wh), kiloWatt-hour (kWh)." ; 
+	rdfs:label "Capacity"@en , "Kapazität"@de ;
+	rdfs:domain mv:Battery ; 
+	rdfs:range rdfs:Literal .
+	
+mv:hasCellVoltage
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Represents either a source of energy or lost, used, or stored energy. It is measured in Voltage(V)." ; 
+	rdfs:label "CellVoltage"@en , "Spannung"@de ;
+	rdfs:altlabel "Cell nominal Voltage"@en ;
+	rdfs:domain mv:Battery ; 
+	rdfs:range rdfs:Literal .
+	
+mv:hasChargeTime
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Indicates the time that is needed for a battery's full charge." ; 
+	rdfs:label "Charge time"@en , "Ladezeit"@de ;
+	rdfs:domain mv:Battery ; 
+	rdfs:range rdfs:Literal .
+
+mv:hasCRate
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "The C-rate is a measure of the rate at which a battery is being discharged." ; 
+	rdfs:label "CRate"@en , "CRate"@de ;
+	rdfs:domain mv:Battery ; 
+	rdfs:range rdfs:Literal .
+	
+mv:hasCycleLife
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "The cycle life is the number of complete charge/discharge cycles that the battery is able to support before that its capacity falls under 80% of it's original capacity." ; 
+	rdfs:label "Cycle Life"@en , "Batterielebensdauer"@de ;
+	rdfs:domain mv:Battery ; 
+	rdfs:range rdfs:Literal .
+	
+mv:hasOperatingTemperature
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Battery operating temperature is the temperature at which a battery operates effectively." ; 
+	rdfs:label "Operating temperature"@en , "Betriebstemperatur"@de ;
+	rdfs:domain mv:Battery ; 
+	rdfs:range rdfs:Literal .
+	
+mv:hasSelfDischarge
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Self-discharge is the electrical capacity that is lost when the cell simply sits on the shelf. It is highly dependent on temperature, increasing as the battery temperature is increased." ; 
+	rdfs:label "Self Discharge"@en , "Selbstentladung"@de ;
+	rdfs:domain mv:Battery ; 
+	rdfs:range rdfs:Literal .
+	
+mv:hasSpecificEnergyDensity
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "It is the amount of energy stored in a given system or region of space per unit volume or mass. It is measured in Wh/kg." ; 
+	rdfs:label "Specific Energy Density"@en , "Energiedichte"@de ;
+	rdfs:domain mv:Battery ; 
+	rdfs:range rdfs:Literal .
+
+mv:hasSpecificPower
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Specific power demonstrates acceleration. It is the power that can be derived per unit weight of the cell (W/kg)." ; 
+	rdfs:label "Specific Power"@en , " Leistungskonstante"@de ;
+	rdfs:domain mv:Battery ; 
+	rdfs:range rdfs:Literal .
+	
+mv:Longevity
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Indicates the period of time that a battery can still work ." ; 
+	rdfs:label "Longevity"@en , "Langlebigkeit"@de ;
+	rdfs:domain mv:Battery ; 
+	rdfs:range rdfs:Literal .
+
+mv:Performance
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "It reflects the condition of the battery when driving the EV in blistering summer heat and freezing temperatures." ; 
+	rdfs:label "Performance"@en , "Leistung"@de ;
+	rdfs:domain mv:Battery ; 
+	rdfs:range rdfs:Literal .
+
+mv:Price
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Indicates the price of the battery." ; 
+	rdfs:label "Price"@en , "Preis"@de ;
+	rdfs:domain mv:Battery ; 
+	rdfs:range rdfs:Literal .
+
+mv:Watt
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Expresses the rate of energy conversion or transfer with respect to time." ; 
+	rdfs:label "Watt"@en , "Watt"@de ;
+	rdfs:domain mv:Battery ; 
+	rdfs:range rdfs:Literal .
