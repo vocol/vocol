@@ -16,7 +16,7 @@
   <script type='text/javascript' src='lib/js/leaflet.js?2'></script>
   <script src="lib/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="lib/css/leaflet.css" />
- 
+
   <script>
     // alert(window.location.hostname);
 
@@ -70,7 +70,7 @@
       if (selectedgraphtype != 'OpenStreetMap'){
         document.getElementById("map").style = 'position:absolute; left:-100000px';
         document.getElementById("result").style.display = 'block';
-        
+
         if(map !== "null" && map!== "undefined"){
 	   map.setView(new L.LatLng(20.0, 5.0), 2);
 	}
@@ -279,8 +279,8 @@
     var pathName = window.location.pathname;
     var dynamicPath = "";
 
-   
-      if(pathName.split('/').length==3)
+
+      if(pathName.split('/').length === 4)
          dynamicPath = '/'+pathName.split('/')[1];
 
       for (var i = 0; i < data.length; i++) {

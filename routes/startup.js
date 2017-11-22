@@ -25,7 +25,7 @@ router.get('/', function(req, res) {
         if (err)
           console.log(err);
 
-        // get out of the root of the VoColApp folder
+        // get out of the root of the vocol folder
         shell.cd('..');
         //shell.exec('chmod -R u+x .');
 
@@ -104,14 +104,14 @@ router.get('/', function(req, res) {
             silent: false
           }).stdout;
           if(currentrepositoryURL != obj.repositoryURL){
-            shell.exec('echo -n > ../VoColApp/helper/tools/evolution/evolutionReport.txt').stdout;
+            shell.exec('echo -n > ../vocol/helper/tools/evolution/evolutionReport.txt').stdout;
             console.log("evolutionReport.txt was deleted");
 
           }
-        
 
 
-        shell.exec('echo -n > ../VoColApp/jsonDataFiles/syntaxErrors.json').stdout;
+
+        shell.exec('echo -n > ../vocol/jsonDataFiles/syntaxErrors.json').stdout;
         var pass = true;
         var data = shell.exec('find . -type f -name \'*.ttl\'', {
           silent: false
@@ -119,7 +119,7 @@ router.get('/', function(req, res) {
         // result of searched file of .ttl
         var files = data.split(/[\n]/);
         var errors = "";
-        shell.mkdir('../VoColApp/helper/tools/serializations');
+        shell.mkdir('../vocol/helper/tools/serializations');
 
         for (var i = 0; i < files.length - 1; i++) {
           // validation of the turtle files
@@ -127,7 +127,7 @@ router.get('/', function(req, res) {
             silent: true
           })
           // converting file from turtle to ntriples format
-          shell.exec('rapper -i turtle -o ntriples ' + files[i] + ' >> ../VoColApp/helper/tools/serializations/SingleVoc.nt', {
+          shell.exec('rapper -i turtle -o ntriples ' + files[i] + ' >> ../vocol/helper/tools/serializations/SingleVoc.nt', {
             silent: false
           }).stdout;
           // check if there are syntax errors of turtle format
@@ -140,10 +140,10 @@ router.get('/', function(req, res) {
         // display syntax errors
         console.log("Errors:\n" + errors);
         if (errors) {
-          var filePath = '../VoColApp/jsonDataFiles/syntaxErrors.json';
+          var filePath = '../vocol/jsonDataFiles/syntaxErrors.json';
           fs.writeFileSync(filePath, errors);
           console.log("Errors file is generated\n");
-          shell.cd('../VoColApp/');
+          shell.cd('../vocol/');
           shell.exec('pwd').stdout
 
         }
@@ -151,11 +151,11 @@ router.get('/', function(req, res) {
         //if no syntax errors, then contiune otherwise stop
         if (pass) {
           // converting back to turtle format
-          shell.exec('rapper -i ntriples  -o turtle ../VoColApp/helper/tools/serializations/SingleVoc.nt > ../VoColApp/helper/tools/serializations/SingleVoc.ttl', {
+          shell.exec('rapper -i ntriples  -o turtle ../vocol/helper/tools/serializations/SingleVoc.nt > ../vocol/helper/tools/serializations/SingleVoc.ttl', {
             silent: false
           }).stdout;
           // Kill fuseki if it is running
-          shell.cd('-P', '../VoColApp/helper/tools/apache-jena-fuseki');
+          shell.cd('-P', '../vocol/helper/tools/apache-jena-fuseki');
           shell.exec('fuser -k 3030/tcp', {
             silent: false
           }).stdout;
@@ -227,7 +227,7 @@ router.get('/', function(req, res) {
             shell.exec("pwd"); // in repoFolder path
             console.log('this is client-side services');
             shell.cd('../../../../repoFolder');
-            shell.cp('-r', '../VoColApp/helper/tools/VoColClient/Hooks', 'VoColClient/');
+            shell.cp('-r', '../vocol/helper/tools/VoColClient/Hooks', 'VoColClient/');
             shell.cd('-P', 'VoColClient/Hooks');
             shell.exec("pwd");
             //TODO: change to obj.server
@@ -236,7 +236,7 @@ router.get('/', function(req, res) {
             }).stdout;
             shell.exec('pwd');
             //shell.cd("../../../../repoFolder"); // in repoFolder path
-            //shell.exec('mv ../VoColApp/helper/tools/VoColClientService/* .git/hooks/').stdout;
+            //shell.exec('mv ../vocol/helper/tools/VoColClientService/* .git/hooks/').stdout;
             shell.exec('pwd');
             shell.exec('git add .', {
               silent: false
@@ -260,14 +260,14 @@ router.get('/', function(req, res) {
             //   shell.exec('git push https://' + obj.user + ':' + obj.password + '@bitbucket.org/"' + obj.repositoryName + '".git', {
             //     silent: false
             //   }).stdout;
-            //shell.cd('../VoColApp/helper/scripts/'); //VoColClient
+            //shell.cd('../vocol/helper/scripts/'); //VoColClient
             //shell.exec('pwd').stdout; //VoColClient
 
-            shell.cd('../../../VoColApp/helper/tools/VoColClient/'); //VoColClient
+            shell.cd('../../../vocol/helper/tools/VoColClient/'); //VoColClient
             shell.exec('pwd').stdout; //VoColClient
 
           }
-          // run external bash script to start up both fuseki-server and VoColApp
+          // run external bash script to start up both fuseki-server and vocol
           const child = spawn('sh', ['../../scripts/run.sh', '&']);
           // show output live of process on std
           child.stdout.pipe(process.stdout);
@@ -278,7 +278,7 @@ router.get('/', function(req, res) {
         } else // if it has syntaxErrors
         {
           shell.exec('pwd');
-          shell.cd('../VoColApp/').stdout;
+          shell.cd('../vocol/').stdout;
           res.redirect('./validation');
         }
       });

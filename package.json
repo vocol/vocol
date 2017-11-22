@@ -1,5 +1,5 @@
 {
-  "name": "Vocol",
+  "name": "vocol",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -16,7 +16,6 @@
     "jsonfile": "^4.0.0",
     "morgan": "~1.7.0",
     "node-watch": "^0.5.5",
-    "rdf-translator": "^0.1.0",
     "semantic-ui": "^2.2.13",
     "serve-favicon": "~2.3.2",
     "shelljs": "^0.7.8"

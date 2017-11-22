@@ -88,7 +88,6 @@ function readUserConfigurationFile() {
           }
         });
         app.locals.userConfigurations = menu;
-        console.log(menu);
       });
     }
   }
@@ -105,7 +104,7 @@ if (fs.existsSync(repoFolderPath)) {
   currentrepositoryURL = shell.exec('git ls-remote --get-url', {
     silent: false
   }).stdout;
-  shell.cd('../VoColApp', {
+  shell.cd('../vocol', {
     silent: false
   }).stdout;
 }
@@ -117,72 +116,65 @@ function showEmptyPgeFunc() {
     app.locals.showEmptyPge = true;
   } else
     app.locals.showEmptyPge = false;
-  console.log('showEmptyPge' + app.locals.showEmptyPge);
 }
 showEmptyPgeFunc();
 
 // routing to the available routes on the app
-app.use('\/\/', routes);
-app.use('\/\/contactus', contactus);
-app.use('\/\/users', users);
-app.use('\/\/documentation', documentation);
-app.use('\/\/webvowlLink', express.static(path.join(__dirname, "views/webvowl")));
-app.use('\/\/turtleEditorLink', express.static(path.join(__dirname, "views/turtleEditor")));
-app.use('\/\/analyticsLink', express.static(path.join(__dirname, "views/d3sparql")));
-app.use('\/\/evolution', evolution);
-app.use('\/\/startup', startup);
-app.use('\/\/validation', validation);
-app.use('\/\/client', client);
-app.use('\/\/listener', listener);
+app.use(['\/\/','/'], routes);
+app.use(['\/\/contactus','/contactus'], contactus);
+app.use(['\/\/users','/users'], users);
+app.use(['\/\/documentation','/documentation'], documentation);
+app.use(['\/\/webvowlLink','/webvowlLink'], express.static(path.join(__dirname, "views/webvowl")));
+app.use(['\/\/turtleEditorLink','/turtleEditorLink'], express.static(path.join(__dirname, "views/turtleEditor")));
+app.use(['\/\/analyticsLink','/analyticsLink'], express.static(path.join(__dirname, "views/d3sparql")));
+app.use(['\/\/evolution','/evolution'], evolution);
+app.use(['\/\/startup','/startup'], startup);
+app.use(['\/\/validation','/validation'], validation);
+app.use(['\/\/client','/client'], client);
+app.use(['\/\/listener','/listener'], listener);
 
-app.use('\/\/fuseki/',  proxy('localhost:3030/',   {  
+app.use(['\/\/fuseki/','/fuseki/'],  proxy('localhost:3030/',   {  
   proxyReqPathResolver:   function(req)  {
-    console.log(require('url').parse(req.url).path);    
-    return  require('url').parse(req.url).path;  
+    if(req.method === 'POST')
+    return  require('url').parse(req.url).path+"?query="+escape(req.body.query);
+    else
+    return  require('url').parse(req.url).path;
   }
 }));
 
-app.use('\/\/fusekiOld/', proxy('localhost:3080/', {
-  proxyReqPathResolver: function(req) {
-    console.log(require('url').parse(req.url).path);
-    return require('url').parse(req.url).path;
-  }
-}));
-
-app.get('\/\/analytics', function(req, res) {
+app.get(['\/\/analytics','/analytics'], function(req, res) {
   res.render('analytics', {
     title: 'Analytics'
   });
 })
 
-app.get('\/\/turtleEditor', function(req, res) {
+app.get(['\/\/turtleEditor','/turtleEditor'], function(req, res) {
   res.render('turtleEditor', {
     title: 'Editing'
   });
 })
 
-app.get('\/\/visualization', function(req, res) {
+app.get(['\/\/visualization','/visualization'], function(req, res) {
   res.render('visualization', {
     title: 'visualization'
   });
 })
 
-
-app.get('\/\/querying', function(req, res) {
+app.get(['\/\/querying','/querying'], function(req, res) {
   res.render('querying.ejs', {
     title: 'Make a query'
   });
 });
 
 
-app.get('\/\/config', function(req, res) {
+app.get(['\/\/config','/config'], function(req, res) {
   res.render('config.ejs', {
     title: 'Configuration App'
   });
 });
 
 // http post when  a user configurations is submitted
-app.post('\/\/config', function(req, res) {
+app.post(['\/\/config','/config'], function(req, res) {
   var filepath = __dirname + '/jsonDataFiles/userConfigurations.json';
   // Read the userConfigurations file if exsit to append new data
   jsonfile.readFile(filepath, function(err, obj)  {
@@ -221,7 +213,6 @@ watch(userConfigurationsFile, {
   if (evt == 'update') {
     // call if userConfigurations file was changed
     readUserConfigurationFile();
-    console.log(app.locals.isExistSyntaxError);
   }
 });
 
