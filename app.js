@@ -5,8 +5,6 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var routes = require('./routes/index');
-var contactus = require('./routes/contactus');
-var users = require('./routes/users');
 var documentation = require('./routes/documentation');
 var evolution = require('./routes/evolution');
 var startup = require('./routes/startup');
@@ -102,7 +100,7 @@ var currentrepositoryURL = "";
 var repoFolderPath = "../repoFolder";
 if (fs.existsSync(repoFolderPath)) {
   currentrepositoryURL = shell.exec('git ls-remote --get-url', {
-    silent: false
+    silent: true
   }).stdout;
   shell.cd('../vocol', {
     silent: false
@@ -110,7 +108,6 @@ if (fs.existsSync(repoFolderPath)) {
 }
 
 app.locals.showEmptyPge = false;
-
 function showEmptyPgeFunc() {
   if (app.locals.isExistSyntaxError === true && (currentrepositoryURL === "" || repositoryURL != currentrepositoryURL)) {
     app.locals.showEmptyPge = true;
@@ -121,8 +118,6 @@ showEmptyPgeFunc();
 
 // routing to the available routes on the app
 app.use(['\/\/','/'], routes);
-app.use(['\/\/contactus','/contactus'], contactus);
-app.use(['\/\/users','/users'], users);
 app.use(['\/\/documentation','/documentation'], documentation);
 app.use(['\/\/webvowlLink','/webvowlLink'], express.static(path.join(__dirname, "views/webvowl")));
 app.use(['\/\/turtleEditorLink','/turtleEditorLink'], express.static(path.join(__dirname, "views/turtleEditor")));
@@ -201,7 +196,6 @@ watch(ErrorsFilePath, {
   if (evt == 'update') {
     // call if SyntaxErrors file was changed
     readSyntaxErrorsFile();
-    console.log(app.locals.isExistSyntaxError);
     showEmptyPgeFunc();
   }
 });

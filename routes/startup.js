@@ -97,7 +97,7 @@ router.get('/', function(req, res) {
           silent: false
         }).stdout;
 
-        // check // check if the user has an error and this was for first time or
+         // check if the user has an error and this was for first time or
         // when user has changed to another repositoryURL
         // currentrepositoryURL === "" means it is the first time
           var currentrepositoryURL = shell.exec('git ls-remote --get-url', {
@@ -109,18 +109,16 @@ router.get('/', function(req, res) {
 
           }
 
-
-
         shell.exec('echo -n > ../vocol/jsonDataFiles/syntaxErrors.json').stdout;
         var pass = true;
         var data = shell.exec('find . -type f -name \'*.ttl\'', {
           silent: false
         });
+
         // result of searched file of .ttl
         var files = data.split(/[\n]/);
         var errors = "";
         shell.mkdir('../vocol/helper/tools/serializations');
-
         for (var i = 0; i < files.length - 1; i++) {
           // validation of the turtle files
           var output = shell.exec('ttl ' + files[i] + '', {
@@ -196,7 +194,7 @@ router.get('/', function(req, res) {
             fs.writeFileSync(filePath, contents);
           }
 
-          if (obj.evolutionReport === "true") {
+          if (obj.evolutionReport === "true" && currentrepositoryURL === obj.repositoryURL) {
             // Evolution Part
             if (fs.existsSync('../evolution/SingleVoc.ttl')) {
               shell.cd('../owl2vcs/').stdout;
@@ -227,16 +225,22 @@ router.get('/', function(req, res) {
             shell.exec("pwd"); // in repoFolder path
             console.log('this is client-side services');
             shell.cd('../../../../repoFolder');
-            shell.cp('-r', '../vocol/helper/tools/VoColClient/Hooks', 'VoColClient/');
+            shell.mkdir('VoColClient');
+            shell.cp('-r', '../vocol/helper/tools/VoColClient/Hooks', 'VoColClient');
             shell.cd('-P', 'VoColClient/Hooks');
             shell.exec("pwd");
-            //TODO: change to obj.server
-            shell.exec('sed -i "s/serverURL/localhost:3000/g" pre-commit', {
-              silent: false
-            }).stdout;
-            shell.exec('pwd');
-            //shell.cd("../../../../repoFolder"); // in repoFolder path
-            //shell.exec('mv ../vocol/helper/tools/VoColClientService/* .git/hooks/').stdout;
+            // replace the  server URL in the client Hooks
+            var serverURL = obj.server;
+            if (serverURL.charAt(serverURL.length - 1) == '/') {
+            serverURL = serverURL.substr(0, serverURL.length - 1);
+            }
+            var precommitFile = './pre-commit';
+            if (fs.existsSync(precommitFile)) {
+              var data = fs.readFileSync(precommitFile);
+              data = data.toString().replace("serverURL",serverURL);
+              fs.writeFileSync(precommitFile, data, 'utf8');
+            }
+            shell.cd('../..'); //repoFolder
             shell.exec('pwd');
             shell.exec('git add .', {
               silent: false
@@ -244,27 +248,8 @@ router.get('/', function(req, res) {
             shell.exec('git commit -m "configuration of repository"', {
               silent: false
             }).stdout;
-            //TODO*:change  the following login
-            // shell.exec('git push', {
-            //   silent: false
-            // }).stdout;
-            // if (obj.repositoryService === 'gitHub')
-            //   shell.exec('git push', {
-            //     silent: false
-            //   }).stdout;
-            // else if (obj.repositoryService === 'gitLab')
-            //   shell.exec('git push https://' + obj.user + ':' + obj.password + '@gitlab.com/"' + obj.repositoryName + '".git master', {
-            //     silent: false
-            //   }).stdout;
-            // else if (obj.repositoryService === 'BitBucket')
-            //   shell.exec('git push https://' + obj.user + ':' + obj.password + '@bitbucket.org/"' + obj.repositoryName + '".git', {
-            //     silent: false
-            //   }).stdout;
-            //shell.cd('../vocol/helper/scripts/'); //VoColClient
-            //shell.exec('pwd').stdout; //VoColClient
-
-            shell.cd('../../../vocol/helper/tools/VoColClient/'); //VoColClient
-            shell.exec('pwd').stdout; //VoColClient
+            shell.exec('pwd').stdout;
+            shell.cd('../vocol/helper/tools/VoColClient/'); //VoColClient
 
           }
           // run external bash script to start up both fuseki-server and vocol
