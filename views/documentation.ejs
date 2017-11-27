@@ -63,13 +63,13 @@
             <div class="field">
               <div class="ui slider checkbox" style="padding-right:50px">
                 <input type="checkbox" name="mySliders" id="showTypesCheckBox" tabindex="0">
-                <label> Show Types</label>
+                <label> Show Type</label>
               </div>
             </div>
             <div class="field">
               <div class="ui slider checkbox" style="padding-right:50px">
                 <input type="checkbox" name="mySliders" id="showFilesCheckBox" tabindex="1">
-                <label> Show Files</label>
+                <label> Show File</label>
               </div>
             </div>
           </div>
@@ -314,9 +314,9 @@
                 $("#conceptHead").show();
                 if (ExteralURI[ExteralURI.length - 1] === ('/')) {
                   var str = ExteralURI.slice(0, -1);
-                  $("#conceptHead").html('<p >  Details for : <code>' + trimHash(trimSlash(str)) + '</code></p>');
+                  $("#conceptHead").html('<p>  Details: <code>' + trimHash(trimSlash(str)) + '</code></p>');
                 } else {
-                  $("#conceptHead").html('<p >  Details for : <code>' + trimHash(replaceWithRDFType(trimSlash(ExteralURI))) + '</code></p>');
+                  $("#conceptHead").html('<p>  Details: <code>' + trimHash(replaceWithRDFType(trimSlash(ExteralURI))) + '</code></p>');
                 }
                 $('#detailTable').html(externalURITable);
                 $('#detailTable').transition('shake')
@@ -976,7 +976,7 @@
                     }
                     instancesDetailsTable += '</table> ';
                     $("#instanceHead").show();
-                    $("#instanceHead").html('<h3> Instance Details for :<code>' + trimHash(replaceWithRDFType(trimSlash(instanceURI))) + '</code></h3>');
+                    $("#instanceHead").html('<h3> Individual: <code>' + trimHash(replaceWithRDFType(trimSlash(instanceURI))) + '</code></h3>');
                     $("#instanceDetailsTable").show();
                     $("#instanceDetailsTable").html(instancesDetailsTable);
                     document.getElementById("instanceHead").scrollIntoView()

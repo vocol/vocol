@@ -519,7 +519,7 @@
                 });
                 queryString = "?" + (params.join('&'));
               }
-              return _request('GET', "" + _repoPath + "/git/trees/" + tree + queryString, null).then(function(res) {
+              return _request('GET', "" + _repoPath + "/git/trees/" + tree + queryString + "?recursive=1", null).then(function(res) {
                 return res.tree;
               }).promise();
             };

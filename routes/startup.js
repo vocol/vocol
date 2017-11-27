@@ -218,7 +218,7 @@ router.get('/', function(req, res) {
             shell.exec('java -jar owl2vowl.jar -file ../serializations/SingleVoc.ttl', {
               silent: false
             }).stdout;
-            shell.mv('SingleVoc.json', '../../../views/webvowl/js/data/').stdout;
+            shell.mv('SingleVoc.json', '../../../views/webvowl/data/').stdout;
           }
 
           // ////////////////////////////////////////////////////////////////////
