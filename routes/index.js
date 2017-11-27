@@ -19,10 +19,9 @@ router.get('/', function(req, res) {
         jsonfile.readFile(path, function(err, obj)  {
           if (err)
             console.log(err); 
-
           if (obj.hasOwnProperty('text'))
             res.render('index', {
-              title: 'MobiVoc',
+              title: 'Home',
               homePage: obj.text
             });
         });

@@ -11,7 +11,7 @@ router.get('/', function(req, res) {
   var isExistSyntaxError = false;
   var hasPreviousValidOntology = false;
   var ErrorsFilePath = 'jsonDataFiles/syntaxErrors.json';
-  var errors = fs.readFileSync(ErrorsFilePath);
+  var errors = require(ErrorsFilePath);
   if (errors.toString().includes('Error')) {
     isExistSyntaxError = true;
   }
@@ -22,7 +22,7 @@ router.get('/', function(req, res) {
     }
   });
   res.render('validation', {
-    title: 'Syntax Validation',
+    title: 'Validation',
     syntaxErrors: errors,
     isExistSyntaxError: isExistSyntaxError,
     hasPreviousValidOntology:hasPreviousValidOntology

@@ -4,7 +4,7 @@ var router = express.Router();
 var fs = require('fs');
 
 router.get('/', function(req, res) {
-console.log(process.cwd());
+  console.log(process.cwd());
   var filePath = 'jsonDataFiles/RDFSConcepts.json'
   fs.exists(filePath, function(exists) {
     if (exists) {
@@ -61,7 +61,6 @@ console.log(process.cwd());
             out.push(sl[i]);
           }
         }
-
         return out;
       }
       // filter external classes
@@ -117,19 +116,29 @@ console.log(process.cwd());
       var allSKOSObjects = filterExternalConcept(SKOSObjectsPlusURI);
 
       res.render('documentation', {
-        title: 'documentation',
+        title: 'Documentation',
         data: treeData,
         fileNames: files,
         allRDFObjects: allRDFObjects,
         allSKOSObjects: allSKOSObjects,
         SKOSData: SKOSData,
         RDFObjectsPlusURI: RDFObjectsPlusURI,
-        SKOSObjectsPlusURI: SKOSObjectsPlusURI
+        SKOSObjectsPlusURI: SKOSObjectsPlusURI,
+        emptyData: false
+
       });
-    }
-    else{res.render('emptyPage', {
-      title: 'documentation'
-    });
+    } else {
+      res.render('documentation', {
+        title: 'Documentation',
+        data: null,
+        fileNames: null,
+        allRDFObjects: null,
+        allSKOSObjects: null,
+        SKOSData: null,
+        RDFObjectsPlusURI: null,
+        SKOSObjectsPlusURI: null,
+        emptyData: true
+      });
 
     }
   });

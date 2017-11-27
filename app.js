@@ -10,6 +10,7 @@ var evolution = require('./routes/evolution');
 var startup = require('./routes/startup');
 var validation = require('./routes/validation');
 var client = require('./routes/clientServices');
+var referenceRoutes = require('./routes/referenceRoutes');
 var listener = require('./routes/listener');
 var fs = require('fs');
 var  jsonfile  =  require('jsonfile');
@@ -33,16 +34,15 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-app.locals.isExistSyntaxError = false;
+app.locals.isExistSyntaxError = "false";
 var ErrorsFilePath = __dirname + '/jsonDataFiles/syntaxErrors.json';
-
 function readSyntaxErrorsFile() {
   if (fs.existsSync(ErrorsFilePath)) {
     var data = fs.readFileSync(ErrorsFilePath);
     if (data.toString().includes('Error')) {
-      app.locals.isExistSyntaxError = true;
+      app.locals.isExistSyntaxError = "true";
     } else {
-      app.locals.isExistSyntaxError = false;
+      app.locals.isExistSyntaxError = "false";
     }
   }
 }
@@ -107,69 +107,60 @@ if (fs.existsSync(repoFolderPath)) {
   }).stdout;
 }
 
-app.locals.showEmptyPge = false;
-function showEmptyPgeFunc() {
-  if (app.locals.isExistSyntaxError === true && (currentrepositoryURL === "" || repositoryURL != currentrepositoryURL)) {
-    app.locals.showEmptyPge = true;
-  } else
-    app.locals.showEmptyPge = false;
-}
-showEmptyPgeFunc();
-
 // routing to the available routes on the app
-app.use(['\/\/','/'], routes);
-app.use(['\/\/documentation','/documentation'], documentation);
-app.use(['\/\/webvowlLink','/webvowlLink'], express.static(path.join(__dirname, "views/webvowl")));
-app.use(['\/\/turtleEditorLink','/turtleEditorLink'], express.static(path.join(__dirname, "views/turtleEditor")));
-app.use(['\/\/analyticsLink','/analyticsLink'], express.static(path.join(__dirname, "views/d3sparql")));
-app.use(['\/\/evolution','/evolution'], evolution);
-app.use(['\/\/startup','/startup'], startup);
-app.use(['\/\/validation','/validation'], validation);
-app.use(['\/\/client','/client'], client);
-app.use(['\/\/listener','/listener'], listener);
+app.use(['\/\/', '/'], routes);
+app.use(['\/\/documentation', '/documentation'], documentation);
+app.use(['\/\/webvowlLink', '/webvowlLink'], express.static(path.join(__dirname, "views/webvowl")));
+app.use(['\/\/turtleEditorLink', '/turtleEditorLink'], express.static(path.join(__dirname, "views/turtleEditor")));
+app.use(['\/\/analyticsLink', '/analyticsLink'], express.static(path.join(__dirname, "views/d3sparql")));
+app.use(['\/\/evolution', '/evolution'], evolution);
+app.use(['\/\/startup', '/startup'], startup);
+app.use(['\/\/validation', '/validation'], validation);
+app.use(['\/\/client', '/client'], client);
+app.use(['\/\/listener', '/listener'], listener);
 
-app.use(['\/\/fuseki/','/fuseki/'],  proxy('localhost:3030/',   {  
+app.use(['\/\/fuseki/', '/fuseki/'],  proxy('localhost:3030/',   {  
   proxyReqPathResolver:   function(req)  {
-    if(req.method === 'POST')
-    return  require('url').parse(req.url).path+"?query="+escape(req.body.query);
+    if (req.method === 'POST')
+      return  require('url').parse(req.url).path + "?query=" + escape(req.body.query);
     else
-    return  require('url').parse(req.url).path;
+      return  require('url').parse(req.url).path;
   }
 }));
 
-app.get(['\/\/analytics','/analytics'], function(req, res) {
+app.get(['\/\/analytics', '/analytics'], function(req, res) {
   res.render('analytics', {
     title: 'Analytics'
   });
 })
 
-app.get(['\/\/turtleEditor','/turtleEditor'], function(req, res) {
+app.get(['\/\/turtleEditor', '/turtleEditor'], function(req, res) {
   res.render('turtleEditor', {
     title: 'Editing'
   });
 })
 
-app.get(['\/\/visualization','/visualization'], function(req, res) {
+app.get(['\/\/visualization', '/visualization'], function(req, res) {
   res.render('visualization', {
-    title: 'visualization'
+    title: 'Visualization'
   });
 })
 
-app.get(['\/\/querying','/querying'], function(req, res) {
+app.get(['\/\/querying', '/querying'], function(req, res) {
   res.render('querying.ejs', {
-    title: 'Make a query'
+    title: 'Querying'
   });
 });
 
 
-app.get(['\/\/config','/config'], function(req, res) {
+app.get(['\/\/config', '/config'], function(req, res) {
   res.render('config.ejs', {
-    title: 'Configuration App'
+    title: 'Configuration'
   });
 });
 
 // http post when  a user configurations is submitted
-app.post(['\/\/config','/config'], function(req, res) {
+app.post(['\/\/config', '/config'], function(req, res) {
   var filepath = __dirname + '/jsonDataFiles/userConfigurations.json';
   // Read the userConfigurations file if exsit to append new data
   jsonfile.readFile(filepath, function(err, obj)  {
@@ -185,9 +176,19 @@ app.post(['\/\/config','/config'], function(req, res) {
     })
   });
   res.render('userConfigurationsUpdated', {
-    title: 'System Preparation'
+    title: 'Preparation'
   });
 });
+
+app.get(['\/\/checkErrors', '/checkErrors'], function(req, res, next) {
+  readSyntaxErrorsFile();
+  console.log(req.body);
+  res.send(app.locals.isExistSyntaxError);
+  res.end();
+});
+
+// catch something else
+app.use('*', referenceRoutes);
 
 // monitor ErrorsFilePath
 watch(ErrorsFilePath, {
@@ -196,7 +197,6 @@ watch(ErrorsFilePath, {
   if (evt == 'update') {
     // call if SyntaxErrors file was changed
     readSyntaxErrorsFile();
-    showEmptyPgeFunc();
   }
 });
 

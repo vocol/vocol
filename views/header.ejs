@@ -7,7 +7,8 @@
   <title>
     <%- title %>
   </title>
-<link href="dist/vis-timeline-graph2d.min.css" rel="stylesheet" type="text/css">  <link rel="stylesheet" href="./javascripts/bower_components/bootstrap/dist/css/bootstrap.css">
+  <link href="dist/vis-timeline-graph2d.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="./javascripts/bower_components/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet" href="./javascripts/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="./javascripts/bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
   <link rel="stylesheet" href="stylesheets/bootstrap-treeview.min.css">
@@ -31,13 +32,29 @@
       var target = this;
       return target.replace(new RegExp(search, 'g'), replacement);
     };
-    <% if(isExistSyntaxError)  { %>
-      setInterval(function() {
-        $('#validationLi').transition('flash');
-        $("#validationLi").css({"backgroundColor":"yellow"});
-      }, 1000);
-      <% } %>
-
+    $.ajax({
+      url: "./checkErrors",
+      type: "GET",
+      dataType: 'text',
+      data: 'isExistSyntaxError=value',
+      success: function(value) {
+        if (value == "true") {
+          for (i = 0; i < 3; i++) {
+            setTimeout(function() {
+              $('#validationLi').transition('flash');
+              $("#validationLi").css({
+                "backgroundColor": "yellow"
+              });
+            }, 1000);
+          }
+          setTimeout(function() {
+            $("#validationLi").css({
+              "backgroundColor": "red"
+            });
+          }, 3000);
+        }
+      },
+    });
   </script>
 
 
@@ -66,21 +83,21 @@
             <li id="editingLi"><a href="./turtleEditor">Editing</a></li>
             <% } %>
               <% if ( userConfigurations[1] ) {%>
-                <li id="documentationLi" ><a href="./documentation">Documentation</a></li>
+                <li id="documentationLi"><a href="./documentation">Documentation</a></li>
                 <% } %>
                   <% if (userConfigurations[2]){ %>
-                    <li id="visualizationLi" ><a href="./visualization">Visualization</a></li>
+                    <li id="visualizationLi"><a href="./visualization">Visualization</a></li>
                     <% } %>
                       <% if (userConfigurations[3] ) {%>
-                        <li id="queryingLi" ><a href="./querying">Querying</a></li>
+                        <li id="queryingLi"><a href="./querying">Querying</a></li>
                         <% } %>
                           <% if (userConfigurations[4] ) {%>
                             <li id="evolutionLi"><a href="./evolution">Evolution</a></li>
                             <% } %>
                               <% if (userConfigurations[5]) {%>
-<li><a href="./analytics">Analytics</a></li>
-<% } %>
-<li id="validationLi"><a href="./validation">Validation</a></li>
+                                <li><a href="./analytics">Analytics</a></li>
+                                <% } %>
+                                  <li id="validationLi"><a href="./validation">Validation</a></li>
 
         </ul>
         <!-- <ul class="nav navbar-nav navbar-right">

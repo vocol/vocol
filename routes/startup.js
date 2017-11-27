@@ -97,17 +97,27 @@ router.get('/', function(req, res) {
           silent: false
         }).stdout;
 
-         // check if the user has an error and this was for first time or
+        // check if the user has an error and this was for first time or
         // when user has changed to another repositoryURL
         // currentrepositoryURL === "" means it is the first time
-          var currentrepositoryURL = shell.exec('git ls-remote --get-url', {
-            silent: false
-          }).stdout;
-          if(currentrepositoryURL != obj.repositoryURL){
-            shell.exec('echo -n > ../vocol/helper/tools/evolution/evolutionReport.txt').stdout;
-            console.log("evolutionReport.txt was deleted");
-
-          }
+        var currentrepositoryURL = shell.exec('git ls-remote --get-url', {
+          silent: false
+        }).stdout;
+        if (currentrepositoryURL != obj.repositoryURL) {
+          // reset the app. if the repositoryURL was changed
+          shell.exec('echo -n > ../vocol/helper/tools/evolution/evolutionReport.txt').stdout;
+          //shell.exec('echo -n > ../vocol/jsonDataFiles/userConfigurations.json').stdout;
+          shell.exec('echo -n > ../vocol/jsonDataFiles/syntaxErrors.json').stdout;
+          shell.exec('rm -f ../vocol/views/webvowl/js/data/SingleVoc.json').stdout;
+          shell.exec('rm -f ../vocol/jsonDataFiles/RDFSConcepts.json').stdout;
+          shell.exec('rm -f ../vocol/jsonDataFiles/SKOSConcepts.json').stdout;
+          shell.exec('rm -f ../vocol/jsonDataFiles/SKOSObjects.json').stdout;
+          shell.exec('rm -f ../vocol/jsonDataFiles/RDFSObjects.json').stdout;
+          shell.exec('rm -f ../vocol/helper/tools/serializations/SingleVoc.nt').stdout;
+          shell.exec('rm -f ../vocol/helper/tools/serializations/SingleVoc.ttl').stdout;
+          shell.exec('rm -f ../vocol/helper/tools/evolution/SingleVoc.ttl').stdout;
+          console.log("App's previous data was deleted");
+        }
 
         shell.exec('echo -n > ../vocol/jsonDataFiles/syntaxErrors.json').stdout;
         var pass = true;
@@ -117,7 +127,8 @@ router.get('/', function(req, res) {
 
         // result of searched file of .ttl
         var files = data.split(/[\n]/);
-        var errors = "";
+        var k = 1;
+        var errors = [];
         shell.mkdir('../vocol/helper/tools/serializations');
         for (var i = 0; i < files.length - 1; i++) {
           // validation of the turtle files
@@ -130,17 +141,48 @@ router.get('/', function(req, res) {
           }).stdout;
           // check if there are syntax errors of turtle format
           if (!output.stdout.includes("0 errors.")) {
-            errors += "<h3>Error in file " + files[i] + "</h3><h4>" + output.split('\n')[0] + "</h4><br/>";
+            var errorObject = {
+              id: k,
+              file: files[i],
+              errMessege: output.split('\n')[0]
+            };
+            errors.push(errorObject)
+            k++;
             pass = false;
           }
-          console.log(files[i]);
         }
         // display syntax errors
-        console.log("Errors:\n" + errors);
+        console.log("Errors:\n" + JSON.stringify(errors));
         if (errors) {
           var filePath = '../vocol/jsonDataFiles/syntaxErrors.json';
-          fs.writeFileSync(filePath, errors);
-          console.log("Errors file is generated\n");
+          jsonfile.writeFile(filePath, errors, {
+            spaces:  2,
+             EOL:   '\r\n'
+          },  function(err)  {  
+            if (err)
+              throw err;
+            console.log("Errors file is generated\n");
+
+          })
+
+          ////////////////////////////////////////////////////////////////////
+          //// TurtleEditor
+          //////////////////////////////////////////////////////////////////////
+          if (turtleEditor === true && obj.repositoryService === "gitHub") {
+            shell.exec('pwd', {
+              silent: false
+            }).stdout;
+            // filePath where we read from
+            var filePath = '../vocol/views/turtleEditor/js/turtle-editor.js';
+            // read contents of the file with the filePath
+            var contents = fs.readFileSync(filePath, 'utf8');
+            contents = contents.replace(/(owner\.val\(")(.*?)"/mg, "owner.val(\"" + obj.repositoryOwner + "\"");
+            contents = contents.replace(/(repo\.val\(")(.*?)"/mg, "repo.val(\"" + obj.repositoryName + "\"");
+            // write back to the file with the filePath
+            fs.writeFileSync(filePath, contents);
+          }
+
+          //fs.writeFileSync(filePath, errors);
           shell.cd('../vocol/');
           shell.exec('pwd').stdout
 
@@ -177,22 +219,22 @@ router.get('/', function(req, res) {
             shell.mv('SingleVoc.json', '../../../views/webvowl/js/data/').stdout;
           }
 
-          ////////////////////////////////////////////////////////////////////
-          //// TurtleEditor
-          //////////////////////////////////////////////////////////////////////
-          if (turtleEditor === true && obj.repositoryService === "gitHub") {
-            shell.exec('pwd', {
-              silent: false
-            }).stdout;
-            // filePath where we read from
-            var filePath = '../../../views/turtleEditor/js/turtle-editor.js';
-            // read contents of the file with the filePath
-            var contents = fs.readFileSync(filePath, 'utf8');
-            contents = contents.replace(/(owner\.val\(")(.*?)"/mg, "owner.val(\"" + obj.repositoryOwner + "\"");
-            contents = contents.replace(/(repo\.val\(")(.*?)"/mg, "repo.val(\"" + obj.repositoryName + "\"");
-            // write back to the file with the filePath
-            fs.writeFileSync(filePath, contents);
-          }
+          // ////////////////////////////////////////////////////////////////////
+          // //// TurtleEditor
+          // //////////////////////////////////////////////////////////////////////
+          // if (turtleEditor === true && obj.repositoryService === "gitHub") {
+          //   shell.exec('pwd', {
+          //     silent: false
+          //   }).stdout;
+          //   // filePath where we read from
+          //   var filePath = '../../../views/turtleEditor/js/turtle-editor.js';
+          //   // read contents of the file with the filePath
+          //   var contents = fs.readFileSync(filePath, 'utf8');
+          //   contents = contents.replace(/(owner\.val\(")(.*?)"/mg, "owner.val(\"" + obj.repositoryOwner + "\"");
+          //   contents = contents.replace(/(repo\.val\(")(.*?)"/mg, "repo.val(\"" + obj.repositoryName + "\"");
+          //   // write back to the file with the filePath
+          //   fs.writeFileSync(filePath, contents);
+          // }
 
           if (obj.evolutionReport === "true" && currentrepositoryURL === obj.repositoryURL) {
             // Evolution Part
@@ -232,12 +274,12 @@ router.get('/', function(req, res) {
             // replace the  server URL in the client Hooks
             var serverURL = obj.server;
             if (serverURL.charAt(serverURL.length - 1) == '/') {
-            serverURL = serverURL.substr(0, serverURL.length - 1);
+              serverURL = serverURL.substr(0, serverURL.length - 1);
             }
             var precommitFile = './pre-commit';
             if (fs.existsSync(precommitFile)) {
               var data = fs.readFileSync(precommitFile);
-              data = data.toString().replace("serverURL",serverURL);
+              data = data.toString().replace("serverURL", serverURL);
               fs.writeFileSync(precommitFile, data, 'utf8');
             }
             shell.cd('../..'); //repoFolder

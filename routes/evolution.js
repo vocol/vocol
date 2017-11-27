@@ -32,7 +32,6 @@ router.get('/', function(req, res) {
             element = element.split("commitTimestamp:")[1];
             // get the commitTimestamp
             commitTimestamp = element.split("+")[0];
-
             if (arrayLines[i+1].includes('pusher:')) {
               element = arrayLines[i+1];
               pusher = element.split("pusher:")[1];
@@ -64,8 +63,6 @@ router.get('/', function(req, res) {
                 'pusher':pusher,
                 'commitTimestamp': commitTimestamp
               });
-
-
             }
           } else if (arrayLines[i].charAt(0) == '-') {
             element = arrayLines[i].substr(2);
@@ -84,13 +81,15 @@ router.get('/', function(req, res) {
 }
     if (isExistEvolutionReportFile === true)
       res.render('evolution', {
-        title: 'Evolution Report',
+        title: 'Evolution',
         evolutionReport: diffArray,
         history: history
       });
     else
-      res.render('emptyPage', {
-        title: 'Empty Page'
+      res.render('evolution', {
+        title: 'Evolution',
+        history: null,
+        evolutionReport: null
       });
   });
 });

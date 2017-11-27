@@ -6,7 +6,7 @@
     <div class="ui container">
       <h1><%- title %></h1>
       <% if(isExistSyntaxError)  { %>
-        <%- syntaxErrors %>
+        <div id="errors"></div>
           <h5 style="color:red">Please fix the error(s) in the turtle file(s).</h5>
           <% } else{%>
             <h5>No errors were found</h5>
@@ -15,24 +15,10 @@
   </div>
 
   <% include footer %>
-
     <script>
-      // to blink if there is syntax errors
-      if (<%- isExistSyntaxError %>) {
-        setInterval(function() {
-          $('#validationLi').transition('flash');
-          $("#validationLi").css({
-            "backgroundColor": "yellow"
-          });
-        }, 1000);
-        if (<%- hasPreviousValidOntology %>) {
-          $('#editingLi').remove();
-          $('#visualizationLi').remove();
-          $('#documentationLi').remove();
-          $('#queryingLi').remove();
-          $('#evolutionLi').remove();
-          $('#leftHeaderUl').append('<li><a href="./config">Configuration Form</a></li>');
-          $('#homeLi').remove();
-        }
-      }
+      var errors = <%- syntaxErrors %>
+      console.log(errors);
+      errors.forEach(function(element) {
+            $('#errors').append("<p><h6> Error Number: "+element.id+"</h6>"+"<h6> Found in file:"+element.file +"  <code>"+element.errMessege +"</code></h6></p>");
+            })
     </script>
