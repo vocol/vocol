@@ -1,7 +1,1 @@
-[
-  {
-    "id": 1,
-    "file": "./samples/sampleData.ttl",
-    "errMessege": "Error: Undefined prefix \"mv:\" at line 4."
-  }
-]
+[]

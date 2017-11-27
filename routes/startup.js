@@ -50,7 +50,6 @@ router.get('/', function(req, res) {
             silent: false
           }).stdout;
           //TODO*:check the correct format to login with username and password
-          console.log("loginWithUsernameandPass  " + 'https://' + obj.user + ':' + obj.password + '@' + obj.repositoryURL.slice(8));
           // check if the localRepository same same entered config
           if (localRepository === obj.repositoryURL || localRepository === 'https://' + obj.user + ':' + obj.password + '@' + obj.repositoryURL.slice(8)) {
             console.log('ready to pull');
@@ -106,7 +105,7 @@ router.get('/', function(req, res) {
         if (currentrepositoryURL != obj.repositoryURL) {
           // reset the app. if the repositoryURL was changed
           shell.exec('echo -n > ../vocol/helper/tools/evolution/evolutionReport.txt').stdout;
-          //shell.exec('echo -n > ../vocol/jsonDataFiles/userConfigurations.json').stdout;
+          shell.exec('echo -n > ../vocol/helper/tools/serializations/SingleVoc.ttl').stdout;
           shell.exec('echo -n > ../vocol/jsonDataFiles/syntaxErrors.json').stdout;
           shell.exec('rm -f ../vocol/views/webvowl/js/data/SingleVoc.json').stdout;
           shell.exec('rm -f ../vocol/jsonDataFiles/RDFSConcepts.json').stdout;
@@ -114,14 +113,13 @@ router.get('/', function(req, res) {
           shell.exec('rm -f ../vocol/jsonDataFiles/SKOSObjects.json').stdout;
           shell.exec('rm -f ../vocol/jsonDataFiles/RDFSObjects.json').stdout;
           shell.exec('rm -f ../vocol/helper/tools/serializations/SingleVoc.nt').stdout;
-          shell.exec('rm -f ../vocol/helper/tools/serializations/SingleVoc.ttl').stdout;
           shell.exec('rm -f ../vocol/helper/tools/evolution/SingleVoc.ttl').stdout;
           console.log("App's previous data was deleted");
         }
 
         shell.exec('echo -n > ../vocol/jsonDataFiles/syntaxErrors.json').stdout;
         var pass = true;
-        var data = shell.exec('find . -type f -name \'*.ttl\'', {
+        var data = shell.exec('find . -type f -name "*.ttl"', {
           silent: false
         });
 
@@ -154,6 +152,10 @@ router.get('/', function(req, res) {
         // display syntax errors
         console.log("Errors:\n" + JSON.stringify(errors));
         if (errors) {
+          shell.cd('../vocol/helper/tools/VoColClient/').stdout;
+          shell.exec('fuser -k 3030/tcp').stdout;
+          const child = spawn('sh', ['../../scripts/run.sh', '&']);
+          shell.cd('../../../../repoFolder/').stdout;
           var filePath = '../vocol/jsonDataFiles/syntaxErrors.json';
           jsonfile.writeFile(filePath, errors, {
             spaces:  2,
@@ -164,6 +166,7 @@ router.get('/', function(req, res) {
             console.log("Errors file is generated\n");
 
           })
+        }
 
           ////////////////////////////////////////////////////////////////////
           //// TurtleEditor
@@ -186,7 +189,6 @@ router.get('/', function(req, res) {
           shell.cd('../vocol/');
           shell.exec('pwd').stdout
 
-        }
 
         //if no syntax errors, then contiune otherwise stop
         if (pass) {

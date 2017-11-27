@@ -10,16 +10,15 @@ router.get('/', function(req, res) {
 
   var isExistSyntaxError = false;
   var hasPreviousValidOntology = false;
-  var errors;
-  console.log(process.cwd());
+  var errors = [];
   var ErrorsFilePath = 'jsonDataFiles/syntaxErrors.json';
   if (fs.existsSync(ErrorsFilePath)) {
-    console.log('Found file');
-    //errors = require(__dirname+ErrorsFilePath);
-    var errors = fs.readFileSync(ErrorsFilePath).toString();
-
-    isExistSyntaxError = true;
-    console.log("errors:" + errors);
+    var content = fs.readFileSync(ErrorsFilePath).toString();
+    if(content.includes('Error')){
+      isExistSyntaxError = true;
+      errors = content;
+      console.log("errors:" + errors);
+    }
   }
   previousValidOntologyFilePath = 'jsonDataFiles/RDFSConcepts.json'
   if (fs.existsSync(previousValidOntologyFilePath)) {
