@@ -7,18 +7,20 @@
       <h1><%- title %></h1>
       <% if(isExistSyntaxError)  { %>
         <div id="errors"></div>
-          <h5 style="color:red">Please fix the error(s) in the turtle file(s).</h5>
-          <% } else{%>
-            <h5>No errors were found</h5>
-            <% }%>
+        <h5 style="color:red">Please fix the error(s) in the turtle file(s).</h5>
+        <% } else{%>
+          <h5>No errors were found</h5>
+          <% }%>
     </div>
   </div>
 
   <% include footer %>
     <script>
-      var errors = <%- syntaxErrors %>
+      var errors = <%- JSON.parse(JSON.stringify(syntaxErrors)) %>
       console.log(errors);
-      errors.forEach(function(element) {
-            $('#errors').append("<p><h6> Error Number: "+element.id+"</h6>"+"<h6> Found in file:"+element.file +"  <code>"+element.errMessege +"</code></h6></p>");
-            })
+      if (errors) {
+        errors.forEach(function(element) {
+          $('#errors').append("<p><h6> Error Number: " + element.id + "</h6>" + "<h6> Found in file:" + element.file + "  <code>" + element.errMessege + "</code></h6></p>");
+        })
+      }
     </script>

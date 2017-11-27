@@ -10,22 +10,27 @@ router.get('/', function(req, res) {
 
   var isExistSyntaxError = false;
   var hasPreviousValidOntology = false;
+  var errors;
+  console.log(process.cwd());
   var ErrorsFilePath = 'jsonDataFiles/syntaxErrors.json';
-  var errors = require(ErrorsFilePath);
-  if (errors.toString().includes('Error')) {
+  if (fs.existsSync(ErrorsFilePath)) {
+    console.log('Found file');
+    //errors = require(__dirname+ErrorsFilePath);
+    var errors = fs.readFileSync(ErrorsFilePath).toString();
+
     isExistSyntaxError = true;
+    console.log("errors:" + errors);
   }
   previousValidOntologyFilePath = 'jsonDataFiles/RDFSConcepts.json'
-   fs.exists(previousValidOntologyFilePath, function(exists) {
-    if (exists){
-      hasPreviousValidOntology = true;
-    }
-  });
+  if (fs.existsSync(previousValidOntologyFilePath)) {
+    hasPreviousValidOntology = true;
+  }
+
   res.render('validation', {
     title: 'Validation',
     syntaxErrors: errors,
     isExistSyntaxError: isExistSyntaxError,
-    hasPreviousValidOntology:hasPreviousValidOntology
+    hasPreviousValidOntology: hasPreviousValidOntology
   });
 });
 
