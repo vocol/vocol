@@ -88,8 +88,8 @@ router.get('/', function(req, res) {
     else
       res.render('evolution', {
         title: 'Evolution',
-        history: null,
-        evolutionReport: null
+        history: "",
+        evolutionReport: ""
       });
   });
 });

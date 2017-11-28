@@ -2,44 +2,40 @@
   <div style="margin-top: 3% !important;"></div>
   <div class="ui grid">
     <div class="ui container">
-      <% if  (evolutionReport != null){ %>)
+      <% if  (evolutionReport != null){ %>
 
-      <h2> Evolution Report</h2>
-      <p>
-        You can move and zoom the timeline, and select items.</p>
+        <h2> Evolution Report</h2>
+        <p>
+          You can move and zoom the timeline, and select items.</p>
         <% } %>
 
-      <div id="visualization">
-      </div>
-      <div id='commitDetails'>
-      </div>
+          <div id="visualization">
+          </div>
+          <div id='commitDetails'>
+          </div>
     </div>
 
     <% include footer %>
 
       <script type="text/javascript">
-        if (<%- evolutionReport === null %>) {
+        if (!<%- JSON.stringify(history) %>) {
+
           // DOM element where the Timeline will be attached
           var container = document.getElementById('visualization');
           // Create a DataSet (allows two way data-binding)
-          //var items = new vis.DataSet();
+          var items = new vis.DataSet();
+          // show timeLine with empty dataset
+          $(function() {
+            $(".vis-timeline").css("visibility", "visible");
+          });
           // Configuration for the Timeline
           var options = {
             'width': '100%',
             'height': '300px'
-                    };
+          };
           // Create a Timeline
-          //var timeline = new vis.Timeline(container, items, options);
-          // create the timeline
-          var timeline = new vis.Timeline(container);
-          timeline.setOptions(options);
-          //$('div.vis-timeline.vis-bottom').css('visibility','visibile');
-          //$(timeline.dom.root).css('visibility', 'visibile');
+          var timeline = new vis.Timeline(container, items, options);
 
-          timeline._redraw();
-          //alert(timeline.dom.root); //JSON.stringify($("#visualization div:first-child")))
-          //("visibility", "visibile");
-          //$(".vis-timeline").prop("class");
         } else {
           // DOM element where the Timeline will be attached
           var container = document.getElementById('visualization');
