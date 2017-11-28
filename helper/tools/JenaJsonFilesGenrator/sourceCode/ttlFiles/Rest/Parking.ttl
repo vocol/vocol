@@ -1,0 +1,428 @@
+@prefix mv: <http://purl.org/net/mobivoc/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix gr: <http://purl.org/goodrelations/v1#> .
+@prefix s: <http://schema.org/>. 
+
+# CLASSES
+
+mv:ParkingFacility
+	a rdfs:Class , owl:Class ;
+	rdfs:comment "A parking lot or other parking facility with several parking spaces for vehicles." ;
+	rdfs:label "parking facility"@en , "Parkeinrichtung"@de 
+	.
+
+mv:ParkingFacilityStatus
+	a rdfs:Class , owl:Class ;
+	rdfs:comment "Status information of a parking facility." ;
+	rdfs:label "parking facility status"@en , "Status der Parkeinrichtung"@de .
+
+mv:ParkingFacilityConfiguration
+	a rdfs:Class , owl:Class ;
+	rdfs:comment "Configuration or layout of a parking facility." ;
+	rdfs:label "Configuration"@en , "Typ"@de ;
+	skos:altLabel "Bauart"@de .
+
+# subclass ev. nur Person?
+mv:ParkingFacilityOwner
+	a rdfs:Class, owl:Class ;
+	rdfs:subClassOf gr:BusinessEntity , s:Organization ;
+	rdfs:comment "Captures information about the owner of a parking facility." ;
+	rdfs:label "Parking Facility Owner"@en , "Besitzer der Parkeinrichtung"@de .
+
+mv:ParkingFacilityLocation
+	a rdfs:Class, owl:Class ;
+	rdfs:subClassOf s:Place ;
+	rdfs:comment "Describes the parking facility location." ;
+	rdfs:label "Parking Facility Location"@en , "Ortsangabe der Parkeinrichtung"@de .
+
+mv:ParkingFacilityFeature
+	a rdfs:Class , owl:Class ;
+	rdfs:comment "Features of the parking facility (e.g. parking for handicapped people)." ;
+	rdfs:label "Parking Facility Feature"@en , "Ausstattung der Parkeinrichtung"@de .
+
+mv:ParkingFacilityConnection
+	a rdfs:Class , owl:Class ;
+	rdfs:comment "Transport connections available at the parking facility (e.g. Park & Ride)." ;
+	rdfs:label "Parking Facility Connections"@en , "Anschlussmöglichkeiten der Parkeinrichtung"@de .
+
+mv:VehicleType
+	a rdfs:Class, owl:Class ;
+	rdfs:comment "Describes types of vehicle that can use the parking facility" ;
+	rdfs:label "Vehicle Type"@en, "Fahrzeugtyp"@de .
+
+mv:ParkingFees
+	a rdfs:Class, owl:Class ;
+	rdfs:comment "Captures information about the parking fees." ;
+	rdfs:label "Parking Fees"@en , "Parkgebühren" .
+
+
+# INSTANCES
+
+## PARKING FACILITY CONFIGURATION
+
+mv:SingleLevel
+	a mv:ParkingFacilityConfiguration ;
+	rdfs:comment "Parking area on a single groundfloor level." ;
+	skos:prefLabel "Parking lot"@en-US , "Car park"@en-UK , "Parkplatz"@de ;
+	skos:hiddenLabel "car lot"@en , "Parkfläche"@de .
+
+mv:MultiStorey
+	a mv:ParkingFacilityConfiguration ;
+	rdfs:comment "Parking on multiple levels within a car park building." ;
+	skos:prefLabel "multi-storey car park"@en , "Parkhaus"@de ;
+	skos:hiddenLabel "parking garage"@en , "parking structure"@en , "parking building"@en , "indoor parking"@en , "Hochgarage"@de .
+
+mv:Underground
+	a mv:ParkingFacilityConfiguration ;
+	rdfs:comment "Parking is on one or more floors below ground level." ;
+	skos:prefLabel "underground parking garage"@en , "Tiefgarage"@de ;
+	skos:hiddenLabel "Rampengarage"@de .
+
+
+## PARKING FACILITY STATUS
+
+mv:Closed
+	a mv:ParkingFacilityStatus ;
+	rdfs:comment "The parking facility is closed." ;
+	rdfs:label "closed"@en , "geschlossen"@de .
+
+mv:Full
+	a mv:ParkingFacilityStatus ;
+	rdfs:comment "The parking facility is completely occupied." ;
+	rdfs:label "full"@en , "belegt"@de .
+
+mv:AllParkingFacilitiesFull
+	a mv:ParkingFacilityStatus ;
+	rdfs:comment "All parking facilities within a specified area are completely occupied." ;
+	rdfs:label "full"@en , "belegt"@de .
+
+mv:Faulty
+	a mv:ParkingFacilityStatus ;
+	rdfs:comment "The parking facility is not operating normally." ;
+	rdfs:label "faulty"@en , "defekt"@de .
+
+mv:StatusUnknown
+	a mv:ParkingFacilityStatus ;
+	rdfs:comment "The status of the parking facility is unknown." ;
+	rdfs:label "status unknown"@en , "Status unbekannt"@de .
+
+mv:EnoughParkingSpacesAvailable
+	a mv:ParkingFacilityStatus ;
+	rdfs:comment "The parking facility has parking spaces available." ;
+	rdfs:label "enough parking spaces available"@en , "genügend Stellplätze frei"@de .
+
+mv:OnlyAFewParkingSpacesAvailable
+	a mv:ParkingFacilityStatus ;
+	rdfs:comment "The parking facility has 95% or greater occupancy." ;
+	rdfs:label "only a few parking spaces available"@en , "nur noch wenige Stellplätze frei"@de .
+
+mv:NoParkAndRideInformation
+	a mv:ParkingFacilityStatus ;
+	rdfs:comment "No park and ride information will be available until the specified time." ;### specified time?
+	rdfs:label "no park and ride information"@en ,"keine P+R-Informationen"@de .
+
+mv:NoParkingAllowed
+	a mv:ParkingFacilityStatus ;
+	rdfs:comment "No parking allowed until the specified time." ;
+	rdfs:label "no parking allowed"@en , "Parken verboten"@de .
+
+mv:NoParkingInformationAvailable
+	a mv:ParkingFacilityStatus ;
+	rdfs:comment "Parking information is not available until a specified time." ;
+	rdfs:label "no parking information available"@en , "Keine Parkinformationen verfügbar"@de .
+
+mv:NormalParkingRestrictionsLifted
+	a mv:ParkingFacilityStatus ;
+	rdfs:comment "The parking restrictions that normally apply in the specified location have been temporarily lifted." ;
+	rdfs:label "normal parking restrictions lifted"@en , "Normale Parkbeschränkungen aufgehoben"@de .
+
+mv:SpecialParkingRestrictionsInForce
+	a mv:ParkingFacilityStatus ;
+	rdfs:comment "Parking restrictions, other than those that normally apply, are in force in a specified area." ;
+	rdfs:label "special parking restrictions in force"@en , "besondere Parkbeschränkungen in Kraft"@de .
+
+mv:ParkAndRideServiceNotOperating
+	a mv:ParkingFacilityStatus ;
+	rdfs:comment "Park and ride services are not operating until the specified time." ;
+	rdfs:label "park and ride service not operating"@en , "kein P+R-Service"@de .
+
+mv:ParkAndRideServiceOperating
+	a mv:ParkingFacilityStatus ;
+	rdfs:comment "Park and ride services are operating until the specified time." ;
+	rdfs:label "park and ride service operating"@en , "P+R-Service vorhanden"@de .
+
+## PARKING FACILITY FEATURE
+
+mv:ParkingSpaceForDisabledPersons 
+	a mv:ParkingFacilityFeature ; 
+	rdfs:label "parking space for disabled persons"@en , "Behindertenparkplatz"@de.
+
+mv:LadiesParkingSpace 
+	a mv:ParkingFacilityFeature ;
+	rdfs:label "ladies' parking space" , "Frauenparkplatz"@de .
+
+mv:XXLParkingSpace
+	a mv:ParkingFacilityFeature ;
+	rdfs:label "XXL parking space" , "XXL-Parkplatz"@de ;
+	skos:altLabel "extra-breiter Stellplatz"@de .
+
+mv:VideoSurveillance
+	a mv:ParkingFacilityFeature ;
+	rdfs:label "video surveillance"@en , "Videoüberwachung"@de .
+
+mv:SurveillanceBySecurityGuards
+	a mv:ParkingFacilityFeature ;
+	rdfs:label "surveillance by security guards"@en , "Bewacht durch Personal"@de ;
+	skos:altLabel "personenbewacht"@de . 
+
+mv:PayStation
+	a mv:ParkingFacilityFeature ;
+	rdfs:label "pay station"@en , "Kassenautomat"@de .
+
+mv:ParkingBarrier
+	a mv:ParkingFacilityFeature ;
+	skos:prefLabel "parking barrier"@en , "Parkschranke"@de ;
+	skos:altLabel "park barrier"@en .
+
+## PARKING FACILITY CONNECTION
+
+mv:ParkAndRide
+	a mv:ParkingFacilityConnection ;
+	rdfs:label "Park & Ride"@en , "Parken und Reisen"@de ;
+	skos:altLabel "P+R" , "P&R";
+	rdfs:comment "Connection to public transport." .
+
+mv:ParkAndFly
+	a mv:ParkingFacilityConnection ;
+	rdfs:label "Park & Fly" , "Parken und Fliegen"@de ;
+	skos:altLabel "P+F" , "P&F";
+	rdfs:comment "Connection to airport." .
+
+mv:Carpooling
+	a mv:ParkingFacilityConnection ;
+	rdfs:label "Carpooling" , "Parken und Mitfahren"@de ;
+	skos:altLabel "Park & Drive" , "P+M" , "P&M" , "Parken und Mitnehmen"@de ;
+	rdfs:comment "Parking facility used for carpooling or ridesharing." .
+
+mv:ParkAndRail
+	a mv:ParkingFacilityConnection ;
+	rdfs:label "Park and Rail" ;
+	rdfs:comment "Connection to railway station." .
+
+mv:BikeAndRide
+	a mv:ParkingFacilityConnection ;
+	rdfs:label "Bike and Ride" ;
+	rdfs:comment "Parking facilities for bicycles with connection to public transport." .
+
+## VEHICLE TYPE
+
+mv:Bicycle
+	a mv:VehicleType ;
+	rdfs:label "Bicycle"@en, "Fahrrad"@de .
+
+mv:Motorcycle
+	a mv:VehicleType ;
+	rdfs:label "Motorcycle"@en, "Motorrad"@de .
+
+mv:Car
+	a mv:VehicleType ;
+	rdfs:label "Car"@en, "Auto"@de ;
+	skos:altLabel "Pkw"@de .
+
+mv:Caravan
+	a mv:VehicleType ;
+	rdfs:label "Caravan"@en, "Wohnmobil"@de .
+
+# PROPERTIES
+
+mv:statusParkingFacility
+	a rdf:Property , owl:ObjectProperty ;
+	rdfs:label "status of parking facility"@en , "Status der Parkeinrichtung"@de ;
+	rdfs:comment "Indicates the current status of the parking facility." ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range mv:ParkingFacilityStatus .
+
+mv:configuration
+	a rdf:Property , owl:ObjectProperty ;
+	rdfs:label "configuration"@en , "Typ"@de ;
+	rdfs:comment "Describes the configuration or layout of the parking facility." ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range mv:ParkingFacilityConfiguration .
+
+mv:isOwnedBy
+	a rdf:Property , owl:ObjectProperty ;
+	rdfs:label "is owned by"@en ;
+	rdfs:comment "Parking Facility's owner." ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range mv:ParkingFacilityOwner .
+
+mv:isLocated
+	a rdf:Property , owl:ObjectProperty ;
+	rdfs:label "is located"@en ;
+	rdfs:comment "Location of the parking facility." ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range mv:ParkingFacilityLocation .
+
+mv:placeName
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:label "name"@en , "Name"@de ;
+	rdfs:comment "Name of the parking facility." ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range rdfs:Literal .
+
+mv:features
+	a rdf:Property , owl:ObjectProperty ;
+	rdfs:label "features" ;
+	rdfs:comment "Indicates which features the parking facility provides." ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range mv:ParkingFacilityFeature .
+
+mv:numberOfLadiesParkingSpaces
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:label "Number of ladies' parking spaces"@en , "Anzahl Frauenparkplätze"@de ;
+	rdfs:comment "Indicates the number of ladies' parking spaces." ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range rdfs:Literal .
+
+mv:numberOfParkingSpacesForDisabledPersons
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:label "Number of parking spaces for disabled persons"@en , "Anzahl Behindertenparkplätze"@de ;
+	rdfs:comment "Indicates the number of parking spaces for disabled persons." ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range rdfs:Literal .
+
+mv:numberOfXXLParkingSpaces
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:label "Number of XXL parking spaces"@en , "Anzahl XXL-Parkplätze"@de ;
+	rdfs:comment "Indicates the number of XXL parking spaces." ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range rdfs:Literal .
+
+mv:hasChargingPoint
+	a rdf:Property , owl:ObjectProperty ;
+	rdfs:label "has charging point" , "hat Ladestation"@de ;
+	rdfs:comment "Indicates whether charging points are available." ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range mv:ChargingPoint .
+
+mv:occupancy
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:label "occupancy" , "Belegung"@de ;
+	rdfs:comment "Indicates the percentage value of parking spaces occupied." ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range rdfs:Literal .
+
+mv:numberOfOccupiedParkingSpaces
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:label "number of occupied parking spaces"@en , "Anzahl belegter Stellplätze"@de ;
+	rdfs:comment "Indicates the number of currently occupied parking spaces." ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range rdfs:Literal .
+
+mv:numberOfVacantParkingSpaces
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:label "number of vacant"@en , "Anzahl freier Stellplätze"@de ;
+	rdfs:comment "Indicates the number of vacant parking spaces available." ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range rdfs:Literal .
+
+mv:totalCapacity
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:label "Total capacity"@en , "Gesamtkapazität"@de ;
+	rdfs:comment "Indicates the total number of parking spaces." ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range rdfs:Literal .
+
+mv:queuingTime
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:label "Queuing time"@en , "Wartezeit"@de ;
+	rdfs:comment "The current queuing time (duration) for entering the parking facility." ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range rdfs:Literal .
+
+mv:exitRate
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:label "Exit rate"@en ;
+	rdfs:comment "The rate at which vehicles are exiting the parking facility." ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range rdfs:Literal .
+
+mv:fillRate
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:label "Fill rate"@en ;
+	rdfs:comment "The rate at which vehicles are entering the parking facility." ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range rdfs:Literal .
+
+mv:picture
+	a rdf:Property, owl:ObjectProperty ;
+	rdfs:label "picture"@en , "Bild"@de ;
+	rdfs:comment "Picture of parking facility." ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range rdfs:Resource .
+
+mv:isConnectedTo
+	a rdf:Property , owl:ObjectProperty ;
+	rdfs:label "is connected to" ;
+	rdfs:comment "Indicates the transport connections available." ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range mv:ParkingFacilityConnection .
+
+mv:vehicleType
+	a rdf:Property, owl:ObjectProperty ;
+	rdfs:label "vehicle type"@en ;
+	rdfs:comment "Vehicle type suitable for the parking facility. " ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range mv:VehicleType .
+
+mv:hasOpeningHours
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:label "has opening hours"@en ;
+	rdfs:comment "Indicates the opening hours of the parking facility." ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range rdfs:Literal .
+
+mv:hasParkingFees
+	a rdf:Property, owl:DatatypeProperty ;
+	rdfs:label "Has parking fees"@en , "hat Parkgebühren"@de ;
+	rdfs:comment "Indicates whether parking fees have to be paid." ;
+	rdfs:domain mv:ParkingFees ;
+	rdfs:range rdfs:Literal .
+
+mv:feesDescription
+	a rdf:Property, owl:DatatypeProperty ;
+	rdfs:label "Fees description"@en , "Tarife"@de;
+	rdfs:comment "Defines parking fees." ;
+	rdfs:domain mv:ParkingFees ;
+	rdfs:range rdfs:Literal .
+
+mv:payment
+	a rdf:Property, owl:ObjectProperty ;
+	rdfs:label "Payment forms"@en , "Bezahlmöglichkeiten"@de ;
+	rdfs:comment "Available payment forms for parking fees." ;
+	rdfs:domain mv:ParkingFees ;
+	rdfs:range mv:Payment . # fürs Parken braucht man zusätzlich folgende Möglichkeiten: Münzen, Scheine, EC-Karte
+
+mv:additionalInformation
+	a rdf:Property, owl:DatatypeProperty ;
+	rdfs:label "Additional Information"@en , "Zusätzliche Informationen" ;
+	rdfs:comment "Additional information about the parking facility." ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range rdfs:Literal .
+
+mv:hasHeightLimit
+	a rdf:Property, owl:DatatypeProperty ;
+	rdfs:label "Has height limit"@en , "Hat Höhenbegrenzung" ;
+	rdfs:comment "Indicates the height limit for vehicles using the parking facility." ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range rdfs:Literal .
+
+mv:hasWidthLimit
+	a rdf:Property, owl:DatatypeProperty ;
+	rdfs:label "Has width limit"@en , "Hat Breitenbegrenzung" ;
+	rdfs:comment "Indicates the width limit for vehicles using the parking facility." ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range rdfs:Literal .

@@ -1,0 +1,52 @@
+#!/bin/sh
+#
+# An example hook script to verify what is about to be committed.
+# Called by "git commit" with no arguments.  The hook should
+# exit with non-zero status after issuing an appropriate message if
+# it wants to stop the commit.
+#
+
+
+        files=$(git diff --cached --name-only --diff-filter=ACM | grep ".ttl$")
+	if [ "$files" = "" ]; then 
+	    exit 0 
+	fi
+
+	pass=true	
+
+	echo "\nValidating Turtle:\n"
+
+	for file in ${files}; do
+
+            fileContent=`cat ${file}`
+ 
+            fileHeader="${file}StringToSplit"
+          
+            fileContent="${fileHeader}${fileContent}"
+          
+            echo " ${fileContent} " > tempFileCurl.ttl
+
+            res=$(curl -X POST --data-binary @tempFileCurl.ttl serverURL/client )
+
+	    if echo $res | grep -q "Error"; then
+		echo "\t\033[31mValidation Failed! ${file}\033[0m"
+		echo $res
+		pass=false
+	    else
+	       echo "\t\033[32mValidation Passed! ${file}\033[0m"
+	    fi
+   
+            rm -f tempFileCurl.ttl
+
+	done
+
+	echo "\Turtle validation complete\n"
+
+	if ! $pass; then
+	    echo "\033[41mCOMMIT FAILED:\033[0m Your commit contains files that should pass Validation but do not. Please fix the errors and try again.\n"
+	    echo ${file}
+	    exit 1
+	else
+	    echo "\033[42mCOMMIT SUCCEEDED\033[0m\n"
+	fi
+

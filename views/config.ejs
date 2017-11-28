@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>
+    Configuration Page
+  </title>
+  <link rel="stylesheet" href="./javascripts/bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="./javascripts/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./javascripts/bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" type="text/css" href="./semantic/dist/semantic.min.css">
+  <link rel="stylesheet" href="./stylesheets/style.css">
+  <script src="./javascripts/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="./javascripts/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="./semantic/dist/semantic.min.js"></script>
+  <script src="./ckeditor/ckeditor.js"></script>
+
+</head>
+
+<body style=" padding: 10px; ">
+  <div class="ui container" style="overflow:hidden">
+    <h1 style="padding-top:10px">Configuration Page</h1>
+    <div class="ui two column stackable grid">
+      <div class="column">
+        <form class="ui form" action="./config" method="post">
+          <!-- onsubmit="return validateFormOnSubmit(this)" -->
+          <div class="ui styled accordion">
+            <div id="generalInfoTitle" class="active title">
+              <i class="dropdown icon"></i> General Info
+            </div>
+            <div id="generalInfoContent" class="active content">
+              <div class="field" style="margin-bottom:5px">
+                <div class="ui corner  labeled input">
+                  <a class="ui left label" style="width: 150px;">
+          Vocabulary Name
+        </a>
+                  <input type="text" id="vocabularyName" name="vocabularyName" placeholder="Enter vocabulary name" value="Mobivoc"  />
+                  <div class="ui corner label">
+                    <i class="asterisk icon"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="field" style="margin-bottom:5px">
+                <div class="ui labeled input">
+                  <a class="ui left label" style="width: 150px;">
+          Hosting Server
+        </a>
+                  <input type="text" id="server" name="server" placeholder="Enter hosting server" value="http://vocol.vagrantshare.com"  />
+                  <div class="ui corner label">
+                    <i class="asterisk icon"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui checkbox">
+                  <input type="checkbox" name="webHook" value="true">
+                  <label>Web Hook</label>
+                </div>
+              </div>
+            </div>
+            <div id="repositoryInfoTitle" class="title">
+              <i class="dropdown icon"></i> Repository info
+            </div>
+            <div id="repositoryInfoContent" class="content">
+              <div class="field" style="margin-bottom:5px">
+                <div class="ui labeled input">
+                  <a class="ui label" style="width: 150px;">
+          Repository URL
+        </a>
+                  <input type="text" id="repositoryURL" name="repositoryURL" placeholder="Enter repository address" value="https://github.com/repositoryOwner/repositoryName.git      "  />
+                  <div class="ui corner label">
+                    <i class="asterisk icon"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="field" style="margin-bottom:5px">
+                <div class="ui labeled input">
+                  <a class="ui label" style="width: 150px;">
+          Repository owner
+        </a>
+                  <input type="text" id="repositoryOwner" name="repositoryOwner" placeholder="Enter repository owner" value="repositoryOwner"  />
+                </div>
+              </div>
+              <div class="field" style="margin-bottom:5px">
+                <div class="ui labeled input">
+                  <a class="ui label" style="width: 150px;">
+          Repository name
+        </a>
+                  <input type="text" id="repositoryName" name="repositoryName" placeholder="Enter repository name" value="repositoryName"  />
+                </div>
+              </div>
+
+              <div class="field" style="margin-bottom:5px">
+                <div class="ui labeled input">
+                  <a class="ui label" style="width: 150px;">
+          Branch Name
+        </a>
+                  <input type="text" id="branchName" name="branchName" placeholder="Enter branch name" value="master"  />
+                  <div class="ui corner label">
+                    <i class="asterisk icon"></i>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="field" style="margin-bottom:5px">
+                <div class="ui labeled input">
+                  <a class="ui label" style="width: 150px;">
+          User
+        </a>
+                  <input type="text" id="user" name="user" placeholder="Enter repository user" value="lavhal"  />
+                  <div class="ui corner label">
+                    <i class="asterisk icon"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="field" style="margin-bottom:5px">
+                <div class="ui labeled input">
+                  <a class="ui label" style="width: 150px;">
+          Password
+        </a>
+                  <input type="password" id="password" name="password" placeholder="Enter repository password"  />
+                  <div class="ui corner label">
+                    <i class="asterisk icon"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="inline fields" style="margin-bottom:5px;paddin">
+                <div class="ui labeled input">
+                  <a class="ui label" style="width: 150px;margin-right: 20px;">
+Repository service         </a>
+                </div>
+
+                <div class="field">
+                  <div class="ui radio checkbox">
+                    <input type="radio" name="repositoryService" value="gitHub" checked>
+                    <label>GitHub</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui radio checkbox">
+                    <input type="radio" name="repositoryService" value="gitLab">
+                    <label>GitLab</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui radio checkbox">
+                    <input type="radio" name="repositoryService" value="bitBucket">
+                    <label>BitBucket</label>
+                  </div>
+                </div>
+              </div>
+              <div class="inline fields" style="margin-bottom:5px;paddin">
+                <div class="ui labeled input">
+                  <a class="ui label" style="width: 150px;margin-right: 20px;">
+Repository Type         </a>
+                </div>
+
+                <div class="field">
+                  <div class="ui radio checkbox">
+                    <input type="radio" name="repositoryType" value="public" checked>
+                    <label>public</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui radio checkbox">
+                    <input type="radio" name="repositoryType" value="private">
+                    <label>private</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="additionalServicesTitle" class="title">
+              <i class="dropdown icon"></i> Additional Services
+            </div>
+            <div id="additionalServicesContent" class="content">
+              <div class="field">
+                <div class="ui checkbox">
+                  <input type="checkbox" name="visualization" value="true" checked>
+                  <label>Visualization</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui checkbox">
+                  <input type="checkbox" name="sparqlEndPoint" value="true" checked>
+                  <label>SPARQL Endpoint</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui checkbox">
+                  <input type="checkbox" name="documentationGeneration" value="true" checked>
+                  <label>Documentation Generation</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui checkbox">
+                  <input type="checkbox" name="evolutionReport" value="true" checked>
+                  <label>Schema Evolution Report</label>
+                </div>
+              </div>
+
+              <div class="field">
+                <div class="ui checkbox">
+                  <input type="checkbox" name="clientHooks" value="true" checked>
+                  <label>Client Side Hooks</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui checkbox">
+                  <input type="checkbox" name="turtleEditor" value="true" checked>
+                  <label>Turtle Editor</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui checkbox">
+                  <input type="checkbox" name="analytics" value="true" checked>
+                  <label>Analytics</label>
+                </div>
+              </div>
+            </div>
+            <div id="serializationFormatTitle" class="title">
+              <i class="dropdown icon"></i> Serializations Format
+            </div>
+            <div id="serializationFormatContent" class="content">
+              <div class="field">
+                <div class="ui  checkbox">
+                  <input type="checkbox" name="rdfxml" value="true">
+                  <label>RdfXML</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui  checkbox">
+                  <input type="checkbox" name="ntriples" value="true">
+                  <label>NTriples</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <input type="hidden" name="text" id="text" />
+          <div class="field">
+            <div class="ui large right floated buttons">
+              <button id="restBtn" class="ui reset button">Reset</button>
+              <div class="or"></div>
+              <button type="submit" class="ui blue submit button" value="Save Configurations">Save Configurations</button>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui error message"></div>
+          </div>
+        </form>
+      </div>
+      <div class="column">
+        <ul class="nav nav-tabs" role="tablist" id="sourceCodeTabs">
+          <li role="presentation" class="active"><a href="#homepage" aria-controls="homepage" role="tab" data-toggle="tab">Homepage Description</a></li>
+        </ul>
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="homepage">
+            <textarea id="editor1" name="editor1" onchange="submition();" style="overflow:auto; width:540px;height:382px">
+            </textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+<script src="./javascripts/config.js"></script>
+</body>
+</html>

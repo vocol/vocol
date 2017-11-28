@@ -1,0 +1,19 @@
+<% include header %>
+  <div style="margin-top: 3% !important;"></div>
+  <div class="ui grid">
+    <div class="ui container">
+      <h1><%- title %></h1>
+      <div id="errors"></div>
+    </div>
+  </div>
+  <% include footer %>
+    <script>
+      if (errors != undefined) {
+        var errors = <%- JSON.parse(JSON.stringify(syntaxErrors)) %>
+        errors.forEach(function(element) {
+          $('#errors').append("<p><h6> Error Number: " + element.id + "</h6>" + "<h6> Found in file:" + element.file + "  <code>" + element.errMessege + "</code></h6></p>");
+        })
+        $('#errors').append("<h5 style=\"color:red\">Please fix the error(s) in the turtle file(s).</h5>");
+      } else
+        $('#errors').html('<h5>No errors were found</h5>');
+    </script>
