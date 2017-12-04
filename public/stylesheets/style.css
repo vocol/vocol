@@ -5,6 +5,10 @@
 .ui.form .field {
   margin: 0 0 0;
 }
+
+td{
+    word-wrap:break-word
+}
 .ui[class*="right floated"].button, .ui[class*="right floated"].buttons {
   margin-bottom: 10px;
   margin-top: 10px;

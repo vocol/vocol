@@ -33,14 +33,13 @@
                       ALL Files
                     </div>
                     <%if (fileNames != null) {%>
-
-                    <%fileNames.forEach(function (item) {%>
-                      <div class="item">
-                        <div class="ui blue empty circular label"></div>
-                        <%= item %>
-                      </div>
-                      <%});%>
-                      <%}%>
+                      <%fileNames.forEach(function (item) {%>
+                        <div class="item">
+                          <div class="ui blue empty circular label"></div>
+                          <%= item %>
+                        </div>
+                        <%});%>
+                          <%}%>
 
                   </div>
                 </div>
@@ -86,7 +85,7 @@
         <ul id="viewList" class="nav nav-tabs" style="display: none">
           <li class="active"><a class="nav-link active" data-toggle="tab" id="showExternalInfo" href="#documentation">Documentation</a></li>
           <li><a class="nav-link" data-toggle="tab" id="sourceCodeTab" href="#sourceCode">Source</a></li>
-          <li><a class="nav-link" data-toggle="tab" id="graphTab" href="#showGraph">Graphical depiction</a></li>
+          <li><a class="nav-link" data-toggle="tab" id="graphTab" href="#showGraph">Graphical Depiction</a></li>
         </ul>
         <div class="tab-content">
           <div class="tab-pane active" id="documentation" role="tabpanel">
@@ -94,6 +93,8 @@
               <h2 id="conceptHead" style="display: none; margin-top:9px"> Details: </h2>
               <div id="detailTable" style="padding-bottom:20px"></div>
               <div id="domainTable" style="display: none; padding-bottom:20px"></div>
+              <div id="domainPropertyTable" style="display: none; padding-bottom:20px"></div>
+              <div id="rangePropertyTable" style="display: none; padding-bottom:20px"></div>
               <div id="rangeTable" style="display: none; padding-bottom:20px"></div>
               <div id="instancesTable" style="display: none"></div>
               <h4 id="instanceHead" style="display: none; margin-top:9px"></h4>
@@ -109,13 +110,12 @@
         </div>
       </div>
       <% include footer %>
-
         <!-- End of expressJS coding-->
 
         <!-- Start of javascript coding-->
         <script>
-          if (<%- emptyData %> == true ) {
-            console.log(<%- emptyData %> );
+          if (<%- emptyData %> == true) {
+            console.log(<%- emptyData %>);
           } else {
             // get all the data from route.tree.js
             var RDFSData = <%- JSON.stringify(data) %>;
@@ -207,19 +207,87 @@
               buildTree(data);
             }
 
-            // get getExternalsConcepts for either SKOS or RFS(S)
+            // // TODO:get all instnces with owl:NamedIndividual
+            function getOwllNamedIndividual() {
+              var temp = null;
+              var endpoint = "./fuseki/dataset/sparql?query=";
+              var querystring = 'PREFIX owl: <http://www.w3.org/2002/07/owl#> SELECT Distinct ?s ?p ?o  WHERE {?s a owl:NamedIndividual;?p ?o.}';
+              $.ajax({
+                type: 'GET',
+                async: false,
+                url: endpoint + encodeURIComponent(querystring),
+                headers: {
+                  Accept: 'application/sparql-results+json;charset=UTF-8'
+                },
+                success: function(data, textStatus, jqXHR) {
+                  var instances = data.results.bindings;
+                  if (instances[0] != null) {
+                    temp = instances;
+                  }
+                }
+              });
+              return temp;
+            }
+
+            var OwllNamedIndividuals = getOwllNamedIndividual();
+            var OwllNamedIndividualsArray = [];
+            if (OwllNamedIndividuals) {
+              for (var i = 0; i < OwllNamedIndividuals.length; i++) {
+                if (OwllNamedIndividuals[i]['o'].value.includes('owl#NamedIndividual')) {
+                  var temp = trimHash(replaceWithRDFType(trimSlash(OwllNamedIndividuals[i]['s'].value)));
+                  OwllNamedIndividualsArray.push({
+                    URI: OwllNamedIndividuals[i]['o'].value,
+                    value: temp
+                  });
+                }
+              }
+              //console.log(OwllNamedIndividualsArray);
+            }
+              // var key1 = trimHash(replaceWithRDFType(trimSlash(rangePropertyResult[i]['s'].value)));
+              // var key2 = trimHash(replaceWithRDFType(trimSlash(rangePropertyResult[i]['range'].value)));
+              // var key3 = rangePropertyResult[i]['comment'].value;
+              // if (isConceptInside(key1) && rangePropertyResult[i]['s'].type === "uri")
+              //   key1 = '<a href="#" onmousedown="getConceptinfo(&quot;' + key1 + '&quot;); return false; ">' + key1 + '</a>';
+              // if (isConceptInside(key2) && rangePropertyResult[i]['range'].type === "uri")
+              //   key2 = '<a href="#" onmousedown="getConceptinfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
+              //
+              // rangePropertyTable += '<tr><td>' + key1 + '</td>    <td>' + key2 + '</td>   <td>' + key3 + '</td> </tr>';
+            //
+            // var OwllNamedIndividuals = _.filter(OwllNamedIndividuals, function(o) {
+            //   if (o.value.includes('owl#NamedIndividual'))
+            //     return o;
+            // });
+
+            function isOwlNamedIndividual(element) {
+              var OwllNamedIndividuals = getOwllNamedIndividual();
+              //console.log(OwllNamedIndividuals);
+
+
+            }
+
+            // get ExternalsConcepts for either SKOS or RFS(S)
             function getExternalsConcepts() {
               var externalConcepts = [];
               if ($('#SKOSViewCheckBox').is(':checked')) {
                 var internals = [];
+                //  var owlInstances = [];
+
                 mixSKOSConcepts.forEach(function(item) {
                   for (var i = 0; i < SKOSData.length; i++) {
-                    if (item === SKOSData[i].child || item === SKOSData[i].parent) {
+                    if (item === SKOSData[i].child || item === SKOSData[i].parent || SKOSData[i].RDFType.includes("NamedIndividual")) {
                       internals.push(item);
                     }
                   }
                 });
+                // for (var i = 0; i < SKOSData.length; i++) {
+                //   if ( SKOSData[i].RDFType.includes("NamedIndividual")) {
+                //     owlInstances.push(item);
+                //   }
+                // }
+
                 externalConcepts = $(mixSKOSConcepts).not(internals).get();
+                //mixSKOSConcepts = $(mixSKOSConcepts).not(externalConcepts).get();
+
               }
               if ($('#RDFSViewCheckBox').is(':checked')) {
                 var internals = [];
@@ -267,14 +335,9 @@
                 $('#hideExternalConceptsCheckBox').prop('checked', false);
                 if ($('#SKOSViewCheckBox').is(':checked')) {
                   $('#documentation').tab('show')
-
-                  // $('#div.nav-link.active').removeClass("nav-link active")
-                  // $('#documentation').addClass("nav-link active")
                   showSKOSTree(SKOSData, currentSelectedFile);
                 } else {
-                  //$('#documentation').addClass("nav-link active")
                   $('#documentation').tab('show')
-
                   showRDFSTree(RDFSData, currentSelectedFile);
                 }
               }
@@ -307,6 +370,8 @@
                 $('#graphTab').hide();
                 $('#infoDetails').show();
                 $("#domainTable").hide();
+                $("#domainPropertyTable").hide();
+                $("#rangePropertyTable").hide();
                 $("#rangeTable").hide();
                 $("#instancesTable").hide();
                 $("#instanceHead").hide();
@@ -382,6 +447,7 @@
               }
             }
 
+
             //show treeview with types or files
             function showRDFSTree(data, file) {
               // set currentTreeData to RDFS data
@@ -400,42 +466,37 @@
                 $('#showTypesCheckBox').prop('checked', false);
               var allParents = getUniqueParents(viewData);
               var data = [];
+              var parentNodes = [];
               var j = 0;
               if ($('#showFilesCheckBox').is(':checked')) {
                 for (var i = 0; i < viewData.length; i++) {
                   viewData[i].text = viewData[i].concept;
                   viewData[i].tags = ['<a  class="ui tiny pink tag label">' + viewData[i].fileName + '</a>'];
                 }
-                for (var i = 0; i < allParents.length; i++) {
-                  if (allParents[i] && isConceptInside(allParents[i])) {
-                    data[j++] = getParentWithChildren(viewData, allParents[i], 'fileTag');
-                  }
-                }
+                parentNodes = getParentWithChildren(viewData, allParents, 'fileTag');
               } else if ($('#showTypesCheckBox').is(':checked')) {
                 for (var i = 0; i < viewData.length; i++) {
                   viewData[i].text = viewData[i].concept;
                   viewData[i].tags = ['<a  class="ui tiny teal tag label">' + viewData[i].RDFType + '</a>'];
                 }
-                for (var i = 0; i < allParents.length; i++) {
-                  if (allParents[i] && isConceptInside(allParents[i])) {
-                    data[j++] = getParentWithChildren(viewData, allParents[i], 'typeTag');
-                  }
-                }
+                parentNodes = getParentWithChildren(viewData, allParents, 'typeTag');
               } else {
                 for (var i = 0; i < viewData.length; i++) {
                   viewData[i].text = viewData[i].concept;
                   viewData[i].tags = [''];
                 }
-                for (var i = 0; i < allParents.length; i++) {
-                  if (allParents[i] && isConceptInside(allParents[i])) {
-                    data[j++] = getParentWithChildren(viewData, allParents[i]);
-                  }
-                }
+                parentNodes = getParentWithChildren(viewData, allParents);
+
               }
-              for (var i = 0; i < viewData.length; i++) {
-                if (viewData[i].parent === "")
-                  data[j++] = viewData[i];
-              }
+              data = parentNodes;
+
+              //data = data.concat(parentNodes);
+              // update j variable with index of data array
+              // j = data.length;
+              // for (var i = 0; i < viewData.length; i++) {
+              //   if (viewData[i].parent === "")
+              //     data[j++] = viewData[i];
+              // }
 
               if (file !== "ALL Files") {
                 currentTreeData = getRDFSFileData(data, file);
@@ -536,12 +597,14 @@
               <% include notFoundMessage %> // import from notFoundMessage.ejs file
             }
 
+
+
+
             var search = function(e) {
               var pattern = $('#input-search').val();
               var ignoreCase = $('#chk-ignore-case').is(':checked');
-              // search pattern in SKOS parent and child
+              var array = [];
               if ($('#SKOSViewCheckBox').is(':checked')) {
-                var array = [];
                 if (currentSelectedFile != "ALL Files") {
                   array = _.filter(SKOSData, function(o) {
                     if (o.fileName === currentSelectedFile)
@@ -550,38 +613,17 @@
                 } else {
                   array = SKOSData;
                 }
-
-                var result = _.filter(array, function(o) {
-                  if (ignoreCase)
-                    return o.child.toLowerCase().startsWith(pattern.toLowerCase()) || o.parent.toLowerCase().startsWith(pattern.toLowerCase());
-                  else
-                    return o.child.startsWith(pattern) || o.parent.startsWith(pattern);
-                });
-                if ($('#input-search').val() === "") {
-                  resetViews();
-                } else {
-                  setTimeout(function() {
-                    if (result.length === 0 && $('#input-search').val() !== "") {
-                      conceptNotFoundMessage();
-                    }
-                  }, 50);
-                }
-                if (result.length > 0) {
-                  currentTreeData = result;
-                  showSKOSTree(result, currentSelectedFile);
-                  $('#tree').treeview('search', [pattern, {
-                    ignoreCase: ignoreCase, // case insensitive
-                    exactMatch: false, // like or equals
-                    revealResults: true, // reveal matching nodes
-                  }]);
-                } else {
-                  $('#tree').hide();
-                }
-
+                showSKOSTree(array, currentSelectedFile);
+                var result = $('#tree').treeview('search', [pattern, {
+                  ignoreCase: ignoreCase, // case insensitive
+                  exactMatch: false, // like or equals
+                  revealResults: false, // reveal matching nodes
+                }]);
+                currentTreeData = result;
+                buildTree(result);
               }
               // search pattern in RDFS concepts
               else if ($('#RDFSViewCheckBox').is(':checked')) {
-                var array = [];
                 if (currentSelectedFile != "ALL Files") {
                   array = _.filter(RDFSData, function(o) {
                     if (o.fileName === currentSelectedFile)
@@ -590,35 +632,23 @@
                 } else {
                   array = RDFSData;
                 }
-                var result = _.filter(array, function(o) {
-                  if (ignoreCase)
-                    return o.concept.toLowerCase().startsWith(pattern.toLowerCase());
-                  else
-                    return o.concept.startsWith(pattern);
-
-                });
-
-                if ($('#input-search').val() === "") {
-                  resetViews();
-                } else {
-                  setTimeout(function() {
-                    if (result.length === 0 && $('#input-search').val() !== "") {
-                      conceptNotFoundMessage();
-                    }
-                  }, 50);
-                }
-
-                if (result.length > 0) {
-                  currentTreeData = result;
-                  showRDFSTree(result, currentSelectedFile);
-                  $('#tree').treeview('search', [pattern, {
-                    ignoreCase: ignoreCase, // case insensitive
-                    exactMatch: false, // like or equals
-                    revealResults: true, // reveal matching nodes
-                  }]);
-                } else {
-                  $('#tree').hide();
-                }
+                showRDFSTree(array, currentSelectedFile);
+                var result = $("#tree").treeview('search', [pattern, {
+                  ignoreCase: ignoreCase, // case insensitive
+                  exactMatch: false, // like or equals
+                  revealResults: false, // reveal matching nodes
+                }]);
+                currentTreeData = result;
+                buildTree(result);
+              }
+              if (result.length === 0 && $('#input-search').val() !== "") {
+                conceptNotFoundMessage();
+              } else if ($('#input-search').val() === "") {
+                $('#infoDetails').show();
+                $('#tree').show();
+                showRDFSTree(array, currentSelectedFile);
+                $('#notFoundMessage').html('');
+                $('#notFoundMessage').hide();
               }
             }
 
@@ -653,53 +683,30 @@
             }
 
             // get nodes which are parents and have children
-            function getParentWithChildren(data, parent, str) {
-              var children = [];
-              var parentFile, parentType;
-              for (var i = 0; i < data.length; i++) {
-                if (data[i].parent === parent) {
-                  children.push(data[i]);
-                }
+            function getParentWithChildren(data, allParents, str) {
+              var allParents = $.grep(data, function(o) {
+                return o.parent === ''
+              });
+              var all = function(parentNode) {
+                child = $.grep(data, function(element) {
+                  return element.parent == parentNode.concept
+                });
+                if (child.length > 0)
+                  parentNode.nodes = child;
+                $(child).each(function() {
+                  return all(this);
+                });
               }
-              if (isConceptInside(parent)) {
-                var parentNode = parent;
-                for (var i = 0; i < data.length; i++) {
-                  if (data[i].concept === parent) {
-                    parentType = data[i].RDFType;
-                  }
-                }
-                parentFile = children[0].fileName;
 
-                if (str === "fileTag") {
-                  var tag = ['<a class="ui tiny pink tag label"> ' + parentFile + '</a>'];
-                } else if (str === "typeTag") {
-                  var tag = ['<a class="ui tiny teal tag label"> ' + parentType + '</a>'];
-                } else if (str == "SKOS") {
-                  var tag = ['<a class="ui tiny brown  basic label"> SKOS Parent</a>'];
-                } else {
-                  var tag = [''];
-                }
-              }
-              var node = {
-                text: parentNode,
-                tags: [tag],
-                nodes: children
-              };
-              return node;
-            }
-
-            // get nodes which are parents
-            function getExternals(data) {
-              var node = {
-                text: data,
-                tags: ['<a class="ui left pointing red basic label" > External</a>']
-              };
-              return node;
+              $(allParents).each(function() {
+                all(this);
+              });
+              // return all nodes including parents with thier children
+              return allParents;
             }
 
             // get RDFS elements of the tree to display  filtered by file
-            function getRDFSFileData(result, selectedFileName) {
-              var data = result;
+            function getRDFSFileData(data, selectedFileName) {
               if (selectedFileName) {
                 var filteredData = [];
                 var k = 0;
@@ -722,21 +729,25 @@
                 }
                 var allParentsFromFiles = getUniqueParents(filteredData);
                 var dataFile = [];
-                var j = 0;
-                for (var i = 0; i < allParentsFromFiles.length; i++) {
-                  if (allParentsFromFiles[i]) {
-                    if ($('#showTypesCheckBox').is(':checked'))
-                      dataFile[j++] = getParentWithChildren(filteredData, allParentsFromFiles[i], 'typeTag');
-                    else if ($('#showFilesCheckBox').is(':checked'))
-                      dataFile[j++] = getParentWithChildren(filteredData, allParentsFromFiles[i], 'fileTag');
-                    else
-                      dataFile[j++] = getParentWithChildren(filteredData, allParentsFromFiles[i]);
+
+                if ($('#showTypesCheckBox').is(':checked')) {
+                  for (var i = 0; i < filteredData.length; i++) {
+                    filteredData[i].text = filteredData[i].concept;
+                    filteredData[i].tags = ['<a  class="ui tiny teal tag label">' + filteredData[i].RDFType + '</a>'];
                   }
-                }
-                for (var i = 0; i < filteredData.length; i++) {
-                  if (filteredData[i].parent === "") {
-                    dataFile[j++] = filteredData[i];
+                  dataFile = getParentWithChildren(filteredData, allParentsFromFiles, 'typeTag');
+                } else if ($('#showFilesCheckBox').is(':checked')) {
+                  for (var i = 0; i < filteredData.length; i++) {
+                    filteredData[i].text = filteredData[i].concept;
+                    filteredData[i].tags = ['<a  class="ui tiny pink tag label">' + filteredData[i].fileName + '</a>'];
                   }
+                  dataFile = getParentWithChildren(filteredData, allParentsFromFiles, 'fileTag');
+                } else {
+                  for (var i = 0; i < filteredData.length; i++) {
+                    filteredData[i].text = filteredData[i].concept;
+                    filteredData[i].tags = [''];
+                  }
+                  dataFile = getParentWithChildren(filteredData, allParentsFromFiles);
                 }
                 data = dataFile;
               }
@@ -893,9 +904,9 @@
               selectedFileName = selectedFileName.trim();
               if (selectedFileName != "Choose File") {
                 $('#infoTabs').hide(); //hide previos infoTabs
-                if (selectedFileName) {
-                  selectedFileName = selectedFileName.trim();
-                }
+                //   if (selectedFileName) {
+                //     selectedFileName = selectedFileName.trim();
+                //   }
                 if (selectedFileName === "ALL Files") {
                   if ($('#SKOSViewCheckBox').is(':checked')) {
                     showSKOSTree(SKOSData, "ALL Files");
@@ -914,14 +925,6 @@
                     showRDFSTree(RDFSData, selectedFileName);
                   }
                 }
-              } else { // call without clicking dropdown menu
-                if ($('#SKOSViewCheckBox').is(':checked')) {
-                  $('#infoTabs').hide(); //hide previos infoTabs
-                  showSKOSTree(currentTreeData, currentSelectedFile);
-                } else {
-                  $('#infoTabs').hide(); //hide previos infoTabs
-                  showRDFSTree(currentTreeData, currentSelectedFile);
-                }
               }
             }
 
@@ -939,7 +942,6 @@
                   var instances = data.results.bindings;
                   if (instances[0] != null) {
                     var instancesDetailsTable = '<table class="ui blue celled table" >' +
-                      // '<colgroup> <col class="col-md-2"><col class="col-md-4"> </colgroup>' +
                       '<thead><tr class="info">' +
                       '<th>Predicate</th>' +
                       '<th>Object</th>' +
@@ -1115,6 +1117,37 @@
               }
             });
 
+            function getValuesUseditAsProperty(conceptURI, type) {
+              var temp;
+              if (type === "range") {
+                var propertyType = "rdfs:range";
+              } else {
+                var propertyType = "rdfs:domain";
+              }
+              var endpoint = "./fuseki/dataset/sparql?query=";
+              var querystring = 'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>' +
+                'SELECT  ?s ?range ?comment ' +
+                'WHERE {' +
+                ' ?s ' + propertyType + ' <' + conceptURI + '>.' +
+                '?s rdfs:range ?range.' +
+                '?s rdfs:comment ?comment.}';
+              $.ajax({
+                type: 'GET',
+                url: endpoint + encodeURIComponent(querystring),
+                'async': false,
+                headers: {
+                  Accept: 'application/sparql-results+json;charset=UTF-8'
+                },
+                success: function(data, textStatus, jqXHR) {
+                  var result = data.results.bindings;
+                  if (result[0] != null) {
+                    temp = result;
+                  }
+                }
+              });
+              return temp;
+            }
+
             // to query sparql endpoint return graph and queryResult
             function getConceptinfo(item, view, anotherQuery) {
               var str = "";
@@ -1211,18 +1244,18 @@
                 var conceptHasRange = "";
                 var conceptHasDomain = "";
                 var conceptLabel;
-                var table = '<table class="ui green celled striped table" >' +
-                  '<colgroup> <col class="col-md-2"><col class="col-md-4"> </colgroup>' +
+                var table = '<table class="ui green celled striped table" style="table-layout:fixed;">' +
+                  '<colgroup> <col class="col-md-auto"><col class="col-md-7"> </colgroup>' +
                   '<tr class="positive">' +
                   '<th>Predicate</th>' +
                   '<th>' + objectOrSubject + '</th>' +
                   '</tr>';
-                var rangeTable = '<table class="ui yellow celled striped table" >' +
+                var rangeTable = '<table class="ui yellow celled striped table" style="table-layout:fixed;" >' +
                   '<colgroup> <col class="col-md-6"> </colgroup>' +
                   '<tr class="warning">' +
                   '<th>Values expected to be one of these types</th>' +
                   '</tr>';
-                var domainTable = '<table class="ui brown celled striped table" >' +
+                var domainTable = '<table class="ui brown celled striped table" style="table-layout:fixed;">' +
                   '<colgroup> <col class="col-md-6"> </colgroup>' +
                   '<tr class="negative">' +
                   '<th>Used on these types</th>' +
@@ -1239,7 +1272,6 @@
                     key2 = '<a href=' + key2 + '>' + key2 + '</a>';
                   } else
                     key2 = trimHash(replaceWithRDFType(trimSlash(key2)));
-
                   var key3 = dataSPARQL[i]['o']['xml:lang'];
                   var key4 = dataSPARQL[i]['o']['type'];
                   if (key1.includes("domain")) {
@@ -1273,7 +1305,67 @@
                     table += '<tr><td>' + key1 + '</td>    <td>' + key2 + '</td>  </tr>';
                   }
                 }
-                //end of tables
+
+                if ($('#SKOSViewCheckBox').is(':checked'))
+                  var data = SKOSData;
+                else
+                  var data = RDFSData;
+                // get currentSelectedURI for domainPropertyTable and rangePropertyTable
+                var conceptURI = _.find(data, function(o) {
+                  if (o.concept === currentSelectedConcept)
+                    return o;
+                }).URI;
+
+                var rangePropertyTable = '<table class="ui yellow celled table" style="table-layout:fixed;" >' +
+                  '<thead>' +
+                  '<colgroup> <col class="col-md-2"><col class="col-md-2"><col class="col-md-2"> </colgroup>' +
+                  '<tr>' +
+                  '<th colspan="3">Terms use it as range</th></thead>' +
+                  '<tbody></tr><tr><th>Property</th><th>On Types</th><th>Description</th></tr>';
+
+                var domainPropertyTable = '<table class="ui brown celled striped table"style="table-layout:fixed;" >' +
+                  '<thead>' +
+                  '<colgroup> <col class="col-md-2"><col class="col-md-2"><col class="col-md-2"> </colgroup>' +
+                  '<tr>' +
+                  '<th colspan="3">Terms use it as domain</th></thead>' +
+                  '<tbody></tr><tr><th>Property</th><th>Expected Type</th><th>Description</th></tr>';
+
+                //console.log(getValuesUseditAsProperty(conceptURI, 'domain'));
+                var hasdomainPropertyValues = false;
+                var domianPropertyResult = getValuesUseditAsProperty(conceptURI, 'domain');
+                if (domianPropertyResult) {
+                  hasdomainPropertyValues = true;
+                  for (var i = 0; i < domianPropertyResult.length; i++) {
+                    var key1 = trimHash(replaceWithRDFType(trimSlash(domianPropertyResult[i]['s'].value)));
+                    var key2 = trimHash(replaceWithRDFType(trimSlash(domianPropertyResult[i]['range'].value)));
+                    var key3 = domianPropertyResult[i]['comment'].value;
+                    if (isConceptInside(key1) && domianPropertyResult[i]['s'].type === "uri")
+                      key1 = '<a href="#" onmousedown="getConceptinfo(&quot;' + key1 + '&quot;); return false; ">' + key1 + '</a>';
+                    if (isConceptInside(key2) && domianPropertyResult[i]['range'].type === "uri")
+                      key2 = '<a href="#" onmousedown="getConceptinfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
+
+                    domainPropertyTable += '<tr><td>' + key1 + '</td>    <td>' + key2 + '</td>   <td>' + key3 + '</td> </tr>';
+                  }
+                }
+                var hasRangePropertyValues = false;
+                var rangePropertyResult = getValuesUseditAsProperty(conceptURI, 'range');
+                if (rangePropertyResult) {
+                  hasRangePropertyValues = true;
+                  for (var i = 0; i < rangePropertyResult.length; i++) {
+                    var key1 = trimHash(replaceWithRDFType(trimSlash(rangePropertyResult[i]['s'].value)));
+                    var key2 = trimHash(replaceWithRDFType(trimSlash(rangePropertyResult[i]['range'].value)));
+                    var key3 = rangePropertyResult[i]['comment'].value;
+                    if (isConceptInside(key1) && rangePropertyResult[i]['s'].type === "uri")
+                      key1 = '<a href="#" onmousedown="getConceptinfo(&quot;' + key1 + '&quot;); return false; ">' + key1 + '</a>';
+                    if (isConceptInside(key2) && rangePropertyResult[i]['range'].type === "uri")
+                      key2 = '<a href="#" onmousedown="getConceptinfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
+
+                    rangePropertyTable += '<tr><td>' + key1 + '</td>    <td>' + key2 + '</td>   <td>' + key3 + '</td> </tr>';
+                  }
+                }
+
+                domainPropertyTable += '</tbody></table> ';
+                rangePropertyTable += '</tbody></table> ';
                 table += '</table> ';
                 domainTable += '</table> ';
                 rangeTable += '</table> ';
@@ -1301,9 +1393,23 @@
                 else {
                   $("#rangeTable").hide();
                 }
+                if (hasdomainPropertyValues)
+                  $("#domainPropertyTable").show();
+                else
+                  $("#domainPropertyTable").hide();
+
+                if (hasRangePropertyValues)
+                  $("#rangePropertyTable").show();
+                else
+                  $("#rangePropertyTable").hide();
+
+
                 $("#detailTable").html(table);
                 $("#domainTable").html(domainTable);
                 $("#rangeTable").html(rangeTable);
+                $("#rangePropertyTable").html(rangePropertyTable);
+                $("#domainPropertyTable").html(domainPropertyTable);
+
                 $("#sourceCodeTab").show();
                 // To render the graph id the graphTab if a concept node is selected
                 showConceptGraph(json);

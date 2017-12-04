@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var router = express.Router();
 var fs = require('fs');
+var request = require('request');
 
 router.get('/', function(req, res) {
   console.log(process.cwd());
@@ -93,7 +94,6 @@ router.get('/', function(req, res) {
         while (array[i].concept != item) {
           i++;
         }
-
         return array[i].URI;
       }
 

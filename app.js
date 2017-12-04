@@ -10,6 +10,7 @@ var evolution = require('./routes/evolution');
 var startup = require('./routes/startup');
 var validation = require('./routes/validation');
 var client = require('./routes/clientServices');
+var login = require('./routes/login');
 var referenceRoutes = require('./routes/referenceRoutes');
 var listener = require('./routes/listener');
 var fs = require('fs');
@@ -118,6 +119,8 @@ app.use(['\/\/startup', '/startup'], startup);
 app.use(['\/\/validation', '/validation'], validation);
 app.use(['\/\/client', '/client'], client);
 app.use(['\/\/listener', '/listener'], listener);
+app.use(['\/\/login', '/login'], login);
+
 
 app.use(['\/\/fuseki/', '/fuseki/'],  proxy('localhost:3030/',   {  
   proxyReqPathResolver:   function(req)  {
@@ -158,6 +161,8 @@ app.get(['\/\/config', '/config'], function(req, res) {
     title: 'Configuration'
   });
 });
+
+
 
 // http post when  a user configurations is submitted
 app.post(['\/\/config', '/config'], function(req, res) {

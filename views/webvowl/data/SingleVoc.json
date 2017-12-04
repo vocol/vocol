@@ -15,12 +15,12 @@
       "creator" : [ {
         "identifier" : "creator",
         "language" : "undefined",
-        "value" : "_:genid5",
+        "value" : "_:genid6",
         "type" : "label"
       }, {
         "identifier" : "creator",
         "language" : "undefined",
-        "value" : "_:genid6",
+        "value" : "_:genid5",
         "type" : "label"
       } ],
       "modified" : [ {
@@ -905,7 +905,7 @@
     "baseIri" : "http://purl.org/net/mobivoc",
     "instances" : 0,
     "label" : {
-      "de" : "Fahrzeugstyp",
+      "de" : "Fahrzeugtyp",
       "IRI-based" : "VehicleType",
       "en" : "Vehicle Type"
     },
@@ -951,7 +951,7 @@
       }
     } ],
     "comment" : {
-      "undefined" : "Describes  types of vehicle tht can be loaded by charging point."
+      "undefined" : "Describes types of vehicle that can use the parking facility"
     },
     "id" : "11"
   }, {
@@ -1190,13 +1190,13 @@
     "annotations" : {
       "altLabel" : [ {
         "identifier" : "altLabel",
-        "language" : "en-us",
-        "value" : "gas station",
+        "language" : "en",
+        "value" : "petrol station",
         "type" : "label"
       }, {
         "identifier" : "altLabel",
-        "language" : "en",
-        "value" : "petrol station",
+        "language" : "en-us",
+        "value" : "gas station",
         "type" : "label"
       } ]
     },
@@ -1209,16 +1209,16 @@
       "iri" : "http://linkedgeodata.org/triplify/node2774668368",
       "baseIri" : "http://linkedgeodata.org/triplify",
       "annotations" : {
-        "lat" : [ {
-          "identifier" : "lat",
-          "language" : "undefined",
-          "value" : "51.3106",
-          "type" : "label"
-        } ],
         "long" : [ {
           "identifier" : "long",
           "language" : "undefined",
           "value" : "12.309",
+          "type" : "label"
+        } ],
+        "lat" : [ {
+          "identifier" : "lat",
+          "language" : "undefined",
+          "value" : "51.3106",
           "type" : "label"
         } ]
       },
@@ -1230,16 +1230,16 @@
       "iri" : "http://linkedgeodata.org/triplify/node279358486",
       "baseIri" : "http://linkedgeodata.org/triplify",
       "annotations" : {
-        "lat" : [ {
-          "identifier" : "lat",
-          "language" : "undefined",
-          "value" : "51.3078",
-          "type" : "label"
-        } ],
         "long" : [ {
           "identifier" : "long",
           "language" : "undefined",
           "value" : "12.3271",
+          "type" : "label"
+        } ],
+        "lat" : [ {
+          "identifier" : "lat",
+          "language" : "undefined",
+          "value" : "51.3078",
           "type" : "label"
         } ]
       },
@@ -1250,16 +1250,16 @@
       "iri" : "http://linkedgeodata.org/triplify/node203098644",
       "baseIri" : "http://linkedgeodata.org/triplify",
       "annotations" : {
-        "lat" : [ {
-          "identifier" : "lat",
-          "language" : "undefined",
-          "value" : "51.3387",
-          "type" : "label"
-        } ],
         "long" : [ {
           "identifier" : "long",
           "language" : "undefined",
           "value" : "12.445",
+          "type" : "label"
+        } ],
+        "lat" : [ {
+          "identifier" : "lat",
+          "language" : "undefined",
+          "value" : "51.3387",
           "type" : "label"
         } ]
       },
@@ -1278,16 +1278,16 @@
       "iri" : "http://linkedgeodata.org/triplify/node26023847",
       "baseIri" : "http://linkedgeodata.org/triplify",
       "annotations" : {
-        "lat" : [ {
-          "identifier" : "lat",
-          "language" : "undefined",
-          "value" : "51.3744",
-          "type" : "label"
-        } ],
         "long" : [ {
           "identifier" : "long",
           "language" : "undefined",
           "value" : "12.4116",
+          "type" : "label"
+        } ],
+        "lat" : [ {
+          "identifier" : "lat",
+          "language" : "undefined",
+          "value" : "51.3744",
           "type" : "label"
         } ]
       },
@@ -1333,16 +1333,16 @@
       "iri" : "http://linkedgeodata.org/triplify/node2626943480",
       "baseIri" : "http://linkedgeodata.org/triplify",
       "annotations" : {
-        "long" : [ {
-          "identifier" : "long",
-          "language" : "undefined",
-          "value" : "12.3953",
-          "type" : "label"
-        } ],
         "lat" : [ {
           "identifier" : "lat",
           "language" : "undefined",
           "value" : "51.3431",
+          "type" : "label"
+        } ],
+        "long" : [ {
+          "identifier" : "long",
+          "language" : "undefined",
+          "value" : "12.3953",
           "type" : "label"
         } ]
       },
@@ -1402,16 +1402,16 @@
       "iri" : "http://linkedgeodata.org/triplify/node269064972",
       "baseIri" : "http://linkedgeodata.org/triplify",
       "annotations" : {
-        "long" : [ {
-          "identifier" : "long",
-          "language" : "undefined",
-          "value" : "12.3082",
-          "type" : "label"
-        } ],
         "lat" : [ {
           "identifier" : "lat",
           "language" : "undefined",
           "value" : "51.2727",
+          "type" : "label"
+        } ],
+        "long" : [ {
+          "identifier" : "long",
+          "language" : "undefined",
+          "value" : "12.3082",
           "type" : "label"
         } ]
       },
@@ -1463,16 +1463,16 @@
       "iri" : "http://linkedgeodata.org/triplify/node382035509",
       "baseIri" : "http://linkedgeodata.org/triplify",
       "annotations" : {
-        "lat" : [ {
-          "identifier" : "lat",
-          "language" : "undefined",
-          "value" : "51.3641",
-          "type" : "label"
-        } ],
         "long" : [ {
           "identifier" : "long",
           "language" : "undefined",
           "value" : "12.4643",
+          "type" : "label"
+        } ],
+        "lat" : [ {
+          "identifier" : "lat",
+          "language" : "undefined",
+          "value" : "51.3641",
           "type" : "label"
         } ]
       },
@@ -1483,16 +1483,16 @@
       "iri" : "http://linkedgeodata.org/triplify/node59960302",
       "baseIri" : "http://linkedgeodata.org/triplify",
       "annotations" : {
-        "lat" : [ {
-          "identifier" : "lat",
-          "language" : "undefined",
-          "value" : "51.3172",
-          "type" : "label"
-        } ],
         "long" : [ {
           "identifier" : "long",
           "language" : "undefined",
           "value" : "12.3102",
+          "type" : "label"
+        } ],
+        "lat" : [ {
+          "identifier" : "lat",
+          "language" : "undefined",
+          "value" : "51.3172",
           "type" : "label"
         } ]
       },
@@ -1552,16 +1552,16 @@
       "iri" : "http://linkedgeodata.org/triplify/node732716479",
       "baseIri" : "http://linkedgeodata.org/triplify",
       "annotations" : {
-        "lat" : [ {
-          "identifier" : "lat",
-          "language" : "undefined",
-          "value" : "51.3652",
-          "type" : "label"
-        } ],
         "long" : [ {
           "identifier" : "long",
           "language" : "undefined",
           "value" : "12.4367",
+          "type" : "label"
+        } ],
+        "lat" : [ {
+          "identifier" : "lat",
+          "language" : "undefined",
+          "value" : "51.3652",
           "type" : "label"
         } ]
       },
@@ -1573,16 +1573,16 @@
       "iri" : "http://linkedgeodata.org/triplify/node2850750837",
       "baseIri" : "http://linkedgeodata.org/triplify",
       "annotations" : {
-        "long" : [ {
-          "identifier" : "long",
-          "language" : "undefined",
-          "value" : "12.3777",
-          "type" : "label"
-        } ],
         "lat" : [ {
           "identifier" : "lat",
           "language" : "undefined",
           "value" : "51.3762",
+          "type" : "label"
+        } ],
+        "long" : [ {
+          "identifier" : "long",
+          "language" : "undefined",
+          "value" : "12.3777",
           "type" : "label"
         } ]
       },
@@ -1649,16 +1649,16 @@
       "iri" : "http://linkedgeodata.org/triplify/node2774941417",
       "baseIri" : "http://linkedgeodata.org/triplify",
       "annotations" : {
-        "lat" : [ {
-          "identifier" : "lat",
-          "language" : "undefined",
-          "value" : "51.3105",
-          "type" : "label"
-        } ],
         "long" : [ {
           "identifier" : "long",
           "language" : "undefined",
           "value" : "12.3267",
+          "type" : "label"
+        } ],
+        "lat" : [ {
+          "identifier" : "lat",
+          "language" : "undefined",
+          "value" : "51.3105",
           "type" : "label"
         } ]
       },
@@ -1737,18 +1737,6 @@
           "value" : "0228 673966",
           "type" : "label"
         } ],
-        "long" : [ {
-          "identifier" : "long",
-          "language" : "undefined",
-          "value" : "7.057300",
-          "type" : "label"
-        } ],
-        "lat" : [ {
-          "identifier" : "lat",
-          "language" : "undefined",
-          "value" : "50.761966",
-          "type" : "label"
-        } ],
         "url" : [ {
           "identifier" : "url",
           "language" : "undefined",
@@ -1759,6 +1747,18 @@
           "identifier" : "organization-name",
           "language" : "undefined",
           "value" : "Shell Tankstelle",
+          "type" : "label"
+        } ],
+        "lat" : [ {
+          "identifier" : "lat",
+          "language" : "undefined",
+          "value" : "50.761966",
+          "type" : "label"
+        } ],
+        "long" : [ {
+          "identifier" : "long",
+          "language" : "undefined",
+          "value" : "7.057300",
           "type" : "label"
         } ]
       },
@@ -1788,28 +1788,28 @@
           "value" : "0228 476790",
           "type" : "label"
         } ],
-        "long" : [ {
-          "identifier" : "long",
-          "language" : "undefined",
-          "value" : "7.122874",
-          "type" : "label"
-        } ],
         "lat" : [ {
           "identifier" : "lat",
           "language" : "undefined",
           "value" : "50.747196",
           "type" : "label"
         } ],
-        "organization-name" : [ {
-          "identifier" : "organization-name",
-          "language" : "undefined",
-          "value" : "Esso",
-          "type" : "label"
-        } ],
         "url" : [ {
           "identifier" : "url",
           "language" : "undefined",
           "value" : "essofuelfinder.com",
+          "type" : "label"
+        } ],
+        "long" : [ {
+          "identifier" : "long",
+          "language" : "undefined",
+          "value" : "7.122874",
+          "type" : "label"
+        } ],
+        "organization-name" : [ {
+          "identifier" : "organization-name",
+          "language" : "undefined",
+          "value" : "Esso",
           "type" : "label"
         } ]
       },
@@ -1839,16 +1839,16 @@
           "value" : "0228 676991",
           "type" : "label"
         } ],
-        "url" : [ {
-          "identifier" : "url",
-          "language" : "undefined",
-          "value" : "essofuelfinder.com",
-          "type" : "label"
-        } ],
         "long" : [ {
           "identifier" : "long",
           "language" : "undefined",
           "value" : "7.084079",
+          "type" : "label"
+        } ],
+        "organization-name" : [ {
+          "identifier" : "organization-name",
+          "language" : "undefined",
+          "value" : "ED-Tankstelle Jürgen Metzling e.K.",
           "type" : "label"
         } ],
         "lat" : [ {
@@ -1857,10 +1857,10 @@
           "value" : "50.745675",
           "type" : "label"
         } ],
-        "organization-name" : [ {
-          "identifier" : "organization-name",
+        "url" : [ {
+          "identifier" : "url",
           "language" : "undefined",
-          "value" : "ED-Tankstelle Jürgen Metzling e.K.",
+          "value" : "essofuelfinder.com",
           "type" : "label"
         } ]
       },
@@ -1883,28 +1883,28 @@
           "value" : "0228 654851",
           "type" : "label"
         } ],
-        "lat" : [ {
-          "identifier" : "lat",
-          "language" : "undefined",
-          "value" : "50.741982",
-          "type" : "label"
-        } ],
         "organization-name" : [ {
           "identifier" : "organization-name",
           "language" : "undefined",
           "value" : "SVG-Tankstelle",
           "type" : "label"
         } ],
-        "long" : [ {
-          "identifier" : "long",
-          "language" : "undefined",
-          "value" : "7.077556",
-          "type" : "label"
-        } ],
         "url" : [ {
           "identifier" : "url",
           "language" : "undefined",
           "value" : "svg-nordrhein.de",
+          "type" : "label"
+        } ],
+        "lat" : [ {
+          "identifier" : "lat",
+          "language" : "undefined",
+          "value" : "50.741982",
+          "type" : "label"
+        } ],
+        "long" : [ {
+          "identifier" : "long",
+          "language" : "undefined",
+          "value" : "7.077556",
           "type" : "label"
         } ]
       },
@@ -1915,16 +1915,16 @@
       "iri" : "http://linkedgeodata.org/triplify/node82689506",
       "baseIri" : "http://linkedgeodata.org/triplify",
       "annotations" : {
-        "lat" : [ {
-          "identifier" : "lat",
-          "language" : "undefined",
-          "value" : "51.3669",
-          "type" : "label"
-        } ],
         "long" : [ {
           "identifier" : "long",
           "language" : "undefined",
           "value" : "12.4577",
+          "type" : "label"
+        } ],
+        "lat" : [ {
+          "identifier" : "lat",
+          "language" : "undefined",
+          "value" : "51.3669",
           "type" : "label"
         } ]
       },
@@ -2175,24 +2175,24 @@
     "annotations" : {
       "hiddenLabel" : [ {
         "identifier" : "hiddenLabel",
-        "language" : "de",
-        "value" : "Antriebsbatterie",
+        "language" : "en",
+        "value" : "EVB",
         "type" : "label"
       }, {
         "identifier" : "hiddenLabel",
-        "language" : "en",
-        "value" : "EVB",
+        "language" : "de",
+        "value" : "Antriebsbatterie",
         "type" : "label"
       } ],
       "altlabel" : [ {
         "identifier" : "altlabel",
-        "language" : "de",
-        "value" : "Traktionsakku",
+        "language" : "en",
+        "value" : "Traction battery",
         "type" : "label"
       }, {
         "identifier" : "altlabel",
-        "language" : "en",
-        "value" : "Traction battery",
+        "language" : "de",
+        "value" : "Traktionsakku",
         "type" : "label"
       } ]
     },
@@ -2357,13 +2357,13 @@
       } ],
       "altlabel" : [ {
         "identifier" : "altlabel",
-        "language" : "en",
-        "value" : "NiCd",
+        "language" : "de",
+        "value" : "NiCd-Akku",
         "type" : "label"
       }, {
         "identifier" : "altlabel",
-        "language" : "de",
-        "value" : "NiCd-Akku",
+        "language" : "en",
+        "value" : "NiCd",
         "type" : "label"
       } ]
     },
@@ -2421,16 +2421,6 @@
       "annotations" : {
         "altLabel" : [ {
           "identifier" : "altLabel",
-          "language" : "de",
-          "value" : "Parken und Mitnehmen",
-          "type" : "label"
-        }, {
-          "identifier" : "altLabel",
-          "language" : "undefined",
-          "value" : "P&M",
-          "type" : "label"
-        }, {
-          "identifier" : "altLabel",
           "language" : "undefined",
           "value" : "Park & Drive",
           "type" : "label"
@@ -2438,6 +2428,16 @@
           "identifier" : "altLabel",
           "language" : "undefined",
           "value" : "P+M",
+          "type" : "label"
+        }, {
+          "identifier" : "altLabel",
+          "language" : "de",
+          "value" : "Parken und Mitnehmen",
+          "type" : "label"
+        }, {
+          "identifier" : "altLabel",
+          "language" : "undefined",
+          "value" : "P&M",
           "type" : "label"
         } ]
       },
@@ -2476,12 +2476,12 @@
         "altLabel" : [ {
           "identifier" : "altLabel",
           "language" : "undefined",
-          "value" : "P&F",
+          "value" : "P+F",
           "type" : "label"
         }, {
           "identifier" : "altLabel",
           "language" : "undefined",
-          "value" : "P+F",
+          "value" : "P&F",
           "type" : "label"
         } ]
       },
@@ -2500,12 +2500,12 @@
         "altLabel" : [ {
           "identifier" : "altLabel",
           "language" : "undefined",
-          "value" : "P&R",
+          "value" : "P+R",
           "type" : "label"
         }, {
           "identifier" : "altLabel",
           "language" : "undefined",
-          "value" : "P+R",
+          "value" : "P&R",
           "type" : "label"
         } ]
       },
@@ -3182,7 +3182,7 @@
       "baseIri" : "http://purl.org/net/mobivoc",
       "labels" : {
         "IRI-based" : "MobileApplication",
-        "en" : "MobileApplication"
+        "en" : "Mobile Application"
       }
     }, {
       "iri" : "http://purl.org/net/mobivoc/TextMessage",
@@ -3330,7 +3330,7 @@
       "baseIri" : "http://purl.org/net/mobivoc",
       "labels" : {
         "IRI-based" : "None",
-        "en" : "Keine"
+        "en" : "None"
       }
     }, {
       "iri" : "http://purl.org/net/mobivoc/BadgeHasToBeOrdered",
@@ -3366,7 +3366,7 @@
       "baseIri" : "http://purl.org/net/mobivoc",
       "labels" : {
         "IRI-based" : "MobileApplication",
-        "en" : "MobileApplication"
+        "en" : "Mobile Application"
       }
     }, {
       "iri" : "http://purl.org/net/mobivoc/BadgeIsAvailable",
@@ -3388,7 +3388,7 @@
       "baseIri" : "http://purl.org/net/mobivoc",
       "labels" : {
         "IRI-based" : "AccessCode",
-        "en" : "AccessCode"
+        "en" : "Zugangskode"
       }
     }, {
       "iri" : "http://purl.org/net/mobivoc/UndefinedIdentificationSystem",
@@ -3700,10 +3700,10 @@
       "de" : "Ladestation",
       "IRI-based" : "ChargingPoint",
       "pt" : "Ponto de Carregamento",
-      "en" : "Pika rimbushese",
+      "en" : "Charging Point",
       "fr" : "Point de charge",
-      "nl" : "Oplaadpunt",
-      "es" : "Punto de Recarga"
+      "es" : "Punto de Recarga",
+      "nl" : "Oplaadpunt"
     },
     "individuals" : [ {
       "iri" : "http://purl.org/net/mobivoc/ChargingPointB",
@@ -3745,16 +3745,16 @@
           "value" : "50.718117",
           "type" : "label"
         } ],
-        "AccessType" : [ {
-          "identifier" : "AccessType",
-          "language" : "undefined",
-          "value" : "OpenToAllUsers",
-          "type" : "label"
-        } ],
         "long" : [ {
           "identifier" : "long",
           "language" : "undefined",
           "value" : "7.151704",
+          "type" : "label"
+        } ],
+        "AccessType" : [ {
+          "identifier" : "AccessType",
+          "language" : "undefined",
+          "value" : "OpenToAllUsers",
           "type" : "label"
         } ]
       },
@@ -3791,12 +3791,12 @@
         "ChargingPointFees" : [ {
           "identifier" : "ChargingPointFees",
           "language" : "undefined",
-          "value" : "http://purl.org/net/mobivoc/FreeCharging",
+          "value" : "http://purl.org/net/mobivoc/PaidCharging",
           "type" : "iri"
         }, {
           "identifier" : "ChargingPointFees",
           "language" : "undefined",
-          "value" : "http://purl.org/net/mobivoc/PaidCharging",
+          "value" : "http://purl.org/net/mobivoc/FreeCharging",
           "type" : "iri"
         } ],
         "BookingType" : [ {
@@ -3811,17 +3811,17 @@
           "value" : "50.738999",
           "type" : "label"
         } ],
-        "long" : [ {
-          "identifier" : "long",
-          "language" : "undefined",
-          "value" : "7.103397",
-          "type" : "label"
-        } ],
         "AccessType" : [ {
           "identifier" : "AccessType",
           "language" : "undefined",
           "value" : "http://purl.org/net/mobivoc/OpenToAllUsers",
           "type" : "iri"
+        } ],
+        "long" : [ {
+          "identifier" : "long",
+          "language" : "undefined",
+          "value" : "7.103397",
+          "type" : "label"
         } ]
       },
       "labels" : {
@@ -3831,17 +3831,17 @@
       "iri" : "http://purl.org/net/mobivoc/ChargingPointF",
       "baseIri" : "http://purl.org/net/mobivoc",
       "annotations" : {
-        "hasAddress" : [ {
-          "identifier" : "hasAddress",
-          "language" : "undefined",
-          "value" : "_:genid7",
-          "type" : "label"
-        } ],
         "PlugType" : [ {
           "identifier" : "PlugType",
           "language" : "undefined",
           "value" : "http://purl.org/net/mobivoc/Type2Plug",
           "type" : "iri"
+        } ],
+        "hasAddress" : [ {
+          "identifier" : "hasAddress",
+          "language" : "undefined",
+          "value" : "_:genid7",
+          "type" : "label"
         } ],
         "Payment" : [ {
           "identifier" : "Payment",
@@ -3852,12 +3852,7 @@
         "IdentificationSystem" : [ {
           "identifier" : "IdentificationSystem",
           "language" : "undefined",
-          "value" : "http://purl.org/net/mobivoc/TextMessage",
-          "type" : "iri"
-        }, {
-          "identifier" : "IdentificationSystem",
-          "language" : "undefined",
-          "value" : "http://purl.org/net/mobivoc/Other",
+          "value" : "http://purl.org/net/mobivoc/Payment",
           "type" : "iri"
         }, {
           "identifier" : "IdentificationSystem",
@@ -3867,12 +3862,17 @@
         }, {
           "identifier" : "IdentificationSystem",
           "language" : "undefined",
-          "value" : "http://purl.org/net/mobivoc/Payment",
+          "value" : "http://purl.org/net/mobivoc/TextMessage",
           "type" : "iri"
         }, {
           "identifier" : "IdentificationSystem",
           "language" : "undefined",
           "value" : "http://purl.org/net/mobivoc/PhoneCall",
+          "type" : "iri"
+        }, {
+          "identifier" : "IdentificationSystem",
+          "language" : "undefined",
+          "value" : "http://purl.org/net/mobivoc/Other",
           "type" : "iri"
         } ],
         "ChargingPointFees" : [ {
@@ -3887,16 +3887,16 @@
           "value" : "http://purl.org/net/mobivoc/IdentifiedPerson",
           "type" : "iri"
         } ],
-        "long" : [ {
-          "identifier" : "long",
-          "language" : "undefined",
-          "value" : "7.026320",
-          "type" : "label"
-        } ],
         "lat" : [ {
           "identifier" : "lat",
           "language" : "undefined",
           "value" : "50.721710",
+          "type" : "label"
+        } ],
+        "long" : [ {
+          "identifier" : "long",
+          "language" : "undefined",
+          "value" : "7.026320",
           "type" : "label"
         } ],
         "operator" : [ {
@@ -3913,29 +3913,23 @@
       "iri" : "http://purl.org/net/mobivoc/ChargingPointE",
       "baseIri" : "http://purl.org/net/mobivoc",
       "annotations" : {
-        "hasAddress" : [ {
-          "identifier" : "hasAddress",
-          "language" : "undefined",
-          "value" : "_:genid8",
-          "type" : "label"
-        } ],
         "PlugType" : [ {
           "identifier" : "PlugType",
           "language" : "undefined",
           "value" : "http://purl.org/net/mobivoc/SchukoPlug",
           "type" : "iri"
         } ],
+        "hasAddress" : [ {
+          "identifier" : "hasAddress",
+          "language" : "undefined",
+          "value" : "_:genid8",
+          "type" : "label"
+        } ],
         "IdentificationSystem" : [ {
           "identifier" : "IdentificationSystem",
           "language" : "undefined",
           "value" : "http://purl.org/net/mobivoc/Other",
           "type" : "iri"
-        } ],
-        "long" : [ {
-          "identifier" : "long",
-          "language" : "undefined",
-          "value" : "7.140795",
-          "type" : "label"
         } ],
         "AccessType" : [ {
           "identifier" : "AccessType",
@@ -3947,6 +3941,12 @@
           "identifier" : "lat",
           "language" : "undefined",
           "value" : "50.695074",
+          "type" : "label"
+        } ],
+        "long" : [ {
+          "identifier" : "long",
+          "language" : "undefined",
+          "value" : "7.140795",
           "type" : "label"
         } ],
         "hasPrice" : [ {
@@ -3963,17 +3963,17 @@
       "iri" : "http://purl.org/net/mobivoc/ChargingPointD",
       "baseIri" : "http://purl.org/net/mobivoc",
       "annotations" : {
-        "hasAddress" : [ {
-          "identifier" : "hasAddress",
-          "language" : "undefined",
-          "value" : "_:genid9",
-          "type" : "label"
-        } ],
         "PlugType" : [ {
           "identifier" : "PlugType",
           "language" : "undefined",
           "value" : "http://purl.org/net/mobivoc/SchukoPlug",
           "type" : "iri"
+        } ],
+        "hasAddress" : [ {
+          "identifier" : "hasAddress",
+          "language" : "undefined",
+          "value" : "_:genid9",
+          "type" : "label"
         } ],
         "IdentificationSystem" : [ {
           "identifier" : "IdentificationSystem",
@@ -3993,10 +3993,10 @@
           "value" : "http://purl.org/net/mobivoc/Impossible",
           "type" : "iri"
         } ],
-        "long" : [ {
-          "identifier" : "long",
+        "lat" : [ {
+          "identifier" : "lat",
           "language" : "undefined",
-          "value" : "7.093778",
+          "value" : "50.737613",
           "type" : "label"
         } ],
         "AccessType" : [ {
@@ -4005,10 +4005,10 @@
           "value" : "http://purl.org/net/mobivoc/OpenToAllUsers",
           "type" : "iri"
         } ],
-        "lat" : [ {
-          "identifier" : "lat",
+        "long" : [ {
+          "identifier" : "long",
           "language" : "undefined",
-          "value" : "50.737613",
+          "value" : "7.093778",
           "type" : "label"
         } ]
       },
@@ -4055,6 +4055,12 @@
           "value" : "http://purl.org/net/mobivoc/Impossible",
           "type" : "iri"
         } ],
+        "lat" : [ {
+          "identifier" : "lat",
+          "language" : "undefined",
+          "value" : "50.738228",
+          "type" : "label"
+        } ],
         "AccessType" : [ {
           "identifier" : "AccessType",
           "language" : "undefined",
@@ -4066,12 +4072,6 @@
           "language" : "undefined",
           "value" : "7.080653",
           "type" : "label"
-        } ],
-        "lat" : [ {
-          "identifier" : "lat",
-          "language" : "undefined",
-          "value" : "50.738228",
-          "type" : "label"
         } ]
       },
       "labels" : {
@@ -4081,35 +4081,30 @@
       "iri" : "http://purl.org/net/mobivoc/ChargingPointP",
       "baseIri" : "http://purl.org/net/mobivoc",
       "annotations" : {
-        "hasAddress" : [ {
-          "identifier" : "hasAddress",
-          "language" : "undefined",
-          "value" : "_:genid11",
-          "type" : "label"
-        } ],
         "PlugType" : [ {
           "identifier" : "PlugType",
           "language" : "undefined",
           "value" : "http://purl.org/net/mobivoc/Type2Plug",
           "type" : "iri"
         } ],
-        "Payment" : [ {
-          "identifier" : "Payment",
+        "hasAddress" : [ {
+          "identifier" : "hasAddress",
           "language" : "undefined",
-          "value" : "http://purl.org/net/mobivoc/MobileApplication",
-          "type" : "iri"
-        }, {
+          "value" : "_:genid11",
+          "type" : "label"
+        } ],
+        "Payment" : [ {
           "identifier" : "Payment",
           "language" : "undefined",
           "value" : "http://purl.org/net/mobivoc/TextMessage",
           "type" : "iri"
+        }, {
+          "identifier" : "Payment",
+          "language" : "undefined",
+          "value" : "http://purl.org/net/mobivoc/MobileApplication",
+          "type" : "iri"
         } ],
         "IdentificationSystem" : [ {
-          "identifier" : "IdentificationSystem",
-          "language" : "undefined",
-          "value" : "http://purl.org/net/mobivoc/PhoneCall",
-          "type" : "iri"
-        }, {
           "identifier" : "IdentificationSystem",
           "language" : "undefined",
           "value" : "http://purl.org/net/mobivoc/Other",
@@ -4117,30 +4112,23 @@
         }, {
           "identifier" : "IdentificationSystem",
           "language" : "undefined",
+          "value" : "http://purl.org/net/mobivoc/MobileApplication",
+          "type" : "iri"
+        }, {
+          "identifier" : "IdentificationSystem",
+          "language" : "undefined",
           "value" : "http://purl.org/net/mobivoc/TextMessage",
           "type" : "iri"
         }, {
           "identifier" : "IdentificationSystem",
           "language" : "undefined",
-          "value" : "http://purl.org/net/mobivoc/MobileApplication",
+          "value" : "http://purl.org/net/mobivoc/PhoneCall",
           "type" : "iri"
         } ],
         "ChargingPointFees" : [ {
           "identifier" : "ChargingPointFees",
           "language" : "undefined",
           "value" : "http://purl.org/net/mobivoc/PaidCharging",
-          "type" : "iri"
-        } ],
-        "lat" : [ {
-          "identifier" : "lat",
-          "language" : "undefined",
-          "value" : "50.792406",
-          "type" : "label"
-        } ],
-        "AccessType" : [ {
-          "identifier" : "AccessType",
-          "language" : "undefined",
-          "value" : "http://purl.org/net/mobivoc/IdentifiedPerson",
           "type" : "iri"
         } ],
         "long" : [ {
@@ -4154,6 +4142,18 @@
           "language" : "undefined",
           "value" : "RWE",
           "type" : "label"
+        } ],
+        "AccessType" : [ {
+          "identifier" : "AccessType",
+          "language" : "undefined",
+          "value" : "http://purl.org/net/mobivoc/IdentifiedPerson",
+          "type" : "iri"
+        } ],
+        "lat" : [ {
+          "identifier" : "lat",
+          "language" : "undefined",
+          "value" : "50.792406",
+          "type" : "label"
         } ]
       },
       "labels" : {
@@ -4163,17 +4163,17 @@
       "iri" : "http://purl.org/net/mobivoc/ChargingPointO",
       "baseIri" : "http://purl.org/net/mobivoc",
       "annotations" : {
-        "hasAddress" : [ {
-          "identifier" : "hasAddress",
-          "language" : "undefined",
-          "value" : "_:genid12",
-          "type" : "label"
-        } ],
         "PlugType" : [ {
           "identifier" : "PlugType",
           "language" : "undefined",
           "value" : "http://purl.org/net/mobivoc/Type2Plug",
           "type" : "iri"
+        } ],
+        "hasAddress" : [ {
+          "identifier" : "hasAddress",
+          "language" : "undefined",
+          "value" : "_:genid12",
+          "type" : "label"
         } ],
         "Payment" : [ {
           "identifier" : "Payment",
@@ -4189,6 +4189,11 @@
         "IdentificationSystem" : [ {
           "identifier" : "IdentificationSystem",
           "language" : "undefined",
+          "value" : "http://purl.org/net/mobivoc/TextMessage",
+          "type" : "iri"
+        }, {
+          "identifier" : "IdentificationSystem",
+          "language" : "undefined",
           "value" : "http://purl.org/net/mobivoc/Other",
           "type" : "iri"
         }, {
@@ -4201,11 +4206,6 @@
           "language" : "undefined",
           "value" : "http://purl.org/net/mobivoc/PhoneCall",
           "type" : "iri"
-        }, {
-          "identifier" : "IdentificationSystem",
-          "language" : "undefined",
-          "value" : "http://purl.org/net/mobivoc/TextMessage",
-          "type" : "iri"
         } ],
         "ChargingPointFees" : [ {
           "identifier" : "ChargingPointFees",
@@ -4213,17 +4213,17 @@
           "value" : "http://purl.org/net/mobivoc/PaidCharging",
           "type" : "iri"
         } ],
+        "lat" : [ {
+          "identifier" : "lat",
+          "language" : "undefined",
+          "value" : "50.797767",
+          "type" : "label"
+        } ],
         "AccessType" : [ {
           "identifier" : "AccessType",
           "language" : "undefined",
           "value" : "http://purl.org/net/mobivoc/IdentifiedPerson",
           "type" : "iri"
-        } ],
-        "operator" : [ {
-          "identifier" : "operator",
-          "language" : "undefined",
-          "value" : "RWE",
-          "type" : "label"
         } ],
         "long" : [ {
           "identifier" : "long",
@@ -4231,10 +4231,10 @@
           "value" : "7.205371",
           "type" : "label"
         } ],
-        "lat" : [ {
-          "identifier" : "lat",
+        "operator" : [ {
+          "identifier" : "operator",
           "language" : "undefined",
-          "value" : "50.797767",
+          "value" : "RWE",
           "type" : "label"
         } ]
       },
@@ -4245,17 +4245,17 @@
       "iri" : "http://purl.org/net/mobivoc/ChargingPointI",
       "baseIri" : "http://purl.org/net/mobivoc",
       "annotations" : {
-        "PlugType" : [ {
-          "identifier" : "PlugType",
-          "language" : "undefined",
-          "value" : "http://purl.org/net/mobivoc/Type2Plug",
-          "type" : "iri"
-        } ],
         "hasAddress" : [ {
           "identifier" : "hasAddress",
           "language" : "undefined",
           "value" : "_:genid13",
           "type" : "label"
+        } ],
+        "PlugType" : [ {
+          "identifier" : "PlugType",
+          "language" : "undefined",
+          "value" : "http://purl.org/net/mobivoc/Type2Plug",
+          "type" : "iri"
         } ],
         "Payment" : [ {
           "identifier" : "Payment",
@@ -4271,17 +4271,17 @@
         "IdentificationSystem" : [ {
           "identifier" : "IdentificationSystem",
           "language" : "undefined",
+          "value" : "http://purl.org/net/mobivoc/MobileApplication",
+          "type" : "iri"
+        }, {
+          "identifier" : "IdentificationSystem",
+          "language" : "undefined",
           "value" : "http://purl.org/net/mobivoc/Other",
           "type" : "iri"
         }, {
           "identifier" : "IdentificationSystem",
           "language" : "undefined",
           "value" : "http://purl.org/net/mobivoc/PhoneCall",
-          "type" : "iri"
-        }, {
-          "identifier" : "IdentificationSystem",
-          "language" : "undefined",
-          "value" : "http://purl.org/net/mobivoc/MobileApplication",
           "type" : "iri"
         }, {
           "identifier" : "IdentificationSystem",
@@ -4295,18 +4295,6 @@
           "value" : "http://purl.org/net/mobivoc/PaidCharging",
           "type" : "iri"
         } ],
-        "long" : [ {
-          "identifier" : "long",
-          "language" : "undefined",
-          "value" : "7.075870",
-          "type" : "label"
-        } ],
-        "lat" : [ {
-          "identifier" : "lat",
-          "language" : "undefined",
-          "value" : "50.683040",
-          "type" : "label"
-        } ],
         "operator" : [ {
           "identifier" : "operator",
           "language" : "undefined",
@@ -4318,6 +4306,18 @@
           "language" : "undefined",
           "value" : "http://purl.org/net/mobivoc/IdentifiedPerson",
           "type" : "iri"
+        } ],
+        "lat" : [ {
+          "identifier" : "lat",
+          "language" : "undefined",
+          "value" : "50.683040",
+          "type" : "label"
+        } ],
+        "long" : [ {
+          "identifier" : "long",
+          "language" : "undefined",
+          "value" : "7.075870",
+          "type" : "label"
         } ]
       },
       "labels" : {
@@ -4333,22 +4333,22 @@
           "value" : "TankE RheinEnergie",
           "type" : "label"
         } ],
-        "PlugType" : [ {
-          "identifier" : "PlugType",
-          "language" : "undefined",
-          "value" : "http://purl.org/net/mobivoc/Type2Plug",
-          "type" : "iri"
-        }, {
-          "identifier" : "PlugType",
-          "language" : "undefined",
-          "value" : "http://purl.org/net/mobivoc/SchukoPlug",
-          "type" : "iri"
-        } ],
         "hasAddress" : [ {
           "identifier" : "hasAddress",
           "language" : "undefined",
           "value" : "_:genid14",
           "type" : "label"
+        } ],
+        "PlugType" : [ {
+          "identifier" : "PlugType",
+          "language" : "undefined",
+          "value" : "http://purl.org/net/mobivoc/SchukoPlug",
+          "type" : "iri"
+        }, {
+          "identifier" : "PlugType",
+          "language" : "undefined",
+          "value" : "http://purl.org/net/mobivoc/Type2Plug",
+          "type" : "iri"
         } ],
         "website" : [ {
           "identifier" : "website",
@@ -4374,17 +4374,17 @@
           "value" : "50.767600",
           "type" : "label"
         } ],
-        "AccessType" : [ {
-          "identifier" : "AccessType",
-          "language" : "undefined",
-          "value" : "http://purl.org/net/mobivoc/OpenToAllUsers",
-          "type" : "iri"
-        } ],
         "long" : [ {
           "identifier" : "long",
           "language" : "undefined",
           "value" : "6.948360",
           "type" : "label"
+        } ],
+        "AccessType" : [ {
+          "identifier" : "AccessType",
+          "language" : "undefined",
+          "value" : "http://purl.org/net/mobivoc/OpenToAllUsers",
+          "type" : "iri"
         } ]
       },
       "labels" : {
@@ -4394,12 +4394,6 @@
       "iri" : "http://purl.org/net/mobivoc/ChargingPointG",
       "baseIri" : "http://purl.org/net/mobivoc",
       "annotations" : {
-        "hasAddress" : [ {
-          "identifier" : "hasAddress",
-          "language" : "undefined",
-          "value" : "_:genid15",
-          "type" : "label"
-        } ],
         "PlugType" : [ {
           "identifier" : "PlugType",
           "language" : "undefined",
@@ -4410,6 +4404,12 @@
           "language" : "undefined",
           "value" : "http://purl.org/net/mobivoc/Type2Plug",
           "type" : "iri"
+        } ],
+        "hasAddress" : [ {
+          "identifier" : "hasAddress",
+          "language" : "undefined",
+          "value" : "_:genid15",
+          "type" : "label"
         } ],
         "website" : [ {
           "identifier" : "website",
@@ -4455,38 +4455,38 @@
       "iri" : "http://purl.org/net/mobivoc/ChargingPointN",
       "baseIri" : "http://purl.org/net/mobivoc",
       "annotations" : {
-        "PlugType" : [ {
-          "identifier" : "PlugType",
-          "language" : "undefined",
-          "value" : "http://purl.org/net/mobivoc/Type2Plug",
-          "type" : "iri"
-        } ],
         "hasAddress" : [ {
           "identifier" : "hasAddress",
           "language" : "undefined",
           "value" : "_:genid16",
           "type" : "label"
         } ],
+        "PlugType" : [ {
+          "identifier" : "PlugType",
+          "language" : "undefined",
+          "value" : "http://purl.org/net/mobivoc/Type2Plug",
+          "type" : "iri"
+        } ],
         "Payment" : [ {
           "identifier" : "Payment",
           "language" : "undefined",
-          "value" : "http://purl.org/net/mobivoc/TextMessage",
+          "value" : "http://purl.org/net/mobivoc/MobileApplication",
           "type" : "iri"
         }, {
           "identifier" : "Payment",
           "language" : "undefined",
-          "value" : "http://purl.org/net/mobivoc/MobileApplication",
+          "value" : "http://purl.org/net/mobivoc/TextMessage",
           "type" : "iri"
         } ],
         "IdentificationSystem" : [ {
           "identifier" : "IdentificationSystem",
           "language" : "undefined",
-          "value" : "http://purl.org/net/mobivoc/Other",
+          "value" : "http://purl.org/net/mobivoc/TextMessage",
           "type" : "iri"
         }, {
           "identifier" : "IdentificationSystem",
           "language" : "undefined",
-          "value" : "http://purl.org/net/mobivoc/TextMessage",
+          "value" : "http://purl.org/net/mobivoc/Other",
           "type" : "iri"
         }, {
           "identifier" : "IdentificationSystem",
@@ -4505,6 +4505,12 @@
           "value" : "http://purl.org/net/mobivoc/PaidCharging",
           "type" : "iri"
         } ],
+        "long" : [ {
+          "identifier" : "long",
+          "language" : "undefined",
+          "value" : "7.203999",
+          "type" : "label"
+        } ],
         "lat" : [ {
           "identifier" : "lat",
           "language" : "undefined",
@@ -4516,12 +4522,6 @@
           "language" : "undefined",
           "value" : "http://purl.org/net/mobivoc/IdentifiedPerson",
           "type" : "iri"
-        } ],
-        "long" : [ {
-          "identifier" : "long",
-          "language" : "undefined",
-          "value" : "7.203999",
-          "type" : "label"
         } ],
         "operator" : [ {
           "identifier" : "operator",
@@ -4537,48 +4537,48 @@
       "iri" : "http://purl.org/net/mobivoc/ChargingPointM",
       "baseIri" : "http://purl.org/net/mobivoc",
       "annotations" : {
-        "hasAddress" : [ {
-          "identifier" : "hasAddress",
-          "language" : "undefined",
-          "value" : "_:genid17",
-          "type" : "label"
-        } ],
         "PlugType" : [ {
           "identifier" : "PlugType",
           "language" : "undefined",
           "value" : "http://purl.org/net/mobivoc/Type2Plug",
           "type" : "iri"
         } ],
+        "hasAddress" : [ {
+          "identifier" : "hasAddress",
+          "language" : "undefined",
+          "value" : "_:genid17",
+          "type" : "label"
+        } ],
         "Payment" : [ {
           "identifier" : "Payment",
           "language" : "undefined",
-          "value" : "http://purl.org/net/mobivoc/TextMessage",
+          "value" : "http://purl.org/net/mobivoc/MobileApplication",
           "type" : "iri"
         }, {
           "identifier" : "Payment",
           "language" : "undefined",
-          "value" : "http://purl.org/net/mobivoc/MobileApplication",
+          "value" : "http://purl.org/net/mobivoc/TextMessage",
           "type" : "iri"
         } ],
         "IdentificationSystem" : [ {
           "identifier" : "IdentificationSystem",
           "language" : "undefined",
-          "value" : "http://purl.org/net/mobivoc/MobileApplication",
-          "type" : "iri"
-        }, {
-          "identifier" : "IdentificationSystem",
-          "language" : "undefined",
           "value" : "http://purl.org/net/mobivoc/TextMessage",
           "type" : "iri"
         }, {
           "identifier" : "IdentificationSystem",
           "language" : "undefined",
-          "value" : "http://purl.org/net/mobivoc/Other",
+          "value" : "http://purl.org/net/mobivoc/MobileApplication",
           "type" : "iri"
         }, {
           "identifier" : "IdentificationSystem",
           "language" : "undefined",
           "value" : "http://purl.org/net/mobivoc/PhoneCall",
+          "type" : "iri"
+        }, {
+          "identifier" : "IdentificationSystem",
+          "language" : "undefined",
+          "value" : "http://purl.org/net/mobivoc/Other",
           "type" : "iri"
         } ],
         "ChargingPointFees" : [ {
@@ -4599,17 +4599,17 @@
           "value" : "7.205730",
           "type" : "label"
         } ],
-        "operator" : [ {
-          "identifier" : "operator",
-          "language" : "undefined",
-          "value" : "RWE",
-          "type" : "label"
-        } ],
         "AccessType" : [ {
           "identifier" : "AccessType",
           "language" : "undefined",
           "value" : "http://purl.org/net/mobivoc/IdentifiedPerson",
           "type" : "iri"
+        } ],
+        "operator" : [ {
+          "identifier" : "operator",
+          "language" : "undefined",
+          "value" : "RWE",
+          "type" : "label"
         } ]
       },
       "labels" : {
@@ -4619,17 +4619,17 @@
       "iri" : "http://purl.org/net/mobivoc/ChargingPointL",
       "baseIri" : "http://purl.org/net/mobivoc",
       "annotations" : {
-        "PlugType" : [ {
-          "identifier" : "PlugType",
-          "language" : "undefined",
-          "value" : "http://purl.org/net/mobivoc/Type2Plug",
-          "type" : "iri"
-        } ],
         "hasAddress" : [ {
           "identifier" : "hasAddress",
           "language" : "undefined",
           "value" : "_:genid18",
           "type" : "label"
+        } ],
+        "PlugType" : [ {
+          "identifier" : "PlugType",
+          "language" : "undefined",
+          "value" : "http://purl.org/net/mobivoc/Type2Plug",
+          "type" : "iri"
         } ],
         "Payment" : [ {
           "identifier" : "Payment",
@@ -4650,12 +4650,12 @@
         }, {
           "identifier" : "IdentificationSystem",
           "language" : "undefined",
-          "value" : "http://purl.org/net/mobivoc/Other",
+          "value" : "http://purl.org/net/mobivoc/MobileApplication",
           "type" : "iri"
         }, {
           "identifier" : "IdentificationSystem",
           "language" : "undefined",
-          "value" : "http://purl.org/net/mobivoc/MobileApplication",
+          "value" : "http://purl.org/net/mobivoc/Other",
           "type" : "iri"
         }, {
           "identifier" : "IdentificationSystem",
@@ -4669,11 +4669,11 @@
           "value" : "http://purl.org/net/mobivoc/PaidCharging",
           "type" : "iri"
         } ],
-        "AccessType" : [ {
-          "identifier" : "AccessType",
+        "operator" : [ {
+          "identifier" : "operator",
           "language" : "undefined",
-          "value" : "http://purl.org/net/mobivoc/IdentifiedPerson",
-          "type" : "iri"
+          "value" : "RWE",
+          "type" : "label"
         } ],
         "lat" : [ {
           "identifier" : "lat",
@@ -4681,16 +4681,16 @@
           "value" : "50.793180",
           "type" : "label"
         } ],
+        "AccessType" : [ {
+          "identifier" : "AccessType",
+          "language" : "undefined",
+          "value" : "http://purl.org/net/mobivoc/IdentifiedPerson",
+          "type" : "iri"
+        } ],
         "long" : [ {
           "identifier" : "long",
           "language" : "undefined",
           "value" : "7.203024",
-          "type" : "label"
-        } ],
-        "operator" : [ {
-          "identifier" : "operator",
-          "language" : "undefined",
-          "value" : "RWE",
           "type" : "label"
         } ]
       },
@@ -4701,17 +4701,17 @@
       "iri" : "http://purl.org/net/mobivoc/ChargingPointK",
       "baseIri" : "http://purl.org/net/mobivoc",
       "annotations" : {
-        "hasAddress" : [ {
-          "identifier" : "hasAddress",
-          "language" : "undefined",
-          "value" : "_:genid19",
-          "type" : "label"
-        } ],
         "PlugType" : [ {
           "identifier" : "PlugType",
           "language" : "undefined",
           "value" : "http://purl.org/net/mobivoc/Type2Plug",
           "type" : "iri"
+        } ],
+        "hasAddress" : [ {
+          "identifier" : "hasAddress",
+          "language" : "undefined",
+          "value" : "_:genid19",
+          "type" : "label"
         } ],
         "Payment" : [ {
           "identifier" : "Payment",
@@ -4727,11 +4727,6 @@
         "IdentificationSystem" : [ {
           "identifier" : "IdentificationSystem",
           "language" : "undefined",
-          "value" : "http://purl.org/net/mobivoc/Other",
-          "type" : "iri"
-        }, {
-          "identifier" : "IdentificationSystem",
-          "language" : "undefined",
           "value" : "http://purl.org/net/mobivoc/MobileApplication",
           "type" : "iri"
         }, {
@@ -4744,12 +4739,23 @@
           "language" : "undefined",
           "value" : "http://purl.org/net/mobivoc/PhoneCall",
           "type" : "iri"
+        }, {
+          "identifier" : "IdentificationSystem",
+          "language" : "undefined",
+          "value" : "http://purl.org/net/mobivoc/Other",
+          "type" : "iri"
         } ],
         "ChargingPointFees" : [ {
           "identifier" : "ChargingPointFees",
           "language" : "undefined",
           "value" : "http://purl.org/net/mobivoc/PaidCharging",
           "type" : "iri"
+        } ],
+        "long" : [ {
+          "identifier" : "long",
+          "language" : "undefined",
+          "value" : "7.218302",
+          "type" : "label"
         } ],
         "operator" : [ {
           "identifier" : "operator",
@@ -4762,12 +4768,6 @@
           "language" : "undefined",
           "value" : "http://purl.org/net/mobivoc/IdentifiedPerson",
           "type" : "iri"
-        } ],
-        "long" : [ {
-          "identifier" : "long",
-          "language" : "undefined",
-          "value" : "7.218302",
-          "type" : "label"
         } ],
         "lat" : [ {
           "identifier" : "lat",
@@ -4869,13 +4869,13 @@
         } ],
         "prefLabel" : [ {
           "identifier" : "prefLabel",
-          "language" : "en",
-          "value" : "underground parking garage",
+          "language" : "de",
+          "value" : "Tiefgarage",
           "type" : "label"
         }, {
           "identifier" : "prefLabel",
-          "language" : "de",
-          "value" : "Tiefgarage",
+          "language" : "en",
+          "value" : "underground parking garage",
           "type" : "label"
         } ]
       },
@@ -4892,6 +4892,16 @@
         "hiddenLabel" : [ {
           "identifier" : "hiddenLabel",
           "language" : "en",
+          "value" : "indoor parking",
+          "type" : "label"
+        }, {
+          "identifier" : "hiddenLabel",
+          "language" : "en",
+          "value" : "parking structure",
+          "type" : "label"
+        }, {
+          "identifier" : "hiddenLabel",
+          "language" : "en",
           "value" : "parking garage",
           "type" : "label"
         }, {
@@ -4903,16 +4913,6 @@
           "identifier" : "hiddenLabel",
           "language" : "de",
           "value" : "Hochgarage",
-          "type" : "label"
-        }, {
-          "identifier" : "hiddenLabel",
-          "language" : "en",
-          "value" : "parking structure",
-          "type" : "label"
-        }, {
-          "identifier" : "hiddenLabel",
-          "language" : "en",
-          "value" : "indoor parking",
           "type" : "label"
         } ],
         "prefLabel" : [ {
@@ -4939,13 +4939,13 @@
       "annotations" : {
         "hiddenLabel" : [ {
           "identifier" : "hiddenLabel",
-          "language" : "de",
-          "value" : "Parkfläche",
+          "language" : "en",
+          "value" : "car lot",
           "type" : "label"
         }, {
           "identifier" : "hiddenLabel",
-          "language" : "en",
-          "value" : "car lot",
+          "language" : "de",
+          "value" : "Parkfläche",
           "type" : "label"
         } ],
         "prefLabel" : [ {
@@ -5078,13 +5078,13 @@
       } ],
       "altLabel" : [ {
         "identifier" : "altLabel",
-        "language" : "undefined",
-        "value" : "LPG",
+        "language" : "en",
+        "value" : "Liquified petroleum gas",
         "type" : "label"
       }, {
         "identifier" : "altLabel",
-        "language" : "en",
-        "value" : "Liquified petroleum gas",
+        "language" : "undefined",
+        "value" : "LPG",
         "type" : "label"
       } ]
     },
@@ -5443,13 +5443,13 @@
       } ],
       "altLabel" : [ {
         "identifier" : "altLabel",
-        "language" : "en-us",
-        "value" : "Gasoline",
+        "language" : "de",
+        "value" : "Motorenbenzin",
         "type" : "label"
       }, {
         "identifier" : "altLabel",
-        "language" : "de",
-        "value" : "Motorenbenzin",
+        "language" : "en-us",
+        "value" : "Gasoline",
         "type" : "label"
       } ]
     },
@@ -5577,17 +5577,17 @@
           "value" : "EN 62196-2",
           "type" : "label"
         } ],
-        "sameAs" : [ {
-          "identifier" : "sameAs",
-          "language" : "undefined",
-          "value" : "http://en.wikipedia.org/wiki/IEC_62196#Type_2:_VDE-AR-E_2623-2-2",
-          "type" : "label"
-        } ],
         "depiction" : [ {
           "identifier" : "depiction",
           "language" : "undefined",
           "value" : "http://upload.wikimedia.org/wikipedia/commons/f/f3/VDE-AR-E_2623-2-2-plug.jpg",
           "type" : "iri"
+        } ],
+        "sameAs" : [ {
+          "identifier" : "sameAs",
+          "language" : "undefined",
+          "value" : "http://en.wikipedia.org/wiki/IEC_62196#Type_2:_VDE-AR-E_2623-2-2",
+          "type" : "label"
         } ]
       },
       "labels" : {
@@ -6103,13 +6103,13 @@
       "annotations" : {
         "prefLabel" : [ {
           "identifier" : "prefLabel",
-          "language" : "en",
-          "value" : "parking barrier",
+          "language" : "de",
+          "value" : "Parkschranke",
           "type" : "label"
         }, {
           "identifier" : "prefLabel",
-          "language" : "de",
-          "value" : "Parkschranke",
+          "language" : "en",
+          "value" : "parking barrier",
           "type" : "label"
         } ],
         "altLabel" : [ {
@@ -6326,17 +6326,17 @@
         "hasOffer" : [ {
           "identifier" : "hasOffer",
           "language" : "undefined",
+          "value" : "http://purl.org/net/mobivoc/ShellFuelSaveE10",
+          "type" : "iri"
+        }, {
+          "identifier" : "hasOffer",
+          "language" : "undefined",
           "value" : "http://purl.org/net/mobivoc/ShellDieselFuelSave",
           "type" : "iri"
         }, {
           "identifier" : "hasOffer",
           "language" : "undefined",
           "value" : "http://purl.org/net/mobivoc/ShellFuelSave95",
-          "type" : "iri"
-        }, {
-          "identifier" : "hasOffer",
-          "language" : "undefined",
-          "value" : "http://purl.org/net/mobivoc/ShellFuelSaveE10",
           "type" : "iri"
         } ]
       },
@@ -6351,22 +6351,22 @@
         "hasOffer" : [ {
           "identifier" : "hasOffer",
           "language" : "undefined",
-          "value" : "http://purl.org/net/mobivoc/AralSuperPlus102",
-          "type" : "iri"
-        }, {
-          "identifier" : "hasOffer",
-          "language" : "undefined",
-          "value" : "http://purl.org/net/mobivoc/AralSuperPlus98",
-          "type" : "iri"
-        }, {
-          "identifier" : "hasOffer",
-          "language" : "undefined",
           "value" : "http://purl.org/net/mobivoc/AralSuper95E10",
           "type" : "iri"
         }, {
           "identifier" : "hasOffer",
           "language" : "undefined",
+          "value" : "http://purl.org/net/mobivoc/AralSuperPlus102",
+          "type" : "iri"
+        }, {
+          "identifier" : "hasOffer",
+          "language" : "undefined",
           "value" : "http://purl.org/net/mobivoc/AralSuper95",
+          "type" : "iri"
+        }, {
+          "identifier" : "hasOffer",
+          "language" : "undefined",
+          "value" : "http://purl.org/net/mobivoc/AralSuperPlus98",
           "type" : "iri"
         } ]
       },
@@ -6401,16 +6401,16 @@
           "value" : "2 parking spaces for electric vehicles only",
           "type" : "label"
         } ],
-        "lat" : [ {
-          "identifier" : "lat",
-          "language" : "undefined",
-          "value" : "50.738999",
-          "type" : "label"
-        } ],
         "long" : [ {
           "identifier" : "long",
           "language" : "undefined",
           "value" : "7.103397",
+          "type" : "label"
+        } ],
+        "lat" : [ {
+          "identifier" : "lat",
+          "language" : "undefined",
+          "value" : "50.738999",
           "type" : "label"
         } ],
         "hasIdentifications" : [ {
@@ -6445,16 +6445,16 @@
           "value" : "Key",
           "type" : "label"
         } ],
-        "lat" : [ {
-          "identifier" : "lat",
-          "language" : "undefined",
-          "value" : "50.718117",
-          "type" : "label"
-        } ],
         "long" : [ {
           "identifier" : "long",
           "language" : "undefined",
           "value" : "7.151704",
+          "type" : "label"
+        } ],
+        "lat" : [ {
+          "identifier" : "lat",
+          "language" : "undefined",
+          "value" : "50.718117",
           "type" : "label"
         } ]
       },
@@ -6471,22 +6471,22 @@
           "value" : "_:genid15",
           "type" : "label"
         } ],
-        "website" : [ {
-          "identifier" : "website",
-          "language" : "undefined",
-          "value" : "http://www.obi.de/de/maerkte/Bonn-Nord/index.html",
-          "type" : "label"
-        } ],
         "hasParking" : [ {
           "identifier" : "hasParking",
           "language" : "undefined",
           "value" : "1 parking space for electric vehicles only",
           "type" : "label"
         } ],
-        "hasIdentifications" : [ {
-          "identifier" : "hasIdentifications",
+        "website" : [ {
+          "identifier" : "website",
           "language" : "undefined",
-          "value" : "None",
+          "value" : "http://www.obi.de/de/maerkte/Bonn-Nord/index.html",
+          "type" : "label"
+        } ],
+        "lat" : [ {
+          "identifier" : "lat",
+          "language" : "undefined",
+          "value" : "50.738228",
           "type" : "label"
         } ],
         "long" : [ {
@@ -6495,10 +6495,10 @@
           "value" : "7.080653",
           "type" : "label"
         } ],
-        "lat" : [ {
-          "identifier" : "lat",
+        "hasIdentifications" : [ {
+          "identifier" : "hasIdentifications",
           "language" : "undefined",
-          "value" : "50.738228",
+          "value" : "None",
           "type" : "label"
         } ]
       },
@@ -6521,12 +6521,6 @@
           "value" : "1 parking space for electric vehicles only",
           "type" : "label"
         } ],
-        "lat" : [ {
-          "identifier" : "lat",
-          "language" : "undefined",
-          "value" : "50.737613",
-          "type" : "label"
-        } ],
         "long" : [ {
           "identifier" : "long",
           "language" : "undefined",
@@ -6537,6 +6531,12 @@
           "identifier" : "hasIdentifications",
           "language" : "undefined",
           "value" : "None",
+          "type" : "label"
+        } ],
+        "lat" : [ {
+          "identifier" : "lat",
+          "language" : "undefined",
+          "value" : "50.737613",
           "type" : "label"
         } ]
       },
@@ -6585,6 +6585,18 @@
           "value" : "_:genid19",
           "type" : "label"
         } ],
+        "hasIdentifications" : [ {
+          "identifier" : "hasIdentifications",
+          "language" : "undefined",
+          "value" : "Text message, Phone call, Other, Mobile Application",
+          "type" : "label"
+        } ],
+        "operator" : [ {
+          "identifier" : "operator",
+          "language" : "undefined",
+          "value" : "RWE",
+          "type" : "label"
+        } ],
         "long" : [ {
           "identifier" : "long",
           "language" : "undefined",
@@ -6595,18 +6607,6 @@
           "identifier" : "lat",
           "language" : "undefined",
           "value" : "50.721710",
-          "type" : "label"
-        } ],
-        "operator" : [ {
-          "identifier" : "operator",
-          "language" : "undefined",
-          "value" : "RWE",
-          "type" : "label"
-        } ],
-        "hasIdentifications" : [ {
-          "identifier" : "hasIdentifications",
-          "language" : "undefined",
-          "value" : "Text message, Phone call, Other, Mobile Application",
           "type" : "label"
         } ]
       },
@@ -6629,16 +6629,16 @@
           "value" : "http://www.rheinenergie.com/TankEn",
           "type" : "label"
         } ],
+        "long" : [ {
+          "identifier" : "long",
+          "language" : "undefined",
+          "value" : "7.004420",
+          "type" : "label"
+        } ],
         "operator" : [ {
           "identifier" : "operator",
           "language" : "undefined",
           "value" : "Rheinenergie",
-          "type" : "label"
-        } ],
-        "lat" : [ {
-          "identifier" : "lat",
-          "language" : "undefined",
-          "value" : "50.757470",
           "type" : "label"
         } ],
         "hasIdentifications" : [ {
@@ -6647,10 +6647,10 @@
           "value" : "Unknown",
           "type" : "label"
         } ],
-        "long" : [ {
-          "identifier" : "long",
+        "lat" : [ {
+          "identifier" : "lat",
           "language" : "undefined",
-          "value" : "7.004420",
+          "value" : "50.757470",
           "type" : "label"
         } ]
       },
@@ -6679,10 +6679,10 @@
           "value" : "http://www.rheinenergie.com/de/unternehmensportal/technik_zukunft/elektromobilitaet_1/ladestationen/ladestationen_1.php",
           "type" : "label"
         } ],
-        "hasIdentifications" : [ {
-          "identifier" : "hasIdentifications",
+        "lat" : [ {
+          "identifier" : "lat",
           "language" : "undefined",
-          "value" : "Badge has to be ordered",
+          "value" : "50.767600",
           "type" : "label"
         } ],
         "long" : [ {
@@ -6691,10 +6691,10 @@
           "value" : "6.948360",
           "type" : "label"
         } ],
-        "lat" : [ {
-          "identifier" : "lat",
+        "hasIdentifications" : [ {
+          "identifier" : "hasIdentifications",
           "language" : "undefined",
-          "value" : "50.767600",
+          "value" : "Badge has to be ordered",
           "type" : "label"
         } ]
       },
@@ -6711,10 +6711,10 @@
           "value" : "_:genid16",
           "type" : "label"
         } ],
-        "operator" : [ {
-          "identifier" : "operator",
+        "hasIdentifications" : [ {
+          "identifier" : "hasIdentifications",
           "language" : "undefined",
-          "value" : "RWE",
+          "value" : "Text message, Phone call, Other, Mobile Application",
           "type" : "label"
         } ],
         "lat" : [ {
@@ -6729,10 +6729,10 @@
           "value" : "7.075870",
           "type" : "label"
         } ],
-        "hasIdentifications" : [ {
-          "identifier" : "hasIdentifications",
+        "operator" : [ {
+          "identifier" : "operator",
           "language" : "undefined",
-          "value" : "Text message, Phone call, Other, Mobile Application",
+          "value" : "RWE",
           "type" : "label"
         } ]
       },
@@ -6749,28 +6749,28 @@
           "value" : "_:genid12",
           "type" : "label"
         } ],
-        "operator" : [ {
-          "identifier" : "operator",
-          "language" : "undefined",
-          "value" : "RWE",
-          "type" : "label"
-        } ],
         "hasIdentifications" : [ {
           "identifier" : "hasIdentifications",
           "language" : "undefined",
           "value" : "Text message, Phone call, Other, Mobile Application",
           "type" : "label"
         } ],
-        "lat" : [ {
-          "identifier" : "lat",
-          "language" : "undefined",
-          "value" : "50.802184",
-          "type" : "label"
-        } ],
         "long" : [ {
           "identifier" : "long",
           "language" : "undefined",
           "value" : "7.218302",
+          "type" : "label"
+        } ],
+        "operator" : [ {
+          "identifier" : "operator",
+          "language" : "undefined",
+          "value" : "RWE",
+          "type" : "label"
+        } ],
+        "lat" : [ {
+          "identifier" : "lat",
+          "language" : "undefined",
+          "value" : "50.802184",
           "type" : "label"
         } ]
       },
@@ -6787,10 +6787,10 @@
           "value" : "_:genid11",
           "type" : "label"
         } ],
-        "hasIdentifications" : [ {
-          "identifier" : "hasIdentifications",
+        "lat" : [ {
+          "identifier" : "lat",
           "language" : "undefined",
-          "value" : "Text message, Phone call, Other, Mobile Application",
+          "value" : "50.793180",
           "type" : "label"
         } ],
         "long" : [ {
@@ -6805,10 +6805,10 @@
           "value" : "RWE",
           "type" : "label"
         } ],
-        "lat" : [ {
-          "identifier" : "lat",
+        "hasIdentifications" : [ {
+          "identifier" : "hasIdentifications",
           "language" : "undefined",
-          "value" : "50.793180",
+          "value" : "Text message, Phone call, Other, Mobile Application",
           "type" : "label"
         } ]
       },
@@ -6825,16 +6825,16 @@
           "value" : "_:genid20",
           "type" : "label"
         } ],
-        "lat" : [ {
-          "identifier" : "lat",
-          "language" : "undefined",
-          "value" : "50.793205",
-          "type" : "label"
-        } ],
         "operator" : [ {
           "identifier" : "operator",
           "language" : "undefined",
           "value" : "RWE",
+          "type" : "label"
+        } ],
+        "long" : [ {
+          "identifier" : "long",
+          "language" : "undefined",
+          "value" : "7.205730",
           "type" : "label"
         } ],
         "hasIdentifications" : [ {
@@ -6843,10 +6843,10 @@
           "value" : "Text message, Phone call, Other, Mobile Application",
           "type" : "label"
         } ],
-        "long" : [ {
-          "identifier" : "long",
+        "lat" : [ {
+          "identifier" : "lat",
           "language" : "undefined",
-          "value" : "7.205730",
+          "value" : "50.793205",
           "type" : "label"
         } ]
       },
@@ -6863,18 +6863,6 @@
           "value" : "_:genid21",
           "type" : "label"
         } ],
-        "long" : [ {
-          "identifier" : "long",
-          "language" : "undefined",
-          "value" : "7.203999",
-          "type" : "label"
-        } ],
-        "lat" : [ {
-          "identifier" : "lat",
-          "language" : "undefined",
-          "value" : "50.798530",
-          "type" : "label"
-        } ],
         "operator" : [ {
           "identifier" : "operator",
           "language" : "undefined",
@@ -6885,6 +6873,18 @@
           "identifier" : "hasIdentifications",
           "language" : "undefined",
           "value" : "Text message, Phone call, Other, Mobile Application",
+          "type" : "label"
+        } ],
+        "long" : [ {
+          "identifier" : "long",
+          "language" : "undefined",
+          "value" : "7.203999",
+          "type" : "label"
+        } ],
+        "lat" : [ {
+          "identifier" : "lat",
+          "language" : "undefined",
+          "value" : "50.798530",
           "type" : "label"
         } ]
       },
@@ -6899,12 +6899,6 @@
           "identifier" : "hasAddress",
           "language" : "undefined",
           "value" : "_:genid22",
-          "type" : "label"
-        } ],
-        "long" : [ {
-          "identifier" : "long",
-          "language" : "undefined",
-          "value" : "7.205371",
           "type" : "label"
         } ],
         "hasIdentifications" : [ {
@@ -6924,6 +6918,12 @@
           "language" : "undefined",
           "value" : "50.797767",
           "type" : "label"
+        } ],
+        "long" : [ {
+          "identifier" : "long",
+          "language" : "undefined",
+          "value" : "7.205371",
+          "type" : "label"
         } ]
       },
       "labels" : {
@@ -6939,16 +6939,16 @@
           "value" : "_:genid23",
           "type" : "label"
         } ],
+        "hasIdentifications" : [ {
+          "identifier" : "hasIdentifications",
+          "language" : "undefined",
+          "value" : "Text message, Phone call, Other, Mobile Application",
+          "type" : "label"
+        } ],
         "operator" : [ {
           "identifier" : "operator",
           "language" : "undefined",
           "value" : "RWE",
-          "type" : "label"
-        } ],
-        "lat" : [ {
-          "identifier" : "lat",
-          "language" : "undefined",
-          "value" : "50.792406",
           "type" : "label"
         } ],
         "long" : [ {
@@ -6957,10 +6957,10 @@
           "value" : "7.223880",
           "type" : "label"
         } ],
-        "hasIdentifications" : [ {
-          "identifier" : "hasIdentifications",
+        "lat" : [ {
+          "identifier" : "lat",
           "language" : "undefined",
-          "value" : "Text message, Phone call, Other, Mobile Application",
+          "value" : "50.792406",
           "type" : "label"
         } ]
       },
@@ -7117,22 +7117,22 @@
   }, {
     "instances" : 0,
     "union" : [ "397", "170", "95" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "399"
   }, {
     "instances" : 0,
     "union" : [ "212", "126" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "427"
   }, {
     "instances" : 0,
     "union" : [ "49", "95" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "436"
   }, {
     "instances" : 0,
     "union" : [ "18", "14", "216" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "400"
   }, {
     "iri" : "http://eccenca.com/mobivoc/LKWDiesel",
@@ -7152,42 +7152,42 @@
   }, {
     "instances" : 0,
     "union" : [ "170", "95" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "239"
   }, {
     "instances" : 0,
     "union" : [ "170", "95" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "363"
   }, {
     "instances" : 0,
     "union" : [ "35", "155" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "53"
   }, {
     "instances" : 0,
     "union" : [ "63", "9", "6" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "441"
   }, {
     "instances" : 0,
     "union" : [ "397", "170", "95" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "440"
   }, {
     "instances" : 0,
     "union" : [ "170", "95" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "299"
   }, {
     "instances" : 0,
     "union" : [ "397", "170" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "442"
   }, {
     "instances" : 0,
     "union" : [ "212", "126" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "309"
   }, {
     "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
@@ -8233,7 +8233,7 @@
     "comment" : {
       "undefined" : "Indicates materials that fuel is made of"
     },
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "40"
   }, {
     "iri" : "http://eccenca.com/mobivoc/usesBattery",
@@ -8467,7 +8467,7 @@
     "comment" : {
       "undefined" : "The C-rate is a measure of the rate at which a battery is being discharged."
     },
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "99"
   }, {
     "range" : "47",
@@ -8502,7 +8502,7 @@
     "comment" : {
       "undefined" : "Indicates for which people access is permitted."
     },
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "111"
   }, {
     "range" : "44",
@@ -8624,7 +8624,7 @@
     "comment" : {
       "undefined" : "Indicates the unique number of the filling station."
     },
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "136"
   }, {
     "range" : "102",
@@ -8698,7 +8698,7 @@
     "comment" : {
       "undefined" : "Indicates what kind of parking facilities the station has"
     },
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "158"
   }, {
     "range" : "41",
@@ -8774,7 +8774,7 @@
     "comment" : {
       "undefined" : "LPG gas is heavier than air and will sink to and collect at the lowest point.  If LPG is vented to the outside air, it will quickly dissipate with the slightest movement of air. "
     },
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "177"
   }, {
     "iri" : "http://eccenca.com/mobivoc/Insolubles",
@@ -8841,7 +8841,7 @@
     "comment" : {
       "undefined" : "Indicates the name of the charging station"
     },
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "198"
   }, {
     "iri" : "http://eccenca.com/mobivoc/hasIdentifications",
@@ -8938,7 +8938,7 @@
     "comment" : {
       "undefined" : "Indicate whether Filling Station has Shopping Facility or not"
     },
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "233"
   }, {
     "iri" : "http://purl.org/net/mobivoc/placeName",
@@ -8951,7 +8951,7 @@
     },
     "domain" : "239",
     "comment" : {
-      "undefined" : "Name of the parking facility."
+      "undefined" : "Place name where charging point is located."
     },
     "attributes" : [ "datatype" ],
     "id" : "238"
@@ -9048,7 +9048,7 @@
     "comment" : {
       "undefined" : "Indicates chemical structure of the fuel"
     },
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "256"
   }, {
     "iri" : "http://eccenca.com/mobivoc/Magnesium",
@@ -9101,7 +9101,7 @@
     "comment" : {
       "undefined" : "Indicates whether charging Station offers booking option or not."
     },
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "261"
   }, {
     "iri" : "http://eccenca.com/mobivoc/CloudPoint",
@@ -9153,7 +9153,7 @@
     "comment" : {
       "undefined" : "Self-discharge is the electrical capacity that is lost when the cell simply sits on the shelf. It is highly dependent on temperature, increasing as the battery temperature is increased."
     },
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "275"
   }, {
     "iri" : "http://purl.org/net/mobivoc/isConnectedTo",
@@ -9182,7 +9182,7 @@
     "comment" : {
       "undefined" : "Indicate whether Filling Station is Wheelchair enabled or not"
     },
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "277"
   }, {
     "iri" : "http://eccenca.com/mobivoc/hasPrice",
@@ -9197,7 +9197,7 @@
     "comment" : {
       "undefined" : "Indicates the information about the price of the facilities."
     },
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "279"
   }, {
     "iri" : "http://purl.org/net/mobivoc/coveredLocation",
@@ -9248,7 +9248,7 @@
     "comment" : {
       "undefined" : "Determined by bringing all the products of combustion back to the original pre-combustion temperature, and in particular condensing any vapor produced"
     },
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "289"
   }, {
     "iri" : "http://eccenca.com/mobivoc/PourPoint",
@@ -9294,7 +9294,7 @@
     "comment" : {
       "undefined" : "The thermal conductivity of petrol"
     },
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "294"
   }, {
     "iri" : "http://purl.org/net/mobivoc/picture",
@@ -9316,13 +9316,13 @@
     "baseIri" : "http://purl.org/net/mobivoc",
     "range" : "304",
     "label" : {
-      "de" : "offnungszeiten",
+      "de" : "hatOeffnungszeiten",
       "IRI-based" : "openingHours",
       "en" : "opening hours"
     },
     "domain" : "201",
     "comment" : {
-      "undefined" : "Indicates the opening hours of the filling station."
+      "undefined" : "Opening Hours. In Italy, an Low-EmissionZone has opening hours"
     },
     "attributes" : [ "datatype" ],
     "id" : "307"
@@ -9337,7 +9337,7 @@
     },
     "domain" : "309",
     "comment" : {
-      "undefined" : "Available payment forms for recharging fees."
+      "undefined" : "Available payment forms for parking fees."
     },
     "attributes" : [ "object" ],
     "id" : "308"
@@ -9354,7 +9354,7 @@
     "comment" : {
       "undefined" : "Indicates the opening hours of the filling station."
     },
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "310"
   }, {
     "iri" : "http://eccenca.com/mobivoc/Performance",
@@ -9369,7 +9369,7 @@
     "comment" : {
       "undefined" : "It reflects the condition of the battery when driving the EV in blistering summer heat and freezing temperatures."
     },
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "311"
   }, {
     "iri" : "http://purl.org/net/mobivoc/numberOfBicyclesAvailable",
@@ -9399,7 +9399,7 @@
     "comment" : {
       "undefined" : "Indicates which are the offered plug types in the charging Station."
     },
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "319"
   }, {
     "iri" : "http://purl.org/net/mobivoc/identification",
@@ -9480,7 +9480,7 @@
     "comment" : {
       "undefined" : "Expresses the rate of energy conversion or transfer with respect to time."
     },
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "342"
   }, {
     "iri" : "http://eccenca.com/mobivoc/SulphurContent",
@@ -9503,7 +9503,7 @@
     "comment" : {
       "undefined" : "Sulphur tolerance by an engine is dependant on the type of engine, the type of service and lube oil used"
     },
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "343"
   }, {
     "iri" : "http://purl.org/net/mobivoc/features",
@@ -9705,7 +9705,7 @@
     "comment" : {
       "undefined" : "Regulations existing in each country concerning the fuel transportation."
     },
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "370"
   }, {
     "iri" : "http://eccenca.com/mobivoc/hasCellVoltage",
@@ -9728,7 +9728,7 @@
     "comment" : {
       "undefined" : "Represents either a source of energy or lost, used, or stored energy. It is measured in Voltage(V)."
     },
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "371"
   }, {
     "iri" : "http://eccenca.com/mobivoc/Price",
@@ -9743,7 +9743,7 @@
     "comment" : {
       "undefined" : "Indicates the price of the battery."
     },
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "372"
   }, {
     "iri" : "http://eccenca.com/mobivoc/PaymentMethod",
@@ -9758,7 +9758,7 @@
     "comment" : {
       "undefined" : "Indicates which type of payment is available."
     },
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "373"
   }, {
     "iri" : "http://purl.org/net/mobivoc/statusParkingFacility",
@@ -9883,7 +9883,7 @@
     "comment" : {
       "undefined" : "Represents the flow rate of electric charge."
     },
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "387"
   }, {
     "iri" : "http://eccenca.com/mobivoc/hasWCFacility",
@@ -9898,7 +9898,7 @@
     "comment" : {
       "undefined" : "Indicate whether Filling Station has WC Facility or not"
     },
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "389"
   }, {
     "iri" : "http://eccenca.com/mobivoc/Nickel",
@@ -9936,7 +9936,7 @@
     "comment" : {
       "undefined" : "Indicates the time that is needed for a battery's full charge."
     },
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "391"
   }, {
     "iri" : "http://eccenca.com/mobivoc/FlashPoint",
@@ -9988,7 +9988,7 @@
     "comment" : {
       "undefined" : "Battery operating temperature is the temperature at which a battery operates effectively."
     },
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "394"
   }, {
     "iri" : "http://purl.org/net/mobivoc/dockingStationNumber",
@@ -10039,7 +10039,7 @@
     },
     "domain" : "399",
     "comment" : {
-      "undefined" : "Parking Facility's owner."
+      "undefined" : "Charging point's owner."
     },
     "attributes" : [ "object" ],
     "id" : "398"
@@ -10282,7 +10282,7 @@
     "comment" : {
       "undefined" : "The cycle life is the number of complete charge/discharge cycles that the battery is able to support before that its capacity falls under 80% of it's original capacity."
     },
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "424"
   }, {
     "iri" : "http://eccenca.com/mobivoc/hasSpecificEnergyDensity",
@@ -10297,7 +10297,7 @@
     "comment" : {
       "undefined" : "It is the amount of energy stored in a given system or region of space per unit volume or mass. It is measured in Wh/kg."
     },
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "425"
   }, {
     "iri" : "http://eccenca.com/mobivoc/LowerHeatingValue",
@@ -10438,11 +10438,11 @@
     "label" : {
       "de" : "istLokalisiert",
       "IRI-based" : "isLocated",
-      "en" : "isLocated"
+      "en" : "is located"
     },
     "domain" : "440",
     "comment" : {
-      "undefined" : "Location of the parking facility."
+      "undefined" : "Location of the charging point."
     },
     "attributes" : [ "object" ],
     "id" : "439"
@@ -10459,7 +10459,7 @@
     "comment" : {
       "undefined" : "Indicates the height of the filling station. This is important especially for trucks"
     },
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "443"
   }, {
     "iri" : "http://purl.org/net/mobivoc/numberOfLadiesParkingSpaces",
@@ -10595,7 +10595,7 @@
     },
     "domain" : "436",
     "comment" : {
-      "undefined" : "Vehicle type suitable for the parking facility. "
+      "undefined" : "Vehicle type. "
     },
     "attributes" : [ "object" ],
     "id" : "460"
@@ -10620,7 +10620,7 @@
     "comment" : {
       "undefined" : "Ability of a fuel to dissipate electric charge that has been generated during pumping and filtering operations is controller by its conductivity"
     },
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "461"
   }, {
     "iri" : "http://eccenca.com/mobivoc/hasSpecificPower",
@@ -10635,7 +10635,7 @@
     "comment" : {
       "undefined" : "Specific power demonstrates acceleration. It is the power that can be derived per unit weight of the cell (W/kg)."
     },
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "463"
   }, {
     "iri" : "http://eccenca.com/mobivoc/Density",
@@ -10730,7 +10730,7 @@
     "comment" : {
       "undefined" : "Indicates the period of time that a battery can still work ."
     },
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "469"
   }, {
     "iri" : "http://purl.org/net/mobivoc/queuingTime",
@@ -10760,7 +10760,7 @@
     "comment" : {
       "undefined" : "It is the amount of electric charge it can deliver at the rated voltage. It is measured in units such as Ampere-hour (Ah), Watt-hour (Wh), kiloWatt-hour (kWh)."
     },
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "472"
   }, {
     "iri" : "http://eccenca.com/mobivoc/Volatility",
@@ -10783,7 +10783,7 @@
     "comment" : {
       "undefined" : "The distillation characteristic of the fuel"
     },
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "473"
   }, {
     "iri" : "http://purl.org/net/mobivoc/energyType",
@@ -10850,7 +10850,7 @@
     "comment" : {
       "undefined" : "Indicate whether Filling Station has Washing Facility or not"
     },
-    "attributes" : [ "datatype", "external" ],
+    "attributes" : [ "external", "datatype" ],
     "id" : "477"
   }, {
     "iri" : "http://purl.org/net/mobivoc/numberOfVacantParkingSpaces",
@@ -10939,7 +10939,7 @@
     },
     "domain" : "427",
     "comment" : {
-      "undefined" : "Defines parking fees."
+      "undefined" : "Defines recharging fees."
     },
     "attributes" : [ "datatype" ],
     "id" : "482"

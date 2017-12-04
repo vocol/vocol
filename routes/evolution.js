@@ -45,7 +45,7 @@ router.get('/', function(req, res) {
             // object for timeLine
             var commitObject = {
               id: k,
-              content: "Commit Message: &quot;"+commitMessage + "&quot;<br/>" + "User: &quot;"+pusher+"&quot;",
+              content: "Commit Message: &quot;"+commitMessage + "&quot;<br/>" + "User: &quot;"+pusher+"&quot;<a href='#"+commitTimestamp+"'>Show more details</a>",
               start: commitTimestamp,
               link: '#' + commitTimestamp
             };
