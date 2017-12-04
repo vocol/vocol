@@ -207,63 +207,63 @@
               buildTree(data);
             }
 
-            // // TODO:get all instnces with owl:NamedIndividual
-            function getOwllNamedIndividual() {
-              var temp = null;
-              var endpoint = "./fuseki/dataset/sparql?query=";
-              var querystring = 'PREFIX owl: <http://www.w3.org/2002/07/owl#> SELECT Distinct ?s ?p ?o  WHERE {?s a owl:NamedIndividual;?p ?o.}';
-              $.ajax({
-                type: 'GET',
-                async: false,
-                url: endpoint + encodeURIComponent(querystring),
-                headers: {
-                  Accept: 'application/sparql-results+json;charset=UTF-8'
-                },
-                success: function(data, textStatus, jqXHR) {
-                  var instances = data.results.bindings;
-                  if (instances[0] != null) {
-                    temp = instances;
-                  }
-                }
-              });
-              return temp;
-            }
+            // TODO:get all instnces with owl:NamedIndividual
+            var OwlNamedIndividualsArray = [];
 
-            var OwllNamedIndividuals = getOwllNamedIndividual();
-            var OwllNamedIndividualsArray = [];
-            if (OwllNamedIndividuals) {
-              for (var i = 0; i < OwllNamedIndividuals.length; i++) {
-                if (OwllNamedIndividuals[i]['o'].value.includes('owl#NamedIndividual')) {
-                  var temp = trimHash(replaceWithRDFType(trimSlash(OwllNamedIndividuals[i]['s'].value)));
-                  OwllNamedIndividualsArray.push({
-                    URI: OwllNamedIndividuals[i]['o'].value,
-                    value: temp
-                  });
-                }
-              }
-              //console.log(OwllNamedIndividualsArray);
-            }
-              // var key1 = trimHash(replaceWithRDFType(trimSlash(rangePropertyResult[i]['s'].value)));
-              // var key2 = trimHash(replaceWithRDFType(trimSlash(rangePropertyResult[i]['range'].value)));
-              // var key3 = rangePropertyResult[i]['comment'].value;
-              // if (isConceptInside(key1) && rangePropertyResult[i]['s'].type === "uri")
-              //   key1 = '<a href="#" onmousedown="getConceptinfo(&quot;' + key1 + '&quot;); return false; ">' + key1 + '</a>';
-              // if (isConceptInside(key2) && rangePropertyResult[i]['range'].type === "uri")
-              //   key2 = '<a href="#" onmousedown="getConceptinfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
-              //
-              // rangePropertyTable += '<tr><td>' + key1 + '</td>    <td>' + key2 + '</td>   <td>' + key3 + '</td> </tr>';
+            // function getOwllNamedIndividual(element) {
+            //   var endpoint = "./fuseki/dataset/sparql?query=";
+            //   var querystring = 'PREFIX owl: <http://www.w3.org/2002/07/owl#> SELECT Distinct ?s ?p ?o  WHERE {?s a owl:NamedIndividual;?p ?o.}';
+            //   $.ajax({
+            //     type: 'GET',
+            //     url: endpoint + encodeURIComponent(querystring),
+            //     headers: {
+            //       Accept: 'application/sparql-results+json;charset=UTF-8'
+            //     },
+            //     success: function(data, textStatus, jqXHR) {
+            //       var instances = data.results.bindings;
+            //       if (instances[0] != null) {
+            //         for (var i = 0; i < instances.length; i++) {
+            //           if (instances[i]['o'].value.includes('owl#NamedIndividual')) {
+            //             var temp = trimHash(replaceWithRDFType(trimSlash(instances[i]['s'].value)));
+            //             if (temp === element)
+            //               showInstanceDetails(instances[i]['s'].value)
+            //           }
+            //         }
+            //         console.log('from caller');
+            //         console.log(OwlNamedIndividualsArray);
+            //         //callback(element);
+            //         //console.log(individualURI);
+            //       }
+            //     }
+            //   });
+            // }
+            // var individualURI = "";
+
+            // function isOwlNamedIndividual(element) {
+            //   //var individualURI = _.find(OwlNamedIndividualsArray, 'value', element);
+            //   for (var i = 0; i < OwlNamedIndividualsArray.length; i++) {
+            //     if (OwlNamedIndividualsArray[i]['value'] === element)
+            //       individualURI = OwlNamedIndividualsArray[i]['URI'];
             //
-            // var OwllNamedIndividuals = _.filter(OwllNamedIndividuals, function(o) {
-            //   if (o.value.includes('owl#NamedIndividual'))
-            //     return o;
-            // });
+            //   }
+            //   // _.find(OwlNamedIndividualsArray, function(o) {
+            //   //  return o.value == element;
+            //   //});
+            //   console.log('from the function');
+            //   //console.log(OwlNamedIndividualsArray);
+            //   return individualURI;
+            //   //return individualURI;
+            //
+            //   //var OwllNamedIndividuals = getOwllNamedIndividual();
+            //   //console.log(OwllNamedIndividuals);
+            // }
 
-            function isOwlNamedIndividual(element) {
-              var OwllNamedIndividuals = getOwllNamedIndividual();
-              //console.log(OwllNamedIndividuals);
+            //getOwllNamedIndividual(isOwlNamedIndividual, "D7")
+            //if (getOwllNamedIndividual(isOwlNamedIndividual, "D7") !== "")
+            //  console.log('get'+getOwllNamedIndividual(isOwlNamedIndividual, "D7"));
+            //console.log('individualURI'+individualURI);
+            //isOwlNamedIndividual(getOwllNamedIndividual, "D7");
 
-
-            }
 
             // get ExternalsConcepts for either SKOS or RFS(S)
             function getExternalsConcepts() {
@@ -489,14 +489,6 @@
 
               }
               data = parentNodes;
-
-              //data = data.concat(parentNodes);
-              // update j variable with index of data array
-              // j = data.length;
-              // for (var i = 0; i < viewData.length; i++) {
-              //   if (viewData[i].parent === "")
-              //     data[j++] = viewData[i];
-              // }
 
               if (file !== "ALL Files") {
                 currentTreeData = getRDFSFileData(data, file);
@@ -1116,9 +1108,9 @@
                 showTurtleSource(currentSelectedConcept);
               }
             });
+            var propertyResult = null;
 
             function getValuesUseditAsProperty(conceptURI, type) {
-              var temp;
               if (type === "range") {
                 var propertyType = "rdfs:range";
               } else {
@@ -1134,18 +1126,17 @@
               $.ajax({
                 type: 'GET',
                 url: endpoint + encodeURIComponent(querystring),
-                'async': false,
+                'async': true,
                 headers: {
                   Accept: 'application/sparql-results+json;charset=UTF-8'
                 },
                 success: function(data, textStatus, jqXHR) {
                   var result = data.results.bindings;
                   if (result[0] != null) {
-                    temp = result;
+                    propertyResult = result;
                   }
                 }
               });
-              return temp;
             }
 
             // to query sparql endpoint return graph and queryResult
@@ -1332,7 +1323,8 @@
 
                 //console.log(getValuesUseditAsProperty(conceptURI, 'domain'));
                 var hasdomainPropertyValues = false;
-                var domianPropertyResult = getValuesUseditAsProperty(conceptURI, 'domain');
+                getValuesUseditAsProperty(conceptURI, 'domain');
+                var domianPropertyResult = propertyResult;
                 if (domianPropertyResult) {
                   hasdomainPropertyValues = true;
                   for (var i = 0; i < domianPropertyResult.length; i++) {
@@ -1348,7 +1340,8 @@
                   }
                 }
                 var hasRangePropertyValues = false;
-                var rangePropertyResult = getValuesUseditAsProperty(conceptURI, 'range');
+                getValuesUseditAsProperty(conceptURI, 'range');
+                var rangePropertyResult = propertyResult;
                 if (rangePropertyResult) {
                   hasRangePropertyValues = true;
                   for (var i = 0; i < rangePropertyResult.length; i++) {
@@ -1409,6 +1402,8 @@
                 $("#rangeTable").html(rangeTable);
                 $("#rangePropertyTable").html(rangePropertyTable);
                 $("#domainPropertyTable").html(domainPropertyTable);
+                // get
+                //getOwlNamedIndividual(conceptURI);
 
                 $("#sourceCodeTab").show();
                 // To render the graph id the graphTab if a concept node is selected

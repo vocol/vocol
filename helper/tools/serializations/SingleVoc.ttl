@@ -272,14 +272,7 @@
     a <http://eccenca.com/mobivoc/ChargingStation> ;
     <http://www.w3.org/2003/01/geo/wgs84_pos#lat> "50.793205" ;
     <http://www.w3.org/2003/01/geo/wgs84_pos#long> "7.205730" ;
-    <http://www.w3.org/2006/vcard/ns#hasAddress> [
-        <http://www.w3.org/2006/vcard/ns#city> "Siegburg" ;
-        <http://www.w3.org/2006/vcard/ns#country-name> "Germany" ;
-        <http://www.w3.org/2006/vcard/ns#housenumber> "10" ;
-        <http://www.w3.org/2006/vcard/ns#postal-code> "53721" ;
-        <http://www.w3.org/2006/vcard/ns#region> "North Rhine-Westphalia" ;
-        <http://www.w3.org/2006/vcard/ns#street-address> "Wilhelmstr."
-    ] ;
+    <http://www.w3.org/2006/vcard/ns#hasAddress> _:genid16 ;
     <http://www.w3.org/2006/vcard/ns#operator> "RWE" .
 
 <http://eccenca.com/mobivoc/ChargingStationN>
@@ -293,14 +286,7 @@
     a <http://eccenca.com/mobivoc/ChargingStation> ;
     <http://www.w3.org/2003/01/geo/wgs84_pos#lat> "50.798530" ;
     <http://www.w3.org/2003/01/geo/wgs84_pos#long> "7.203999" ;
-    <http://www.w3.org/2006/vcard/ns#hasAddress> [
-        <http://www.w3.org/2006/vcard/ns#city> "Siegburg" ;
-        <http://www.w3.org/2006/vcard/ns#country-name> "Germany" ;
-        <http://www.w3.org/2006/vcard/ns#housenumber> "3" ;
-        <http://www.w3.org/2006/vcard/ns#postal-code> "53721" ;
-        <http://www.w3.org/2006/vcard/ns#region> "North Rhine-Westphalia" ;
-        <http://www.w3.org/2006/vcard/ns#street-address> "Bachstrasse"
-    ] ;
+    <http://www.w3.org/2006/vcard/ns#hasAddress> _:genid17 ;
     <http://www.w3.org/2006/vcard/ns#operator> "RWE" .
 
 <http://eccenca.com/mobivoc/ChargingStationName>
@@ -321,13 +307,7 @@
     a <http://eccenca.com/mobivoc/ChargingStation> ;
     <http://www.w3.org/2003/01/geo/wgs84_pos#lat> "50.797767" ;
     <http://www.w3.org/2003/01/geo/wgs84_pos#long> "7.205371" ;
-    <http://www.w3.org/2006/vcard/ns#hasAddress> [
-        <http://www.w3.org/2006/vcard/ns#city> "Siegburg" ;
-        <http://www.w3.org/2006/vcard/ns#country-name> "Germany" ;
-        <http://www.w3.org/2006/vcard/ns#postal-code> "53721" ;
-        <http://www.w3.org/2006/vcard/ns#region> "North Rhine-Westphalia" ;
-        <http://www.w3.org/2006/vcard/ns#street-address> "Ringstrasse"
-    ] ;
+    <http://www.w3.org/2006/vcard/ns#hasAddress> _:genid19 ;
     <http://www.w3.org/2006/vcard/ns#operator> "RWE" .
 
 <http://eccenca.com/mobivoc/ChargingStationP>
@@ -341,14 +321,7 @@
     a <http://eccenca.com/mobivoc/ChargingStation> ;
     <http://www.w3.org/2003/01/geo/wgs84_pos#lat> "50.792406" ;
     <http://www.w3.org/2003/01/geo/wgs84_pos#long> "7.223880" ;
-    <http://www.w3.org/2006/vcard/ns#hasAddress> [
-        <http://www.w3.org/2006/vcard/ns#city> "Siegburg" ;
-        <http://www.w3.org/2006/vcard/ns#country-name> "Germany" ;
-        <http://www.w3.org/2006/vcard/ns#housenumber> "1" ;
-        <http://www.w3.org/2006/vcard/ns#postal-code> "53721" ;
-        <http://www.w3.org/2006/vcard/ns#region> "North Rhine-Westphalia" ;
-        <http://www.w3.org/2006/vcard/ns#street-address> "Am Turm"
-    ] ;
+    <http://www.w3.org/2006/vcard/ns#hasAddress> _:genid20 ;
     <http://www.w3.org/2006/vcard/ns#operator> "RWE" .
 
 <http://eccenca.com/mobivoc/ChemicalStructure>
@@ -1825,6 +1798,9 @@
     a <http://eccenca.com/mobivoc/FuelStation> ;
     <http://www.w3.org/2000/01/rdf-schema#label> "Agip Podelwitz" .
 
+<http://purl.org/dc/terms/creator>
+    a <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
 <http://purl.org/net/mobivoc/>
     <http://purl.org/dc/terms/creator> _:genid1, _:genid2 ;
     <http://purl.org/dc/terms/modified> "2014-08-31"^^<http://www.w3.org/2001/XMLSchema#date> ;
@@ -3068,53 +3044,1640 @@
 <http://www.co-ode.org/ontologies/ont.owl#Vehicle>
     a <http://www.w3.org/2002/07/owl#Class> .
 
-_:genid1
-    <http://www.w3.org/2001/vcard-rdf/3.0#city> "Bonn" ;
-    <http://www.w3.org/2001/vcard-rdf/3.0#country-name> "Germany" ;
-    <http://www.w3.org/2001/vcard-rdf/3.0#postal-code> "53111" ;
-    <http://www.w3.org/2001/vcard-rdf/3.0#region> "North Rhine-Westphalia" ;
-    <http://www.w3.org/2001/vcard-rdf/3.0#street-address> "Engeltalstraße" ;
-    <http://www.w3.org/2006/vcard/ns#country-name> "Germany" ;
-    <http://www.w3.org/2006/vcard/ns#locality> "Bonn" ;
-    <http://www.w3.org/2006/vcard/ns#postal-code> "53117" ;
-    <http://www.w3.org/2006/vcard/ns#region> "North Rhine-Westphalia" ;
-    <http://www.w3.org/2006/vcard/ns#street-address> "Kölnstraße 655" ;
-    <http://xmlns.com/foaf/0.1/name> "Natalja Friesen" .
+<http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#dependsOn>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherTwo> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty>, <http://www.w3.org/2002/07/owl#TransitiveProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> """A relation between entities, expressing a 'sequence' schema. 
+E.g. 'year 2000 follows 1999', 'preparing coffee' follows 'deciding what coffee to use', 'II World War follows I World War', etc. 
+It can be used between tasks, processes or time intervals, and subproperties would fit best in order to distinguish the different uses.""" ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Milestone> ;
+    <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "depends On"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/Milestone> ;
+    <http://www.w3.org/2002/07/owl#inverseOf> <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#isDependentOf> .
 
-_:genid10
-    <http://www.w3.org/2001/vcard-rdf/3.0#city> "Siegburg" ;
-    <http://www.w3.org/2001/vcard-rdf/3.0#country-name> "Germany" ;
-    <http://www.w3.org/2001/vcard-rdf/3.0#housenumber> "104" ;
-    <http://www.w3.org/2001/vcard-rdf/3.0#postal-code> "53721" ;
-    <http://www.w3.org/2001/vcard-rdf/3.0#region> "North Rhine-Westphalia" ;
-    <http://www.w3.org/2001/vcard-rdf/3.0#street-address> "Zeithstraße" ;
-    <http://www.w3.org/2006/vcard/ns#city> "Alfter" ;
-    <http://www.w3.org/2006/vcard/ns#country-name> "Germany" ;
-    <http://www.w3.org/2006/vcard/ns#housenumber> "7" ;
-    <http://www.w3.org/2006/vcard/ns#postal-code> "53347" ;
-    <http://www.w3.org/2006/vcard/ns#region> "North Rhine-Westphalia" ;
-    <http://www.w3.org/2006/vcard/ns#street-address> "Am Rathaus" .
+<http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#directlyDependsOn>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherTwo> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "The intransitive follows relation. For example, Wednesday directly precedes Thursday. Directness of precedence depends on the designer conceptualization." ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Milestone> ;
+    <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "directly Depends On"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/Milestone> ;
+    <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#dependsOn> ;
+    <http://www.w3.org/2002/07/owl#inverseOf> <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#isDirectlyDependentOf> .
 
-_:genid11
-    <http://www.w3.org/2001/vcard-rdf/3.0#city> "Siegburg" ;
-    <http://www.w3.org/2001/vcard-rdf/3.0#country-name> "Germany" ;
-    <http://www.w3.org/2001/vcard-rdf/3.0#postal-code> "53721" ;
-    <http://www.w3.org/2001/vcard-rdf/3.0#region> "North Rhine-Westphalia" ;
-    <http://www.w3.org/2001/vcard-rdf/3.0#street-address> "Konrad-Adenauer-Allee" ;
-    <http://www.w3.org/2006/vcard/ns#city> "Bornheim" ;
-    <http://www.w3.org/2006/vcard/ns#country-name> "Germany" ;
-    <http://www.w3.org/2006/vcard/ns#housenumber> "2" ;
-    <http://www.w3.org/2006/vcard/ns#postal-code> "53332" ;
-    <http://www.w3.org/2006/vcard/ns#region> "North Rhine-Westphalia" ;
-    <http://www.w3.org/2006/vcard/ns#street-address> "Rathausstraße" .
+<http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#isDependentOf>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherTwo> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty>, <http://www.w3.org/2002/07/owl#TransitiveProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> """A relation between entities, expressing a 'sequence' schema. 
+E.g. 'year 1999 precedes 2000', 'deciding what coffee to use' precedes 'preparing coffee', 'World War II follows World War I', 'in the Milan to Rome autoroute, Bologna precedes Florence', etc.
+It can then be used between tasks, processes, time intervals, spatially locate objects, situations, etc. 
+Subproperties can be defined in order to distinguish the different uses.""" ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Milestone> ;
+    <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "is Dependent Of"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/Milestone> .
+
+<http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#isDirectlyDependentOf>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherTwo> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "The intransitive precedes relation. For example, Monday directly precedes Tuesday. Directness of precedence depends on the designer conceptualization." ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Milestone> ;
+    <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "is Directly Dependent Of"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/Milestone> ;
+    <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#isDependentOf> .
+
+<http://www.w3.org/2004/02/skos/core#altLabel>
+    a <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
+<http://www.w3.org/2004/02/skos/core#note>
+    a <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
+<http://www.w3.org/2004/02/skos/core#prefLabel>
+    a <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
+<http://www.w3.org/ns/prov#wasDerivedFrom>
+    a <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
+<http://www.w3.org/ns/prov#wasInfluencedBy>
+    a <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
+<http://xmlns.com/foaf/0.1/Organization>
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2002/07/owl#equivalentClass> <https://www.bayer.com/btlo/Organization> .
+
+<http://xmlns.com/foaf/0.1/Person>
+    a <http://www.w3.org/2002/07/owl#Class> .
+
+<http://xmlns.com/foaf/0.1/familyName>
+    a <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
+<http://xmlns.com/foaf/0.1/homepage>
+    a <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
+<http://xmlns.com/foaf/0.1/mbox>
+    a <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
+<http://xmlns.com/foaf/0.1/member>
+    a <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
+<http://xmlns.com/foaf/0.1/name>
+    a <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
+<https://www.bayer.com/btlo/>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/FraunhoferEISResearcher> ;
+    <http://purl.org/dc/terms/date> "2017-09-24"@en ;
+    <http://purl.org/dc/terms/modified> "2017-11-30" ;
+    <http://purl.org/vocab/vann/preferredNamespacePrefix> "btlo" ;
+    <http://purl.org/vocab/vann/preferredNamespaceUri> "https://www.bayer.com/btlo/" ;
+    a <http://www.w3.org/2002/07/owl#Ontology> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "The Bayer Top Level Ontology aims to describe the main concepts used through the Reseach and Development Value Chain"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Bayer Top Level Ontology"@en ;
+    <http://www.w3.org/2002/07/owl#versionInfo> "V0.1.1" .
+
+<https://www.bayer.com/btlo/Active>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherTwo> ;
+    a <http://www.w3.org/2002/07/owl#NamedIndividual>, <https://www.bayer.com/btlo/Status> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Describes the status of a project or activity when it is active, i.e., under development."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Active"@en .
+
+<https://www.bayer.com/btlo/ActiveIngridient>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "The pharmaceutically active components of a preparation."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Active Ingredient"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://www.bayer.com/btlo/Compound> ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <http://purl.bioontology.org/ontology/NCIT#C82533> .
+
+<https://www.bayer.com/btlo/Activity>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherTwo> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Something done as an action or a movement in the context of a Project."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Activity"@en .
+
+<https://www.bayer.com/btlo/AdverseEvent>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Used with drugs, chemicals, or biological agents in accepted dosage - or with physical agents or manufactured products in normal usage - when intended for diagnostic, therapeutic, prophylactic, or anesthetic purposes. It is used also for adverse effects or complications of diagnostic, therapeutic, prophylactic, anesthetic, surgical, or other procedures, but excludes contraindications for which \"contraindications\" is used."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Adverse Event"@en ;
+    <http://www.w3.org/2004/02/skos/core#altLabel> "Adverse effects"@en, "Injurious effects"@en, "Side effects"@en, "Undesirable effects"@en ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <http://purl.bioontology.org/ontology/MESH/Q000009> .
+
+<https://www.bayer.com/btlo/ApprovedDrug>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "The medicinal product as it is licensed in a certain country to be marketed."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Authorized Medicinal Product"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://www.bayer.com/btlo/PharmaceuticalProduct> ;
+    <http://www.w3.org/2004/02/skos/core#altLabel> "Approved Drug"@en .
+
+<https://www.bayer.com/btlo/Assay>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "A planned process with the objective to produce information about the material entity that is the evaluant, by physically examining it or its proxies."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Assay"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://purl.bioontology.org/ontology/NCIT#C60819> ;
+    <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://www.bayer.com/btlo/Activity> ;
+    <http://www.w3.org/2004/02/skos/core#altLabel> "Scientific observation"@en ;
+    <http://www.w3.org/2004/02/skos/core#prefLabel> "Assay"@en ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <http://purl.bioontology.org/ontology/OBI/OBI_0000070> .
+
+<https://www.bayer.com/btlo/Biobank>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "A biobank is a collections of samples of biological substances (e.g. tissue, blood, DNA) which are linked to data about the samples and their donors. They have a dual nature as collections of samples and data."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Biobank"@en ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <http://purl.obolibrary.org/obo/OMIABIS_0000000> .
+
+<https://www.bayer.com/btlo/Canceled>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherTwo> ;
+    a <http://www.w3.org/2002/07/owl#NamedIndividual>, <https://www.bayer.com/btlo/Status> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Describes the status of a project or activity when it has been canceled without finishing all the initial targets of it."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Canceled"@en .
+
+<https://www.bayer.com/btlo/ChemicalStructure>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Used with chemicals, biological, and non-biological substances for their composition, structure, characterization, and properties; also used for the chemical composition or content of organs, tissue, tumors, body fluids, organisms, and plants. Excludes chemical analysis and determination of substances for which \"analysis\" is used; excludes synthesis for which \"chemical synthesis\" is used; excludes isolation and purification of substances for which \"isolation & purification\" is used."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Chemical Structure"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://purl.bioontology.org/ontology/NCIT#C103240> ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <http://purl.bioontology.org/ontology/MESH/Q000737> .
+
+<https://www.bayer.com/btlo/ClinicalStudy>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "A work that reports on the results of a research study to evaluate interventions or exposures on biomedical or health-related outcomes. The two main types of clinical studies are interventional studies (clinical trials) and observational studies. While most clinical studies concern humans, this publication type may be used for clinical veterinary articles meeting the requisites for humans."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Clinical Study"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://www.bayer.com/btlo/Study> ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <http://purl.bioontology.org/ontology/MESH/D000068397> .
+
+<https://www.bayer.com/btlo/ClinicalTrial>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "A work that reports on the results of a clinical study in which participants are assigned to receive one or more interventions so that researchers can evaluate the interventions on biomedical or health-related outcomes. The assignments are determined by the study protocol. Participants may receive diagnostic, therapeutic, or other types of interventions. While most clinical trials concern humans, this publication type may be used for clinical veterinary articles meeting the requisites for humans."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Clinical Trial"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://www.bayer.com/btlo/ClinicalStudy> ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <http://purl.bioontology.org/ontology/MESH/D016430> .
+
+<https://www.bayer.com/btlo/Cohort>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "A cohort is a collection of material entities grouped together based on some common property of interest, such as age or disease stage."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Cohort"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://www.bayer.com/btlo/Population> ;
+    <http://www.w3.org/2004/02/skos/core#prefLabel> "Cohort"@en ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <http://www.ebi.ac.uk/efo/EFO_0004445> .
+
+<https://www.bayer.com/btlo/Complete>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherTwo> ;
+    a <http://www.w3.org/2002/07/owl#NamedIndividual>, <https://www.bayer.com/btlo/Status> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Describes the status of a project or activity when it has been sucessfully completed, finished."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Completed"@en .
+
+<https://www.bayer.com/btlo/Compound>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "A substance formed by chemical union of two or more elements or ingredients in definite proportion by weight."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Compound"@en ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <http://purl.bioontology.org/ontology/NCIT#C43366> .
+
+<https://www.bayer.com/btlo/Concentration>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "The quantity of a substance per unit volume or weight; a measure of the amount of substance present in a unit amount of mixture, particularly, the amount of solute dissolved in a solvent. The amounts can be expressed as moles, masses, volumes, or parts."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Concentration"@en ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <http://purl.bioontology.org/ontology/NCIT#C41185> .
+
+<https://www.bayer.com/btlo/Consent>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Voluntary authorization, by a patient or research subject, with full comprehension of the risks involved, for diagnostic or investigative procedures, and for medical and surgical treatment."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Consent"@en ;
+    <http://www.w3.org/2004/02/skos/core#altLabel> "Informed Consent"@en ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <http://purl.bioontology.org/ontology/MESH/D007258> .
+
+<https://www.bayer.com/btlo/Country>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "A collective generic term that refers here to a wide variety of dependencies, areas of special sovereignty, uninhabited islands, and other entities in addition to the traditional countries or independent states."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Country"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://www.bayer.com/btlo/GeographicalArea> ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <http://purl.bioontology.org/ontology/NCIT#C25464> ;
+    <http://www.w3.org/ns/prov#wasInfluencedBy> <http://http://schema.org/Country> .
+
+<https://www.bayer.com/btlo/D1>
+    <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#isDirectlyDependentOf> <https://www.bayer.com/btlo/D2> ;
+    a <http://www.w3.org/2002/07/owl#NamedIndividual>, <https://www.bayer.com/btlo/InitialMilestone> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "D1 Milestone"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "D1 Milestone"@en .
+
+<https://www.bayer.com/btlo/D10>
+    <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#isDirectlyDependentOf> <https://www.bayer.com/btlo/D11> ;
+    a <http://www.w3.org/2002/07/owl#NamedIndividual>, <https://www.bayer.com/btlo/IntermediateMilestone> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "D10 Milestone"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "D10 Milestone"@en .
+
+<https://www.bayer.com/btlo/D11>
+    a <http://www.w3.org/2002/07/owl#NamedIndividual>, <https://www.bayer.com/btlo/FinalMilestone> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "D11 Milestone"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "D11 Milestone"@en ;
+    <https://www.bayer.com/btlo/dependOn> <https://www.bayer.com/btlo/D10> .
+
+<https://www.bayer.com/btlo/D2>
+    <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#isDirectlyDependentOf> <https://www.bayer.com/btlo/D3> ;
+    a <http://www.w3.org/2002/07/owl#NamedIndividual>, <https://www.bayer.com/btlo/IntermediateMilestone> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "D2 Milestone"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "D2 Milestone"@en ;
+    <https://www.bayer.com/btlo/dependOn> <https://www.bayer.com/btlo/D1> .
+
+<https://www.bayer.com/btlo/D3>
+    <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#isDirectlyDependentOf> <https://www.bayer.com/btlo/D4> ;
+    a <http://www.w3.org/2002/07/owl#NamedIndividual>, <https://www.bayer.com/btlo/IntermediateMilestone> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "D3 Milestone"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "D3 Milestone"@en ;
+    <https://www.bayer.com/btlo/dependOn> <https://www.bayer.com/btlo/D3> .
+
+<https://www.bayer.com/btlo/D4>
+    <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#isDirectlyDependentOf> <https://www.bayer.com/btlo/D5> ;
+    a <http://www.w3.org/2002/07/owl#NamedIndividual>, <https://www.bayer.com/btlo/IntermediateMilestone> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "D4 Milestone"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "D4 Milestone"@en ;
+    <https://www.bayer.com/btlo/dependOn> <https://www.bayer.com/btlo/D3> .
+
+<https://www.bayer.com/btlo/D5>
+    <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#isDirectlyDependentOf> <https://www.bayer.com/btlo/D6> ;
+    a <http://www.w3.org/2002/07/owl#NamedIndividual>, <https://www.bayer.com/btlo/IntermediateMilestone> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "D5 Milestone"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "D5 Milestone"@en .
+
+<https://www.bayer.com/btlo/D6>
+    <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#isDirectlyDependentOf> <https://www.bayer.com/btlo/D7> ;
+    a <http://www.w3.org/2002/07/owl#NamedIndividual>, <https://www.bayer.com/btlo/IntermediateMilestone> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "D6 Milestone"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "D6 Milestone"@en .
+
+<https://www.bayer.com/btlo/D7>
+    <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#isDirectlyDependentOf> <https://www.bayer.com/btlo/D8> ;
+    a <http://www.w3.org/2002/07/owl#NamedIndividual>, <https://www.bayer.com/btlo/IntermediateMilestone> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "D7 Milestone"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "D7 Milestone"@en .
+
+<https://www.bayer.com/btlo/D8>
+    <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#isDirectlyDependentOf> <https://www.bayer.com/btlo/D9> ;
+    a <http://www.w3.org/2002/07/owl#NamedIndividual>, <https://www.bayer.com/btlo/IntermediateMilestone> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "D8 Milestone"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "D8 Milestone"@en .
+
+<https://www.bayer.com/btlo/D9>
+    <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#isDirectlyDependentOf> <https://www.bayer.com/btlo/D10> ;
+    a <http://www.w3.org/2002/07/owl#NamedIndividual>, <https://www.bayer.com/btlo/IntermediateMilestone> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "D9 Milestone"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "D9 Milestone"@en .
+
+<https://www.bayer.com/btlo/Deliverable>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherTwo> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Deliverables are specific types of Project components which are typically results of the Project."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Deliverable"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://www.bayer.com/btlo/ProjectComponent> .
+
+<https://www.bayer.com/btlo/Department>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherTwo> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "An organizational unit with specifics objectives, targets and belongs to a bigger organization."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Department"@en ;
+    <http://www.w3.org/2004/02/skos/core#altLabel> "Function"@en ;
+    <http://www.w3.org/ns/prov#wasInfluencedBy> <http://http://schema.org/department> .
+
+<https://www.bayer.com/btlo/Disease>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "A definite pathologic process with a characteristic set of signs and symptoms. It may affect the whole body or any of its parts, and its etiology, pathology, and prognosis may be known or unknown."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Disease"@en ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <http://purl.bioontology.org/ontology/MESH/D004194> .
+
+<https://www.bayer.com/btlo/DiseaseAttribute>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Clinical characteristics of disease or illness."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Disease Attribute"@en ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <http://purl.bioontology.org/ontology/MESH/D020969> .
+
+<https://www.bayer.com/btlo/Doctor>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "A physician, medical practitioner, medical doctor, or simply doctor is a professional who practises medicine, which is concerned with promoting, maintaining, or restoring health through the study, diagnosis, and treatment of disease, injury, and other physical and mental impairments."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Doctor"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://www.bayer.com/btlo/Employee> ;
+    <http://www.w3.org/2004/02/skos/core#altLabel> "Medical doctor"@en, "Medical practitioner"@en, "Physician"@en ;
+    <http://www.w3.org/ns/prov#wasInfluencedBy> <https://en.wikipedia.org/wiki/Physician> .
+
+<https://www.bayer.com/btlo/Dose>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "A quantity of an agent (such as substance or energy) administered, taken, or absorbed at one time."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Dose"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://www.ebi.ac.uk/efo/EFO_0000428> ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <http://purl.bioontology.org/ontology/NCIT#C25488> .
+
+<https://www.bayer.com/btlo/Dossier>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "A collection of documents a containing detailed data (administrative, chemistry, pre-clinical and clinical) about a pharmaceutical product to be submitted to the Regulatory Agencies of a country with the objective of supporting its marketing / approval in that country."@en, "Compiled package of all information required for an Marketing Authorization Application or a later change of the application."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Dossier"@en ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <http://www.pharmaceutical-business-review.com/suppliers/ennov/products/dossier> .
+
+<https://www.bayer.com/btlo/Drug>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Any substance which when absorbed into a living organism may modify one or more of its functions. The term is generally accepted for a substance taken for a therapeutic purpose, but is also commonly used for abused substances."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Drug"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://www.bayer.com/btlo/Compound> ;
+    <http://www.w3.org/2004/02/skos/core#altLabel> "Pharmaceutical Drug"@en ;
+    <http://www.w3.org/2004/02/skos/core#prefLabel> "Drug"@en ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <http://purl.obolibrary.org/obo/CHEBI_23888> .
+
+<https://www.bayer.com/btlo/DrugDoseForm>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Drug dose form (qualifier value), e.g., pillule or tablet."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Drug Dose Form"@en ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <snomed:421967003> .
+
+<https://www.bayer.com/btlo/DrugLabel>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "A brief description given for purposes of identification; an identifying or descriptive marker that is attached to an object."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Drug Label"@en ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <http://purl.bioontology.org/ontology/NCIT#C45561> .
+
+<https://www.bayer.com/btlo/DrugRepositioningWorkflow>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherTwo> ;
+    a <http://www.w3.org/2002/07/owl#NamedIndividual>, <https://www.bayer.com/btlo/Workflow> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Describes a workflow to find new applications for existing drugs."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Drug Repositioning"@en ;
+    <http://www.w3.org/ns/prov#wasInfluencedBy> <http://purl.bioontology.org/ontology/MESH/D058492> ;
+    <https://www.bayer.com/btlo/hasEndMilestone> <https://www.bayer.com/btlo/D11> ;
+    <https://www.bayer.com/btlo/hasStartMilestone> <https://www.bayer.com/btlo/D4> .
+
+<https://www.bayer.com/btlo/Employee>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Someone working for this organization."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Employee"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://www.bayer.com/btlo/Person> ;
+    <http://www.w3.org/ns/prov#wasInfluencedBy> <schema:employee> .
+
+<https://www.bayer.com/btlo/Enzyme>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Molecules that catalyze a chemical reaction. They are usually proteins, although catalytic RNA and DNA molecules have been identified."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Enzyme"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://purl.bioontology.org/ontology/SNOMEDCT/90668006>, <obi:obi0000427> ;
+    <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://www.bayer.com/btlo/Target> ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <http://purl.bioontology.org/ontology/NCIT#C16554> .
+
+<https://www.bayer.com/btlo/Excipient>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Usually inert substances added to a prescription in order to provide suitable consistency to the dosage form. These include binders, matrix, base or diluent in pills, tablets, creams, salves, etc."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Excipient"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://purl.bioontology.org/ontology/CHEBI/75324> ;
+    <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://www.bayer.com/btlo/Compound> ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <http://purl.bioontology.org/ontology/MESH/D005079> .
+
+<https://www.bayer.com/btlo/Experiment>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "A coordinated set of actions and observations designed to generate data, with the ultimate goal of discovery or hypothesis testing."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Experiment"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://www.bayer.com/btlo/ResearchActivity> ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <http://purl.bioontology.org/ontology/NCIT#C42790> .
+
+<https://www.bayer.com/btlo/Failed>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#NamedIndividual>, <https://www.bayer.com/btlo/Status> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Describes the failure status of a project or activity."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Failed"@en .
+
+<https://www.bayer.com/btlo/FinalMilestone>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "The final/last milestone of a project"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Final Milestone"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://www.bayer.com/btlo/Milestone> .
+
+<https://www.bayer.com/btlo/Formulation>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "The composition of a dosage form, including the characteristics of its raw materials and the operations required to process it.Formulation factors include chemical nature of the drug (ester, salt, complex, etc), drug solubility in water and organic solvents, particle size and surface area, type of dosage form (solution, suspension, capsule, tablet) and the excipients and processes used in the manufacturing of the drug delivery systems. The design of optimal drug delivery systems is thus an important part of providing an effective therapeutic.Official formulations for approved agents are presented in such books as the National Formulary and US Pharmacopeia. Whereas at one time, these were detailed and almost recipe-like, more recent entries may be limited to specifying the formula and imposing a standard limit for the active agent."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Formulation"@en ;
+    <http://www.w3.org/2004/02/skos/core#altLabel> "Drug Formulation"@en, "Formulation"@en ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <http://purl.bioontology.org/ontology/NCIT#C42638> .
+
+<https://www.bayer.com/btlo/Gene>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "A functional unit of heredity which occupies a specific position on a particular chromosome and serves as the template for a product that contributes to a phenotype or a biological function."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Gene"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://www.bayer.com/btlo/Target> ;
+    <http://www.w3.org/2004/02/skos/core#note> "233 class mappings in the National Cancer Institute Thesaurus Ontology"@en ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <http://purl.bioontology.org/ontology/NCIT#C16612> .
+
+<https://www.bayer.com/btlo/GeneExpression>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "The process in which a gene's sequence is converted into a mature gene product or products (proteins or RNA). This includes the production of an RNA transcript as well as any processing to produce a mature RNA product or an mRNA or circRNA (for protein-coding genes) and the translation of that mRNA or circRNA into protein. Protein maturation is included when required to form an active form of a product from an inactive precursor form."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Gene Expression"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://purl.bioontology.org/ontology/MESH/D015870>, <http://purl.bioontology.org/ontology/NCIT#C16608> ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <http://purl.org/obo/owl/GO#> .
+
+<https://www.bayer.com/btlo/GeographicalArea>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Any demarcated area of the Earth; may be determined by both natural and human boundaries."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Geographical Area"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://www.bayer.com/btlo/Location> ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <http://purl.bioontology.org/ontology/NCIT#C16632> .
+
+<https://www.bayer.com/btlo/HealthAuthority>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Governmental bodies that have the power to pass and enforce laws. EXAMPLE(S): Medicines and Healthcare Products Regulatory Agency (MHRA) in the UK; Food and Drug Administration (FDA) in the USA."@en, """Grants marketing authorization for a certain country or region,
+e.g. EMA, FDA."""@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Regulatory Authority"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://www.bayer.com/btlo/Organization> ;
+    <http://www.w3.org/2004/02/skos/core#altLabel> "Health Authority"@en ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <http://purl.bioontology.org/ontology/NCIT#C88081> .
+
+<https://www.bayer.com/btlo/HealthyVolunteer>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Persons with no known significant health problems who are recruited to participate in research to test a new drug, device, or intervention as controls for a patient group. (from http://clinicalcenter.nih.gov/recruit/volunteers.html, accessed 2/14/2013)"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Healthy Volunteer"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://www.bayer.com/btlo/Volunteer> ;
+    <http://www.w3.org/2002/07/owl#disjointWith> <https://www.bayer.com/btlo/HospitalVolunteer> ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <http://purl.bioontology.org/ontology/MESH/D064368> .
+
+<https://www.bayer.com/btlo/Hospital>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "An institution that provides medical, surgical, or psychiatric care and treatment for the sick or the injured."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Hospital"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://www.bayer.com/btlo/Organization> ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <http://purl.bioontology.org/ontology/NCIT#C16696> .
+
+<https://www.bayer.com/btlo/HospitalVolunteer>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Individuals who donate their services to the hospital."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Hospital Volunteer"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://www.bayer.com/btlo/Volunteer> ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <http://purl.bioontology.org/ontology/MESH/D006758> .
+
+<https://www.bayer.com/btlo/InitialMilestone>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "The initial/start milestone of a project"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Initial Milestone"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://www.bayer.com/btlo/Milestone> .
+
+<https://www.bayer.com/btlo/IntermediateMilestone>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Intermediate, middle milestone of a Project"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Intermediate Milestone"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://www.bayer.com/btlo/Milestone> .
+
+<https://www.bayer.com/btlo/IonChannel>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "A transmembrane pore that presents a hydrophilic channel for ions to cross a lipid bilayer down their electrochemical gradients. Some degree of ion specificity is usually observed and typically a million ions per second may flow. Channels may be permanently open, like the potassium leak channel or they may be voltage gated, like the sodium channel or ligand gated like the acetylcholine receptor."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Ion Channel"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://www.bayer.com/btlo/Target> ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <http://purl.bioontology.org/ontology/NCIT#C16754> .
+
+<https://www.bayer.com/btlo/Location>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "A position, site, or point in space where something can be found."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Location"@en ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <http://purl.bioontology.org/ontology/NCIT#C25341> .
+
+<https://www.bayer.com/btlo/Manufacturer>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/FraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "A person, enterprise, or entity that produces finished goods."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Manufacturer"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://www.bayer.com/btlo/Organization> ;
+    <http://www.w3.org/2004/02/skos/core#altLabel> "Manufacturer Name"@en ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <http://purl.bioontology.org/ontology/NCIT#C25392> .
+
+<https://www.bayer.com/btlo/MarketingAuthorization>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "The license to market a product with specified package sizes in a certain country."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Marketing Authorization"@en .
+
+<https://www.bayer.com/btlo/Milestone>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Milestones are tools used in project management to mark specific points along a project timeline."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://en.wikipedia.org/wiki/Milestone_(project_management)> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Milestone"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://www.bayer.com/btlo/ProjectComponent> ;
+    <http://www.w3.org/2004/02/skos/core#altLabel> "Decision"@en, "WorkPackage"@en .
+
+<https://www.bayer.com/btlo/Organization>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherTwo> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "A general Organization which can be public or private and can provide a specific service to the community."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Organization"@en .
+
+<https://www.bayer.com/btlo/Pathway>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "A set or series of interactions, often forming a network, which biologists have found useful to group together for organizational, historic, biophysical, or other reasons."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Pathway"@en ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <http://purl.bioontology.org/ontology/NCIT#C54214> .
+
+<https://www.bayer.com/btlo/Pending>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#NamedIndividual>, <https://www.bayer.com/btlo/Status> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Describes the pending status of a project or activity."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Pending"@en .
+
+<https://www.bayer.com/btlo/Person>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherTwo> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "This class represent the concept of alive or dead persons, i.e., Human beings."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Person"@en ;
+    <http://www.w3.org/2004/02/skos/core#altLabel> "Human Being"@en ;
+    <http://www.w3.org/2004/02/skos/core#prefLabel> "Person"@en ;
+    <http://www.w3.org/ns/prov#wasInfluencedBy> <http://xmlns.com/foaf/0.1/Person> .
+
+<https://www.bayer.com/btlo/PharmaceuticalProduct>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Any substance introduced into a living organism with therapeutic or diagnostic purpose."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Pharmaceutical Product"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://www.bayer.com/btlo/Drug> ;
+    <http://www.w3.org/2004/02/skos/core#altLabel> "Medicament"@en ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <http://purl.bioontology.org/ontology/CHEBI/CHEBI52217> .
+
+<https://www.bayer.com/btlo/Phenotype>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "The observable form taken by some character (or group of characters) in an individual or an organism, excluding pathology and disease. The detectable outward manifestations of a specific genotype."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Phenotype"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://purl.bioontology.org/ontology/MESH/D010641>, <http://purl.bioontology.org/ontology/NCIT#C16977>, <http://purl.bioontology.org/ontology/SNOMEDCT/8116006> ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <http://www.ebi.ac.uk/efo/EFO_0000651> .
+
+<https://www.bayer.com/btlo/Planned>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherTwo> ;
+    a <http://www.w3.org/2002/07/owl#NamedIndividual>, <https://www.bayer.com/btlo/Status> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Describes the status of a project or activity which is under planification."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Planned"@en .
+
+<https://www.bayer.com/btlo/PoC>
+    a <http://www.w3.org/2002/07/owl#NamedIndividual>, <https://www.bayer.com/btlo/IntermediateMilestone> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Proof of Concept"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Proof of Concept"@en .
+
+<https://www.bayer.com/btlo/Population>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "A population is a collection of individuals from the same taxonomic class living, counted or sampled at a particular site or in a particular area."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Population"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://purl.bioontology.org/ontology/MESH/D011153> ;
+    <http://www.w3.org/2004/02/skos/core#altLabel> "Target Population"@en ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <http://purl.bioontology.org/ontology/OBI/OBI_0000181> .
+
+<https://www.bayer.com/btlo/Project>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Any specifically defined piece of work that is undertaken or attempted to meet a single requirement."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Project"@en ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <http://purl.bioontology.org/ontology/NCIT#C47885> .
+
+<https://www.bayer.com/btlo/ProjectComponent>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherTwo> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Components which are part of the Project."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Project Component"@en .
+
+<https://www.bayer.com/btlo/ProjectManager>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherTwo> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "An employee who organizes and manage a given Project."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Project Manager"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://www.bayer.com/btlo/Employee> .
+
+<https://www.bayer.com/btlo/Protein>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "A group of complex organic macromolecules composed of one or more chains (linear polymers) of alpha-L-amino acids linked by peptide bonds and ranging in size from a few thousand to over 1 million Daltons. Proteins are fundamental genetically encoded components of living cells with specific structures and functions dictated by amino acid sequence."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Protein"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://purl.bioontology.org/ontology/SNOMEDCT/88878007> ;
+    <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://www.bayer.com/btlo/Target> ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <http://purl.bioontology.org/ontology/NCIT#C17021> .
+
+<https://www.bayer.com/btlo/Protocol>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "A plan specification which has sufficient level of detail and quantitative information to communicate it between investigation agents, so that different investigation agents will reliably be able to independently reproduce the process."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Protocol"@en ;
+    <http://www.w3.org/2004/02/skos/core#altLabel> "Study Protocol"@en ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <http://purl.bioontology.org/ontology/OBI/OBI_0000272> .
+
+<https://www.bayer.com/btlo/RDValueChainWorkflow>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherTwo> ;
+    a <http://www.w3.org/2002/07/owl#NamedIndividual>, <https://www.bayer.com/btlo/Workflow> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Research and Development value-chain workflow."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "RD Value Chain"@en ;
+    <https://www.bayer.com/btlo/hasEndMilestone> <https://www.bayer.com/btlo/D11> ;
+    <https://www.bayer.com/btlo/hasStartMilestone> <https://www.bayer.com/btlo/D1> .
+
+<https://www.bayer.com/btlo/ReSubmitted>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#NamedIndividual>, <https://www.bayer.com/btlo/Status> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Describes the resubmission status of a project or activity."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "ReSubmitted"@en .
+
+<https://www.bayer.com/btlo/Rejected>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#NamedIndividual>, <https://www.bayer.com/btlo/Status> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Describes the status of a project or activity when the project proposal or activity is rejected."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Rejected"@en .
+
+<https://www.bayer.com/btlo/Requested>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherTwo> ;
+    a <http://www.w3.org/2002/07/owl#NamedIndividual>, <https://www.bayer.com/btlo/Status> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Describes the status of a project or activity when the project proposal or activity proposal has been submitted for approval."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Requested"@en .
+
+<https://www.bayer.com/btlo/Requirement>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Something that is a necessary condition; something that is obligatory."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Requirement"@en ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <http://purl.bioontology.org/ontology/NCIT#C25652> .
+
+<https://www.bayer.com/btlo/ResearchActivity>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Systematic investigation into a subject in order to discover facts, establish or revise a theory, or develop a plan of action based on the facts discovered."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Research Activity"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://www.bayer.com/btlo/Activity> ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <http://purl.bioontology.org/ontology/NCIT#C15429> .
+
+<https://www.bayer.com/btlo/Specimen>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "A part of a thing, or of several things, taken to demonstrate or to determine the character of the whole, e.g. a substance, or portion of material obtained for use in testing, examination, or study; particularly, a preparation of tissue or bodily fluid taken for examination or diagnosis."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Specimen"@en ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <http://purl.bioontology.org/ontology/NCIT#C19157> .
+
+<https://www.bayer.com/btlo/Sponsor>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherTwo> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "A person, group of persons, or institution sponsoring an event, a project, a research, e.g., funding a medical study, sponsoring an event."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Sponsor"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid12 ;
+    <http://www.w3.org/ns/prov#wasInfluencedBy> <http://http://schema.org/sponsor> .
+
+<https://www.bayer.com/btlo/Status>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherTwo> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Status of a project or an activity. Each status represents the state of a project or activity as it moves through its lifecycle."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Status"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#seeAlso> <https://support.workfront.com/hc/en-us/articles/216668548-Understanding-Project-Statuses> .
+
+<https://www.bayer.com/btlo/Study>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "A detailed examination, analysis, or critical inspection of a subject designed to discover facts about it."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Study"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://www.bayer.com/btlo/ResearchActivity> ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <http://purl.bioontology.org/ontology/NCIT#C63536> .
+
+<https://www.bayer.com/btlo/Submission>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Something submitted for the judgment or consideration of others."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Submission"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://www.bayer.com/btlo/Activity> ;
+    <http://www.w3.org/2004/02/skos/core#note> "A compilation of the contents of one or more submission units that supports a specific regulatory purpose or decision. EXAMPLE(S): A request for approval to either market a product or to allow the applicant to start testing of a proposed product. NOTE(S): In most cases, the compilation of the submission units is used to assess a product's quality, safety and effectiveness. Submissions are always associated with some regulatory action (or inaction). Each submission contains their own regulatory action. Submissions (e.g., initial marketing application, supplemental marketing application) would generally be comprised of multiple submissions units. Most typically the submission will be used to organize information based on a review clock. Receipt date from the regulatory authority is important for a submission."@en ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <http://purl.bioontology.org/ontology/NCIT#C25694> .
+
+<https://www.bayer.com/btlo/Submitted>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#NamedIndividual>, <https://www.bayer.com/btlo/Status> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Describes the submission status of a project or activity."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Submitted"@en .
+
+<https://www.bayer.com/btlo/Symptom>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Subjective evidence of disease perceived by the patient."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Symptom"@en ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <http://purl.bioontology.org/ontology/NCIT#C4876> .
+
+<https://www.bayer.com/btlo/Target>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "An object fixed as a goal or point of examination; something to point at; a destination."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Target"@en ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <http://purl.bioontology.org/ontology/NCIT#C25702> .
+
+<https://www.bayer.com/btlo/Team>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherTwo> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Group of persons that jointly work for the same purpose"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Team"@en .
+
+<https://www.bayer.com/btlo/Training>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherTwo> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "A process aiming to achieve specific objectives."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Training"@en .
+
+<https://www.bayer.com/btlo/Treatment>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "A process in which the act is intended to modify or alter some other material entity."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Treatment"@en ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <http://www.ebi.ac.uk/efo/EFO_0000727> .
+
+<https://www.bayer.com/btlo/Variation>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "A change to an existing marketing authorization, e.g. a label change."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Variation"@en ;
+    <http://www.w3.org/2004/02/skos/core#altLabel> "Change"@en ;
+    <http://www.w3.org/2004/02/skos/core#note> "For every change an updated dossier has to be provided to the local Health Authority. The approval is required to keep the marketing authorization valid."@en .
+
+<https://www.bayer.com/btlo/Volunteer>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Persons who donate their services."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Volunteer"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://www.bayer.com/btlo/Person> ;
+    <http://www.w3.org/2004/02/skos/core#altLabel> "Subject"@en ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <http://purl.bioontology.org/ontology/MESH/D014838> .
+
+<https://www.bayer.com/btlo/Workflow>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#Class> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "The operational aspect of a work procedure: how tasks are structured, who performs them, what their relative order is, how they are synchronized, how information flows to support the tasks and how tasks are being tracked."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Workflow"@en ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <http://purl.bioontology.org/ontology/NCIT#C42753> .
+
+<https://www.bayer.com/btlo/belongsToCohort>
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne>, "Links a subject with a cohort."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Volunteer> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "belongs To Cohort"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/Cohort> .
+
+<https://www.bayer.com/btlo/dependOn>
+    a <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+
+<https://www.bayer.com/btlo/fraunhoferEISResearcherOne>
+    a <http://www.w3.org/2002/07/owl#NamedIndividual>, <http://xmlns.com/foaf/0.1/Person> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Lavdim Halilaj" ;
+    <http://xmlns.com/foaf/0.1/familyName> "Halilaj" ;
+    <http://xmlns.com/foaf/0.1/mbox> "lavdim.halilaj@iais.fraunhofer.de" ;
+    <http://xmlns.com/foaf/0.1/member> <https://www.bayer.com/btlo/fraunhoferGroup> ;
+    <http://xmlns.com/foaf/0.1/name> "Lavdim" .
+
+<https://www.bayer.com/btlo/fraunhoferEISResearcherTwo>
+    a <http://www.w3.org/2002/07/owl#NamedIndividual>, <http://xmlns.com/foaf/0.1/Person> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "Irlan Grangel" ;
+    <http://xmlns.com/foaf/0.1/familyName> "Grangel" ;
+    <http://xmlns.com/foaf/0.1/mbox> "irlan.grangel.gonzalez@iais.fraunhofer.de" ;
+    <http://xmlns.com/foaf/0.1/member> <https://www.bayer.com/btlo/fraunhoferGroup> ;
+    <http://xmlns.com/foaf/0.1/name> "Irlan" .
+
+<https://www.bayer.com/btlo/fraunhoferGroup>
+    a <http://www.w3.org/2002/07/owl#NamedIndividual>, <https://www.bayer.com/btlo/Organization> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Fraunhofer-Institut für Intelligente Analyse- und Informationssysteme IAIS"@de ;
+    <http://xmlns.com/foaf/0.1/homepage> <https://www.iais.fraunhofer.de/> ;
+    <http://xmlns.com/foaf/0.1/name> "Fraunhofer IAIS"@en .
+
+<https://www.bayer.com/btlo/hadDrugLabelID>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Unique identification of a drug label."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/DrugLabel> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Drug Label ID"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#long> ;
+    <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://www.bayer.com/btlo/hasID> .
+
+<https://www.bayer.com/btlo/hasActiveIngredient>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "The active ingredient of a formulation."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Formulation> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Active Ingredient"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/ActiveIngridient> .
+
+<https://www.bayer.com/btlo/hasActivity>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherTwo> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Links a Work Package with the Activities that are carried on in it."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Milestone> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Activity"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/Activity> .
+
+<https://www.bayer.com/btlo/hasActivityID>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Unique identification of an activity."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Activity> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Activity ID"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#long> ;
+    <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://www.bayer.com/btlo/hasID> .
+
+<https://www.bayer.com/btlo/hasAdverseEffect>
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Links a drug with its adverse event."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Drug> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Adverse Effect"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/AdverseEvent> .
+
+<https://www.bayer.com/btlo/hasApprovedDate>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Links a submussion with the date when it is approved."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Submission> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Approved Date"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> ;
+    <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://www.bayer.com/btlo/hasDate> .
+
+<https://www.bayer.com/btlo/hasAssociatedSymptom>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Links a disease with a symptom."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Disease> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Associated Symptom"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/Symptom> .
+
+<https://www.bayer.com/btlo/hasChemicalStructure>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Link a compound with a chemical structure."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Compound> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Chemical Structure"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/ChemicalStructure> .
+
+<https://www.bayer.com/btlo/hasComponent>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherTwo> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Links a Project with Project components."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Project> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Component"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/ProjectComponent> .
+
+<https://www.bayer.com/btlo/hasCompound>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Links a drug with a compound."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Drug> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Compound"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/Compound> .
+
+<https://www.bayer.com/btlo/hasCompoundID>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Unique identification of a compound."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Compound> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Compound ID"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#long> ;
+    <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://www.bayer.com/btlo/hasID> .
+
+<https://www.bayer.com/btlo/hasConcentration>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/FraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Mesaures concentration of a pharmaceutical product."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Compound> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Concentration"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/Concentration> .
+
+<https://www.bayer.com/btlo/hasContraindication>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Any special symptom or circumstance that renders the use of a remedy or the carrying out of a procedure inadvisable, usually because of risk."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/PharmaceuticalProduct> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Contraindication"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/Disease> ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <https://medical-dictionary.thefreedictionary.com/contraindication> .
+
+<https://www.bayer.com/btlo/hasDate>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Abstract property to represent the date of an event/activity."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Date"@en .
+
+<https://www.bayer.com/btlo/hasDepartment>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherTwo> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Links organizations with departments."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Organization> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Department"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/Department> .
+
+<https://www.bayer.com/btlo/hasDepartmentID>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Unique identification of a department."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Department> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Department ID"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#int> ;
+    <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://www.bayer.com/btlo/hasID> .
+
+<https://www.bayer.com/btlo/hasDepartmentInvolved>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Links an activity with a department."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Department Involved"@en ;
+    <http://www.w3.org/2002/07/owl#inverseOf> <https://www.bayer.com/btlo/isDepartmentInvolvedIn> .
+
+<https://www.bayer.com/btlo/hasDisease>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Links a hospital with a disease."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/HospitalVolunteer> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Disease"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/Disease> .
+
+<https://www.bayer.com/btlo/hasDiseaseAttributeID>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Unique identification of a diseasse attribute."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/DiseaseAttribute> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Disease Attribute ID"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#int> ;
+    <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://www.bayer.com/btlo/hasID> .
+
+<https://www.bayer.com/btlo/hasDiseaseAttributes>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Links a disease with its attributes."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Disease> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Disease Attribute"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/DiseaseAttribute> .
+
+<https://www.bayer.com/btlo/hasDiseaseID>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Unique identification of a disease."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Disease> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Disease ID"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#long> ;
+    <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://www.bayer.com/btlo/hasID> .
+
+<https://www.bayer.com/btlo/hasDiseaseName>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Describes the name of a disease."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Disease> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Disease Name"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://www.bayer.com/btlo/hasName> .
+
+<https://www.bayer.com/btlo/hasDosis>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Links a treatment with a particular drug dose."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Treatment> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Dosis"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/Dose> .
+
+<https://www.bayer.com/btlo/hasDossier>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Links a submission with a dossier."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Submission> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Dossier"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/Dossier> .
+
+<https://www.bayer.com/btlo/hasDossierID>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Unique identification of a dossier."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Dossier> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Dossier ID"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#long> ;
+    <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://www.bayer.com/btlo/hasID> .
+
+<https://www.bayer.com/btlo/hasDrug>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Links a treatment with used drug."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Treatment> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Drug"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/Drug> .
+
+<https://www.bayer.com/btlo/hasDrugDoseForm>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "The dose form of a pharmaceutical product."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> [
+        a <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2002/07/owl#unionOf> _:genid20
+    ] ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Drug Dose Form"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/DrugDoseForm> .
+
+<https://www.bayer.com/btlo/hasDrugDoseFormID>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Unique identification of a drug dose form."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/DrugDoseForm> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Drug Dose Form ID"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#int> ;
+    <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://www.bayer.com/btlo/hasID> .
+
+<https://www.bayer.com/btlo/hasDrugDrugInteraction>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty>, <http://www.w3.org/2002/07/owl#ReflexiveProperty>, <http://www.w3.org/2002/07/owl#TransitiveProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Links two drugs that interact with each other."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Drug> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Drug Drug Interaction"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/Drug> .
+
+<https://www.bayer.com/btlo/hasDrugLabel>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Links a pharmaceutical product with a drug label."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/PharmaceuticalProduct> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Drug Label"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/DrugLabel> .
+
+<https://www.bayer.com/btlo/hasDrugTargetInteraction>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Links a drug that interact with a target."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Drug> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Drug Target Interaction"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/Target> .
+
+<https://www.bayer.com/btlo/hasECTDNumber>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#DatatypeProperty>, <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "The sequence number of an electronic Common Technical Document (eCTD)."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Dossier> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has eCTD Number"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#long> ;
+    <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://www.bayer.com/btlo/hasID> .
+
+<https://www.bayer.com/btlo/hasEndDate>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherTwo> ;
+    a <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Links a given entity with the date it end."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> _:genid6 ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has End Date"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> ;
+    <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://www.bayer.com/btlo/hasDate> .
+
+<https://www.bayer.com/btlo/hasEndMilestone>
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Links Workflow with the End Milestone"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has End Milestone"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://www.bayer.com/btlo/hasMilestone> .
+
+<https://www.bayer.com/btlo/hasExcipient>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "An excipient of a formulation."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Formulation> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Excipient"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/Excipient> .
+
+<https://www.bayer.com/btlo/hasFormulation>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "The formulation of a pharmaceutical product."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/PharmaceuticalProduct> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Formulation"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/Formulation> .
+
+<https://www.bayer.com/btlo/hasFormulationID>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Unique identification of a formulation."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Formulation> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Formulation ID"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#long> ;
+    <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://www.bayer.com/btlo/hasID> .
+
+<https://www.bayer.com/btlo/hasGeneExpression>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "The expression of a gene."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Gene> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Gene Expression"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/GeneExpression> .
+
+<https://www.bayer.com/btlo/hasID>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherTwo> ;
+    a <http://www.w3.org/2002/07/owl#DatatypeProperty>, <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Abstract property to represent the unique identification of entities."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has ID"@en .
+
+<https://www.bayer.com/btlo/hasIndication>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "A sign, signal, circumstance, or symptom which serves to indicate or point out the cause, pathology, treatment, or issue of an attack of disease; the basis for initiation of a treatment for a disease or of a diagnostic test (causal, or symptomatic, or disease-specific indication)."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/PharmaceuticalProduct> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Indication"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/Disease> ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <https://medical-dictionary.thefreedictionary.com/contraindication> .
+
+<https://www.bayer.com/btlo/hasInput>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherTwo> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Activity> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Input"@en .
+
+<https://www.bayer.com/btlo/hasIntermediateMilestone>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Intermediate Milestone"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://www.bayer.com/btlo/hasMilestone> .
+
+<https://www.bayer.com/btlo/hasLearningObjective>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherTwo> ;
+    a <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Learning objectives for a Training"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Training> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Learning Objective"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+
+<https://www.bayer.com/btlo/hasLocalTradeName>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Trade name of a pharmaceutical product valid in specific country."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/ApprovedDrug> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Local Trade Name"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> ;
+    <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://www.bayer.com/btlo/hasName> .
+
+<https://www.bayer.com/btlo/hasLocation>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "The location of an organization."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Organization> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Location"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/Location> .
+
+<https://www.bayer.com/btlo/hasLocationID>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Unique identification of a location."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Location> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Location ID"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#int> ;
+    <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://www.bayer.com/btlo/hasID> .
+
+<https://www.bayer.com/btlo/hasMarketingAuthorization>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Links an authorized medicinal product with its marketing authorization."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/ApprovedDrug> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Marketing Authorization"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/MarketingAuthorization> .
+
+<https://www.bayer.com/btlo/hasMilestone>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Links a workflow with a milestone."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Workflow> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Milestone"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/Milestone> ;
+    <http://www.w3.org/2002/07/owl#inverseOf> <https://www.bayer.com/btlo/isMilestoneOf> .
+
+<https://www.bayer.com/btlo/hasMilestoneName>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherTwo> ;
+    a <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Describes the name of a Milestone."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Milestone> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Milestone Name"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> ;
+    <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://www.bayer.com/btlo/hasName> .
+
+<https://www.bayer.com/btlo/hasName>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Abstract property to represent the name of an entity."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Name"@en .
+
+<https://www.bayer.com/btlo/hasOrganizationID>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Unique identification of an organization."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <http://xmlns.com/foaf/0.1/Organization> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Organization ID"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#int> ;
+    <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://www.bayer.com/btlo/hasID> .
+
+<https://www.bayer.com/btlo/hasOutput>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherTwo> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Activity> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Output"@en .
+
+<https://www.bayer.com/btlo/hasPersonID>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Unique identification of a person."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Person> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Person ID"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#long> ;
+    <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://www.bayer.com/btlo/hasID> .
+
+<https://www.bayer.com/btlo/hasPharmaceuticalProduct>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Links a submission with a pharmaceutical product"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Dossier> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Pharmaceutical Product"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/PharmaceuticalProduct> .
+
+<https://www.bayer.com/btlo/hasPhenotype>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Links a volunteer with his/her phenotype."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Volunteer> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Phenotype"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/Phenotype> .
+
+<https://www.bayer.com/btlo/hasPlannedEndDate>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherTwo> ;
+    a <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Links a given entity with the planned date in which it should end."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> [
+        a <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2002/07/owl#unionOf> (<https://www.bayer.com/btlo/Activity>
+            <https://www.bayer.com/btlo/Project>
+        )
+    ] ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Planned End Date"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> ;
+    <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://www.bayer.com/btlo/hasDate> .
+
+<https://www.bayer.com/btlo/hasPlannedStartDate>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherTwo> ;
+    a <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Links a given entity with the planned date in which it should start."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> _:genid15 ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Planned Start Date"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> ;
+    <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://www.bayer.com/btlo/hasDate> .
+
+<https://www.bayer.com/btlo/hasProductFullName>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#DatatypeProperty>, <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "The full name of a pharmaceutical product."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/PharmaceuticalProduct> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Product Full Name"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> ;
+    <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://www.bayer.com/btlo/hasName> .
+
+<https://www.bayer.com/btlo/hasProductID>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#DatatypeProperty>, <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Unique identification number of a pharmaceutical product."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/PharmaceuticalProduct> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Product ID"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#long> ;
+    <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://www.bayer.com/btlo/hasID> .
+
+<https://www.bayer.com/btlo/hasProductName>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#DatatypeProperty>, <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "The name of a pharmaceutical product."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/PharmaceuticalProduct> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Product Name"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> ;
+    <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://www.bayer.com/btlo/hasName> .
+
+<https://www.bayer.com/btlo/hasProjectID>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherTwo> ;
+    a <http://www.w3.org/2002/07/owl#DatatypeProperty>, <http://www.w3.org/2002/07/owl#FunctionalProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "The unique identification of a project."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Project> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Project ID"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> ;
+    <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://www.bayer.com/btlo/hasID> .
+
+<https://www.bayer.com/btlo/hasProjectManager>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherTwo> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Links to the manager of the Project."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Project> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Project Manager"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/ProjectManager> .
+
+<https://www.bayer.com/btlo/hasProtocol>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Links a research activity with its protocol."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/ResearchActivity> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Protocol"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/Protocol> .
+
+<https://www.bayer.com/btlo/hasProtocolID>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Unique identification of a protocol."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Protocol> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Protocol ID"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#int> ;
+    <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://www.bayer.com/btlo/hasID> .
+
+<https://www.bayer.com/btlo/hasRequiredPhenotype>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Links a clinical study with a required phenotype."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/ClinicalStudy> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Required Phenotype"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/Phenotype> ;
+    <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://www.bayer.com/btlo/hasRequirement> .
+
+<https://www.bayer.com/btlo/hasRequirement>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Links an activity with a requirement."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Requirement"@en .
+
+<https://www.bayer.com/btlo/hasSpecimen>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Links a biobank with a specimen."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Biobank> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Specimen"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/Specimen> .
+
+<https://www.bayer.com/btlo/hasStartDate>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherTwo> ;
+    a <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Links a given entity with the date it starts."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> _:genid9 ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Start Date"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> ;
+    <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://www.bayer.com/btlo/hasDate> .
+
+<https://www.bayer.com/btlo/hasStartMilestone>
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://www.bayer.com/btlo/hasMilestone> .
+
+<https://www.bayer.com/btlo/hasStatus>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Abstract property to represent the status of an entity."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> _:genid3 ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Status"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/Status> .
+
+<https://www.bayer.com/btlo/hasStudyCohort>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Links a study with a cohort."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/ClinicalStudy> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Study Cohort"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/Cohort> .
+
+<https://www.bayer.com/btlo/hasSubmitedDate>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Date of submission of a dossier to a regulatory authory."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Submission> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Submitted Date"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> ;
+    <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://www.bayer.com/btlo/hasDate> .
+
+<https://www.bayer.com/btlo/hasSymptom>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Links a subject with a percieved symptom by him/her."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Volunteer> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Symptom"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/Symptom> .
+
+<https://www.bayer.com/btlo/hasTargetID>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Unique identification of a target."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Target> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Target ID"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#long> ;
+    <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://www.bayer.com/btlo/hasID> .
+
+<https://www.bayer.com/btlo/hasTargetPopulation>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Links a project with a target population for which a drug is developed."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Project> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Target Population"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/Population> .
+
+<https://www.bayer.com/btlo/hasTradeName>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Trade name of a pharmaceutical product."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/PharmaceuticalProduct> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Trade Name"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> ;
+    <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://www.bayer.com/btlo/hasName> .
+
+<https://www.bayer.com/btlo/hasTrainingID>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Unique identification of a training."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Training> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Training ID"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#int> ;
+    <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://www.bayer.com/btlo/hasID> .
+
+<https://www.bayer.com/btlo/hasTrainingName>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherTwo> ;
+    a <http://www.w3.org/2002/07/owl#DatatypeProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "The name of a Training."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Training> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Training Name"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> rdf:PlainLiteral ;
+    <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://www.bayer.com/btlo/hasName> .
+
+<https://www.bayer.com/btlo/hasTreatement>
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Links a protocol with a treatment."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Protocol> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Treatement"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/Treatment> ;
+    <http://www.w3.org/ns/prov#wasDerivedFrom> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> .
+
+<https://www.bayer.com/btlo/hasVariation>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Links an authorized drug product with a variation/change that has been made on it."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/ApprovedDrug> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Variation"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/Variation> .
+
+<https://www.bayer.com/btlo/hasWorkflow>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Links a project with a specific workflow."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Project> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "has Workflow"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/Workflow> .
+
+<https://www.bayer.com/btlo/isAuthorizedInGeographicalArea>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Links an authorized country with a pharmaceutical product."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/ApprovedDrug> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "is Authorized In Geographical Area"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/GeographicalArea> .
+
+<https://www.bayer.com/btlo/isConsentGiveBy>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Links a consent with a volunteer."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Consent> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "is Consent Given By"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/Volunteer> ;
+    <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topObjectProperty> .
+
+<https://www.bayer.com/btlo/isConsentGivenFor>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Links a consent with a clinical study or a biobank for which it is given for."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Consent> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "is Consent Given For"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> [
+        a <http://www.w3.org/2002/07/owl#Class> ;
+        <http://www.w3.org/2002/07/owl#unionOf> _:genid17
+    ] .
+
+<https://www.bayer.com/btlo/isDepartmentInvolvedIn>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Links a department with an activity."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Department> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "is Department Involved In"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/Activity> .
+
+<https://www.bayer.com/btlo/isInvolvedIn>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherTwo> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Links a Team which is involved in a specific Project"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Team> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "is Involved In"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/Project> .
+
+<https://www.bayer.com/btlo/isManufacturedBy>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "A Pharmaceutical Product is manufactured by a given Manufacturer."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/PharmaceuticalProduct> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "is Manufactured By"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/Manufacturer> .
+
+<https://www.bayer.com/btlo/isMemberOf>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherTwo> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Links the employees with teams meaning membership of a given employee to an specific team."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Employee> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "is Member Of"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/Team> .
+
+<https://www.bayer.com/btlo/isMilestoneOf>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Links a milestone with a workflow."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Milestone> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "is Milestone Of"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/Workflow> ;
+    <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topObjectProperty> .
+
+<https://www.bayer.com/btlo/isPartOfPathway>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Links a target with a pathway."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Target> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "is Part Of Pathway"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/Pathway> .
+
+<https://www.bayer.com/btlo/isResearchActivityConductedIn>
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Links a research activity with the place where it is conducted in."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/ResearchActivity> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne>, "is Research Activity Conducted In"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/Hospital> .
+
+<https://www.bayer.com/btlo/isSponsorOf>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherTwo> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Links a sponsor which support a specific project."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Sponsor> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "is Sponsor Of"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/Project> .
+
+<https://www.bayer.com/btlo/isSubmittedTo>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Links a dossier with the country or organization (e.g., EU) where it is submitted."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Submission> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "is Submitted To"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/HealthAuthority> .
+
+<https://www.bayer.com/btlo/isTargetAssociatedWithDisease>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherOne> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "Links a target with a disease."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Disease> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "is Target Associated With Disease"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/Target> .
+
+<https://www.bayer.com/btlo/receivesTraining>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherTwo> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "A given Employee receives a Training in a specific subject."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Employee> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "receives Training"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/Training> .
+
+<https://www.bayer.com/btlo/worksIn>
+    <http://purl.org/dc/terms/creator> <https://www.bayer.com/btlo/fraunhoferEISResearcherTwo> ;
+    a <http://www.w3.org/2002/07/owl#ObjectProperty> ;
+    <http://www.w3.org/2000/01/rdf-schema#comment> "A given Employee works in an Institution."@en ;
+    <http://www.w3.org/2000/01/rdf-schema#domain> <https://www.bayer.com/btlo/Employee> ;
+    <http://www.w3.org/2000/01/rdf-schema#label> "works In"@en ;
+    <http://www.w3.org/2000/01/rdf-schema#range> <https://www.bayer.com/btlo/Organization> .
+
+(<https://www.bayer.com/btlo/Project>
+) .
+
+(<https://www.bayer.com/btlo/Person>
+) .
+
+(<https://www.bayer.com/btlo/Organization>
+    <https://www.bayer.com/btlo/Person>
+) .
 
 _:genid12
+    a <http://www.w3.org/2002/07/owl#Class> ;
     <http://www.w3.org/2001/vcard-rdf/3.0#city> "Siegburg" ;
     <http://www.w3.org/2001/vcard-rdf/3.0#country-name> "Germany" ;
     <http://www.w3.org/2001/vcard-rdf/3.0#housenumber> "10" ;
     <http://www.w3.org/2001/vcard-rdf/3.0#postal-code> "53721" ;
     <http://www.w3.org/2001/vcard-rdf/3.0#region> "North Rhine-Westphalia" ;
     <http://www.w3.org/2001/vcard-rdf/3.0#street-address> "Wilhelmstr." ;
+    <http://www.w3.org/2002/07/owl#unionOf> _:genid11 ;
     <http://www.w3.org/2006/vcard/ns#city> "Bornheim" ;
     <http://www.w3.org/2006/vcard/ns#country-name> "Germany" ;
     <http://www.w3.org/2006/vcard/ns#housenumber> "15" ;
@@ -3122,146 +4685,99 @@ _:genid12
     <http://www.w3.org/2006/vcard/ns#region> "North Rhine-Westphalia" ;
     <http://www.w3.org/2006/vcard/ns#street-address> "Donnerbachweg" .
 
-_:genid13
-    <http://www.w3.org/2001/vcard-rdf/3.0#city> "Siegburg" ;
-    <http://www.w3.org/2001/vcard-rdf/3.0#country-name> "Germany" ;
-    <http://www.w3.org/2001/vcard-rdf/3.0#housenumber> "3" ;
-    <http://www.w3.org/2001/vcard-rdf/3.0#postal-code> "53721" ;
-    <http://www.w3.org/2001/vcard-rdf/3.0#region> "North Rhine-Westphalia" ;
-    <http://www.w3.org/2001/vcard-rdf/3.0#street-address> "Bachstrasse" ;
-    <http://www.w3.org/2006/vcard/ns#city> "Bonn" ;
-    <http://www.w3.org/2006/vcard/ns#country-name> "Germany" ;
-    <http://www.w3.org/2006/vcard/ns#housenumber> "3-5" ;
-    <http://www.w3.org/2006/vcard/ns#postal-code> "53125" ;
-    <http://www.w3.org/2006/vcard/ns#region> "North Rhine-Westphalia" ;
-    <http://www.w3.org/2006/vcard/ns#street-address> "Reichstrasse" .
+(<https://www.bayer.com/btlo/Project>
+) .
 
-_:genid14
-    <http://www.w3.org/2001/vcard-rdf/3.0#city> "Siegburg" ;
-    <http://www.w3.org/2001/vcard-rdf/3.0#country-name> "Germany" ;
-    <http://www.w3.org/2001/vcard-rdf/3.0#postal-code> "53721" ;
-    <http://www.w3.org/2001/vcard-rdf/3.0#region> "North Rhine-Westphalia" ;
-    <http://www.w3.org/2001/vcard-rdf/3.0#street-address> "Ringstrasse" ;
-    <http://www.w3.org/2006/vcard/ns#city> "Siegburg" ;
-    <http://www.w3.org/2006/vcard/ns#country-name> "Germany" ;
-    <http://www.w3.org/2006/vcard/ns#housenumber> "104" ;
-    <http://www.w3.org/2006/vcard/ns#postal-code> "53721" ;
-    <http://www.w3.org/2006/vcard/ns#region> "North Rhine-Westphalia" ;
-    <http://www.w3.org/2006/vcard/ns#street-address> "Zeithstraße" .
+(<https://www.bayer.com/btlo/Activity>
+    <https://www.bayer.com/btlo/Project>
+) .
 
 _:genid15
+    a <http://www.w3.org/2002/07/owl#Class> ;
     <http://www.w3.org/2001/vcard-rdf/3.0#city> "Siegburg" ;
     <http://www.w3.org/2001/vcard-rdf/3.0#country-name> "Germany" ;
     <http://www.w3.org/2001/vcard-rdf/3.0#housenumber> "1" ;
     <http://www.w3.org/2001/vcard-rdf/3.0#postal-code> "53721" ;
     <http://www.w3.org/2001/vcard-rdf/3.0#region> "North Rhine-Westphalia" ;
     <http://www.w3.org/2001/vcard-rdf/3.0#street-address> "Am Turm" ;
+    <http://www.w3.org/2002/07/owl#unionOf> _:genid14 ;
     <http://www.w3.org/2006/vcard/ns#city> "Siegburg" ;
     <http://www.w3.org/2006/vcard/ns#country-name> "Germany" ;
     <http://www.w3.org/2006/vcard/ns#postal-code> "53721" ;
     <http://www.w3.org/2006/vcard/ns#region> "North Rhine-Westphalia" ;
     <http://www.w3.org/2006/vcard/ns#street-address> "Konrad-Adenauer-Allee" .
 
-_:genid2
-    <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://purl.org/net/clange> ;
-    <http://www.w3.org/2001/vcard-rdf/3.0#city> "Bonn" ;
-    <http://www.w3.org/2001/vcard-rdf/3.0#country-name> "Germany" ;
-    <http://www.w3.org/2001/vcard-rdf/3.0#postal-code> "53227" ;
-    <http://www.w3.org/2001/vcard-rdf/3.0#region> "North Rhine-Westphalia" ;
-    <http://www.w3.org/2001/vcard-rdf/3.0#street-address> "Am Bonner Bogen" ;
-    <http://www.w3.org/2006/vcard/ns#country-name> "Germany" ;
-    <http://www.w3.org/2006/vcard/ns#locality> "Bonn" ;
-    <http://www.w3.org/2006/vcard/ns#postal-code> "53225" ;
-    <http://www.w3.org/2006/vcard/ns#region> "North Rhine-Westphalia" ;
-    <http://www.w3.org/2006/vcard/ns#street-address> "St. Augustiner Str. 145" ;
-    <http://xmlns.com/foaf/0.1/homepage> <http://langec.wordpress.com/about/> ;
-    <http://xmlns.com/foaf/0.1/name> "Christoph Lange" .
+(<https://www.bayer.com/btlo/ResearchActivity>
+) .
+
+(<https://www.bayer.com/btlo/Biobank>
+    <https://www.bayer.com/btlo/ResearchActivity>
+) .
+
+(<https://www.bayer.com/btlo/Treatment>
+) .
+
+(<https://www.bayer.com/btlo/Activity>
+    <https://www.bayer.com/btlo/Project>
+) .
+
+(<https://www.bayer.com/btlo/DrugLabel>
+    <https://www.bayer.com/btlo/Treatment>
+) .
 
 _:genid3
+    a <http://www.w3.org/2002/07/owl#Class> ;
     <http://www.w3.org/2001/vcard-rdf/3.0#city> "Bonn" ;
     <http://www.w3.org/2001/vcard-rdf/3.0#country-name> "Germany" ;
     <http://www.w3.org/2001/vcard-rdf/3.0#housenumber> "166" ;
     <http://www.w3.org/2001/vcard-rdf/3.0#postal-code> "53119" ;
     <http://www.w3.org/2001/vcard-rdf/3.0#region> "North Rhine-Westphalia" ;
     <http://www.w3.org/2001/vcard-rdf/3.0#street-address> "Bornheimer Straße" ;
+    <http://www.w3.org/2002/07/owl#unionOf> _:genid2 ;
     <http://www.w3.org/2006/vcard/ns#country-name> "Germany" ;
     <http://www.w3.org/2006/vcard/ns#locality> "Bonn" ;
     <http://www.w3.org/2006/vcard/ns#postal-code> "53119" ;
     <http://www.w3.org/2006/vcard/ns#region> "North Rhine-Westphalia" ;
     <http://www.w3.org/2006/vcard/ns#street-address> "Lievelingsweg 10" .
 
-_:genid4
-    <http://www.w3.org/2001/vcard-rdf/3.0#city> "Bonn" ;
-    <http://www.w3.org/2001/vcard-rdf/3.0#country-name> "Germany" ;
-    <http://www.w3.org/2001/vcard-rdf/3.0#postal-code> "53111" ;
-    <http://www.w3.org/2001/vcard-rdf/3.0#region> "North Rhine-Westphalia" ;
-    <http://www.w3.org/2001/vcard-rdf/3.0#street-address> "Weiherstraße" ;
-    <http://www.w3.org/2006/vcard/ns#country-name> "Germany" ;
-    <http://www.w3.org/2006/vcard/ns#locality> "Bonn" ;
-    <http://www.w3.org/2006/vcard/ns#postal-code> "53119" ;
-    <http://www.w3.org/2006/vcard/ns#region> "North Rhine-Westphalia" ;
-    <http://www.w3.org/2006/vcard/ns#street-address> "Potsdamer Platz 7" .
+(<https://www.bayer.com/btlo/Project>
+) .
 
-_:genid5
-    <http://www.w3.org/2001/vcard-rdf/3.0#city> "Bonn" ;
-    <http://www.w3.org/2001/vcard-rdf/3.0#country-name> "Germany" ;
-    <http://www.w3.org/2001/vcard-rdf/3.0#housenumber> "60-80" ;
-    <http://www.w3.org/2001/vcard-rdf/3.0#postal-code> "53175" ;
-    <http://www.w3.org/2001/vcard-rdf/3.0#region> "North Rhine-Westphalia" ;
-    <http://www.w3.org/2001/vcard-rdf/3.0#street-address> "Godesberger Str." ;
-    <http://www.w3.org/2006/vcard/ns#city> "Bonn" ;
-    <http://www.w3.org/2006/vcard/ns#country-name> "Germany" ;
-    <http://www.w3.org/2006/vcard/ns#postal-code> "53111" ;
-    <http://www.w3.org/2006/vcard/ns#region> "North Rhine-Westphalia" ;
-    <http://www.w3.org/2006/vcard/ns#street-address> "Engeltalstraße" .
+(<https://www.bayer.com/btlo/Activity>
+    <https://www.bayer.com/btlo/Project>
+) .
 
 _:genid6
+    a <http://www.w3.org/2002/07/owl#Class> ;
     <http://www.w3.org/2001/vcard-rdf/3.0#city> "Alfter" ;
     <http://www.w3.org/2001/vcard-rdf/3.0#country-name> "Germany" ;
     <http://www.w3.org/2001/vcard-rdf/3.0#housenumber> "7" ;
     <http://www.w3.org/2001/vcard-rdf/3.0#postal-code> "53347" ;
     <http://www.w3.org/2001/vcard-rdf/3.0#region> "North Rhine-Westphalia" ;
     <http://www.w3.org/2001/vcard-rdf/3.0#street-address> "Am Rathaus" ;
+    <http://www.w3.org/2002/07/owl#unionOf> _:genid5 ;
     <http://www.w3.org/2006/vcard/ns#city> "Bonn" ;
     <http://www.w3.org/2006/vcard/ns#country-name> "Germany" ;
     <http://www.w3.org/2006/vcard/ns#postal-code> "53227" ;
     <http://www.w3.org/2006/vcard/ns#region> "North Rhine-Westphalia" ;
     <http://www.w3.org/2006/vcard/ns#street-address> "Am Bonner Bogen" .
 
-_:genid7
-    <http://www.w3.org/2001/vcard-rdf/3.0#city> "Bornheim" ;
-    <http://www.w3.org/2001/vcard-rdf/3.0#country-name> "Germany" ;
-    <http://www.w3.org/2001/vcard-rdf/3.0#housenumber> "2" ;
-    <http://www.w3.org/2001/vcard-rdf/3.0#postal-code> "53332" ;
-    <http://www.w3.org/2001/vcard-rdf/3.0#region> "North Rhine-Westphalia" ;
-    <http://www.w3.org/2001/vcard-rdf/3.0#street-address> "Rathausstraße" ;
-    <http://www.w3.org/2006/vcard/ns#city> "Bonn" ;
-    <http://www.w3.org/2006/vcard/ns#country-name> "Germany" ;
-    <http://www.w3.org/2006/vcard/ns#housenumber> "166" ;
-    <http://www.w3.org/2006/vcard/ns#postal-code> "53119" ;
-    <http://www.w3.org/2006/vcard/ns#region> "North Rhine-Westphalia" ;
-    <http://www.w3.org/2006/vcard/ns#street-address> "Bornheimer Straße" .
+(<https://www.bayer.com/btlo/Project>
+) .
 
-_:genid8
-    <http://www.w3.org/2001/vcard-rdf/3.0#city> "Bornheim" ;
-    <http://www.w3.org/2001/vcard-rdf/3.0#country-name> "Germany" ;
-    <http://www.w3.org/2001/vcard-rdf/3.0#housenumber> "15" ;
-    <http://www.w3.org/2001/vcard-rdf/3.0#postal-code> "53332" ;
-    <http://www.w3.org/2001/vcard-rdf/3.0#region> "North Rhine-Westphalia" ;
-    <http://www.w3.org/2001/vcard-rdf/3.0#street-address> "Donnerbachweg" ;
-    <http://www.w3.org/2006/vcard/ns#city> "Bonn" ;
-    <http://www.w3.org/2006/vcard/ns#country-name> "Germany" ;
-    <http://www.w3.org/2006/vcard/ns#postal-code> "53111" ;
-    <http://www.w3.org/2006/vcard/ns#region> "North Rhine-Westphalia" ;
-    <http://www.w3.org/2006/vcard/ns#street-address> "Weiherstraße" .
+(<https://www.bayer.com/btlo/Activity>
+    <https://www.bayer.com/btlo/Project>
+) .
 
 _:genid9
+    a <http://www.w3.org/2002/07/owl#Class> ;
     <http://www.w3.org/2001/vcard-rdf/3.0#city> "Bonn" ;
     <http://www.w3.org/2001/vcard-rdf/3.0#country-name> "Germany" ;
     <http://www.w3.org/2001/vcard-rdf/3.0#housenumber> "3-5" ;
     <http://www.w3.org/2001/vcard-rdf/3.0#postal-code> "53125" ;
     <http://www.w3.org/2001/vcard-rdf/3.0#region> "North Rhine-Westphalia" ;
     <http://www.w3.org/2001/vcard-rdf/3.0#street-address> "Reichstrasse" ;
+    <http://www.w3.org/2002/07/owl#unionOf> _:genid8 ;
     <http://www.w3.org/2006/vcard/ns#city> "Bonn" ;
     <http://www.w3.org/2006/vcard/ns#country-name> "Germany" ;
     <http://www.w3.org/2006/vcard/ns#housenumber> "60-80" ;
