@@ -61,7 +61,7 @@ public class App {
 			mainQuery = "", Query = "", closedTag = "", splitSymbol = "", range = "", isDefinedBy = "", json = "";
 	static String turtleFolderPath = "../../../../repoFolder/";
 	static String outputFolderPath = "../../../jsonDataFiles/";
-//	String turtleFolderPath = "ttlFiles/Rest/";
+//	static String turtleFolderPath = "ttlFiles/test/";
 //	static String outputFolderPath = "out/";
 	public static void main(String[] args) throws IOException {
 		JSONArray mergingArrayClasses = new JSONArray();
@@ -72,6 +72,8 @@ public class App {
 		JSONObject mergedJsonObjectallRDFObjecs = new JSONObject();
 		JSONArray mergingAllSKOSObjecs = new JSONArray();
 		JSONObject mergedJsonObjectallSKOSObjecs = new JSONObject();
+		JSONObject mergedJsonOWLNamedIndividuals = new JSONObject();
+		JSONArray mergingJsonOWLNamedIndividuals = new JSONArray();
 
 		try {
 			
@@ -84,7 +86,10 @@ public class App {
 				JSONObject objSKOS = generateSKOSJSON(file.getCanonicalPath());
 				JSONObject objExternalClassesRDF = allRDFObjectsJSON(file.getCanonicalPath());
 				JSONObject objExternalClassesSKOS = allSKOSObjectsJSON(file.getCanonicalPath());
+				JSONObject objOWLNamedIndividuals = allOWLNamedIndividualsJSON(file.getCanonicalPath());
 
+				
+				
 				// check for empty JSONobjects
 				if (objClasses.length() != 0) {
 					// System.out.println(obj);
@@ -102,17 +107,27 @@ public class App {
 					// System.out.println(obj);
 					mergingAllSKOSObjecs.put(objExternalClassesSKOS);
 				}	
+				if (objOWLNamedIndividuals.length() != 0) {
+					// System.out.println(obj);
+					mergingJsonOWLNamedIndividuals.put(objOWLNamedIndividuals);
+				}	
+
 			}
 			mergedJsonObjectClasses.put("files", mergingArrayClasses);
 			mergedJsonObjectSKOS.put("files", mergingArraySKOS);
 			mergedJsonObjectallRDFObjecs.put("files", mergingAllRDFObjecs);
 			mergedJsonObjectallSKOSObjecs.put("files", mergingAllSKOSObjecs);
+			mergedJsonOWLNamedIndividuals.put("files", mergingJsonOWLNamedIndividuals);
+
 
 			// call to organize
 			SKOSFileDecode(mergedJsonObjectSKOS);
 			RDFSFileDecode(mergedJsonObjectClasses);
-			objectsFileDecode(mergedJsonObjectallRDFObjecs, "RDF");
+			objectsFileDecode(mergedJsonObjectallRDFObjecs, "RDFS");
 			objectsFileDecode(mergedJsonObjectallSKOSObjecs, "SKOS");
+			objectsFileDecode(mergedJsonOWLNamedIndividuals, "OWLIndividiual");
+
+			//System.out.println(mergedJsonOWLNamedIndividuals);
 
 		} catch (ArrayIndexOutOfBoundsException e) {
 			System.out.println("ArrayIndexOutOfBoundsException caught");
@@ -321,6 +336,56 @@ public class App {
 
 	}
 
+	public static JSONObject allOWLNamedIndividualsJSON(String _sourceFile) throws IOException {
+
+		org.apache.log4j.BasicConfigurator.configure(new NullAppender());
+
+		FileManager.get().addLocatorClassLoader(Main.class.getClassLoader());
+
+		OntModel ontModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM);
+		FileManager.get().readModel(ontModel, _sourceFile);
+
+		mainQuery =  "PREFIX owl:  <http://www.w3.org/2002/07/owl#>" 
+				+ "SELECT ?s ?p ?o  WHERE { ?s a owl:NamedIndividual;"
+				+ "?p ?o. }";
+		QueryExecution qexec = QueryExecutionFactory.create(mainQuery, ontModel);
+		ResultSet result = qexec.execSelect();
+		 //ResultSetFormatter.outputAsJSON(System.out, result);
+
+		// ResultSetFormatter.out(System.out, result2);
+
+		JSONObject jsonObject = new JSONObject();
+		JSONArray array = new JSONArray();
+
+		while (result.hasNext()) {
+			QuerySolution binding = result.nextSolution();
+			if (binding.get("s").toString() != null) {
+				Resource subject = (Resource) binding.get("s");
+				Resource predicate = (Resource) binding.get("p");
+				//Resource object = (Resource) binding.get("o");
+
+				JSONObject obj = new JSONObject();
+				obj.put("subject", trim(subject.getURI()));
+				obj.put("predicate", replaceWithRDFType(predicate.getURI()));
+				obj.put("subjectURI", subject.getURI());
+				obj.put("predicateURI", predicate.getURI());
+				obj.put("object", binding.get("o"));
+				File file = new File(_sourceFile);
+				obj.put("fileName", file.getName());
+
+
+				// File file = new File(_sourceFile);
+				// obj.put("fileName", file.getName());
+				array.put(obj);
+			}
+		}
+		// check location
+		jsonObject.put("array",array);
+
+		return jsonObject;
+
+	}
+	
 	public static JSONObject allRDFObjectsJSON(String _sourceFile) throws IOException {
 
 		org.apache.log4j.BasicConfigurator.configure(new NullAppender());
@@ -363,7 +428,7 @@ public class App {
 			}
 		}
 		// check location
-		jsonObject.put("externalClasses", array);
+		jsonObject.put("array", array);
 
 		return jsonObject;
 
@@ -410,7 +475,7 @@ public class App {
 			}
 		}
 		// check location
-		jsonObject.put("externalClasses", array);
+		jsonObject.put("array", array);
 
 		return jsonObject;
 
@@ -449,6 +514,9 @@ public class App {
 			return "rdfs:" + RDFTypeTrimmed.substring(RDFTypeTrimmed.lastIndexOf('#') + 1);
 		else if (RDFTypeTrimmed.indexOf("22-rdf-syntax-ns") >= 0)
 			return "rdf:" + RDFTypeTrimmed.substring(RDFTypeTrimmed.lastIndexOf('#') + 1);
+		else if (RDFType.contains("foaf"))
+			return "foaf:" + trim(RDFType);
+
 		else
 			return trim(RDFType);
 
@@ -524,24 +592,27 @@ public class App {
 	public static void objectsFileDecode(JSONObject obj, String type) {
 
 		try {
-			String filePath;
-			String outFileMessage;
+			String filePath = null;
+			String outFileMessage = null;
 			if (type == "SKOS") {
 				filePath = outputFolderPath + "SKOSObjects.json";
 				outFileMessage = "Successfully Copied allSKOSObjectJSON Object to File...";
 			}
 
-			else {
+			else if (type == "OWLIndividiual"){
+				filePath = outputFolderPath + "OWLIndividiuals.json";
+				outFileMessage = "Successfully Copied OWLIndividiualsJSON Object to File...";
+
+			}else if(type == "RDFS"){
 				filePath = outputFolderPath + "RDFSObjects.json";
 				outFileMessage = "Successfully Copied allRDFObjectJSON Object to File...";
-
 			}
 			JSONObject rootJSON = obj;
 			JSONArray orginzedArray = new JSONArray();
 			JSONArray dataList = (JSONArray) rootJSON.get("files");
 			for (Object projectObj : dataList) {
 				JSONObject project = (JSONObject) projectObj;
-				JSONArray issueList = (JSONArray) project.get("externalClasses");
+				JSONArray issueList = (JSONArray) project.get("array");
 				if (issueList.length() > 0) {
 					// System.out.println("\nParent ::" + issueList);
 					for (Object issueObj : issueList) {

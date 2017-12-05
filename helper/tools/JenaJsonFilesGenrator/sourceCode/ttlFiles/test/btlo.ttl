@@ -1,0 +1,1497 @@
+@prefix :      <https://www.bayer.com/btlo/> .
+@prefix schema: <http://http://schema.org/> .
+@prefix chebi: <http://purl.bioontology.org/ontology/CHEBI> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix doid:  <http://purl.bioontology.org/ontology/DOID> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ncit:  <http://purl.bioontology.org/ontology/NCIT#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix xml:   <http://www.w3.org/XML/1998/namespace> .
+@prefix vann:  <http://purl.org/vocab/vann/> .
+@prefix prov:  <http://www.w3.org/ns/prov#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix mesh:  <http://purl.bioontology.org/ontology/MESH/> .
+@prefix obib:  <http://purl.bioontology.org/ontology/OBIB/> .
+@prefix snomed: <http://purl.bioontology.org/ontology/SNOMEDCT> .
+@prefix go:    <http://purl.org/obo/owl/GO#> .
+@prefix efo:   <http://www.ebi.ac.uk/efo/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix obi:   <http://purl.bioontology.org/ontology/OBI/> .
+@prefix dul:   <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix btlo:  <https://www.bayer.com/btlo/> .
+@prefix obo:   <http://purl.obolibrary.org/obo/> .
+@prefix dc:    <http://purl.org/dc/elements/1.1/> .
+
+btlo:hasDossier  a    owl:ObjectProperty ;
+        rdfs:comment  "Links a submission with a dossier."@en ;
+        rdfs:domain   btlo:Submission ;
+        rdfs:label    "has Dossier"@en ;
+        rdfs:range    btlo:Dossier ;
+        dct:creator   btlo:fraunhoferEISResearcherOne .
+
+btlo:ClinicalTrial  a        owl:Class ;
+        rdfs:comment         "A work that reports on the results of a clinical study in which participants are assigned to receive one or more interventions so that researchers can evaluate the interventions on biomedical or health-related outcomes. The assignments are determined by the study protocol. Participants may receive diagnostic, therapeutic, or other types of interventions. While most clinical trials concern humans, this publication type may be used for clinical veterinary articles meeting the requisites for humans."@en ;
+        rdfs:label           "Clinical Trial"@en ;
+        rdfs:subClassOf      btlo:ClinicalStudy ;
+        dct:creator          btlo:fraunhoferEISResearcherOne ;
+        prov:wasDerivedFrom  mesh:D016430 .
+
+btlo:hasPharmaceuticalProduct
+        a             owl:ObjectProperty ;
+        rdfs:comment  "Links a submission with a pharmaceutical product"@en ;
+        rdfs:domain   btlo:Dossier ;
+        rdfs:label    "has Pharmaceutical Product"@en ;
+        rdfs:range    btlo:PharmaceuticalProduct ;
+        dct:creator   btlo:fraunhoferEISResearcherOne .
+
+btlo:hasStatus  a     owl:ObjectProperty ;
+        rdfs:comment  "Abstract property to represent the status of an entity."@en ;
+        rdfs:domain   [ a            owl:Class ;
+                        owl:unionOf  ( btlo:Activity btlo:Project )
+                      ] ;
+        rdfs:label    "has Status"@en ;
+        rdfs:range    btlo:Status ;
+        dct:creator   btlo:fraunhoferEISResearcherOne .
+
+btlo:Phenotype  a            owl:Class ;
+        rdfs:comment         "The observable form taken by some character (or group of characters) in an individual or an organism, excluding pathology and disease. The detectable outward manifestations of a specific genotype."@en ;
+        rdfs:label           "Phenotype"@en ;
+        rdfs:seeAlso         mesh:D010641 , ncit:C16977 , <http://purl.bioontology.org/ontology/SNOMEDCT/8116006> ;
+        dct:creator          btlo:fraunhoferEISResearcherOne ;
+        prov:wasDerivedFrom  efo:EFO_0000651 .
+
+btlo:hasPersonID  a         owl:DatatypeProperty ;
+        rdfs:comment        "Unique identification of a person."@en ;
+        rdfs:domain         btlo:Person ;
+        rdfs:label          "has Person ID"@en ;
+        rdfs:range          xsd:long ;
+        rdfs:subPropertyOf  btlo:hasID ;
+        dct:creator         btlo:fraunhoferEISResearcherOne .
+
+btlo:D7  a            btlo:IntermediateMilestone , owl:NamedIndividual ;
+        rdfs:comment  "D7 Milestone"@en ;
+        rdfs:label    "D7 Milestone"@en ;
+        <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#isDirectlyDependentOf>
+                btlo:D8 .
+
+btlo:DrugDoseForm  a         owl:Class ;
+        rdfs:comment         "Drug dose form (qualifier value), e.g., pillule or tablet."@en ;
+        rdfs:label           "Drug Dose Form"@en ;
+        dct:creator          btlo:fraunhoferEISResearcherOne ;
+        prov:wasDerivedFrom  <snomed:421967003> .
+
+btlo:Volunteer  a            owl:Class ;
+        rdfs:comment         "Persons who donate their services."@en ;
+        rdfs:label           "Volunteer"@en ;
+        rdfs:subClassOf      btlo:Person ;
+        dct:creator          btlo:fraunhoferEISResearcherOne ;
+        skos:altLabel        "Subject"@en ;
+        prov:wasDerivedFrom  mesh:D014838 .
+
+btlo:Dose  a                 owl:Class ;
+        rdfs:comment         "A quantity of an agent (such as substance or energy) administered, taken, or absorbed at one time."@en ;
+        rdfs:label           "Dose"@en ;
+        rdfs:seeAlso         efo:EFO_0000428 ;
+        dct:creator          btlo:fraunhoferEISResearcherOne ;
+        prov:wasDerivedFrom  ncit:C25488 .
+
+btlo:Complete  a      btlo:Status , owl:NamedIndividual ;
+        rdfs:comment  "Describes the status of a project or activity when it has been sucessfully completed, finished."@en ;
+        rdfs:label    "Completed"@en ;
+        dct:creator   btlo:fraunhoferEISResearcherTwo .
+
+btlo:Deliverable  a      owl:Class ;
+        rdfs:comment     "Deliverables are specific types of Project components which are typically results of the Project."@en ;
+        rdfs:label       "Deliverable"@en ;
+        rdfs:subClassOf  btlo:ProjectComponent ;
+        dct:creator      btlo:fraunhoferEISResearcherTwo .
+
+btlo:DrugRepositioningWorkflow
+        a                       owl:NamedIndividual , btlo:Workflow ;
+        rdfs:comment            "Describes a workflow to find new applications for existing drugs."@en ;
+        rdfs:label              "Drug Repositioning"@en ;
+        dct:creator             btlo:fraunhoferEISResearcherTwo ;
+        prov:wasInfluencedBy    mesh:D058492 ;
+        btlo:hasEndMilestone    btlo:D11 ;
+        btlo:hasStartMilestone  btlo:D4 .
+
+btlo:isMemberOf  a    owl:ObjectProperty ;
+        rdfs:comment  "Links the employees with teams meaning membership of a given employee to an specific team."@en ;
+        rdfs:domain   btlo:Employee ;
+        rdfs:label    "is Member Of"@en ;
+        rdfs:range    btlo:Team ;
+        dct:creator   btlo:fraunhoferEISResearcherTwo .
+
+btlo:Status  a        owl:Class ;
+        rdfs:comment  "Status of a project or an activity. Each status represents the state of a project or activity as it moves through its lifecycle."@en ;
+        rdfs:label    "Status"@en ;
+        rdfs:seeAlso  <https://support.workfront.com/hc/en-us/articles/216668548-Understanding-Project-Statuses> ;
+        dct:creator   btlo:fraunhoferEISResearcherTwo .
+
+btlo:isConsentGiveBy  a     owl:ObjectProperty ;
+        rdfs:comment        "Links a consent with a volunteer."@en ;
+        rdfs:domain         btlo:Consent ;
+        rdfs:label          "is Consent Given By"@en ;
+        rdfs:range          btlo:Volunteer ;
+        rdfs:subPropertyOf  owl:topObjectProperty ;
+        dct:creator         btlo:fraunhoferEISResearcherOne .
+
+btlo:hasMilestoneName
+        a                   owl:DatatypeProperty ;
+        rdfs:comment        "Describes the name of a Milestone."@en ;
+        rdfs:domain         btlo:Milestone ;
+        rdfs:label          "has Milestone Name"@en ;
+        rdfs:range          xsd:string ;
+        rdfs:subPropertyOf  btlo:hasName ;
+        dct:creator         btlo:fraunhoferEISResearcherTwo .
+
+btlo:Active  a        btlo:Status , owl:NamedIndividual ;
+        rdfs:comment  "Describes the status of a project or activity when it is active, i.e., under development."@en ;
+        rdfs:label    "Active"@en ;
+        dct:creator   btlo:fraunhoferEISResearcherTwo .
+
+<http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#isDependentOf>
+        a                 owl:TransitiveProperty , owl:ObjectProperty ;
+        rdfs:comment      "A relation between entities, expressing a 'sequence' schema. \nE.g. 'year 1999 precedes 2000', 'deciding what coffee to use' precedes 'preparing coffee', 'World War II follows World War I', 'in the Milan to Rome autoroute, Bologna precedes Florence', etc.\nIt can then be used between tasks, processes, time intervals, spatially locate objects, situations, etc. \nSubproperties can be defined in order to distinguish the different uses." ;
+        rdfs:domain       btlo:Milestone ;
+        rdfs:isDefinedBy  <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl> ;
+        rdfs:label        "is Dependent Of"@en ;
+        rdfs:range        btlo:Milestone ;
+        dct:creator       btlo:fraunhoferEISResearcherTwo .
+
+<http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#directlyDependsOn>
+        a                   owl:ObjectProperty ;
+        rdfs:comment        "The intransitive follows relation. For example, Wednesday directly precedes Thursday. Directness of precedence depends on the designer conceptualization." ;
+        rdfs:domain         btlo:Milestone ;
+        rdfs:isDefinedBy    <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl> ;
+        rdfs:label          "directly Depends On"@en ;
+        rdfs:range          btlo:Milestone ;
+        rdfs:subPropertyOf  <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#dependsOn> ;
+        dct:creator         btlo:fraunhoferEISResearcherTwo ;
+        owl:inverseOf       <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#isDirectlyDependentOf> .
+
+btlo:hasIndication  a        owl:ObjectProperty ;
+        rdfs:comment         "A sign, signal, circumstance, or symptom which serves to indicate or point out the cause, pathology, treatment, or issue of an attack of disease; the basis for initiation of a treatment for a disease or of a diagnostic test (causal, or symptomatic, or disease-specific indication)."@en ;
+        rdfs:domain          btlo:PharmaceuticalProduct ;
+        rdfs:label           "has Indication"@en ;
+        rdfs:range           btlo:Disease ;
+        dct:creator          btlo:fraunhoferEISResearcherOne ;
+        prov:wasDerivedFrom  <https://medical-dictionary.thefreedictionary.com/contraindication> .
+
+btlo:hadDrugLabelID  a      owl:DatatypeProperty ;
+        rdfs:comment        "Unique identification of a drug label."@en ;
+        rdfs:domain         btlo:DrugLabel ;
+        rdfs:label          "has Drug Label ID"@en ;
+        rdfs:range          xsd:long ;
+        rdfs:subPropertyOf  btlo:hasID ;
+        dct:creator         btlo:fraunhoferEISResearcherOne .
+
+foaf:name  a    owl:AnnotationProperty .
+
+btlo:Formulation  a          owl:Class ;
+        rdfs:comment         "The composition of a dosage form, including the characteristics of its raw materials and the operations required to process it.Formulation factors include chemical nature of the drug (ester, salt, complex, etc), drug solubility in water and organic solvents, particle size and surface area, type of dosage form (solution, suspension, capsule, tablet) and the excipients and processes used in the manufacturing of the drug delivery systems. The design of optimal drug delivery systems is thus an important part of providing an effective therapeutic.Official formulations for approved agents are presented in such books as the National Formulary and US Pharmacopeia. Whereas at one time, these were detailed and almost recipe-like, more recent entries may be limited to specifying the formula and imposing a standard limit for the active agent."@en ;
+        rdfs:label           "Formulation"@en ;
+        dct:creator          btlo:fraunhoferEISResearcherOne ;
+        skos:altLabel        "Formulation"@en , "Drug Formulation"@en ;
+        prov:wasDerivedFrom  ncit:C42638 .
+
+foaf:Person  a  owl:Class .
+
+btlo:Specimen  a             owl:Class ;
+        rdfs:comment         "A part of a thing, or of several things, taken to demonstrate or to determine the character of the whole, e.g. a substance, or portion of material obtained for use in testing, examination, or study; particularly, a preparation of tissue or bodily fluid taken for examination or diagnosis."@en ;
+        rdfs:label           "Specimen"@en ;
+        dct:creator          btlo:fraunhoferEISResearcherOne ;
+        prov:wasDerivedFrom  ncit:C19157 .
+
+btlo:hasEndMilestone  a     owl:ObjectProperty ;
+        rdfs:comment        "Links Workflow with the End Milestone"@en ;
+        rdfs:label          "has End Milestone"@en ;
+        rdfs:subPropertyOf  btlo:hasMilestone .
+
+btlo:hasEndDate  a          owl:DatatypeProperty ;
+        rdfs:comment        "Links a given entity with the date it end."@en ;
+        rdfs:domain         [ a            owl:Class ;
+                              owl:unionOf  ( btlo:Activity btlo:Project )
+                            ] ;
+        rdfs:label          "has End Date"@en ;
+        rdfs:range          xsd:dateTime ;
+        rdfs:subPropertyOf  btlo:hasDate ;
+        dct:creator         btlo:fraunhoferEISResearcherTwo .
+
+btlo:hasDosis  a      owl:ObjectProperty ;
+        rdfs:comment  "Links a treatment with a particular drug dose."@en ;
+        rdfs:domain   btlo:Treatment ;
+        rdfs:label    "has Dosis"@en ;
+        rdfs:range    btlo:Dose ;
+        dct:creator   btlo:fraunhoferEISResearcherOne .
+
+btlo:hasProjectManager
+        a             owl:ObjectProperty ;
+        rdfs:comment  "Links to the manager of the Project."@en ;
+        rdfs:domain   btlo:Project ;
+        rdfs:label    "has Project Manager"@en ;
+        rdfs:range    btlo:ProjectManager ;
+        dct:creator   btlo:fraunhoferEISResearcherTwo .
+
+btlo:HealthAuthority  a      owl:Class ;
+        rdfs:comment         "Governmental bodies that have the power to pass and enforce laws. EXAMPLE(S): Medicines and Healthcare Products Regulatory Agency (MHRA) in the UK; Food and Drug Administration (FDA) in the USA."@en , "Grants marketing authorization for a certain country or region,\ne.g. EMA, FDA."@en ;
+        rdfs:label           "Regulatory Authority"@en ;
+        rdfs:subClassOf      btlo:Organization ;
+        dct:creator          btlo:fraunhoferEISResearcherOne ;
+        skos:altLabel        "Health Authority"@en ;
+        prov:wasDerivedFrom  ncit:C88081 .
+
+btlo:hasWorkflow  a   owl:ObjectProperty ;
+        rdfs:comment  "Links a project with a specific workflow."@en ;
+        rdfs:domain   btlo:Project ;
+        rdfs:label    "has Workflow"@en ;
+        rdfs:range    btlo:Workflow ;
+        dct:creator   btlo:fraunhoferEISResearcherOne .
+
+btlo:isInvolvedIn  a  owl:ObjectProperty ;
+        rdfs:comment  "Links a Team which is involved in a specific Project"@en ;
+        rdfs:domain   btlo:Team ;
+        rdfs:label    "is Involved In"@en ;
+        rdfs:range    btlo:Project ;
+        dct:creator   btlo:fraunhoferEISResearcherTwo .
+
+btlo:hasRequirement  a  owl:ObjectProperty ;
+        rdfs:comment  "Links an activity with a requirement."@en ;
+        rdfs:label    "has Requirement"@en ;
+        dct:creator   btlo:fraunhoferEISResearcherOne .
+
+btlo:Organization  a  owl:Class ;
+        rdfs:comment  "A general Organization which can be public or private and can provide a specific service to the community."@en ;
+        rdfs:label    "Organization"@en ;
+        dct:creator   btlo:fraunhoferEISResearcherTwo .
+
+btlo:RDValueChainWorkflow
+        a                       owl:NamedIndividual , btlo:Workflow ;
+        rdfs:comment            "Research and Development value-chain workflow."@en ;
+        rdfs:label              "RD Value Chain"@en ;
+        dct:creator             btlo:fraunhoferEISResearcherTwo ;
+        btlo:hasEndMilestone    btlo:D11 ;
+        btlo:hasStartMilestone  btlo:D1 .
+
+btlo:Excipient  a            owl:Class ;
+        rdfs:comment         "Usually inert substances added to a prescription in order to provide suitable consistency to the dosage form. These include binders, matrix, base or diluent in pills, tablets, creams, salves, etc."@en ;
+        rdfs:label           "Excipient"@en ;
+        rdfs:seeAlso         <http://purl.bioontology.org/ontology/CHEBI/75324> ;
+        rdfs:subClassOf      btlo:Compound ;
+        dct:creator          btlo:fraunhoferEISResearcherOne ;
+        prov:wasDerivedFrom  mesh:D005079 .
+
+btlo:hasExcipient  a  owl:ObjectProperty ;
+        rdfs:comment  "An excipient of a formulation."@en ;
+        rdfs:domain   btlo:Formulation ;
+        rdfs:label    "has Excipient"@en ;
+        rdfs:range    btlo:Excipient ;
+        dct:creator   btlo:fraunhoferEISResearcherOne .
+
+btlo:hasStartDate  a        owl:DatatypeProperty ;
+        rdfs:comment        "Links a given entity with the date it starts."@en ;
+        rdfs:domain         [ a            owl:Class ;
+                              owl:unionOf  ( btlo:Activity btlo:Project )
+                            ] ;
+        rdfs:label          "has Start Date"@en ;
+        rdfs:range          xsd:dateTime ;
+        rdfs:subPropertyOf  btlo:hasDate ;
+        dct:creator         btlo:fraunhoferEISResearcherTwo .
+
+btlo:IntermediateMilestone
+        a                owl:Class ;
+        rdfs:comment     "Intermediate, middle milestone of a Project"@en ;
+        rdfs:label       "Intermediate Milestone"@en ;
+        rdfs:subClassOf  btlo:Milestone ;
+        dct:creator      btlo:fraunhoferEISResearcherOne .
+
+btlo:Target  a               owl:Class ;
+        rdfs:comment         "An object fixed as a goal or point of examination; something to point at; a destination."@en ;
+        rdfs:label           "Target"@en ;
+        dct:creator          btlo:fraunhoferEISResearcherOne ;
+        prov:wasDerivedFrom  ncit:C25702 .
+
+btlo:Pathway  a              owl:Class ;
+        rdfs:comment         "A set or series of interactions, often forming a network, which biologists have found useful to group together for organizational, historic, biophysical, or other reasons."@en ;
+        rdfs:label           "Pathway"@en ;
+        dct:creator          btlo:fraunhoferEISResearcherOne ;
+        prov:wasDerivedFrom  ncit:C54214 .
+
+btlo:hasTrainingID  a       owl:DatatypeProperty ;
+        rdfs:comment        "Unique identification of a training."@en ;
+        rdfs:domain         btlo:Training ;
+        rdfs:label          "has Training ID"@en ;
+        rdfs:range          xsd:int ;
+        rdfs:subPropertyOf  btlo:hasID ;
+        dct:creator         btlo:fraunhoferEISResearcherOne .
+
+btlo:isAuthorizedInGeographicalArea
+        a             owl:ObjectProperty ;
+        rdfs:comment  "Links an authorized country with a pharmaceutical product."@en ;
+        rdfs:domain   btlo:ApprovedDrug ;
+        rdfs:label    "is Authorized In Geographical Area"@en ;
+        rdfs:range    btlo:GeographicalArea ;
+        dct:creator   btlo:fraunhoferEISResearcherOne .
+
+btlo:hasProductFullName
+        a                   owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:comment        "The full name of a pharmaceutical product."@en ;
+        rdfs:domain         btlo:PharmaceuticalProduct ;
+        rdfs:label          "has Product Full Name"@en ;
+        rdfs:range          xsd:string ;
+        rdfs:subPropertyOf  btlo:hasName ;
+        dct:creator         btlo:fraunhoferEISResearcherOne .
+
+btlo:hasInput  a     owl:ObjectProperty ;
+        rdfs:domain  btlo:Activity ;
+        rdfs:label   "has Input"@en ;
+        dct:creator  btlo:fraunhoferEISResearcherTwo .
+
+btlo:AdverseEvent  a         owl:Class ;
+        rdfs:comment         "Used with drugs, chemicals, or biological agents in accepted dosage - or with physical agents or manufactured products in normal usage - when intended for diagnostic, therapeutic, prophylactic, or anesthetic purposes. It is used also for adverse effects or complications of diagnostic, therapeutic, prophylactic, anesthetic, surgical, or other procedures, but excludes contraindications for which \"contraindications\" is used."@en ;
+        rdfs:label           "Adverse Event"@en ;
+        dct:creator          btlo:fraunhoferEISResearcherOne ;
+        skos:altLabel        "Undesirable effects"@en , "Injurious effects"@en , "Adverse effects"@en , "Side effects"@en ;
+        prov:wasDerivedFrom  mesh:Q000009 .
+
+btlo:fraunhoferEISResearcherOne
+        a                foaf:Person , owl:NamedIndividual ;
+        rdfs:label       "Lavdim Halilaj" ;
+        foaf:familyName  "Halilaj" ;
+        foaf:mbox        "lavdim.halilaj@iais.fraunhofer.de" ;
+        foaf:member      btlo:fraunhoferGroup ;
+        foaf:name        "Lavdim" .
+
+btlo:fraunhoferGroup  a  btlo:Organization , owl:NamedIndividual ;
+        rdfs:comment   "Fraunhofer-Institut für Intelligente Analyse- und Informationssysteme IAIS"@de ;
+        foaf:homepage  <https://www.iais.fraunhofer.de/> ;
+        foaf:name      "Fraunhofer IAIS"@en .
+
+btlo:Location  a             owl:Class ;
+        rdfs:comment         "A position, site, or point in space where something can be found."@en ;
+        rdfs:label           "Location"@en ;
+        dct:creator          btlo:fraunhoferEISResearcherOne ;
+        prov:wasDerivedFrom  ncit:C25341 .
+
+btlo:isSubmittedTo  a  owl:ObjectProperty ;
+        rdfs:comment  "Links a dossier with the country or organization (e.g., EU) where it is submitted."@en ;
+        rdfs:domain   btlo:Submission ;
+        rdfs:label    "is Submitted To"@en ;
+        rdfs:range    btlo:HealthAuthority ;
+        dct:creator   btlo:fraunhoferEISResearcherOne .
+
+btlo:hasECTDNumber  a       owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:comment        "The sequence number of an electronic Common Technical Document (eCTD)."@en ;
+        rdfs:domain         btlo:Dossier ;
+        rdfs:label          "has eCTD Number"@en ;
+        rdfs:range          xsd:long ;
+        rdfs:subPropertyOf  btlo:hasID ;
+        dct:creator         btlo:fraunhoferEISResearcherOne .
+
+btlo:isSponsorOf  a   owl:ObjectProperty ;
+        rdfs:comment  "Links a sponsor which support a specific project."@en ;
+        rdfs:domain   btlo:Sponsor ;
+        rdfs:label    "is Sponsor Of"@en ;
+        rdfs:range    btlo:Project ;
+        dct:creator   btlo:fraunhoferEISResearcherTwo .
+
+foaf:member  a  owl:AnnotationProperty .
+
+btlo:hasName  a       owl:DatatypeProperty ;
+        rdfs:comment  "Abstract property to represent the name of an entity."@en ;
+        rdfs:label    "has Name"@en ;
+        dct:creator   btlo:fraunhoferEISResearcherOne .
+
+btlo:hasOutput  a    owl:ObjectProperty ;
+        rdfs:domain  btlo:Activity ;
+        rdfs:label   "has Output"@en ;
+        dct:creator  btlo:fraunhoferEISResearcherTwo .
+
+btlo:hasCompoundID  a       owl:DatatypeProperty ;
+        rdfs:comment        "Unique identification of a compound."@en ;
+        rdfs:domain         btlo:Compound ;
+        rdfs:label          "has Compound ID"@en ;
+        rdfs:range          xsd:long ;
+        rdfs:subPropertyOf  btlo:hasID ;
+        dct:creator         btlo:fraunhoferEISResearcherOne .
+
+foaf:familyName  a  owl:AnnotationProperty .
+
+foaf:homepage  a  owl:AnnotationProperty .
+
+btlo:Symptom  a              owl:Class ;
+        rdfs:comment         "Subjective evidence of disease perceived by the patient."@en ;
+        rdfs:label           "Symptom"@en ;
+        dct:creator          btlo:fraunhoferEISResearcherOne ;
+        prov:wasDerivedFrom  ncit:C4876 .
+
+btlo:Requested  a     btlo:Status , owl:NamedIndividual ;
+        rdfs:comment  "Describes the status of a project or activity when the project proposal or activity proposal has been submitted for approval."@en ;
+        rdfs:label    "Requested"@en ;
+        dct:creator   btlo:fraunhoferEISResearcherTwo .
+
+btlo:Experiment  a           owl:Class ;
+        rdfs:comment         "A coordinated set of actions and observations designed to generate data, with the ultimate goal of discovery or hypothesis testing."@en ;
+        rdfs:label           "Experiment"@en ;
+        rdfs:subClassOf      btlo:ResearchActivity ;
+        dct:creator          btlo:fraunhoferEISResearcherOne ;
+        prov:wasDerivedFrom  ncit:C42790 .
+
+btlo:Sponsor  a               owl:Class ;
+        rdfs:comment          "A person, group of persons, or institution sponsoring an event, a project, a research, e.g., funding a medical study, sponsoring an event."@en ;
+        rdfs:label            "Sponsor"@en ;
+        rdfs:subClassOf       [ a            owl:Class ;
+                                owl:unionOf  ( btlo:Organization btlo:Person )
+                              ] ;
+        dct:creator           btlo:fraunhoferEISResearcherTwo ;
+        prov:wasInfluencedBy  schema:sponsor .
+
+btlo:hasPlannedStartDate
+        a                   owl:DatatypeProperty ;
+        rdfs:comment        "Links a given entity with the planned date in which it should start."@en ;
+        rdfs:domain         [ a            owl:Class ;
+                              owl:unionOf  ( btlo:Activity btlo:Project )
+                            ] ;
+        rdfs:label          "has Planned Start Date"@en ;
+        rdfs:range          xsd:dateTime ;
+        rdfs:subPropertyOf  btlo:hasDate ;
+        dct:creator         btlo:fraunhoferEISResearcherTwo .
+
+btlo:isConsentGivenFor
+        a             owl:ObjectProperty ;
+        rdfs:comment  "Links a consent with a clinical study or a biobank for which it is given for."@en ;
+        rdfs:domain   btlo:Consent ;
+        rdfs:label    "is Consent Given For"@en ;
+        rdfs:range    [ a            owl:Class ;
+                        owl:unionOf  ( btlo:Biobank btlo:ResearchActivity )
+                      ] ;
+        dct:creator   btlo:fraunhoferEISResearcherOne .
+
+btlo:Protocol  a             owl:Class ;
+        rdfs:comment         "A plan specification which has sufficient level of detail and quantitative information to communicate it between investigation agents, so that different investigation agents will reliably be able to independently reproduce the process."@en ;
+        rdfs:label           "Protocol"@en ;
+        dct:creator          btlo:fraunhoferEISResearcherOne ;
+        skos:altLabel        "Study Protocol"@en ;
+        prov:wasDerivedFrom  obi:OBI_0000272 .
+
+btlo:D6  a            btlo:IntermediateMilestone , owl:NamedIndividual ;
+        rdfs:comment  "D6 Milestone"@en ;
+        rdfs:label    "D6 Milestone"@en ;
+        <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#isDirectlyDependentOf>
+                btlo:D7 .
+
+btlo:ApprovedDrug  a     owl:Class ;
+        rdfs:comment     "The medicinal product as it is licensed in a certain country to be marketed."@en ;
+        rdfs:label       "Authorized Medicinal Product"@en ;
+        rdfs:subClassOf  btlo:PharmaceuticalProduct ;
+        dct:creator      btlo:fraunhoferEISResearcherOne ;
+        skos:altLabel    "Approved Drug"@en .
+
+prov:wasInfluencedBy  a  owl:AnnotationProperty .
+
+btlo:hasTrainingName  a     owl:DatatypeProperty ;
+        rdfs:comment        "The name of a Training."@en ;
+        rdfs:domain         btlo:Training ;
+        rdfs:label          "has Training Name"@en ;
+        rdfs:range          rdf:PlainLiteral ;
+        rdfs:subPropertyOf  btlo:hasName ;
+        dct:creator         btlo:fraunhoferEISResearcherTwo .
+
+btlo:Team  a          owl:Class ;
+        rdfs:comment  "Group of persons that jointly work for the same purpose"@en ;
+        rdfs:label    "Team"@en ;
+        dct:creator   btlo:fraunhoferEISResearcherTwo .
+
+skos:altLabel  a  owl:AnnotationProperty .
+
+btlo:HospitalVolunteer
+        a                    owl:Class ;
+        rdfs:comment         "Individuals who donate their services to the hospital."@en ;
+        rdfs:label           "Hospital Volunteer"@en ;
+        rdfs:subClassOf      btlo:Volunteer ;
+        dct:creator          btlo:fraunhoferEISResearcherOne ;
+        prov:wasDerivedFrom  mesh:D006758 .
+
+btlo:Population  a           owl:Class ;
+        rdfs:comment         "A population is a collection of individuals from the same taxonomic class living, counted or sampled at a particular site or in a particular area."@en ;
+        rdfs:label           "Population"@en ;
+        rdfs:seeAlso         mesh:D011153 ;
+        dct:creator          btlo:fraunhoferEISResearcherOne ;
+        skos:altLabel        "Target Population"@en ;
+        prov:wasDerivedFrom  obi:OBI_0000181 .
+
+btlo:Training  a      owl:Class ;
+        rdfs:comment  "A process aiming to achieve specific objectives."@en ;
+        rdfs:label    "Training"@en ;
+        dct:creator   btlo:fraunhoferEISResearcherTwo .
+
+btlo:HealthyVolunteer
+        a                    owl:Class ;
+        rdfs:comment         "Persons with no known significant health problems who are recruited to participate in research to test a new drug, device, or intervention as controls for a patient group. (from http://clinicalcenter.nih.gov/recruit/volunteers.html, accessed 2/14/2013)"@en ;
+        rdfs:label           "Healthy Volunteer"@en ;
+        rdfs:subClassOf      btlo:Volunteer ;
+        dct:creator          btlo:fraunhoferEISResearcherOne ;
+        owl:disjointWith     btlo:HospitalVolunteer ;
+        prov:wasDerivedFrom  mesh:D064368 .
+
+btlo:hasProductName  a      owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:comment        "The name of a pharmaceutical product."@en ;
+        rdfs:domain         btlo:PharmaceuticalProduct ;
+        rdfs:label          "has Product Name"@en ;
+        rdfs:range          xsd:string ;
+        rdfs:subPropertyOf  btlo:hasName ;
+        dct:creator         btlo:fraunhoferEISResearcherOne .
+
+btlo:DiseaseAttribute
+        a                    owl:Class ;
+        rdfs:comment         "Clinical characteristics of disease or illness."@en ;
+        rdfs:label           "Disease Attribute"@en ;
+        dct:creator          btlo:fraunhoferEISResearcherOne ;
+        prov:wasDerivedFrom  mesh:D020969 .
+
+btlo:Dossier  a              owl:Class ;
+        rdfs:comment         "A collection of documents a containing detailed data (administrative, chemistry, pre-clinical and clinical) about a pharmaceutical product to be submitted to the Regulatory Agencies of a country with the objective of supporting its marketing / approval in that country."@en , "Compiled package of all information required for an Marketing Authorization Application or a later change of the application."@en ;
+        rdfs:label           "Dossier"@en ;
+        dct:creator          btlo:fraunhoferEISResearcherOne ;
+        prov:wasDerivedFrom  <http://www.pharmaceutical-business-review.com/suppliers/ennov/products/dossier> .
+
+<http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#dependsOn>
+        a                 owl:TransitiveProperty , owl:ObjectProperty ;
+        rdfs:comment      "A relation between entities, expressing a 'sequence' schema. \nE.g. 'year 2000 follows 1999', 'preparing coffee' follows 'deciding what coffee to use', 'II World War follows I World War', etc. \nIt can be used between tasks, processes or time intervals, and subproperties would fit best in order to distinguish the different uses." ;
+        rdfs:domain       btlo:Milestone ;
+        rdfs:isDefinedBy  <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl> ;
+        rdfs:label        "depends On"@en ;
+        rdfs:range        btlo:Milestone ;
+        dct:creator       btlo:fraunhoferEISResearcherTwo ;
+        owl:inverseOf     <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#isDependentOf> .
+
+btlo:hasComponent  a  owl:ObjectProperty ;
+        rdfs:comment  "Links a Project with Project components."@en ;
+        rdfs:domain   btlo:Project ;
+        rdfs:label    "has Component"@en ;
+        rdfs:range    btlo:ProjectComponent ;
+        dct:creator   btlo:fraunhoferEISResearcherTwo .
+
+btlo:Employee  a              owl:Class ;
+        rdfs:comment          "Someone working for this organization."@en ;
+        rdfs:label            "Employee"@en ;
+        rdfs:subClassOf       btlo:Person ;
+        dct:creator           btlo:fraunhoferEISResearcherOne ;
+        prov:wasInfluencedBy  <schema:employee> .
+
+btlo:hasOrganizationID
+        a                   owl:DatatypeProperty ;
+        rdfs:comment        "Unique identification of an organization."@en ;
+        rdfs:domain         foaf:Organization ;
+        rdfs:label          "has Organization ID"@en ;
+        rdfs:range          xsd:int ;
+        rdfs:subPropertyOf  btlo:hasID ;
+        dct:creator         btlo:fraunhoferEISResearcherOne .
+
+btlo:hasFormulation  a  owl:ObjectProperty ;
+        rdfs:comment  "The formulation of a pharmaceutical product."@en ;
+        rdfs:domain   btlo:PharmaceuticalProduct ;
+        rdfs:label    "has Formulation"@en ;
+        rdfs:range    btlo:Formulation ;
+        dct:creator   btlo:fraunhoferEISResearcherOne .
+
+btlo:GeographicalArea
+        a                    owl:Class ;
+        rdfs:comment         "Any demarcated area of the Earth; may be determined by both natural and human boundaries."@en ;
+        rdfs:label           "Geographical Area"@en ;
+        rdfs:subClassOf      btlo:Location ;
+        dct:creator          btlo:fraunhoferEISResearcherOne ;
+        prov:wasDerivedFrom  ncit:C16632 .
+
+btlo:MarketingAuthorization
+        a             owl:Class ;
+        rdfs:comment  "The license to market a product with specified package sizes in a certain country."@en ;
+        rdfs:label    "Marketing Authorization"@en ;
+        dct:creator   btlo:fraunhoferEISResearcherOne .
+
+btlo:ProjectComponent
+        a             owl:Class ;
+        rdfs:comment  "Components which are part of the Project."@en ;
+        rdfs:label    "Project Component"@en ;
+        dct:creator   btlo:fraunhoferEISResearcherTwo .
+
+btlo:hasLocation  a   owl:ObjectProperty ;
+        rdfs:comment  "The location of an organization."@en ;
+        rdfs:domain   btlo:Organization ;
+        rdfs:label    "has Location"@en ;
+        rdfs:range    btlo:Location ;
+        dct:creator   btlo:fraunhoferEISResearcherOne .
+
+btlo:Treatment  a            owl:Class ;
+        rdfs:comment         "A process in which the act is intended to modify or alter some other material entity."@en ;
+        rdfs:label           "Treatment"@en ;
+        dct:creator          btlo:fraunhoferEISResearcherOne ;
+        prov:wasDerivedFrom  efo:EFO_0000727 .
+
+dct:creator  a  owl:AnnotationProperty .
+
+btlo:ChemicalStructure
+        a                    owl:Class ;
+        rdfs:comment         "Used with chemicals, biological, and non-biological substances for their composition, structure, characterization, and properties; also used for the chemical composition or content of organs, tissue, tumors, body fluids, organisms, and plants. Excludes chemical analysis and determination of substances for which \"analysis\" is used; excludes synthesis for which \"chemical synthesis\" is used; excludes isolation and purification of substances for which \"isolation & purification\" is used."@en ;
+        rdfs:label           "Chemical Structure"@en ;
+        rdfs:seeAlso         ncit:C103240 ;
+        dct:creator          btlo:fraunhoferEISResearcherOne ;
+        prov:wasDerivedFrom  mesh:Q000737 .
+
+btlo:hasStartMilestone
+        a                   owl:ObjectProperty ;
+        rdfs:subPropertyOf  btlo:hasMilestone .
+
+btlo:hasDrugTargetInteraction
+        a             owl:ObjectProperty ;
+        rdfs:comment  "Links a drug that interact with a target."@en ;
+        rdfs:domain   btlo:Drug ;
+        rdfs:label    "has Drug Target Interaction"@en ;
+        rdfs:range    btlo:Target ;
+        dct:creator   btlo:fraunhoferEISResearcherOne .
+
+skos:prefLabel  a  owl:AnnotationProperty .
+
+btlo:hasMarketingAuthorization
+        a             owl:ObjectProperty ;
+        rdfs:comment  "Links an authorized medicinal product with its marketing authorization."@en ;
+        rdfs:domain   btlo:ApprovedDrug ;
+        rdfs:label    "has Marketing Authorization"@en ;
+        rdfs:range    btlo:MarketingAuthorization ;
+        dct:creator   btlo:fraunhoferEISResearcherOne .
+
+btlo:hasFormulationID
+        a                   owl:DatatypeProperty ;
+        rdfs:comment        "Unique identification of a formulation."@en ;
+        rdfs:domain         btlo:Formulation ;
+        rdfs:label          "has Formulation ID"@en ;
+        rdfs:range          xsd:long ;
+        rdfs:subPropertyOf  btlo:hasID ;
+        dct:creator         btlo:fraunhoferEISResearcherOne .
+
+btlo:hasLearningObjective
+        a             owl:DatatypeProperty ;
+        rdfs:comment  "Learning objectives for a Training"@en ;
+        rdfs:domain   btlo:Training ;
+        rdfs:label    "has Learning Objective"@en ;
+        rdfs:range    xsd:string ;
+        dct:creator   btlo:fraunhoferEISResearcherTwo .
+
+btlo:hasDiseaseName  a      owl:DatatypeProperty ;
+        rdfs:comment        "Describes the name of a disease."@en ;
+        rdfs:domain         btlo:Disease ;
+        rdfs:label          "has Disease Name"@en ;
+        rdfs:subPropertyOf  btlo:hasName ;
+        dct:creator         btlo:fraunhoferEISResearcherOne .
+
+<http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#isDirectlyDependentOf>
+        a                   owl:ObjectProperty ;
+        rdfs:comment        "The intransitive precedes relation. For example, Monday directly precedes Tuesday. Directness of precedence depends on the designer conceptualization." ;
+        rdfs:domain         btlo:Milestone ;
+        rdfs:isDefinedBy    <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl> ;
+        rdfs:label          "is Directly Dependent Of"@en ;
+        rdfs:range          btlo:Milestone ;
+        rdfs:subPropertyOf  <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#isDependentOf> ;
+        dct:creator         btlo:fraunhoferEISResearcherTwo .
+
+foaf:mbox  a    owl:AnnotationProperty .
+
+btlo:Biobank  a              owl:Class ;
+        rdfs:comment         "A biobank is a collections of samples of biological substances (e.g. tissue, blood, DNA) which are linked to data about the samples and their donors. They have a dual nature as collections of samples and data."@en ;
+        rdfs:label           "Biobank"@en ;
+        dct:creator          btlo:fraunhoferEISResearcherOne ;
+        prov:wasDerivedFrom  obo:OMIABIS_0000000 .
+
+btlo:hasMilestone  a   owl:ObjectProperty ;
+        rdfs:comment   "Links a workflow with a milestone."@en ;
+        rdfs:domain    btlo:Workflow ;
+        rdfs:label     "has Milestone"@en ;
+        rdfs:range     btlo:Milestone ;
+        dct:creator    btlo:fraunhoferEISResearcherOne ;
+        owl:inverseOf  btlo:isMilestoneOf .
+
+btlo:Variation  a      owl:Class ;
+        rdfs:comment   "A change to an existing marketing authorization, e.g. a label change."@en ;
+        rdfs:label     "Variation"@en ;
+        dct:creator    btlo:fraunhoferEISResearcherOne ;
+        skos:altLabel  "Change"@en ;
+        skos:note      "For every change an updated dossier has to be provided to the local Health Authority. The approval is required to keep the marketing authorization valid."@en .
+
+btlo:Study  a                owl:Class ;
+        rdfs:comment         "A detailed examination, analysis, or critical inspection of a subject designed to discover facts about it."@en ;
+        rdfs:label           "Study"@en ;
+        rdfs:subClassOf      btlo:ResearchActivity ;
+        dct:creator          btlo:fraunhoferEISResearcherOne ;
+        prov:wasDerivedFrom  ncit:C63536 .
+
+btlo:hasProtocol  a   owl:ObjectProperty ;
+        rdfs:comment  "Links a research activity with its protocol."@en ;
+        rdfs:domain   btlo:ResearchActivity ;
+        rdfs:label    "has Protocol"@en ;
+        rdfs:range    btlo:Protocol ;
+        dct:creator   btlo:fraunhoferEISResearcherOne .
+
+btlo:hasProductID  a        owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:comment        "Unique identification number of a pharmaceutical product."@en ;
+        rdfs:domain         btlo:PharmaceuticalProduct ;
+        rdfs:label          "has Product ID"@en ;
+        rdfs:range          xsd:long ;
+        rdfs:subPropertyOf  btlo:hasID ;
+        dct:creator         btlo:fraunhoferEISResearcherOne .
+
+btlo:InitialMilestone
+        a                owl:Class ;
+        rdfs:comment     "The initial/start milestone of a project"@en ;
+        rdfs:label       "Initial Milestone"@en ;
+        rdfs:subClassOf  btlo:Milestone ;
+        dct:creator      btlo:fraunhoferEISResearcherOne .
+
+btlo:hasDrugLabel  a  owl:ObjectProperty ;
+        rdfs:comment  "Links a pharmaceutical product with a drug label."@en ;
+        rdfs:domain   btlo:PharmaceuticalProduct ;
+        rdfs:label    "has Drug Label"@en ;
+        rdfs:range    btlo:DrugLabel ;
+        dct:creator   btlo:fraunhoferEISResearcherOne .
+
+btlo:hasRequiredPhenotype
+        a                   owl:ObjectProperty ;
+        rdfs:comment        "Links a clinical study with a required phenotype."@en ;
+        rdfs:domain         btlo:ClinicalStudy ;
+        rdfs:label          "has Required Phenotype"@en ;
+        rdfs:range          btlo:Phenotype ;
+        rdfs:subPropertyOf  btlo:hasRequirement ;
+        dct:creator         btlo:fraunhoferEISResearcherOne .
+
+btlo:hasDrugDoseForm  a  owl:ObjectProperty ;
+        rdfs:comment  "The dose form of a pharmaceutical product."@en ;
+        rdfs:domain   [ a            owl:Class ;
+                        owl:unionOf  ( btlo:DrugLabel btlo:Treatment )
+                      ] ;
+        rdfs:label    "has Drug Dose Form"@en ;
+        rdfs:range    btlo:DrugDoseForm ;
+        dct:creator   btlo:fraunhoferEISResearcherOne .
+
+btlo:Country  a               owl:Class ;
+        rdfs:comment          "A collective generic term that refers here to a wide variety of dependencies, areas of special sovereignty, uninhabited islands, and other entities in addition to the traditional countries or independent states."@en ;
+        rdfs:label            "Country"@en ;
+        rdfs:subClassOf       btlo:GeographicalArea ;
+        dct:creator           btlo:fraunhoferEISResearcherOne ;
+        prov:wasDerivedFrom   ncit:C25464 ;
+        prov:wasInfluencedBy  schema:Country .
+
+btlo:ClinicalStudy  a        owl:Class ;
+        rdfs:comment         "A work that reports on the results of a research study to evaluate interventions or exposures on biomedical or health-related outcomes. The two main types of clinical studies are interventional studies (clinical trials) and observational studies. While most clinical studies concern humans, this publication type may be used for clinical veterinary articles meeting the requisites for humans."@en ;
+        rdfs:label           "Clinical Study"@en ;
+        rdfs:subClassOf      btlo:Study ;
+        dct:creator          btlo:fraunhoferEISResearcherOne ;
+        prov:wasDerivedFrom  mesh:D000068397 .
+
+btlo:hasActivityID  a       owl:DatatypeProperty ;
+        rdfs:comment        "Unique identification of an activity."@en ;
+        rdfs:domain         btlo:Activity ;
+        rdfs:label          "has Activity ID"@en ;
+        rdfs:range          xsd:long ;
+        rdfs:subPropertyOf  btlo:hasID ;
+        dct:creator         btlo:fraunhoferEISResearcherOne .
+
+btlo:hasLocalTradeName
+        a                   owl:DatatypeProperty ;
+        rdfs:comment        "Trade name of a pharmaceutical product valid in specific country."@en ;
+        rdfs:domain         btlo:ApprovedDrug ;
+        rdfs:label          "has Local Trade Name"@en ;
+        rdfs:range          xsd:string ;
+        rdfs:subPropertyOf  btlo:hasName ;
+        dct:creator         btlo:fraunhoferEISResearcherOne .
+
+btlo:hasDossierID  a        owl:DatatypeProperty ;
+        rdfs:comment        "Unique identification of a dossier."@en ;
+        rdfs:domain         btlo:Dossier ;
+        rdfs:label          "has Dossier ID"@en ;
+        rdfs:range          xsd:long ;
+        rdfs:subPropertyOf  btlo:hasID ;
+        dct:creator         btlo:fraunhoferEISResearcherOne .
+
+btlo:Failed  a        btlo:Status , owl:NamedIndividual ;
+        rdfs:comment  "Describes the failure status of a project or activity."@en ;
+        rdfs:label    "Failed"@en ;
+        dct:creator   btlo:fraunhoferEISResearcherOne .
+
+btlo:Submitted  a     btlo:Status , owl:NamedIndividual ;
+        rdfs:comment  "Describes the submission status of a project or activity."@en ;
+        rdfs:label    "Submitted"@en ;
+        dct:creator   btlo:fraunhoferEISResearcherOne .
+
+btlo:Person  a                owl:Class ;
+        rdfs:comment          "This class represent the concept of alive or dead persons, i.e., Human beings."@en ;
+        rdfs:label            "Person"@en ;
+        dct:creator           btlo:fraunhoferEISResearcherTwo ;
+        skos:altLabel         "Human Being"@en ;
+        skos:prefLabel        "Person"@en ;
+        prov:wasInfluencedBy  foaf:Person .
+
+btlo:ReSubmitted  a   btlo:Status , owl:NamedIndividual ;
+        rdfs:comment  "Describes the resubmission status of a project or activity."@en ;
+        rdfs:label    "ReSubmitted"@en ;
+        dct:creator   btlo:fraunhoferEISResearcherOne .
+
+btlo:D1  a            owl:NamedIndividual , btlo:InitialMilestone ;
+        rdfs:comment  "D1 Milestone"@en ;
+        rdfs:label    "D1 Milestone"@en ;
+        <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#isDirectlyDependentOf>
+                btlo:D2 .
+
+btlo:Requirement  a          owl:Class ;
+        rdfs:comment         "Something that is a necessary condition; something that is obligatory."@en ;
+        rdfs:label           "Requirement"@en ;
+        dct:creator          btlo:fraunhoferEISResearcherOne ;
+        prov:wasDerivedFrom  ncit:C25652 .
+
+btlo:Milestone  a         owl:Class ;
+        rdfs:comment      "Milestones are tools used in project management to mark specific points along a project timeline."@en ;
+        rdfs:isDefinedBy  <https://en.wikipedia.org/wiki/Milestone_(project_management)> ;
+        rdfs:label        "Milestone"@en ;
+        rdfs:subClassOf   btlo:ProjectComponent ;
+        dct:creator       btlo:fraunhoferEISResearcherOne ;
+        skos:altLabel     "WorkPackage"@en , "Decision"@en .
+
+btlo:Protein  a              owl:Class ;
+        rdfs:comment         "A group of complex organic macromolecules composed of one or more chains (linear polymers) of alpha-L-amino acids linked by peptide bonds and ranging in size from a few thousand to over 1 million Daltons. Proteins are fundamental genetically encoded components of living cells with specific structures and functions dictated by amino acid sequence."@en ;
+        rdfs:label           "Protein"@en ;
+        rdfs:seeAlso         <http://purl.bioontology.org/ontology/SNOMEDCT/88878007> ;
+        rdfs:subClassOf      btlo:Target ;
+        dct:creator          btlo:fraunhoferEISResearcherOne ;
+        prov:wasDerivedFrom  ncit:C17021 .
+
+btlo:isDepartmentInvolvedIn
+        a             owl:ObjectProperty ;
+        rdfs:comment  "Links a department with an activity."@en ;
+        rdfs:domain   btlo:Department ;
+        rdfs:label    "is Department Involved In"@en ;
+        rdfs:range    btlo:Activity ;
+        dct:creator   btlo:fraunhoferEISResearcherOne .
+
+btlo:isMilestoneOf  a       owl:ObjectProperty ;
+        rdfs:comment        "Links a milestone with a workflow."@en ;
+        rdfs:domain         btlo:Milestone ;
+        rdfs:label          "is Milestone Of"@en ;
+        rdfs:range          btlo:Workflow ;
+        rdfs:subPropertyOf  owl:topObjectProperty ;
+        dct:creator         btlo:fraunhoferEISResearcherOne .
+
+btlo:receivesTraining
+        a             owl:ObjectProperty ;
+        rdfs:comment  "A given Employee receives a Training in a specific subject."@en ;
+        rdfs:domain   btlo:Employee ;
+        rdfs:label    "receives Training"@en ;
+        rdfs:range    btlo:Training ;
+        dct:creator   btlo:fraunhoferEISResearcherTwo .
+
+btlo:Doctor  a                owl:Class ;
+        rdfs:comment          "A physician, medical practitioner, medical doctor, or simply doctor is a professional who practises medicine, which is concerned with promoting, maintaining, or restoring health through the study, diagnosis, and treatment of disease, injury, and other physical and mental impairments."@en ;
+        rdfs:label            "Doctor"@en ;
+        rdfs:subClassOf       btlo:Employee ;
+        dct:creator           btlo:fraunhoferEISResearcherOne ;
+        skos:altLabel         "Medical practitioner"@en , "Medical doctor"@en , "Physician"@en ;
+        prov:wasInfluencedBy  <https://en.wikipedia.org/wiki/Physician> .
+
+btlo:isManufacturedBy
+        a             owl:ObjectProperty ;
+        rdfs:comment  "A Pharmaceutical Product is manufactured by a given Manufacturer."@en ;
+        rdfs:domain   btlo:PharmaceuticalProduct ;
+        rdfs:label    "is Manufactured By"@en ;
+        rdfs:range    btlo:Manufacturer ;
+        dct:creator   btlo:fraunhoferEISResearcherOne .
+
+btlo:hasLocationID  a       owl:DatatypeProperty ;
+        rdfs:comment        "Unique identification of a location."@en ;
+        rdfs:domain         btlo:Location ;
+        rdfs:label          "has Location ID"@en ;
+        rdfs:range          xsd:int ;
+        rdfs:subPropertyOf  btlo:hasID ;
+        dct:creator         btlo:fraunhoferEISResearcherOne .
+
+btlo:hasDiseaseAttributes
+        a             owl:ObjectProperty ;
+        rdfs:comment  "Links a disease with its attributes."@en ;
+        rdfs:domain   btlo:Disease ;
+        rdfs:label    "has Disease Attribute"@en ;
+        rdfs:range    btlo:DiseaseAttribute ;
+        dct:creator   btlo:fraunhoferEISResearcherOne .
+
+btlo:Gene  a                 owl:Class ;
+        rdfs:comment         "A functional unit of heredity which occupies a specific position on a particular chromosome and serves as the template for a product that contributes to a phenotype or a biological function."@en ;
+        rdfs:label           "Gene"@en ;
+        rdfs:subClassOf      btlo:Target ;
+        dct:creator          btlo:fraunhoferEISResearcherOne ;
+        skos:note            "233 class mappings in the National Cancer Institute Thesaurus Ontology"@en ;
+        prov:wasDerivedFrom  ncit:C16612 .
+
+btlo:Department  a            owl:Class ;
+        rdfs:comment          "An organizational unit with specifics objectives, targets and belongs to a bigger organization."@en ;
+        rdfs:label            "Department"@en ;
+        dct:creator           btlo:fraunhoferEISResearcherTwo ;
+        skos:altLabel         "Function"@en ;
+        prov:wasInfluencedBy  schema:department .
+
+btlo:hasPlannedEndDate
+        a                   owl:DatatypeProperty ;
+        rdfs:comment        "Links a given entity with the planned date in which it should end."@en ;
+        rdfs:domain         [ a            owl:Class ;
+                              owl:unionOf  ( btlo:Activity btlo:Project )
+                            ] ;
+        rdfs:label          "has Planned End Date"@en ;
+        rdfs:range          xsd:dateTime ;
+        rdfs:subPropertyOf  btlo:hasDate ;
+        dct:creator         btlo:fraunhoferEISResearcherTwo .
+
+btlo:isPartOfPathway  a  owl:ObjectProperty ;
+        rdfs:comment  "Links a target with a pathway."@en ;
+        rdfs:domain   btlo:Target ;
+        rdfs:label    "is Part Of Pathway"@en ;
+        rdfs:range    btlo:Pathway ;
+        dct:creator   btlo:fraunhoferEISResearcherOne .
+
+btlo:hasTreatement  a        owl:ObjectProperty ;
+        rdfs:comment         "Links a protocol with a treatment."@en ;
+        rdfs:domain          btlo:Protocol ;
+        rdfs:label           "has Treatement"@en ;
+        rdfs:range           btlo:Treatment ;
+        prov:wasDerivedFrom  btlo:fraunhoferEISResearcherOne .
+
+btlo:D3  a             btlo:IntermediateMilestone , owl:NamedIndividual ;
+        rdfs:comment   "D3 Milestone"@en ;
+        rdfs:label     "D3 Milestone"@en ;
+        <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#isDirectlyDependentOf>
+                btlo:D4 ;
+        btlo:dependOn  btlo:D3 .
+
+btlo:PoC  a           btlo:IntermediateMilestone , owl:NamedIndividual ;
+        rdfs:comment  "Proof of Concept"@en ;
+        rdfs:label    "Proof of Concept"@en .
+
+btlo:Concentration  a        owl:Class ;
+        rdfs:comment         "The quantity of a substance per unit volume or weight; a measure of the amount of substance present in a unit amount of mixture, particularly, the amount of solute dissolved in a solvent. The amounts can be expressed as moles, masses, volumes, or parts."@en ;
+        rdfs:label           "Concentration"@en ;
+        dct:creator          btlo:fraunhoferEISResearcherOne ;
+        prov:wasDerivedFrom  ncit:C41185 .
+
+btlo:hasIntermediateMilestone
+        a                   owl:ObjectProperty ;
+        rdfs:label          "has Intermediate Milestone"@en ;
+        rdfs:subPropertyOf  btlo:hasMilestone ;
+        dct:creator         btlo:fraunhoferEISResearcherOne .
+
+btlo:hasTradeName  a        owl:DatatypeProperty ;
+        rdfs:comment        "Trade name of a pharmaceutical product."@en ;
+        rdfs:domain         btlo:PharmaceuticalProduct ;
+        rdfs:label          "has Trade Name"@en ;
+        rdfs:range          xsd:string ;
+        rdfs:subPropertyOf  btlo:hasName ;
+        dct:creator         btlo:fraunhoferEISResearcherOne .
+
+btlo:hasCompound  a   owl:ObjectProperty ;
+        rdfs:comment  "Links a drug with a compound."@en ;
+        rdfs:domain   btlo:Drug ;
+        rdfs:label    "has Compound"@en ;
+        rdfs:range    btlo:Compound ;
+        dct:creator   btlo:fraunhoferEISResearcherOne .
+
+btlo:isTargetAssociatedWithDisease
+        a             owl:ObjectProperty ;
+        rdfs:comment  "Links a target with a disease."@en ;
+        rdfs:domain   btlo:Disease ;
+        rdfs:label    "is Target Associated With Disease"@en ;
+        rdfs:range    btlo:Target ;
+        dct:creator   btlo:fraunhoferEISResearcherOne .
+
+btlo:Enzyme  a               owl:Class ;
+        rdfs:comment         "Molecules that catalyze a chemical reaction. They are usually proteins, although catalytic RNA and DNA molecules have been identified."@en ;
+        rdfs:label           "Enzyme"@en ;
+        rdfs:seeAlso         <http://purl.bioontology.org/ontology/SNOMEDCT/90668006> , <obi:obi0000427> ;
+        rdfs:subClassOf      btlo:Target ;
+        dct:creator          btlo:fraunhoferEISResearcherOne ;
+        prov:wasDerivedFrom  ncit:C16554 .
+
+btlo:FinalMilestone  a   owl:Class ;
+        rdfs:comment     "The final/last milestone of a project"@en ;
+        rdfs:label       "Final Milestone"@en ;
+        rdfs:subClassOf  btlo:Milestone ;
+        dct:creator      btlo:fraunhoferEISResearcherOne .
+
+btlo:ActiveIngridient
+        a                    owl:Class ;
+        rdfs:comment         "The pharmaceutically active components of a preparation."@en ;
+        rdfs:label           "Active Ingredient"@en ;
+        rdfs:subClassOf      btlo:Compound ;
+        dct:creator          btlo:fraunhoferEISResearcherOne ;
+        prov:wasDerivedFrom  ncit:C82533 .
+
+foaf:Organization  a         owl:Class ;
+        owl:equivalentClass  btlo:Organization .
+
+prov:wasDerivedFrom  a  owl:AnnotationProperty .
+
+btlo:hasAdverseEffect
+        a             owl:ObjectProperty ;
+        rdfs:comment  "Links a drug with its adverse event."@en ;
+        rdfs:domain   btlo:Drug ;
+        rdfs:label    "has Adverse Effect"@en ;
+        rdfs:range    btlo:AdverseEvent .
+
+btlo:Hospital  a             owl:Class ;
+        rdfs:comment         "An institution that provides medical, surgical, or psychiatric care and treatment for the sick or the injured."@en ;
+        rdfs:label           "Hospital"@en ;
+        rdfs:subClassOf      btlo:Organization ;
+        dct:creator          btlo:fraunhoferEISResearcherOne ;
+        prov:wasDerivedFrom  ncit:C16696 .
+
+btlo:Rejected  a      btlo:Status , owl:NamedIndividual ;
+        rdfs:comment  "Describes the status of a project or activity when the project proposal or activity is rejected."@en ;
+        rdfs:label    "Rejected"@en ;
+        dct:creator   btlo:fraunhoferEISResearcherOne .
+
+btlo:hasApprovedDate  a     owl:DatatypeProperty ;
+        rdfs:comment        "Links a submussion with the date when it is approved."@en ;
+        rdfs:domain         btlo:Submission ;
+        rdfs:label          "has Approved Date"@en ;
+        rdfs:range          xsd:dateTime ;
+        rdfs:subPropertyOf  btlo:hasDate ;
+        dct:creator         btlo:fraunhoferEISResearcherOne .
+
+btlo:hasContraindication
+        a                    owl:ObjectProperty ;
+        rdfs:comment         "Any special symptom or circumstance that renders the use of a remedy or the carrying out of a procedure inadvisable, usually because of risk."@en ;
+        rdfs:domain          btlo:PharmaceuticalProduct ;
+        rdfs:label           "has Contraindication"@en ;
+        rdfs:range           btlo:Disease ;
+        dct:creator          btlo:fraunhoferEISResearcherOne ;
+        prov:wasDerivedFrom  <https://medical-dictionary.thefreedictionary.com/contraindication> .
+
+btlo:GeneExpression  a       owl:Class ;
+        rdfs:comment         "The process in which a gene's sequence is converted into a mature gene product or products (proteins or RNA). This includes the production of an RNA transcript as well as any processing to produce a mature RNA product or an mRNA or circRNA (for protein-coding genes) and the translation of that mRNA or circRNA into protein. Protein maturation is included when required to form an active form of a product from an inactive precursor form."@en ;
+        rdfs:label           "Gene Expression"@en ;
+        rdfs:seeAlso         mesh:D015870 , ncit:C16608 ;
+        dct:creator          btlo:fraunhoferEISResearcherOne ;
+        prov:wasDerivedFrom  go: .
+
+btlo:hasDrugDoseFormID
+        a                   owl:DatatypeProperty ;
+        rdfs:comment        "Unique identification of a drug dose form."@en ;
+        rdfs:domain         btlo:DrugDoseForm ;
+        rdfs:label          "has Drug Dose Form ID"@en ;
+        rdfs:range          xsd:int ;
+        rdfs:subPropertyOf  btlo:hasID ;
+        dct:creator         btlo:fraunhoferEISResearcherOne .
+
+btlo:DrugLabel  a            owl:Class ;
+        rdfs:comment         "A brief description given for purposes of identification; an identifying or descriptive marker that is attached to an object."@en ;
+        rdfs:label           "Drug Label"@en ;
+        dct:creator          btlo:fraunhoferEISResearcherOne ;
+        prov:wasDerivedFrom  ncit:C45561 .
+
+btlo:hasTargetPopulation
+        a             owl:ObjectProperty ;
+        rdfs:comment  "Links a project with a target population for which a drug is developed."@en ;
+        rdfs:domain   btlo:Project ;
+        rdfs:label    "has Target Population"@en ;
+        rdfs:range    btlo:Population ;
+        dct:creator   btlo:fraunhoferEISResearcherOne .
+
+btlo:Pending  a       btlo:Status , owl:NamedIndividual ;
+        rdfs:comment  "Describes the pending status of a project or activity."@en ;
+        rdfs:label    "Pending"@en ;
+        dct:creator   btlo:fraunhoferEISResearcherOne .
+
+btlo:hasDate  a       owl:DatatypeProperty ;
+        rdfs:comment  "Abstract property to represent the date of an event/activity."@en ;
+        rdfs:label    "has Date"@en ;
+        dct:creator   btlo:fraunhoferEISResearcherOne .
+
+btlo:Planned  a       btlo:Status , owl:NamedIndividual ;
+        rdfs:comment  "Describes the status of a project or activity which is under planification."@en ;
+        rdfs:label    "Planned"@en ;
+        dct:creator   btlo:fraunhoferEISResearcherTwo .
+
+btlo:hasDiseaseID  a        owl:DatatypeProperty ;
+        rdfs:comment        "Unique identification of a disease."@en ;
+        rdfs:domain         btlo:Disease ;
+        rdfs:label          "has Disease ID"@en ;
+        rdfs:range          xsd:long ;
+        rdfs:subPropertyOf  btlo:hasID ;
+        dct:creator         btlo:fraunhoferEISResearcherOne .
+
+btlo:Compound  a             owl:Class ;
+        rdfs:comment         "A substance formed by chemical union of two or more elements or ingredients in definite proportion by weight."@en ;
+        rdfs:label           "Compound"@en ;
+        dct:creator          btlo:fraunhoferEISResearcherOne ;
+        prov:wasDerivedFrom  ncit:C43366 .
+
+btlo:Consent  a              owl:Class ;
+        rdfs:comment         "Voluntary authorization, by a patient or research subject, with full comprehension of the risks involved, for diagnostic or investigative procedures, and for medical and surgical treatment."@en ;
+        rdfs:label           "Consent"@en ;
+        dct:creator          btlo:fraunhoferEISResearcherOne ;
+        skos:altLabel        "Informed Consent"@en ;
+        prov:wasDerivedFrom  mesh:D007258 .
+
+btlo:hasStudyCohort  a  owl:ObjectProperty ;
+        rdfs:comment  "Links a study with a cohort."@en ;
+        rdfs:domain   btlo:ClinicalStudy ;
+        rdfs:label    "has Study Cohort"@en ;
+        rdfs:range    btlo:Cohort ;
+        dct:creator   btlo:fraunhoferEISResearcherOne .
+
+btlo:   a                              owl:Ontology ;
+        rdfs:comment                   "The Bayer Top Level Ontology aims to describe the main concepts used through the Reseach and Development Value Chain"@en ;
+        rdfs:label                     "Bayer Top Level Ontology"@en ;
+        dct:creator                    btlo:FraunhoferEISResearcher ;
+        dct:date                       "2017-09-24"@en ;
+        dct:modified                   "2017-11-30" ;
+        vann:preferredNamespacePrefix  "btlo" ;
+        vann:preferredNamespaceUri     "https://www.bayer.com/btlo/" ;
+        owl:versionInfo                "V0.1.1" .
+
+btlo:hasVariation  a  owl:ObjectProperty ;
+        rdfs:comment  "Links an authorized drug product with a variation/change that has been made on it."@en ;
+        rdfs:domain   btlo:ApprovedDrug ;
+        rdfs:label    "has Variation"@en ;
+        rdfs:range    btlo:Variation ;
+        dct:creator   btlo:fraunhoferEISResearcherOne .
+
+btlo:D8  a            btlo:IntermediateMilestone , owl:NamedIndividual ;
+        rdfs:comment  "D8 Milestone"@en ;
+        rdfs:label    "D8 Milestone"@en ;
+        <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#isDirectlyDependentOf>
+                btlo:D9 .
+
+btlo:D11  a            owl:NamedIndividual , btlo:FinalMilestone ;
+        rdfs:comment   "D11 Milestone"@en ;
+        rdfs:label     "D11 Milestone"@en ;
+        btlo:dependOn  btlo:D10 .
+
+btlo:Drug  a                 owl:Class ;
+        rdfs:comment         "Any substance which when absorbed into a living organism may modify one or more of its functions. The term is generally accepted for a substance taken for a therapeutic purpose, but is also commonly used for abused substances."@en ;
+        rdfs:label           "Drug"@en ;
+        rdfs:subClassOf      btlo:Compound ;
+        dct:creator          btlo:fraunhoferEISResearcherOne ;
+        skos:altLabel        "Pharmaceutical Drug"@en ;
+        skos:prefLabel       "Drug"@en ;
+        prov:wasDerivedFrom  obo:CHEBI_23888 .
+
+btlo:hasID  a         owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:comment  "Abstract property to represent the unique identification of entities."@en ;
+        rdfs:label    "has ID"@en ;
+        dct:creator   btlo:fraunhoferEISResearcherTwo .
+
+btlo:Assay  a                owl:Class ;
+        rdfs:comment         "A planned process with the objective to produce information about the material entity that is the evaluant, by physically examining it or its proxies."@en ;
+        rdfs:label           "Assay"@en ;
+        rdfs:seeAlso         ncit:C60819 ;
+        rdfs:subClassOf      btlo:Activity ;
+        dct:creator          btlo:fraunhoferEISResearcherOne ;
+        skos:altLabel        "Scientific observation"@en ;
+        skos:prefLabel       "Assay"@en ;
+        prov:wasDerivedFrom  obi:OBI_0000070 .
+
+btlo:isResearchActivityConductedIn
+        a             owl:ObjectProperty ;
+        rdfs:comment  "Links a research activity with the place where it is conducted in."@en ;
+        rdfs:domain   btlo:ResearchActivity ;
+        rdfs:label    "is Research Activity Conducted In"@en ;
+        rdfs:label    btlo:fraunhoferEISResearcherOne ;
+        rdfs:range    btlo:Hospital .
+
+btlo:dependOn  a  owl:AnnotationProperty .
+
+btlo:Project  a              owl:Class ;
+        rdfs:comment         "Any specifically defined piece of work that is undertaken or attempted to meet a single requirement."@en ;
+        rdfs:label           "Project"@en ;
+        dct:creator          btlo:fraunhoferEISResearcherOne ;
+        prov:wasDerivedFrom  ncit:C47885 .
+
+skos:note  a    owl:AnnotationProperty .
+
+btlo:hasConcentration
+        a             owl:ObjectProperty ;
+        rdfs:comment  "Mesaures concentration of a pharmaceutical product."@en ;
+        rdfs:domain   btlo:Compound ;
+        rdfs:label    "has Concentration"@en ;
+        rdfs:range    btlo:Concentration ;
+        dct:creator   btlo:FraunhoferEISResearcherOne .
+
+btlo:IonChannel  a           owl:Class ;
+        rdfs:comment         "A transmembrane pore that presents a hydrophilic channel for ions to cross a lipid bilayer down their electrochemical gradients. Some degree of ion specificity is usually observed and typically a million ions per second may flow. Channels may be permanently open, like the potassium leak channel or they may be voltage gated, like the sodium channel or ligand gated like the acetylcholine receptor."@en ;
+        rdfs:label           "Ion Channel"@en ;
+        rdfs:subClassOf      btlo:Target ;
+        dct:creator          btlo:fraunhoferEISResearcherOne ;
+        prov:wasDerivedFrom  ncit:C16754 .
+
+btlo:belongsToCohort  a  owl:ObjectProperty ;
+        rdfs:comment  "Links a subject with a cohort."@en ;
+        rdfs:comment  btlo:fraunhoferEISResearcherOne ;
+        rdfs:domain   btlo:Volunteer ;
+        rdfs:label    "belongs To Cohort"@en ;
+        rdfs:range    btlo:Cohort .
+
+btlo:D2  a             btlo:IntermediateMilestone , owl:NamedIndividual ;
+        rdfs:comment   "D2 Milestone"@en ;
+        rdfs:label     "D2 Milestone"@en ;
+        <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#isDirectlyDependentOf>
+                btlo:D3 ;
+        btlo:dependOn  btlo:D1 .
+
+btlo:hasSubmitedDate  a     owl:DatatypeProperty ;
+        rdfs:comment        "Date of submission of a dossier to a regulatory authory."@en ;
+        rdfs:domain         btlo:Submission ;
+        rdfs:label          "has Submitted Date"@en ;
+        rdfs:range          xsd:dateTime ;
+        rdfs:subPropertyOf  btlo:hasDate ;
+        dct:creator         btlo:fraunhoferEISResearcherOne .
+
+btlo:hasPhenotype  a  owl:ObjectProperty ;
+        rdfs:comment  "Links a volunteer with his/her phenotype."@en ;
+        rdfs:domain   btlo:Volunteer ;
+        rdfs:label    "has Phenotype"@en ;
+        rdfs:range    btlo:Phenotype ;
+        dct:creator   btlo:fraunhoferEISResearcherOne .
+
+btlo:hasDepartmentID  a     owl:DatatypeProperty ;
+        rdfs:comment        "Unique identification of a department."@en ;
+        rdfs:domain         btlo:Department ;
+        rdfs:label          "has Department ID"@en ;
+        rdfs:range          xsd:int ;
+        rdfs:subPropertyOf  btlo:hasID ;
+        dct:creator         btlo:fraunhoferEISResearcherOne .
+
+btlo:hasAssociatedSymptom
+        a             owl:ObjectProperty ;
+        rdfs:comment  "Links a disease with a symptom."@en ;
+        rdfs:domain   btlo:Disease ;
+        rdfs:label    "has Associated Symptom"@en ;
+        rdfs:range    btlo:Symptom ;
+        dct:creator   btlo:fraunhoferEISResearcherOne .
+
+btlo:hasDiseaseAttributeID
+        a                   owl:DatatypeProperty ;
+        rdfs:comment        "Unique identification of a diseasse attribute."@en ;
+        rdfs:domain         btlo:DiseaseAttribute ;
+        rdfs:label          "has Disease Attribute ID"@en ;
+        rdfs:range          xsd:int ;
+        rdfs:subPropertyOf  btlo:hasID ;
+        dct:creator         btlo:fraunhoferEISResearcherOne .
+
+btlo:hasDepartmentInvolved
+        a              owl:ObjectProperty ;
+        rdfs:comment   "Links an activity with a department."@en ;
+        rdfs:label     "has Department Involved"@en ;
+        dct:creator    btlo:fraunhoferEISResearcherOne ;
+        owl:inverseOf  btlo:isDepartmentInvolvedIn .
+
+btlo:D9  a            btlo:IntermediateMilestone , owl:NamedIndividual ;
+        rdfs:comment  "D9 Milestone"@en ;
+        rdfs:label    "D9 Milestone"@en ;
+        <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#isDirectlyDependentOf>
+                btlo:D10 .
+
+btlo:fraunhoferEISResearcherTwo
+        a                foaf:Person , owl:NamedIndividual ;
+        rdfs:label       "Irlan Grangel" ;
+        foaf:familyName  "Grangel" ;
+        foaf:mbox        "irlan.grangel.gonzalez@iais.fraunhofer.de" ;
+        foaf:member      btlo:fraunhoferGroup ;
+        foaf:name        "Irlan" .
+
+btlo:hasDisease  a    owl:ObjectProperty ;
+        rdfs:comment  "Links a hospital with a disease."@en ;
+        rdfs:domain   btlo:HospitalVolunteer ;
+        rdfs:label    "has Disease"@en ;
+        rdfs:range    btlo:Disease ;
+        dct:creator   btlo:fraunhoferEISResearcherOne .
+
+btlo:Activity  a      owl:Class ;
+        rdfs:comment  "Something done as an action or a movement in the context of a Project."@en ;
+        rdfs:label    "Activity"@en ;
+        dct:creator   btlo:fraunhoferEISResearcherTwo .
+
+btlo:hasProtocolID  a       owl:DatatypeProperty ;
+        rdfs:comment        "Unique identification of a protocol."@en ;
+        rdfs:domain         btlo:Protocol ;
+        rdfs:label          "has Protocol ID"@en ;
+        rdfs:range          xsd:int ;
+        rdfs:subPropertyOf  btlo:hasID ;
+        dct:creator         btlo:fraunhoferEISResearcherOne .
+
+btlo:Workflow  a             owl:Class ;
+        rdfs:comment         "The operational aspect of a work procedure: how tasks are structured, who performs them, what their relative order is, how they are synchronized, how information flows to support the tasks and how tasks are being tracked."@en ;
+        rdfs:label           "Workflow"@en ;
+        dct:creator          btlo:fraunhoferEISResearcherOne ;
+        prov:wasDerivedFrom  ncit:C42753 .
+
+btlo:hasGeneExpression
+        a             owl:ObjectProperty ;
+        rdfs:comment  "The expression of a gene."@en ;
+        rdfs:domain   btlo:Gene ;
+        rdfs:label    "has Gene Expression"@en ;
+        rdfs:range    btlo:GeneExpression ;
+        dct:creator   btlo:fraunhoferEISResearcherOne .
+
+btlo:hasSymptom  a    owl:ObjectProperty ;
+        rdfs:comment  "Links a subject with a percieved symptom by him/her."@en ;
+        rdfs:domain   btlo:Volunteer ;
+        rdfs:label    "has Symptom"@en ;
+        rdfs:range    btlo:Symptom ;
+        dct:creator   btlo:fraunhoferEISResearcherOne .
+
+btlo:hasChemicalStructure
+        a             owl:ObjectProperty ;
+        rdfs:comment  "Link a compound with a chemical structure."@en ;
+        rdfs:domain   btlo:Compound ;
+        rdfs:label    "has Chemical Structure"@en ;
+        rdfs:range    btlo:ChemicalStructure ;
+        dct:creator   btlo:fraunhoferEISResearcherOne .
+
+btlo:D4  a             btlo:IntermediateMilestone , owl:NamedIndividual ;
+        rdfs:comment   "D4 Milestone"@en ;
+        rdfs:label     "D4 Milestone"@en ;
+        <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#isDirectlyDependentOf>
+                btlo:D5 ;
+        btlo:dependOn  btlo:D3 .
+
+btlo:Manufacturer  a         owl:Class ;
+        rdfs:comment         "A person, enterprise, or entity that produces finished goods."@en ;
+        rdfs:label           "Manufacturer"@en ;
+        rdfs:subClassOf      btlo:Organization ;
+        dct:creator          btlo:FraunhoferEISResearcherOne ;
+        skos:altLabel        "Manufacturer Name"@en ;
+        prov:wasDerivedFrom  ncit:C25392 .
+
+btlo:Disease  a              owl:Class ;
+        rdfs:comment         "A definite pathologic process with a characteristic set of signs and symptoms. It may affect the whole body or any of its parts, and its etiology, pathology, and prognosis may be known or unknown."@en ;
+        rdfs:label           "Disease"@en ;
+        dct:creator          btlo:fraunhoferEISResearcherOne ;
+        prov:wasDerivedFrom  mesh:D004194 .
+
+btlo:ResearchActivity
+        a                    owl:Class ;
+        rdfs:comment         "Systematic investigation into a subject in order to discover facts, establish or revise a theory, or develop a plan of action based on the facts discovered."@en ;
+        rdfs:label           "Research Activity"@en ;
+        rdfs:subClassOf      btlo:Activity ;
+        dct:creator          btlo:fraunhoferEISResearcherOne ;
+        prov:wasDerivedFrom  ncit:C15429 .
+
+btlo:hasDrugDrugInteraction
+        a             owl:TransitiveProperty , owl:ReflexiveProperty , owl:ObjectProperty ;
+        rdfs:comment  "Links two drugs that interact with each other."@en ;
+        rdfs:domain   btlo:Drug ;
+        rdfs:label    "has Drug Drug Interaction"@en ;
+        rdfs:range    btlo:Drug ;
+        dct:creator   btlo:fraunhoferEISResearcherOne .
+
+btlo:Submission  a           owl:Class ;
+        rdfs:comment         "Something submitted for the judgment or consideration of others."@en ;
+        rdfs:label           "Submission"@en ;
+        rdfs:subClassOf      btlo:Activity ;
+        dct:creator          btlo:fraunhoferEISResearcherOne ;
+        skos:note            "A compilation of the contents of one or more submission units that supports a specific regulatory purpose or decision. EXAMPLE(S): A request for approval to either market a product or to allow the applicant to start testing of a proposed product. NOTE(S): In most cases, the compilation of the submission units is used to assess a product's quality, safety and effectiveness. Submissions are always associated with some regulatory action (or inaction). Each submission contains their own regulatory action. Submissions (e.g., initial marketing application, supplemental marketing application) would generally be comprised of multiple submissions units. Most typically the submission will be used to organize information based on a review clock. Receipt date from the regulatory authority is important for a submission."@en ;
+        prov:wasDerivedFrom  ncit:C25694 .
+
+btlo:PharmaceuticalProduct
+        a                    owl:Class ;
+        rdfs:comment         "Any substance introduced into a living organism with therapeutic or diagnostic purpose."@en ;
+        rdfs:label           "Pharmaceutical Product"@en ;
+        rdfs:subClassOf      btlo:Drug ;
+        dct:creator          btlo:fraunhoferEISResearcherOne ;
+        skos:altLabel        "Medicament"@en ;
+        prov:wasDerivedFrom  <http://purl.bioontology.org/ontology/CHEBI/CHEBI52217> .
+
+btlo:hasProjectID  a        owl:FunctionalProperty , owl:DatatypeProperty ;
+        rdfs:comment        "The unique identification of a project."@en ;
+        rdfs:domain         btlo:Project ;
+        rdfs:label          "has Project ID"@en ;
+        rdfs:range          xsd:string ;
+        rdfs:subPropertyOf  btlo:hasID ;
+        dct:creator         btlo:fraunhoferEISResearcherTwo .
+
+btlo:Cohort  a               owl:Class ;
+        rdfs:comment         "A cohort is a collection of material entities grouped together based on some common property of interest, such as age or disease stage."@en ;
+        rdfs:label           "Cohort"@en ;
+        rdfs:subClassOf      btlo:Population ;
+        dct:creator          btlo:fraunhoferEISResearcherOne ;
+        skos:prefLabel       "Cohort"@en ;
+        prov:wasDerivedFrom  efo:EFO_0004445 .
+
+btlo:hasTargetID  a         owl:DatatypeProperty ;
+        rdfs:comment        "Unique identification of a target."@en ;
+        rdfs:domain         btlo:Target ;
+        rdfs:label          "has Target ID"@en ;
+        rdfs:range          xsd:long ;
+        rdfs:subPropertyOf  btlo:hasID ;
+        dct:creator         btlo:fraunhoferEISResearcherOne .
+
+btlo:hasSpecimen  a   owl:ObjectProperty ;
+        rdfs:comment  "Links a biobank with a specimen."@en ;
+        rdfs:domain   btlo:Biobank ;
+        rdfs:label    "has Specimen"@en ;
+        rdfs:range    btlo:Specimen ;
+        dct:creator   btlo:fraunhoferEISResearcherOne .
+
+btlo:Canceled  a      btlo:Status , owl:NamedIndividual ;
+        rdfs:comment  "Describes the status of a project or activity when it has been canceled without finishing all the initial targets of it."@en ;
+        rdfs:label    "Canceled"@en ;
+        dct:creator   btlo:fraunhoferEISResearcherTwo .
+
+btlo:D10  a           btlo:IntermediateMilestone , owl:NamedIndividual ;
+        rdfs:comment  "D10 Milestone"@en ;
+        rdfs:label    "D10 Milestone"@en ;
+        <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#isDirectlyDependentOf>
+                btlo:D11 .
+
+btlo:hasDepartment  a  owl:ObjectProperty ;
+        rdfs:comment  "Links organizations with departments."@en ;
+        rdfs:domain   btlo:Organization ;
+        rdfs:label    "has Department"@en ;
+        rdfs:range    btlo:Department ;
+        dct:creator   btlo:fraunhoferEISResearcherTwo .
+
+btlo:worksIn  a       owl:ObjectProperty ;
+        rdfs:comment  "A given Employee works in an Institution."@en ;
+        rdfs:domain   btlo:Employee ;
+        rdfs:label    "works In"@en ;
+        rdfs:range    btlo:Organization ;
+        dct:creator   btlo:fraunhoferEISResearcherTwo .
+
+btlo:ProjectManager  a   owl:Class ;
+        rdfs:comment     "An employee who organizes and manage a given Project."@en ;
+        rdfs:label       "Project Manager"@en ;
+        rdfs:subClassOf  btlo:Employee ;
+        dct:creator      btlo:fraunhoferEISResearcherTwo .
+
+btlo:hasActiveIngredient
+        a             owl:ObjectProperty ;
+        rdfs:comment  "The active ingredient of a formulation."@en ;
+        rdfs:domain   btlo:Formulation ;
+        rdfs:label    "has Active Ingredient"@en ;
+        rdfs:range    btlo:ActiveIngridient ;
+        dct:creator   btlo:fraunhoferEISResearcherOne .
+
+btlo:D5  a            btlo:IntermediateMilestone , owl:NamedIndividual ;
+        rdfs:comment  "D5 Milestone"@en ;
+        rdfs:label    "D5 Milestone"@en ;
+        <http://www.ontologydesignpatterns.org/cp/owl/sequence.owl#isDirectlyDependentOf>
+                btlo:D6 .
+
+btlo:hasDrug  a       owl:ObjectProperty ;
+        rdfs:comment  "Links a treatment with used drug."@en ;
+        rdfs:domain   btlo:Treatment ;
+        rdfs:label    "has Drug"@en ;
+        rdfs:range    btlo:Drug ;
+        dct:creator   btlo:fraunhoferEISResearcherOne .
+
+btlo:hasActivity  a   owl:ObjectProperty ;
+        rdfs:comment  "Links a Work Package with the Activities that are carried on in it."@en ;
+        rdfs:domain   btlo:Milestone ;
+        rdfs:label    "has Activity"@en ;
+        rdfs:range    btlo:Activity ;
+        dct:creator   btlo:fraunhoferEISResearcherTwo .
+

@@ -126,6 +126,9 @@
             var currentFiles = <%- JSON.stringify(fileNames) %>;
             var RDFObjPlusURI = <%- JSON.stringify(RDFObjectsPlusURI) %>;
             var SKOSObjPlusURI = <%- JSON.stringify(SKOSObjectsPlusURI) %>;
+            var OWLIndividiualsData = <%- JSON.stringify(OWLIndividiuals) %>;
+
+            console.log(OWLIndividiualsData);
             // store the selected concept
             var currentSelectedConcept = "";
             // store current elements in the tree, it has RDFS concepts initially
@@ -206,64 +209,6 @@
               // rebuild tree with the new SKOS data
               buildTree(data);
             }
-
-            // TODO:get all instnces with owl:NamedIndividual
-            var OwlNamedIndividualsArray = [];
-
-            // function getOwllNamedIndividual(element) {
-            //   var endpoint = "./fuseki/dataset/sparql?query=";
-            //   var querystring = 'PREFIX owl: <http://www.w3.org/2002/07/owl#> SELECT Distinct ?s ?p ?o  WHERE {?s a owl:NamedIndividual;?p ?o.}';
-            //   $.ajax({
-            //     type: 'GET',
-            //     url: endpoint + encodeURIComponent(querystring),
-            //     headers: {
-            //       Accept: 'application/sparql-results+json;charset=UTF-8'
-            //     },
-            //     success: function(data, textStatus, jqXHR) {
-            //       var instances = data.results.bindings;
-            //       if (instances[0] != null) {
-            //         for (var i = 0; i < instances.length; i++) {
-            //           if (instances[i]['o'].value.includes('owl#NamedIndividual')) {
-            //             var temp = trimHash(replaceWithRDFType(trimSlash(instances[i]['s'].value)));
-            //             if (temp === element)
-            //               showInstanceDetails(instances[i]['s'].value)
-            //           }
-            //         }
-            //         console.log('from caller');
-            //         console.log(OwlNamedIndividualsArray);
-            //         //callback(element);
-            //         //console.log(individualURI);
-            //       }
-            //     }
-            //   });
-            // }
-            // var individualURI = "";
-
-            // function isOwlNamedIndividual(element) {
-            //   //var individualURI = _.find(OwlNamedIndividualsArray, 'value', element);
-            //   for (var i = 0; i < OwlNamedIndividualsArray.length; i++) {
-            //     if (OwlNamedIndividualsArray[i]['value'] === element)
-            //       individualURI = OwlNamedIndividualsArray[i]['URI'];
-            //
-            //   }
-            //   // _.find(OwlNamedIndividualsArray, function(o) {
-            //   //  return o.value == element;
-            //   //});
-            //   console.log('from the function');
-            //   //console.log(OwlNamedIndividualsArray);
-            //   return individualURI;
-            //   //return individualURI;
-            //
-            //   //var OwllNamedIndividuals = getOwllNamedIndividual();
-            //   //console.log(OwllNamedIndividuals);
-            // }
-
-            //getOwllNamedIndividual(isOwlNamedIndividual, "D7")
-            //if (getOwllNamedIndividual(isOwlNamedIndividual, "D7") !== "")
-            //  console.log('get'+getOwllNamedIndividual(isOwlNamedIndividual, "D7"));
-            //console.log('individualURI'+individualURI);
-            //isOwlNamedIndividual(getOwllNamedIndividual, "D7");
-
 
             // get ExternalsConcepts for either SKOS or RFS(S)
             function getExternalsConcepts() {
@@ -806,6 +751,25 @@
                 return str;
             }
 
+            //check if concept is OWLIndividiual
+            function isOWLIndividiual(str) {
+              if (OWLIndividiualsData.find(x => x.subject === str)) {
+                return true;
+              } else
+                return false;
+            }
+
+            // check if the concept is external
+            function isConceptExternal(str) {
+              var externalConcepts = getExternalsConcepts();
+              for (var i = 0; i < externalConcepts.length; i++) {
+                if (str === externalConcepts[i]) {
+                  return true;
+                }
+              }
+              return false;
+            }
+
             //check if concept is in our ontology or external
             function isConceptInside(str) {
               if ($('#SKOSViewCheckBox').is(':checked')) {
@@ -814,17 +778,6 @@
                 }
               } else if ($('#RDFSViewCheckBox').is(':checked')) {
                 if (RDFSData.find(x => x.concept === str)) {
-                  return true;
-                }
-              }
-              return false;
-            }
-
-            // check if the concept is external
-            function isConceptExternal(str) {
-              var externalConcepts = getExternalsConcepts();
-              for (var i = 0; i < externalConcepts.length; i++) {
-                if (str === externalConcepts[i]) {
                   return true;
                 }
               }
@@ -941,6 +894,7 @@
                     for (var i = 0; i < instances.length; i++) {
                       var key1 = instances[i]['p'].value;
                       var key2 = instances[i]['o'].value;
+                      var key2URI = key2;
                       var key3 = instances[i]['o']['xml:lang'];
                       var key4 = instances[i]['o']['type'];
 
@@ -958,6 +912,9 @@
                       }
                       if (isConceptExternal(key2) && !key1.includes("label") && key4 === "uri") {
                         key2 = '<a href="#" onmousedown="showExternalInfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
+                      }
+                      if (isOWLIndividiual(key2) && !key1.includes("label") && key4 === "uri") {
+                        key2 = '<a href="#" onmousedown="showInstanceDetails(&quot;' + key2URI + '&quot;); return false; ">' + key2 + '</a>';
                       }
                       if (isConceptInside(key2) && !key1.includes("label") && key4 === "uri") {
                         key2 = '<a href="#" onmousedown="getConceptinfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
@@ -1283,6 +1240,9 @@
                     if (key1.includes("broader") || key1.includes("narrower")) {
                       key2 = '<a href="#" onmousedown="getConceptinfo(&quot;' + key2URI + '&quot;,&quot;SKOS&quot;); return false; ">' + key2 + '</a>';
                     }
+                    if (isOWLIndividiual(key2) && !key1.includes("label") && key4 === "uri") {
+                      key2 = '<a href="#" onmousedown="showInstanceDetails(&quot;' + key2URI + '&quot;); return false; ">' + key2 + '</a>';
+                    }
                     if (isConceptExternal(key2) && !key1.includes("label") && key4 === "uri") {
                       key2 = '<a href="#" onmousedown="showExternalInfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
                     }
@@ -1294,6 +1254,7 @@
                         key2 = key2 + '@' + key3;
                     }
                     table += '<tr><td>' + key1 + '</td>    <td>' + key2 + '</td>  </tr>';
+                    debugger;
                   }
                 }
 
