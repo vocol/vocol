@@ -47,7 +47,9 @@ router.get('/', function(req, res) {
               id: k,
               content: "Commit Message: &quot;"+commitMessage + "&quot;<br/>" + "User: &quot;"+pusher+"&quot;<a href='#"+commitTimestamp+"'>Show more details</a>",
               start: commitTimestamp,
-              link: '#' + commitTimestamp
+              link: '#' + commitTimestamp,
+              commitMessage: commitMessage,
+              pusher: pusher
             };
             history.push(commitObject);
             k++;

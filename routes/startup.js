@@ -221,23 +221,6 @@ router.get('/', function(req, res) {
             shell.mv('SingleVoc.json', '../../../views/webvowl/data/').stdout;
           }
 
-          // ////////////////////////////////////////////////////////////////////
-          // //// TurtleEditor
-          // //////////////////////////////////////////////////////////////////////
-          // if (turtleEditor === true && obj.repositoryService === "gitHub") {
-          //   shell.exec('pwd', {
-          //     silent: false
-          //   }).stdout;
-          //   // filePath where we read from
-          //   var filePath = '../../../views/turtleEditor/js/turtle-editor.js';
-          //   // read contents of the file with the filePath
-          //   var contents = fs.readFileSync(filePath, 'utf8');
-          //   contents = contents.replace(/(owner\.val\(")(.*?)"/mg, "owner.val(\"" + obj.repositoryOwner + "\"");
-          //   contents = contents.replace(/(repo\.val\(")(.*?)"/mg, "repo.val(\"" + obj.repositoryName + "\"");
-          //   // write back to the file with the filePath
-          //   fs.writeFileSync(filePath, contents);
-          // }
-
           if (obj.evolutionReport === "true" && currentrepositoryURL === obj.repositoryURL) {
             // Evolution Part
             if (fs.existsSync('../evolution/SingleVoc.ttl')) {

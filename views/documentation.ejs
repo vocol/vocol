@@ -1,7 +1,7 @@
 <% include header %>
   <div class="ui grid">
     <div class="ui container">
-      <div class="ui segment" style="padding-top: 1cm">
+      <div class="ui segment" style="padding-top: 1cm;padding-bottom: 0px;">
         <div class="ui form">
           <div class="three fields">
             <div class="twelve wide field">
@@ -40,35 +40,83 @@
                         </div>
                         <%});%>
                           <%}%>
-
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="inline fields">
-            <div class="field">
-              <div class="ui radio checkbox">
-                <input type="radio" name="myRadios" id="RDFSViewCheckBox" value="1" checked="checked">
-                <label style="padding-right:50px">RDF(S) View</label>
-              </div>
-            </div>
-            <div class="field">
-              <div class="ui radio checkbox">
-                <input type="radio" name="myRadios" id="SKOSViewCheckBox" value="2">
-                <label style="padding-right:50px">SKOS View</label>
-              </div>
-            </div>
-            <div class="field">
-              <div class="ui slider checkbox" style="padding-right:50px">
-                <input type="checkbox" name="mySliders" id="showTypesCheckBox" tabindex="0">
-                <label> Show Type</label>
-              </div>
-            </div>
-            <div class="field">
-              <div class="ui slider checkbox" style="padding-right:50px">
-                <input type="checkbox" name="mySliders" id="showFilesCheckBox" tabindex="1">
-                <label> Show File</label>
+          <div class="ui vertical stripe segment" style="padding-top: 0px; padding-left: 1%;padding-bottom: 0px;">
+            <div class="ui grid stackable container">
+              <div class="row">
+                <div class="ui three column stackable divided grid">
+                  <div class="row" style=" margin-left: 25px;">
+                    <div class="ui segments" style="margin-right: 4px; text-align: center; margin-top: 0;">
+                      <div class="ui blue segment">
+                        <h3 class="ui header">
+                      <i class="grey options icon"></i>Type
+                    </h3>
+                      </div>
+                      <div class="ui segment">
+                        <div class="field">
+                          <div class="ui radio checkbox">
+                            <input type="radio" name="typesRadio" id="allTypesRadio" value="1" checked="checked">
+                            <label>All</label>
+                          </div>
+                          <div class="ui radio checkbox">
+                            <input type="radio" name="typesRadio" id="classRadio" value="2">
+                            <label>Class</label>
+                          </div>
+                          <div class="ui radio checkbox">
+                            <input type="radio" name="typesRadio" id="objectPropertyRadio">
+                            <label>Object Property</label>
+                          </div>
+                          <div class="ui radio checkbox">
+                            <input type="radio" name="typesRadio" id="datatypePropertyRadio">
+                            <label>Datatype Property</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="ui segments" style="margin-right: 4px; text-align: center; margin-top: 0;">
+                      <div class="ui blue segment">
+                        <h3 class="ui header">
+                      <i class="grey unhide icon"></i>View
+                    </h3>
+                      </div>
+                      <div class="ui segment">
+                        <div class="field">
+                          <div class="ui radio checkbox">
+                            <input type="radio" name="myRadios" id="RDFSViewCheckBox" value="1" checked="checked">
+                            <label>RDF(S) </label>
+                          </div>
+                          <div class="ui radio checkbox">
+                            <input type="radio" name="myRadios" id="SKOSViewCheckBox" value="2">
+                            <label>SKOS </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="ui segments" style=" text-align: center; margin-top: 0; margin-bottom: 14px;">
+                      <div class="ui blue segment">
+                        <h3 class="ui header">
+                      <i class="grey puzzle piece icon"></i>Show others
+                    </h3>
+                      </div>
+                      <div class="ui segment">
+                        <div class="field">
+                          <div class="ui slider checkbox">
+                            <input type="checkbox" name="mySliders" id="showTypesCheckBox" tabindex="0">
+                            <label> Type</label>
+                          </div>
+                          <div class="ui slider checkbox">
+                            <input type="checkbox" name="mySliders" id="showFilesCheckBox" tabindex="1">
+                            <label>  File</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -126,9 +174,8 @@
             var currentFiles = <%- JSON.stringify(fileNames) %>;
             var RDFObjPlusURI = <%- JSON.stringify(RDFObjectsPlusURI) %>;
             var SKOSObjPlusURI = <%- JSON.stringify(SKOSObjectsPlusURI) %>;
-            var OWLIndividiualsData = <%- JSON.stringify(OWLIndividiuals) %>;
+            var OWLIndividiualsData = <%- JSON.stringify(OWLIndividuals) %>;
 
-            console.log(OWLIndividiualsData);
             // store the selected concept
             var currentSelectedConcept = "";
             // store current elements in the tree, it has RDFS concepts initially
@@ -143,15 +190,43 @@
             $('.ui.dropdown').dropdown();
             $('.ui.checkbox').checkbox();
 
+            // filter treeData based on type
+            function getViewDataBasedOnType(data, str) {
+              var viewData = data;
+              switch (str) {
+                case "class":
+                  viewData = viewData.filter(function(element) {
+                    if (element.RDFType.includes("Class"))
+                      return element
+                  })
+                  break;
+                case "objectProperty":
+                  viewData = viewData.filter(function(element) {
+                    if (element.RDFType.includes("ObjectProperty"))
+                      return element
+                  })
+                  break;
+                case "datatypeProperty":
+                  viewData = viewData.filter(function(element) {
+                    if (element.RDFType.includes("DatatypeProperty"))
+                      return element
+                  })
+                  break;
+                default:
+                  viewData = data;
+              }
+              return viewData;
+            }
+
             // show SKOS concepts on treeview
-            function showSKOSTree(data, file) {
-              var viewData;
-              if (data != SKOSData) {
-                viewData = data;
-                currentTreeData = data;
-              } else {
-                viewData = SKOSData;
+            function showSKOSTree(data, file, str) {
+
+              if (data === SKOSData || data.length === 0) {
+                var viewData = SKOSData;
                 currentTreeData = SKOSData;
+              } else {
+                var viewData = data;
+                currentTreeData = data;
               }
 
               // Just one check is on not both
@@ -160,52 +235,61 @@
               if (isCheckedshowFilesCheckBox)
                 $('#showTypesCheckBox').prop('checked', false);
 
+              if (str) {
+                viewData = getViewDataBasedOnType(viewData, str);
+                currentTreeData = viewData;
+              }
 
               var allParents = getUniqueParents(viewData);
               var data = [];
-              var j = 0;
-              for (var i = 0; i < allParents.length; i++) {
-                if (allParents[i] && isConceptInside(allParents[i])) {
-                  data[j++] = getParentWithChildren(viewData, allParents[i], "SKOS");
-                }
-              }
+              var parentNodes = [];
               if ($('#showTypesCheckBox').is(':checked')) {
-                for (var i = 0; i < data.length; i++) {
-                  if (data[i].hasOwnProperty('nodes'))
-                    for (var j = 0; j < data[i].nodes.length; j++) {
-                      data[i].nodes[j].text = data[i].nodes[j].child;
-                      data[i].nodes[j].tags = ['<a  class="ui tiny teal tag label">' + data[i].nodes[j].RDFType + '</a>'];
+                for (var i = 0; i < viewData.length; i++) {
+                  if (viewData[i].hasOwnProperty('nodes'))
+                    for (var j = 0; j < viewData[i].nodes.length; j++) {
+                      viewData[i].nodes[j].text = viewData[i].nodes[j].child;
+                      viewData[i].nodes[j].tags = ['<a  class="ui tiny teal tag label">' + viewData[i].nodes[j].RDFType + '</a>'];
                     }
                 }
+                parentNodes = getParentWithChildren(viewData, allParents, 'typeTag');
+
               } else if ($('#showFilesCheckBox').is(':checked')) {
-                for (var i = 0; i < data.length; i++) {
-                  if (data[i].hasOwnProperty('nodes')) {
-                    for (var j = 0; j < data[i].nodes.length; j++) {
-                      data[i].nodes[j].text = data[i].nodes[j].child;
-                      data[i].nodes[j].tags = ['<a  class="ui tiny pink tag label">' + data[i].nodes[j].fileName + '</a>'];
+                for (var i = 0; i < viewData.length; i++) {
+                  if (viewData[i].hasOwnProperty('nodes')) {
+                    for (var j = 0; j < viewData[i].nodes.length; j++) {
+                      viewData[i].nodes[j].text = viewData[i].nodes[j].child;
+                      viewData[i].nodes[j].tags = ['<a  class="ui tiny pink tag label">' + viewData[i].nodes[j].fileName + '</a>'];
                     }
                   }
                 }
+                parentNodes = getParentWithChildren(viewData, allParents, 'fileTag');
+
               } else {
-                for (var i = 0; i < data.length; i++) {
-                  if (data[i].hasOwnProperty('nodes'))
-                    for (var j = 0; j < data[i].nodes.length; j++) {
-                      data[i].nodes[j].text = data[i].nodes[j].child;
-                      data[i].nodes[j].tags = [''];
+                for (var i = 0; i < viewData.length; i++) {
+                  if (viewData[i].hasOwnProperty('nodes'))
+                    for (var j = 0; j < viewData[i].nodes.length; j++) {
+                      viewData[i].nodes[j].text = viewData[i].nodes[j].child;
+                      viewData[i].nodes[j].tags = [''];
                     }
                 }
+                parentNodes = getParentWithChildren(viewData, allParents);
+
               }
+              data = parentNodes;
+
               if (file !== "ALL Files") {
                 currentTreeData = getSKOSFileData(data, file);
                 data = getSKOSFileData(data, file);
-
               }
+              $('#notFoundMessage').hide();
+              $("#tree").show();
+
+              // make array unique
+              data = uniqueArray(data);
               // sorting the tree before viewing
               data.sort(function(a, b) {
                 return ((a.text.toLowerCase() == b.text.toLowerCase()) ? 0 : ((a.text.toLowerCase() > b.text.toLowerCase()) ? 1 : -1));
               });
-              // make array unique
-              data = uniqueArray(data);
               // rebuild tree with the new SKOS data
               buildTree(data);
             }
@@ -215,8 +299,6 @@
               var externalConcepts = [];
               if ($('#SKOSViewCheckBox').is(':checked')) {
                 var internals = [];
-                //  var owlInstances = [];
-
                 mixSKOSConcepts.forEach(function(item) {
                   for (var i = 0; i < SKOSData.length; i++) {
                     if (item === SKOSData[i].child || item === SKOSData[i].parent || SKOSData[i].RDFType.includes("NamedIndividual")) {
@@ -224,15 +306,7 @@
                     }
                   }
                 });
-                // for (var i = 0; i < SKOSData.length; i++) {
-                //   if ( SKOSData[i].RDFType.includes("NamedIndividual")) {
-                //     owlInstances.push(item);
-                //   }
-                // }
-
                 externalConcepts = $(mixSKOSConcepts).not(internals).get();
-                //mixSKOSConcepts = $(mixSKOSConcepts).not(externalConcepts).get();
-
               }
               if ($('#RDFSViewCheckBox').is(':checked')) {
                 var internals = [];
@@ -252,12 +326,6 @@
             // show full tree for the first time
             // since RDFS checkbox is clicked by default
             showRDFSTree(RDFSData, currentSelectedFile);
-            // check for radios RDFS or SKOS Views
-            $('input:radio')
-              .on('change', function(event) {
-                currentSelectedFile = "ALL Files";
-                resetViews();
-              });
 
             // make unique concept in  tree
             function uniqueArray(array) {
@@ -295,11 +363,8 @@
                 $("#instanceHead").hide();
                 $("#instanceDetailsTable").hide();
                 $("#instancesTable").hide();
-                // var externalURITable = '<table class="ui very basic table" >' +
-                // '<colgroup> <col class="col-md-4"> </colgroup>' +
                 var externalURITable = '<div class="ui attached error message">' +
                   '<div class="header"> This concept is external </div></div>';
-                //'</tr></thread>';
                 // check if it URL ends with "/"
                 if (ExteralURI[ExteralURI.length - 1] === ('/')) {
                   var link = '<a href=' + ExteralURI.slice(0, -1) + '>' + ExteralURI.slice(0, -1) + '</a>';
@@ -394,16 +459,18 @@
 
 
             //show treeview with types or files
-            function showRDFSTree(data, file) {
+            function showRDFSTree(data, file, str) {
               // set currentTreeData to RDFS data
               if (data === RDFSData || data.length === 0) {
                 var viewData = RDFSData;
-                currentTreeData = RDFSData;
               } else {
                 var viewData = data;
-                currentTreeData = data;
               }
-
+              // check if typesRadio is checked and refill the data
+              if (str) {
+                viewData = getViewDataBasedOnType(viewData, str);
+                //currentTreeData = viewData;
+              }
               // only one chec is on not both
               if (isCheckedshowTypesCheckBox)
                 $('#showFilesCheckBox').prop('checked', false);
@@ -412,7 +479,6 @@
               var allParents = getUniqueParents(viewData);
               var data = [];
               var parentNodes = [];
-              var j = 0;
               if ($('#showFilesCheckBox').is(':checked')) {
                 for (var i = 0; i < viewData.length; i++) {
                   viewData[i].text = viewData[i].concept;
@@ -431,14 +497,12 @@
                   viewData[i].tags = [''];
                 }
                 parentNodes = getParentWithChildren(viewData, allParents);
-
               }
               data = parentNodes;
 
               if (file !== "ALL Files") {
                 currentTreeData = getRDFSFileData(data, file);
                 data = getRDFSFileData(data, file);
-
               }
               $('#notFoundMessage').hide();
               $("#tree").show();
@@ -521,21 +585,62 @@
             $('input:checkbox')
               .on('change', function(event) {
                 event.preventDefault();
+                var inputType = "";
+                inputType = getClickedTypeRadio();
                 isCheckedshowFilesCheckBox = ($(this).prop('checked') && $(this).attr('id') == 'showFilesCheckBox') ? true : false;
                 isCheckedshowTypesCheckBox = ($(this).prop('checked') && $(this).attr('id') == 'showTypesCheckBox') ? true : false;
-                if (($(this).prop('checked') || !$(this).prop('checked')) && $('#SKOSViewCheckBox').is(':checked'))
-                  showSKOSTree(SKOSData, currentSelectedFile);
-                else if (($(this).prop('checked') || !$(this).prop('checked')) && $('#RDFSViewCheckBox').is(':checked'))
-                  showRDFSTree(currentTreeData, currentSelectedFile);
+                if (($(this).prop('checked') || !$(this).prop('checked')) && $('#SKOSViewCheckBox').is(':checked')) {
+                  if ($('#input-search').val() !== "")
+                    showSKOSTree(currentTreeData, currentSelectedFile);
+                  else
+                    showSKOSTree(SKOSData, currentSelectedFile, inputType);
+                } else if (($(this).prop('checked') || !$(this).prop('checked')) && $('#RDFSViewCheckBox').is(':checked')) {
+                  if ($('#input-search').val() !== "")
+                    showRDFSTree(currentTreeData, currentSelectedFile);
+                  else
+                    //showRDFSTree(RDFSData, currentSelectedFile);
+                    showRDFSTree(RDFSData, currentSelectedFile, inputType);
+                }
               });
+
+            $('input:radio')
+              .on('change', function(event) {
+                event.preventDefault();
+                $('#input-search').val("");
+                var inputType = "";
+                inputType = getClickedTypeRadio();
+                $("#infoTabs").hide();
+                // if (inputType === "") {
+                //   currentSelectedFile = "ALL Files";
+                //   resetViews();
+                // }
+                if ($('#SKOSViewCheckBox').is(':checked')) {
+                  showSKOSTree(SKOSData, currentSelectedFile, inputType);
+                } else if ($('#RDFSViewCheckBox').is(':checked')) {
+                  //showRDFSTree(currentTreeData, currentSelectedFile, inputType);
+                  showRDFSTree(RDFSData, currentSelectedFile, inputType);
+
+                }
+              });
+
+            function getClickedTypeRadio() {
+              var type = "";
+              if ($('#classRadio').is(':checked'))
+                type = "class";
+              else if ($('#objectPropertyRadio').is(':checked'))
+                type = "objectProperty";
+              else if ($('#datatypePropertyRadio').is(':checked'))
+                type = "datatypeProperty";
+              // else if ($('#allTypesRadio').is(':checked'))
+              //   type = "allTypes";
+
+              return type;
+            }
 
             //show concept was not found as a message
             function conceptNotFoundMessage() {
               <% include notFoundMessage %> // import from notFoundMessage.ejs file
             }
-
-
-
 
             var search = function(e) {
               var pattern = $('#input-search').val();
@@ -581,9 +686,12 @@
               if (result.length === 0 && $('#input-search').val() !== "") {
                 conceptNotFoundMessage();
               } else if ($('#input-search').val() === "") {
-                $('#infoDetails').show();
+                $('#infoTabs').hide();
                 $('#tree').show();
-                showRDFSTree(array, currentSelectedFile);
+                if ($('#RDFSViewCheckBox').is(':checked'))
+                  showRDFSTree(array, currentSelectedFile);
+                else
+                  showSKOSTree(array, currentSelectedFile);
                 $('#notFoundMessage').html('');
                 $('#notFoundMessage').hide();
               }
@@ -621,6 +729,7 @@
 
             // get nodes which are parents and have children
             function getParentWithChildren(data, allParents, str) {
+
               var allParents = $.grep(data, function(o) {
                 return o.parent === ''
               });
@@ -644,51 +753,56 @@
 
             // get RDFS elements of the tree to display  filtered by file
             function getRDFSFileData(data, selectedFileName) {
+              var inputType = getClickedTypeRadio();
+              var viewData = [];
+              //if (inputType) {
+              viewData = getViewDataBasedOnType(data, inputType);
+              //currentTreeData = viewData;
+              //}
               if (selectedFileName) {
                 var filteredData = [];
                 var k = 0;
-                for (var i = 0; i < data.length; i++) {
-                  if (data[i].hasOwnProperty('fileName')) {
-                    if (data[i].fileName.trim() === selectedFileName) {
-                      filteredData[k] = data[i];
+                for (var i = 0; i < viewData.length; i++) {
+                  if (viewData[i].hasOwnProperty('fileName')) {
+                    if (viewData[i].fileName.trim() === selectedFileName) {
+                      filteredData[k] = viewData[i];
                       k++;
                     }
                   }
-                  if (data[i].hasOwnProperty('nodes')) {
-                    for (var j = 0; j < data[i].nodes.length; j++) {
-                      if (data[i].nodes[j].fileName)
-                        if (data[i].nodes[j].fileName.trim() === selectedFileName) {
-                          filteredData[k] = data[i].nodes[j];
-                          k++;
-                        }
-                    }
-                  }
+                  //   if (viewData[i].hasOwnProperty('nodes')) {
+                  //     for (var j = 0; j < viewData[i].nodes.length; j++) {
+                  //       if (viewData[i].nodes[j].fileName)
+                  //         if (viewData[i].nodes[j].fileName.trim() === selectedFileName) {
+                  //           filteredData[k] = viewData[i].nodes[j];
+                  //           k++;
+                  //         }
+                  //     }
                 }
-                var allParentsFromFiles = getUniqueParents(filteredData);
-                var dataFile = [];
-
-                if ($('#showTypesCheckBox').is(':checked')) {
-                  for (var i = 0; i < filteredData.length; i++) {
-                    filteredData[i].text = filteredData[i].concept;
-                    filteredData[i].tags = ['<a  class="ui tiny teal tag label">' + filteredData[i].RDFType + '</a>'];
-                  }
-                  dataFile = getParentWithChildren(filteredData, allParentsFromFiles, 'typeTag');
-                } else if ($('#showFilesCheckBox').is(':checked')) {
-                  for (var i = 0; i < filteredData.length; i++) {
-                    filteredData[i].text = filteredData[i].concept;
-                    filteredData[i].tags = ['<a  class="ui tiny pink tag label">' + filteredData[i].fileName + '</a>'];
-                  }
-                  dataFile = getParentWithChildren(filteredData, allParentsFromFiles, 'fileTag');
-                } else {
-                  for (var i = 0; i < filteredData.length; i++) {
-                    filteredData[i].text = filteredData[i].concept;
-                    filteredData[i].tags = [''];
-                  }
-                  dataFile = getParentWithChildren(filteredData, allParentsFromFiles);
-                }
-                data = dataFile;
               }
-              return data;
+              var allParentsFromFiles = getUniqueParents(filteredData);
+              var dataFile = [];
+
+              if ($('#showTypesCheckBox').is(':checked')) {
+                for (var i = 0; i < filteredData.length; i++) {
+                  filteredData[i].text = filteredData[i].concept;
+                  filteredData[i].tags = ['<a  class="ui tiny teal tag label">' + filteredData[i].RDFType + '</a>'];
+                }
+                dataFile = getParentWithChildren(filteredData, allParentsFromFiles, 'typeTag');
+              } else if ($('#showFilesCheckBox').is(':checked')) {
+                for (var i = 0; i < filteredData.length; i++) {
+                  filteredData[i].text = filteredData[i].concept;
+                  filteredData[i].tags = ['<a  class="ui tiny pink tag label">' + filteredData[i].fileName + '</a>'];
+                }
+                dataFile = getParentWithChildren(filteredData, allParentsFromFiles, 'fileTag');
+              } else {
+                for (var i = 0; i < filteredData.length; i++) {
+                  filteredData[i].text = filteredData[i].concept;
+                  filteredData[i].tags = [''];
+                }
+                dataFile = getParentWithChildren(filteredData, allParentsFromFiles);
+              }
+              //}
+              return dataFile;
             }
 
             // get SKOS elements of the tree to display filtered by file
@@ -1254,7 +1368,6 @@
                         key2 = key2 + '@' + key3;
                     }
                     table += '<tr><td>' + key1 + '</td>    <td>' + key2 + '</td>  </tr>';
-                    debugger;
                   }
                 }
 
@@ -1282,7 +1395,6 @@
                   '<th colspan="3">Terms use it as domain</th></thead>' +
                   '<tbody></tr><tr><th>Property</th><th>Expected Type</th><th>Description</th></tr>';
 
-                //console.log(getValuesUseditAsProperty(conceptURI, 'domain'));
                 var hasdomainPropertyValues = false;
                 getValuesUseditAsProperty(conceptURI, 'domain');
                 var domianPropertyResult = propertyResult;
