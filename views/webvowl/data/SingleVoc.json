@@ -1,193 +1,131 @@
 {
   "_comment" : "Created with OWL2VOWL (version 0.3.3-SNAPSHOT), http://vowl.visualdataweb.org",
   "header" : {
-    "languages" : [ "ii", "de", "en-us", "ui", "en", "undefined" ],
+    "languages" : [ "de", "em", "en", "undefined" ],
     "baseIris" : [ "http://purl.org/net/mobivoc", "http://www.w3.org/1999/02/22-rdf-syntax-ns", "http://www.w3.org/2000/01/rdf-schema", "http://www.w3.org/2001/XMLSchema", "http://eccenca.com/mobivoc" ],
     "iri" : "No IRI set"
   },
   "namespace" : [ ],
   "metrics" : {
-    "classCount" : 21,
-    "objectPropertyCount" : 2,
-    "datatypePropertyCount" : 32,
-    "individualCount" : 19
+    "classCount" : 17,
+    "objectPropertyCount" : 0,
+    "datatypePropertyCount" : 18,
+    "individualCount" : 0
   },
   "class" : [ {
-    "id" : "0",
-    "type" : "rdfs:Literal"
-  }, {
     "id" : "1",
-    "type" : "owl:Class"
-  }, {
-    "id" : "3",
-    "type" : "owl:Class"
-  }, {
-    "id" : "13",
-    "type" : "owl:Class"
-  }, {
-    "id" : "11",
-    "type" : "owl:Class"
-  }, {
-    "id" : "19",
-    "type" : "rdfs:Literal"
-  }, {
-    "id" : "20",
-    "type" : "rdfs:Literal"
-  }, {
-    "id" : "21",
-    "type" : "rdfs:Literal"
-  }, {
-    "id" : "22",
-    "type" : "rdfs:Literal"
-  }, {
-    "id" : "23",
-    "type" : "rdfs:Literal"
-  }, {
-    "id" : "26",
-    "type" : "rdfs:Literal"
-  }, {
-    "id" : "27",
-    "type" : "rdfs:Literal"
-  }, {
-    "id" : "28",
-    "type" : "rdfs:Literal"
-  }, {
-    "id" : "29",
-    "type" : "rdfs:Literal"
-  }, {
-    "id" : "30",
-    "type" : "rdfs:Literal"
-  }, {
-    "id" : "38",
-    "type" : "owl:Class"
-  }, {
-    "id" : "6",
-    "type" : "owl:Class"
-  }, {
-    "id" : "15",
-    "type" : "owl:Class"
-  }, {
-    "id" : "43",
-    "type" : "rdfs:Literal"
-  }, {
-    "id" : "44",
-    "type" : "rdfs:Literal"
-  }, {
-    "id" : "40",
-    "type" : "rdfs:Literal"
-  }, {
-    "id" : "47",
-    "type" : "rdfs:Literal"
-  }, {
-    "id" : "34",
-    "type" : "rdfs:Literal"
-  }, {
-    "id" : "48",
-    "type" : "rdfs:Literal"
-  }, {
-    "id" : "49",
-    "type" : "rdfs:Literal"
-  }, {
-    "id" : "50",
-    "type" : "rdfs:Literal"
-  }, {
-    "id" : "51",
-    "type" : "rdfs:Literal"
-  }, {
-    "id" : "12",
-    "type" : "owl:Class"
-  }, {
-    "id" : "25",
-    "type" : "rdfs:Literal"
-  }, {
-    "id" : "9",
-    "type" : "owl:Class"
-  }, {
-    "id" : "74",
-    "type" : "owl:Class"
-  }, {
-    "id" : "2",
-    "type" : "owl:Class"
-  }, {
-    "id" : "18",
-    "type" : "rdfs:Literal"
-  }, {
-    "id" : "53",
-    "type" : "owl:Class"
-  }, {
-    "id" : "10",
     "type" : "owl:Class"
   }, {
     "id" : "7",
     "type" : "owl:Class"
   }, {
-    "id" : "52",
+    "id" : "16",
     "type" : "owl:Class"
   }, {
-    "id" : "4",
+    "id" : "17",
+    "type" : "owl:Class"
+  }, {
+    "id" : "14",
+    "type" : "owl:Class"
+  }, {
+    "id" : "15",
+    "type" : "owl:Class"
+  }, {
+    "id" : "11",
+    "type" : "owl:Class"
+  }, {
+    "id" : "23",
     "type" : "owl:Class"
   }, {
     "id" : "8",
     "type" : "owl:Class"
   }, {
-    "id" : "16",
+    "id" : "4",
     "type" : "owl:Class"
   }, {
-    "id" : "94",
+    "id" : "10",
+    "type" : "owl:Class"
+  }, {
+    "id" : "12",
+    "type" : "owl:Class"
+  }, {
+    "id" : "21",
     "type" : "rdfs:Literal"
   }, {
-    "id" : "37",
+    "id" : "30",
     "type" : "rdfs:Literal"
   }, {
-    "id" : "87",
+    "id" : "28",
     "type" : "rdfs:Literal"
   }, {
-    "id" : "32",
+    "id" : "48",
     "type" : "rdfs:Literal"
   }, {
-    "id" : "98",
+    "id" : "25",
     "type" : "rdfs:Literal"
   }, {
-    "id" : "66",
+    "id" : "2",
     "type" : "rdfs:Literal"
   }, {
-    "id" : "62",
+    "id" : "46",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "5",
+    "type" : "owl:Class"
+  }, {
+    "id" : "55",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "19",
     "type" : "rdfs:Literal"
   }, {
     "id" : "42",
     "type" : "rdfs:Literal"
   }, {
-    "id" : "71",
+    "id" : "57",
     "type" : "rdfs:Literal"
   }, {
-    "id" : "96",
+    "id" : "50",
     "type" : "rdfs:Literal"
   }, {
-    "id" : "46",
+    "id" : "58",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "35",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "60",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "44",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "62",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "54",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "13",
     "type" : "owl:Class"
   }, {
-    "id" : "5",
+    "id" : "9",
     "type" : "owl:Class"
   }, {
-    "id" : "36",
+    "id" : "64",
+    "type" : "owl:Class"
+  }, {
+    "id" : "6",
     "type" : "owl:Class"
   } ],
   "classAttribute" : [ {
-    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
-    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
-    "id" : "0",
-    "label" : {
-      "IRI-based" : "Literal",
-      "undefined" : "Literal"
-    }
-  }, {
     "iri" : "http://eccenca.com/mobivoc/Battery",
     "baseIri" : "http://eccenca.com/mobivoc",
     "instances" : 0,
     "label" : {
       "IRI-based" : "Battery"
     },
-    "subClasses" : [ "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" ],
+    "subClasses" : [ "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "5" ],
     "attributes" : [ "external" ],
     "id" : "1"
   }, {
@@ -211,7 +149,7 @@
       "undefined" : "A type of rechargeable battery which uses a stabilized zinc electrode system."
     },
     "attributes" : [ "external" ],
-    "id" : "3",
+    "id" : "7",
     "superClasses" : [ "1" ]
   }, {
     "iri" : "http://purl.org/net/mobivoc/BicycleDockingStation",
@@ -220,14 +158,58 @@
     "label" : {
       "de" : "Fahrradstation",
       "IRI-based" : "BicycleDockingStation",
-      "ui" : "this",
+      "em" : "test",
       "en" : "bicycle docking station"
     },
     "comment" : {
       "undefined" : "A docking station of a bicycle sharing system for picking up and returning bicycles."
     },
     "attributes" : [ "external" ],
-    "id" : "13"
+    "id" : "16"
+  }, {
+    "iri" : "http://eccenca.com/mobivoc/ValveRegulatedLeadAcid",
+    "baseIri" : "http://eccenca.com/mobivoc",
+    "instances" : 0,
+    "annotations" : {
+      "hiddenLabel" : [ {
+        "identifier" : "hiddenLabel",
+        "language" : "en",
+        "value" : "VRLA ",
+        "type" : "label"
+      } ],
+      "altlabel" : [ {
+        "identifier" : "altlabel",
+        "language" : "en",
+        "value" : "sealed battery",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "de" : "VRLA-Akkumulator",
+      "IRI-based" : "ValveRegulatedLeadAcid",
+      "en" : "Valve-regulated lead-acid battery"
+    },
+    "comment" : {
+      "undefined" : "? type of lead-acid rechargeable battery"
+    },
+    "attributes" : [ "external" ],
+    "id" : "17",
+    "superClasses" : [ "5" ]
+  }, {
+    "iri" : "http://eccenca.com/mobivoc/DieselBatteryHybrid",
+    "baseIri" : "http://eccenca.com/mobivoc",
+    "instances" : 0,
+    "label" : {
+      "de" : "DieselBatterieHybrid",
+      "IRI-based" : "DieselBatteryHybrid",
+      "en" : "DieselBatteryHybrid"
+    },
+    "comment" : {
+      "undefined" : "*****"
+    },
+    "attributes" : [ "external" ],
+    "id" : "14",
+    "superClasses" : [ "1" ]
   }, {
     "iri" : "http://eccenca.com/mobivoc/petrolBatteryHybrid",
     "baseIri" : "http://eccenca.com/mobivoc",
@@ -241,24 +223,149 @@
       "undefined" : "****"
     },
     "attributes" : [ "external" ],
+    "id" : "15",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "http://eccenca.com/mobivoc/LithiumIonPolymer",
+    "baseIri" : "http://eccenca.com/mobivoc",
+    "instances" : 0,
+    "annotations" : {
+      "altlabel" : [ {
+        "identifier" : "altlabel",
+        "language" : "de",
+        "value" : "LiPoly",
+        "type" : "label"
+      }, {
+        "identifier" : "altlabel",
+        "language" : "en",
+        "value" : "LiPo",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "de" : "Lithium-Polymer-Akkumulator",
+      "IRI-based" : "LithiumIonPolymer",
+      "en" : "Lithium Polymer Battery"
+    },
+    "comment" : {
+      "undefined" : "A rechargeable battery of lithium-ion technology in a pouch format."
+    },
+    "attributes" : [ "external" ],
     "id" : "11",
     "superClasses" : [ "1" ]
   }, {
-    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
-    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
-    "id" : "19",
+    "iri" : "http://eccenca.com/mobivoc/FloodedLeadAcid",
+    "baseIri" : "http://eccenca.com/mobivoc",
+    "instances" : 0,
     "label" : {
-      "IRI-based" : "Literal",
-      "undefined" : "Literal"
-    }
+      "de" : " Blei-S?ure-Batterie",
+      "IRI-based" : "FloodedLeadAcid",
+      "en" : "Flooded Lead-Acid Battery"
+    },
+    "comment" : {
+      "undefined" : "Flooded lead acid batteries have cells with liquid electrolyte and are available in flat and tubular plate constructions with a wide variety of plate sizes."
+    },
+    "attributes" : [ "external" ],
+    "id" : "23",
+    "superClasses" : [ "5" ]
   }, {
-    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
-    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
-    "id" : "20",
+    "iri" : "http://eccenca.com/mobivoc/NickelCadmium",
+    "baseIri" : "http://eccenca.com/mobivoc",
+    "instances" : 0,
+    "annotations" : {
+      "hiddenLabel" : [ {
+        "identifier" : "hiddenLabel",
+        "language" : "en",
+        "value" : "NiCad",
+        "type" : "label"
+      } ],
+      "altlabel" : [ {
+        "identifier" : "altlabel",
+        "language" : "de",
+        "value" : "NiCd-Akku",
+        "type" : "label"
+      }, {
+        "identifier" : "altlabel",
+        "language" : "en",
+        "value" : "NiCd",
+        "type" : "label"
+      } ]
+    },
     "label" : {
-      "IRI-based" : "Literal",
-      "undefined" : "Literal"
-    }
+      "de" : "Nickel-Cadmium-Akkumulator",
+      "IRI-based" : "NickelCadmium",
+      "en" : "Nickel?cadmium battery"
+    },
+    "comment" : {
+      "undefined" : "A type of rechargeable battery using nickel oxide hydroxide and metallic cadmium as electrodes."
+    },
+    "attributes" : [ "external" ],
+    "id" : "8",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "http://eccenca.com/mobivoc/DeepCycle",
+    "baseIri" : "http://eccenca.com/mobivoc",
+    "instances" : 0,
+    "label" : {
+      "de" : "****Batterie",
+      "IRI-based" : "DeepCycle",
+      "en" : "Deep-Cycle Battery"
+    },
+    "comment" : {
+      "undefined" : "A lead-acid battery designed to be regularly deeply discharged using most of its capacity."
+    },
+    "attributes" : [ "external" ],
+    "id" : "4",
+    "superClasses" : [ "5" ]
+  }, {
+    "iri" : "http://eccenca.com/mobivoc/NickelMetalHydride",
+    "baseIri" : "http://eccenca.com/mobivoc",
+    "instances" : 0,
+    "annotations" : {
+      "hiddenLabel" : [ {
+        "identifier" : "hiddenLabel",
+        "language" : "en",
+        "value" : "Ni?MH",
+        "type" : "label"
+      } ],
+      "altlabel" : [ {
+        "identifier" : "altlabel",
+        "language" : "en",
+        "value" : "NiMH",
+        "type" : "label"
+      }, {
+        "identifier" : "altlabel",
+        "language" : "de",
+        "value" : "NiMH",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "de" : "Nickel-Metallhydrid-Akkumulator",
+      "IRI-based" : "NickelMetalHydride",
+      "en" : "Nickel?metal hydride battery"
+    },
+    "comment" : {
+      "undefined" : "A type of rechargeable battery. The chemical reaction at the positive electrode (cathode) is similar to that of the nickel?cadmium cell."
+    },
+    "attributes" : [ "external" ],
+    "id" : "10",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "http://eccenca.com/mobivoc/ZincAir",
+    "baseIri" : "http://eccenca.com/mobivoc",
+    "instances" : 0,
+    "label" : {
+      "de" : "Zink-Luft-Batterie",
+      "IRI-based" : "ZincAir",
+      "en" : "Zinc?air battery"
+    },
+    "comment" : {
+      "undefined" : "A metal-air battery powered by oxidizing zinc with oxygen from the air. These batteries have high energy densities and are relatively inexpensive to produce."
+    },
+    "attributes" : [ "external" ],
+    "id" : "12",
+    "superClasses" : [ "1" ]
   }, {
     "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
     "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
@@ -270,31 +377,7 @@
   }, {
     "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
     "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
-    "id" : "22",
-    "label" : {
-      "IRI-based" : "Literal",
-      "undefined" : "Literal"
-    }
-  }, {
-    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
-    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
-    "id" : "23",
-    "label" : {
-      "IRI-based" : "Literal",
-      "undefined" : "Literal"
-    }
-  }, {
-    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
-    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
-    "id" : "26",
-    "label" : {
-      "IRI-based" : "Literal",
-      "undefined" : "Literal"
-    }
-  }, {
-    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
-    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
-    "id" : "27",
+    "id" : "30",
     "label" : {
       "IRI-based" : "Literal",
       "undefined" : "Literal"
@@ -310,316 +393,6 @@
   }, {
     "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
     "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
-    "id" : "29",
-    "label" : {
-      "IRI-based" : "Literal",
-      "undefined" : "Literal"
-    }
-  }, {
-    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
-    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
-    "id" : "30",
-    "label" : {
-      "IRI-based" : "Literal",
-      "undefined" : "Literal"
-    }
-  }, {
-    "iri" : "http://eccenca.com/mobivoc/DeepCycle",
-    "baseIri" : "http://eccenca.com/mobivoc",
-    "instances" : 0,
-    "label" : {
-      "de" : "****Batterie",
-      "IRI-based" : "DeepCycle",
-      "en" : "Deep-Cycle Battery"
-    },
-    "comment" : {
-      "undefined" : "A lead-acid battery designed to be regularly deeply discharged using most of its capacity."
-    },
-    "attributes" : [ "external" ],
-    "id" : "38",
-    "superClasses" : [ "12" ]
-  }, {
-    "iri" : "http://eccenca.com/mobivoc/NickelMetalHydride",
-    "baseIri" : "http://eccenca.com/mobivoc",
-    "instances" : 0,
-    "annotations" : {
-      "hiddenLabel" : [ {
-        "identifier" : "hiddenLabel",
-        "language" : "en",
-        "value" : "Ni–MH",
-        "type" : "label"
-      } ],
-      "altlabel" : [ {
-        "identifier" : "altlabel",
-        "language" : "de",
-        "value" : "NiMH",
-        "type" : "label"
-      }, {
-        "identifier" : "altlabel",
-        "language" : "en",
-        "value" : "NiMH",
-        "type" : "label"
-      } ]
-    },
-    "label" : {
-      "de" : "Nickel-Metallhydrid-Akkumulator",
-      "IRI-based" : "NickelMetalHydride",
-      "en" : "Nickel–metal hydride battery"
-    },
-    "comment" : {
-      "undefined" : "A type of rechargeable battery. The chemical reaction at the positive electrode (cathode) is similar to that of the nickel–cadmium cell."
-    },
-    "attributes" : [ "external" ],
-    "id" : "6",
-    "superClasses" : [ "1" ]
-  }, {
-    "iri" : "http://eccenca.com/mobivoc/FuelStation",
-    "baseIri" : "http://eccenca.com/mobivoc",
-    "instances" : 0,
-    "annotations" : {
-      "altLabel" : [ {
-        "identifier" : "altLabel",
-        "language" : "en",
-        "value" : "petrol station",
-        "type" : "label"
-      }, {
-        "identifier" : "altLabel",
-        "language" : "en-us",
-        "value" : "gas station",
-        "type" : "label"
-      } ]
-    },
-    "label" : {
-      "de" : "Tankstelle",
-      "IRI-based" : "FuelStation",
-      "en" : "fuel station"
-    },
-    "individuals" : [ {
-      "iri" : "http://eccenca.com/mobivoc/FuelStationA",
-      "baseIri" : "http://eccenca.com/mobivoc",
-      "annotations" : {
-        "hasAddress" : [ {
-          "identifier" : "hasAddress",
-          "language" : "undefined",
-          "value" : "_:genid35",
-          "type" : "label"
-        } ],
-        "tel" : [ {
-          "identifier" : "tel",
-          "language" : "undefined",
-          "value" : "0228 673966",
-          "type" : "label"
-        } ],
-        "url" : [ {
-          "identifier" : "url",
-          "language" : "undefined",
-          "value" : "shell.de",
-          "type" : "label"
-        } ],
-        "organization-name" : [ {
-          "identifier" : "organization-name",
-          "language" : "undefined",
-          "value" : "Shell Tankstelle",
-          "type" : "label"
-        } ],
-        "long" : [ {
-          "identifier" : "long",
-          "language" : "undefined",
-          "value" : "7.057300",
-          "type" : "label"
-        } ],
-        "lat" : [ {
-          "identifier" : "lat",
-          "language" : "undefined",
-          "value" : "50.761966",
-          "type" : "label"
-        } ]
-      },
-      "labels" : {
-        "IRI-based" : "FuelStationA"
-      }
-    }, {
-      "iri" : "http://eccenca.com/mobivoc/FuelStationB",
-      "baseIri" : "http://eccenca.com/mobivoc",
-      "annotations" : {
-        "hasAddress" : [ {
-          "identifier" : "hasAddress",
-          "language" : "undefined",
-          "value" : "_:genid36",
-          "type" : "label"
-        } ],
-        "tel" : [ {
-          "identifier" : "tel",
-          "language" : "undefined",
-          "value" : "0228 476790",
-          "type" : "label"
-        } ],
-        "organization-name" : [ {
-          "identifier" : "organization-name",
-          "language" : "undefined",
-          "value" : "Esso",
-          "type" : "label"
-        } ],
-        "url" : [ {
-          "identifier" : "url",
-          "language" : "undefined",
-          "value" : "essofuelfinder.com",
-          "type" : "label"
-        } ],
-        "lat" : [ {
-          "identifier" : "lat",
-          "language" : "undefined",
-          "value" : "50.747196",
-          "type" : "label"
-        } ],
-        "long" : [ {
-          "identifier" : "long",
-          "language" : "undefined",
-          "value" : "7.122874",
-          "type" : "label"
-        } ]
-      },
-      "labels" : {
-        "IRI-based" : "FuelStationB"
-      }
-    }, {
-      "iri" : "http://eccenca.com/mobivoc/FuelStationC",
-      "baseIri" : "http://eccenca.com/mobivoc",
-      "annotations" : {
-        "hasAddress" : [ {
-          "identifier" : "hasAddress",
-          "language" : "undefined",
-          "value" : "_:genid37",
-          "type" : "label"
-        } ],
-        "tel" : [ {
-          "identifier" : "tel",
-          "language" : "undefined",
-          "value" : "0228 676991",
-          "type" : "label"
-        } ],
-        "lat" : [ {
-          "identifier" : "lat",
-          "language" : "undefined",
-          "value" : "50.745675",
-          "type" : "label"
-        } ],
-        "url" : [ {
-          "identifier" : "url",
-          "language" : "undefined",
-          "value" : "essofuelfinder.com",
-          "type" : "label"
-        } ],
-        "organization-name" : [ {
-          "identifier" : "organization-name",
-          "language" : "undefined",
-          "value" : "ED-Tankstelle Jürgen Metzling e.K.",
-          "type" : "label"
-        } ],
-        "long" : [ {
-          "identifier" : "long",
-          "language" : "undefined",
-          "value" : "7.084079",
-          "type" : "label"
-        } ]
-      },
-      "labels" : {
-        "IRI-based" : "FuelStationC"
-      }
-    }, {
-      "iri" : "http://eccenca.com/mobivoc/FuelStationD",
-      "baseIri" : "http://eccenca.com/mobivoc",
-      "annotations" : {
-        "hasAddress" : [ {
-          "identifier" : "hasAddress",
-          "language" : "undefined",
-          "value" : "_:genid38",
-          "type" : "label"
-        } ],
-        "tel" : [ {
-          "identifier" : "tel",
-          "language" : "undefined",
-          "value" : "0228 654851",
-          "type" : "label"
-        } ],
-        "lat" : [ {
-          "identifier" : "lat",
-          "language" : "undefined",
-          "value" : "50.741982",
-          "type" : "label"
-        } ],
-        "organization-name" : [ {
-          "identifier" : "organization-name",
-          "language" : "undefined",
-          "value" : "SVG-Tankstelle",
-          "type" : "label"
-        } ],
-        "url" : [ {
-          "identifier" : "url",
-          "language" : "undefined",
-          "value" : "svg-nordrhein.de",
-          "type" : "label"
-        } ],
-        "long" : [ {
-          "identifier" : "long",
-          "language" : "undefined",
-          "value" : "7.077556",
-          "type" : "label"
-        } ]
-      },
-      "labels" : {
-        "IRI-based" : "FuelStationD"
-      }
-    } ],
-    "comment" : {
-      "undefined" : "Facility for refueling motor vehicle."
-    },
-    "attributes" : [ "external" ],
-    "id" : "15",
-    "superClasses" : [ "36" ]
-  }, {
-    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
-    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
-    "id" : "43",
-    "label" : {
-      "IRI-based" : "Literal",
-      "undefined" : "Literal"
-    }
-  }, {
-    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
-    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
-    "id" : "44",
-    "label" : {
-      "IRI-based" : "Literal",
-      "undefined" : "Literal"
-    }
-  }, {
-    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
-    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
-    "id" : "40",
-    "label" : {
-      "IRI-based" : "Literal",
-      "undefined" : "Literal"
-    }
-  }, {
-    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
-    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
-    "id" : "47",
-    "label" : {
-      "IRI-based" : "Literal",
-      "undefined" : "Literal"
-    }
-  }, {
-    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
-    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
-    "id" : "34",
-    "label" : {
-      "IRI-based" : "Literal",
-      "undefined" : "Literal"
-    }
-  }, {
-    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
-    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
     "id" : "48",
     "label" : {
       "IRI-based" : "Literal",
@@ -628,7 +401,71 @@
   }, {
     "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
     "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
-    "id" : "49",
+    "id" : "25",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "2",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "46",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://eccenca.com/mobivoc/LeadAcid",
+    "baseIri" : "http://eccenca.com/mobivoc",
+    "instances" : 0,
+    "label" : {
+      "de" : "Bleiakkumulator",
+      "IRI-based" : "LeadAcid",
+      "en" : "Lead-Acid Battery"
+    },
+    "subClasses" : [ "23", "4", "17" ],
+    "comment" : {
+      "undefined" : "The oldest type of rechargeable battery. The cells have a relatively large power-to-weight ratio and these batteries have low cost."
+    },
+    "attributes" : [ "external" ],
+    "id" : "5",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "55",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "19",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "42",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "57",
     "label" : {
       "IRI-based" : "Literal",
       "undefined" : "Literal"
@@ -644,31 +481,47 @@
   }, {
     "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
     "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
-    "id" : "51",
+    "id" : "58",
     "label" : {
       "IRI-based" : "Literal",
       "undefined" : "Literal"
     }
   }, {
-    "iri" : "http://eccenca.com/mobivoc/LeadAcid",
-    "baseIri" : "http://eccenca.com/mobivoc",
-    "instances" : 0,
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "35",
     "label" : {
-      "de" : "Bleiakkumulator",
-      "IRI-based" : "LeadAcid",
-      "en" : "Lead-Acid Battery"
-    },
-    "subClasses" : [ "52", "38", "53" ],
-    "comment" : {
-      "undefined" : "The oldest type of rechargeable battery. The cells have a relatively large power-to-weight ratio and these batteries have low cost."
-    },
-    "attributes" : [ "external" ],
-    "id" : "12",
-    "superClasses" : [ "1" ]
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
   }, {
     "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
     "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
-    "id" : "25",
+    "id" : "60",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "44",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "62",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "54",
     "label" : {
       "IRI-based" : "Literal",
       "undefined" : "Literal"
@@ -684,6 +537,40 @@
     },
     "comment" : {
       "undefined" : "A type of battery that uses molten salts as an electrolyte and offers both a high energy density and a high power density."
+    },
+    "attributes" : [ "external" ],
+    "id" : "13",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "http://eccenca.com/mobivoc/LithiumIon",
+    "baseIri" : "http://eccenca.com/mobivoc",
+    "instances" : 0,
+    "annotations" : {
+      "hiddenLabel" : [ {
+        "identifier" : "hiddenLabel",
+        "language" : "en",
+        "value" : "LIB",
+        "type" : "label"
+      } ],
+      "altlabel" : [ {
+        "identifier" : "altlabel",
+        "language" : "en",
+        "value" : "Li-ion battery",
+        "type" : "label"
+      }, {
+        "identifier" : "altlabel",
+        "language" : "de",
+        "value" : "Lithium-Akkumulator",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "de" : "Lithium-Ionen-Akkumulator",
+      "IRI-based" : "LithiumIon",
+      "en" : "Lithium-ion Battery"
+    },
+    "comment" : {
+      "undefined" : "One of the most popular types of rechargeable batteries for electric vehicles. They use an intercalated lithium compound as one electrode material."
     },
     "attributes" : [ "external" ],
     "id" : "9",
@@ -725,1088 +612,244 @@
       "undefined" : "A battery used to power the propulsion of a battery electric vehicle."
     },
     "attributes" : [ "external" ],
-    "id" : "74"
+    "id" : "64"
   }, {
     "iri" : "http://eccenca.com/mobivoc/LithiumTitanate",
     "baseIri" : "http://eccenca.com/mobivoc",
     "instances" : 0,
     "label" : {
-      "de" : "Lithium–titanate-Akkumulator",
+      "de" : "Lithium?titanate-Akkumulator",
       "IRI-based" : "LithiumTitanate",
-      "en" : "Lithium–titanate Battery"
+      "en" : "Lithium?titanate Battery"
     },
     "comment" : {
       "undefined" : "A type of rechargeable battery, which has the advantage of being faster to charge than other lithium-ion batteries."
     },
     "attributes" : [ "external" ],
-    "id" : "2",
+    "id" : "6",
     "superClasses" : [ "1" ]
-  }, {
-    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
-    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
-    "id" : "18",
-    "label" : {
-      "IRI-based" : "Literal",
-      "undefined" : "Literal"
-    }
-  }, {
-    "iri" : "http://eccenca.com/mobivoc/ValveRegulatedLeadAcid",
-    "baseIri" : "http://eccenca.com/mobivoc",
-    "instances" : 0,
-    "annotations" : {
-      "hiddenLabel" : [ {
-        "identifier" : "hiddenLabel",
-        "language" : "en",
-        "value" : "VRLA ",
-        "type" : "label"
-      } ],
-      "altlabel" : [ {
-        "identifier" : "altlabel",
-        "language" : "en",
-        "value" : "sealed battery",
-        "type" : "label"
-      } ]
-    },
-    "label" : {
-      "de" : "VRLA-Akkumulator",
-      "IRI-based" : "ValveRegulatedLeadAcid",
-      "en" : "Valve-regulated lead-acid battery"
-    },
-    "comment" : {
-      "undefined" : "Α type of lead-acid rechargeable battery"
-    },
-    "attributes" : [ "external" ],
-    "id" : "53",
-    "superClasses" : [ "12" ]
-  }, {
-    "iri" : "http://eccenca.com/mobivoc/DieselBatteryHybrid",
-    "baseIri" : "http://eccenca.com/mobivoc",
-    "instances" : 0,
-    "label" : {
-      "de" : "DieselBatterieHybrid",
-      "IRI-based" : "DieselBatteryHybrid",
-      "en" : "DieselBatteryHybrid"
-    },
-    "comment" : {
-      "undefined" : "*****"
-    },
-    "attributes" : [ "external" ],
-    "id" : "10",
-    "superClasses" : [ "1" ]
-  }, {
-    "iri" : "http://eccenca.com/mobivoc/LithiumIonPolymer",
-    "baseIri" : "http://eccenca.com/mobivoc",
-    "instances" : 0,
-    "annotations" : {
-      "altlabel" : [ {
-        "identifier" : "altlabel",
-        "language" : "de",
-        "value" : "LiPoly",
-        "type" : "label"
-      }, {
-        "identifier" : "altlabel",
-        "language" : "en",
-        "value" : "LiPo",
-        "type" : "label"
-      } ]
-    },
-    "label" : {
-      "de" : "Lithium-Polymer-Akkumulator",
-      "IRI-based" : "LithiumIonPolymer",
-      "en" : "Lithium Polymer Battery"
-    },
-    "comment" : {
-      "undefined" : "A rechargeable battery of lithium-ion technology in a pouch format."
-    },
-    "attributes" : [ "external" ],
-    "id" : "7",
-    "superClasses" : [ "1" ]
-  }, {
-    "iri" : "http://eccenca.com/mobivoc/FloodedLeadAcid",
-    "baseIri" : "http://eccenca.com/mobivoc",
-    "instances" : 0,
-    "label" : {
-      "de" : " Blei-Säure-Batterie",
-      "IRI-based" : "FloodedLeadAcid",
-      "en" : "Flooded Lead-Acid Battery"
-    },
-    "comment" : {
-      "undefined" : "Flooded lead acid batteries have cells with liquid electrolyte and are available in flat and tubular plate constructions with a wide variety of plate sizes."
-    },
-    "attributes" : [ "external" ],
-    "id" : "52",
-    "superClasses" : [ "12" ]
-  }, {
-    "iri" : "http://eccenca.com/mobivoc/NickelCadmium",
-    "baseIri" : "http://eccenca.com/mobivoc",
-    "instances" : 0,
-    "annotations" : {
-      "hiddenLabel" : [ {
-        "identifier" : "hiddenLabel",
-        "language" : "en",
-        "value" : "NiCad",
-        "type" : "label"
-      } ],
-      "altlabel" : [ {
-        "identifier" : "altlabel",
-        "language" : "en",
-        "value" : "NiCd",
-        "type" : "label"
-      }, {
-        "identifier" : "altlabel",
-        "language" : "de",
-        "value" : "NiCd-Akku",
-        "type" : "label"
-      } ]
-    },
-    "label" : {
-      "de" : "Nickel-Cadmium-Akkumulator",
-      "IRI-based" : "NickelCadmium",
-      "en" : "Nickel–cadmium battery"
-    },
-    "comment" : {
-      "undefined" : "A type of rechargeable battery using nickel oxide hydroxide and metallic cadmium as electrodes."
-    },
-    "attributes" : [ "external" ],
-    "id" : "4",
-    "superClasses" : [ "1" ]
-  }, {
-    "iri" : "http://eccenca.com/mobivoc/ZincAir",
-    "baseIri" : "http://eccenca.com/mobivoc",
-    "instances" : 0,
-    "label" : {
-      "de" : "Zink-Luft-Batterie",
-      "IRI-based" : "ZincAir",
-      "en" : "Zinc–air battery"
-    },
-    "comment" : {
-      "undefined" : "A metal-air battery powered by oxidizing zinc with oxygen from the air. These batteries have high energy densities and are relatively inexpensive to produce."
-    },
-    "attributes" : [ "external" ],
-    "id" : "8",
-    "superClasses" : [ "1" ]
-  }, {
-    "iri" : "http://eccenca.com/mobivoc/Fuel",
-    "baseIri" : "http://eccenca.com/mobivoc",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "Fuel"
-    },
-    "attributes" : [ "external" ],
-    "id" : "16"
-  }, {
-    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
-    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
-    "id" : "94",
-    "label" : {
-      "IRI-based" : "Literal",
-      "undefined" : "Literal"
-    }
-  }, {
-    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
-    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
-    "id" : "37",
-    "label" : {
-      "IRI-based" : "Literal",
-      "undefined" : "Literal"
-    }
-  }, {
-    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
-    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
-    "id" : "87",
-    "label" : {
-      "IRI-based" : "Literal",
-      "undefined" : "Literal"
-    }
-  }, {
-    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
-    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
-    "id" : "32",
-    "label" : {
-      "IRI-based" : "Literal",
-      "undefined" : "Literal"
-    }
-  }, {
-    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
-    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
-    "id" : "98",
-    "label" : {
-      "IRI-based" : "Literal",
-      "undefined" : "Literal"
-    }
-  }, {
-    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
-    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
-    "id" : "66",
-    "label" : {
-      "IRI-based" : "Literal",
-      "undefined" : "Literal"
-    }
-  }, {
-    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
-    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
-    "id" : "62",
-    "label" : {
-      "IRI-based" : "Literal",
-      "undefined" : "Literal"
-    }
-  }, {
-    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
-    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
-    "id" : "42",
-    "label" : {
-      "IRI-based" : "Literal",
-      "undefined" : "Literal"
-    }
-  }, {
-    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
-    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
-    "id" : "71",
-    "label" : {
-      "IRI-based" : "Literal",
-      "undefined" : "Literal"
-    }
-  }, {
-    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
-    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
-    "id" : "96",
-    "label" : {
-      "IRI-based" : "Literal",
-      "undefined" : "Literal"
-    }
-  }, {
-    "iri" : "http://eccenca.com/mobivoc/ChargingStation",
-    "baseIri" : "http://eccenca.com/mobivoc",
-    "instances" : 0,
-    "label" : {
-      "de" : "Ladestation",
-      "IRI-based" : "ChargingStation",
-      "en" : "charging station"
-    },
-    "individuals" : [ {
-      "iri" : "http://eccenca.com/mobivoc/ChargingStationA",
-      "baseIri" : "http://eccenca.com/mobivoc",
-      "annotations" : {
-        "hasAddress" : [ {
-          "identifier" : "hasAddress",
-          "language" : "undefined",
-          "value" : "_:genid20",
-          "type" : "label"
-        } ],
-        "hasParking" : [ {
-          "identifier" : "hasParking",
-          "language" : "undefined",
-          "value" : "2 parking spaces for electric vehicles only",
-          "type" : "label"
-        } ],
-        "long" : [ {
-          "identifier" : "long",
-          "language" : "undefined",
-          "value" : "7.103397",
-          "type" : "label"
-        } ],
-        "hasIdentifications" : [ {
-          "identifier" : "hasIdentifications",
-          "language" : "undefined",
-          "value" : "None",
-          "type" : "label"
-        } ],
-        "lat" : [ {
-          "identifier" : "lat",
-          "language" : "undefined",
-          "value" : "50.738999",
-          "type" : "label"
-        } ]
-      },
-      "labels" : {
-        "IRI-based" : "ChargingStationA"
-      }
-    }, {
-      "iri" : "http://eccenca.com/mobivoc/ChargingStationB",
-      "baseIri" : "http://eccenca.com/mobivoc",
-      "annotations" : {
-        "hasAddress" : [ {
-          "identifier" : "hasAddress",
-          "language" : "undefined",
-          "value" : "_:genid21",
-          "type" : "label"
-        } ],
-        "hasParking" : [ {
-          "identifier" : "hasParking",
-          "language" : "undefined",
-          "value" : "2 parking spaces for electric vehicles only",
-          "type" : "label"
-        } ],
-        "long" : [ {
-          "identifier" : "long",
-          "language" : "undefined",
-          "value" : "7.151704",
-          "type" : "label"
-        } ],
-        "lat" : [ {
-          "identifier" : "lat",
-          "language" : "undefined",
-          "value" : "50.718117",
-          "type" : "label"
-        } ],
-        "hasIdentifications" : [ {
-          "identifier" : "hasIdentifications",
-          "language" : "undefined",
-          "value" : "Key",
-          "type" : "label"
-        } ]
-      },
-      "labels" : {
-        "IRI-based" : "ChargingStationB"
-      }
-    }, {
-      "iri" : "http://eccenca.com/mobivoc/ChargingStationC",
-      "baseIri" : "http://eccenca.com/mobivoc",
-      "annotations" : {
-        "hasAddress" : [ {
-          "identifier" : "hasAddress",
-          "language" : "undefined",
-          "value" : "_:genid22",
-          "type" : "label"
-        } ],
-        "hasParking" : [ {
-          "identifier" : "hasParking",
-          "language" : "undefined",
-          "value" : "1 parking space for electric vehicles only",
-          "type" : "label"
-        } ],
-        "website" : [ {
-          "identifier" : "website",
-          "language" : "undefined",
-          "value" : "http://www.obi.de/de/maerkte/Bonn-Nord/index.html",
-          "type" : "label"
-        } ],
-        "long" : [ {
-          "identifier" : "long",
-          "language" : "undefined",
-          "value" : "7.080653",
-          "type" : "label"
-        } ],
-        "lat" : [ {
-          "identifier" : "lat",
-          "language" : "undefined",
-          "value" : "50.738228",
-          "type" : "label"
-        } ],
-        "hasIdentifications" : [ {
-          "identifier" : "hasIdentifications",
-          "language" : "undefined",
-          "value" : "None",
-          "type" : "label"
-        } ]
-      },
-      "labels" : {
-        "IRI-based" : "ChargingStationC"
-      }
-    }, {
-      "iri" : "http://eccenca.com/mobivoc/ChargingStationD",
-      "baseIri" : "http://eccenca.com/mobivoc",
-      "annotations" : {
-        "hasAddress" : [ {
-          "identifier" : "hasAddress",
-          "language" : "undefined",
-          "value" : "_:genid23",
-          "type" : "label"
-        } ],
-        "hasParking" : [ {
-          "identifier" : "hasParking",
-          "language" : "undefined",
-          "value" : "1 parking space for electric vehicles only",
-          "type" : "label"
-        } ],
-        "long" : [ {
-          "identifier" : "long",
-          "language" : "undefined",
-          "value" : "7.093778",
-          "type" : "label"
-        } ],
-        "hasIdentifications" : [ {
-          "identifier" : "hasIdentifications",
-          "language" : "undefined",
-          "value" : "None",
-          "type" : "label"
-        } ],
-        "lat" : [ {
-          "identifier" : "lat",
-          "language" : "undefined",
-          "value" : "50.737613",
-          "type" : "label"
-        } ]
-      },
-      "labels" : {
-        "IRI-based" : "ChargingStationD"
-      }
-    }, {
-      "iri" : "http://eccenca.com/mobivoc/ChargingStationE",
-      "baseIri" : "http://eccenca.com/mobivoc",
-      "annotations" : {
-        "hasAddress" : [ {
-          "identifier" : "hasAddress",
-          "language" : "undefined",
-          "value" : "_:genid24",
-          "type" : "label"
-        } ],
-        "hasIdentifications" : [ {
-          "identifier" : "hasIdentifications",
-          "language" : "undefined",
-          "value" : "Other",
-          "type" : "label"
-        } ],
-        "long" : [ {
-          "identifier" : "long",
-          "language" : "undefined",
-          "value" : "7.140795",
-          "type" : "label"
-        } ],
-        "lat" : [ {
-          "identifier" : "lat",
-          "language" : "undefined",
-          "value" : "50.695074",
-          "type" : "label"
-        } ]
-      },
-      "labels" : {
-        "IRI-based" : "ChargingStationE"
-      }
-    }, {
-      "iri" : "http://eccenca.com/mobivoc/ChargingStationF",
-      "baseIri" : "http://eccenca.com/mobivoc",
-      "annotations" : {
-        "hasAddress" : [ {
-          "identifier" : "hasAddress",
-          "language" : "undefined",
-          "value" : "_:genid25",
-          "type" : "label"
-        } ],
-        "operator" : [ {
-          "identifier" : "operator",
-          "language" : "undefined",
-          "value" : "RWE",
-          "type" : "label"
-        } ],
-        "hasIdentifications" : [ {
-          "identifier" : "hasIdentifications",
-          "language" : "undefined",
-          "value" : "Text message, Phone call, Other, Mobile Application",
-          "type" : "label"
-        } ],
-        "lat" : [ {
-          "identifier" : "lat",
-          "language" : "undefined",
-          "value" : "50.721710",
-          "type" : "label"
-        } ],
-        "long" : [ {
-          "identifier" : "long",
-          "language" : "undefined",
-          "value" : "7.026320",
-          "type" : "label"
-        } ]
-      },
-      "labels" : {
-        "IRI-based" : "ChargingStationF"
-      }
-    }, {
-      "iri" : "http://eccenca.com/mobivoc/ChargingStationG",
-      "baseIri" : "http://eccenca.com/mobivoc",
-      "annotations" : {
-        "hasAddress" : [ {
-          "identifier" : "hasAddress",
-          "language" : "undefined",
-          "value" : "_:genid26",
-          "type" : "label"
-        } ],
-        "website" : [ {
-          "identifier" : "website",
-          "language" : "undefined",
-          "value" : "http://www.rheinenergie.com/TankEn",
-          "type" : "label"
-        } ],
-        "operator" : [ {
-          "identifier" : "operator",
-          "language" : "undefined",
-          "value" : "Rheinenergie",
-          "type" : "label"
-        } ],
-        "lat" : [ {
-          "identifier" : "lat",
-          "language" : "undefined",
-          "value" : "50.757470",
-          "type" : "label"
-        } ],
-        "hasIdentifications" : [ {
-          "identifier" : "hasIdentifications",
-          "language" : "undefined",
-          "value" : "Unknown",
-          "type" : "label"
-        } ],
-        "long" : [ {
-          "identifier" : "long",
-          "language" : "undefined",
-          "value" : "7.004420",
-          "type" : "label"
-        } ]
-      },
-      "labels" : {
-        "IRI-based" : "ChargingStationG"
-      }
-    }, {
-      "iri" : "http://eccenca.com/mobivoc/ChargingStationH",
-      "baseIri" : "http://eccenca.com/mobivoc",
-      "annotations" : {
-        "owner" : [ {
-          "identifier" : "owner",
-          "language" : "undefined",
-          "value" : "TankE RheinEnergie",
-          "type" : "label"
-        } ],
-        "hasAddress" : [ {
-          "identifier" : "hasAddress",
-          "language" : "undefined",
-          "value" : "_:genid27",
-          "type" : "label"
-        } ],
-        "website" : [ {
-          "identifier" : "website",
-          "language" : "undefined",
-          "value" : "http://www.rheinenergie.com/de/unternehmensportal/technik_zukunft/elektromobilitaet_1/ladestationen/ladestationen_1.php",
-          "type" : "label"
-        } ],
-        "lat" : [ {
-          "identifier" : "lat",
-          "language" : "undefined",
-          "value" : "50.767600",
-          "type" : "label"
-        } ],
-        "hasIdentifications" : [ {
-          "identifier" : "hasIdentifications",
-          "language" : "undefined",
-          "value" : "Badge has to be ordered",
-          "type" : "label"
-        } ],
-        "long" : [ {
-          "identifier" : "long",
-          "language" : "undefined",
-          "value" : "6.948360",
-          "type" : "label"
-        } ]
-      },
-      "labels" : {
-        "IRI-based" : "ChargingStationH"
-      }
-    }, {
-      "iri" : "http://eccenca.com/mobivoc/ChargingStationI",
-      "baseIri" : "http://eccenca.com/mobivoc",
-      "annotations" : {
-        "hasAddress" : [ {
-          "identifier" : "hasAddress",
-          "language" : "undefined",
-          "value" : "_:genid28",
-          "type" : "label"
-        } ],
-        "long" : [ {
-          "identifier" : "long",
-          "language" : "undefined",
-          "value" : "7.075870",
-          "type" : "label"
-        } ],
-        "hasIdentifications" : [ {
-          "identifier" : "hasIdentifications",
-          "language" : "undefined",
-          "value" : "Text message, Phone call, Other, Mobile Application",
-          "type" : "label"
-        } ],
-        "operator" : [ {
-          "identifier" : "operator",
-          "language" : "undefined",
-          "value" : "RWE",
-          "type" : "label"
-        } ],
-        "lat" : [ {
-          "identifier" : "lat",
-          "language" : "undefined",
-          "value" : "50.683040",
-          "type" : "label"
-        } ]
-      },
-      "labels" : {
-        "IRI-based" : "ChargingStationI"
-      }
-    }, {
-      "iri" : "http://eccenca.com/mobivoc/ChargingStationK",
-      "baseIri" : "http://eccenca.com/mobivoc",
-      "annotations" : {
-        "hasAddress" : [ {
-          "identifier" : "hasAddress",
-          "language" : "undefined",
-          "value" : "_:genid29",
-          "type" : "label"
-        } ],
-        "operator" : [ {
-          "identifier" : "operator",
-          "language" : "undefined",
-          "value" : "RWE",
-          "type" : "label"
-        } ],
-        "hasIdentifications" : [ {
-          "identifier" : "hasIdentifications",
-          "language" : "undefined",
-          "value" : "Text message, Phone call, Other, Mobile Application",
-          "type" : "label"
-        } ],
-        "long" : [ {
-          "identifier" : "long",
-          "language" : "undefined",
-          "value" : "7.218302",
-          "type" : "label"
-        } ],
-        "lat" : [ {
-          "identifier" : "lat",
-          "language" : "undefined",
-          "value" : "50.802184",
-          "type" : "label"
-        } ]
-      },
-      "labels" : {
-        "IRI-based" : "ChargingStationK"
-      }
-    }, {
-      "iri" : "http://eccenca.com/mobivoc/ChargingStationL",
-      "baseIri" : "http://eccenca.com/mobivoc",
-      "annotations" : {
-        "hasAddress" : [ {
-          "identifier" : "hasAddress",
-          "language" : "undefined",
-          "value" : "_:genid30",
-          "type" : "label"
-        } ],
-        "long" : [ {
-          "identifier" : "long",
-          "language" : "undefined",
-          "value" : "7.203024",
-          "type" : "label"
-        } ],
-        "hasIdentifications" : [ {
-          "identifier" : "hasIdentifications",
-          "language" : "undefined",
-          "value" : "Text message, Phone call, Other, Mobile Application",
-          "type" : "label"
-        } ],
-        "lat" : [ {
-          "identifier" : "lat",
-          "language" : "undefined",
-          "value" : "50.793180",
-          "type" : "label"
-        } ],
-        "operator" : [ {
-          "identifier" : "operator",
-          "language" : "undefined",
-          "value" : "RWE",
-          "type" : "label"
-        } ]
-      },
-      "labels" : {
-        "IRI-based" : "ChargingStationL"
-      }
-    }, {
-      "iri" : "http://eccenca.com/mobivoc/ChargingStationM",
-      "baseIri" : "http://eccenca.com/mobivoc",
-      "annotations" : {
-        "hasAddress" : [ {
-          "identifier" : "hasAddress",
-          "language" : "undefined",
-          "value" : "_:genid31",
-          "type" : "label"
-        } ],
-        "hasIdentifications" : [ {
-          "identifier" : "hasIdentifications",
-          "language" : "undefined",
-          "value" : "Text message, Phone call, Other, Mobile Application",
-          "type" : "label"
-        } ],
-        "operator" : [ {
-          "identifier" : "operator",
-          "language" : "undefined",
-          "value" : "RWE",
-          "type" : "label"
-        } ],
-        "long" : [ {
-          "identifier" : "long",
-          "language" : "undefined",
-          "value" : "7.205730",
-          "type" : "label"
-        } ],
-        "lat" : [ {
-          "identifier" : "lat",
-          "language" : "undefined",
-          "value" : "50.793205",
-          "type" : "label"
-        } ]
-      },
-      "labels" : {
-        "IRI-based" : "ChargingStationM"
-      }
-    }, {
-      "iri" : "http://eccenca.com/mobivoc/ChargingStationN",
-      "baseIri" : "http://eccenca.com/mobivoc",
-      "annotations" : {
-        "hasAddress" : [ {
-          "identifier" : "hasAddress",
-          "language" : "undefined",
-          "value" : "_:genid32",
-          "type" : "label"
-        } ],
-        "long" : [ {
-          "identifier" : "long",
-          "language" : "undefined",
-          "value" : "7.203999",
-          "type" : "label"
-        } ],
-        "operator" : [ {
-          "identifier" : "operator",
-          "language" : "undefined",
-          "value" : "RWE",
-          "type" : "label"
-        } ],
-        "hasIdentifications" : [ {
-          "identifier" : "hasIdentifications",
-          "language" : "undefined",
-          "value" : "Text message, Phone call, Other, Mobile Application",
-          "type" : "label"
-        } ],
-        "lat" : [ {
-          "identifier" : "lat",
-          "language" : "undefined",
-          "value" : "50.798530",
-          "type" : "label"
-        } ]
-      },
-      "labels" : {
-        "IRI-based" : "ChargingStationN"
-      }
-    }, {
-      "iri" : "http://eccenca.com/mobivoc/ChargingStationO",
-      "baseIri" : "http://eccenca.com/mobivoc",
-      "annotations" : {
-        "hasAddress" : [ {
-          "identifier" : "hasAddress",
-          "language" : "undefined",
-          "value" : "_:genid33",
-          "type" : "label"
-        } ],
-        "long" : [ {
-          "identifier" : "long",
-          "language" : "undefined",
-          "value" : "7.205371",
-          "type" : "label"
-        } ],
-        "hasIdentifications" : [ {
-          "identifier" : "hasIdentifications",
-          "language" : "undefined",
-          "value" : "Text message, Phone call, Other, Mobile Application",
-          "type" : "label"
-        } ],
-        "operator" : [ {
-          "identifier" : "operator",
-          "language" : "undefined",
-          "value" : "RWE",
-          "type" : "label"
-        } ],
-        "lat" : [ {
-          "identifier" : "lat",
-          "language" : "undefined",
-          "value" : "50.797767",
-          "type" : "label"
-        } ]
-      },
-      "labels" : {
-        "IRI-based" : "ChargingStationO"
-      }
-    }, {
-      "iri" : "http://eccenca.com/mobivoc/ChargingStationP",
-      "baseIri" : "http://eccenca.com/mobivoc",
-      "annotations" : {
-        "hasAddress" : [ {
-          "identifier" : "hasAddress",
-          "language" : "undefined",
-          "value" : "_:genid34",
-          "type" : "label"
-        } ],
-        "long" : [ {
-          "identifier" : "long",
-          "language" : "undefined",
-          "value" : "7.223880",
-          "type" : "label"
-        } ],
-        "lat" : [ {
-          "identifier" : "lat",
-          "language" : "undefined",
-          "value" : "50.792406",
-          "type" : "label"
-        } ],
-        "operator" : [ {
-          "identifier" : "operator",
-          "language" : "undefined",
-          "value" : "RWE",
-          "type" : "label"
-        } ],
-        "hasIdentifications" : [ {
-          "identifier" : "hasIdentifications",
-          "language" : "undefined",
-          "value" : "Text message, Phone call, Other, Mobile Application",
-          "type" : "label"
-        } ]
-      },
-      "labels" : {
-        "IRI-based" : "ChargingStationP"
-      }
-    } ],
-    "comment" : {
-      "undefined" : "Facility for electric motor vehicle."
-    },
-    "attributes" : [ "external" ],
-    "id" : "46",
-    "superClasses" : [ "36" ]
-  }, {
-    "iri" : "http://eccenca.com/mobivoc/LithiumIon",
-    "baseIri" : "http://eccenca.com/mobivoc",
-    "instances" : 0,
-    "annotations" : {
-      "hiddenLabel" : [ {
-        "identifier" : "hiddenLabel",
-        "language" : "en",
-        "value" : "LIB",
-        "type" : "label"
-      } ],
-      "altlabel" : [ {
-        "identifier" : "altlabel",
-        "language" : "de",
-        "value" : "Lithium-Akkumulator",
-        "type" : "label"
-      }, {
-        "identifier" : "altlabel",
-        "language" : "en",
-        "value" : "Li-ion battery",
-        "type" : "label"
-      } ]
-    },
-    "label" : {
-      "de" : "Lithium-Ionen-Akkumulator",
-      "IRI-based" : "LithiumIon",
-      "en" : "Lithium-ion Battery"
-    },
-    "comment" : {
-      "undefined" : "One of the most popular types of rechargeable batteries for electric vehicles. They use an intercalated lithium compound as one electrode material."
-    },
-    "attributes" : [ "external" ],
-    "id" : "5",
-    "superClasses" : [ "1" ]
-  }, {
-    "iri" : "http://eccenca.com/mobivoc/FillingStation",
-    "baseIri" : "http://eccenca.com/mobivoc",
-    "instances" : 0,
-    "label" : {
-      "de" : "Abfullstation",
-      "IRI-based" : "FillingStation",
-      "en" : "filling station"
-    },
-    "subClasses" : [ "46", "15" ],
-    "comment" : {
-      "undefined" : "Facility for combustion motor vehicles or electric motor vehicle."
-    },
-    "attributes" : [ "external" ],
-    "id" : "36"
   } ],
   "property" : [ {
-    "id" : "14",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "17",
+    "id" : "0",
     "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "3",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "18",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "20",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "22",
+    "type" : "rdfs:SubClassOf"
   }, {
     "id" : "24",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "31",
+    "id" : "26",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "27",
     "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "29",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "31",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "32",
+    "type" : "rdfs:SubClassOf"
   }, {
     "id" : "33",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "34",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "35",
-    "type" : "owl:datatypeProperty"
+    "id" : "36",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "37",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "38",
+    "type" : "rdfs:SubClassOf"
   }, {
     "id" : "39",
-    "type" : "owl:datatypeProperty"
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "40",
+    "type" : "rdfs:SubClassOf"
   }, {
     "id" : "41",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "43",
     "type" : "owl:datatypeProperty"
   }, {
     "id" : "45",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "54",
+    "id" : "47",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "55",
+    "id" : "49",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "51",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "52",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "53",
     "type" : "owl:datatypeProperty"
   }, {
     "id" : "56",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "57",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "58",
-    "type" : "rdfs:SubClassOf"
-  }, {
     "id" : "59",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "60",
-    "type" : "rdfs:SubClassOf"
+    "type" : "owl:datatypeProperty"
   }, {
     "id" : "61",
     "type" : "owl:datatypeProperty"
   }, {
     "id" : "63",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "64",
-    "type" : "rdfs:SubClassOf"
+    "type" : "owl:datatypeProperty"
   }, {
     "id" : "65",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "67",
+    "id" : "66",
     "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "68",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "69",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "70",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "72",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "73",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "75",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "76",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "77",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "78",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "79",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "80",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "81",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "82",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "83",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "84",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "85",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "86",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "88",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "89",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "90",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "91",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "92",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "93",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "95",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "97",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "99",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "100",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "101",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "102",
-    "type" : "owl:datatypeProperty"
   } ],
   "propertyAttribute" : [ {
-    "iri" : "http://eccenca.com/mobivoc/hasOffer",
+    "iri" : "http://eccenca.com/mobivoc/hasOperatingTemperature",
     "baseIri" : "http://eccenca.com/mobivoc",
-    "range" : "16",
+    "range" : "2",
     "label" : {
-      "de" : "hat Angebot",
-      "IRI-based" : "hasOffer",
-      "en" : "has offer"
+      "de" : "Betriebstemperatur",
+      "IRI-based" : "hasOperatingTemperature",
+      "en" : "Operating temperature"
     },
-    "domain" : "15",
+    "domain" : "1",
     "comment" : {
-      "undefined" : "Indicates the sort of fuels product the filling station offers."
+      "undefined" : "Battery operating temperature is the temperature at which a battery operates effectively."
     },
-    "attributes" : [ "object", "external" ],
-    "id" : "14"
+    "attributes" : [ "external", "datatype" ],
+    "id" : "0"
+  }, {
+    "range" : "5",
+    "domain" : "4",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "3"
+  }, {
+    "iri" : "http://eccenca.com/mobivoc/Performance",
+    "baseIri" : "http://eccenca.com/mobivoc",
+    "range" : "19",
+    "label" : {
+      "de" : "Leistung",
+      "IRI-based" : "Performance",
+      "en" : "Performance"
+    },
+    "domain" : "1",
+    "comment" : {
+      "undefined" : "It reflects the condition of the battery when driving the EV in blistering summer heat and freezing temperatures."
+    },
+    "attributes" : [ "external", "datatype" ],
+    "id" : "18"
   }, {
     "iri" : "http://purl.org/net/mobivoc/numberOfSpacesAvailable",
     "baseIri" : "http://purl.org/net/mobivoc",
-    "range" : "18",
+    "range" : "21",
     "label" : {
-      "de" : "Anzahl freier Stellplätze",
+      "de" : "Anzahl freier Stellpl?tze",
       "IRI-based" : "numberOfSpacesAvailable",
       "en" : "number of spaces available"
     },
-    "domain" : "13",
+    "domain" : "16",
     "comment" : {
       "undefined" : "Indicates the number of spaces available at the docking station."
     },
-    "attributes" : [ "datatype", "external" ],
-    "id" : "17"
+    "attributes" : [ "external", "datatype" ],
+    "id" : "20"
+  }, {
+    "range" : "5",
+    "domain" : "23",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "22"
+  }, {
+    "iri" : "http://purl.org/net/mobivoc/numberOfBicyclesAvailable",
+    "baseIri" : "http://purl.org/net/mobivoc",
+    "range" : "25",
+    "label" : {
+      "de" : "Anzahl verf?gbarer Fahrr?der",
+      "IRI-based" : "numberOfBicyclesAvailable",
+      "en" : "number of bicycles available"
+    },
+    "domain" : "16",
+    "comment" : {
+      "undefined" : "Indicates the number of bicycles available at the docking station."
+    },
+    "attributes" : [ "external", "datatype" ],
+    "id" : "24"
+  }, {
+    "range" : "1",
+    "domain" : "5",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "26"
+  }, {
+    "iri" : "http://eccenca.com/mobivoc/hasSpecificPower",
+    "baseIri" : "http://eccenca.com/mobivoc",
+    "range" : "28",
+    "label" : {
+      "de" : " Leistungskonstante",
+      "IRI-based" : "hasSpecificPower",
+      "en" : "Specific Power"
+    },
+    "domain" : "1",
+    "comment" : {
+      "undefined" : "Specific power demonstrates acceleration. It is the power that can be derived per unit weight of the cell (W/kg)."
+    },
+    "attributes" : [ "external", "datatype" ],
+    "id" : "27"
+  }, {
+    "iri" : "http://purl.org/net/mobivoc/dockingStationNumber",
+    "baseIri" : "http://purl.org/net/mobivoc",
+    "range" : "30",
+    "label" : {
+      "de" : "Stationsnummer",
+      "IRI-based" : "dockingStationNumber",
+      "en" : "docking station number"
+    },
+    "domain" : "16",
+    "comment" : {
+      "undefined" : "Identification number of the bicycle docking station."
+    },
+    "attributes" : [ "external", "datatype" ],
+    "id" : "29"
+  }, {
+    "range" : "1",
+    "domain" : "13",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "31"
+  }, {
+    "range" : "1",
+    "domain" : "12",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "32"
+  }, {
+    "range" : "1",
+    "domain" : "15",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "33"
   }, {
     "iri" : "http://eccenca.com/mobivoc/hasCellVoltage",
     "baseIri" : "http://eccenca.com/mobivoc",
-    "range" : "25",
+    "range" : "35",
     "annotations" : {
       "altlabel" : [ {
         "identifier" : "altlabel",
@@ -1824,12 +867,37 @@
     "comment" : {
       "undefined" : "Represents either a source of energy or lost, used, or stored energy. It is measured in Voltage(V)."
     },
-    "attributes" : [ "datatype", "external" ],
-    "id" : "24"
+    "attributes" : [ "external", "datatype" ],
+    "id" : "34"
+  }, {
+    "range" : "1",
+    "domain" : "14",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "36"
+  }, {
+    "range" : "1",
+    "domain" : "9",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "37"
+  }, {
+    "range" : "1",
+    "domain" : "8",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "38"
+  }, {
+    "range" : "1",
+    "domain" : "11",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "39"
+  }, {
+    "range" : "1",
+    "domain" : "10",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "40"
   }, {
     "iri" : "http://eccenca.com/mobivoc/Price",
     "baseIri" : "http://eccenca.com/mobivoc",
-    "range" : "32",
+    "range" : "42",
     "label" : {
       "de" : "Preis",
       "IRI-based" : "Price",
@@ -1839,12 +907,12 @@
     "comment" : {
       "undefined" : "Indicates the price of the battery."
     },
-    "attributes" : [ "datatype", "external" ],
-    "id" : "31"
+    "attributes" : [ "external", "datatype" ],
+    "id" : "41"
   }, {
     "iri" : "http://eccenca.com/mobivoc/hasCycleLife",
     "baseIri" : "http://eccenca.com/mobivoc",
-    "range" : "34",
+    "range" : "44",
     "label" : {
       "de" : "Batterielebensdauer",
       "IRI-based" : "hasCycleLife",
@@ -1854,27 +922,12 @@
     "comment" : {
       "undefined" : "The cycle life is the number of complete charge/discharge cycles that the battery is able to support before that its capacity falls under 80% of it's original capacity."
     },
-    "attributes" : [ "datatype", "external" ],
-    "id" : "33"
-  }, {
-    "iri" : "http://eccenca.com/mobivoc/PaymentMethod",
-    "baseIri" : "http://eccenca.com/mobivoc",
-    "range" : "37",
-    "label" : {
-      "de" : "zahlungsmethode",
-      "IRI-based" : "PaymentMethod",
-      "en" : "payment method"
-    },
-    "domain" : "36",
-    "comment" : {
-      "undefined" : "Indicates which type of payment is available."
-    },
-    "attributes" : [ "datatype", "external" ],
-    "id" : "35"
+    "attributes" : [ "external", "datatype" ],
+    "id" : "43"
   }, {
     "iri" : "http://eccenca.com/mobivoc/hasSpecificEnergyDensity",
     "baseIri" : "http://eccenca.com/mobivoc",
-    "range" : "40",
+    "range" : "46",
     "label" : {
       "de" : "Energiedichte",
       "IRI-based" : "hasSpecificEnergyDensity",
@@ -1884,12 +937,27 @@
     "comment" : {
       "undefined" : "It is the amount of energy stored in a given system or region of space per unit volume or mass. It is measured in Wh/kg."
     },
-    "attributes" : [ "datatype", "external" ],
-    "id" : "39"
+    "attributes" : [ "external", "datatype" ],
+    "id" : "45"
+  }, {
+    "iri" : "http://purl.org/net/mobivoc/numberOfDockingPoints",
+    "baseIri" : "http://purl.org/net/mobivoc",
+    "range" : "48",
+    "label" : {
+      "de" : "Anzahl Fahrradstellpl?tze",
+      "IRI-based" : "numberOfDockingPoints",
+      "en" : "number of docking points"
+    },
+    "domain" : "16",
+    "comment" : {
+      "undefined" : "Indicates the number of docking points for bicycles."
+    },
+    "attributes" : [ "external", "datatype" ],
+    "id" : "47"
   }, {
     "iri" : "http://eccenca.com/mobivoc/hasCRate",
     "baseIri" : "http://eccenca.com/mobivoc",
-    "range" : "42",
+    "range" : "50",
     "label" : {
       "de" : "CRate",
       "IRI-based" : "hasCRate",
@@ -1899,377 +967,22 @@
     "comment" : {
       "undefined" : "The C-rate is a measure of the rate at which a battery is being discharged."
     },
-    "attributes" : [ "datatype", "external" ],
-    "id" : "41"
-  }, {
-    "iri" : "http://eccenca.com/mobivoc/offersBooking",
-    "baseIri" : "http://eccenca.com/mobivoc",
-    "range" : "21",
-    "label" : {
-      "de" : "angebote Buchung",
-      "IRI-based" : "offersBooking",
-      "en" : "offers booking"
-    },
-    "domain" : "46",
-    "comment" : {
-      "undefined" : "Indicates whether charging Station offers booking option or not."
-    },
-    "attributes" : [ "datatype", "external" ],
-    "id" : "45"
-  }, {
-    "iri" : "http://eccenca.com/mobivoc/offersAccess",
-    "baseIri" : "http://eccenca.com/mobivoc",
-    "range" : "22",
-    "label" : {
-      "de" : "bietet Zugang",
-      "IRI-based" : "offersAccess",
-      "en" : "offers access"
-    },
-    "domain" : "46",
-    "comment" : {
-      "undefined" : "Indicates for which people access is permitted."
-    },
-    "attributes" : [ "datatype", "external" ],
-    "id" : "54"
-  }, {
-    "iri" : "http://eccenca.com/mobivoc/hasSelfDischarge",
-    "baseIri" : "http://eccenca.com/mobivoc",
-    "range" : "44",
-    "label" : {
-      "de" : "Selbstentladung",
-      "IRI-based" : "hasSelfDischarge",
-      "en" : "Self Discharge"
-    },
-    "domain" : "1",
-    "comment" : {
-      "undefined" : "Self-discharge is the electrical capacity that is lost when the cell simply sits on the shelf. It is highly dependent on temperature, increasing as the battery temperature is increased."
-    },
-    "attributes" : [ "datatype", "external" ],
-    "id" : "55"
-  }, {
-    "iri" : "http://eccenca.com/mobivoc/hasWheelChairEnabled",
-    "baseIri" : "http://eccenca.com/mobivoc",
-    "range" : "29",
-    "label" : {
-      "de" : "hat WC Fazilitat",
-      "IRI-based" : "hasWheelChairEnabled",
-      "en" : "has WC facility"
-    },
-    "domain" : "15",
-    "comment" : {
-      "undefined" : "Indicate whether Filling Station is Wheelchair enabled or not"
-    },
-    "attributes" : [ "datatype", "external" ],
-    "id" : "56"
-  }, {
-    "iri" : "http://eccenca.com/mobivoc/hasPrice",
-    "baseIri" : "http://eccenca.com/mobivoc",
-    "range" : "48",
-    "label" : {
-      "de" : "hat Preis",
-      "IRI-based" : "hasPrice",
-      "en" : "has price"
-    },
-    "domain" : "15",
-    "comment" : {
-      "undefined" : "Indicates the information about the price of the facilities."
-    },
-    "attributes" : [ "datatype", "external" ],
-    "id" : "57"
-  }, {
-    "range" : "36",
-    "domain" : "15",
-    "attributes" : [ "anonymous", "object" ],
-    "id" : "58"
-  }, {
-    "range" : "36",
-    "domain" : "46",
-    "attributes" : [ "anonymous", "object" ],
-    "id" : "59"
-  }, {
-    "range" : "12",
-    "domain" : "52",
-    "attributes" : [ "anonymous", "object" ],
-    "id" : "60"
-  }, {
-    "iri" : "http://eccenca.com/mobivoc/fillingStationNumber",
-    "baseIri" : "http://eccenca.com/mobivoc",
-    "range" : "62",
-    "label" : {
-      "de" : "Tankstellennummer",
-      "IRI-based" : "fillingStationNumber",
-      "en" : "filling station number"
-    },
-    "domain" : "36",
-    "comment" : {
-      "undefined" : "Indicates the unique number of the filling station."
-    },
-    "attributes" : [ "datatype", "external" ],
-    "id" : "61"
-  }, {
-    "range" : "1",
-    "domain" : "12",
-    "attributes" : [ "anonymous", "object" ],
-    "id" : "63"
-  }, {
-    "range" : "12",
-    "domain" : "53",
-    "attributes" : [ "anonymous", "object" ],
-    "id" : "64"
-  }, {
-    "iri" : "http://eccenca.com/mobivoc/fillingStationHeight",
-    "baseIri" : "http://eccenca.com/mobivoc",
-    "range" : "66",
-    "label" : {
-      "de" : "Tankstelle heit",
-      "IRI-based" : "fillingStationHeight",
-      "en" : "filling station height"
-    },
-    "domain" : "15",
-    "comment" : {
-      "undefined" : "Indicates the height of the filling station. This is important especially for trucks"
-    },
-    "attributes" : [ "datatype", "external" ],
-    "id" : "65"
-  }, {
-    "range" : "12",
-    "domain" : "38",
-    "attributes" : [ "anonymous", "object" ],
-    "id" : "67"
-  }, {
-    "range" : "1",
-    "domain" : "11",
-    "attributes" : [ "anonymous", "object" ],
-    "id" : "68"
-  }, {
-    "range" : "1",
-    "domain" : "10",
-    "attributes" : [ "anonymous", "object" ],
-    "id" : "69"
-  }, {
-    "iri" : "http://eccenca.com/mobivoc/Ampere",
-    "baseIri" : "http://eccenca.com/mobivoc",
-    "range" : "71",
-    "label" : {
-      "de" : "Ampere",
-      "IRI-based" : "Ampere",
-      "en" : "Ampere"
-    },
-    "domain" : "1",
-    "comment" : {
-      "undefined" : "Represents the flow rate of electric charge."
-    },
-    "attributes" : [ "datatype", "external" ],
-    "id" : "70"
-  }, {
-    "iri" : "http://eccenca.com/mobivoc/hasWCFacility",
-    "baseIri" : "http://eccenca.com/mobivoc",
-    "range" : "27",
-    "label" : {
-      "de" : "hat WC Fazilitat",
-      "IRI-based" : "hasWCFacility",
-      "en" : "has WC facility"
-    },
-    "domain" : "15",
-    "comment" : {
-      "undefined" : "Indicate whether Filling Station has WC Facility or not"
-    },
-    "attributes" : [ "datatype", "external" ],
-    "id" : "72"
-  }, {
-    "iri" : "http://eccenca.com/mobivoc/hasParkingFacility",
-    "baseIri" : "http://eccenca.com/mobivoc",
-    "range" : "49",
-    "label" : {
-      "de" : "hat Parkmoglichkeit",
-      "IRI-based" : "hasParkingFacility",
-      "en" : "has parking facility"
-    },
-    "domain" : "15",
-    "comment" : {
-      "undefined" : "Indicates what kind of parking facilities the station has"
-    },
-    "attributes" : [ "datatype", "external" ],
-    "id" : "73"
-  }, {
-    "iri" : "http://eccenca.com/mobivoc/hasChargeTime",
-    "baseIri" : "http://eccenca.com/mobivoc",
-    "range" : "51",
-    "label" : {
-      "de" : "Ladezeit",
-      "IRI-based" : "hasChargeTime",
-      "en" : "Charge time"
-    },
-    "domain" : "1",
-    "comment" : {
-      "undefined" : "Indicates the time that is needed for a battery's full charge."
-    },
-    "attributes" : [ "datatype", "external" ],
-    "id" : "75"
-  }, {
-    "range" : "1",
-    "domain" : "9",
-    "attributes" : [ "anonymous", "object" ],
-    "id" : "76"
+    "attributes" : [ "external", "datatype" ],
+    "id" : "49"
   }, {
     "range" : "1",
     "domain" : "6",
-    "attributes" : [ "anonymous", "object" ],
-    "id" : "77"
-  }, {
-    "range" : "1",
-    "domain" : "5",
-    "attributes" : [ "anonymous", "object" ],
-    "id" : "78"
-  }, {
-    "range" : "1",
-    "domain" : "8",
-    "attributes" : [ "anonymous", "object" ],
-    "id" : "79"
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "51"
   }, {
     "range" : "1",
     "domain" : "7",
-    "attributes" : [ "anonymous", "object" ],
-    "id" : "80"
-  }, {
-    "range" : "1",
-    "domain" : "2",
-    "attributes" : [ "anonymous", "object" ],
-    "id" : "81"
-  }, {
-    "range" : "1",
-    "domain" : "4",
-    "attributes" : [ "anonymous", "object" ],
-    "id" : "82"
-  }, {
-    "range" : "1",
-    "domain" : "3",
-    "attributes" : [ "anonymous", "object" ],
-    "id" : "83"
-  }, {
-    "iri" : "http://eccenca.com/mobivoc/hasOperatingTemperature",
-    "baseIri" : "http://eccenca.com/mobivoc",
-    "range" : "47",
-    "label" : {
-      "de" : "Betriebstemperatur",
-      "IRI-based" : "hasOperatingTemperature",
-      "en" : "Operating temperature"
-    },
-    "domain" : "1",
-    "comment" : {
-      "undefined" : "Battery operating temperature is the temperature at which a battery operates effectively."
-    },
-    "attributes" : [ "datatype", "external" ],
-    "id" : "84"
-  }, {
-    "iri" : "http://eccenca.com/mobivoc/openingHours",
-    "baseIri" : "http://eccenca.com/mobivoc",
-    "range" : "23",
-    "label" : {
-      "de" : "offnungszeiten",
-      "IRI-based" : "openingHours",
-      "en" : "opening hours"
-    },
-    "domain" : "36",
-    "comment" : {
-      "undefined" : "Indicates the opening hours of the filling station."
-    },
-    "attributes" : [ "datatype", "external" ],
-    "id" : "85"
-  }, {
-    "iri" : "http://eccenca.com/mobivoc/Performance",
-    "baseIri" : "http://eccenca.com/mobivoc",
-    "range" : "87",
-    "label" : {
-      "de" : "Leistung",
-      "IRI-based" : "Performance",
-      "en" : "Performance"
-    },
-    "domain" : "1",
-    "comment" : {
-      "undefined" : "It reflects the condition of the battery when driving the EV in blistering summer heat and freezing temperatures."
-    },
-    "attributes" : [ "datatype", "external" ],
-    "id" : "86"
-  }, {
-    "iri" : "http://purl.org/net/mobivoc/numberOfBicyclesAvailable",
-    "baseIri" : "http://purl.org/net/mobivoc",
-    "range" : "19",
-    "label" : {
-      "de" : "Anzahl verfügbarer Fahrräder",
-      "IRI-based" : "numberOfBicyclesAvailable",
-      "en" : "number of bicycles available"
-    },
-    "domain" : "13",
-    "comment" : {
-      "undefined" : "Indicates the number of bicycles available at the docking station."
-    },
-    "attributes" : [ "datatype", "external" ],
-    "id" : "88"
-  }, {
-    "iri" : "http://eccenca.com/mobivoc/hasSpecificPower",
-    "baseIri" : "http://eccenca.com/mobivoc",
-    "range" : "28",
-    "label" : {
-      "de" : " Leistungskonstante",
-      "IRI-based" : "hasSpecificPower",
-      "en" : "Specific Power"
-    },
-    "domain" : "1",
-    "comment" : {
-      "undefined" : "Specific power demonstrates acceleration. It is the power that can be derived per unit weight of the cell (W/kg)."
-    },
-    "attributes" : [ "datatype", "external" ],
-    "id" : "89"
-  }, {
-    "iri" : "http://purl.org/net/mobivoc/dockingStationNumber",
-    "baseIri" : "http://purl.org/net/mobivoc",
-    "range" : "20",
-    "label" : {
-      "de" : "Stationsnummer",
-      "IRI-based" : "dockingStationNumber",
-      "en" : "docking station number"
-    },
-    "domain" : "13",
-    "comment" : {
-      "undefined" : "Identification number of the bicycle docking station."
-    },
-    "attributes" : [ "datatype", "external" ],
-    "id" : "90"
-  }, {
-    "iri" : "http://eccenca.com/mobivoc/offersPlugTypes",
-    "baseIri" : "http://eccenca.com/mobivoc",
-    "range" : "26",
-    "label" : {
-      "de" : "bietet Steckertypen",
-      "IRI-based" : "offersPlugTypes",
-      "en" : "offers plug type"
-    },
-    "domain" : "46",
-    "comment" : {
-      "undefined" : "Indicates which are the offered plug types in the charging Station."
-    },
-    "attributes" : [ "datatype", "external" ],
-    "id" : "91"
-  }, {
-    "iri" : "http://purl.org/net/mobivoc/numberOfDockingPoints",
-    "baseIri" : "http://purl.org/net/mobivoc",
-    "range" : "0",
-    "label" : {
-      "de" : "Anzahl Fahrradstellplätze",
-      "IRI-based" : "numberOfDockingPoints",
-      "en" : "number of docking points"
-    },
-    "domain" : "13",
-    "comment" : {
-      "undefined" : "Indicates the number of docking points for bicycles."
-    },
-    "attributes" : [ "datatype", "external" ],
-    "id" : "92"
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "52"
   }, {
     "iri" : "http://eccenca.com/mobivoc/Longevity",
     "baseIri" : "http://eccenca.com/mobivoc",
-    "range" : "94",
+    "range" : "54",
     "label" : {
       "de" : "Langlebigkeit",
       "IRI-based" : "Longevity",
@@ -2279,45 +992,29 @@
     "comment" : {
       "undefined" : "Indicates the period of time that a battery can still work ."
     },
-    "attributes" : [ "datatype", "external" ],
-    "id" : "93"
+    "attributes" : [ "external", "datatype" ],
+    "id" : "53"
   }, {
-    "iri" : "http://eccenca.com/mobivoc/ChargingStationName",
+    "iri" : "http://eccenca.com/mobivoc/hasSelfDischarge",
     "baseIri" : "http://eccenca.com/mobivoc",
-    "range" : "96",
+    "range" : "55",
     "label" : {
-      "ii" : "tester",
-      "de" : "Ladestationnnummer",
-      "IRI-based" : "ChargingStationName",
-      "en" : "charging station name"
+      "de" : "Selbstentladung",
+      "IRI-based" : "hasSelfDischarge",
+      "en" : "Self Discharge"
     },
-    "domain" : "46",
+    "domain" : "1",
     "comment" : {
-      "undefined" : "Indicates the name of the charging station"
+      "undefined" : "Self-discharge is the electrical capacity that is lost when the cell simply sits on the shelf. It is highly dependent on temperature, increasing as the battery temperature is increased."
     },
-    "attributes" : [ "datatype", "external" ],
-    "id" : "95"
-  }, {
-    "iri" : "http://eccenca.com/mobivoc/hasIdentifications",
-    "baseIri" : "http://eccenca.com/mobivoc",
-    "range" : "16",
-    "label" : {
-      "de" : "hat Identifikation",
-      "IRI-based" : "hasIdentifications",
-      "en" : "has identifications"
-    },
-    "domain" : "46",
-    "comment" : {
-      "undefined" : "Way of identifying the booked vehicle"
-    },
-    "attributes" : [ "object", "external" ],
-    "id" : "97"
+    "attributes" : [ "external", "datatype" ],
+    "id" : "56"
   }, {
     "iri" : "http://eccenca.com/mobivoc/hasCapacity",
     "baseIri" : "http://eccenca.com/mobivoc",
-    "range" : "50",
+    "range" : "58",
     "label" : {
-      "de" : "Kapazität",
+      "de" : "Kapazit?t",
       "IRI-based" : "hasCapacity",
       "en" : "Capacity"
     },
@@ -2325,12 +1022,12 @@
     "comment" : {
       "undefined" : "It is the amount of electric charge it can deliver at the rated voltage. It is measured in units such as Ampere-hour (Ah), Watt-hour (Wh), kiloWatt-hour (kWh)."
     },
-    "attributes" : [ "datatype", "external" ],
-    "id" : "99"
+    "attributes" : [ "external", "datatype" ],
+    "id" : "59"
   }, {
     "iri" : "http://eccenca.com/mobivoc/Watt",
     "baseIri" : "http://eccenca.com/mobivoc",
-    "range" : "98",
+    "range" : "57",
     "label" : {
       "de" : "Watt",
       "IRI-based" : "Watt",
@@ -2340,37 +1037,42 @@
     "comment" : {
       "undefined" : "Expresses the rate of energy conversion or transfer with respect to time."
     },
-    "attributes" : [ "datatype", "external" ],
-    "id" : "100"
+    "attributes" : [ "external", "datatype" ],
+    "id" : "61"
   }, {
-    "iri" : "http://eccenca.com/mobivoc/hasWashingFacility",
+    "iri" : "http://eccenca.com/mobivoc/Ampere",
     "baseIri" : "http://eccenca.com/mobivoc",
-    "range" : "30",
+    "range" : "62",
     "label" : {
-      "de" : "hat Waschmoglichkeit",
-      "IRI-based" : "hasWashingFacility",
-      "en" : "has washing facility"
+      "de" : "Ampere",
+      "IRI-based" : "Ampere",
+      "en" : "Ampere"
     },
-    "domain" : "15",
+    "domain" : "1",
     "comment" : {
-      "undefined" : "Indicate whether Filling Station has Washing Facility or not"
+      "undefined" : "Represents the flow rate of electric charge."
     },
-    "attributes" : [ "datatype", "external" ],
-    "id" : "101"
+    "attributes" : [ "external", "datatype" ],
+    "id" : "63"
   }, {
-    "iri" : "http://eccenca.com/mobivoc/hasShoppingFacility",
+    "iri" : "http://eccenca.com/mobivoc/hasChargeTime",
     "baseIri" : "http://eccenca.com/mobivoc",
-    "range" : "43",
+    "range" : "60",
     "label" : {
-      "de" : "weist Einkaufsgelenheit",
-      "IRI-based" : "hasShoppingFacility",
-      "en" : "has shopping facility"
+      "de" : "Ladezeit",
+      "IRI-based" : "hasChargeTime",
+      "en" : "Charge time"
     },
-    "domain" : "15",
+    "domain" : "1",
     "comment" : {
-      "undefined" : "Indicate whether Filling Station has Shopping Facility or not"
+      "undefined" : "Indicates the time that is needed for a battery's full charge."
     },
-    "attributes" : [ "datatype", "external" ],
-    "id" : "102"
+    "attributes" : [ "external", "datatype" ],
+    "id" : "65"
+  }, {
+    "range" : "5",
+    "domain" : "17",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "66"
   } ]
 }

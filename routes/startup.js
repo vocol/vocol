@@ -221,9 +221,10 @@ router.get('/', function(req, res) {
             shell.mv('SingleVoc.json', '../../../views/webvowl/data/').stdout;
           }
 
-          if (obj.evolutionReport === "true" && currentrepositoryURL === obj.repositoryURL) {
+         // if (obj.evolutionReport === "true" && currentrepositoryURL === obj.repositoryURL) {
             // Evolution Part
-            if (fs.existsSync('../evolution/SingleVoc.ttl')) {
+          if (obj.evolutionReport === "true") {
+	  /*if (fs.existsSync('../evolution/SingleVoc.ttl')) {
               shell.cd('../owl2vcs/').stdout;
               //  shell.mkdir('../evolution');
               shell.exec('pwd');
@@ -236,12 +237,13 @@ router.get('/', function(req, res) {
               }
 
               // Do something
-            }
+            }*/
             shell.exec('pwd', {
               silent: false
             }).stdout;
             shell.mkdir('../evolution').stdout;
             shell.cp('../serializations/SingleVoc.ttl', '../evolution/SingleVoc.ttl').stdout;
+	   console.log("SingleVoc.ttl is copied to evolution");
           }
 
           ////////////////////////////////////////////////////////////////////

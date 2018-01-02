@@ -1,0 +1,4 @@
+commitTimestamp:2018-01-03T00:22:27+01:00
+pusher:ahemaid
+commitMessage:Modify Comment 1
++ AnnotationAssertion(rdfs:label <http://purl.org/net/mobivoc/BicycleDockingStation> "testmodify"@em)
