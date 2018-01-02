@@ -51,12 +51,6 @@
                 <div class="ui three column stackable divided grid">
                   <div class="row">
                     <div class="ui segments" style="margin-right: 15px; text-align: center; margin-top: 0;">
-          <div class="ui vertical stripe segment" style="padding-top: 0px; padding-left: 1%;padding-bottom: 0px;">
-            <div class="ui grid stackable container">
-              <div class="row">
-                <div class="ui three column stackable divided grid">
-                  <div class="row" style=" margin-left: 25px;">
-                    <div class="ui segments" style="margin-right: 4px; text-align: center; margin-top: 0;">
                       <div class="ui blue segment">
                         <h3 class="ui header">
                       <i class="grey options icon"></i>Type
@@ -84,7 +78,6 @@
                       </div>
                     </div>
                     <div class="ui segments" style="margin-right: 15px; text-align: center; margin-top: 0;">
-                    <div class="ui segments" style="margin-right: 4px; text-align: center; margin-top: 0;">
                       <div class="ui blue segment">
                         <h3 class="ui header">
                       <i class="grey unhide icon"></i>View
@@ -118,11 +111,6 @@
                           <div class="ui slider checkbox">
                             <input type="checkbox" name="mySliders" id="showFilesCheckBox" tabindex="1">
                             <label>Show  File</label>
-                            <label> Type</label>
-                          </div>
-                          <div class="ui slider checkbox">
-                            <input type="checkbox" name="mySliders" id="showFilesCheckBox" tabindex="1">
-                            <label>  File</label>
                           </div>
                         </div>
                       </div>
@@ -631,28 +619,6 @@
                 }
               });
 
-              });
-
-            $('input:radio')
-              .on('change', function(event) {
-                event.preventDefault();
-                $('#input-search').val("");
-                var inputType = "";
-                inputType = getClickedTypeRadio();
-                $("#infoTabs").hide();
-                // if (inputType === "") {
-                //   currentSelectedFile = "ALL Files";
-                //   resetViews();
-                // }
-                if ($('#SKOSViewCheckBox').is(':checked')) {
-                  showSKOSTree(SKOSData, currentSelectedFile, inputType);
-                } else if ($('#RDFSViewCheckBox').is(':checked')) {
-                  //showRDFSTree(currentTreeData, currentSelectedFile, inputType);
-                  showRDFSTree(RDFSData, currentSelectedFile, inputType);
-
-                }
-              });
-
             function getClickedTypeRadio() {
               var type = "";
               if ($('#classRadio').is(':checked'))
@@ -728,6 +694,22 @@
             // check search input on keyup
             $('#input-search').on('keyup', search);
 
+            // // reload the tree of the default elements of either SKOS or RDFS data
+            // function resetViews() {
+            //   currentSelectedFile = "ALL Files";
+            //   if ($('#SKOSViewCheckBox').is(':checked')) {
+            //     currentTreeData = SKOSData;
+            //     currentSelectedFile = "ALL Files";
+            //     $('#file_result').html("Choose File");
+            //     getSelectedFileName();
+            //   } else if ($('#RDFSViewCheckBox').is(':checked')) {
+            //     currentSelectedFile = "ALL Files";
+            //     $('#file_result').html("Choose File");
+            //     currentTreeData = RDFSData;
+            //     getSelectedFileName();
+            //   }
+            // }
+
             // remove redundant parents from tree
             function getUniqueParents(data) {
               var out = [];
@@ -768,7 +750,6 @@
               var inputType = getClickedTypeRadio();
               var viewData = [];
               viewData = getViewDataBasedOnType(data, inputType);
-              viewData = getViewDataBasedOnType(data, inputType);
               if (selectedFileName) {
                 var filteredData = [];
                 var k = 0;
@@ -801,15 +782,9 @@
                   filteredData[i].text = filteredData[i].concept;
                   filteredData[i].tags = [''];
                 }
-                }
-                dataFile = getParentWithChildren(filteredData, allParentsFromFiles, 'fileTag');
-              } else {
-                for (var i = 0; i < filteredData.length; i++) {
-                  filteredData[i].text = filteredData[i].concept;
-                  filteredData[i].tags = [''];
-                }
                 dataFile = getParentWithChildren(filteredData, allParentsFromFiles);
               }
+              //}
               return dataFile;
             }
 

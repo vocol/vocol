@@ -44,72 +44,10 @@
             </div>
             <div id='commitDetails'>
             </div>
-          <div style="padding-top:50px; padding-bottom:50px">
-                <%if (history === null) {%>
-            <table id="commitsTable" class="display" cellspacing="0" width="100%">
-              <thead>
-                <tr>
-                  <th>Pusher</th>
-                  <th>Commit Message</th>
-                  <th>Timestamp</th>
-                  <th>Changes</th>
-
-                </tr>
-              </thead>
-              <tfoot>
-                <tr>
-                  <th>Pusher</th>
-                  <th>Commit Message</th>
-                  <th>Timestamp</th>
-                  <th>Changes</th>
-                </tr>
-              </tfoot>
-              <tbody>
-                <%if (history != null) {%>
-                <% for(var i = 0; i < history.length; i++){%>
-                  <tr>
-                    <td> <%= history[i].pusher %></td>
-                    <td><%= history[i].commitMessage %></td>
-                    <td><%= history[i].start %></td>
-                      <td><a href="#visualization" onmousedown="show(&quot;<%= history[i].start %>&quot;); return false;">Show</td>
-                  </tr>
-                <%}%>
-                <%}%>
-              </tbody>
-            </table>
-                <%}%>
-          </div>
-          <div id='commitDetails'>
-          </div>
     </div>
     <% include footer %>
       <script type="text/javascript">
       var commitData = "" ;
-
-      function show(timeStamp)
-      {
-        var commitData = <%- JSON.stringify(evolutionReport) %>;
-        var historyData = <%- JSON.stringify(history) %>;
-        var commitObject = historyData.filter(function(o){
-          return o.start === timeStamp;
-        })
-        $("#commitDetails").html("");
-        $("#commitDetails").append("<div><h4>User: &quot;" + commitObject[0].pusher + "&quot; - Commit Message: &quot;" + commitObject[0].commitMessage + '&quot; - Timestamp: &quot;' + timeStamp + "&quot;</h4>");
-          commitData.forEach(function(element) {
-            if (element.commitTimestamp === timeStamp) {
-              if (element.event === 'add')
-                $("#commitDetails").append("<h6><p class='bg-success text-default' style='margin-right:250px;'> + " + element.value + "</p></h6>");
-            }
-          })
-          commitData.forEach(function(element) {
-            if (element.commitTimestamp === timeStamp) {
-              if (element.event === 'del')
-                $("#commitDetails").append("<h6><p class='bg-danger text-default' style='margin-right:250px;'>  - " + element.value + "</p></h6>");
-
-            }
-          })
-          $("#commitDetails").append("</div>");
-      }
         if (!<%- JSON.stringify(history) %>) {
           var container = document.getElementById('visualization');
           // Create a DataSet (allows two way data-binding)
@@ -136,8 +74,6 @@
                 data: filterTableData(commitData)
               });
             }
-          $(document).ready(function() {
-            $('#commitsTable').DataTable();
           });
           // DOM element where the Timeline will be attached
           var container = document.getElementById('visualization');
