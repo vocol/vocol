@@ -11,6 +11,41 @@
         <% } %>
 
           <div id="visualization"></div>
+<<<<<<< HEAD
+          <%if (history !="") {%>
+            <div class="ui vertical labeled icon buttons" style="padding-top:40px; ">
+              <div class="ui button">
+                <i class="shuffle icon"></i> Reset Table Data
+              </div>
+            </div>
+            <div style="padding-top:10px; padding-bottom:50px">
+              <table id="commitsTable" class="display" cellspacing="0" width="100%">
+                <thead>
+                  <tr>
+                    <th>Pusher</th>
+                    <th>Commit Message</th>
+                    <th>Timestamp</th>
+                    <th>Change Type</th>
+                    <th>Change Triple</th>
+                  </tr>
+                </thead>
+                <tfoot>
+                  <tr>
+                    <th>Pusher</th>
+                    <th>Commit Message</th>
+                    <th>Timestamp</th>
+                    <th>Change Type</th>
+                    <th>Changes Triple</th>
+                  </tr>
+                </tfoot>
+                <tbody id="tableData">
+                  <%}%>
+                </tbody>
+              </table>
+            </div>
+            <div id='commitDetails'>
+            </div>
+=======
           <div style="padding-top:50px; padding-bottom:50px">
                 <%if (history === null) {%>
             <table id="commitsTable" class="display" cellspacing="0" width="100%">
@@ -48,11 +83,13 @@
           </div>
           <div id='commitDetails'>
           </div>
+>>>>>>> 669975f435f4c5e7188383c536ff19793dc3badb
     </div>
-
     <% include footer %>
-
       <script type="text/javascript">
+<<<<<<< HEAD
+      var commitData = "" ;
+=======
 
       function show(timeStamp)
       {
@@ -78,9 +115,8 @@
           })
           $("#commitDetails").append("</div>");
       }
+>>>>>>> 669975f435f4c5e7188383c536ff19793dc3badb
         if (!<%- JSON.stringify(history) %>) {
-
-          // DOM element where the Timeline will be attached
           var container = document.getElementById('visualization');
           // Create a DataSet (allows two way data-binding)
           var items = new vis.DataSet();
@@ -97,8 +133,20 @@
           var timeline = new vis.Timeline(container, items, options);
 
         } else {
+<<<<<<< HEAD
+          commitData = <%- JSON.stringify( evolutionReport)%>;
+          var isNodeSelected = false;
+          //$('#commitsTable').DataTable();
+          $(document).ready(function() {
+            if (!isNodeSelected) {
+              $('#commitsTable').DataTable({
+                data: filterTableData(commitData)
+              });
+            }
+=======
           $(document).ready(function() {
             $('#commitsTable').DataTable();
+>>>>>>> 669975f435f4c5e7188383c536ff19793dc3badb
           });
           // DOM element where the Timeline will be attached
           var container = document.getElementById('visualization');
@@ -114,6 +162,32 @@
           var timeline = new vis.Timeline(container, items, options);
           timeline.on('select', function(properties) {
             $(location).attr('href', items._data[properties.items[0]].link)
+            isNodeSelected = true;
+            $('#commitsTable').dataTable().fnClearTable();
+            $('#commitsTable').dataTable().fnAddData(filterTableData(commitData, items._data[properties.items[0]].link));
           });
+<<<<<<< HEAD
+        }
+        $('.ui.button').click(function(){
+          $('#commitsTable').dataTable().fnClearTable();
+          $('#commitsTable').dataTable().fnAddData(filterTableData(commitData));
+        })
+
+        function filterTableData(data, str) {
+          var tableBody = "";
+          var dataTable = data;
+          var array = [];
+          if (str)
+            dataTable = data.filter(function(o) {
+              return o.commitTimestamp === str.split("#")[1];
+            })
+          for (var i = 0; i < dataTable.length; i++) {
+            var arr = [];
+            arr.push(dataTable[i].pusher, dataTable[i].commitMessage, dataTable[i].commitTimestamp, dataTable[i].event, dataTable[i].value)
+            array.push(arr);
+          }
+          return array;
+=======
+>>>>>>> 669975f435f4c5e7188383c536ff19793dc3badb
         }
       </script>

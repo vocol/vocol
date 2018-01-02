@@ -17,10 +17,24 @@ td {
   margin-bottom: 10px;
   margin-top: 10px;
 }
+<<<<<<< HEAD
+.ui.segments:not(.horizontal)>.segment:first-child{
+  margin-bottom: -15px;
+
+}
+=======
+>>>>>>> 669975f435f4c5e7188383c536ff19793dc3badb
 
 .ui.form.error .error.message:not(:empty) {
   margin-bottom: 10px;
 }
+<<<<<<< HEAD
+
+.ui.slider.checkbox .box, .ui.slider.checkbox label {
+  padding-right: 10px;
+}
+=======
+>>>>>>> 669975f435f4c5e7188383c536ff19793dc3badb
 
 .containerWihPadding {
   padding-left: 0px;
@@ -35,7 +49,11 @@ td {
   display: inline-block;
   margin-bottom: 0px;
   margin-top: 0px;
+<<<<<<< HEAD
+  margin-bottom: -5px
+=======
   margin-bottom: 5px
+>>>>>>> 669975f435f4c5e7188383c536ff19793dc3badb
 }
 .ui.radio.checkbox .box, .ui.radio.checkbox label {
     margin-left: 6px;

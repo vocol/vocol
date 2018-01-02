@@ -19,8 +19,8 @@ router.get('/', function(req, res) {
           isExistEvolutionReportFile = true;
         }
         var arrayLines = evolutionReport.split("\n");
-
-        arrayLines.pop();
+        console.log(arrayLines);
+        //arrayLines.pop();
         var k = 0;
         var commitTimestamp = "";
         var pusher = "";
@@ -48,8 +48,13 @@ router.get('/', function(req, res) {
               content: "Commit Message: &quot;"+commitMessage + "&quot;<br/>" + "User: &quot;"+pusher+"&quot;<a href='#"+commitTimestamp+"'>Show more details</a>",
               start: commitTimestamp,
               link: '#' + commitTimestamp,
+<<<<<<< HEAD
+              //commitMessage: commitMessage,
+              //pusher: pusher
+=======
               commitMessage: commitMessage,
               pusher: pusher
+>>>>>>> 669975f435f4c5e7188383c536ff19793dc3badb
             };
             history.push(commitObject);
             k++;
@@ -58,29 +63,30 @@ router.get('/', function(req, res) {
             element = arrayLines[i].substr(2);
             if (arrayLines[i].includes("_:file:")) {
               element = element.split("_:file:")[0];
-              diffArray.push({
-                'event': 'add',
-                'value': escapeHtml(element),
-                'commitMessage': commitMessage,
-                'pusher':pusher,
-                'commitTimestamp': commitTimestamp
-              });
             }
+            diffArray.push({
+              'event': 'addition',
+              'value': escapeHtml(element),
+              'commitMessage': commitMessage,
+              'pusher':pusher,
+              'commitTimestamp': commitTimestamp
+            });
           } else if (arrayLines[i].charAt(0) == '-') {
             element = arrayLines[i].substr(2);
             if (arrayLines[i].includes("_:file:")) {
               element = element.split("_:file:")[0];
-              diffArray.push({
-                'event': 'del',
-                'value': escapeHtml(element),
-                'commitMessage': commitMessage,
-                'pusher':pusher,
-                'commitTimestamp': commitTimestamp
-              });
           }
+          diffArray.push({
+            'event': 'deletion',
+            'value': escapeHtml(element),
+            'commitMessage': commitMessage,
+            'pusher':pusher,
+            'commitTimestamp': commitTimestamp
+          });
     }
   }
 }
+//console.log(diffArray);
     if (isExistEvolutionReportFile === true)
       res.render('evolution', {
         title: 'Evolution',
