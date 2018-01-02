@@ -45,21 +45,18 @@
               </div>
             </div>
           </div>
-<<<<<<< HEAD
           <div class="ui vertical stripe segment" style="padding-top: 0px; padding-left: 8%;padding-bottom: 0px;">
             <div class="ui grid stackable container">
               <div class="row">
                 <div class="ui three column stackable divided grid">
                   <div class="row">
                     <div class="ui segments" style="margin-right: 15px; text-align: center; margin-top: 0;">
-=======
           <div class="ui vertical stripe segment" style="padding-top: 0px; padding-left: 1%;padding-bottom: 0px;">
             <div class="ui grid stackable container">
               <div class="row">
                 <div class="ui three column stackable divided grid">
                   <div class="row" style=" margin-left: 25px;">
                     <div class="ui segments" style="margin-right: 4px; text-align: center; margin-top: 0;">
->>>>>>> 669975f435f4c5e7188383c536ff19793dc3badb
                       <div class="ui blue segment">
                         <h3 class="ui header">
                       <i class="grey options icon"></i>Type
@@ -86,11 +83,8 @@
                         </div>
                       </div>
                     </div>
-<<<<<<< HEAD
                     <div class="ui segments" style="margin-right: 15px; text-align: center; margin-top: 0;">
-=======
                     <div class="ui segments" style="margin-right: 4px; text-align: center; margin-top: 0;">
->>>>>>> 669975f435f4c5e7188383c536ff19793dc3badb
                       <div class="ui blue segment">
                         <h3 class="ui header">
                       <i class="grey unhide icon"></i>View
@@ -119,19 +113,16 @@
                         <div class="field">
                           <div class="ui slider checkbox">
                             <input type="checkbox" name="mySliders" id="showTypesCheckBox" tabindex="0">
-<<<<<<< HEAD
                             <label>Show Type</label>
                           </div>
                           <div class="ui slider checkbox">
                             <input type="checkbox" name="mySliders" id="showFilesCheckBox" tabindex="1">
                             <label>Show  File</label>
-=======
                             <label> Type</label>
                           </div>
                           <div class="ui slider checkbox">
                             <input type="checkbox" name="mySliders" id="showFilesCheckBox" tabindex="1">
                             <label>  File</label>
->>>>>>> 669975f435f4c5e7188383c536ff19793dc3badb
                           </div>
                         </div>
                       </div>
@@ -622,7 +613,6 @@
                     //showRDFSTree(RDFSData, currentSelectedFile);
                     showRDFSTree(RDFSData, currentSelectedFile, inputType);
                 }
-<<<<<<< HEAD
               });
 
             $('input:radio')
@@ -641,7 +631,6 @@
                 }
               });
 
-=======
               });
 
             $('input:radio')
@@ -664,7 +653,6 @@
                 }
               });
 
->>>>>>> 669975f435f4c5e7188383c536ff19793dc3badb
             function getClickedTypeRadio() {
               var type = "";
               if ($('#classRadio').is(':checked'))
@@ -673,11 +661,6 @@
                 type = "objectProperty";
               else if ($('#datatypePropertyRadio').is(':checked'))
                 type = "datatypeProperty";
-<<<<<<< HEAD
-=======
-              // else if ($('#allTypesRadio').is(':checked'))
-              //   type = "allTypes";
->>>>>>> 669975f435f4c5e7188383c536ff19793dc3badb
 
               return type;
             }
@@ -745,22 +728,6 @@
             // check search input on keyup
             $('#input-search').on('keyup', search);
 
-            // // reload the tree of the default elements of either SKOS or RDFS data
-            // function resetViews() {
-            //   currentSelectedFile = "ALL Files";
-            //   if ($('#SKOSViewCheckBox').is(':checked')) {
-            //     currentTreeData = SKOSData;
-            //     currentSelectedFile = "ALL Files";
-            //     $('#file_result').html("Choose File");
-            //     getSelectedFileName();
-            //   } else if ($('#RDFSViewCheckBox').is(':checked')) {
-            //     currentSelectedFile = "ALL Files";
-            //     $('#file_result').html("Choose File");
-            //     currentTreeData = RDFSData;
-            //     getSelectedFileName();
-            //   }
-            // }
-
             // remove redundant parents from tree
             function getUniqueParents(data) {
               var out = [];
@@ -800,14 +767,8 @@
             function getRDFSFileData(data, selectedFileName) {
               var inputType = getClickedTypeRadio();
               var viewData = [];
-<<<<<<< HEAD
               viewData = getViewDataBasedOnType(data, inputType);
-=======
-              //if (inputType) {
               viewData = getViewDataBasedOnType(data, inputType);
-              //currentTreeData = viewData;
-              //}
->>>>>>> 669975f435f4c5e7188383c536ff19793dc3badb
               if (selectedFileName) {
                 var filteredData = [];
                 var k = 0;
@@ -818,17 +779,6 @@
                       k++;
                     }
                   }
-<<<<<<< HEAD
-=======
-                  //   if (viewData[i].hasOwnProperty('nodes')) {
-                  //     for (var j = 0; j < viewData[i].nodes.length; j++) {
-                  //       if (viewData[i].nodes[j].fileName)
-                  //         if (viewData[i].nodes[j].fileName.trim() === selectedFileName) {
-                  //           filteredData[k] = viewData[i].nodes[j];
-                  //           k++;
-                  //         }
-                  //     }
->>>>>>> 669975f435f4c5e7188383c536ff19793dc3badb
                 }
               }
               var allParentsFromFiles = getUniqueParents(filteredData);
@@ -844,7 +794,6 @@
                 for (var i = 0; i < filteredData.length; i++) {
                   filteredData[i].text = filteredData[i].concept;
                   filteredData[i].tags = ['<a  class="ui tiny pink tag label">' + filteredData[i].fileName + '</a>'];
-<<<<<<< HEAD
                 }
                 dataFile = getParentWithChildren(filteredData, allParentsFromFiles, 'fileTag');
               } else {
@@ -852,7 +801,6 @@
                   filteredData[i].text = filteredData[i].concept;
                   filteredData[i].tags = [''];
                 }
-=======
                 }
                 dataFile = getParentWithChildren(filteredData, allParentsFromFiles, 'fileTag');
               } else {
@@ -860,10 +808,8 @@
                   filteredData[i].text = filteredData[i].concept;
                   filteredData[i].tags = [''];
                 }
->>>>>>> 669975f435f4c5e7188383c536ff19793dc3badb
                 dataFile = getParentWithChildren(filteredData, allParentsFromFiles);
               }
-              //}
               return dataFile;
             }
 

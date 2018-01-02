@@ -48,13 +48,8 @@ router.get('/', function(req, res) {
               content: "Commit Message: &quot;"+commitMessage + "&quot;<br/>" + "User: &quot;"+pusher+"&quot;<a href='#"+commitTimestamp+"'>Show more details</a>",
               start: commitTimestamp,
               link: '#' + commitTimestamp,
-<<<<<<< HEAD
-              //commitMessage: commitMessage,
-              //pusher: pusher
-=======
               commitMessage: commitMessage,
               pusher: pusher
->>>>>>> 669975f435f4c5e7188383c536ff19793dc3badb
             };
             history.push(commitObject);
             k++;
@@ -86,7 +81,6 @@ router.get('/', function(req, res) {
     }
   }
 }
-//console.log(diffArray);
     if (isExistEvolutionReportFile === true)
       res.render('evolution', {
         title: 'Evolution',

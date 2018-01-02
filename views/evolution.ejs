@@ -11,7 +11,6 @@
         <% } %>
 
           <div id="visualization"></div>
-<<<<<<< HEAD
           <%if (history !="") {%>
             <div class="ui vertical labeled icon buttons" style="padding-top:40px; ">
               <div class="ui button">
@@ -45,7 +44,6 @@
             </div>
             <div id='commitDetails'>
             </div>
-=======
           <div style="padding-top:50px; padding-bottom:50px">
                 <%if (history === null) {%>
             <table id="commitsTable" class="display" cellspacing="0" width="100%">
@@ -83,13 +81,10 @@
           </div>
           <div id='commitDetails'>
           </div>
->>>>>>> 669975f435f4c5e7188383c536ff19793dc3badb
     </div>
     <% include footer %>
       <script type="text/javascript">
-<<<<<<< HEAD
       var commitData = "" ;
-=======
 
       function show(timeStamp)
       {
@@ -115,7 +110,6 @@
           })
           $("#commitDetails").append("</div>");
       }
->>>>>>> 669975f435f4c5e7188383c536ff19793dc3badb
         if (!<%- JSON.stringify(history) %>) {
           var container = document.getElementById('visualization');
           // Create a DataSet (allows two way data-binding)
@@ -133,7 +127,6 @@
           var timeline = new vis.Timeline(container, items, options);
 
         } else {
-<<<<<<< HEAD
           commitData = <%- JSON.stringify( evolutionReport)%>;
           var isNodeSelected = false;
           //$('#commitsTable').DataTable();
@@ -143,10 +136,8 @@
                 data: filterTableData(commitData)
               });
             }
-=======
           $(document).ready(function() {
             $('#commitsTable').DataTable();
->>>>>>> 669975f435f4c5e7188383c536ff19793dc3badb
           });
           // DOM element where the Timeline will be attached
           var container = document.getElementById('visualization');
@@ -166,7 +157,6 @@
             $('#commitsTable').dataTable().fnClearTable();
             $('#commitsTable').dataTable().fnAddData(filterTableData(commitData, items._data[properties.items[0]].link));
           });
-<<<<<<< HEAD
         }
         $('.ui.button').click(function(){
           $('#commitsTable').dataTable().fnClearTable();
@@ -187,7 +177,5 @@
             array.push(arr);
           }
           return array;
-=======
->>>>>>> 669975f435f4c5e7188383c536ff19793dc3badb
         }
       </script>
