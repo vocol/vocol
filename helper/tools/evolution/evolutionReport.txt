@@ -1,4 +1,9 @@
-commitTimestamp:2018-01-03T00:22:27+01:00
+commitTimestamp:2018-01-03T00:45:50+01:00
 pusher:ahemaid
-commitMessage:Modify Comment 1
+commitMessage:delete test commit 1
++ AnnotationAssertion(rdfs:label <http://purl.org/net/mobivoc/BicycleDockingStation> "test"@es)
 + AnnotationAssertion(rdfs:label <http://purl.org/net/mobivoc/BicycleDockingStation> "testmodify"@em)
+commitTimestamp:2018-01-03T00:49:47+01:00
+pusher:ahemaid
+commitMessage:test add 2
++ AnnotationAssertion(rdfs:label <http://purl.org/net/mobivoc/BicycleDockingStation> "test2"@me)

@@ -189,7 +189,7 @@
 <http://purl.org/net/mobivoc/BicycleDockingStation>
     a <http://www.w3.org/2000/01/rdf-schema#Class>, <http://www.w3.org/2002/07/owl#Class> ;
     <http://www.w3.org/2000/01/rdf-schema#comment> "A docking station of a bicycle sharing system for picking up and returning bicycles." ;
-    <http://www.w3.org/2000/01/rdf-schema#label> "Fahrradstation"@de, "bicycle docking station"@en, "test"@em .
+    <http://www.w3.org/2000/01/rdf-schema#label> "Fahrradstation"@de, "bicycle docking station"@en, "test"@em, "test"@es, "test2"@me, "testmodify"@em .
 
 <http://purl.org/net/mobivoc/dockingStationNumber>
     a rdf:Property, <http://www.w3.org/2002/07/owl#DatatypeProperty> ;

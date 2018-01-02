@@ -200,7 +200,7 @@ router.post('/', function(req, res) {
                   silent: false
                 }).stdout;
                 shell.mkdir('../evolution').stdout;
-                //shell.cp('../serializations/SingleVoc.ttl', '../evolution/SingleVoc.ttl').stdout;
+                shell.cp('../serializations/SingleVoc.ttl', '../evolution/SingleVoc.ttl').stdout;
               }
 
               ////////////////////////////////////////////////////////////////////

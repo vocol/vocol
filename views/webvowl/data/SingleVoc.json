@@ -1,7 +1,7 @@
 {
   "_comment" : "Created with OWL2VOWL (version 0.3.3-SNAPSHOT), http://vowl.visualdataweb.org",
   "header" : {
-    "languages" : [ "de", "em", "en", "undefined" ],
+    "languages" : [ "de", "em", "me", "en", "es", "undefined" ],
     "baseIris" : [ "http://purl.org/net/mobivoc", "http://www.w3.org/1999/02/22-rdf-syntax-ns", "http://www.w3.org/2000/01/rdf-schema", "http://www.w3.org/2001/XMLSchema", "http://eccenca.com/mobivoc" ],
     "iri" : "No IRI set"
   },
@@ -159,7 +159,9 @@
       "de" : "Fahrradstation",
       "IRI-based" : "BicycleDockingStation",
       "em" : "test",
-      "en" : "bicycle docking station"
+      "me" : "test2",
+      "en" : "bicycle docking station",
+      "es" : "test"
     },
     "comment" : {
       "undefined" : "A docking station of a bicycle sharing system for picking up and returning bicycles."
@@ -232,13 +234,13 @@
     "annotations" : {
       "altlabel" : [ {
         "identifier" : "altlabel",
-        "language" : "de",
-        "value" : "LiPoly",
+        "language" : "en",
+        "value" : "LiPo",
         "type" : "label"
       }, {
         "identifier" : "altlabel",
-        "language" : "en",
-        "value" : "LiPo",
+        "language" : "de",
+        "value" : "LiPoly",
         "type" : "label"
       } ]
     },
@@ -554,13 +556,13 @@
       } ],
       "altlabel" : [ {
         "identifier" : "altlabel",
-        "language" : "en",
-        "value" : "Li-ion battery",
+        "language" : "de",
+        "value" : "Lithium-Akkumulator",
         "type" : "label"
       }, {
         "identifier" : "altlabel",
-        "language" : "de",
-        "value" : "Lithium-Akkumulator",
+        "language" : "en",
+        "value" : "Li-ion battery",
         "type" : "label"
       } ]
     },
@@ -593,13 +595,13 @@
       } ],
       "altlabel" : [ {
         "identifier" : "altlabel",
-        "language" : "de",
-        "value" : "Traktionsakku",
+        "language" : "en",
+        "value" : "Traction battery",
         "type" : "label"
       }, {
         "identifier" : "altlabel",
-        "language" : "en",
-        "value" : "Traction battery",
+        "language" : "de",
+        "value" : "Traktionsakku",
         "type" : "label"
       } ]
     },
@@ -744,7 +746,7 @@
   }, {
     "range" : "5",
     "domain" : "4",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "3"
   }, {
     "iri" : "http://eccenca.com/mobivoc/Performance",
@@ -779,7 +781,7 @@
   }, {
     "range" : "5",
     "domain" : "23",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "22"
   }, {
     "iri" : "http://purl.org/net/mobivoc/numberOfBicyclesAvailable",
@@ -799,7 +801,7 @@
   }, {
     "range" : "1",
     "domain" : "5",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "26"
   }, {
     "iri" : "http://eccenca.com/mobivoc/hasSpecificPower",
@@ -834,17 +836,17 @@
   }, {
     "range" : "1",
     "domain" : "13",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "31"
   }, {
     "range" : "1",
     "domain" : "12",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "32"
   }, {
     "range" : "1",
     "domain" : "15",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "33"
   }, {
     "iri" : "http://eccenca.com/mobivoc/hasCellVoltage",
@@ -872,27 +874,27 @@
   }, {
     "range" : "1",
     "domain" : "14",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "36"
   }, {
     "range" : "1",
     "domain" : "9",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "37"
   }, {
     "range" : "1",
     "domain" : "8",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "38"
   }, {
     "range" : "1",
     "domain" : "11",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "39"
   }, {
     "range" : "1",
     "domain" : "10",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "40"
   }, {
     "iri" : "http://eccenca.com/mobivoc/Price",
@@ -972,12 +974,12 @@
   }, {
     "range" : "1",
     "domain" : "6",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "51"
   }, {
     "range" : "1",
     "domain" : "7",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "52"
   }, {
     "iri" : "http://eccenca.com/mobivoc/Longevity",
@@ -1072,7 +1074,7 @@
   }, {
     "range" : "5",
     "domain" : "17",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "66"
   } ]
 }

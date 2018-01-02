@@ -488,3 +488,740 @@
 <http://eccenca.com/mobivoc/Watt> <http://www.w3.org/2000/01/rdf-schema#label> "Watt"@de .
 <http://eccenca.com/mobivoc/Watt> <http://www.w3.org/2000/01/rdf-schema#domain> <http://eccenca.com/mobivoc/Battery> .
 <http://eccenca.com/mobivoc/Watt> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/net/mobivoc/BicycleDockingStation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://purl.org/net/mobivoc/BicycleDockingStation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/mobivoc/BicycleDockingStation> <http://www.w3.org/2000/01/rdf-schema#comment> "A docking station of a bicycle sharing system for picking up and returning bicycles." .
+<http://purl.org/net/mobivoc/BicycleDockingStation> <http://www.w3.org/2000/01/rdf-schema#label> "bicycle docking station"@en .
+<http://purl.org/net/mobivoc/BicycleDockingStation> <http://www.w3.org/2000/01/rdf-schema#label> "Fahrradstation"@de .
+<http://purl.org/net/mobivoc/BicycleDockingStation> <http://www.w3.org/2000/01/rdf-schema#label> "testmodify"@em .
+<http://purl.org/net/mobivoc/dockingStationNumber> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/dockingStationNumber> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/mobivoc/dockingStationNumber> <http://www.w3.org/2000/01/rdf-schema#label> "docking station number"@en .
+<http://purl.org/net/mobivoc/dockingStationNumber> <http://www.w3.org/2000/01/rdf-schema#label> "Stationsnummer"@de .
+<http://purl.org/net/mobivoc/dockingStationNumber> <http://www.w3.org/2000/01/rdf-schema#comment> "Identification number of the bicycle docking station." .
+<http://purl.org/net/mobivoc/dockingStationNumber> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/BicycleDockingStation> .
+<http://purl.org/net/mobivoc/dockingStationNumber> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/net/mobivoc/numberOfDockingPoints> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/numberOfDockingPoints> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/mobivoc/numberOfDockingPoints> <http://www.w3.org/2000/01/rdf-schema#label> "number of docking points"@en .
+<http://purl.org/net/mobivoc/numberOfDockingPoints> <http://www.w3.org/2000/01/rdf-schema#label> "Anzahl Fahrradstellpl\u00E4tze"@de .
+<http://purl.org/net/mobivoc/numberOfDockingPoints> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates the number of docking points for bicycles." .
+<http://purl.org/net/mobivoc/numberOfDockingPoints> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/BicycleDockingStation> .
+<http://purl.org/net/mobivoc/numberOfDockingPoints> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/net/mobivoc/numberOfBicyclesAvailable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/numberOfBicyclesAvailable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/mobivoc/numberOfBicyclesAvailable> <http://www.w3.org/2000/01/rdf-schema#label> "number of bicycles available"@en .
+<http://purl.org/net/mobivoc/numberOfBicyclesAvailable> <http://www.w3.org/2000/01/rdf-schema#label> "Anzahl verf\u00FCgbarer Fahrr\u00E4der"@de .
+<http://purl.org/net/mobivoc/numberOfBicyclesAvailable> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates the number of bicycles available at the docking station." .
+<http://purl.org/net/mobivoc/numberOfBicyclesAvailable> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/BicycleDockingStation> .
+<http://purl.org/net/mobivoc/numberOfBicyclesAvailable> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/net/mobivoc/numberOfSpacesAvailable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/numberOfSpacesAvailable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/mobivoc/numberOfSpacesAvailable> <http://www.w3.org/2000/01/rdf-schema#label> "number of spaces available"@en .
+<http://purl.org/net/mobivoc/numberOfSpacesAvailable> <http://www.w3.org/2000/01/rdf-schema#label> "Anzahl freier Stellpl\u00E4tze"@de .
+<http://purl.org/net/mobivoc/numberOfSpacesAvailable> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates the number of spaces available at the docking station." .
+<http://purl.org/net/mobivoc/numberOfSpacesAvailable> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/BicycleDockingStation> .
+<http://purl.org/net/mobivoc/numberOfSpacesAvailable> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/net/mobivoc/BicycleDockingStation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://purl.org/net/mobivoc/BicycleDockingStation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/mobivoc/BicycleDockingStation> <http://www.w3.org/2000/01/rdf-schema#comment> "A docking station of a bicycle sharing system for picking up and returning bicycles." .
+<http://purl.org/net/mobivoc/BicycleDockingStation> <http://www.w3.org/2000/01/rdf-schema#label> "bicycle docking station"@en .
+<http://purl.org/net/mobivoc/BicycleDockingStation> <http://www.w3.org/2000/01/rdf-schema#label> "Fahrradstation"@de .
+<http://purl.org/net/mobivoc/BicycleDockingStation> <http://www.w3.org/2000/01/rdf-schema#label> "test"@es .
+<http://purl.org/net/mobivoc/dockingStationNumber> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/dockingStationNumber> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/mobivoc/dockingStationNumber> <http://www.w3.org/2000/01/rdf-schema#label> "docking station number"@en .
+<http://purl.org/net/mobivoc/dockingStationNumber> <http://www.w3.org/2000/01/rdf-schema#label> "Stationsnummer"@de .
+<http://purl.org/net/mobivoc/dockingStationNumber> <http://www.w3.org/2000/01/rdf-schema#comment> "Identification number of the bicycle docking station." .
+<http://purl.org/net/mobivoc/dockingStationNumber> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/BicycleDockingStation> .
+<http://purl.org/net/mobivoc/dockingStationNumber> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/net/mobivoc/numberOfDockingPoints> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/numberOfDockingPoints> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/mobivoc/numberOfDockingPoints> <http://www.w3.org/2000/01/rdf-schema#label> "number of docking points"@en .
+<http://purl.org/net/mobivoc/numberOfDockingPoints> <http://www.w3.org/2000/01/rdf-schema#label> "Anzahl Fahrradstellpl\u00E4tze"@de .
+<http://purl.org/net/mobivoc/numberOfDockingPoints> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates the number of docking points for bicycles." .
+<http://purl.org/net/mobivoc/numberOfDockingPoints> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/BicycleDockingStation> .
+<http://purl.org/net/mobivoc/numberOfDockingPoints> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/net/mobivoc/numberOfBicyclesAvailable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/numberOfBicyclesAvailable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/mobivoc/numberOfBicyclesAvailable> <http://www.w3.org/2000/01/rdf-schema#label> "number of bicycles available"@en .
+<http://purl.org/net/mobivoc/numberOfBicyclesAvailable> <http://www.w3.org/2000/01/rdf-schema#label> "Anzahl verf\u00FCgbarer Fahrr\u00E4der"@de .
+<http://purl.org/net/mobivoc/numberOfBicyclesAvailable> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates the number of bicycles available at the docking station." .
+<http://purl.org/net/mobivoc/numberOfBicyclesAvailable> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/BicycleDockingStation> .
+<http://purl.org/net/mobivoc/numberOfBicyclesAvailable> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/net/mobivoc/numberOfSpacesAvailable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/numberOfSpacesAvailable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/mobivoc/numberOfSpacesAvailable> <http://www.w3.org/2000/01/rdf-schema#label> "number of spaces available"@en .
+<http://purl.org/net/mobivoc/numberOfSpacesAvailable> <http://www.w3.org/2000/01/rdf-schema#label> "Anzahl freier Stellpl\u00E4tze"@de .
+<http://purl.org/net/mobivoc/numberOfSpacesAvailable> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates the number of spaces available at the docking station." .
+<http://purl.org/net/mobivoc/numberOfSpacesAvailable> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/BicycleDockingStation> .
+<http://purl.org/net/mobivoc/numberOfSpacesAvailable> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://eccenca.com/mobivoc/ElectricVehicleBattery> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://eccenca.com/mobivoc/ElectricVehicleBattery> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://eccenca.com/mobivoc/ElectricVehicleBattery> <http://www.w3.org/2000/01/rdf-schema#comment> "A battery used to power the propulsion of a battery electric vehicle." .
+<http://eccenca.com/mobivoc/ElectricVehicleBattery> <http://www.w3.org/2000/01/rdf-schema#label> "Electric Vehicle Battery"@en .
+<http://eccenca.com/mobivoc/ElectricVehicleBattery> <http://www.w3.org/2000/01/rdf-schema#label> "Traktionsbatterie"@de .
+<http://eccenca.com/mobivoc/ElectricVehicleBattery> <http://www.w3.org/2000/01/rdf-schema#altlabel> "Traction battery"@en .
+<http://eccenca.com/mobivoc/ElectricVehicleBattery> <http://www.w3.org/2000/01/rdf-schema#altlabel> "Traktionsakku"@de .
+<http://eccenca.com/mobivoc/ElectricVehicleBattery> <http://www.w3.org/2004/02/skos/core#hiddenLabel> "EVB"@en .
+<http://eccenca.com/mobivoc/ElectricVehicleBattery> <http://www.w3.org/2004/02/skos/core#hiddenLabel> "Antriebsbatterie"@de .
+<http://eccenca.com/mobivoc/DeepCycle> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://eccenca.com/mobivoc/LeadAcid> .
+<http://eccenca.com/mobivoc/DeepCycle> <http://www.w3.org/2000/01/rdf-schema#comment> "A lead-acid battery designed to be regularly deeply discharged using most of its capacity." .
+<http://eccenca.com/mobivoc/DeepCycle> <http://www.w3.org/2000/01/rdf-schema#label> "Deep-Cycle Battery"@en .
+<http://eccenca.com/mobivoc/DeepCycle> <http://www.w3.org/2000/01/rdf-schema#label> "****Batterie"@de .
+<http://eccenca.com/mobivoc/FloodedLeadAcid> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://eccenca.com/mobivoc/LeadAcid> .
+<http://eccenca.com/mobivoc/FloodedLeadAcid> <http://www.w3.org/2000/01/rdf-schema#comment> "Flooded lead acid batteries have cells with liquid electrolyte and are available in flat and tubular plate constructions with a wide variety of plate sizes." .
+<http://eccenca.com/mobivoc/FloodedLeadAcid> <http://www.w3.org/2000/01/rdf-schema#label> "Flooded Lead-Acid Battery"@en .
+<http://eccenca.com/mobivoc/FloodedLeadAcid> <http://www.w3.org/2000/01/rdf-schema#label> " Blei-S\u00E4ure-Batterie"@de .
+<http://eccenca.com/mobivoc/LeadAcid> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/LeadAcid> <http://www.w3.org/2000/01/rdf-schema#comment> "The oldest type of rechargeable battery. The cells have a relatively large power-to-weight ratio and these batteries have low cost." .
+<http://eccenca.com/mobivoc/LeadAcid> <http://www.w3.org/2000/01/rdf-schema#label> "Lead-Acid Battery"@en .
+<http://eccenca.com/mobivoc/LeadAcid> <http://www.w3.org/2000/01/rdf-schema#label> "Bleiakkumulator"@de .
+<http://eccenca.com/mobivoc/LithiumIon> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/LithiumIon> <http://www.w3.org/2000/01/rdf-schema#comment> "One of the most popular types of rechargeable batteries for electric vehicles. They use an intercalated lithium compound as one electrode material." .
+<http://eccenca.com/mobivoc/LithiumIon> <http://www.w3.org/2000/01/rdf-schema#label> "Lithium-ion Battery"@en .
+<http://eccenca.com/mobivoc/LithiumIon> <http://www.w3.org/2000/01/rdf-schema#label> "Lithium-Ionen-Akkumulator"@de .
+<http://eccenca.com/mobivoc/LithiumIon> <http://www.w3.org/2000/01/rdf-schema#altlabel> "Li-ion battery"@en .
+<http://eccenca.com/mobivoc/LithiumIon> <http://www.w3.org/2000/01/rdf-schema#altlabel> "Lithium-Akkumulator"@de .
+<http://eccenca.com/mobivoc/LithiumIon> <http://www.w3.org/2004/02/skos/core#hiddenLabel> "LIB"@en .
+<http://eccenca.com/mobivoc/LithiumIonPolymer> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/LithiumIonPolymer> <http://www.w3.org/2000/01/rdf-schema#comment> "A rechargeable battery of lithium-ion technology in a pouch format." .
+<http://eccenca.com/mobivoc/LithiumIonPolymer> <http://www.w3.org/2000/01/rdf-schema#label> "Lithium Polymer Battery"@en .
+<http://eccenca.com/mobivoc/LithiumIonPolymer> <http://www.w3.org/2000/01/rdf-schema#label> "Lithium-Polymer-Akkumulator"@de .
+<http://eccenca.com/mobivoc/LithiumIonPolymer> <http://www.w3.org/2000/01/rdf-schema#altlabel> "LiPo"@en .
+<http://eccenca.com/mobivoc/LithiumIonPolymer> <http://www.w3.org/2000/01/rdf-schema#altlabel> "LiPoly"@de .
+<http://eccenca.com/mobivoc/LithiumTitanate> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/LithiumTitanate> <http://www.w3.org/2000/01/rdf-schema#comment> "A type of rechargeable battery, which has the advantage of being faster to charge than other lithium-ion batteries." .
+<http://eccenca.com/mobivoc/LithiumTitanate> <http://www.w3.org/2000/01/rdf-schema#label> "Lithium\u2013titanate Battery"@en .
+<http://eccenca.com/mobivoc/LithiumTitanate> <http://www.w3.org/2000/01/rdf-schema#label> "Lithium\u2013titanate-Akkumulator"@de .
+<http://eccenca.com/mobivoc/MoltenSalt> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/MoltenSalt> <http://www.w3.org/2000/01/rdf-schema#comment> "A type of battery that uses molten salts as an electrolyte and offers both a high energy density and a high power density." .
+<http://eccenca.com/mobivoc/MoltenSalt> <http://www.w3.org/2000/01/rdf-schema#label> "Molten salt Battery"@en .
+<http://eccenca.com/mobivoc/MoltenSalt> <http://www.w3.org/2000/01/rdf-schema#label> "Thermalbatterie"@de .
+<http://eccenca.com/mobivoc/NickelCadmium> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/NickelCadmium> <http://www.w3.org/2000/01/rdf-schema#comment> "A type of rechargeable battery using nickel oxide hydroxide and metallic cadmium as electrodes." .
+<http://eccenca.com/mobivoc/NickelCadmium> <http://www.w3.org/2000/01/rdf-schema#label> "Nickel\u2013cadmium battery"@en .
+<http://eccenca.com/mobivoc/NickelCadmium> <http://www.w3.org/2000/01/rdf-schema#label> "Nickel-Cadmium-Akkumulator"@de .
+<http://eccenca.com/mobivoc/NickelCadmium> <http://www.w3.org/2000/01/rdf-schema#altlabel> "NiCd"@en .
+<http://eccenca.com/mobivoc/NickelCadmium> <http://www.w3.org/2000/01/rdf-schema#altlabel> "NiCd-Akku"@de .
+<http://eccenca.com/mobivoc/NickelCadmium> <http://www.w3.org/2004/02/skos/core#hiddenLabel> "NiCad"@en .
+<http://eccenca.com/mobivoc/NickelMetalHydride> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/NickelMetalHydride> <http://www.w3.org/2000/01/rdf-schema#comment> "A type of rechargeable battery. The chemical reaction at the positive electrode (cathode) is similar to that of the nickel\u2013cadmium cell." .
+<http://eccenca.com/mobivoc/NickelMetalHydride> <http://www.w3.org/2000/01/rdf-schema#label> "Nickel\u2013metal hydride battery"@en .
+<http://eccenca.com/mobivoc/NickelMetalHydride> <http://www.w3.org/2000/01/rdf-schema#label> "Nickel-Metallhydrid-Akkumulator"@de .
+<http://eccenca.com/mobivoc/NickelMetalHydride> <http://www.w3.org/2000/01/rdf-schema#altlabel> "NiMH"@en .
+<http://eccenca.com/mobivoc/NickelMetalHydride> <http://www.w3.org/2000/01/rdf-schema#altlabel> "NiMH"@de .
+<http://eccenca.com/mobivoc/NickelMetalHydride> <http://www.w3.org/2004/02/skos/core#hiddenLabel> "Ni\u2013MH"@en .
+<http://eccenca.com/mobivoc/NickelZinc> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/NickelZinc> <http://www.w3.org/2000/01/rdf-schema#comment> "A type of rechargeable battery which uses a stabilized zinc electrode system." .
+<http://eccenca.com/mobivoc/NickelZinc> <http://www.w3.org/2000/01/rdf-schema#label> "Nickel-Zinc Battery"@en .
+<http://eccenca.com/mobivoc/NickelZinc> <http://www.w3.org/2000/01/rdf-schema#label> "Nickel-Zink-Akkumulator"@de .
+<http://eccenca.com/mobivoc/NickelZinc> <http://www.w3.org/2000/01/rdf-schema#altlabel> "NiZn"@en .
+<http://eccenca.com/mobivoc/ValveRegulatedLeadAcid> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://eccenca.com/mobivoc/LeadAcid> .
+<http://eccenca.com/mobivoc/ValveRegulatedLeadAcid> <http://www.w3.org/2000/01/rdf-schema#comment> "\u0391 type of lead-acid rechargeable battery" .
+<http://eccenca.com/mobivoc/ValveRegulatedLeadAcid> <http://www.w3.org/2000/01/rdf-schema#label> "Valve-regulated lead-acid battery"@en .
+<http://eccenca.com/mobivoc/ValveRegulatedLeadAcid> <http://www.w3.org/2000/01/rdf-schema#label> "VRLA-Akkumulator"@de .
+<http://eccenca.com/mobivoc/ValveRegulatedLeadAcid> <http://www.w3.org/2000/01/rdf-schema#altlabel> "sealed battery"@en .
+<http://eccenca.com/mobivoc/ValveRegulatedLeadAcid> <http://www.w3.org/2004/02/skos/core#hiddenLabel> "VRLA "@en .
+<http://eccenca.com/mobivoc/ZincAir> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/ZincAir> <http://www.w3.org/2000/01/rdf-schema#comment> "A metal-air battery powered by oxidizing zinc with oxygen from the air. These batteries have high energy densities and are relatively inexpensive to produce." .
+<http://eccenca.com/mobivoc/ZincAir> <http://www.w3.org/2000/01/rdf-schema#label> "Zinc\u2013air battery"@en .
+<http://eccenca.com/mobivoc/ZincAir> <http://www.w3.org/2000/01/rdf-schema#label> "Zink-Luft-Batterie"@de .
+<http://eccenca.com/mobivoc/DieselBatteryHybrid> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/DieselBatteryHybrid> <http://www.w3.org/2000/01/rdf-schema#comment> "*****" .
+<http://eccenca.com/mobivoc/DieselBatteryHybrid> <http://www.w3.org/2000/01/rdf-schema#label> "DieselBatteryHybrid"@en .
+<http://eccenca.com/mobivoc/DieselBatteryHybrid> <http://www.w3.org/2000/01/rdf-schema#label> "DieselBatterieHybrid"@de .
+<http://eccenca.com/mobivoc/petrolBatteryHybrid> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/petrolBatteryHybrid> <http://www.w3.org/2000/01/rdf-schema#comment> "****" .
+<http://eccenca.com/mobivoc/petrolBatteryHybrid> <http://www.w3.org/2000/01/rdf-schema#label> "PetrolBatteryHybrid"@en .
+<http://eccenca.com/mobivoc/petrolBatteryHybrid> <http://www.w3.org/2000/01/rdf-schema#label> "PetrolBatterieHybrid"@de .
+<http://eccenca.com/mobivoc/Ampere> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://eccenca.com/mobivoc/Ampere> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://eccenca.com/mobivoc/Ampere> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents the flow rate of electric charge." .
+<http://eccenca.com/mobivoc/Ampere> <http://www.w3.org/2000/01/rdf-schema#label> "Ampere"@en .
+<http://eccenca.com/mobivoc/Ampere> <http://www.w3.org/2000/01/rdf-schema#label> "Ampere"@de .
+<http://eccenca.com/mobivoc/Ampere> <http://www.w3.org/2000/01/rdf-schema#domain> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/Ampere> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://eccenca.com/mobivoc/hasCapacity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://eccenca.com/mobivoc/hasCapacity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://eccenca.com/mobivoc/hasCapacity> <http://www.w3.org/2000/01/rdf-schema#comment> "It is the amount of electric charge it can deliver at the rated voltage. It is measured in units such as Ampere-hour (Ah), Watt-hour (Wh), kiloWatt-hour (kWh)." .
+<http://eccenca.com/mobivoc/hasCapacity> <http://www.w3.org/2000/01/rdf-schema#label> "Capacity"@en .
+<http://eccenca.com/mobivoc/hasCapacity> <http://www.w3.org/2000/01/rdf-schema#label> "Kapazit\u00E4t"@de .
+<http://eccenca.com/mobivoc/hasCapacity> <http://www.w3.org/2000/01/rdf-schema#domain> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/hasCapacity> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://eccenca.com/mobivoc/hasCellVoltage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://eccenca.com/mobivoc/hasCellVoltage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://eccenca.com/mobivoc/hasCellVoltage> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents either a source of energy or lost, used, or stored energy. It is measured in Voltage(V)." .
+<http://eccenca.com/mobivoc/hasCellVoltage> <http://www.w3.org/2000/01/rdf-schema#label> "CellVoltage"@en .
+<http://eccenca.com/mobivoc/hasCellVoltage> <http://www.w3.org/2000/01/rdf-schema#label> "Spannung"@de .
+<http://eccenca.com/mobivoc/hasCellVoltage> <http://www.w3.org/2000/01/rdf-schema#altlabel> "Cell nominal Voltage"@en .
+<http://eccenca.com/mobivoc/hasCellVoltage> <http://www.w3.org/2000/01/rdf-schema#domain> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/hasCellVoltage> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://eccenca.com/mobivoc/hasChargeTime> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://eccenca.com/mobivoc/hasChargeTime> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://eccenca.com/mobivoc/hasChargeTime> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates the time that is needed for a battery's full charge." .
+<http://eccenca.com/mobivoc/hasChargeTime> <http://www.w3.org/2000/01/rdf-schema#label> "Charge time"@en .
+<http://eccenca.com/mobivoc/hasChargeTime> <http://www.w3.org/2000/01/rdf-schema#label> "Ladezeit"@de .
+<http://eccenca.com/mobivoc/hasChargeTime> <http://www.w3.org/2000/01/rdf-schema#domain> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/hasChargeTime> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://eccenca.com/mobivoc/hasCRate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://eccenca.com/mobivoc/hasCRate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://eccenca.com/mobivoc/hasCRate> <http://www.w3.org/2000/01/rdf-schema#comment> "The C-rate is a measure of the rate at which a battery is being discharged." .
+<http://eccenca.com/mobivoc/hasCRate> <http://www.w3.org/2000/01/rdf-schema#label> "CRate"@en .
+<http://eccenca.com/mobivoc/hasCRate> <http://www.w3.org/2000/01/rdf-schema#label> "CRate"@de .
+<http://eccenca.com/mobivoc/hasCRate> <http://www.w3.org/2000/01/rdf-schema#domain> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/hasCRate> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://eccenca.com/mobivoc/hasCycleLife> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://eccenca.com/mobivoc/hasCycleLife> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://eccenca.com/mobivoc/hasCycleLife> <http://www.w3.org/2000/01/rdf-schema#comment> "The cycle life is the number of complete charge/discharge cycles that the battery is able to support before that its capacity falls under 80% of it's original capacity." .
+<http://eccenca.com/mobivoc/hasCycleLife> <http://www.w3.org/2000/01/rdf-schema#label> "Cycle Life"@en .
+<http://eccenca.com/mobivoc/hasCycleLife> <http://www.w3.org/2000/01/rdf-schema#label> "Batterielebensdauer"@de .
+<http://eccenca.com/mobivoc/hasCycleLife> <http://www.w3.org/2000/01/rdf-schema#domain> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/hasCycleLife> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://eccenca.com/mobivoc/hasOperatingTemperature> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://eccenca.com/mobivoc/hasOperatingTemperature> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://eccenca.com/mobivoc/hasOperatingTemperature> <http://www.w3.org/2000/01/rdf-schema#comment> "Battery operating temperature is the temperature at which a battery operates effectively." .
+<http://eccenca.com/mobivoc/hasOperatingTemperature> <http://www.w3.org/2000/01/rdf-schema#label> "Operating temperature"@en .
+<http://eccenca.com/mobivoc/hasOperatingTemperature> <http://www.w3.org/2000/01/rdf-schema#label> "Betriebstemperatur"@de .
+<http://eccenca.com/mobivoc/hasOperatingTemperature> <http://www.w3.org/2000/01/rdf-schema#domain> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/hasOperatingTemperature> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://eccenca.com/mobivoc/hasSelfDischarge> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://eccenca.com/mobivoc/hasSelfDischarge> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://eccenca.com/mobivoc/hasSelfDischarge> <http://www.w3.org/2000/01/rdf-schema#comment> "Self-discharge is the electrical capacity that is lost when the cell simply sits on the shelf. It is highly dependent on temperature, increasing as the battery temperature is increased." .
+<http://eccenca.com/mobivoc/hasSelfDischarge> <http://www.w3.org/2000/01/rdf-schema#label> "Self Discharge"@en .
+<http://eccenca.com/mobivoc/hasSelfDischarge> <http://www.w3.org/2000/01/rdf-schema#label> "Selbstentladung"@de .
+<http://eccenca.com/mobivoc/hasSelfDischarge> <http://www.w3.org/2000/01/rdf-schema#domain> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/hasSelfDischarge> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://eccenca.com/mobivoc/hasSpecificEnergyDensity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://eccenca.com/mobivoc/hasSpecificEnergyDensity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://eccenca.com/mobivoc/hasSpecificEnergyDensity> <http://www.w3.org/2000/01/rdf-schema#comment> "It is the amount of energy stored in a given system or region of space per unit volume or mass. It is measured in Wh/kg." .
+<http://eccenca.com/mobivoc/hasSpecificEnergyDensity> <http://www.w3.org/2000/01/rdf-schema#label> "Specific Energy Density"@en .
+<http://eccenca.com/mobivoc/hasSpecificEnergyDensity> <http://www.w3.org/2000/01/rdf-schema#label> "Energiedichte"@de .
+<http://eccenca.com/mobivoc/hasSpecificEnergyDensity> <http://www.w3.org/2000/01/rdf-schema#domain> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/hasSpecificEnergyDensity> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://eccenca.com/mobivoc/hasSpecificPower> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://eccenca.com/mobivoc/hasSpecificPower> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://eccenca.com/mobivoc/hasSpecificPower> <http://www.w3.org/2000/01/rdf-schema#comment> "Specific power demonstrates acceleration. It is the power that can be derived per unit weight of the cell (W/kg)." .
+<http://eccenca.com/mobivoc/hasSpecificPower> <http://www.w3.org/2000/01/rdf-schema#label> "Specific Power"@en .
+<http://eccenca.com/mobivoc/hasSpecificPower> <http://www.w3.org/2000/01/rdf-schema#label> " Leistungskonstante"@de .
+<http://eccenca.com/mobivoc/hasSpecificPower> <http://www.w3.org/2000/01/rdf-schema#domain> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/hasSpecificPower> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://eccenca.com/mobivoc/Longevity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://eccenca.com/mobivoc/Longevity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://eccenca.com/mobivoc/Longevity> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates the period of time that a battery can still work ." .
+<http://eccenca.com/mobivoc/Longevity> <http://www.w3.org/2000/01/rdf-schema#label> "Longevity"@en .
+<http://eccenca.com/mobivoc/Longevity> <http://www.w3.org/2000/01/rdf-schema#label> "Langlebigkeit"@de .
+<http://eccenca.com/mobivoc/Longevity> <http://www.w3.org/2000/01/rdf-schema#domain> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/Longevity> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://eccenca.com/mobivoc/Performance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://eccenca.com/mobivoc/Performance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://eccenca.com/mobivoc/Performance> <http://www.w3.org/2000/01/rdf-schema#comment> "It reflects the condition of the battery when driving the EV in blistering summer heat and freezing temperatures." .
+<http://eccenca.com/mobivoc/Performance> <http://www.w3.org/2000/01/rdf-schema#label> "Performance"@en .
+<http://eccenca.com/mobivoc/Performance> <http://www.w3.org/2000/01/rdf-schema#label> "Leistung"@de .
+<http://eccenca.com/mobivoc/Performance> <http://www.w3.org/2000/01/rdf-schema#domain> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/Performance> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://eccenca.com/mobivoc/Price> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://eccenca.com/mobivoc/Price> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://eccenca.com/mobivoc/Price> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates the price of the battery." .
+<http://eccenca.com/mobivoc/Price> <http://www.w3.org/2000/01/rdf-schema#label> "Price"@en .
+<http://eccenca.com/mobivoc/Price> <http://www.w3.org/2000/01/rdf-schema#label> "Preis"@de .
+<http://eccenca.com/mobivoc/Price> <http://www.w3.org/2000/01/rdf-schema#domain> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/Price> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://eccenca.com/mobivoc/Watt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://eccenca.com/mobivoc/Watt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://eccenca.com/mobivoc/Watt> <http://www.w3.org/2000/01/rdf-schema#comment> "Expresses the rate of energy conversion or transfer with respect to time." .
+<http://eccenca.com/mobivoc/Watt> <http://www.w3.org/2000/01/rdf-schema#label> "Watt"@en .
+<http://eccenca.com/mobivoc/Watt> <http://www.w3.org/2000/01/rdf-schema#label> "Watt"@de .
+<http://eccenca.com/mobivoc/Watt> <http://www.w3.org/2000/01/rdf-schema#domain> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/Watt> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/net/mobivoc/BicycleDockingStation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://purl.org/net/mobivoc/BicycleDockingStation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/mobivoc/BicycleDockingStation> <http://www.w3.org/2000/01/rdf-schema#comment> "A docking station of a bicycle sharing system for picking up and returning bicycles." .
+<http://purl.org/net/mobivoc/BicycleDockingStation> <http://www.w3.org/2000/01/rdf-schema#label> "bicycle docking station"@en .
+<http://purl.org/net/mobivoc/BicycleDockingStation> <http://www.w3.org/2000/01/rdf-schema#label> "Fahrradstation"@de .
+<http://purl.org/net/mobivoc/BicycleDockingStation> <http://www.w3.org/2000/01/rdf-schema#label> "testmodify"@em .
+<http://purl.org/net/mobivoc/dockingStationNumber> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/dockingStationNumber> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/mobivoc/dockingStationNumber> <http://www.w3.org/2000/01/rdf-schema#label> "docking station number"@en .
+<http://purl.org/net/mobivoc/dockingStationNumber> <http://www.w3.org/2000/01/rdf-schema#label> "Stationsnummer"@de .
+<http://purl.org/net/mobivoc/dockingStationNumber> <http://www.w3.org/2000/01/rdf-schema#comment> "Identification number of the bicycle docking station." .
+<http://purl.org/net/mobivoc/dockingStationNumber> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/BicycleDockingStation> .
+<http://purl.org/net/mobivoc/dockingStationNumber> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/net/mobivoc/numberOfDockingPoints> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/numberOfDockingPoints> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/mobivoc/numberOfDockingPoints> <http://www.w3.org/2000/01/rdf-schema#label> "number of docking points"@en .
+<http://purl.org/net/mobivoc/numberOfDockingPoints> <http://www.w3.org/2000/01/rdf-schema#label> "Anzahl Fahrradstellpl\u00E4tze"@de .
+<http://purl.org/net/mobivoc/numberOfDockingPoints> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates the number of docking points for bicycles." .
+<http://purl.org/net/mobivoc/numberOfDockingPoints> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/BicycleDockingStation> .
+<http://purl.org/net/mobivoc/numberOfDockingPoints> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/net/mobivoc/numberOfBicyclesAvailable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/numberOfBicyclesAvailable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/mobivoc/numberOfBicyclesAvailable> <http://www.w3.org/2000/01/rdf-schema#label> "number of bicycles available"@en .
+<http://purl.org/net/mobivoc/numberOfBicyclesAvailable> <http://www.w3.org/2000/01/rdf-schema#label> "Anzahl verf\u00FCgbarer Fahrr\u00E4der"@de .
+<http://purl.org/net/mobivoc/numberOfBicyclesAvailable> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates the number of bicycles available at the docking station." .
+<http://purl.org/net/mobivoc/numberOfBicyclesAvailable> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/BicycleDockingStation> .
+<http://purl.org/net/mobivoc/numberOfBicyclesAvailable> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/net/mobivoc/numberOfSpacesAvailable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/numberOfSpacesAvailable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/mobivoc/numberOfSpacesAvailable> <http://www.w3.org/2000/01/rdf-schema#label> "number of spaces available"@en .
+<http://purl.org/net/mobivoc/numberOfSpacesAvailable> <http://www.w3.org/2000/01/rdf-schema#label> "Anzahl freier Stellpl\u00E4tze"@de .
+<http://purl.org/net/mobivoc/numberOfSpacesAvailable> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates the number of spaces available at the docking station." .
+<http://purl.org/net/mobivoc/numberOfSpacesAvailable> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/BicycleDockingStation> .
+<http://purl.org/net/mobivoc/numberOfSpacesAvailable> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/net/mobivoc/BicycleDockingStation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://purl.org/net/mobivoc/BicycleDockingStation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/mobivoc/BicycleDockingStation> <http://www.w3.org/2000/01/rdf-schema#comment> "A docking station of a bicycle sharing system for picking up and returning bicycles." .
+<http://purl.org/net/mobivoc/BicycleDockingStation> <http://www.w3.org/2000/01/rdf-schema#label> "bicycle docking station"@en .
+<http://purl.org/net/mobivoc/BicycleDockingStation> <http://www.w3.org/2000/01/rdf-schema#label> "Fahrradstation"@de .
+<http://purl.org/net/mobivoc/dockingStationNumber> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/dockingStationNumber> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/mobivoc/dockingStationNumber> <http://www.w3.org/2000/01/rdf-schema#label> "docking station number"@en .
+<http://purl.org/net/mobivoc/dockingStationNumber> <http://www.w3.org/2000/01/rdf-schema#label> "Stationsnummer"@de .
+<http://purl.org/net/mobivoc/dockingStationNumber> <http://www.w3.org/2000/01/rdf-schema#comment> "Identification number of the bicycle docking station." .
+<http://purl.org/net/mobivoc/dockingStationNumber> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/BicycleDockingStation> .
+<http://purl.org/net/mobivoc/dockingStationNumber> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/net/mobivoc/numberOfDockingPoints> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/numberOfDockingPoints> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/mobivoc/numberOfDockingPoints> <http://www.w3.org/2000/01/rdf-schema#label> "number of docking points"@en .
+<http://purl.org/net/mobivoc/numberOfDockingPoints> <http://www.w3.org/2000/01/rdf-schema#label> "Anzahl Fahrradstellpl\u00E4tze"@de .
+<http://purl.org/net/mobivoc/numberOfDockingPoints> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates the number of docking points for bicycles." .
+<http://purl.org/net/mobivoc/numberOfDockingPoints> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/BicycleDockingStation> .
+<http://purl.org/net/mobivoc/numberOfDockingPoints> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/net/mobivoc/numberOfBicyclesAvailable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/numberOfBicyclesAvailable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/mobivoc/numberOfBicyclesAvailable> <http://www.w3.org/2000/01/rdf-schema#label> "number of bicycles available"@en .
+<http://purl.org/net/mobivoc/numberOfBicyclesAvailable> <http://www.w3.org/2000/01/rdf-schema#label> "Anzahl verf\u00FCgbarer Fahrr\u00E4der"@de .
+<http://purl.org/net/mobivoc/numberOfBicyclesAvailable> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates the number of bicycles available at the docking station." .
+<http://purl.org/net/mobivoc/numberOfBicyclesAvailable> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/BicycleDockingStation> .
+<http://purl.org/net/mobivoc/numberOfBicyclesAvailable> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/net/mobivoc/numberOfSpacesAvailable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/numberOfSpacesAvailable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/mobivoc/numberOfSpacesAvailable> <http://www.w3.org/2000/01/rdf-schema#label> "number of spaces available"@en .
+<http://purl.org/net/mobivoc/numberOfSpacesAvailable> <http://www.w3.org/2000/01/rdf-schema#label> "Anzahl freier Stellpl\u00E4tze"@de .
+<http://purl.org/net/mobivoc/numberOfSpacesAvailable> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates the number of spaces available at the docking station." .
+<http://purl.org/net/mobivoc/numberOfSpacesAvailable> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/BicycleDockingStation> .
+<http://purl.org/net/mobivoc/numberOfSpacesAvailable> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://eccenca.com/mobivoc/ElectricVehicleBattery> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://eccenca.com/mobivoc/ElectricVehicleBattery> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://eccenca.com/mobivoc/ElectricVehicleBattery> <http://www.w3.org/2000/01/rdf-schema#comment> "A battery used to power the propulsion of a battery electric vehicle." .
+<http://eccenca.com/mobivoc/ElectricVehicleBattery> <http://www.w3.org/2000/01/rdf-schema#label> "Electric Vehicle Battery"@en .
+<http://eccenca.com/mobivoc/ElectricVehicleBattery> <http://www.w3.org/2000/01/rdf-schema#label> "Traktionsbatterie"@de .
+<http://eccenca.com/mobivoc/ElectricVehicleBattery> <http://www.w3.org/2000/01/rdf-schema#altlabel> "Traction battery"@en .
+<http://eccenca.com/mobivoc/ElectricVehicleBattery> <http://www.w3.org/2000/01/rdf-schema#altlabel> "Traktionsakku"@de .
+<http://eccenca.com/mobivoc/ElectricVehicleBattery> <http://www.w3.org/2004/02/skos/core#hiddenLabel> "EVB"@en .
+<http://eccenca.com/mobivoc/ElectricVehicleBattery> <http://www.w3.org/2004/02/skos/core#hiddenLabel> "Antriebsbatterie"@de .
+<http://eccenca.com/mobivoc/DeepCycle> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://eccenca.com/mobivoc/LeadAcid> .
+<http://eccenca.com/mobivoc/DeepCycle> <http://www.w3.org/2000/01/rdf-schema#comment> "A lead-acid battery designed to be regularly deeply discharged using most of its capacity." .
+<http://eccenca.com/mobivoc/DeepCycle> <http://www.w3.org/2000/01/rdf-schema#label> "Deep-Cycle Battery"@en .
+<http://eccenca.com/mobivoc/DeepCycle> <http://www.w3.org/2000/01/rdf-schema#label> "****Batterie"@de .
+<http://eccenca.com/mobivoc/FloodedLeadAcid> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://eccenca.com/mobivoc/LeadAcid> .
+<http://eccenca.com/mobivoc/FloodedLeadAcid> <http://www.w3.org/2000/01/rdf-schema#comment> "Flooded lead acid batteries have cells with liquid electrolyte and are available in flat and tubular plate constructions with a wide variety of plate sizes." .
+<http://eccenca.com/mobivoc/FloodedLeadAcid> <http://www.w3.org/2000/01/rdf-schema#label> "Flooded Lead-Acid Battery"@en .
+<http://eccenca.com/mobivoc/FloodedLeadAcid> <http://www.w3.org/2000/01/rdf-schema#label> " Blei-S\u00E4ure-Batterie"@de .
+<http://eccenca.com/mobivoc/LeadAcid> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/LeadAcid> <http://www.w3.org/2000/01/rdf-schema#comment> "The oldest type of rechargeable battery. The cells have a relatively large power-to-weight ratio and these batteries have low cost." .
+<http://eccenca.com/mobivoc/LeadAcid> <http://www.w3.org/2000/01/rdf-schema#label> "Lead-Acid Battery"@en .
+<http://eccenca.com/mobivoc/LeadAcid> <http://www.w3.org/2000/01/rdf-schema#label> "Bleiakkumulator"@de .
+<http://eccenca.com/mobivoc/LithiumIon> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/LithiumIon> <http://www.w3.org/2000/01/rdf-schema#comment> "One of the most popular types of rechargeable batteries for electric vehicles. They use an intercalated lithium compound as one electrode material." .
+<http://eccenca.com/mobivoc/LithiumIon> <http://www.w3.org/2000/01/rdf-schema#label> "Lithium-ion Battery"@en .
+<http://eccenca.com/mobivoc/LithiumIon> <http://www.w3.org/2000/01/rdf-schema#label> "Lithium-Ionen-Akkumulator"@de .
+<http://eccenca.com/mobivoc/LithiumIon> <http://www.w3.org/2000/01/rdf-schema#altlabel> "Li-ion battery"@en .
+<http://eccenca.com/mobivoc/LithiumIon> <http://www.w3.org/2000/01/rdf-schema#altlabel> "Lithium-Akkumulator"@de .
+<http://eccenca.com/mobivoc/LithiumIon> <http://www.w3.org/2004/02/skos/core#hiddenLabel> "LIB"@en .
+<http://eccenca.com/mobivoc/LithiumIonPolymer> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/LithiumIonPolymer> <http://www.w3.org/2000/01/rdf-schema#comment> "A rechargeable battery of lithium-ion technology in a pouch format." .
+<http://eccenca.com/mobivoc/LithiumIonPolymer> <http://www.w3.org/2000/01/rdf-schema#label> "Lithium Polymer Battery"@en .
+<http://eccenca.com/mobivoc/LithiumIonPolymer> <http://www.w3.org/2000/01/rdf-schema#label> "Lithium-Polymer-Akkumulator"@de .
+<http://eccenca.com/mobivoc/LithiumIonPolymer> <http://www.w3.org/2000/01/rdf-schema#altlabel> "LiPo"@en .
+<http://eccenca.com/mobivoc/LithiumIonPolymer> <http://www.w3.org/2000/01/rdf-schema#altlabel> "LiPoly"@de .
+<http://eccenca.com/mobivoc/LithiumTitanate> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/LithiumTitanate> <http://www.w3.org/2000/01/rdf-schema#comment> "A type of rechargeable battery, which has the advantage of being faster to charge than other lithium-ion batteries." .
+<http://eccenca.com/mobivoc/LithiumTitanate> <http://www.w3.org/2000/01/rdf-schema#label> "Lithium\u2013titanate Battery"@en .
+<http://eccenca.com/mobivoc/LithiumTitanate> <http://www.w3.org/2000/01/rdf-schema#label> "Lithium\u2013titanate-Akkumulator"@de .
+<http://eccenca.com/mobivoc/MoltenSalt> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/MoltenSalt> <http://www.w3.org/2000/01/rdf-schema#comment> "A type of battery that uses molten salts as an electrolyte and offers both a high energy density and a high power density." .
+<http://eccenca.com/mobivoc/MoltenSalt> <http://www.w3.org/2000/01/rdf-schema#label> "Molten salt Battery"@en .
+<http://eccenca.com/mobivoc/MoltenSalt> <http://www.w3.org/2000/01/rdf-schema#label> "Thermalbatterie"@de .
+<http://eccenca.com/mobivoc/NickelCadmium> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/NickelCadmium> <http://www.w3.org/2000/01/rdf-schema#comment> "A type of rechargeable battery using nickel oxide hydroxide and metallic cadmium as electrodes." .
+<http://eccenca.com/mobivoc/NickelCadmium> <http://www.w3.org/2000/01/rdf-schema#label> "Nickel\u2013cadmium battery"@en .
+<http://eccenca.com/mobivoc/NickelCadmium> <http://www.w3.org/2000/01/rdf-schema#label> "Nickel-Cadmium-Akkumulator"@de .
+<http://eccenca.com/mobivoc/NickelCadmium> <http://www.w3.org/2000/01/rdf-schema#altlabel> "NiCd"@en .
+<http://eccenca.com/mobivoc/NickelCadmium> <http://www.w3.org/2000/01/rdf-schema#altlabel> "NiCd-Akku"@de .
+<http://eccenca.com/mobivoc/NickelCadmium> <http://www.w3.org/2004/02/skos/core#hiddenLabel> "NiCad"@en .
+<http://eccenca.com/mobivoc/NickelMetalHydride> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/NickelMetalHydride> <http://www.w3.org/2000/01/rdf-schema#comment> "A type of rechargeable battery. The chemical reaction at the positive electrode (cathode) is similar to that of the nickel\u2013cadmium cell." .
+<http://eccenca.com/mobivoc/NickelMetalHydride> <http://www.w3.org/2000/01/rdf-schema#label> "Nickel\u2013metal hydride battery"@en .
+<http://eccenca.com/mobivoc/NickelMetalHydride> <http://www.w3.org/2000/01/rdf-schema#label> "Nickel-Metallhydrid-Akkumulator"@de .
+<http://eccenca.com/mobivoc/NickelMetalHydride> <http://www.w3.org/2000/01/rdf-schema#altlabel> "NiMH"@en .
+<http://eccenca.com/mobivoc/NickelMetalHydride> <http://www.w3.org/2000/01/rdf-schema#altlabel> "NiMH"@de .
+<http://eccenca.com/mobivoc/NickelMetalHydride> <http://www.w3.org/2004/02/skos/core#hiddenLabel> "Ni\u2013MH"@en .
+<http://eccenca.com/mobivoc/NickelZinc> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/NickelZinc> <http://www.w3.org/2000/01/rdf-schema#comment> "A type of rechargeable battery which uses a stabilized zinc electrode system." .
+<http://eccenca.com/mobivoc/NickelZinc> <http://www.w3.org/2000/01/rdf-schema#label> "Nickel-Zinc Battery"@en .
+<http://eccenca.com/mobivoc/NickelZinc> <http://www.w3.org/2000/01/rdf-schema#label> "Nickel-Zink-Akkumulator"@de .
+<http://eccenca.com/mobivoc/NickelZinc> <http://www.w3.org/2000/01/rdf-schema#altlabel> "NiZn"@en .
+<http://eccenca.com/mobivoc/ValveRegulatedLeadAcid> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://eccenca.com/mobivoc/LeadAcid> .
+<http://eccenca.com/mobivoc/ValveRegulatedLeadAcid> <http://www.w3.org/2000/01/rdf-schema#comment> "\u0391 type of lead-acid rechargeable battery" .
+<http://eccenca.com/mobivoc/ValveRegulatedLeadAcid> <http://www.w3.org/2000/01/rdf-schema#label> "Valve-regulated lead-acid battery"@en .
+<http://eccenca.com/mobivoc/ValveRegulatedLeadAcid> <http://www.w3.org/2000/01/rdf-schema#label> "VRLA-Akkumulator"@de .
+<http://eccenca.com/mobivoc/ValveRegulatedLeadAcid> <http://www.w3.org/2000/01/rdf-schema#altlabel> "sealed battery"@en .
+<http://eccenca.com/mobivoc/ValveRegulatedLeadAcid> <http://www.w3.org/2004/02/skos/core#hiddenLabel> "VRLA "@en .
+<http://eccenca.com/mobivoc/ZincAir> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/ZincAir> <http://www.w3.org/2000/01/rdf-schema#comment> "A metal-air battery powered by oxidizing zinc with oxygen from the air. These batteries have high energy densities and are relatively inexpensive to produce." .
+<http://eccenca.com/mobivoc/ZincAir> <http://www.w3.org/2000/01/rdf-schema#label> "Zinc\u2013air battery"@en .
+<http://eccenca.com/mobivoc/ZincAir> <http://www.w3.org/2000/01/rdf-schema#label> "Zink-Luft-Batterie"@de .
+<http://eccenca.com/mobivoc/DieselBatteryHybrid> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/DieselBatteryHybrid> <http://www.w3.org/2000/01/rdf-schema#comment> "*****" .
+<http://eccenca.com/mobivoc/DieselBatteryHybrid> <http://www.w3.org/2000/01/rdf-schema#label> "DieselBatteryHybrid"@en .
+<http://eccenca.com/mobivoc/DieselBatteryHybrid> <http://www.w3.org/2000/01/rdf-schema#label> "DieselBatterieHybrid"@de .
+<http://eccenca.com/mobivoc/petrolBatteryHybrid> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/petrolBatteryHybrid> <http://www.w3.org/2000/01/rdf-schema#comment> "****" .
+<http://eccenca.com/mobivoc/petrolBatteryHybrid> <http://www.w3.org/2000/01/rdf-schema#label> "PetrolBatteryHybrid"@en .
+<http://eccenca.com/mobivoc/petrolBatteryHybrid> <http://www.w3.org/2000/01/rdf-schema#label> "PetrolBatterieHybrid"@de .
+<http://eccenca.com/mobivoc/Ampere> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://eccenca.com/mobivoc/Ampere> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://eccenca.com/mobivoc/Ampere> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents the flow rate of electric charge." .
+<http://eccenca.com/mobivoc/Ampere> <http://www.w3.org/2000/01/rdf-schema#label> "Ampere"@en .
+<http://eccenca.com/mobivoc/Ampere> <http://www.w3.org/2000/01/rdf-schema#label> "Ampere"@de .
+<http://eccenca.com/mobivoc/Ampere> <http://www.w3.org/2000/01/rdf-schema#domain> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/Ampere> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://eccenca.com/mobivoc/hasCapacity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://eccenca.com/mobivoc/hasCapacity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://eccenca.com/mobivoc/hasCapacity> <http://www.w3.org/2000/01/rdf-schema#comment> "It is the amount of electric charge it can deliver at the rated voltage. It is measured in units such as Ampere-hour (Ah), Watt-hour (Wh), kiloWatt-hour (kWh)." .
+<http://eccenca.com/mobivoc/hasCapacity> <http://www.w3.org/2000/01/rdf-schema#label> "Capacity"@en .
+<http://eccenca.com/mobivoc/hasCapacity> <http://www.w3.org/2000/01/rdf-schema#label> "Kapazit\u00E4t"@de .
+<http://eccenca.com/mobivoc/hasCapacity> <http://www.w3.org/2000/01/rdf-schema#domain> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/hasCapacity> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://eccenca.com/mobivoc/hasCellVoltage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://eccenca.com/mobivoc/hasCellVoltage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://eccenca.com/mobivoc/hasCellVoltage> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents either a source of energy or lost, used, or stored energy. It is measured in Voltage(V)." .
+<http://eccenca.com/mobivoc/hasCellVoltage> <http://www.w3.org/2000/01/rdf-schema#label> "CellVoltage"@en .
+<http://eccenca.com/mobivoc/hasCellVoltage> <http://www.w3.org/2000/01/rdf-schema#label> "Spannung"@de .
+<http://eccenca.com/mobivoc/hasCellVoltage> <http://www.w3.org/2000/01/rdf-schema#altlabel> "Cell nominal Voltage"@en .
+<http://eccenca.com/mobivoc/hasCellVoltage> <http://www.w3.org/2000/01/rdf-schema#domain> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/hasCellVoltage> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://eccenca.com/mobivoc/hasChargeTime> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://eccenca.com/mobivoc/hasChargeTime> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://eccenca.com/mobivoc/hasChargeTime> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates the time that is needed for a battery's full charge." .
+<http://eccenca.com/mobivoc/hasChargeTime> <http://www.w3.org/2000/01/rdf-schema#label> "Charge time"@en .
+<http://eccenca.com/mobivoc/hasChargeTime> <http://www.w3.org/2000/01/rdf-schema#label> "Ladezeit"@de .
+<http://eccenca.com/mobivoc/hasChargeTime> <http://www.w3.org/2000/01/rdf-schema#domain> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/hasChargeTime> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://eccenca.com/mobivoc/hasCRate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://eccenca.com/mobivoc/hasCRate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://eccenca.com/mobivoc/hasCRate> <http://www.w3.org/2000/01/rdf-schema#comment> "The C-rate is a measure of the rate at which a battery is being discharged." .
+<http://eccenca.com/mobivoc/hasCRate> <http://www.w3.org/2000/01/rdf-schema#label> "CRate"@en .
+<http://eccenca.com/mobivoc/hasCRate> <http://www.w3.org/2000/01/rdf-schema#label> "CRate"@de .
+<http://eccenca.com/mobivoc/hasCRate> <http://www.w3.org/2000/01/rdf-schema#domain> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/hasCRate> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://eccenca.com/mobivoc/hasCycleLife> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://eccenca.com/mobivoc/hasCycleLife> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://eccenca.com/mobivoc/hasCycleLife> <http://www.w3.org/2000/01/rdf-schema#comment> "The cycle life is the number of complete charge/discharge cycles that the battery is able to support before that its capacity falls under 80% of it's original capacity." .
+<http://eccenca.com/mobivoc/hasCycleLife> <http://www.w3.org/2000/01/rdf-schema#label> "Cycle Life"@en .
+<http://eccenca.com/mobivoc/hasCycleLife> <http://www.w3.org/2000/01/rdf-schema#label> "Batterielebensdauer"@de .
+<http://eccenca.com/mobivoc/hasCycleLife> <http://www.w3.org/2000/01/rdf-schema#domain> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/hasCycleLife> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://eccenca.com/mobivoc/hasOperatingTemperature> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://eccenca.com/mobivoc/hasOperatingTemperature> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://eccenca.com/mobivoc/hasOperatingTemperature> <http://www.w3.org/2000/01/rdf-schema#comment> "Battery operating temperature is the temperature at which a battery operates effectively." .
+<http://eccenca.com/mobivoc/hasOperatingTemperature> <http://www.w3.org/2000/01/rdf-schema#label> "Operating temperature"@en .
+<http://eccenca.com/mobivoc/hasOperatingTemperature> <http://www.w3.org/2000/01/rdf-schema#label> "Betriebstemperatur"@de .
+<http://eccenca.com/mobivoc/hasOperatingTemperature> <http://www.w3.org/2000/01/rdf-schema#domain> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/hasOperatingTemperature> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://eccenca.com/mobivoc/hasSelfDischarge> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://eccenca.com/mobivoc/hasSelfDischarge> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://eccenca.com/mobivoc/hasSelfDischarge> <http://www.w3.org/2000/01/rdf-schema#comment> "Self-discharge is the electrical capacity that is lost when the cell simply sits on the shelf. It is highly dependent on temperature, increasing as the battery temperature is increased." .
+<http://eccenca.com/mobivoc/hasSelfDischarge> <http://www.w3.org/2000/01/rdf-schema#label> "Self Discharge"@en .
+<http://eccenca.com/mobivoc/hasSelfDischarge> <http://www.w3.org/2000/01/rdf-schema#label> "Selbstentladung"@de .
+<http://eccenca.com/mobivoc/hasSelfDischarge> <http://www.w3.org/2000/01/rdf-schema#domain> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/hasSelfDischarge> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://eccenca.com/mobivoc/hasSpecificEnergyDensity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://eccenca.com/mobivoc/hasSpecificEnergyDensity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://eccenca.com/mobivoc/hasSpecificEnergyDensity> <http://www.w3.org/2000/01/rdf-schema#comment> "It is the amount of energy stored in a given system or region of space per unit volume or mass. It is measured in Wh/kg." .
+<http://eccenca.com/mobivoc/hasSpecificEnergyDensity> <http://www.w3.org/2000/01/rdf-schema#label> "Specific Energy Density"@en .
+<http://eccenca.com/mobivoc/hasSpecificEnergyDensity> <http://www.w3.org/2000/01/rdf-schema#label> "Energiedichte"@de .
+<http://eccenca.com/mobivoc/hasSpecificEnergyDensity> <http://www.w3.org/2000/01/rdf-schema#domain> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/hasSpecificEnergyDensity> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://eccenca.com/mobivoc/hasSpecificPower> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://eccenca.com/mobivoc/hasSpecificPower> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://eccenca.com/mobivoc/hasSpecificPower> <http://www.w3.org/2000/01/rdf-schema#comment> "Specific power demonstrates acceleration. It is the power that can be derived per unit weight of the cell (W/kg)." .
+<http://eccenca.com/mobivoc/hasSpecificPower> <http://www.w3.org/2000/01/rdf-schema#label> "Specific Power"@en .
+<http://eccenca.com/mobivoc/hasSpecificPower> <http://www.w3.org/2000/01/rdf-schema#label> " Leistungskonstante"@de .
+<http://eccenca.com/mobivoc/hasSpecificPower> <http://www.w3.org/2000/01/rdf-schema#domain> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/hasSpecificPower> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://eccenca.com/mobivoc/Longevity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://eccenca.com/mobivoc/Longevity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://eccenca.com/mobivoc/Longevity> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates the period of time that a battery can still work ." .
+<http://eccenca.com/mobivoc/Longevity> <http://www.w3.org/2000/01/rdf-schema#label> "Longevity"@en .
+<http://eccenca.com/mobivoc/Longevity> <http://www.w3.org/2000/01/rdf-schema#label> "Langlebigkeit"@de .
+<http://eccenca.com/mobivoc/Longevity> <http://www.w3.org/2000/01/rdf-schema#domain> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/Longevity> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://eccenca.com/mobivoc/Performance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://eccenca.com/mobivoc/Performance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://eccenca.com/mobivoc/Performance> <http://www.w3.org/2000/01/rdf-schema#comment> "It reflects the condition of the battery when driving the EV in blistering summer heat and freezing temperatures." .
+<http://eccenca.com/mobivoc/Performance> <http://www.w3.org/2000/01/rdf-schema#label> "Performance"@en .
+<http://eccenca.com/mobivoc/Performance> <http://www.w3.org/2000/01/rdf-schema#label> "Leistung"@de .
+<http://eccenca.com/mobivoc/Performance> <http://www.w3.org/2000/01/rdf-schema#domain> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/Performance> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://eccenca.com/mobivoc/Price> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://eccenca.com/mobivoc/Price> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://eccenca.com/mobivoc/Price> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates the price of the battery." .
+<http://eccenca.com/mobivoc/Price> <http://www.w3.org/2000/01/rdf-schema#label> "Price"@en .
+<http://eccenca.com/mobivoc/Price> <http://www.w3.org/2000/01/rdf-schema#label> "Preis"@de .
+<http://eccenca.com/mobivoc/Price> <http://www.w3.org/2000/01/rdf-schema#domain> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/Price> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://eccenca.com/mobivoc/Watt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://eccenca.com/mobivoc/Watt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://eccenca.com/mobivoc/Watt> <http://www.w3.org/2000/01/rdf-schema#comment> "Expresses the rate of energy conversion or transfer with respect to time." .
+<http://eccenca.com/mobivoc/Watt> <http://www.w3.org/2000/01/rdf-schema#label> "Watt"@en .
+<http://eccenca.com/mobivoc/Watt> <http://www.w3.org/2000/01/rdf-schema#label> "Watt"@de .
+<http://eccenca.com/mobivoc/Watt> <http://www.w3.org/2000/01/rdf-schema#domain> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/Watt> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/net/mobivoc/BicycleDockingStation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://purl.org/net/mobivoc/BicycleDockingStation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/mobivoc/BicycleDockingStation> <http://www.w3.org/2000/01/rdf-schema#comment> "A docking station of a bicycle sharing system for picking up and returning bicycles." .
+<http://purl.org/net/mobivoc/BicycleDockingStation> <http://www.w3.org/2000/01/rdf-schema#label> "bicycle docking station"@en .
+<http://purl.org/net/mobivoc/BicycleDockingStation> <http://www.w3.org/2000/01/rdf-schema#label> "Fahrradstation"@de .
+<http://purl.org/net/mobivoc/BicycleDockingStation> <http://www.w3.org/2000/01/rdf-schema#label> "testmodify"@em .
+<http://purl.org/net/mobivoc/BicycleDockingStation> <http://www.w3.org/2000/01/rdf-schema#label> "test2"@me .
+<http://purl.org/net/mobivoc/dockingStationNumber> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/dockingStationNumber> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/mobivoc/dockingStationNumber> <http://www.w3.org/2000/01/rdf-schema#label> "docking station number"@en .
+<http://purl.org/net/mobivoc/dockingStationNumber> <http://www.w3.org/2000/01/rdf-schema#label> "Stationsnummer"@de .
+<http://purl.org/net/mobivoc/dockingStationNumber> <http://www.w3.org/2000/01/rdf-schema#comment> "Identification number of the bicycle docking station." .
+<http://purl.org/net/mobivoc/dockingStationNumber> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/BicycleDockingStation> .
+<http://purl.org/net/mobivoc/dockingStationNumber> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/net/mobivoc/numberOfDockingPoints> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/numberOfDockingPoints> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/mobivoc/numberOfDockingPoints> <http://www.w3.org/2000/01/rdf-schema#label> "number of docking points"@en .
+<http://purl.org/net/mobivoc/numberOfDockingPoints> <http://www.w3.org/2000/01/rdf-schema#label> "Anzahl Fahrradstellpl\u00E4tze"@de .
+<http://purl.org/net/mobivoc/numberOfDockingPoints> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates the number of docking points for bicycles." .
+<http://purl.org/net/mobivoc/numberOfDockingPoints> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/BicycleDockingStation> .
+<http://purl.org/net/mobivoc/numberOfDockingPoints> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/net/mobivoc/numberOfBicyclesAvailable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/numberOfBicyclesAvailable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/mobivoc/numberOfBicyclesAvailable> <http://www.w3.org/2000/01/rdf-schema#label> "number of bicycles available"@en .
+<http://purl.org/net/mobivoc/numberOfBicyclesAvailable> <http://www.w3.org/2000/01/rdf-schema#label> "Anzahl verf\u00FCgbarer Fahrr\u00E4der"@de .
+<http://purl.org/net/mobivoc/numberOfBicyclesAvailable> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates the number of bicycles available at the docking station." .
+<http://purl.org/net/mobivoc/numberOfBicyclesAvailable> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/BicycleDockingStation> .
+<http://purl.org/net/mobivoc/numberOfBicyclesAvailable> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/net/mobivoc/numberOfSpacesAvailable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/numberOfSpacesAvailable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/mobivoc/numberOfSpacesAvailable> <http://www.w3.org/2000/01/rdf-schema#label> "number of spaces available"@en .
+<http://purl.org/net/mobivoc/numberOfSpacesAvailable> <http://www.w3.org/2000/01/rdf-schema#label> "Anzahl freier Stellpl\u00E4tze"@de .
+<http://purl.org/net/mobivoc/numberOfSpacesAvailable> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates the number of spaces available at the docking station." .
+<http://purl.org/net/mobivoc/numberOfSpacesAvailable> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/BicycleDockingStation> .
+<http://purl.org/net/mobivoc/numberOfSpacesAvailable> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/net/mobivoc/BicycleDockingStation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://purl.org/net/mobivoc/BicycleDockingStation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://purl.org/net/mobivoc/BicycleDockingStation> <http://www.w3.org/2000/01/rdf-schema#comment> "A docking station of a bicycle sharing system for picking up and returning bicycles." .
+<http://purl.org/net/mobivoc/BicycleDockingStation> <http://www.w3.org/2000/01/rdf-schema#label> "bicycle docking station"@en .
+<http://purl.org/net/mobivoc/BicycleDockingStation> <http://www.w3.org/2000/01/rdf-schema#label> "Fahrradstation"@de .
+<http://purl.org/net/mobivoc/dockingStationNumber> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/dockingStationNumber> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/mobivoc/dockingStationNumber> <http://www.w3.org/2000/01/rdf-schema#label> "docking station number"@en .
+<http://purl.org/net/mobivoc/dockingStationNumber> <http://www.w3.org/2000/01/rdf-schema#label> "Stationsnummer"@de .
+<http://purl.org/net/mobivoc/dockingStationNumber> <http://www.w3.org/2000/01/rdf-schema#comment> "Identification number of the bicycle docking station." .
+<http://purl.org/net/mobivoc/dockingStationNumber> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/BicycleDockingStation> .
+<http://purl.org/net/mobivoc/dockingStationNumber> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/net/mobivoc/numberOfDockingPoints> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/numberOfDockingPoints> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/mobivoc/numberOfDockingPoints> <http://www.w3.org/2000/01/rdf-schema#label> "number of docking points"@en .
+<http://purl.org/net/mobivoc/numberOfDockingPoints> <http://www.w3.org/2000/01/rdf-schema#label> "Anzahl Fahrradstellpl\u00E4tze"@de .
+<http://purl.org/net/mobivoc/numberOfDockingPoints> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates the number of docking points for bicycles." .
+<http://purl.org/net/mobivoc/numberOfDockingPoints> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/BicycleDockingStation> .
+<http://purl.org/net/mobivoc/numberOfDockingPoints> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/net/mobivoc/numberOfBicyclesAvailable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/numberOfBicyclesAvailable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/mobivoc/numberOfBicyclesAvailable> <http://www.w3.org/2000/01/rdf-schema#label> "number of bicycles available"@en .
+<http://purl.org/net/mobivoc/numberOfBicyclesAvailable> <http://www.w3.org/2000/01/rdf-schema#label> "Anzahl verf\u00FCgbarer Fahrr\u00E4der"@de .
+<http://purl.org/net/mobivoc/numberOfBicyclesAvailable> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates the number of bicycles available at the docking station." .
+<http://purl.org/net/mobivoc/numberOfBicyclesAvailable> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/BicycleDockingStation> .
+<http://purl.org/net/mobivoc/numberOfBicyclesAvailable> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://purl.org/net/mobivoc/numberOfSpacesAvailable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://purl.org/net/mobivoc/numberOfSpacesAvailable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://purl.org/net/mobivoc/numberOfSpacesAvailable> <http://www.w3.org/2000/01/rdf-schema#label> "number of spaces available"@en .
+<http://purl.org/net/mobivoc/numberOfSpacesAvailable> <http://www.w3.org/2000/01/rdf-schema#label> "Anzahl freier Stellpl\u00E4tze"@de .
+<http://purl.org/net/mobivoc/numberOfSpacesAvailable> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates the number of spaces available at the docking station." .
+<http://purl.org/net/mobivoc/numberOfSpacesAvailable> <http://www.w3.org/2000/01/rdf-schema#domain> <http://purl.org/net/mobivoc/BicycleDockingStation> .
+<http://purl.org/net/mobivoc/numberOfSpacesAvailable> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://eccenca.com/mobivoc/ElectricVehicleBattery> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://eccenca.com/mobivoc/ElectricVehicleBattery> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://eccenca.com/mobivoc/ElectricVehicleBattery> <http://www.w3.org/2000/01/rdf-schema#comment> "A battery used to power the propulsion of a battery electric vehicle." .
+<http://eccenca.com/mobivoc/ElectricVehicleBattery> <http://www.w3.org/2000/01/rdf-schema#label> "Electric Vehicle Battery"@en .
+<http://eccenca.com/mobivoc/ElectricVehicleBattery> <http://www.w3.org/2000/01/rdf-schema#label> "Traktionsbatterie"@de .
+<http://eccenca.com/mobivoc/ElectricVehicleBattery> <http://www.w3.org/2000/01/rdf-schema#altlabel> "Traction battery"@en .
+<http://eccenca.com/mobivoc/ElectricVehicleBattery> <http://www.w3.org/2000/01/rdf-schema#altlabel> "Traktionsakku"@de .
+<http://eccenca.com/mobivoc/ElectricVehicleBattery> <http://www.w3.org/2004/02/skos/core#hiddenLabel> "EVB"@en .
+<http://eccenca.com/mobivoc/ElectricVehicleBattery> <http://www.w3.org/2004/02/skos/core#hiddenLabel> "Antriebsbatterie"@de .
+<http://eccenca.com/mobivoc/DeepCycle> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://eccenca.com/mobivoc/LeadAcid> .
+<http://eccenca.com/mobivoc/DeepCycle> <http://www.w3.org/2000/01/rdf-schema#comment> "A lead-acid battery designed to be regularly deeply discharged using most of its capacity." .
+<http://eccenca.com/mobivoc/DeepCycle> <http://www.w3.org/2000/01/rdf-schema#label> "Deep-Cycle Battery"@en .
+<http://eccenca.com/mobivoc/DeepCycle> <http://www.w3.org/2000/01/rdf-schema#label> "****Batterie"@de .
+<http://eccenca.com/mobivoc/FloodedLeadAcid> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://eccenca.com/mobivoc/LeadAcid> .
+<http://eccenca.com/mobivoc/FloodedLeadAcid> <http://www.w3.org/2000/01/rdf-schema#comment> "Flooded lead acid batteries have cells with liquid electrolyte and are available in flat and tubular plate constructions with a wide variety of plate sizes." .
+<http://eccenca.com/mobivoc/FloodedLeadAcid> <http://www.w3.org/2000/01/rdf-schema#label> "Flooded Lead-Acid Battery"@en .
+<http://eccenca.com/mobivoc/FloodedLeadAcid> <http://www.w3.org/2000/01/rdf-schema#label> " Blei-S\u00E4ure-Batterie"@de .
+<http://eccenca.com/mobivoc/LeadAcid> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/LeadAcid> <http://www.w3.org/2000/01/rdf-schema#comment> "The oldest type of rechargeable battery. The cells have a relatively large power-to-weight ratio and these batteries have low cost." .
+<http://eccenca.com/mobivoc/LeadAcid> <http://www.w3.org/2000/01/rdf-schema#label> "Lead-Acid Battery"@en .
+<http://eccenca.com/mobivoc/LeadAcid> <http://www.w3.org/2000/01/rdf-schema#label> "Bleiakkumulator"@de .
+<http://eccenca.com/mobivoc/LithiumIon> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/LithiumIon> <http://www.w3.org/2000/01/rdf-schema#comment> "One of the most popular types of rechargeable batteries for electric vehicles. They use an intercalated lithium compound as one electrode material." .
+<http://eccenca.com/mobivoc/LithiumIon> <http://www.w3.org/2000/01/rdf-schema#label> "Lithium-ion Battery"@en .
+<http://eccenca.com/mobivoc/LithiumIon> <http://www.w3.org/2000/01/rdf-schema#label> "Lithium-Ionen-Akkumulator"@de .
+<http://eccenca.com/mobivoc/LithiumIon> <http://www.w3.org/2000/01/rdf-schema#altlabel> "Li-ion battery"@en .
+<http://eccenca.com/mobivoc/LithiumIon> <http://www.w3.org/2000/01/rdf-schema#altlabel> "Lithium-Akkumulator"@de .
+<http://eccenca.com/mobivoc/LithiumIon> <http://www.w3.org/2004/02/skos/core#hiddenLabel> "LIB"@en .
+<http://eccenca.com/mobivoc/LithiumIonPolymer> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/LithiumIonPolymer> <http://www.w3.org/2000/01/rdf-schema#comment> "A rechargeable battery of lithium-ion technology in a pouch format." .
+<http://eccenca.com/mobivoc/LithiumIonPolymer> <http://www.w3.org/2000/01/rdf-schema#label> "Lithium Polymer Battery"@en .
+<http://eccenca.com/mobivoc/LithiumIonPolymer> <http://www.w3.org/2000/01/rdf-schema#label> "Lithium-Polymer-Akkumulator"@de .
+<http://eccenca.com/mobivoc/LithiumIonPolymer> <http://www.w3.org/2000/01/rdf-schema#altlabel> "LiPo"@en .
+<http://eccenca.com/mobivoc/LithiumIonPolymer> <http://www.w3.org/2000/01/rdf-schema#altlabel> "LiPoly"@de .
+<http://eccenca.com/mobivoc/LithiumTitanate> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/LithiumTitanate> <http://www.w3.org/2000/01/rdf-schema#comment> "A type of rechargeable battery, which has the advantage of being faster to charge than other lithium-ion batteries." .
+<http://eccenca.com/mobivoc/LithiumTitanate> <http://www.w3.org/2000/01/rdf-schema#label> "Lithium\u2013titanate Battery"@en .
+<http://eccenca.com/mobivoc/LithiumTitanate> <http://www.w3.org/2000/01/rdf-schema#label> "Lithium\u2013titanate-Akkumulator"@de .
+<http://eccenca.com/mobivoc/MoltenSalt> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/MoltenSalt> <http://www.w3.org/2000/01/rdf-schema#comment> "A type of battery that uses molten salts as an electrolyte and offers both a high energy density and a high power density." .
+<http://eccenca.com/mobivoc/MoltenSalt> <http://www.w3.org/2000/01/rdf-schema#label> "Molten salt Battery"@en .
+<http://eccenca.com/mobivoc/MoltenSalt> <http://www.w3.org/2000/01/rdf-schema#label> "Thermalbatterie"@de .
+<http://eccenca.com/mobivoc/NickelCadmium> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/NickelCadmium> <http://www.w3.org/2000/01/rdf-schema#comment> "A type of rechargeable battery using nickel oxide hydroxide and metallic cadmium as electrodes." .
+<http://eccenca.com/mobivoc/NickelCadmium> <http://www.w3.org/2000/01/rdf-schema#label> "Nickel\u2013cadmium battery"@en .
+<http://eccenca.com/mobivoc/NickelCadmium> <http://www.w3.org/2000/01/rdf-schema#label> "Nickel-Cadmium-Akkumulator"@de .
+<http://eccenca.com/mobivoc/NickelCadmium> <http://www.w3.org/2000/01/rdf-schema#altlabel> "NiCd"@en .
+<http://eccenca.com/mobivoc/NickelCadmium> <http://www.w3.org/2000/01/rdf-schema#altlabel> "NiCd-Akku"@de .
+<http://eccenca.com/mobivoc/NickelCadmium> <http://www.w3.org/2004/02/skos/core#hiddenLabel> "NiCad"@en .
+<http://eccenca.com/mobivoc/NickelMetalHydride> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/NickelMetalHydride> <http://www.w3.org/2000/01/rdf-schema#comment> "A type of rechargeable battery. The chemical reaction at the positive electrode (cathode) is similar to that of the nickel\u2013cadmium cell." .
+<http://eccenca.com/mobivoc/NickelMetalHydride> <http://www.w3.org/2000/01/rdf-schema#label> "Nickel\u2013metal hydride battery"@en .
+<http://eccenca.com/mobivoc/NickelMetalHydride> <http://www.w3.org/2000/01/rdf-schema#label> "Nickel-Metallhydrid-Akkumulator"@de .
+<http://eccenca.com/mobivoc/NickelMetalHydride> <http://www.w3.org/2000/01/rdf-schema#altlabel> "NiMH"@en .
+<http://eccenca.com/mobivoc/NickelMetalHydride> <http://www.w3.org/2000/01/rdf-schema#altlabel> "NiMH"@de .
+<http://eccenca.com/mobivoc/NickelMetalHydride> <http://www.w3.org/2004/02/skos/core#hiddenLabel> "Ni\u2013MH"@en .
+<http://eccenca.com/mobivoc/NickelZinc> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/NickelZinc> <http://www.w3.org/2000/01/rdf-schema#comment> "A type of rechargeable battery which uses a stabilized zinc electrode system." .
+<http://eccenca.com/mobivoc/NickelZinc> <http://www.w3.org/2000/01/rdf-schema#label> "Nickel-Zinc Battery"@en .
+<http://eccenca.com/mobivoc/NickelZinc> <http://www.w3.org/2000/01/rdf-schema#label> "Nickel-Zink-Akkumulator"@de .
+<http://eccenca.com/mobivoc/NickelZinc> <http://www.w3.org/2000/01/rdf-schema#altlabel> "NiZn"@en .
+<http://eccenca.com/mobivoc/ValveRegulatedLeadAcid> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://eccenca.com/mobivoc/LeadAcid> .
+<http://eccenca.com/mobivoc/ValveRegulatedLeadAcid> <http://www.w3.org/2000/01/rdf-schema#comment> "\u0391 type of lead-acid rechargeable battery" .
+<http://eccenca.com/mobivoc/ValveRegulatedLeadAcid> <http://www.w3.org/2000/01/rdf-schema#label> "Valve-regulated lead-acid battery"@en .
+<http://eccenca.com/mobivoc/ValveRegulatedLeadAcid> <http://www.w3.org/2000/01/rdf-schema#label> "VRLA-Akkumulator"@de .
+<http://eccenca.com/mobivoc/ValveRegulatedLeadAcid> <http://www.w3.org/2000/01/rdf-schema#altlabel> "sealed battery"@en .
+<http://eccenca.com/mobivoc/ValveRegulatedLeadAcid> <http://www.w3.org/2004/02/skos/core#hiddenLabel> "VRLA "@en .
+<http://eccenca.com/mobivoc/ZincAir> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/ZincAir> <http://www.w3.org/2000/01/rdf-schema#comment> "A metal-air battery powered by oxidizing zinc with oxygen from the air. These batteries have high energy densities and are relatively inexpensive to produce." .
+<http://eccenca.com/mobivoc/ZincAir> <http://www.w3.org/2000/01/rdf-schema#label> "Zinc\u2013air battery"@en .
+<http://eccenca.com/mobivoc/ZincAir> <http://www.w3.org/2000/01/rdf-schema#label> "Zink-Luft-Batterie"@de .
+<http://eccenca.com/mobivoc/DieselBatteryHybrid> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/DieselBatteryHybrid> <http://www.w3.org/2000/01/rdf-schema#comment> "*****" .
+<http://eccenca.com/mobivoc/DieselBatteryHybrid> <http://www.w3.org/2000/01/rdf-schema#label> "DieselBatteryHybrid"@en .
+<http://eccenca.com/mobivoc/DieselBatteryHybrid> <http://www.w3.org/2000/01/rdf-schema#label> "DieselBatterieHybrid"@de .
+<http://eccenca.com/mobivoc/petrolBatteryHybrid> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/petrolBatteryHybrid> <http://www.w3.org/2000/01/rdf-schema#comment> "****" .
+<http://eccenca.com/mobivoc/petrolBatteryHybrid> <http://www.w3.org/2000/01/rdf-schema#label> "PetrolBatteryHybrid"@en .
+<http://eccenca.com/mobivoc/petrolBatteryHybrid> <http://www.w3.org/2000/01/rdf-schema#label> "PetrolBatterieHybrid"@de .
+<http://eccenca.com/mobivoc/Ampere> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://eccenca.com/mobivoc/Ampere> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://eccenca.com/mobivoc/Ampere> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents the flow rate of electric charge." .
+<http://eccenca.com/mobivoc/Ampere> <http://www.w3.org/2000/01/rdf-schema#label> "Ampere"@en .
+<http://eccenca.com/mobivoc/Ampere> <http://www.w3.org/2000/01/rdf-schema#label> "Ampere"@de .
+<http://eccenca.com/mobivoc/Ampere> <http://www.w3.org/2000/01/rdf-schema#domain> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/Ampere> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://eccenca.com/mobivoc/hasCapacity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://eccenca.com/mobivoc/hasCapacity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://eccenca.com/mobivoc/hasCapacity> <http://www.w3.org/2000/01/rdf-schema#comment> "It is the amount of electric charge it can deliver at the rated voltage. It is measured in units such as Ampere-hour (Ah), Watt-hour (Wh), kiloWatt-hour (kWh)." .
+<http://eccenca.com/mobivoc/hasCapacity> <http://www.w3.org/2000/01/rdf-schema#label> "Capacity"@en .
+<http://eccenca.com/mobivoc/hasCapacity> <http://www.w3.org/2000/01/rdf-schema#label> "Kapazit\u00E4t"@de .
+<http://eccenca.com/mobivoc/hasCapacity> <http://www.w3.org/2000/01/rdf-schema#domain> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/hasCapacity> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://eccenca.com/mobivoc/hasCellVoltage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://eccenca.com/mobivoc/hasCellVoltage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://eccenca.com/mobivoc/hasCellVoltage> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents either a source of energy or lost, used, or stored energy. It is measured in Voltage(V)." .
+<http://eccenca.com/mobivoc/hasCellVoltage> <http://www.w3.org/2000/01/rdf-schema#label> "CellVoltage"@en .
+<http://eccenca.com/mobivoc/hasCellVoltage> <http://www.w3.org/2000/01/rdf-schema#label> "Spannung"@de .
+<http://eccenca.com/mobivoc/hasCellVoltage> <http://www.w3.org/2000/01/rdf-schema#altlabel> "Cell nominal Voltage"@en .
+<http://eccenca.com/mobivoc/hasCellVoltage> <http://www.w3.org/2000/01/rdf-schema#domain> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/hasCellVoltage> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://eccenca.com/mobivoc/hasChargeTime> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://eccenca.com/mobivoc/hasChargeTime> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://eccenca.com/mobivoc/hasChargeTime> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates the time that is needed for a battery's full charge." .
+<http://eccenca.com/mobivoc/hasChargeTime> <http://www.w3.org/2000/01/rdf-schema#label> "Charge time"@en .
+<http://eccenca.com/mobivoc/hasChargeTime> <http://www.w3.org/2000/01/rdf-schema#label> "Ladezeit"@de .
+<http://eccenca.com/mobivoc/hasChargeTime> <http://www.w3.org/2000/01/rdf-schema#domain> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/hasChargeTime> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://eccenca.com/mobivoc/hasCRate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://eccenca.com/mobivoc/hasCRate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://eccenca.com/mobivoc/hasCRate> <http://www.w3.org/2000/01/rdf-schema#comment> "The C-rate is a measure of the rate at which a battery is being discharged." .
+<http://eccenca.com/mobivoc/hasCRate> <http://www.w3.org/2000/01/rdf-schema#label> "CRate"@en .
+<http://eccenca.com/mobivoc/hasCRate> <http://www.w3.org/2000/01/rdf-schema#label> "CRate"@de .
+<http://eccenca.com/mobivoc/hasCRate> <http://www.w3.org/2000/01/rdf-schema#domain> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/hasCRate> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://eccenca.com/mobivoc/hasCycleLife> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://eccenca.com/mobivoc/hasCycleLife> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://eccenca.com/mobivoc/hasCycleLife> <http://www.w3.org/2000/01/rdf-schema#comment> "The cycle life is the number of complete charge/discharge cycles that the battery is able to support before that its capacity falls under 80% of it's original capacity." .
+<http://eccenca.com/mobivoc/hasCycleLife> <http://www.w3.org/2000/01/rdf-schema#label> "Cycle Life"@en .
+<http://eccenca.com/mobivoc/hasCycleLife> <http://www.w3.org/2000/01/rdf-schema#label> "Batterielebensdauer"@de .
+<http://eccenca.com/mobivoc/hasCycleLife> <http://www.w3.org/2000/01/rdf-schema#domain> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/hasCycleLife> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://eccenca.com/mobivoc/hasOperatingTemperature> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://eccenca.com/mobivoc/hasOperatingTemperature> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://eccenca.com/mobivoc/hasOperatingTemperature> <http://www.w3.org/2000/01/rdf-schema#comment> "Battery operating temperature is the temperature at which a battery operates effectively." .
+<http://eccenca.com/mobivoc/hasOperatingTemperature> <http://www.w3.org/2000/01/rdf-schema#label> "Operating temperature"@en .
+<http://eccenca.com/mobivoc/hasOperatingTemperature> <http://www.w3.org/2000/01/rdf-schema#label> "Betriebstemperatur"@de .
+<http://eccenca.com/mobivoc/hasOperatingTemperature> <http://www.w3.org/2000/01/rdf-schema#domain> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/hasOperatingTemperature> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://eccenca.com/mobivoc/hasSelfDischarge> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://eccenca.com/mobivoc/hasSelfDischarge> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://eccenca.com/mobivoc/hasSelfDischarge> <http://www.w3.org/2000/01/rdf-schema#comment> "Self-discharge is the electrical capacity that is lost when the cell simply sits on the shelf. It is highly dependent on temperature, increasing as the battery temperature is increased." .
+<http://eccenca.com/mobivoc/hasSelfDischarge> <http://www.w3.org/2000/01/rdf-schema#label> "Self Discharge"@en .
+<http://eccenca.com/mobivoc/hasSelfDischarge> <http://www.w3.org/2000/01/rdf-schema#label> "Selbstentladung"@de .
+<http://eccenca.com/mobivoc/hasSelfDischarge> <http://www.w3.org/2000/01/rdf-schema#domain> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/hasSelfDischarge> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://eccenca.com/mobivoc/hasSpecificEnergyDensity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://eccenca.com/mobivoc/hasSpecificEnergyDensity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://eccenca.com/mobivoc/hasSpecificEnergyDensity> <http://www.w3.org/2000/01/rdf-schema#comment> "It is the amount of energy stored in a given system or region of space per unit volume or mass. It is measured in Wh/kg." .
+<http://eccenca.com/mobivoc/hasSpecificEnergyDensity> <http://www.w3.org/2000/01/rdf-schema#label> "Specific Energy Density"@en .
+<http://eccenca.com/mobivoc/hasSpecificEnergyDensity> <http://www.w3.org/2000/01/rdf-schema#label> "Energiedichte"@de .
+<http://eccenca.com/mobivoc/hasSpecificEnergyDensity> <http://www.w3.org/2000/01/rdf-schema#domain> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/hasSpecificEnergyDensity> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://eccenca.com/mobivoc/hasSpecificPower> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://eccenca.com/mobivoc/hasSpecificPower> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://eccenca.com/mobivoc/hasSpecificPower> <http://www.w3.org/2000/01/rdf-schema#comment> "Specific power demonstrates acceleration. It is the power that can be derived per unit weight of the cell (W/kg)." .
+<http://eccenca.com/mobivoc/hasSpecificPower> <http://www.w3.org/2000/01/rdf-schema#label> "Specific Power"@en .
+<http://eccenca.com/mobivoc/hasSpecificPower> <http://www.w3.org/2000/01/rdf-schema#label> " Leistungskonstante"@de .
+<http://eccenca.com/mobivoc/hasSpecificPower> <http://www.w3.org/2000/01/rdf-schema#domain> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/hasSpecificPower> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://eccenca.com/mobivoc/Longevity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://eccenca.com/mobivoc/Longevity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://eccenca.com/mobivoc/Longevity> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates the period of time that a battery can still work ." .
+<http://eccenca.com/mobivoc/Longevity> <http://www.w3.org/2000/01/rdf-schema#label> "Longevity"@en .
+<http://eccenca.com/mobivoc/Longevity> <http://www.w3.org/2000/01/rdf-schema#label> "Langlebigkeit"@de .
+<http://eccenca.com/mobivoc/Longevity> <http://www.w3.org/2000/01/rdf-schema#domain> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/Longevity> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://eccenca.com/mobivoc/Performance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://eccenca.com/mobivoc/Performance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://eccenca.com/mobivoc/Performance> <http://www.w3.org/2000/01/rdf-schema#comment> "It reflects the condition of the battery when driving the EV in blistering summer heat and freezing temperatures." .
+<http://eccenca.com/mobivoc/Performance> <http://www.w3.org/2000/01/rdf-schema#label> "Performance"@en .
+<http://eccenca.com/mobivoc/Performance> <http://www.w3.org/2000/01/rdf-schema#label> "Leistung"@de .
+<http://eccenca.com/mobivoc/Performance> <http://www.w3.org/2000/01/rdf-schema#domain> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/Performance> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://eccenca.com/mobivoc/Price> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://eccenca.com/mobivoc/Price> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://eccenca.com/mobivoc/Price> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates the price of the battery." .
+<http://eccenca.com/mobivoc/Price> <http://www.w3.org/2000/01/rdf-schema#label> "Price"@en .
+<http://eccenca.com/mobivoc/Price> <http://www.w3.org/2000/01/rdf-schema#label> "Preis"@de .
+<http://eccenca.com/mobivoc/Price> <http://www.w3.org/2000/01/rdf-schema#domain> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/Price> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
+<http://eccenca.com/mobivoc/Watt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://eccenca.com/mobivoc/Watt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://eccenca.com/mobivoc/Watt> <http://www.w3.org/2000/01/rdf-schema#comment> "Expresses the rate of energy conversion or transfer with respect to time." .
+<http://eccenca.com/mobivoc/Watt> <http://www.w3.org/2000/01/rdf-schema#label> "Watt"@en .
+<http://eccenca.com/mobivoc/Watt> <http://www.w3.org/2000/01/rdf-schema#label> "Watt"@de .
+<http://eccenca.com/mobivoc/Watt> <http://www.w3.org/2000/01/rdf-schema#domain> <http://eccenca.com/mobivoc/Battery> .
+<http://eccenca.com/mobivoc/Watt> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Literal> .
