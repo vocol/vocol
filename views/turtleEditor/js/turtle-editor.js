@@ -82,8 +82,8 @@ function($, Github, N3, CodeMirror, ShowHint, ModeTurtle, HintTurtle, logger) {
   }
 
   // Prefill some fields for a quick example
-  inputElements.owner.val("i40-Tools");
-  inputElements.repo.val("StandardOntology");
+  inputElements.owner.val("ahemaid");
+  inputElements.repo.val("vocotest");
   // inputElements.password.val("token");
 
   // Github Interaction -------------------------------------------------------
@@ -248,7 +248,6 @@ function($, Github, N3, CodeMirror, ShowHint, ModeTurtle, HintTurtle, logger) {
 
   var parserHandler = function (error, triple, prefixes) {
     if (error) {
-
       /* extract line Number, only consider the end of the string after "line" */
       var errorSubString = error.message.substr(error.message.indexOf("line")+4);
       var errorLineNumber = parseInt(errorSubString) -1;
@@ -256,7 +255,7 @@ function($, Github, N3, CodeMirror, ShowHint, ModeTurtle, HintTurtle, logger) {
       /* add background color, gutter + tooltip */
       editor.getDoc().addLineClass(errorLineNumber, "wrap", "ErrorLine-background");
       editor.setGutterMarker(errorLineNumber, "breakpoints", makeMarker(error.message));
-      alert(error.message)
+      //alert(error.message)
       changeSyntaxCheckState("failed", error.message);
     } else if (triple) {
       var subjectSplit = splitIntoNamespaceAndName(triple.subject);
@@ -316,7 +315,7 @@ function($, Github, N3, CodeMirror, ShowHint, ModeTurtle, HintTurtle, logger) {
       content = editor.getValue();
       parser  = N3.Parser();
       parser.parse(content, parserHandler);
-      alert(content)
+      //alert(content)
 
     }
   };

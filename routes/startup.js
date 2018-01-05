@@ -107,7 +107,7 @@ router.get('/', function(req, res) {
           shell.exec('echo -n > ../vocol/helper/tools/evolution/evolutionReport.txt').stdout;
           shell.exec('echo -n > ../vocol/helper/tools/serializations/SingleVoc.ttl').stdout;
           shell.exec('echo -n > ../vocol/jsonDataFiles/syntaxErrors.json').stdout;
-          shell.exec('rm -f ../vocol/views/webvowl/js/data/SingleVoc.json').stdout;
+          shell.exec('rm -f ../vocol/views/webvowl/data/SingleVoc.json').stdout;
           shell.exec('rm -f ../vocol/jsonDataFiles/RDFSConcepts.json').stdout;
           shell.exec('rm -f ../vocol/jsonDataFiles/SKOSConcepts.json').stdout;
           shell.exec('rm -f ../vocol/jsonDataFiles/SKOSObjects.json').stdout;
