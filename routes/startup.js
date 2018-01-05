@@ -154,7 +154,7 @@ router.get('/', function(req, res) {
         if (errors) {
           shell.cd('../vocol/helper/tools/VoColClient/').stdout;
           shell.exec('fuser -k 3030/tcp').stdout;
-          const child = spawn('sh', ['../../scripts/run.sh', '&']);
+          //const child = spawn('sh', ['../../scripts/run.sh', '&']);
           shell.cd('../../../../repoFolder/').stdout;
           var filePath = '../vocol/jsonDataFiles/syntaxErrors.json';
           jsonfile.writeFile(filePath, errors, {
