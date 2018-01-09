@@ -174,7 +174,7 @@ This process needs to be done only once and as well configuration changes are re
 
 The following screen cast shows in details all steps listed above.
 
-<a href="https://drive.google.com/file/d/0By1pR7FDcH8obUV6OEpxeDZ3MFk/view?usp=sharing" target="_blank"><img src="https://raw.githubusercontent.com/vocol/vocol/master/Images/VoColInstallingAndConfiguring.png" 
+<a href="https://drive.google.com/file/d/0By1pR7FDcH8obUV6OEpxeDZ3MFk/view?usp=sharing" target="_blank"><img src="https://raw.githubusercontent.com/vocol/vocol/documentation/VoColInstallingAndConfiguring.png" 
 alt="VoCol Installation and Configuration"  width="440" height="280" border="10" /></a>
 
 ## Installation on a Web Server
@@ -212,7 +212,7 @@ By using Turtle Editor which is attached to the repository, contributors can dir
 
 The following screen cast shows using of VoCol for vocabulary development.
 
-<a href="https://drive.google.com/file/d/0By1pR7FDcH8oTFpIRWxfUHdNS1k/view?usp=sharing" target="_blank"><img src="https://raw.githubusercontent.com/vocol/vocol/master/Images/WorkingwithVoCol.png" 
+<a href="https://drive.google.com/file/d/0By1pR7FDcH8oTFpIRWxfUHdNS1k/view?usp=sharing" target="_blank"><img src="https://raw.githubusercontent.com/vocol/vocol/documentation/WorkingwithVoCol.png" 
 alt="VoCol Usage" width="440" height="280" border="10" /></a>
 
 
@@ -252,9 +252,9 @@ For more about turtle format in http://www.w3.org/TR/turtle/.
 
 It is considered that the branching strategy affects the quality of the vocabularies. In order to design a branching model, it is important to understand the possible activities that a team can perform. Table below presents common activities of collaborative vocabulary development. These activities are classified into three categories: (1) *basic activities* (ACT1, ACT7, ACT9), (2) *semantic issues* (ACT2, ACT3, ACT4, ACT5, ACT6, ACT8) and (3) *structural issues* (ACT10, ACT11). The following figure depicts different branches to handle the mentioned categories. Basic activities have to be performed in the *Develop Branch*. Branch called *Semantic Issues* is proposed for the second category. In case of the third category a branch named *Structural Issues* has to be applied. This not restricts the flexibility of Git regarding branches. On the contrary, other branches can be used as well to complement this model. 
 
-![Table of Common Activities](https://raw.githubusercontent.com/vocol/vocol/master/Images/CommonActivitiesTable.png "Table of Common Activities")
+![Table of Common Activities]https://raw.githubusercontent.com/vocol/vocol/documentation/CommonActivitiesTable.png "Table of Common Activities")
 
-![Branching Model](https://raw.githubusercontent.com/vocol/vocol/master/Images/BranchingModel.png "Branching Model")
+![Branching Model](https://raw.githubusercontent.com/vocol/vocol/documentation/BranchingModel.png "Branching Model")
 
 ### Vocabulary Organization Structure
 
@@ -264,7 +264,7 @@ In order to enable easy collaboration between different contributors, we propose
 
 * **The vocabulary is split in multiple files** If the vocabulary contains more than 300 lines of code or covers a complex domain, it should be organized into different sub domains or modules. In this regard, we mapped sub domains with modules. When the sub domains themselves are small enough they should be represented by different files within the parent folder. Figure below presents this type of file organization applied in MobiVoc vocabulary. 
 
-  ![MobiVoc Structure](https://raw.githubusercontent.com/vocol/vocol/master/Images/MobiVocStructure.png "MobiVoc Structure")
+  ![MobiVoc Structure](https://raw.githubusercontent.com/vocol/vocol/documentation/MobiVocStructure.png "MobiVoc Structure")
 
 * **Vocabulary modules are stored in files and folders** For huge vocabularies that comprises complex domains, splitting it into files is not sufficient. This would lead to a large amount of files within a single folder. Therefore, if the sub domains are large enough to be split into files they should be represented by folders. Each folder contains files which represents modules. In this case, the folder and file structure should reflect the complex hierarchy of the overall domain. 
 
