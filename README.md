@@ -252,7 +252,7 @@ For more about turtle format in http://www.w3.org/TR/turtle/.
 
 It is considered that the branching strategy affects the quality of the vocabularies. In order to design a branching model, it is important to understand the possible activities that a team can perform. Table below presents common activities of collaborative vocabulary development. These activities are classified into three categories: (1) *basic activities* (ACT1, ACT7, ACT9), (2) *semantic issues* (ACT2, ACT3, ACT4, ACT5, ACT6, ACT8) and (3) *structural issues* (ACT10, ACT11). The following figure depicts different branches to handle the mentioned categories. Basic activities have to be performed in the *Develop Branch*. Branch called *Semantic Issues* is proposed for the second category. In case of the third category a branch named *Structural Issues* has to be applied. This not restricts the flexibility of Git regarding branches. On the contrary, other branches can be used as well to complement this model. 
 
-![Table of Common Activities]https://raw.githubusercontent.com/vocol/vocol/documentation/CommonActivitiesTable.png "Table of Common Activities")
+![Table of Common Activities](https://raw.githubusercontent.com/vocol/vocol/documentation/CommonActivitiesTable.png "Table of Common Activities")
 
 ![Branching Model](https://raw.githubusercontent.com/vocol/vocol/documentation/BranchingModel.png "Branching Model")
 
