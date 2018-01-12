@@ -12,7 +12,7 @@ The VoCol environment is employing loose coupling of validation and documentatio
 All VoCol components, even the repository engine, can be exchanged with little effort. 
 For more details about VoCol repository, please have a look on our VoColWiki
 
-**VoColWiki's Table of Contents **
+**VoColWiki's Table of Contents**
   - [Home](https://github.com/vocol/vocol/wiki) 
   - [VoCol Features](https://github.com/vocol/vocol/wiki/VoCol-Features)
   - [Required libraries and tools](https://github.com/vocol/vocol/wiki/Required-libraries-and-tools)
@@ -44,6 +44,6 @@ For more details about VoCol repository, please have a look on our VoColWiki
     - [Authoring](https://github.com/vocol/vocol/wiki/Developing-Vocabularies-with-VoCol-Environment#authoring)
     - [Utilization of SKOS Vocabulary](https://github.com/vocol/vocol/wiki/Developing-Vocabularies-with-VoCol-Environment#utilization-of-skos-vocabulary)
     
-    Also, Check out a list of projects that are currently using [VoCol](http://vocol.iais.fraunhofer.de/).
+Also, Check out a list of projects that are currently using [VoCol](http://vocol.iais.fraunhofer.de/).
 
 
