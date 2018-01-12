@@ -10,18 +10,17 @@ Inspired by agile software and content development methodologies, the VoCol meth
 VoCol is implemented without dependencies on complex software components, it provides collaborators with comprehensible feedback on syntax and semantics errors in a tight loop, and gives access to a human-readable presentation of the vocabulary. 
 The VoCol environment is employing loose coupling of validation and documentation generation components on top of a standard Git repository. 
 All VoCol components, even the repository engine, can be exchanged with little effort. 
+For more details about VoCol repository, please have a look on our VoColWiki
 
-Check out a list of projects that are currently using [VoCol](http://vocol.iais.fraunhofer.de/).
-
-**Table of Contents**
+**VoColWiki's Table of Contents **
   - [Home](https://github.com/vocol/vocol/wiki) 
   - [VoCol Features](https://github.com/vocol/vocol/wiki/VoCol-Features)
   - [Required libraries and tools](https://github.com/vocol/vocol/wiki/Required-libraries-and-tools)
   - [Installation and Configuration](https://github.com/vocol/vocol/wiki/Installation-and-Configuration/)
+      - [Installation on a local machine or on a Web Server](https://github.com/vocol/vocol/wiki/Installation-and-Configuration#installation-on-a-web-server)
       - [Installation using a Virtual Machine Image (Vagrant Box)](https://github.com/vocol/vocol/wiki/Installation-and-Configuration#installation-using-a-virtual-machine-image-vagrant-box)
       - [Installation of the VoCol Environment](https://github.com/vocol/vocol/wiki/Installation-and-Configuration#installation-and-configuration-of-vocol-environment)
       - [Configuration of the VoCol Environment](https://github.com/vocol/vocol/wiki/Installation-and-Configuration#configuration-of-the-vocol-environment)
-      - [Installation on a Web Server](https://github.com/vocol/vocol/wiki/Installation-and-Configuration#installation-on-a-web-server)
   - [Working with VoCol](https://github.com/vocol/vocol/wiki/Working-with-VoCol)
       - [VoCol on local machine](https://github.com/vocol/vocol/wiki/Working-with-VoCol#vocol-on-local-machine)
       - [VoCol on the GitHub](https://github.com/vocol/vocol/wiki/Working-with-VoCol#vocol-on-the-github)
@@ -44,3 +43,7 @@ Check out a list of projects that are currently using [VoCol](http://vocol.iais.
     - [Validation](https://github.com/vocol/vocol/wiki/Developing-Vocabularies-with-VoCol-Environment#validation)
     - [Authoring](https://github.com/vocol/vocol/wiki/Developing-Vocabularies-with-VoCol-Environment#authoring)
     - [Utilization of SKOS Vocabulary](https://github.com/vocol/vocol/wiki/Developing-Vocabularies-with-VoCol-Environment#utilization-of-skos-vocabulary)
+    
+    Also, Check out a list of projects that are currently using [VoCol](http://vocol.iais.fraunhofer.de/).
+
+
