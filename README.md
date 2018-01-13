@@ -10,6 +10,34 @@ Inspired by agile software and content development methodologies, the VoCol meth
 VoCol is implemented without dependencies on complex software components, it provides collaborators with comprehensible feedback on syntax and semantics errors in a tight loop, and gives access to a human-readable presentation of the vocabulary. 
 The VoCol environment is employing loose coupling of validation and documentation generation components on top of a standard Git repository. 
 All VoCol components, even the repository engine, can be exchanged with little effort. 
+
+
+## Installation on a local machine or on a Web Server
+
+The following steps are needed to setup the VoCol Environment either on on a local machine or a web server.
+
+1. First, we assumed that you are using linux-based operating system.
+1. Next, to prepare the VoCol environment, you should have the following libraries installed: Java JDK, NodeJS, NPM, Rapper,Git ,and Turtle-validator packages with their respective versions. They are listed in section **[Required libraries and tools](https://github.com/vocol/vocol/wiki/Required-libraries-and-tools)**. 
+2. Make a new directory, in the following command-line "newFolder" is given but you are free to choose your own, then inside the new directory, clone VoCol repository as follows:
+```
+mkdir newFolder
+cd newFolder
+git clone https://github.com/vocol/vocol.git
+```
+3. Give the required permissions on the new directory, again it is the "newFolder" directory here.
+```
+chmod u+x  .
+```
+4. Now, we are almost done, go "VoCol" folder and clear old data with the command-line:
+```
+sh helper/scripts/resetApp.sh
+```
+5. The last step is to start VoCol with NPM command-line:
+```
+npm start
+```
+6. Normally, You can access VoCol start page with http://localhost:3000 URL if the port number was not changed. If you clear old data as step 5 describes, then the configuration page will be displayed. otherwise, you can use http://localhost:3000/config URL for configuring VoCol.
+
 For more details about VoCol repository, please have a look on our VoColWiki
 
 **VoColWiki's Table of Contents**
