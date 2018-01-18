@@ -19,13 +19,8 @@ router.get('/', function(req, res) {
           isExistEvolutionReportFile = true;
         }
         var arrayLines = evolutionReport.split("\n");
-<<<<<<< HEAD
         console.log(arrayLines);
         //arrayLines.pop();
-=======
-
-        arrayLines.pop();
->>>>>>> 605efe411cacf5f9bb425972e5d2842e34597d46
         var k = 0;
         var commitTimestamp = "";
         var pusher = "";
@@ -50,17 +45,11 @@ router.get('/', function(req, res) {
             // object for timeLine
             var commitObject = {
               id: k,
-<<<<<<< HEAD
               content: "Commit Message: &quot;"+commitMessage + "&quot;<br/>" + "User: &quot;"+pusher+"&quot;<a href='#"+commitTimestamp+"'>Show more details</a>",
               start: commitTimestamp,
               link: '#' + commitTimestamp,
               commitMessage: commitMessage,
               pusher: pusher
-=======
-              content: "Commit Message: &quot;"+commitMessage + "&quot;<br/>" + "User: &quot;"+pusher+"&quot;",
-              start: commitTimestamp,
-              link: '#' + commitTimestamp
->>>>>>> 605efe411cacf5f9bb425972e5d2842e34597d46
             };
             history.push(commitObject);
             k++;
@@ -69,7 +58,6 @@ router.get('/', function(req, res) {
             element = arrayLines[i].substr(2);
             if (arrayLines[i].includes("_:file:")) {
               element = element.split("_:file:")[0];
-<<<<<<< HEAD
             }
             diffArray.push({
               'event': 'addition',
@@ -78,21 +66,10 @@ router.get('/', function(req, res) {
               'pusher':pusher,
               'commitTimestamp': commitTimestamp
             });
-=======
-              diffArray.push({
-                'event': 'add',
-                'value': escapeHtml(element),
-                'commitMessage': commitMessage,
-                'pusher':pusher,
-                'commitTimestamp': commitTimestamp
-              });
-            }
->>>>>>> 605efe411cacf5f9bb425972e5d2842e34597d46
           } else if (arrayLines[i].charAt(0) == '-') {
             element = arrayLines[i].substr(2);
             if (arrayLines[i].includes("_:file:")) {
               element = element.split("_:file:")[0];
-<<<<<<< HEAD
           }
           diffArray.push({
             'event': 'deletion',
@@ -101,16 +78,6 @@ router.get('/', function(req, res) {
             'pusher':pusher,
             'commitTimestamp': commitTimestamp
           });
-=======
-              diffArray.push({
-                'event': 'del',
-                'value': escapeHtml(element),
-                'commitMessage': commitMessage,
-                'pusher':pusher,
-                'commitTimestamp': commitTimestamp
-              });
-          }
->>>>>>> 605efe411cacf5f9bb425972e5d2842e34597d46
     }
   }
 }

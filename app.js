@@ -10,10 +10,7 @@ var evolution = require('./routes/evolution');
 var startup = require('./routes/startup');
 var validation = require('./routes/validation');
 var client = require('./routes/clientServices');
-<<<<<<< HEAD
 var login = require('./routes/login');
-=======
->>>>>>> 605efe411cacf5f9bb425972e5d2842e34597d46
 var referenceRoutes = require('./routes/referenceRoutes');
 var listener = require('./routes/listener');
 var fs = require('fs');
@@ -122,11 +119,8 @@ app.use(['\/\/startup', '/startup'], startup);
 app.use(['\/\/validation', '/validation'], validation);
 app.use(['\/\/client', '/client'], client);
 app.use(['\/\/listener', '/listener'], listener);
-<<<<<<< HEAD
 app.use(['\/\/login', '/login'], login);
 
-=======
->>>>>>> 605efe411cacf5f9bb425972e5d2842e34597d46
 
 app.use(['\/\/fuseki/', '/fuseki/'],  proxy('localhost:3030/',   {  
   proxyReqPathResolver:   function(req)  {
@@ -168,11 +162,8 @@ app.get(['\/\/config', '/config'], function(req, res) {
   });
 });
 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 605efe411cacf5f9bb425972e5d2842e34597d46
 // http post when  a user configurations is submitted
 app.post(['\/\/config', '/config'], function(req, res) {
   var filepath = __dirname + '/jsonDataFiles/userConfigurations.json';

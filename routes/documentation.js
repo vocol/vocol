@@ -2,10 +2,7 @@ var express = require('express');
 var app = express();
 var router = express.Router();
 var fs = require('fs');
-<<<<<<< HEAD
 var request = require('request');
-=======
->>>>>>> 605efe411cacf5f9bb425972e5d2842e34597d46
 
 router.get('/', function(req, res) {
   console.log(process.cwd());
@@ -16,10 +13,7 @@ router.get('/', function(req, res) {
       var SKOSData = require('../jsonDataFiles/SKOSConcepts.json');
       var RDFObjectsPlusURI = require('../jsonDataFiles/RDFSObjects.json');
       var SKOSObjectsPlusURI = require('../jsonDataFiles/SKOSObjects.json');
-<<<<<<< HEAD
       var OWLIndividuals = require('../jsonDataFiles/OWLIndividiuals.json');
-=======
->>>>>>> 605efe411cacf5f9bb425972e5d2842e34597d46
 
 
       var treeData = [];
@@ -101,10 +95,6 @@ router.get('/', function(req, res) {
         while (array[i].concept != item) {
           i++;
         }
-<<<<<<< HEAD
-=======
-
->>>>>>> 605efe411cacf5f9bb425972e5d2842e34597d46
         return array[i].URI;
       }
 
@@ -135,10 +125,7 @@ router.get('/', function(req, res) {
         SKOSData: SKOSData,
         RDFObjectsPlusURI: RDFObjectsPlusURI,
         SKOSObjectsPlusURI: SKOSObjectsPlusURI,
-<<<<<<< HEAD
         OWLIndividuals: OWLIndividuals,
-=======
->>>>>>> 605efe411cacf5f9bb425972e5d2842e34597d46
         emptyData: false
 
       });
@@ -152,10 +139,7 @@ router.get('/', function(req, res) {
         SKOSData: null,
         RDFObjectsPlusURI: null,
         SKOSObjectsPlusURI: null,
-<<<<<<< HEAD
         OWLIndividuals: null,
-=======
->>>>>>> 605efe411cacf5f9bb425972e5d2842e34597d46
         emptyData: true
       });
 

@@ -8,11 +8,7 @@
   </div>
   <% include footer %>
     <script>
-<<<<<<< HEAD
       if (<%= isExistSyntaxError %>) {
-=======
-      if (errors != undefined) {
->>>>>>> 605efe411cacf5f9bb425972e5d2842e34597d46
         var errors = <%- JSON.parse(JSON.stringify(syntaxErrors)) %>
         errors.forEach(function(element) {
           $('#errors').append("<p><h6> Error Number: " + element.id + "</h6>" + "<h6> Found in file:" + element.file + "  <code>" + element.errMessege + "</code></h6></p>");

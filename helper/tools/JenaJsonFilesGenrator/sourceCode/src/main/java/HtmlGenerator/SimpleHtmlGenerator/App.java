@@ -16,32 +16,18 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
-<<<<<<< HEAD
 import java.util.List;
 
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-=======
-
-import javax.swing.filechooser.FileNameExtensionFilter;
-
-import java.awt.List;
->>>>>>> 605efe411cacf5f9bb425972e5d2842e34597d46
 import java.io.*;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-<<<<<<< HEAD
 import org.json.*;
 
 import org.apache.commons.cli.ParseException;
 import org.apache.commons.io.FileUtils;
-=======
-import org.json.JSONTokener;
-import org.json.*;
-
-import org.apache.commons.cli.ParseException;
->>>>>>> 605efe411cacf5f9bb425972e5d2842e34597d46
 import org.apache.commons.io.filefilter.FileFileFilter;
 //import org.apache.jena.atlas.json.JSON;
 //import org.apache.jena.atlas.json.JsonArray;
@@ -73,16 +59,10 @@ import org.apache.jena.query.ResultSetFormatter;
 public class App {
 	static String concept = "", prevProp = "", property = "", value = "", table = "", body = "", individualsHTML = "",
 			mainQuery = "", Query = "", closedTag = "", splitSymbol = "", range = "", isDefinedBy = "", json = "";
-<<<<<<< HEAD
 	static String turtleFolderPath = "../../../../repoFolder/";
 	static String outputFolderPath = "../../../jsonDataFiles/";
 //	static String turtleFolderPath = "ttlFiles/test/";
 //	static String outputFolderPath = "out/";
-=======
-	static // static int ttlFilesCount = 0;
-	String filesPath = "../../../../repoFolder/";
-
->>>>>>> 605efe411cacf5f9bb425972e5d2842e34597d46
 	public static void main(String[] args) throws IOException {
 		JSONArray mergingArrayClasses = new JSONArray();
 		JSONObject mergedJsonObjectClasses = new JSONObject();
@@ -92,7 +72,6 @@ public class App {
 		JSONObject mergedJsonObjectallRDFObjecs = new JSONObject();
 		JSONArray mergingAllSKOSObjecs = new JSONArray();
 		JSONObject mergedJsonObjectallSKOSObjecs = new JSONObject();
-<<<<<<< HEAD
 		JSONObject mergedJsonOWLNamedIndividuals = new JSONObject();
 		JSONArray mergingJsonOWLNamedIndividuals = new JSONArray();
 
@@ -133,65 +112,22 @@ public class App {
 					mergingJsonOWLNamedIndividuals.put(objOWLNamedIndividuals);
 				}	
 
-=======
-
-		try {
-
-			File dir = new File(filesPath);
-			//clearTheFile("./out/results.JSON");
-
-			String[] files = dir.list(FileFileFilter.FILE);
-			for (int i = 0; i < files.length; i++) {
-				if (files[i].contains("ttl")) {
-
-					JSONObject objClasses = generateClassesJSON(filesPath + files[i]);
-					JSONObject objSKOS = generateSKOSJSON(filesPath + files[i]);
-					JSONObject objExternalClassesRDF = allRDFObjectsJSON(filesPath + files[i]);
-					JSONObject objExternalClassesSKOS = allSKOSObjectsJSON(filesPath+ files[i]);
-
-					// check for empty JSONobjects
-					if (objClasses.length() != 0) {
-						// System.out.println(obj);
-						mergingArrayClasses.put(objClasses);
-					}
-					if (objSKOS.length() != 0) {
-						// System.out.println(obj);
-						mergingArraySKOS.put(objSKOS);
-					}
-					if (objExternalClassesRDF.length() != 0) {
-						// System.out.println(obj);
-						mergingAllRDFObjecs.put(objExternalClassesRDF);
-					}
-					if (objExternalClassesSKOS.length() != 0) {
-						// System.out.println(obj);
-						mergingAllSKOSObjecs.put(objExternalClassesSKOS);
-					}
-				}
->>>>>>> 605efe411cacf5f9bb425972e5d2842e34597d46
 			}
 			mergedJsonObjectClasses.put("files", mergingArrayClasses);
 			mergedJsonObjectSKOS.put("files", mergingArraySKOS);
 			mergedJsonObjectallRDFObjecs.put("files", mergingAllRDFObjecs);
 			mergedJsonObjectallSKOSObjecs.put("files", mergingAllSKOSObjecs);
-<<<<<<< HEAD
 			mergedJsonOWLNamedIndividuals.put("files", mergingJsonOWLNamedIndividuals);
 
-=======
->>>>>>> 605efe411cacf5f9bb425972e5d2842e34597d46
 
 			// call to organize
 			SKOSFileDecode(mergedJsonObjectSKOS);
 			RDFSFileDecode(mergedJsonObjectClasses);
-<<<<<<< HEAD
 			objectsFileDecode(mergedJsonObjectallRDFObjecs, "RDFS");
 			objectsFileDecode(mergedJsonObjectallSKOSObjecs, "SKOS");
 			objectsFileDecode(mergedJsonOWLNamedIndividuals, "OWLIndividiual");
 
 			//System.out.println(mergedJsonOWLNamedIndividuals);
-=======
-			objectsFileDecode(mergedJsonObjectallRDFObjecs, "RDF");
-			objectsFileDecode(mergedJsonObjectallSKOSObjecs, "SKOS");
->>>>>>> 605efe411cacf5f9bb425972e5d2842e34597d46
 
 		} catch (ArrayIndexOutOfBoundsException e) {
 			System.out.println("ArrayIndexOutOfBoundsException caught");
@@ -209,11 +145,8 @@ public class App {
 		FileManager.get().addLocatorClassLoader(Main.class.getClassLoader());
 
 		OntModel ontModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM);
-<<<<<<< HEAD
 		//System.out.println("_sourceFile: " +_sourceFile);
 
-=======
->>>>>>> 605efe411cacf5f9bb425972e5d2842e34597d46
 		FileManager.get().readModel(ontModel, _sourceFile);
 
 		mainQuery = "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>"
@@ -403,7 +336,6 @@ public class App {
 
 	}
 
-<<<<<<< HEAD
 	public static JSONObject allOWLNamedIndividualsJSON(String _sourceFile) throws IOException {
 
 		org.apache.log4j.BasicConfigurator.configure(new NullAppender());
@@ -454,8 +386,6 @@ public class App {
 
 	}
 	
-=======
->>>>>>> 605efe411cacf5f9bb425972e5d2842e34597d46
 	public static JSONObject allRDFObjectsJSON(String _sourceFile) throws IOException {
 
 		org.apache.log4j.BasicConfigurator.configure(new NullAppender());
@@ -471,12 +401,8 @@ public class App {
 				+ "PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>"
 				+ "PREFIX skos: <http://www.w3.org/2004/02/skos/core#> "
 				+ "SELECT Distinct ?o  WHERE { ?s ?p ?o. FILTER (!isLiteral(?o))   FILTER(!isBlank(?o))" + "MINUS "
-<<<<<<< HEAD
 				+ "  { ?s ?p ?o. FILTER (!isLiteral(?o))   FILTER(!isBlank(?o)) FILTER(regex(str(?p), \"skos/core#\" )) }"
 				+ "MINUS {?o a owl:NamedIndividual }}";
-=======
-				+ "  { ?s ?p ?o. FILTER (!isLiteral(?o))   FILTER(!isBlank(?o)) FILTER(regex(str(?p), \"skos/core#\" )) }}";
->>>>>>> 605efe411cacf5f9bb425972e5d2842e34597d46
 		QueryExecution qexec = QueryExecutionFactory.create(mainQuery, ontModel);
 		ResultSet result = qexec.execSelect();
 		// ResultSetFormatter.outputAsJSON(System.out, result);
@@ -502,11 +428,7 @@ public class App {
 			}
 		}
 		// check location
-<<<<<<< HEAD
 		jsonObject.put("array", array);
-=======
-		jsonObject.put("externalClasses", array);
->>>>>>> 605efe411cacf5f9bb425972e5d2842e34597d46
 
 		return jsonObject;
 
@@ -526,12 +448,8 @@ public class App {
 				+ "PREFIX owl:  <http://www.w3.org/2002/07/owl#>" + "PREFIX foaf: <http://xmlns.com/foaf/0.1/>"
 				+ "PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>"
 				+ "PREFIX skos: <http://www.w3.org/2004/02/skos/core#> "
-<<<<<<< HEAD
 				+ "SELECT Distinct ?o  WHERE { ?s ?p ?o. FILTER (!isLiteral(?o))   FILTER(!isBlank(?o)) FILTER(regex(str(?p), \"skos/core#\" )) "
 				+ "MINUS {?o a owl:NamedIndividual }}";
-=======
-				+ "SELECT Distinct ?o  WHERE { ?s ?p ?o. FILTER (!isLiteral(?o))   FILTER(!isBlank(?o)) FILTER(regex(str(?p), \"skos/core#\" )) }";
->>>>>>> 605efe411cacf5f9bb425972e5d2842e34597d46
 		QueryExecution qexec = QueryExecutionFactory.create(mainQuery, ontModel);
 		ResultSet result = qexec.execSelect();
 		// ResultSetFormatter.outputAsJSON(System.out, result);
@@ -557,11 +475,7 @@ public class App {
 			}
 		}
 		// check location
-<<<<<<< HEAD
 		jsonObject.put("array", array);
-=======
-		jsonObject.put("externalClasses", array);
->>>>>>> 605efe411cacf5f9bb425972e5d2842e34597d46
 
 		return jsonObject;
 
@@ -600,12 +514,9 @@ public class App {
 			return "rdfs:" + RDFTypeTrimmed.substring(RDFTypeTrimmed.lastIndexOf('#') + 1);
 		else if (RDFTypeTrimmed.indexOf("22-rdf-syntax-ns") >= 0)
 			return "rdf:" + RDFTypeTrimmed.substring(RDFTypeTrimmed.lastIndexOf('#') + 1);
-<<<<<<< HEAD
 		else if (RDFType.contains("foaf"))
 			return "foaf:" + trim(RDFType);
 
-=======
->>>>>>> 605efe411cacf5f9bb425972e5d2842e34597d46
 		else
 			return trim(RDFType);
 
@@ -681,7 +592,6 @@ public class App {
 	public static void objectsFileDecode(JSONObject obj, String type) {
 
 		try {
-<<<<<<< HEAD
 			String filePath = null;
 			String outFileMessage = null;
 			if (type == "SKOS") {
@@ -696,30 +606,13 @@ public class App {
 			}else if(type == "RDFS"){
 				filePath = outputFolderPath + "RDFSObjects.json";
 				outFileMessage = "Successfully Copied allRDFObjectJSON Object to File...";
-=======
-			String filePath;
-			String outFileMessage;
-			if (type == "SKOS") {
-				filePath = "../../../jsonDataFiles/SKOSObjects.json";
-				outFileMessage = "Successfully Copied allSKOSObjectJSON Object to File...";
-			}
-
-			else {
-				filePath = "../../../jsonDataFiles/RDFSObjects.json";
-				outFileMessage = "Successfully Copied allRDFObjectJSON Object to File...";
-
->>>>>>> 605efe411cacf5f9bb425972e5d2842e34597d46
 			}
 			JSONObject rootJSON = obj;
 			JSONArray orginzedArray = new JSONArray();
 			JSONArray dataList = (JSONArray) rootJSON.get("files");
 			for (Object projectObj : dataList) {
 				JSONObject project = (JSONObject) projectObj;
-<<<<<<< HEAD
 				JSONArray issueList = (JSONArray) project.get("array");
-=======
-				JSONArray issueList = (JSONArray) project.get("externalClasses");
->>>>>>> 605efe411cacf5f9bb425972e5d2842e34597d46
 				if (issueList.length() > 0) {
 					// System.out.println("\nParent ::" + issueList);
 					for (Object issueObj : issueList) {
@@ -747,10 +640,7 @@ public class App {
 	public static void SKOSFileDecode(JSONObject obj) {
 
 		try {
-<<<<<<< HEAD
 			String filePath = outputFolderPath + "SKOSConcepts.json";
-=======
->>>>>>> 605efe411cacf5f9bb425972e5d2842e34597d46
 			JSONObject rootJSON = obj;
 			JSONArray orginzedArray = new JSONArray();
 			JSONArray dataList = (JSONArray) rootJSON.get("files");
@@ -766,11 +656,7 @@ public class App {
 					}
 				}
 			}
-<<<<<<< HEAD
 			try (FileWriter file = new FileWriter(filePath)) {
-=======
-			try (FileWriter file = new FileWriter("../../../jsonDataFiles/SKOSConcepts.json")) {
->>>>>>> 605efe411cacf5f9bb425972e5d2842e34597d46
 				file.write(orginzedArray.toString());
 
 				System.out.println("Successfully Copied SKOSJSON Object to File...");
@@ -788,10 +674,7 @@ public class App {
 	public static void RDFSFileDecode(JSONObject obj) {
 
 		try {
-<<<<<<< HEAD
 			String filePath = outputFolderPath + "RDFSConcepts.json";
-=======
->>>>>>> 605efe411cacf5f9bb425972e5d2842e34597d46
 			JSONObject rootJSON = obj;
 			JSONArray orginzedArray = new JSONArray();
 			// String conceptTrimmed = "";
@@ -829,11 +712,7 @@ public class App {
 
 				}
 			}
-<<<<<<< HEAD
 			try (FileWriter file = new FileWriter(filePath)) {
-=======
-			try (FileWriter file = new FileWriter("../../../jsonDataFiles/RDFSConcepts.json")) {
->>>>>>> 605efe411cacf5f9bb425972e5d2842e34597d46
 				file.write(orginzedArray.toString());
 				// file.flush();
 				// file.close();

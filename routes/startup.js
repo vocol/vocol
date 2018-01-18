@@ -107,11 +107,7 @@ router.get('/', function(req, res) {
           shell.exec('echo -n > ../vocol/helper/tools/evolution/evolutionReport.txt').stdout;
           shell.exec('echo -n > ../vocol/helper/tools/serializations/SingleVoc.ttl').stdout;
           shell.exec('echo -n > ../vocol/jsonDataFiles/syntaxErrors.json').stdout;
-<<<<<<< HEAD
           shell.exec('rm -f ../vocol/views/webvowl/data/SingleVoc.json').stdout;
-=======
-          shell.exec('rm -f ../vocol/views/webvowl/js/data/SingleVoc.json').stdout;
->>>>>>> 605efe411cacf5f9bb425972e5d2842e34597d46
           shell.exec('rm -f ../vocol/jsonDataFiles/RDFSConcepts.json').stdout;
           shell.exec('rm -f ../vocol/jsonDataFiles/SKOSConcepts.json').stdout;
           shell.exec('rm -f ../vocol/jsonDataFiles/SKOSObjects.json').stdout;
@@ -158,11 +154,7 @@ router.get('/', function(req, res) {
         if (errors) {
           shell.cd('../vocol/helper/tools/VoColClient/').stdout;
           shell.exec('fuser -k 3030/tcp').stdout;
-<<<<<<< HEAD
           //const child = spawn('sh', ['../../scripts/run.sh', '&']);
-=======
-          const child = spawn('sh', ['../../scripts/run.sh', '&']);
->>>>>>> 605efe411cacf5f9bb425972e5d2842e34597d46
           shell.cd('../../../../repoFolder/').stdout;
           var filePath = '../vocol/jsonDataFiles/syntaxErrors.json';
           jsonfile.writeFile(filePath, errors, {
@@ -229,33 +221,10 @@ router.get('/', function(req, res) {
             shell.mv('SingleVoc.json', '../../../views/webvowl/data/').stdout;
           }
 
-<<<<<<< HEAD
          // if (obj.evolutionReport === "true" && currentrepositoryURL === obj.repositoryURL) {
             // Evolution Part
           if (obj.evolutionReport === "true") {
 	  /*if (fs.existsSync('../evolution/SingleVoc.ttl')) {
-=======
-          // ////////////////////////////////////////////////////////////////////
-          // //// TurtleEditor
-          // //////////////////////////////////////////////////////////////////////
-          // if (turtleEditor === true && obj.repositoryService === "gitHub") {
-          //   shell.exec('pwd', {
-          //     silent: false
-          //   }).stdout;
-          //   // filePath where we read from
-          //   var filePath = '../../../views/turtleEditor/js/turtle-editor.js';
-          //   // read contents of the file with the filePath
-          //   var contents = fs.readFileSync(filePath, 'utf8');
-          //   contents = contents.replace(/(owner\.val\(")(.*?)"/mg, "owner.val(\"" + obj.repositoryOwner + "\"");
-          //   contents = contents.replace(/(repo\.val\(")(.*?)"/mg, "repo.val(\"" + obj.repositoryName + "\"");
-          //   // write back to the file with the filePath
-          //   fs.writeFileSync(filePath, contents);
-          // }
-
-          if (obj.evolutionReport === "true" && currentrepositoryURL === obj.repositoryURL) {
-            // Evolution Part
-            if (fs.existsSync('../evolution/SingleVoc.ttl')) {
->>>>>>> 605efe411cacf5f9bb425972e5d2842e34597d46
               shell.cd('../owl2vcs/').stdout;
               //  shell.mkdir('../evolution');
               shell.exec('pwd');
@@ -268,20 +237,13 @@ router.get('/', function(req, res) {
               }
 
               // Do something
-<<<<<<< HEAD
             }*/
-=======
-            }
->>>>>>> 605efe411cacf5f9bb425972e5d2842e34597d46
             shell.exec('pwd', {
               silent: false
             }).stdout;
             shell.mkdir('../evolution').stdout;
             shell.cp('../serializations/SingleVoc.ttl', '../evolution/SingleVoc.ttl').stdout;
-<<<<<<< HEAD
 	   console.log("SingleVoc.ttl is copied to evolution");
-=======
->>>>>>> 605efe411cacf5f9bb425972e5d2842e34597d46
           }
 
           ////////////////////////////////////////////////////////////////////
