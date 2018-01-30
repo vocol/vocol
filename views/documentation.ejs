@@ -11,7 +11,7 @@
                 <input type="input" id="input-search" placeholder="Type a concept to search..." value="">
               </div>
             </div>
-            <div class="three wide field" >
+            <div class="three wide field">
               <div class="ui checkbox" style="margin-top: 15px;">
                 <input type="checkbox" id="chk-ignore-case" name="searchOptions" checked="checked" value="false">
                 <label>Ignore Case</label>
@@ -613,7 +613,6 @@
                 if ($('#SKOSViewCheckBox').is(':checked')) {
                   showSKOSTree(SKOSData, currentSelectedFile, inputType);
                 } else if ($('#RDFSViewCheckBox').is(':checked')) {
-                  //showRDFSTree(currentTreeData, currentSelectedFile, inputType);
                   showRDFSTree(RDFSData, currentSelectedFile, inputType);
 
                 }
@@ -694,23 +693,6 @@
             // check search input on keyup
             $('#input-search').on('keyup', search);
 
-            // // reload the tree of the default elements of either SKOS or RDFS data
-            // function resetViews() {
-            //   currentSelectedFile = "ALL Files";
-            //   if ($('#SKOSViewCheckBox').is(':checked')) {
-            //     currentTreeData = SKOSData;
-            //     currentSelectedFile = "ALL Files";
-            //     $('#file_result').html("Choose File");
-            //     getSelectedFileName();
-            //   } else if ($('#RDFSViewCheckBox').is(':checked')) {
-            //     currentSelectedFile = "ALL Files";
-            //     $('#file_result').html("Choose File");
-            //     currentTreeData = RDFSData;
-            //     getSelectedFileName();
-            //   }
-            // }
-
-            // remove redundant parents from tree
             function getUniqueParents(data) {
               var out = [];
               var unique = [...new Set(data.map(item => item.parent))];
@@ -784,7 +766,6 @@
                 }
                 dataFile = getParentWithChildren(filteredData, allParentsFromFiles);
               }
-              //}
               return dataFile;
             }
 
@@ -809,7 +790,6 @@
                   k++;
                 }
               }
-              //TODO: filter childern of parents
               return filteredData;
             }
 
@@ -932,7 +912,6 @@
 
             }
 
-            //var currentSelectedFile = '';
             // get selected fileNames for dropDownMenu and rebuild treeview
             function getSelectedFileName() {
               var selectedFileName = $('.ui.dropdown').dropdown('get text');
@@ -1465,8 +1444,7 @@
                 });
               }
             }
-
-
+            
             // To show the graph of the selected concept
             function showConceptGraph(json) {
               // config. of the graph

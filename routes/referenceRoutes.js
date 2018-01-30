@@ -4,6 +4,11 @@ var router = express.Router();
 var fs = require('fs');
 
 router.get('/', function(req, res) {
+  if (!req.session.isAuthenticated && req.app.locals.authRequired)
+    res.render('login', {
+      title: 'login'
+    });
+  else {
 var searchedConcept = req.originalUrl;
 searchedConcept = searchedConcept.substr(1);
 console.log(searchedConcept);
@@ -80,7 +85,6 @@ console.log(searchedConcept);
         treeData = treeData.concat(item);
       });
 
-
       var allRDFObjects = filterExternalConcept(RDFObjectsPlusURI);
       var allSKOSObjects = filterExternalConcept(SKOSObjectsPlusURI);
 
@@ -95,11 +99,7 @@ console.log(searchedConcept);
         referenceItem: searchedConcept
       });
     }
-    // else{res.render('emptyPage', {
-    //   title: 'documentation'
-    // });
-
-    //}
   });
+}
 });
 module.exports = router;

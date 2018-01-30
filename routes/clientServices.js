@@ -23,8 +23,6 @@ router.post('/', function(req, res) {
     inputContent += " " + con[i];
   }
   var validationTool = "rapperChecked";
-  // var consistencyChecking = process.argv[3];
-  // var constraintChecking = process.argv[4];
   var formatting = "formattingChecked";
 
   var dateTime = Number(new Date());

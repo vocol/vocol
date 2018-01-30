@@ -16,6 +16,11 @@
   <script src="./javascripts/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="./semantic/dist/semantic.min.js"></script>
   <script src="./ckeditor/ckeditor.js"></script>
+  <style>
+    .ui.checkbox {
+      padding-top: 1%;
+    }
+  </style>
 
 </head>
 
@@ -36,7 +41,7 @@
                   <a class="ui left label" style="width: 150px;">
           Vocabulary Name
         </a>
-                  <input type="text" id="vocabularyName" name="vocabularyName" placeholder="Enter vocabulary name" value="Mobivoc"  />
+                  <input type="text" id="vocabularyName" name="vocabularyName" placeholder="e.g. Mobivoc"  />
                   <div class="ui corner label">
                     <i class="asterisk icon"></i>
                   </div>
@@ -47,21 +52,15 @@
                   <a class="ui left label" style="width: 150px;">
           Hosting Server
         </a>
-                  <input type="text" id="server" name="server" placeholder="Enter hosting server" value="http://vocol.vagrantshare.com"  />
+                  <input type="text" id="server" name="server" placeholder="e.g. http://vocol.vagrantshare.com"  />
                   <div class="ui corner label">
                     <i class="asterisk icon"></i>
                   </div>
                 </div>
               </div>
-              <div class="field">
-                <div class="ui checkbox">
-                  <input type="checkbox" name="webHook" value="true">
-                  <label>Web Hook</label>
-                </div>
-              </div>
             </div>
             <div id="repositoryInfoTitle" class="title">
-              <i class="dropdown icon"></i> Repository info
+              <i class="dropdown icon"></i> Repository Info
             </div>
             <div id="repositoryInfoContent" class="content">
               <div class="field" style="margin-bottom:5px">
@@ -69,7 +68,7 @@
                   <a class="ui label" style="width: 150px;">
           Repository URL
         </a>
-                  <input type="text" id="repositoryURL" name="repositoryURL" placeholder="Enter repository address" value="https://github.com/repositoryOwner/repositoryName.git      "  />
+                  <input type="text" id="repositoryURL" data-content="Add users to your feed" name="repositoryURL" placeholder="e.g. https://github.com/repositoryOwner/repositoryName.git"/>
                   <div class="ui corner label">
                     <i class="asterisk icon"></i>
                   </div>
@@ -80,7 +79,7 @@
                   <a class="ui label" style="width: 150px;">
           Repository owner
         </a>
-                  <input type="text" id="repositoryOwner" name="repositoryOwner" placeholder="Enter repository owner" value="repositoryOwner"  />
+                  <input type="text" id="repositoryOwner" name="repositoryOwner" placeholder="e.g. repositoryOwner" />
                 </div>
               </div>
               <div class="field" style="margin-bottom:5px">
@@ -88,7 +87,7 @@
                   <a class="ui label" style="width: 150px;">
           Repository name
         </a>
-                  <input type="text" id="repositoryName" name="repositoryName" placeholder="Enter repository name" value="repositoryName"  />
+                  <input type="text" id="repositoryName" name="repositoryName" placeholder="e.g. repositoryName" />
                 </div>
               </div>
 
@@ -97,7 +96,7 @@
                   <a class="ui label" style="width: 150px;">
           Branch Name
         </a>
-                  <input type="text" id="branchName" name="branchName" placeholder="Enter branch name" value="master"  />
+                  <input type="text" id="branchName" name="branchName" placeholder="e.g. master"/>
                   <div class="ui corner label">
                     <i class="asterisk icon"></i>
                   </div>
@@ -110,7 +109,7 @@
                   <a class="ui label" style="width: 150px;">
           User
         </a>
-                  <input type="text" id="user" name="user" placeholder="Enter repository user" value="lavhal"  />
+                  <input type="text" id="user" name="user" placeholder="Enter your repository username" />
                   <div class="ui corner label">
                     <i class="asterisk icon"></i>
                   </div>
@@ -121,7 +120,7 @@
                   <a class="ui label" style="width: 150px;">
           Password
         </a>
-                  <input type="password" id="password" name="password" placeholder="Enter repository password"  />
+                  <input type="password" id="password" name="password" placeholder="Enter your repository password" />
                   <div class="ui corner label">
                     <i class="asterisk icon"></i>
                   </div>
@@ -198,19 +197,19 @@ Repository Type         </a>
               <div class="field">
                 <div class="ui checkbox">
                   <input type="checkbox" name="evolutionReport" value="true" checked>
-                  <label>Schema Evolution Report</label>
+                  <label>Evolution Report</label>
                 </div>
               </div>
 
               <div class="field">
                 <div class="ui checkbox">
-                  <input type="checkbox" name="clientHooks" value="true" checked>
+                  <input type="checkbox" name="clientHooks">
                   <label>Client Side Hooks</label>
                 </div>
               </div>
               <div class="field">
                 <div class="ui checkbox">
-                  <input type="checkbox" name="turtleEditor" value="true" checked>
+                  <input type="checkbox" name="turtleEditor">
                   <label>Turtle Editor</label>
                 </div>
               </div>
@@ -235,6 +234,36 @@ Repository Type         </a>
                 <div class="ui  checkbox">
                   <input type="checkbox" name="ntriples" value="true">
                   <label>NTriples</label>
+                </div>
+              </div>
+            </div>
+            <div id="privateAccessModeTitle" class="title">
+              <i class="dropdown icon"></i> Access in Private Mode
+            </div>
+            <div id="privateAccessModeContent" class="content">
+              <p>
+      Please create credentials to allow only a private access to the app instance
+    </p>
+              <div class="field" style="margin-bottom:5px">
+                <div class="ui labeled input">
+                  <a class="ui label" style="width: 150px;">
+           Username
+        </a>
+                  <input type="text" id="loginUserName" name="loginUserName" placeholder="Enter your login username" />
+                  <div class="ui corner label">
+                    <i class="asterisk icon"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="field" style="margin-bottom:5px">
+                <div class="ui labeled input">
+                  <a class="ui label" style="width: 150px;">
+           Password
+        </a>
+                  <input type="password" id="loginPassword" name="loginPassword" placeholder="Enter your login password" />
+                  <div class="ui corner label">
+                    <i class="asterisk icon"></i>
+                  </div>
                 </div>
               </div>
             </div>
@@ -266,7 +295,9 @@ Repository Type         </a>
     </div>
   </div>
 </body>
+
 </html>
 <script src="./javascripts/config.js"></script>
 </body>
+
 </html>

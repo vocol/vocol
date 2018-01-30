@@ -6,7 +6,11 @@ var shell = require('shelljs');
 
 /* GET users listing. */
 router.get('/', function(req, res) {
-
+  if (!req.session.isAuthenticated && req.app.locals.authRequired)
+    res.render('login', {
+      title: 'login'
+    });
+  else {
   var path = "helper/tools/evolution/evolutionReport.txt";
   var diffArray = [];
   var history = [];
@@ -20,7 +24,6 @@ router.get('/', function(req, res) {
         }
         var arrayLines = evolutionReport.split("\n");
         console.log(arrayLines);
-        //arrayLines.pop();
         var k = 0;
         var commitTimestamp = "";
         var pusher = "";
@@ -94,6 +97,7 @@ router.get('/', function(req, res) {
         evolutionReport: ""
       });
   });
+}
 });
 
 module.exports = router;

@@ -17,27 +17,12 @@ router.post('/', function(req, res) {
       jsonfile.readFile(path, function(err, obj)  {
         if (err)
           console.log(err); 
-        //show what inside the file             //
-        // var repository = obj.repository.trim();
-        // repository = repository.split(".git");
-        // console.log(repository);
-
         var repositoryService = obj.repositoryService;
         var repositoryNameParam = obj.repositoryName;
         var branchNameParam = obj.branchName;
         //TODO: which value goes here
         var otherBranchesParam = '#otherBranchesParam';
-        // var port = 3001;
-        //
-        // app.set('port', port);
-        // //TODO: enable listening to the port
-        // var server = http.createServer(app).listen(port, function() {
-        //   console.log('WebHookListener running at http://localhost:' + port);
-        // });
-        // server.on('request', function(req, res) {
-        //     req.setEncoding('utf8');
-        //     req.on('data', function(chunk) {
-        console.log('event received');
+
         try {
           var data = JSON.parse(req.body.payload);
 
@@ -92,7 +77,6 @@ router.post('/', function(req, res) {
             shell.exec('git pull', {
               silent: false
             }).stdout;
-
 
             shell.exec('echo -n > ../vocol/jsonDataFiles/syntaxErrors.json').stdout;
             var pass = true;
@@ -162,9 +146,6 @@ router.post('/', function(req, res) {
                 shell.mv('SingleVoc.json', '../../../views/webvowl/data/').stdout;
               }
 
-              ////////////////////////////////////////////////////////////////////
-              //// TurtleEditor
-              //////////////////////////////////////////////////////////////////////
               if (obj.turtleEditor === "true" && obj.repositoryService === "gitHub") {
                 shell.exec('pwd', {
                   silent: false
@@ -188,7 +169,7 @@ router.post('/', function(req, res) {
                   // add commit details when user make new commit
                   var commitDetails = "";
                   if (commitTimestamp != "")
-                    commitDetails = "commitTimestamp:"+commitTimestamp + "\n" + "pusher:"+pusher + "\n" + "commitMessage:"+commitMessage;
+                    commitDetails = "commitTimestamp:" + commitTimestamp + "\n" + "pusher:" + pusher + "\n" + "commitMessage:" + commitMessage;
                   var evolutionReport = shell.exec('./owl2diff ../evolution/SingleVoc.ttl ../serializations/SingleVoc.ttl', {
                     silent: false
                   }).stdout;
@@ -203,55 +184,6 @@ router.post('/', function(req, res) {
                 shell.cp('../serializations/SingleVoc.ttl', '../evolution/SingleVoc.ttl').stdout;
               }
 
-              ////////////////////////////////////////////////////////////////////
-              // client hooks
-              ////////////////////////////////////////////////////////////////////
-              //TODO: just disable for testing perpose
-              /*
-              if (obj.clientHooks === "true") {
-                shell.exec("pwd"); // in repoFolder path
-                console.log('this is client-side services');
-                shell.cd('../../../../repoFolder');
-                shell.cp('-r', '../vocol/helper/tools/VoColClient/Hooks', 'VoColClient/');
-                shell.cd('-P', 'VoColClient');
-                shell.exec("pwd");
-                //TODO: change to obj.server
-                shell.exec('sed -i "s/serverURL/localhost:3000/g" pre-commit', {
-                  silent: false
-                }).stdout;
-                shell.exec('pwd');
-                //shell.cd("../../../../repoFolder"); // in repoFolder path
-                //shell.exec('mv ../vocol/helper/tools/VoColClientService/* .git/hooks/').stdout;
-                shell.exec('pwd');
-                shell.exec('git add .', {
-                  silent: false
-                }).stdout;
-                shell.exec('git commit -m "configuration of repository"', {
-                  silent: false
-                }).stdout;
-                //TODO*:change  the following login
-                // shell.exec('git push', {
-                //   silent: false
-                // }).stdout;
-                // if (obj.repositoryService === 'gitHub')
-                //   shell.exec('git push', {
-                //     silent: false
-                //   }).stdout;
-                // else if (obj.repositoryService === 'gitLab')
-                //   shell.exec('git push https://' + obj.user + ':' + obj.password + '@gitlab.com/"' + obj.repositoryName + '".git master', {
-                //     silent: false
-                //   }).stdout;
-                // else if (obj.repositoryService === 'BitBucket')
-                //   shell.exec('git push https://' + obj.user + ':' + obj.password + '@bitbucket.org/"' + obj.repositoryName + '".git', {
-                //     silent: false
-                //   }).stdout;
-                //shell.cd('../vocol/helper/scripts/'); //VoColClient
-                //shell.exec('pwd').stdout; //VoColClient
-
-                shell.cd('../vocol/helper/tools/VoColClient/'); //VoColClient
-                shell.exec('pwd').stdout; //VoColClient
-
-              }*/
               // run external bash script to start up both fuseki-server and vocol
               const child = spawn('sh', ['../../scripts/run.sh', '&']);
               // show output live of process on std
@@ -271,5 +203,4 @@ router.post('/', function(req, res) {
 
 });
 
-//});
 module.exports = router;

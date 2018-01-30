@@ -7,14 +7,12 @@ var shell = require('shelljs');
 var router = express.Router();
 var spawn = require('child_process').spawn;
 
-
 router.get('/', function(req, res) {
-
   app.use(bodyParser.urlencoded({
     extended: true
   }));
   shell.exec('pwd').stdout;
-  //console.log(process.cwd());
+
   // check if the userConfigurations file is exist
   // for the first time of app running
   var path = "jsonDataFiles/userConfigurations.json";
@@ -37,7 +35,6 @@ router.get('/', function(req, res) {
         repositoryURL = repositoryURL.trim();
         if (repositoryURL[repositoryURL.length - 1] === ('/'))
           repositoryURL = repositoryURL.slice(0, -1);
-
 
         shell.exec('pwd', {
           silent: false
@@ -66,7 +63,6 @@ router.get('/', function(req, res) {
             shell.cd("..");
             shell.rm("-rf", "repoFolder");
             //TODO*:change  the following login
-            //shell.exec('git clone "https://' + obj.user + ':' + obj.password + '@' + obj.repositoryURL.slice(8)+'" repoFolder',{silent:false}).stdout;
             shell.exec('git clone "' + repositoryURL + '" repoFolder', {
               silent: false
             }).stdout;
@@ -76,9 +72,6 @@ router.get('/', function(req, res) {
         } else {
           //TODO*:change  the following login
           shell.mkdir("repoFolder");
-          //shell.exec('git clone "https://' + obj.user + ':""' + obj.password + '"@' + obj.repositoryURL.slice(8)+'" repoFolder',{silent:false}).stdout;
-          //shell.cd("repoFolder");
-
           shell.exec('git clone "' + repositoryURL + '" repoFolder', {
             silent: false
           }).stdout;
@@ -154,7 +147,6 @@ router.get('/', function(req, res) {
         if (errors) {
           shell.cd('../vocol/helper/tools/VoColClient/').stdout;
           shell.exec('fuser -k 3030/tcp').stdout;
-          //const child = spawn('sh', ['../../scripts/run.sh', '&']);
           shell.cd('../../../../repoFolder/').stdout;
           var filePath = '../vocol/jsonDataFiles/syntaxErrors.json';
           jsonfile.writeFile(filePath, errors, {
@@ -168,26 +160,23 @@ router.get('/', function(req, res) {
           })
         }
 
-          ////////////////////////////////////////////////////////////////////
-          //// TurtleEditor
-          //////////////////////////////////////////////////////////////////////
-          if (turtleEditor === true && obj.repositoryService === "gitHub") {
-            shell.exec('pwd', {
-              silent: false
-            }).stdout;
-            // filePath where we read from
-            var filePath = '../vocol/views/turtleEditor/js/turtle-editor.js';
-            // read contents of the file with the filePath
-            var contents = fs.readFileSync(filePath, 'utf8');
-            contents = contents.replace(/(owner\.val\(")(.*?)"/mg, "owner.val(\"" + obj.repositoryOwner + "\"");
-            contents = contents.replace(/(repo\.val\(")(.*?)"/mg, "repo.val(\"" + obj.repositoryName + "\"");
-            // write back to the file with the filePath
-            fs.writeFileSync(filePath, contents);
-          }
+        if (turtleEditor === true && obj.repositoryService === "gitHub") {
+          shell.exec('pwd', {
+            silent: false
+          }).stdout;
+          // filePath where we read from
+          var filePath = '../vocol/views/turtleEditor/js/turtle-editor.js';
+          // read contents of the file with the filePath
+          var contents = fs.readFileSync(filePath, 'utf8');
+          contents = contents.replace(/(owner\.val\(")(.*?)"/mg, "owner.val(\"" + obj.repositoryOwner + "\"");
+          contents = contents.replace(/(repo\.val\(")(.*?)"/mg, "repo.val(\"" + obj.repositoryName + "\"");
+          // write back to the file with the filePath
+          fs.writeFileSync(filePath, contents);
+        }
 
-          //fs.writeFileSync(filePath, errors);
-          shell.cd('../vocol/');
-          shell.exec('pwd').stdout
+        //fs.writeFileSync(filePath, errors);
+        shell.cd('../vocol/');
+        shell.exec('pwd').stdout
 
 
         //if no syntax errors, then contiune otherwise stop
@@ -221,34 +210,17 @@ router.get('/', function(req, res) {
             shell.mv('SingleVoc.json', '../../../views/webvowl/data/').stdout;
           }
 
-         // if (obj.evolutionReport === "true" && currentrepositoryURL === obj.repositoryURL) {
-            // Evolution Part
+          // Evolution Part
           if (obj.evolutionReport === "true") {
-	  /*if (fs.existsSync('../evolution/SingleVoc.ttl')) {
-              shell.cd('../owl2vcs/').stdout;
-              //  shell.mkdir('../evolution');
-              shell.exec('pwd');
-              var generationDate = 'Date:' + shell.exec('date "+%d-%m-%Y %H-%M-%S"').stdout;
-              var evolutionReport = shell.exec('./owl2diff ../evolution/SingleVoc.ttl ../serializations/SingleVoc.ttl', {
-                silent: false
-              }).stdout;
-              if (evolutionReport.includes('+') || evolutionReport.includes('-')) {
-                fs.appendFileSync('../evolution/evolutionReport.txt', generationDate.trim() + evolutionReport);
-              }
 
-              // Do something
-            }*/
             shell.exec('pwd', {
               silent: false
             }).stdout;
             shell.mkdir('../evolution').stdout;
             shell.cp('../serializations/SingleVoc.ttl', '../evolution/SingleVoc.ttl').stdout;
-	   console.log("SingleVoc.ttl is copied to evolution");
+            console.log("SingleVoc.ttl is copied to evolution");
           }
 
-          ////////////////////////////////////////////////////////////////////
-          // client hooks
-          ////////////////////////////////////////////////////////////////////
           //TODO: just disable for testing perpose
           if (obj.clientHooks === "true") {
             shell.exec("pwd"); // in repoFolder path

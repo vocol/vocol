@@ -21,6 +21,10 @@ var shell = require('shelljs');
 var router = express.Router();
 var  proxy  =  require('express-http-proxy');
 var shell = require('shelljs');
+var session = require('express-session');
+// this for creating hash for password
+var bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -37,6 +41,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.locals.isExistSyntaxError = "false";
 var ErrorsFilePath = __dirname + '/jsonDataFiles/syntaxErrors.json';
+
 function readSyntaxErrorsFile() {
   if (fs.existsSync(ErrorsFilePath)) {
     var data = fs.readFileSync(ErrorsFilePath);
@@ -56,13 +61,13 @@ var userConfigurationsFile = __dirname + '/jsonDataFiles/userConfigurations.json
 var repositoryURL = "";
 app.locals.projectTitle = "MobiVoc";
 app.locals.userConfigurations = Array(6).fill(true);
-
-function readUserConfigurationFile() {
+function readUserConfigurationFile(callback) {
   if (fs.existsSync(userConfigurationsFile)) {
     var data = fs.readFileSync(userConfigurationsFile);
     if (data.includes('vocabularyName')) {
       jsonfile.readFile(userConfigurationsFile, function(err, obj) {
         var menu = Array(6).fill(false);
+        var loginUserName = "";
         Object.keys(obj).forEach(function(k) {
           if (k === "vocabularyName") {
             // store projectTitle to be used by header.ejs
@@ -84,15 +89,29 @@ function readUserConfigurationFile() {
             menu[4] = true;
           } else if (k === "analytics") { //menu[5]
             menu[5] = true;
+          } else if (k === "loginUserName") { //menu[5]
+            loginUserName = obj[k];
           }
         });
         app.locals.userConfigurations = menu;
+        callback(loginUserName);
       });
     }
   }
 }
+
+function checkloginUserName4PrivateMode(userName) {
+  if (userName) {
+    console.log('hallo ' + userName);
+    app.locals.authRequired = true;
+  } else{
+    console.log('empty ' + userName);
+    app.locals.authRequired = false;
+  }
+}
+
 // call at the first time
-readUserConfigurationFile();
+readUserConfigurationFile(checkloginUserName4PrivateMode)
 
 // check if the user has an error and this was for first time or
 // when user has changed to another repositoryURL
@@ -107,6 +126,13 @@ if (fs.existsSync(repoFolderPath)) {
     silent: false
   }).stdout;
 }
+
+
+app.use(session({
+  secret: 'secret',
+  resave: false,
+  saveUninitialized: true
+}));
 
 // routing to the available routes on the app
 app.use(['\/\/', '/'], routes);
@@ -162,8 +188,6 @@ app.get(['\/\/config', '/config'], function(req, res) {
   });
 });
 
-
-
 // http post when  a user configurations is submitted
 app.post(['\/\/config', '/config'], function(req, res) {
   var filepath = __dirname + '/jsonDataFiles/userConfigurations.json';
@@ -171,14 +195,22 @@ app.post(['\/\/config', '/config'], function(req, res) {
   jsonfile.readFile(filepath, function(err, obj)  {
     if (err)
       console.log(err);  
-    jsonfile.writeFile(filepath, req.body, {
-      spaces:  2,
-       EOL:   '\r\n'
-    },  function(err)  {  
-      if (err)
-        throw err;
+    var userData = req.body;
+    bcrypt.genSalt(saltRounds, function(err, salt) {
+      bcrypt.hash(userData.loginPassword, salt, function(err, hash) {
+        // Store hash in your password DB.
+        userData.loginPassword = hash;
+        jsonfile.writeFile(filepath, userData, {
+          spaces:  2,
+           EOL:   '\r\n'
+        },  function(err)  {  
+          if (err)
+            throw err;
 
-    })
+        })
+      });
+    });
+
   });
   res.render('userConfigurationsUpdated', {
     title: 'Preparation'

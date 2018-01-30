@@ -13,5 +13,5 @@ rm -f jsonDataFiles/RDFSObjects.json
 rm -f helper/tools/serializations/SingleVoc.nt 
 rm -f helper/tools/serializations/SingleVoc.ttl
 rm -f helper/tools/evolution/SingleVoc.ttl
-rm -f views/webvowl/js/data/SingleVoc.json
+rm -f views/webvowl/data/SingleVoc.json
 
