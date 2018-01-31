@@ -102,10 +102,8 @@ function readUserConfigurationFile(callback) {
 
 function checkloginUserName4PrivateMode(userName) {
   if (userName) {
-    console.log('hallo ' + userName);
     app.locals.authRequired = true;
   } else{
-    console.log('empty ' + userName);
     app.locals.authRequired = false;
   }
 }

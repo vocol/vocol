@@ -1,24 +1,9 @@
 package HtmlGenerator.SimpleHtmlGenerator;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
 import java.util.List;
 
-import javax.swing.filechooser.FileNameExtensionFilter;
 
 import java.io.*;
 
@@ -26,43 +11,27 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.*;
 
-import org.apache.commons.cli.ParseException;
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.filefilter.FileFileFilter;
-//import org.apache.jena.atlas.json.JSON;
-//import org.apache.jena.atlas.json.JsonArray;
-//import org.apache.jena.atlas.json.JsonObject;
-//import org.apache.jena.atlas.json.io.parser.JSONParser;
-//import org.apache.jena.atlas.json.io.parserjavacc.javacc.JSON_Parser;
 import org.apache.jena.iri.impl.Main;
-import org.apache.jena.ontology.DatatypeProperty;
-import org.apache.jena.ontology.Individual;
-import org.apache.jena.ontology.ObjectProperty;
-import org.apache.jena.ontology.OntClass;
 import org.apache.jena.ontology.OntModel;
 import org.apache.jena.ontology.OntModelSpec;
 import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.QueryExecutionFactory;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
-import org.apache.jena.rdf.model.Model;
-import org.apache.jena.rdf.model.ModelFactory;
-import org.apache.jena.rdf.model.RDFNode;
-import org.apache.jena.rdf.model.Resource;
-import org.apache.jena.riot.RiotException;
-import org.apache.jena.riot.RiotNotFoundException;
-import org.apache.jena.util.FileManager;
-import org.apache.jena.util.iterator.ExtendedIterator;
-import org.apache.log4j.varia.NullAppender;
 import org.apache.jena.query.ResultSetFormatter;
+import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.rdf.model.Resource;
+import org.apache.jena.util.FileManager;
+import org.apache.log4j.varia.NullAppender;
 
 public class App {
-	static String concept = "", prevProp = "", property = "", value = "", table = "", body = "", individualsHTML = "",
-			mainQuery = "", Query = "", closedTag = "", splitSymbol = "", range = "", isDefinedBy = "", json = "";
+	static String  	mainQuery = "", Query = "";
 	static String turtleFolderPath = "../../../../repoFolder/";
 	static String outputFolderPath = "../../../jsonDataFiles/";
-//	static String turtleFolderPath = "ttlFiles/test/";
-//	static String outputFolderPath = "out/";
+	//static String turtleFolderPath = "ttlFiles/test/";
+	//static String outputFolderPath = "out/";
+
 	public static void main(String[] args) throws IOException {
 		JSONArray mergingArrayClasses = new JSONArray();
 		JSONObject mergedJsonObjectClasses = new JSONObject();
@@ -76,20 +45,18 @@ public class App {
 		JSONArray mergingJsonOWLNamedIndividuals = new JSONArray();
 
 		try {
-			
+
 			File dir = new File(turtleFolderPath);
 			String[] extensions = new String[] { "ttl" };
 			List<File> files = (List<File>) FileUtils.listFiles(dir, extensions, true);
 			for (File file : files) {
-				//System.out.println("file: " + file.getCanonicalPath());
+				// System.out.println("file: " + file.getCanonicalPath());
 				JSONObject objClasses = generateClassesJSON(file.getCanonicalPath());
 				JSONObject objSKOS = generateSKOSJSON(file.getCanonicalPath());
 				JSONObject objExternalClassesRDF = allRDFObjectsJSON(file.getCanonicalPath());
 				JSONObject objExternalClassesSKOS = allSKOSObjectsJSON(file.getCanonicalPath());
 				JSONObject objOWLNamedIndividuals = allOWLNamedIndividualsJSON(file.getCanonicalPath());
 
-				
-				
 				// check for empty JSONobjects
 				if (objClasses.length() != 0) {
 					// System.out.println(obj);
@@ -106,11 +73,11 @@ public class App {
 				if (objExternalClassesSKOS.length() != 0) {
 					// System.out.println(obj);
 					mergingAllSKOSObjecs.put(objExternalClassesSKOS);
-				}	
+				}
 				if (objOWLNamedIndividuals.length() != 0) {
 					// System.out.println(obj);
 					mergingJsonOWLNamedIndividuals.put(objOWLNamedIndividuals);
-				}	
+				}
 
 			}
 			mergedJsonObjectClasses.put("files", mergingArrayClasses);
@@ -119,7 +86,6 @@ public class App {
 			mergedJsonObjectallSKOSObjecs.put("files", mergingAllSKOSObjecs);
 			mergedJsonOWLNamedIndividuals.put("files", mergingJsonOWLNamedIndividuals);
 
-
 			// call to organize
 			SKOSFileDecode(mergedJsonObjectSKOS);
 			RDFSFileDecode(mergedJsonObjectClasses);
@@ -127,7 +93,7 @@ public class App {
 			objectsFileDecode(mergedJsonObjectallSKOSObjecs, "SKOS");
 			objectsFileDecode(mergedJsonOWLNamedIndividuals, "OWLIndividiual");
 
-			//System.out.println(mergedJsonOWLNamedIndividuals);
+			// System.out.println(mergedJsonOWLNamedIndividuals);
 
 		} catch (ArrayIndexOutOfBoundsException e) {
 			System.out.println("ArrayIndexOutOfBoundsException caught");
@@ -145,7 +111,7 @@ public class App {
 		FileManager.get().addLocatorClassLoader(Main.class.getClassLoader());
 
 		OntModel ontModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM);
-		//System.out.println("_sourceFile: " +_sourceFile);
+		// System.out.println("_sourceFile: " +_sourceFile);
 
 		FileManager.get().readModel(ontModel, _sourceFile);
 
@@ -153,8 +119,8 @@ public class App {
 				+ "PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>"
 				+ "PREFIX owl:  <http://www.w3.org/2002/07/owl#>" + "PREFIX foaf: <http://xmlns.com/foaf/0.1/>"
 				+ "PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>"
-				+ "PREFIX skos: <http://www.w3.org/2004/02/skos/core#> " + "SELECT  ?concept ?rdfType ?label  WHERE {"
-				+ "?concept a ?rdfType ." + "OPTIONAL {?concept rdfs:label ?label .}"
+				+ "PREFIX skos: <http://www.w3.org/2004/02/skos/core#> " + "SELECT  ?concept ?RDFType ?label  WHERE {"
+				+ "?concept a ?RDFType ." + "OPTIONAL {?concept rdfs:label ?label .}"
 				+ "FILTER regex(str(?concept), \"^((?!skos).)*$\" ) }" + "ORDER BY ?concept";
 		QueryExecution qexec2 = QueryExecutionFactory.create(mainQuery, ontModel);
 		ResultSet result2 = qexec2.execSelect();
@@ -166,31 +132,30 @@ public class App {
 
 		while (result2.hasNext()) {
 			QuerySolution binding = result2.nextSolution();
-			if (binding.get("concept").toString() != null  && isNotInstances(binding.get("rdfType").toString())) {
+			if (binding.get("concept") != null && isNotInstances(binding.get("RDFType").toString())) {
 				JSONObject obj = new JSONObject();
 
 				Resource concept = (Resource) binding.get("concept");
 				// System.out.println("\concept: " + concept.getURI());
-				Resource rdfType = (Resource) binding.get("rdfType");
+				Resource RDFType = (Resource) binding.get("RDFType");
 
 				if (binding.get("label") != null) {
 					obj.put("label", binding.get("label").toString());
 				} else
 					obj.put("label", "");
 				// trimming of the concept from URI
-				String conceptToTrim =concept.getURI().toString() ;
+				String conceptToTrim = concept.getURI().toString();
 				if (conceptToTrim.substring(conceptToTrim.length() - 1) == "/")
 					obj.put("concept", "mobivoc");
 				else
 					obj.put("concept", replaceWithRDFType(concept.getURI().toString()));
-				
 
 				obj.put("URI", concept.getURI());
 
 				// trimming of the concept from URI
-				if(rdfType.getURI().toString() != null )
-				obj.put("rdfType", replaceWithRDFType(rdfType.getURI().toString()));
-				// if (rdfType.getURI().toString().contains("Class")) {
+				if (RDFType.getURI() != null)
+					obj.put("RDFType", replaceWithRDFType(RDFType.getURI().toString()));
+				// if (RDFType.getURI().toString().contains("Class")) {
 				// obj.put("parent", "");
 				Query = "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>"
 						+ "PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>"
@@ -236,104 +201,115 @@ public class App {
 		OntModel ontModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM);
 		FileManager.get().readModel(ontModel, _sourceFile);
 
-		mainQuery = "PREFIX skos: <http://www.w3.org/2004/02/skos/core#> " + "SELECT  ?sNarrower ?oNarrower  WHERE {"
-				+ "?sNarrower skos:narrower ?oNarrower .}";
+		mainQuery = "PREFIX skos: <http://www.w3.org/2004/02/skos/core#> " 
+					+ "SELECT  distinct ?subject ?oBroader ?RDFType  WHERE {"
+					+ "?subject a skos:Concept ."
+					+ "OPTIONAL{?subject a ?RDFType .}" 
+					+ "OPTIONAL{?subject skos:broader ?oBroader .}}";
+		JSONObject jsonObject = new JSONObject();
+		JSONArray array = new JSONArray();
+
+		QueryExecution qexec2 = QueryExecutionFactory.create(mainQuery, ontModel);
+		ResultSet result2 = qexec2.execSelect();
+		//ResultSetFormatter.out(System.out, result2);
+		while (result2.hasNext()) {
+			QuerySolution binding = result2.nextSolution();
+			if (binding.get("subject") != null) {
+				Resource subject = (Resource) binding.get("subject");
+				// System.out.println("\concept: " + concept.getURI());
+				Resource oBroader = (Resource) binding.get("oBroader");
+
+					JSONObject obj = new JSONObject();
+					// URI for parent
+					obj.put("concept", trim(subject.getURI().toString()));
+					obj.put("URI", subject.getURI());
+					if (binding.get("oBroader") != null) {
+					obj.put("childURI", subject.getURI());
+					obj.put("parentURI", oBroader.getURI());
+					obj.put("child", trim(subject.getURI().toString()));
+					obj.put("parent", trim(oBroader.getURI().toString()));
+					}
+					else {
+						obj.put("child", "");
+						obj.put("parent", "");
+					} 
+						
+					if (binding.get("RDFType") != null) {
+						Resource RDFType = (Resource) binding.get("RDFType");
+						obj.put("RDFType", replaceWithRDFType(RDFType.getURI().toString()));
+					}
+					File file = new File(_sourceFile);
+					obj.put("fileName", file.getName());
+					array.put(obj);
+				
+			}
+		}
+
+		mainQuery = "PREFIX skos: <http://www.w3.org/2004/02/skos/core#>"
+				+ "SELECT  distinct ?subject  ?RDFType ?oNarrower  WHERE {" 
+				+ "?subject skos:narrower ?oNarrower ."
+				+ "OPTIONAL{?subject a ?RDFType .}}"; 
 		QueryExecution qexec1 = QueryExecutionFactory.create(mainQuery, ontModel);
 		ResultSet result1 = qexec1.execSelect();
 		// ResultSetFormatter.outputAsJSON(System.out, result1);
 
-		// ResultSetFormatter.out(System.out, result2);
+		// ResultSetFormatter.out(System.out, result1);
 
-		JSONObject jsonObject = new JSONObject();
-		JSONArray array = new JSONArray();
 		while (result1.hasNext()) {
+			boolean isDuplicateData = false;
 			QuerySolution binding = result1.nextSolution();
-			if (binding.get("sNarrower").toString() != null) {
-				Resource sNarrower = (Resource) binding.get("sNarrower");
-
+			if (binding.get("subject") != null) {
+				JSONObject obj = new JSONObject();
+				Resource subject = (Resource) binding.get("subject");
 				Resource oNarrower = (Resource) binding.get("oNarrower");
 
-				JSONObject obj = new JSONObject();
+				// remove duplicate record of pair parentandchild
+				if (array.length() > 0 && binding.get("oNarrower") != null) {
+					for (Object issueObj : array) {
+						JSONObject issue = (JSONObject) issueObj;
+						String str1 = issue.getString("parent");
+						String str2 = trim(subject.getURI().toString());
+						String str3 = issue.getString("child");
+						String str4 = trim(oNarrower.getURI().toString());
+
+						if (str1.equalsIgnoreCase(str2) || str3.equalsIgnoreCase(str4)) {
+							isDuplicateData = true;
+							break;
+						}
+					}
+				}
+				if (!isDuplicateData) {
 
 				// URI for child
-				obj.put("childURI", sNarrower.getURI());
-				obj.put("parentURI", oNarrower.getURI());
-				
-				obj.put("child", trim(sNarrower.getURI().toString()));
-				
-				obj.put("parent", trim(oNarrower.getURI().toString()));
+				if (binding.get("oNarrower") != null) {
+					obj.put("parentURI", subject.getURI());
+					obj.put("childURI", oNarrower.getURI());
+					obj.put("parent", trim(subject.getURI().toString()));
+					obj.put("child", trim(oNarrower.getURI().toString()));
+				} else {
+					obj.put("child", "");
+					obj.put("parent", "");
+				}
 
-				obj.put("RDFType", "skos:narrower");
+				obj.put("concept", trim(subject.getURI().toString()));
+				obj.put("URI", subject.getURI());
+
+				if (binding.get("RDFType") != null) {
+					Resource RDFType = (Resource) binding.get("RDFType");
+					obj.put("RDFType", replaceWithRDFType(RDFType.getURI().toString()));
+				}
 
 				File file = new File(_sourceFile);
 				obj.put("fileName", file.getName());
 				array.put(obj);
 			}
-
-		}
-
-		mainQuery = "PREFIX skos: <http://www.w3.org/2004/02/skos/core#> " + "SELECT  ?sBroader ?oBroader   WHERE {"
-				+ "?sBroader skos:broader ?oBroader .}";
-
-		QueryExecution qexec2 = QueryExecutionFactory.create(mainQuery, ontModel);
-		ResultSet result2 = qexec2.execSelect();
-		// ResultSetFormatter.outputAsJSON(System.out, result2);
-		while (result2.hasNext()) {
-			boolean isDuplicateData = false;
-			QuerySolution binding = result2.nextSolution();
-			if (binding.get("sBroader").toString() != null) {
-				Resource sBroader = (Resource) binding.get("sBroader");
-				// System.out.println("\concept: " + concept.getURI());
-				Resource oBroader = (Resource) binding.get("oBroader");
-
-				
-				////////////////////////////////////////////////
-				if (array.length() > 0) {
-					for (Object issueObj : array) {
-						JSONObject issue = (JSONObject) issueObj;
-						String str1= issue.getString("parent");
-						String str2= trim(sBroader.getURI().toString());
-						String str3= issue.getString("child");
-						String str4= trim(oBroader.getURI().toString()) ;
-
-						if(str1.equalsIgnoreCase(str2) || str3.equalsIgnoreCase(str4) )
-						{
-							isDuplicateData = true;
-							break;
-							
-						}
-						
-					}
-					}
-				if(!isDuplicateData) {
-					JSONObject obj = new JSONObject();
-
-					// URI for parent
-					obj.put("parentURI", sBroader.getURI());
-					obj.put("childURI", oBroader.getURI());
-
-					obj.put("parent", trim(sBroader.getURI().toString()));
-
-					obj.put("child", trim(oBroader.getURI().toString()));
-
-					obj.put("RDFType", "skos:broader");
-
-					File file = new File(_sourceFile);
-					obj.put("fileName", file.getName());
-					array.put(obj);
-					
-				}
-				//////////////////////////////////////////
-
-
 			}
+
 		}
 
-		// check location
+		// add to JSONObject
 		jsonObject.put("SKOSconcepts", array);
-
 		return jsonObject;
-
 	}
 
 	public static JSONObject allOWLNamedIndividualsJSON(String _sourceFile) throws IOException {
@@ -345,12 +321,11 @@ public class App {
 		OntModel ontModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM);
 		FileManager.get().readModel(ontModel, _sourceFile);
 
-		mainQuery =  "PREFIX owl:  <http://www.w3.org/2002/07/owl#>" 
-				+ "SELECT ?s ?p ?o  WHERE { ?s a owl:NamedIndividual;"
-				+ "?p ?o. }";
+		mainQuery = "PREFIX owl:  <http://www.w3.org/2002/07/owl#>"
+				+ "SELECT ?s ?p ?o  WHERE { ?s a owl:NamedIndividual;" + "?p ?o. }";
 		QueryExecution qexec = QueryExecutionFactory.create(mainQuery, ontModel);
 		ResultSet result = qexec.execSelect();
-		 //ResultSetFormatter.outputAsJSON(System.out, result);
+		// ResultSetFormatter.outputAsJSON(System.out, result);
 
 		// ResultSetFormatter.out(System.out, result2);
 
@@ -359,10 +334,10 @@ public class App {
 
 		while (result.hasNext()) {
 			QuerySolution binding = result.nextSolution();
-			if (binding.get("s").toString() != null) {
+			if (binding.get("s") != null) {
 				Resource subject = (Resource) binding.get("s");
 				Resource predicate = (Resource) binding.get("p");
-				//Resource object = (Resource) binding.get("o");
+				// Resource object = (Resource) binding.get("o");
 
 				JSONObject obj = new JSONObject();
 				obj.put("subject", trim(subject.getURI()));
@@ -373,19 +348,18 @@ public class App {
 				File file = new File(_sourceFile);
 				obj.put("fileName", file.getName());
 
-
 				// File file = new File(_sourceFile);
 				// obj.put("fileName", file.getName());
 				array.put(obj);
 			}
 		}
 		// check location
-		jsonObject.put("array",array);
+		jsonObject.put("array", array);
 
 		return jsonObject;
 
 	}
-	
+
 	public static JSONObject allRDFObjectsJSON(String _sourceFile) throws IOException {
 
 		org.apache.log4j.BasicConfigurator.configure(new NullAppender());
@@ -414,7 +388,7 @@ public class App {
 
 		while (result.hasNext()) {
 			QuerySolution binding = result.nextSolution();
-			if (binding.get("o").toString() != null) {
+			if (binding.get("o") != null) {
 				Resource externalClass = (Resource) binding.get("o");
 
 				JSONObject obj = new JSONObject();
@@ -448,7 +422,7 @@ public class App {
 				+ "PREFIX owl:  <http://www.w3.org/2002/07/owl#>" + "PREFIX foaf: <http://xmlns.com/foaf/0.1/>"
 				+ "PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>"
 				+ "PREFIX skos: <http://www.w3.org/2004/02/skos/core#> "
-				+ "SELECT Distinct ?o  WHERE { ?s ?p ?o. FILTER (!isLiteral(?o))   FILTER(!isBlank(?o)) FILTER(regex(str(?p), \"skos/core#\" )) "
+				+ "SELECT Distinct ?o  WHERE { ?s1 ?p ?o1. ?s1 ?p1 ?o  FILTER (!isLiteral(?o))   FILTER(!isBlank(?o)) FILTER(regex(str(?p), \"skos/core#\" )) "
 				+ "MINUS {?o a owl:NamedIndividual }}";
 		QueryExecution qexec = QueryExecutionFactory.create(mainQuery, ontModel);
 		ResultSet result = qexec.execSelect();
@@ -461,7 +435,7 @@ public class App {
 
 		while (result.hasNext()) {
 			QuerySolution binding = result.nextSolution();
-			if (binding.get("o").toString() != null) {
+			if (binding.get("o") != null) {
 				Resource externalClass = (Resource) binding.get("o");
 
 				JSONObject obj = new JSONObject();
@@ -498,7 +472,13 @@ public class App {
 	public static String replaceWithRDFType(String RDFType) {
 		String conceptArray[];
 		String RDFTypeTrimmed = "";
-		if (RDFType.contains("/")) {
+		if (RDFType.contains("skos/core#")) {
+			conceptArray = RDFType.split("#");
+			if (conceptArray != null && conceptArray.length > 0) {
+				RDFTypeTrimmed = conceptArray[conceptArray.length - 1];
+				return "skos:" + RDFTypeTrimmed.substring(RDFTypeTrimmed.lastIndexOf('#') + 1);
+			}
+		} else if (RDFType.contains("/")) {
 			conceptArray = RDFType.split("/");
 			if (conceptArray != null && conceptArray.length > 0) {
 				RDFTypeTrimmed = conceptArray[conceptArray.length - 1];
@@ -514,6 +494,7 @@ public class App {
 			return "rdfs:" + RDFTypeTrimmed.substring(RDFTypeTrimmed.lastIndexOf('#') + 1);
 		else if (RDFTypeTrimmed.indexOf("22-rdf-syntax-ns") >= 0)
 			return "rdf:" + RDFTypeTrimmed.substring(RDFTypeTrimmed.lastIndexOf('#') + 1);
+
 		else if (RDFType.contains("foaf"))
 			return "foaf:" + trim(RDFType);
 
@@ -581,8 +562,8 @@ public class App {
 				}
 
 			} /*
-				 * else return URI;
-				 */
+			 * else return URI;
+			 */
 
 		}
 
@@ -599,11 +580,11 @@ public class App {
 				outFileMessage = "Successfully Copied allSKOSObjectJSON Object to File...";
 			}
 
-			else if (type == "OWLIndividiual"){
+			else if (type == "OWLIndividiual") {
 				filePath = outputFolderPath + "OWLIndividiuals.json";
 				outFileMessage = "Successfully Copied OWLIndividiualsJSON Object to File...";
 
-			}else if(type == "RDFS"){
+			} else if (type == "RDFS") {
 				filePath = outputFolderPath + "RDFSObjects.json";
 				outFileMessage = "Successfully Copied allRDFObjectJSON Object to File...";
 			}
@@ -691,12 +672,12 @@ public class App {
 							orginzedOject.put("fileName", issue.getString("fileName"));
 							orginzedOject.put("label", issue.getString("label"));
 							orginzedOject.put("URI", issue.getString("URI"));
-							orginzedOject.put("RDFType", issue.getString("rdfType"));
-							// System.out.println("\nRDFType: " + issue.getString("rdfType"));
+							orginzedOject.put("RDFType", issue.getString("RDFType"));
+							// System.out.println("\nRDFType: " + issue.getString("RDFType"));
 
 							// if (issue.has("parent")) {
 							if (issue.has("parent") && !issue.isNull("parent")) {
-								String parentTrimmed = trim(issue.getString("parent"), true);
+								String parentTrimmed = replaceWithRDFType(issue.getString("parent"));
 								orginzedOject.put("parent", parentTrimmed);
 								// System.out.println("\nParent ::" + parentTrimmed);
 

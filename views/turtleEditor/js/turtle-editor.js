@@ -175,7 +175,7 @@ function($, Github, N3, CodeMirror, ShowHint, ModeTurtle, HintTurtle, logger) {
     var filename = inputElements.file.val();
     var content = editor.getValue().trim();
     var message = inputElements.message.val().trim();
-
+    if(message){
     if (state.fileIsLoaded) {
       branch.write(filename, content, message, isBinary)
         .done(function() {
@@ -187,6 +187,10 @@ function($, Github, N3, CodeMirror, ShowHint, ModeTurtle, HintTurtle, logger) {
     } else {
       logger.info("Nothing to save.");
     }
+  } else{
+    alert("Please, fill-in the commit message box, it cannot be empty...");
+  }
+
   };
 
   // Display current filename -------------------------------------------------
@@ -248,6 +252,7 @@ function($, Github, N3, CodeMirror, ShowHint, ModeTurtle, HintTurtle, logger) {
 
   var parserHandler = function (error, triple, prefixes) {
     if (error) {
+
       /* extract line Number, only consider the end of the string after "line" */
       var errorSubString = error.message.substr(error.message.indexOf("line")+4);
       var errorLineNumber = parseInt(errorSubString) -1;
@@ -255,7 +260,7 @@ function($, Github, N3, CodeMirror, ShowHint, ModeTurtle, HintTurtle, logger) {
       /* add background color, gutter + tooltip */
       editor.getDoc().addLineClass(errorLineNumber, "wrap", "ErrorLine-background");
       editor.setGutterMarker(errorLineNumber, "breakpoints", makeMarker(error.message));
-      //alert(error.message)
+
       changeSyntaxCheckState("failed", error.message);
     } else if (triple) {
       var subjectSplit = splitIntoNamespaceAndName(triple.subject);
@@ -315,8 +320,6 @@ function($, Github, N3, CodeMirror, ShowHint, ModeTurtle, HintTurtle, logger) {
       content = editor.getValue();
       parser  = N3.Parser();
       parser.parse(content, parserHandler);
-      //alert(content)
-
     }
   };
 
