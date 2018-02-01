@@ -23,14 +23,14 @@ router.post('/', function(req, res) {
           if (obj.loginUserName) {
             bcrypt.compare(req.body.password, obj.loginPassword, function(err, result) {
               console.log(result);
-              if (result){
+              if (result) {
                 req.session.isAuthenticated = true;
                 req.session.username = obj.loginUserName;
-                res.render('index', {
-                  title: 'Home',
-                  homePage: obj.text
+                res.redirect('/');
+              } else
+                res.render('login.ejs', {
+                  title: 'login'
                 });
-              }
             });
           }
         });

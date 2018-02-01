@@ -156,24 +156,44 @@ app.use(['\/\/fuseki/', '/fuseki/'],  proxy('localhost:3030/',   {  
 }));
 
 app.get(['\/\/analytics', '/analytics'], function(req, res) {
-  res.render('analytics', {
+  if (!req.session.isAuthenticated && req.app.locals.authRequired)
+    res.render('login', {
+      title: 'login'
+    });
+  else
+    res.render('analytics', {
     title: 'Analytics'
   });
 })
 
 app.get(['\/\/turtleEditor', '/turtleEditor'], function(req, res) {
+  if (!req.session.isAuthenticated && req.app.locals.authRequired)
+    res.render('login', {
+      title: 'login'
+    });
+  else
   res.render('turtleEditor', {
     title: 'Editing'
   });
 })
 
 app.get(['\/\/visualization', '/visualization'], function(req, res) {
+  if (!req.session.isAuthenticated && req.app.locals.authRequired)
+    res.render('login', {
+      title: 'login'
+    });
+  else
   res.render('visualization', {
     title: 'Visualization'
   });
 })
 
 app.get(['\/\/querying', '/querying'], function(req, res) {
+  if (!req.session.isAuthenticated && req.app.locals.authRequired)
+    res.render('login', {
+      title: 'login'
+    });
+  else
   res.render('querying.ejs', {
     title: 'Querying'
   });
