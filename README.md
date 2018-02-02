@@ -36,7 +36,7 @@ sh helper/scripts/resetApp.sh
 ```
 npm start
 ```
-6. If VoCol started without errors, then go to step 7. otherwise, if you have different NPM or Node versions, then continue with this step. First remove all previously old node modules, then re-install them with the following command-in.
+6. If VoCol started without errors, then go to step 7. otherwise, if you have different NPM or Node versions, then continue with this step. First remove all previously installed node modules, then re-install them with the following command-in.
 ```
 sudo rm -rf node_modules/
 sudo npm install
@@ -54,7 +54,7 @@ Then "Yes" for that Vocol is using "NPM Nice".
 > Yes
   No, let me specify
 ```
-and finally give "public/semantic" as the location of Sematic-Ui in VoCol Project.
+Finally give "public/semantic" as the location of Sematic-Ui in VoCol Project.
 ```
 ? Where should we put Semantic UI inside your project? (semantic/) public/semantic/
 ```
