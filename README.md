@@ -43,7 +43,19 @@ sudo npm install
 ```
 Semantic-Ui framework is used in VoCol development, a couple of selections need to be given while installing it. 
 Select "Skip install", then "Yes" for that Vocol "NPM Nice", and finally give "public/semantic" as the location of Sematic-Ui in VoCol Project
-
+```
+? It looks like you have a semantic.json file already.
+  Yes, extend my current settings.
+> Skip install
+```
+```
+? We detected you are using NPM Nice! Is this your project folder? D:\vocolrepo\vocol
+> Yes
+  No, let me specify
+```
+```
+? Where should we put Semantic UI inside your project? (semantic/) public/semantic/
+```
 7. Normally, You can access VoCol start page with http://localhost:3000 URL if the port number was not changed. If you clear old data as step 5 describes, then the configuration page will be displayed. otherwise, you can use http://localhost:3000/config URL for configuring VoCol.
 
 For more details about VoCol repository, please have a look on our VoColWiki
