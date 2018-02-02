@@ -14,10 +14,10 @@ All VoCol components, even the repository engine, can be exchanged with little e
 
 ## Installation on a local machine or on a Web Server
 
-The following steps are needed to setup the VoCol Environment either on on a local machine or a web server.
+The following steps are needed to setup the VoCol Environment either on a local machine or a web server.
 
-1. First, we assumed that you are using linux-based operating system.
-1. Next, to prepare the VoCol environment, you should have the following libraries installed: Java JDK, NodeJS, NPM, Rapper ,Git ,and Turtle-validator packages with their respective versions or higher. They are listed in section **[Required libraries and tools](https://github.com/vocol/vocol/wiki/Required-libraries-and-tools)**. 
+1. First, we assumed that you are using a Linux-based operating system.
+1. Next, to prepare the VoCol environment, you should have the following libraries installed: Java JDK, NodeJS, NPM, Rapper, Git, and Turtle-validator packages with their respective versions or higher. They are listed in section **[Required libraries and tools](https://github.com/vocol/vocol/wiki/Required-libraries-and-tools)**. 
 2. Make a new directory, in the following command-line "newFolder" is given but you are free to choose your own, then inside the new directory, clone VoCol repository as follows:
 ```
 mkdir newFolder
@@ -36,7 +36,7 @@ sh helper/scripts/resetApp.sh
 ```
 npm start
 ```
-6. If VoCol started without errors, then go to step 7. otherwise, if you have different NPM or Node versions, then continue with this step. First remove all previously installed node modules, then re-install them with the following command-in.
+6. If VoCol started without errors, then go to step 7. otherwise, if you have different NPM or Node versions, then continue with this step. First, remove all previously installed node modules, then re-install them with the following command-in.
 ```
 sudo rm -rf node_modules/
 sudo npm install
@@ -54,7 +54,7 @@ Then "Yes" for that Vocol is using "NPM Nice".
 > Yes
   No, let me specify
 ```
-Finally give "public/semantic" as the location of Sematic-Ui in VoCol Project.
+Finally, give "public/semantic" as the location of Sematic-Ui in VoCol Project.
 ```
 ? Where should we put Semantic UI inside your project? (semantic/) public/semantic/
 ```
