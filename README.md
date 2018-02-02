@@ -42,17 +42,19 @@ sudo rm -rf node_modules/
 sudo npm install
 ```
 Semantic-Ui framework is used in VoCol development, a couple of selections need to be given while installing it. 
-Select "Skip install", then "Yes" for that Vocol "NPM Nice", and finally give "public/semantic" as the location of Sematic-Ui in VoCol Project
+Select "Skip install" as follows: 
 ```
 ? It looks like you have a semantic.json file already.
   Yes, extend my current settings.
 > Skip install
 ```
+Then "Yes" for that Vocol is using "NPM Nice".
 ```
 ? We detected you are using NPM Nice! Is this your project folder? D:\vocolrepo\vocol
 > Yes
   No, let me specify
 ```
+and finally give "public/semantic" as the location of Sematic-Ui in VoCol Project.
 ```
 ? Where should we put Semantic UI inside your project? (semantic/) public/semantic/
 ```
