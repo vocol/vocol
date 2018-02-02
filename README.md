@@ -36,7 +36,15 @@ sh helper/scripts/resetApp.sh
 ```
 npm start
 ```
-6. Normally, You can access VoCol start page with http://localhost:3000 URL if the port number was not changed. If you clear old data as step 5 describes, then the configuration page will be displayed. otherwise, you can use http://localhost:3000/config URL for configuring VoCol.
+6. If VoCol started without errors, then go to step 7. otherwise, if you have different NPM or Node versions, then continue with this step. First remove all previously old node modules, then re-install them with the following command-in.
+```
+sudo rm -rf node
+sudo npm install
+```
+Semantic-Ui framework is used in VoCol development, a couple of selections need to be given while installing it. 
+Select "Skip install", then "Yes" for that Vocol "NPM Nice", and finally give "public/semantic" as the location of Sematic-Ui in VoCol Project
+
+7. Normally, You can access VoCol start page with http://localhost:3000 URL if the port number was not changed. If you clear old data as step 5 describes, then the configuration page will be displayed. otherwise, you can use http://localhost:3000/config URL for configuring VoCol.
 
 For more details about VoCol repository, please have a look on our VoColWiki
 
