@@ -38,7 +38,7 @@ npm start
 ```
 6. If VoCol started without errors, then go to step 7. otherwise, if you have different NPM or Node versions, then continue with this step. First remove all previously old node modules, then re-install them with the following command-in.
 ```
-sudo rm -rf node
+sudo rm -rf node_modules/
 sudo npm install
 ```
 Semantic-Ui framework is used in VoCol development, a couple of selections need to be given while installing it. 
