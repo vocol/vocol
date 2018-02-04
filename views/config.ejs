@@ -16,6 +16,7 @@
   <script src="./javascripts/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="./semantic/dist/semantic.min.js"></script>
   <script src="./ckeditor/ckeditor.js"></script>
+
   <style>
     .ui.checkbox {
       padding-top: 1%;
@@ -30,7 +31,6 @@
     <div class="ui two column stackable grid">
       <div class="column">
         <form class="ui form" action="./config" method="post">
-          <!-- onsubmit="return validateFormOnSubmit(this)" -->
           <div class="ui styled accordion">
             <div id="generalInfoTitle" class="active title">
               <i class="dropdown icon"></i> General Info
@@ -287,7 +287,7 @@ Repository Type         </a>
         </ul>
         <div class="tab-content">
           <div role="tabpanel" class="tab-pane active" id="homepage">
-            <textarea id="editor1" name="editor1" onchange="submition();" style="overflow:auto; width:540px;height:382px">
+            <textarea id="editor" placeholder="This is text will be the homeage of your VoCol.<br/> Try to include some describtion about your app. <br/> You are free to incldue images , hyperlinks, other HTML components. <br/> Moreover, feel free to paste your html text using the 'Source' button in the above toolbar :) " name="editor" onchange="submition();" style="overflow:auto; width:540px;height:382px">
             </textarea>
           </div>
         </div>
@@ -295,7 +295,6 @@ Repository Type         </a>
     </div>
   </div>
 </body>
-
 </html>
 <script src="./javascripts/config.js"></script>
 </body>

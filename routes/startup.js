@@ -25,12 +25,10 @@ router.get('/', function(req, res) {
 
         // get out of the root of the vocol folder
         shell.cd('..');
-        //shell.exec('chmod -R u+x .');
 
         var clientHooks = (obj.hasOwnProperty('clientHooks')) ? true : false;
         var webHook = (obj.hasOwnProperty('webHook')) ? true : false;
         var turtleEditor = (obj.turtleEditor === "true") ? true : false;
-        var removeHistory = false;
         var repositoryURL = obj.repositoryURL;
         repositoryURL = repositoryURL.trim();
         if (repositoryURL[repositoryURL.length - 1] === ('/'))
@@ -67,7 +65,6 @@ router.get('/', function(req, res) {
               silent: false
             }).stdout;
             shell.cd("repoFolder");
-            removeHistory = true;
           }
         } else {
           //TODO*:change  the following login
@@ -76,7 +73,6 @@ router.get('/', function(req, res) {
             silent: false
           }).stdout;
           shell.cd("repoFolder");
-          removeHistory = true;
         }
 
         shell.exec('git checkout ${2}', {
@@ -246,6 +242,7 @@ router.get('/', function(req, res) {
             shell.exec('git add .', {
               silent: false
             }).stdout;
+            //TODO: check if "client services" are enabled
             shell.exec('git commit -m "configuration of repository"', {
               silent: false
             }).stdout;
