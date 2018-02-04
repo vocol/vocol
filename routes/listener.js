@@ -24,7 +24,8 @@ router.post('/', function(req, res) {
         var otherBranchesParam = '#otherBranchesParam';
 
         try {
-          var data = JSON.parse(req.body.payload);
+        console.log(JSON.stringify(req.body));
+          var data = JSON.parse(JSON.stringify(req.body));
 
           console.log(data);
 
@@ -50,10 +51,17 @@ router.post('/', function(req, res) {
             branchName = data.push.changes[0].old.name;
             commitMessage = data.push.changes[0].new.target.message;
           } else {
-            repositoryName = repositoryNameParam;
+	    //data = req.body;
+            repositoryName = "https:\/\/ahemid@jira.iais.fraunhofer.de/stash/scm/~lhalilaj/vwsandbox.git";
+            repositoryName =  repositoryNameParam;
             branchName = data.refChanges[0].refId.split('/')[2];
             commitMessage = data.changesets.values[0].toCommit.message;
-          }
+            pusher =  data.changesets.values[0].toCommit.committer.name;
+            var commitTimeInMilliseconds  =  data.changesets.values[0].toCommit.authorTimestamp;
+	    var event = new Date(commitTimeInMilliseconds);
+            commitTimestamp = event.toJSON();
+            console.log("data are "+ branchName+" "+commitMessage+" "+pusher+"timestap"+commitTimeInMilliseconds+ " "+commitTimestamp);
+            }
 
           if (branchName == branchNameParam && repositoryNameParam === repositoryName && !commitMessage.includes("merge")) {
             console.log('contains');

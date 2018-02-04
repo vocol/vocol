@@ -26,7 +26,7 @@ router.post('/', function(req, res) {
               if (result) {
                 req.session.isAuthenticated = true;
                 req.session.username = obj.loginUserName;
-                res.redirect('/');
+                res.redirect('./');
               } else
                 res.render('login.ejs', {
                   title: 'login'

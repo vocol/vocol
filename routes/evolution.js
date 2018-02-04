@@ -3,6 +3,8 @@ var router = express.Router();
 var fs = require('fs');
 var escapeHtml = require('escape-html');
 var shell = require('shelljs');
+var session = require('express-session');
+
 
 /* GET users listing. */
 router.get('/', function(req, res) {
