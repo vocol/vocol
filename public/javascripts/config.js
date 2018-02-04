@@ -59,7 +59,7 @@ $('.ui.checkbox').checkbox();
   // reset button is clicked to reset the form
   $('#restBtn').on('click', function(event) {
     event.preventDefault();
-    location.reload("/config");
+    location.reload("./config");
   });
 
   var text = '<h3>Supporting human mobility by data mobility</h3>' +

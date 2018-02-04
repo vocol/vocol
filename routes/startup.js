@@ -246,6 +246,7 @@ router.get('/', function(req, res) {
             shell.exec('git add .', {
               silent: false
             }).stdout;
+            //TODO: check if "client services" are enabled
             shell.exec('git commit -m "configuration of repository"', {
               silent: false
             }).stdout;
