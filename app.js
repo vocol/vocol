@@ -61,6 +61,7 @@ var userConfigurationsFile = __dirname + '/jsonDataFiles/userConfigurations.json
 var repositoryURL = "";
 app.locals.projectTitle = "MobiVoc";
 app.locals.userConfigurations = Array(6).fill(true);
+
 function readUserConfigurationFile(callback) {
   if (fs.existsSync(userConfigurationsFile)) {
     var data = fs.readFileSync(userConfigurationsFile);
@@ -94,7 +95,8 @@ function readUserConfigurationFile(callback) {
           }
         });
         app.locals.userConfigurations = menu;
-        callback(loginUserName);
+        if (loginUserName)
+          callback(loginUserName);
       });
     }
   }
@@ -103,7 +105,7 @@ function readUserConfigurationFile(callback) {
 function checkloginUserName4PrivateMode(userName) {
   if (userName) {
     app.locals.authRequired = true;
-  } else{
+  } else {
     app.locals.authRequired = false;
   }
 }
@@ -162,8 +164,8 @@ app.get(['\/\/analytics', '/analytics'], function(req, res) {
     });
   else
     res.render('analytics', {
-    title: 'Analytics'
-  });
+      title: 'Analytics'
+    });
 })
 
 app.get(['\/\/turtleEditor', '/turtleEditor'], function(req, res) {
@@ -172,9 +174,9 @@ app.get(['\/\/turtleEditor', '/turtleEditor'], function(req, res) {
       title: 'login'
     });
   else
-  res.render('turtleEditor', {
-    title: 'Editing'
-  });
+    res.render('turtleEditor', {
+      title: 'Editing'
+    });
 })
 
 app.get(['\/\/visualization', '/visualization'], function(req, res) {
@@ -183,9 +185,9 @@ app.get(['\/\/visualization', '/visualization'], function(req, res) {
       title: 'login'
     });
   else
-  res.render('visualization', {
-    title: 'Visualization'
-  });
+    res.render('visualization', {
+      title: 'Visualization'
+    });
 })
 
 app.get(['\/\/querying', '/querying'], function(req, res) {
@@ -194,9 +196,9 @@ app.get(['\/\/querying', '/querying'], function(req, res) {
       title: 'login'
     });
   else
-  res.render('querying.ejs', {
-    title: 'Querying'
-  });
+    res.render('querying.ejs', {
+      title: 'Querying'
+    });
 });
 
 

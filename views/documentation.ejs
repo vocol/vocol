@@ -410,7 +410,7 @@
                   success: function(data, textStatus, jqXHR) {
                     var instances = data.results.bindings;
                     if (instances[0] != null) {
-                      var instancesTable = '<table class="ui pink table" >' +
+                      var instancesTable = '<table class="ui pink table" style="table-layout:fixed;>' +
                         '<colgroup> <col class="col-md-4"> </colgroup>' +
                         '<tr>' +
                         '<th>Instances</th>' +
@@ -430,7 +430,7 @@
                       $("#instanceDetailsTable").hide();
                     }
                     if (instances[0] != null) {
-                      var instancesTable = '<table class="ui red table" >' +
+                      var instancesTable = '<table class="ui red table" style="table-layout:fixed;>' +
                         '<colgroup> <col class="col-md-4"> </colgroup>' +
                         '<tr>' +
                         '<th>Instances</th>' +
@@ -989,7 +989,7 @@
                 success: function(data, textStatus, jqXHR) {
                   var instances = data.results.bindings;
                   if (instances[0] != null) {
-                    var instancesDetailsTable = '<table class="ui blue celled table" >' +
+                    var instancesDetailsTable = '<table class="ui blue celled table" style="table-layout:fixed;>' +
                       '<thead><tr class="info">' +
                       '<th>Predicate</th>' +
                       '<th>Object</th>' +
@@ -1002,13 +1002,15 @@
                       var key4 = instances[i]['o']['type'];
 
                       //check if object is uri end with "/"
-                      if (key2.includes("http://")) {
+                      if ((key2.includes("http://") || key2.includes("https://")) && key4 === "literal") {
                         if (key2[key2.length - 1] === ('/'))
                           key2 = key2.slice(0, -1);
                         key2 = '<a href=' + key2 + '>' + key2 + '</a>';
+                        key1 = trimHash(replaceWithRDFType(trimSlash(instances[i]['p'].value)));
+                      } else {
+                        key1 = trimHash(replaceWithRDFType(trimSlash(instances[i]['p'].value)));
+                        key2 = trimHash(replaceWithRDFType(trimSlash(instances[i]['o'].value)));
                       }
-                      key1 = trimHash(replaceWithRDFType(trimSlash(instances[i]['p'].value)));
-                      key2 = trimHash(replaceWithRDFType(trimSlash(instances[i]['o'].value)));
 
                       if (key1.includes("broader") || key1.includes("narrower")) {
                         key2 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key2URI + '&quot;,&quot;SKOS&quot;); return false; ">' + key2 + '</a>';
@@ -1022,9 +1024,8 @@
                       if (isConceptInside(key2) && !key1.includes("label") && key4 === "uri") {
                         key2 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
                       }
-                      if (key1.includes("label")) {
-                        if (key3)
-                          key2 = key2 + '@' + key3;
+                      if (key3 && key4 === "literal") {
+                        key2 = key2 + '@' + key3;
                       }
                       instancesDetailsTable += '<tr><td>' + key1 + '</td>    <td>' + key2 + '</td>  </tr>';
                     }
@@ -1067,7 +1068,7 @@
                     success: function(data, textStatus, jqXHR) {
                       var instances = data.results.bindings;
                       if (instances[0] != null) {
-                        var instancesTable = '<table class="ui red table" >' +
+                        var instancesTable = '<table class="ui red table" style="table-layout:fixed;>' +
                           '<colgroup> <col class="col-md-4"> </colgroup>' +
                           '<tr>' +
                           '<th>Instances</th>' +
@@ -1168,9 +1169,12 @@
                 showTurtleSource(currentSelectedConcept);
               }
             });
-            var propertyResult = null;
 
+            //check if concept used either as domain or range by other conceptsget
             function getValuesUseditAsProperty(conceptURI, type) {
+              // make both rangePropertyTable and domainPropertyTable  empty
+              $("#rangePropertyTable").html("");
+              $("#domainPropertyTable").html("");
               if (type === "range") {
                 var propertyType = "rdfs:range";
               } else {
@@ -1193,11 +1197,74 @@
                 success: function(data, textStatus, jqXHR) {
                   var result = data.results.bindings;
                   if (result[0] != null) {
-                    propertyResult = result;
+
+                    var rangePropertyTable = '<table class="ui yellow celled table" style="table-layout:fixed;" >' +
+                      '<thead>' +
+                      '<colgroup> <col class="col-md-2"><col class="col-md-2"><col class="col-md-2"> </colgroup>' +
+                      '<tr>' +
+                      '<th colspan="3">Terms use it as range</th></thead>' +
+                      '<tbody></tr><tr><th>Property</th><th>On Types</th><th>Description</th></tr>';
+
+                    var domainPropertyTable = '<table class="ui brown celled striped table"style="table-layout:fixed;" >' +
+                      '<thead>' +
+                      '<colgroup> <col class="col-md-2"><col class="col-md-2"><col class="col-md-2"> </colgroup>' +
+                      '<tr>' +
+                      '<th colspan="3">Terms use it as domain</th></thead>' +
+                      '<tbody></tr><tr><th>Property</th><th>Expected Type</th><th>Description</th></tr>';
+                    if (type === 'domain') {
+                      var domianPropertyResult = result;
+                      var hasdomainPropertyValues = false;
+                      if (domianPropertyResult) {
+                        hasdomainPropertyValues = true;
+                        for (var i = 0; i < domianPropertyResult.length; i++) {
+                          var key1 = trimHash(replaceWithRDFType(trimSlash(domianPropertyResult[i]['s'].value)));
+                          var key2 = trimHash(replaceWithRDFType(trimSlash(domianPropertyResult[i]['range'].value)));
+                          var key3 = domianPropertyResult[i]['comment'].value;
+                          if (isConceptInside(key1) && domianPropertyResult[i]['s'].type === "uri")
+                            key1 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key1 + '&quot;); return false; ">' + key1 + '</a>';
+                          if (isConceptInside(key2) && domianPropertyResult[i]['range'].type === "uri")
+                            key2 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
+
+                          domainPropertyTable += '<tr><td>' + key1 + '</td>    <td>' + key2 + '</td>   <td>' + key3 + '</td> </tr>';
+                        }
+                      }
+                    } else if (type === 'range') {
+                      var rangePropertyResult = result;
+                      var hasRangePropertyValues = false;
+                      if (rangePropertyResult) {
+                        hasRangePropertyValues = true;
+                        for (var i = 0; i < rangePropertyResult.length; i++) {
+                          var key1 = trimHash(replaceWithRDFType(trimSlash(rangePropertyResult[i]['s'].value)));
+                          var key2 = trimHash(replaceWithRDFType(trimSlash(rangePropertyResult[i]['range'].value)));
+                          var key3 = rangePropertyResult[i]['comment'].value;
+                          if (isConceptInside(key1) && rangePropertyResult[i]['s'].type === "uri")
+                            key1 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key1 + '&quot;); return false; ">' + key1 + '</a>';
+                          if (isConceptInside(key2) && rangePropertyResult[i]['range'].type === "uri")
+                            key2 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
+
+                          rangePropertyTable += '<tr><td>' + key1 + '</td>    <td>' + key2 + '</td>   <td>' + key3 + '</td> </tr>';
+                        }
+                      }
+                    }
+                    domainPropertyTable += '</tbody></table> ';
+                    rangePropertyTable += '</tbody></table> ';
+                    // show domainPropertyTable if it has Values
+                    if (hasdomainPropertyValues)
+                      $("#domainPropertyTable").show();
+                    else
+                      $("#domainPropertyTable").hide();
+                    // show rangePropertyTable if it has Values
+                    if (hasRangePropertyValues)
+                      $("#rangePropertyTable").show();
+                    else
+                      $("#rangePropertyTable").hide();
+                    // assign HTML to DOM components
+                    $("#rangePropertyTable").html(rangePropertyTable);
+                    $("#domainPropertyTable").html(domainPropertyTable);
                   }
                 }
               });
-            }
+            };
 
             // to query sparql endpoint return graph and queryResult
             function getConceptInfo(item, view, anotherQuery) {
@@ -1317,15 +1384,20 @@
                   var key1 = trimHash(replaceWithRDFType(trimSlash(dataSPARQL[i]['p'].value)));
                   var key2 = dataSPARQL[i]['o'].value;
                   var key2URI = key2;
-                  //check if object is uri
-                  if (key2.includes("http://") && key1.includes("seeAlso")) {
+                  var key3 = dataSPARQL[i]['o']['xml:lang'];
+                  var key4 = dataSPARQL[i]['o']['type'];
+
+                  if ((key2.includes("http://") || key2.includes("https://")) && key4 === "literal") {
                     if (key2[key2.length - 1] === ('/'))
                       key2 = key2.slice(0, -1);
                     key2 = '<a href=' + key2 + '>' + key2 + '</a>';
-                  } else
+                  } else {
+                    if (key2[key2.length - 1] === ('/'))
+                      key2 = key2.slice(0, -1);
                     key2 = trimHash(replaceWithRDFType(trimSlash(key2)));
-                  var key3 = dataSPARQL[i]['o']['xml:lang'];
-                  var key4 = dataSPARQL[i]['o']['type'];
+
+                  }
+
                   if (key1.includes("domain")) {
                     conceptHasDomain = key1;
                     if (isConceptInside(key2) && key4 === "uri")
@@ -1353,9 +1425,8 @@
                     if (isConceptInside(key2) && !key1.includes("label") && key4 === "uri") {
                       key2 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
                     }
-                    if (key1.includes("label")) {
-                      if (key3)
-                        key2 = key2 + '@' + key3;
+                    if (key3 && key4 === "literal") {
+                      key2 = key2 + '@' + key3;
                     }
                     table += '<tr><td>' + key1 + '</td>    <td>' + key2 + '</td>  </tr>';
                   }
@@ -1370,58 +1441,11 @@
                     if (o.concept === currentSelectedConcept)
                       return o;
                   }).URI;
-
-                  var rangePropertyTable = '<table class="ui yellow celled table" style="table-layout:fixed;" >' +
-                    '<thead>' +
-                    '<colgroup> <col class="col-md-2"><col class="col-md-2"><col class="col-md-2"> </colgroup>' +
-                    '<tr>' +
-                    '<th colspan="3">Terms use it as range</th></thead>' +
-                    '<tbody></tr><tr><th>Property</th><th>On Types</th><th>Description</th></tr>';
-
-                  var domainPropertyTable = '<table class="ui brown celled striped table"style="table-layout:fixed;" >' +
-                    '<thead>' +
-                    '<colgroup> <col class="col-md-2"><col class="col-md-2"><col class="col-md-2"> </colgroup>' +
-                    '<tr>' +
-                    '<th colspan="3">Terms use it as domain</th></thead>' +
-                    '<tbody></tr><tr><th>Property</th><th>Expected Type</th><th>Description</th></tr>';
-
-                  var hasdomainPropertyValues = false;
+                  // check if other concepts use this word as domain
                   getValuesUseditAsProperty(conceptURI, 'domain');
-                  var domianPropertyResult = propertyResult;
-                  if (domianPropertyResult) {
-                    hasdomainPropertyValues = true;
-                    for (var i = 0; i < domianPropertyResult.length; i++) {
-                      var key1 = trimHash(replaceWithRDFType(trimSlash(domianPropertyResult[i]['s'].value)));
-                      var key2 = trimHash(replaceWithRDFType(trimSlash(domianPropertyResult[i]['range'].value)));
-                      var key3 = domianPropertyResult[i]['comment'].value;
-                      if (isConceptInside(key1) && domianPropertyResult[i]['s'].type === "uri")
-                        key1 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key1 + '&quot;); return false; ">' + key1 + '</a>';
-                      if (isConceptInside(key2) && domianPropertyResult[i]['range'].type === "uri")
-                        key2 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
-
-                      domainPropertyTable += '<tr><td>' + key1 + '</td>    <td>' + key2 + '</td>   <td>' + key3 + '</td> </tr>';
-                    }
-                  }
-                  var hasRangePropertyValues = false;
+                  // check if other concepts use this word as range
                   getValuesUseditAsProperty(conceptURI, 'range');
-                  var rangePropertyResult = propertyResult;
-                  if (rangePropertyResult) {
-                    hasRangePropertyValues = true;
-                    for (var i = 0; i < rangePropertyResult.length; i++) {
-                      var key1 = trimHash(replaceWithRDFType(trimSlash(rangePropertyResult[i]['s'].value)));
-                      var key2 = trimHash(replaceWithRDFType(trimSlash(rangePropertyResult[i]['range'].value)));
-                      var key3 = rangePropertyResult[i]['comment'].value;
-                      if (isConceptInside(key1) && rangePropertyResult[i]['s'].type === "uri")
-                        key1 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key1 + '&quot;); return false; ">' + key1 + '</a>';
-                      if (isConceptInside(key2) && rangePropertyResult[i]['range'].type === "uri")
-                        key2 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
-
-                      rangePropertyTable += '<tr><td>' + key1 + '</td>    <td>' + key2 + '</td>   <td>' + key3 + '</td> </tr>';
-                    }
-                  }
-
-                  domainPropertyTable += '</tbody></table> ';
-                  rangePropertyTable += '</tbody></table> ';
+                  // close HTML tables with thier tags
                   table += '</table> ';
                   domainTable += '</table> ';
                   rangeTable += '</table> ';
@@ -1451,21 +1475,10 @@
                 else {
                   $("#rangeTable").hide();
                 }
-                if (hasdomainPropertyValues)
-                  $("#domainPropertyTable").show();
-                else
-                  $("#domainPropertyTable").hide();
-
-                if (hasRangePropertyValues)
-                  $("#rangePropertyTable").show();
-                else
-                  $("#rangePropertyTable").hide();
 
                 $("#detailTable").html(table);
                 $("#domainTable").html(domainTable);
                 $("#rangeTable").html(rangeTable);
-                $("#rangePropertyTable").html(rangePropertyTable);
-                $("#domainPropertyTable").html(domainPropertyTable);
                 $("#sourceCodeTab").show();
                 // To render the graph id the graphTab if a concept node is selected
                 showConceptGraph(json);

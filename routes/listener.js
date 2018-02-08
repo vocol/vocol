@@ -24,10 +24,6 @@ router.post('/', function(req, res) {
         var otherBranchesParam = '#otherBranchesParam';
 
         try {
-        console.log(JSON.stringify(req.body));
-          var data = JSON.parse(JSON.stringify(req.body));
-
-          console.log(data);
 
           var repositoryName = "";
           var branchName = "";
@@ -36,6 +32,7 @@ router.post('/', function(req, res) {
           var pusher = "";
 
           if (repositoryService === 'gitHub') {
+            var data = JSON.parse(req.body.payload);
             repositoryName = data.repository.name;
             branchName = data.ref.split('/')[2];
             commitMessage = data.head_commit.message;
@@ -43,22 +40,24 @@ router.post('/', function(req, res) {
             pusher = data.pusher.name;
 
           } else if (repositoryService === 'gitLab') {
+            var data = JSON.parse(req.body.payload);
             repositoryName = data.repository.homepage;
             branchName = data.ref;
             commitMessage = data.commits[0].message;
           } else if (repositoryService === 'bitBucket') {
+            var data = JSON.parse(req.body.payload);
             repositoryName = data.repository.links.html.href;
             branchName = data.push.changes[0].old.name;
             commitMessage = data.push.changes[0].new.target.message;
           } else {
-	    //data = req.body;
+            var data = JSON.parse(JSON.stringify(req.body));
             repositoryName = "https:\/\/ahemid@jira.iais.fraunhofer.de/stash/scm/~lhalilaj/vwsandbox.git";
             repositoryName =  repositoryNameParam;
             branchName = data.refChanges[0].refId.split('/')[2];
             commitMessage = data.changesets.values[0].toCommit.message;
             pusher =  data.changesets.values[0].toCommit.committer.name;
             var commitTimeInMilliseconds  =  data.changesets.values[0].toCommit.authorTimestamp;
-	    var event = new Date(commitTimeInMilliseconds);
+	          var event = new Date(commitTimeInMilliseconds);
             commitTimestamp = event.toJSON();
             console.log("data are "+ branchName+" "+commitMessage+" "+pusher+"timestap"+commitTimeInMilliseconds+ " "+commitTimestamp);
             }

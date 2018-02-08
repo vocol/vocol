@@ -1,8 +1,0 @@
-@prefix mv: <http://purl.org/net/mobivoc/> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-
-mv:ChargeColumn
-        rdfs:label "Ladesäule"@de ,
-                   "Charge column"@en,  
-                   "Station de recharge"@fr .
-

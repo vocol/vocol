@@ -11,7 +11,6 @@ var session = require('express-session');
 
 
 router.post('/', function(req, res) {
-  console.log(req.body);
   var path = "jsonDataFiles/userConfigurations.json";
   fs.exists(path, function(exists) {
     if (exists) {
@@ -22,13 +21,12 @@ router.post('/', function(req, res) {
             console.log(err); 
           if (obj.loginUserName) {
             bcrypt.compare(req.body.password, obj.loginPassword, function(err, result) {
-              console.log(result);
               if (result) {
                 req.session.isAuthenticated = true;
                 req.session.username = obj.loginUserName;
                 res.redirect('./');
               } else
-                res.render('login.ejs', {
+                res.render('login', {
                   title: 'login'
                 });
             });
@@ -41,7 +39,7 @@ router.post('/', function(req, res) {
 
 
 router.get('/', function(req, res) {
-  res.render('login.ejs', {
+  res.render('login', {
     title: 'login'
   });
 });

@@ -12,8 +12,7 @@ $('.ui.form')
           prompt: 'You must give the vocabulary name'
 
         }]
-      },
-      repository: {
+      },repository: {
         identifier: 'repository',
         rules: [{
           type: 'empty',
@@ -25,6 +24,20 @@ $('.ui.form')
         rules: [{
           type: 'empty',
           prompt: 'The server URL is missing'
+        }]
+      },
+      adminUsername: {
+        identifier: 'adminUsername',
+        rules: [{
+          type: 'empty',
+          prompt: 'You must give an admin username'
+        }]
+      },
+      adminPass: {
+        identifier: 'adminPass',
+        rules: [{
+          type: 'empty',
+          prompt: 'You must give an admin password'
         }]
       },
       branchName: {
@@ -65,8 +78,6 @@ $('#restBtn').on('click', function(event) {
 CKEDITOR.replace( 'editor', {
     extraPlugins : 'confighelper'
  });
-
-$('#text').val(text);
 CKEDITOR.instances['editor'].on('change', function() {
   $('#text').val(CKEDITOR.instances.editor.getData());
 });

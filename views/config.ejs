@@ -58,6 +58,30 @@
                   </div>
                 </div>
               </div>
+              <div class="field" style="margin-bottom:5px">
+
+                <div class="ui labeled input">
+                  <a class="ui left label" style="width: 150px;">
+          Admin Username
+        </a>
+                  <input type="text" id="adminUsername" name="adminUsername" placeholder="Enter an admin username for this instance"  />
+                  <div class="ui corner label">
+                    <i class="asterisk icon"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="field" style="margin-bottom:5px">
+
+                <div class="ui labeled input">
+                  <a class="ui left label" style="width: 150px;">
+          Admin Password
+        </a>
+                  <input type="password" id="adminPass" name="adminPass" placeholder="Enter an admin password for this instance"  />
+                  <div class="ui corner label">
+                    <i class="asterisk icon"></i>
+                  </div>
+                </div>
+              </div>
             </div>
             <div id="repositoryInfoTitle" class="title">
               <i class="dropdown icon"></i> Repository Info
@@ -203,13 +227,13 @@ Repository Type         </a>
 
               <div class="field">
                 <div class="ui checkbox">
-                  <input type="checkbox" name="clientHooks">
+                  <input type="checkbox" name="clientHooks" value="true">
                   <label>Client Side Hooks</label>
                 </div>
               </div>
               <div class="field">
                 <div class="ui checkbox">
-                  <input type="checkbox" name="turtleEditor">
+                  <input type="checkbox" name="turtleEditor" value="true">
                   <label>Turtle Editor</label>
                 </div>
               </div>
@@ -250,9 +274,6 @@ Repository Type         </a>
            Username
         </a>
                   <input type="text" id="loginUserName" name="loginUserName" placeholder="Enter your login username" />
-                  <div class="ui corner label">
-                    <i class="asterisk icon"></i>
-                  </div>
                 </div>
               </div>
               <div class="field" style="margin-bottom:5px">
@@ -261,9 +282,6 @@ Repository Type         </a>
            Password
         </a>
                   <input type="password" id="loginPassword" name="loginPassword" placeholder="Enter your login password" />
-                  <div class="ui corner label">
-                    <i class="asterisk icon"></i>
-                  </div>
                 </div>
               </div>
             </div>
@@ -287,7 +305,7 @@ Repository Type         </a>
         </ul>
         <div class="tab-content">
           <div role="tabpanel" class="tab-pane active" id="homepage">
-            <textarea id="editor" placeholder="This is text will be the homeage of your VoCol.<br/> Try to include some describtion about your app. <br/> You are free to incldue images , hyperlinks, other HTML components. <br/> Moreover, feel free to paste your html text using the 'Source' button in the above toolbar :) " name="editor" onchange="submition();" style="overflow:auto; width:540px;height:382px">
+            <textarea id="editor" placeholder="Please, provide a description of your ontology or vocabulary to be shown in the VoCol's homepage.<br/> You can include images, hyperlinks, etc. <br/> Moreover, you can as well paste your HTML code using the 'Source' button in the toolbar above." name="editor" onchange="submition();" style="overflow:auto; width:540px;height:382px">
             </textarea>
           </div>
         </div>

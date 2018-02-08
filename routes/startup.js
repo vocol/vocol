@@ -166,6 +166,8 @@ router.get('/', function(req, res) {
           var contents = fs.readFileSync(filePath, 'utf8');
           contents = contents.replace(/(owner\.val\(")(.*?)"/mg, "owner.val(\"" + obj.repositoryOwner + "\"");
           contents = contents.replace(/(repo\.val\(")(.*?)"/mg, "repo.val(\"" + obj.repositoryName + "\"");
+          console.log(contents);
+          console.log("inside turtleEditor");
           // write back to the file with the filePath
           fs.writeFileSync(filePath, contents);
         }
