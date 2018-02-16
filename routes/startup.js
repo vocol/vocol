@@ -48,7 +48,7 @@ router.get('/', function(req, res) {
           // check if the localRepository same same entered config
           if (localRepository === obj.repositoryURL || localRepository === 'https://' + obj.user + ':' + obj.password + '@' + obj.repositoryURL.slice(8)) {
             console.log('ready to pull');
-            shell.exec('git checkout master', {
+            shell.exec('git checkout ' + obj.branchName, {
               silent: false
             }).stdout;
             shell.exec('git reset --hard', {
@@ -75,7 +75,7 @@ router.get('/', function(req, res) {
           shell.cd("repoFolder");
         }
 
-        shell.exec('git checkout ${2}', {
+        shell.exec('git checkout ' + obj.branchName, {
           silent: false
         }).stdout;
         shell.exec('git reset --hard', {
@@ -162,13 +162,13 @@ router.get('/', function(req, res) {
           }).stdout;
           // filePath where we read from
           var filePath = '../vocol/views/turtleEditor/js/turtle-editor.js';
-          // read contents of the file with the filePath
+          // read contents of the file with the filePathgetTree
           var contents = fs.readFileSync(filePath, 'utf8');
           contents = contents.replace(/(owner\.val\(")(.*?)"/mg, "owner.val(\"" + obj.repositoryOwner + "\"");
           contents = contents.replace(/(repo\.val\(")(.*?)"/mg, "repo.val(\"" + obj.repositoryName + "\"");
-          console.log(contents);
-          console.log("inside turtleEditor");
-          // write back to the file with the filePath
+          contents = contents.replace(/(branch\.val\(")(.*?)"/mg, "branch.val(\"" + obj.branchName + "\"");  
+          contents = contents.replace(/(getTree\(")(.*?)"/mg, "getTree(\"" + obj.branchName + "\"");
+            // write back to the file with the filePath
           fs.writeFileSync(filePath, contents);
         }
 

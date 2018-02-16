@@ -19,15 +19,12 @@ router.post('/', function(req, res) {
         jsonfile.readFile(path, function(err, obj)  {
           if (err)
             console.log(err); 
-
-          console.log(req); 
+          // check if user exists then do authentication else redirect back to same login page
           if (obj.adminUserName) {
             bcrypt.compare(req.body.password, obj.adminPass, function(err, result) {
               if (result) {
-                console.log("result"+result);
-                res.render('config', {
-                  title: 'Configuration Page'
-                });              } else
+                res.redirect('./config?valid=true');
+              } else
                 res.render('adminLogin', {
                   title: 'login'
                 });

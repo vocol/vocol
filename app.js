@@ -14,6 +14,7 @@ var login = require('./routes/login');
 var adminLogin = require('./routes/adminLogin');
 var referenceRoutes = require('./routes/referenceRoutes');
 var listener = require('./routes/listener');
+var config = require('./routes/config');
 var fs = require('fs');
 var  jsonfile  =  require('jsonfile');
 var app = express();
@@ -23,9 +24,7 @@ var router = express.Router();
 var  proxy  =  require('express-http-proxy');
 var shell = require('shelljs');
 var session = require('express-session');
-// this for creating hash for password
-var bcrypt = require('bcrypt');
-const saltRounds = 10;
+var escapeHtml = require('escape-html');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -39,11 +38,11 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 // no caching
-app.use(function (req, res, next) {
-    res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
-    res.header('Expires', '-1');
-    res.header('Pragma', 'no-cache');
-    next()
+app.use(function(req, res, next) {
+  res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+  res.header('Expires', '-1');
+  res.header('Pragma', 'no-cache');
+  next()
 });
 
 
@@ -60,9 +59,7 @@ function readSyntaxErrorsFile() {
     }
   }
 }
-// call at the first time
 readSyntaxErrorsFile();
-
 // check if the userConfigurations file is exist
 // for the first time of app running
 var userConfigurationsFile = __dirname + '/jsonDataFiles/userConfigurations.json';
@@ -86,6 +83,7 @@ function readUserConfigurationFile() {
             // store repositoryURL to be checked if it was uploaded
             // for first time or was changed to another repository
             repositoryURL = obj[k];
+            app.locals.repositoryURL = obj[k];
           } else if (k === "turtleEditor") { //menu[0]
             menu[0] = true;
             // do more stuff
@@ -99,9 +97,9 @@ function readUserConfigurationFile() {
             menu[4] = true;
           } else if (k === "analytics") { //menu[5]
             menu[5] = true;
-          } else if (k === "loginUserName") { //menu[5]
+          } else if (k === "loginUserName") {
             loginUserName = obj[k];
-          } else if (k === "adminUserName") { //menu[5]
+          } else if (k === "adminUserName") {
             adminAccount = obj[k];
           }
         });
@@ -120,9 +118,8 @@ function readUserConfigurationFile() {
     }
   }
 }
-
-// call at the first time
 readUserConfigurationFile();
+
 
 // check if the user has an error and this was for first time or
 // when user has changed to another repositoryURL
@@ -147,9 +144,7 @@ app.use(session({
 
 app.get('*', function(req, res, next) {
   if (!req.app.locals.isExistAdminAccount)
-    res.render('config', {
-      title: 'Configuration Page'
-    });
+    res.redirect('./config');
   else {
     next();
   }
@@ -168,6 +163,7 @@ app.use(['\/\/client', '/client'], client);
 app.use(['\/\/listener', '/listener'], listener);
 app.use(['\/\/login', '/login'], login);
 app.use(['\/\/adminLogin', '/adminLogin'], adminLogin);
+app.use(['\/\/config', '/config'], config);
 
 
 app.use(['\/\/fuseki/', '/fuseki/'],  proxy('localhost:3030/',   {  
@@ -221,56 +217,6 @@ app.get(['\/\/querying', '/querying'], function(req, res) {
     res.render('querying', {
       title: 'Querying'
     });
-});
-
-
-app.get(['\/\/config', '/config'], function(req, res) {
-  if (req.app.locals.isExistAdminAccount)
-    res.render('adminLogin', {
-      title: 'login'
-    });
-  else
-    res.render('config', {
-      title: 'Configuration Page'
-    });
-});
-
-// http post when  a user configurations is submitted
-app.post(['\/\/config', '/config'], function(req, res) {
-var filepath = __dirname + '/jsonDataFiles/userConfigurations.json';
-// Read the userConfigurations file if exsit to append new data
-jsonfile.readFile(filepath, function(err, obj)  {
-  if (err)
-    console.log(err);  
-  var userData = req.body;
-  bcrypt.genSalt(saltRounds, function(err, salt) {
-    bcrypt.hash(userData.loginPassword, salt, function(err, hash) {
-      // Store hash in your password DB.
-      userData.loginPassword = hash;
-      jsonfile.writeFile(filepath, userData, {
-        spaces:  2,
-         EOL:   '\r\n'
-      },  function(err)  {  
-        if (err)
-          throw err;
-      })
-    });
-    bcrypt.hash(userData.adminPass, salt, function(err, hash) {
-      // Store hash in your password DB.
-      userData.adminPass = hash;
-      jsonfile.writeFile(filepath, userData, {
-        spaces:  2,
-         EOL:   '\r\n'
-      },  function(err)  {  
-        if (err)
-          throw err;
-      })
-    });
-  });
-});
-res.render('userConfigurationsUpdated', {
-title: 'Preparation'
-});
 });
 
 app.get(['\/\/checkErrors', '/checkErrors'], function(req, res, next) {
