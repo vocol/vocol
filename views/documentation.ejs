@@ -1173,8 +1173,8 @@
             //check if concept used either as domain or range by other conceptsget
             function getValuesUseditAsProperty(conceptURI, type) {
               // make both rangePropertyTable and domainPropertyTable  empty
-              $("#rangePropertyTable").hide();
-              $("#domainPropertyTable").hide();
+              $("#rangePropertyTable").html("");
+              $("#domainPropertyTable").html("");
               if (type === "range") {
                 var propertyType = "rdfs:range";
               } else {
@@ -1196,10 +1196,8 @@
                 },
                 success: function(data, textStatus, jqXHR) {
                   var result = data.results.bindings;
-                  var hasdomainPropertyValues = false;
-                  var hasRangePropertyValues = false;
-
                   if (result[0] != null) {
+
                     var rangePropertyTable = '<table class="ui yellow celled table" style="table-layout:fixed;" >' +
                       '<thead>' +
                       '<colgroup> <col class="col-md-2"><col class="col-md-2"><col class="col-md-2"> </colgroup>' +
@@ -1215,6 +1213,7 @@
                       '<tbody></tr><tr><th>Property</th><th>Expected Type</th><th>Description</th></tr>';
                     if (type === 'domain') {
                       var domianPropertyResult = result;
+                      var hasdomainPropertyValues = false;
                       if (domianPropertyResult) {
                         hasdomainPropertyValues = true;
                         for (var i = 0; i < domianPropertyResult.length; i++) {
@@ -1231,6 +1230,7 @@
                       }
                     } else if (type === 'range') {
                       var rangePropertyResult = result;
+                      var hasRangePropertyValues = false;
                       if (rangePropertyResult) {
                         hasRangePropertyValues = true;
                         for (var i = 0; i < rangePropertyResult.length; i++) {
@@ -1249,19 +1249,18 @@
                     domainPropertyTable += '</tbody></table> ';
                     rangePropertyTable += '</tbody></table> ';
                     // show domainPropertyTable if it has Values
-                    if (hasdomainPropertyValues){
+                    if (hasdomainPropertyValues)
                       $("#domainPropertyTable").show();
-                      $("#domainPropertyTable").html(domainPropertyTable);
-                    }
                     else
                       $("#domainPropertyTable").hide();
                     // show rangePropertyTable if it has Values
-                    if (hasRangePropertyValues){
+                    if (hasRangePropertyValues)
                       $("#rangePropertyTable").show();
-                      $("#rangePropertyTable").html(rangePropertyTable);
-                    }
                     else
                       $("#rangePropertyTable").hide();
+                    // assign HTML to DOM components
+                    $("#rangePropertyTable").html(rangePropertyTable);
+                    $("#domainPropertyTable").html(domainPropertyTable);
                   }
                 }
               });

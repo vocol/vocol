@@ -7,5 +7,7 @@ if [ "$numofFiles" = "1" ]
 then
 ./fuseki-server --file=$filePath /dataset &
 else
-./fuseki-server --file=../serializations/SingleVoc.nt /dataset &
+./fuseki-server --file=../serializations/SingleVoc.ttl /dataset &
 fi
+
+

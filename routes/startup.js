@@ -94,17 +94,15 @@ router.get('/', function(req, res) {
         if (currentrepositoryURL != obj.repositoryURL) {
           // reset the app. if the repositoryURL was changed
           shell.exec('echo -n > ../vocol/helper/tools/evolution/evolutionReport.txt').stdout;
-          shell.exec('echo -n > ../vocol/helper/tools/serializations/SingleVoc.nt').stdout;
-          shell.exec('echo -n > ../vocol/helper/tools/rdf2rdf/temp.nt').stdout;
+          shell.exec('echo -n > ../vocol/helper/tools/serializations/SingleVoc.ttl').stdout;
           shell.exec('echo -n > ../vocol/jsonDataFiles/syntaxErrors.json').stdout;
           shell.exec('rm -f ../vocol/views/webvowl/data/SingleVoc.json').stdout;
           shell.exec('rm -f ../vocol/jsonDataFiles/RDFSConcepts.json').stdout;
           shell.exec('rm -f ../vocol/jsonDataFiles/SKOSConcepts.json').stdout;
           shell.exec('rm -f ../vocol/jsonDataFiles/SKOSObjects.json').stdout;
           shell.exec('rm -f ../vocol/jsonDataFiles/RDFSObjects.json').stdout;
-          shell.exec('rm -f ../vocol/jsonDataFiles/OWLIndividuals.json').stdout;
           shell.exec('rm -f ../vocol/helper/tools/serializations/SingleVoc.nt').stdout;
-          shell.exec('rm -f ../vocol/helper/tools/evolution/SingleVoc.nt').stdout;
+          shell.exec('rm -f ../vocol/helper/tools/evolution/SingleVoc.ttl').stdout;
           console.log("App's previous data was deleted");
         }
 
@@ -124,18 +122,10 @@ router.get('/', function(req, res) {
           var output = shell.exec('ttl ' + files[i] + '', {
             silent: true
           })
-          shell.cd('../vocol/helper/tools/rdf2rdf/').stdout;
-
           // converting file from turtle to ntriples format
-          shell.exec('java -jar rdf2rdf.jar ../../../../repoFolder' + files[i].substring(1) + ' temp.nt ', {
+          shell.exec('rapper -i turtle -o ntriples ' + files[i] + ' >> ../vocol/helper/tools/serializations/SingleVoc.nt', {
             silent: false
           }).stdout;
-          shell.exec('cat  temp.nt | tee -a  ../serializations/SingleVoc.nt', {
-            silent: false
-          }).stdout;
-
-          shell.cd('../../../../repoFolder/').stdout;
-
           // check if there are syntax errors of turtle format
           if (!output.stdout.includes("0 errors.")) {
             var errorObject = {
@@ -149,6 +139,7 @@ router.get('/', function(req, res) {
           }
         }
         // display syntax errors
+        console.log("Errors:\n" + JSON.stringify(errors));
         if (errors) {
           shell.cd('../vocol/helper/tools/VoColClient/').stdout;
           shell.exec('fuser -k 3030/tcp').stdout;
@@ -175,18 +166,23 @@ router.get('/', function(req, res) {
           var contents = fs.readFileSync(filePath, 'utf8');
           contents = contents.replace(/(owner\.val\(")(.*?)"/mg, "owner.val(\"" + obj.repositoryOwner + "\"");
           contents = contents.replace(/(repo\.val\(")(.*?)"/mg, "repo.val(\"" + obj.repositoryName + "\"");
-          contents = contents.replace(/(branch\.val\(")(.*?)"/mg, "branch.val(\"" + obj.branchName + "\"");
+          contents = contents.replace(/(branch\.val\(")(.*?)"/mg, "branch.val(\"" + obj.branchName + "\"");  
           contents = contents.replace(/(getTree\(")(.*?)"/mg, "getTree(\"" + obj.branchName + "\"");
-          // write back to the file with the filePath
+            // write back to the file with the filePath
           fs.writeFileSync(filePath, contents);
         }
-        // go to vocol root
+
+        //fs.writeFileSync(filePath, errors);
         shell.cd('../vocol/');
         shell.exec('pwd').stdout
 
 
         //if no syntax errors, then contiune otherwise stop
         if (pass) {
+          // converting back to turtle format
+          shell.exec('rapper -i ntriples  -o turtle ../vocol/helper/tools/serializations/SingleVoc.nt > ../vocol/helper/tools/serializations/SingleVoc.ttl', {
+            silent: false
+          }).stdout;
           // Kill fuseki if it is running
           shell.cd('-P', '../vocol/helper/tools/apache-jena-fuseki');
           shell.exec('fuser -k 3030/tcp', {
@@ -206,7 +202,7 @@ router.get('/', function(req, res) {
           if (obj.visualization === "true") {
             shell.exec('pwd');
             shell.cd('../owl2vowl/').stdout;
-            shell.exec('java -jar owl2vowl.jar -file ../serializations/SingleVoc.nt', {
+            shell.exec('java -jar owl2vowl.jar -file ../serializations/SingleVoc.ttl', {
               silent: false
             }).stdout;
             shell.mv('SingleVoc.json', '../../../views/webvowl/data/').stdout;
@@ -219,8 +215,8 @@ router.get('/', function(req, res) {
               silent: false
             }).stdout;
             shell.mkdir('../evolution').stdout;
-            shell.cp('../serializations/SingleVoc.nt', '../evolution/SingleVoc.nt').stdout;
-            console.log("SingleVoc.nt is copied to evolution");
+            shell.cp('../serializations/SingleVoc.ttl', '../evolution/SingleVoc.ttl').stdout;
+            console.log("SingleVoc.ttl is copied to evolution");
           }
 
           //TODO: just disable for testing perpose
