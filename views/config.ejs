@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>
-    Configuration Page
+    <%= title %>
   </title>
   <link rel="stylesheet" href="./javascripts/bower_components/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet" href="./javascripts/bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -16,6 +16,7 @@
   <script src="./javascripts/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="./semantic/dist/semantic.min.js"></script>
   <script src="./ckeditor/ckeditor.js"></script>
+
   <style>
     .ui.checkbox {
       padding-top: 1%;
@@ -30,7 +31,6 @@
     <div class="ui two column stackable grid">
       <div class="column">
         <form class="ui form" action="./config" method="post">
-          <!-- onsubmit="return validateFormOnSubmit(this)" -->
           <div class="ui styled accordion">
             <div id="generalInfoTitle" class="active title">
               <i class="dropdown icon"></i> General Info
@@ -41,7 +41,7 @@
                   <a class="ui left label" style="width: 150px;">
           Vocabulary Name
         </a>
-                  <input type="text" id="vocabularyName" name="vocabularyName" placeholder="e.g. Mobivoc"  />
+                  <input type="text" id="vocabularyName" name="vocabularyName" placeholder="e.g. Mobivoc" />
                   <div class="ui corner label">
                     <i class="asterisk icon"></i>
                   </div>
@@ -52,7 +52,31 @@
                   <a class="ui left label" style="width: 150px;">
           Hosting Server
         </a>
-                  <input type="text" id="server" name="server" placeholder="e.g. http://vocol.vagrantshare.com"  />
+                  <input type="text" id="server" name="server" placeholder="e.g. http://vocol.vagrantshare.com" />
+                  <div class="ui corner label">
+                    <i class="asterisk icon"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="field" style="margin-bottom:5px">
+
+                <div class="ui labeled input">
+                  <a class="ui left label" style="width: 150px;">
+          Admin Username
+        </a>
+                  <input type="text" id="adminUserName" name="adminUserName" placeholder="Enter an admin username for this instance" />
+                  <div class="ui corner label">
+                    <i class="asterisk icon"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="field" style="margin-bottom:5px">
+
+                <div class="ui labeled input">
+                  <a class="ui left label" style="width: 150px;">
+          Admin Password
+        </a>
+                  <input type="password" id="adminPass" name="adminPass" placeholder="Enter an admin password for this instance" />
                   <div class="ui corner label">
                     <i class="asterisk icon"></i>
                   </div>
@@ -68,7 +92,7 @@
                   <a class="ui label" style="width: 150px;">
           Repository URL
         </a>
-                  <input type="text" id="repositoryURL"  name="repositoryURL" placeholder="e.g. https://github.com/repositoryOwner/repositoryName.git"/>
+                  <input type="text" id="repositoryURL" name="repositoryURL" placeholder="e.g. https://github.com/repositoryOwner/repositoryName.git" />
                   <div class="ui corner label">
                     <i class="asterisk icon"></i>
                   </div>
@@ -96,7 +120,7 @@
                   <a class="ui label" style="width: 150px;">
           Branch Name
         </a>
-                  <input type="text" id="branchName" name="branchName" placeholder="e.g. master"/>
+                  <input type="text" id="branchName" name="branchName" placeholder="e.g. master" />
                   <div class="ui corner label">
                     <i class="asterisk icon"></i>
                   </div>
@@ -203,13 +227,13 @@ Repository Type         </a>
 
               <div class="field">
                 <div class="ui checkbox">
-                  <input type="checkbox" name="clientHooks">
+                  <input type="checkbox" name="clientHooks" value="true">
                   <label>Client Side Hooks</label>
                 </div>
               </div>
               <div class="field">
                 <div class="ui checkbox">
-                  <input type="checkbox" name="turtleEditor">
+                  <input type="checkbox" name="turtleEditor" value="true">
                   <label>Turtle Editor</label>
                 </div>
               </div>
@@ -242,17 +266,14 @@ Repository Type         </a>
             </div>
             <div id="privateAccessModeContent" class="content">
               <p>
-      Please create credentials to allow only a private access to the app instance
-    </p>
+                Please create credentials to allow only a private access to the app instance
+              </p>
               <div class="field" style="margin-bottom:5px">
                 <div class="ui labeled input">
                   <a class="ui label" style="width: 150px;">
            Username
         </a>
                   <input type="text" id="loginUserName" name="loginUserName" placeholder="Enter your login username" />
-                  <div class="ui corner label">
-                    <i class="asterisk icon"></i>
-                  </div>
                 </div>
               </div>
               <div class="field" style="margin-bottom:5px">
@@ -261,9 +282,6 @@ Repository Type         </a>
            Password
         </a>
                   <input type="password" id="loginPassword" name="loginPassword" placeholder="Enter your login password" />
-                  <div class="ui corner label">
-                    <i class="asterisk icon"></i>
-                  </div>
                 </div>
               </div>
             </div>
@@ -287,7 +305,8 @@ Repository Type         </a>
         </ul>
         <div class="tab-content">
           <div role="tabpanel" class="tab-pane active" id="homepage">
-            <textarea id="editor1" name="editor1" onchange="submition();" style="overflow:auto; width:540px;height:382px">
+            <textarea id="editor" placeholder="Please, provide a description of your ontology or vocabulary to be shown in the VoCol's homepage.<br/> You can include images, hyperlinks, etc. <br/> Moreover, you can as well paste your HTML code using the 'Source' button in the toolbar above."
+              name="editor" onchange="submition();" style="overflow:auto; width:540px;height:382px">
             </textarea>
           </div>
         </div>
@@ -297,7 +316,178 @@ Repository Type         </a>
 </body>
 
 </html>
-<script src="./javascripts/config.js"></script>
+<script>
+  $('.ui.checkbox').checkbox();
+  $('.ui.accordion').accordion();
+
+  // form validation
+  $('.ui.form')
+    .form({
+      fields: {
+        vocabularyName: {
+          identifier: 'vocabularyName',
+          rules: [{
+            type: 'empty',
+            prompt: 'You must give the vocabulary name'
+
+          }]
+        },
+        repository: {
+          identifier: 'repository',
+          rules: [{
+            type: 'empty',
+            prompt: 'You must fill the repository name'
+          }]
+        },
+        server: {
+          identifier: 'server',
+          rules: [{
+            type: 'empty',
+            prompt: 'The server URL is missing'
+          }]
+        },
+        adminUsername: {
+          identifier: 'adminUsername',
+          rules: [{
+            type: 'empty',
+            prompt: 'You must give an admin username'
+          }]
+        },
+        adminPass: {
+          identifier: 'adminPass',
+          rules: [{
+            type: 'empty',
+            prompt: 'You must give an admin password'
+          }]
+        },
+        branchName: {
+          identifier: 'branchName',
+          rules: [{
+            type: 'empty',
+            prompt: 'You must give the github branch name'
+          }]
+        },
+        username: {
+          identifier: 'username',
+          rules: [{
+            type: 'empty',
+            prompt: 'The user name is missing'
+          }]
+        },
+        password: {
+          identifier: 'password',
+          rules: [{
+              type: 'empty',
+              prompt: 'password cannot be empty'
+            },
+            {
+              type: 'minLength[6]',
+              prompt: 'Your password must be at least {ruleValue} characters'
+            }
+          ]
+        }
+      }
+    });
+
+  // reset button is clicked to reset the form
+  $('#restBtn').on('click', function(event) {
+    event.preventDefault();
+    location.reload("./config");
+  });
+
+  CKEDITOR.replace('editor', {
+    extraPlugins: 'confighelper'
+  });
+  CKEDITOR.instances['editor'].on('change', function() {
+    $('#text').val(CKEDITOR.instances.editor.getData());
+  });
+
+  var inputs = <%- JSON.stringify(inputComponentsValues) %>
+  console.log(inputs);
+  if (inputs) {
+    console.log(inputs);
+    $("#vocabularyName").val(inputs.vocabularyName);
+    $("#server").val(inputs.server);
+    $("#branchName").val(inputs.branchName);
+    $("#repositoryName").val(inputs.repositoryName);
+    $("#repositoryURL").val(inputs.repositoryURL);
+    $("#repositoryOwner").val(inputs.repositoryOwner);
+    $("#adminUserName").val(inputs.adminUserName);
+    $("#adminPass").val(inputs.adminPass);
+    if(inputs.loginUserName){
+      $("#loginUserName").val(inputs.loginUserName);
+      $("#loginPassword").val(inputs.loginPassword);
+    }
+
+    $("#user").val(inputs.user);
+    $("#password").val(inputs.password);
+    // set Editor text
+    var data = inputs.text;
+    CKEDITOR.instances.editor.setData(data)
+    if (inputs.turtleEditor)
+      $('[name=turtleEditor]')[0].checked = true;
+    else
+      $('[name=turtleEditor]')[0].checked = false;
+
+    if (inputs.sparqlEndPoint)
+      $('[name=sparqlEndPoint]')[0].checked = true;
+    else
+      $('[name=sparqlEndPoint]')[0].checked = false;
+
+    if (inputs.visualization)
+      $('[name=visualization]')[0].checked = true;
+    else
+      $('[name=visualization]')[0].checked = false;
+
+    if (inputs.documentationGeneration)
+      $('[name=documentationGeneration]')[0].checked = true;
+    else
+      $('[name=documentationGeneration]')[0].checked = false;
+
+    if (inputs.evolutionReport)
+      $('[name=evolutionReport]')[0].checked = true;
+    else
+      $('[name=evolutionReport]')[0].checked = false;
+
+    if (inputs.analytics)
+      $('[name=analytics]')[0].checked = true;
+    else
+      $('[name=analytics]')[0].checked = false;
+
+    if (inputs.clientHooks)
+      $('[name=clientHooks]')[0].checked = true;
+    else
+      $('[name=clientHooks]')[0].checked = false;
+
+    if (inputs.rdfxml)
+      $('[name=rdfxml]')[0].checked = true;
+    else
+      $('[name=rdfxml]')[0].checked = false;
+
+    if (inputs.ntriples)
+      $('[name=ntriples]')[0].checked = true;
+    else
+      $('[name=ntriples]')[0].checked = false
+
+    if (inputs.repositoryService === "gitHub")
+      $('input[name="repositoryService"]').filter("[value='gitHub']").attr('checked', true);
+    else if (inputs.repositoryService === "gitLab")
+      $('input[name="repositoryService"]').filter("[value='gitLab']").attr('checked', true);
+    else
+      $('input[name="repositoryService"]').filter("[value='bitBucket']").attr('checked', true);
+
+
+    if (inputs.repositoryType === "public")
+      $('input[name="repositoryType"]').filter("[value='public']").attr('checked', true);
+    else
+      $('input[name="repositoryType"]').filter("[value='private']").attr('checked', true);
+
+
+
+
+
+  }
+</script>
 </body>
 
 </html>

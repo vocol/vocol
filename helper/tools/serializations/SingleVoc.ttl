@@ -1,0 +1,4167 @@
+@prefix mv: <http://purl.org/net/mobivoc/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:	 		<http://www.w3.org/2002/07/owl#> .
+@prefix rdf:    		<http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:     		<http://www.w3.org/2001/XMLSchema#> .
+@prefix voaf:    		<http://purl.org/vocommons/voaf#>.
+@prefix dct:     		<http://purl.org/dc/terms/>.
+@prefix foaf:    		<http://xmlns.com/foaf/0.1/>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vCard:   <http://www.w3.org/2001/vcard-rdf/3.0#> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix gr: <http://purl.org/goodrelations/v1#>.
+@prefix s: <http://schema.org/>.
+@prefix schema: <http://schema.org/> .
+@prefix vcard:   <http://www.w3.org/2001/vcard-rdf/3.0#> .
+
+# VOCABULARY
+mv:
+	a owl:Ontology, voaf:Vocabulary ;
+        rdfs:label "Mobility Vocabulary"@en ;
+        rdfs:comment "Mobility Vocabulary (mv)" ;
+        dct:creator [ foaf:name "Natalja Friesen" ], [ foaf:name "Christoph Lange"; rdfs:seeAlso <http://purl.org/net/clange>; foaf:homepage <http://langec.wordpress.com/about/> ] ;
+        dct:modified "2014-08-31"^^xsd:date .
+
+
+
+
+
+mv:Country
+	a rdfs:Class , owl:Class ;
+	rdfs:comment "A country is a region identified as a distinct entity in political geography." ;
+	rdfs:isDefinedBy <https://en.wikipedia.org/wiki/Country> ;
+	rdfs:label "Country"@en , "Land"@de .
+
+#Properties
+
+mv:hasFuelTransportationRegulation
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Regulations existing in each country concerning the fuel transportation." ;
+	rdfs:label "Fuel transportation regulation"@en , "Gas Verkehr Regulierung" @de ;
+	rdfs:domain mv:Country ;
+	rdfs:range rdfs:Literal .
+
+mv:hasNumberOfFuelStations
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Represents the number of fuel stations in a specific country." ;
+	rdfs:label "Number of fuel stations"@en , "Tankstelle Menge" @de ;
+	rdfs:domain mv:Country ;
+	rdfs:range rdfs:integer .
+
+mv:hasNumberOfChargingStations
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Represents the number of charging stations in a specific country." ;
+	rdfs:label "Number of charging stations"@en , "Ladestation Menge" @de ;
+	rdfs:domain mv:Country ;
+	rdfs:range rdfs:integer .
+
+
+mv:Fuel
+	a rdfs:Class , owl:Class ;
+	rdfs:comment "Material to produce energy for motor vehicles." ;
+	rdfs:isDefinedBy <https://en.wikipedia.org/wiki/Liquid_fuel> ;
+	rdfs:label "Fuel"@en , "Kraftstoff"@de .
+
+mv:Adblue
+	rdfs:subClassOf mv:DieselFuel ;
+	rdfs:comment "An aqueous urea solution made with 32.5% high-purity urea (AUS 32) and 67.5% deionized water." ;
+	rdfs:isDefinedBy <https://en.wikipedia.org/wiki/Diesel_exhaust_fluid> ;
+	rdfs:label "Adblue"@en , "Adblue"@de ;
+	skos:altLabel "DEF" , "Diesel exhaust fluid"@en .
+
+mv:Autogas
+	rdfs:subClassOf mv:Fuel ;
+	rdfs:comment "Common name for liquefied petroleum gas (LPG) when it is used as a fuel in internal combustion engines in vehicles. It is a mixture of propane and butane." ;
+	rdfs:isDefinedBy <https://de.wikipedia.org/wiki/Autogas> ;
+	rdfs:label "Autogas"@en , "Autogas"@de ;
+	skos:altLabel "LPG" , "Liquified petroleum gas"@en .
+
+mv:Biodiesel
+	rdfs:subClassOf mv:DieselFuel ;
+	rdfs:comment "Liquid fuel used in standard diesel engines which consists of vegetable oil - or animal fat-based diesel fuel." ;
+	rdfs:isDefinedBy <https://en.wikipedia.org/wiki/Biodiesel> ;
+	rdfs:label "biodiesel fuel"@en , "Biodiesel"@de ;
+	skos:altLabel "Biodieselkraftstoff"@de ;
+	skos:hiddenLabel "Biodieselöl"@de .
+
+mv:CompressedNaturalGas
+	rdfs:subClassOf mv:Fuel ;
+	rdfs:comment "Methane stored at high pressure which is used in place of gasoline (petrol)." ;
+	rdfs:isDefinedBy <https://en.wikipedia.org/wiki/Compressed_natural_gas> ;
+	rdfs:label "CNG" , "Erdgas"@de ;
+	skos:altLabel "Compressed natural gas" .
+
+mv:DieselFuel
+	rdfs:subClassOf mv:Fuel ;
+	rdfs:comment "Liquid fuel used in diesel engines." ;
+	rdfs:isDefinedBy <https://en.wikipedia.org/wiki/Diesel_fuel> ;
+	rdfs:label "Diesel fuel"@en , "Diesel"@de ;
+	skos:altLabel "Dieselkraftstoff"@de ;
+	skos:hiddenLabel "Dieselöl"@de .
+
+mv:E85
+	rdfs:subClassOf mv:Fuel ;
+	rdfs:comment "That includes an ethanol fuel blend of 85% denatured ethanol fuel and 15% gasoline or other hydrocarbon by volume." ;
+	rdfs:isDefinedBy <https://en.wikipedia.org/wiki/E85> ;
+	rdfs:label "E85"@en , "E85"@de .
+
+mv:Ethanol
+	rdfs:subClassOf mv:Fuel ;
+	rdfs:comment "Liquid fuel used as motor fuel, made from biomass." ;
+	rdfs:isDefinedBy <https://en.wikipedia.org/?title=Ethanol> ;
+	rdfs:label "Ethanol fuel"@en , "Äthanol"@de .
+
+mv:ExcelliumDiesel
+	rdfs:subClassOf mv:DieselFuel ;
+	rdfs:comment "Liquid fuel used in diesel engines. Developed by Total high-tech diesel fuel.Compatible with all diesel vehicles.Particularly suitable for common-rail diesel engines of the latest generation." ;
+	rdfs:seeAlso <http://www.total.de/kraftstoffe/excellium/excellium-diesel.html> ;
+	rdfs:label "Excellium diesel"@en , "Excellium diesel"@de .
+
+mv:ExcelliumSuperPlus
+	rdfs:subClassOf mv:Fuel ;
+	rdfs:comment "Developed by Total sulfur-free high-tech fuel.Suitable for all petrol vehicles.Consists of unleaded gasoline, 98 octane, and a mixture of specific additives that have been developed by the Total research." ;
+	rdfs:seeAlso <http://www.total.de/kraftstoffe/excellium/excellium-super-plus.html> ;
+	rdfs:label "Excellium super plus"@en , "Excellium super plus"@de .
+
+mv:Hydrogen
+	rdfs:subClassOf mv:Fuel ;
+	rdfs:comment "Liquid or gas zero-emission fuel." ;
+	rdfs:isDefinedBy <https://en.wikipedia.org/wiki/Hydrogen_fuel> ;
+	rdfs:label "Hydrogen fuel"@en , "Wasserstoff"@de .
+
+mv:LiquidGas
+	rdfs:subClassOf mv:Fuel ;
+	rdfs:comment "Gas that has been turned into a liquid by cooling or compressing it." ;
+	rdfs:isDefinedBy <https://en.wikipedia.org/wiki/Liquefied_gas> ;
+	rdfs:label "LiquidGas fuel"@en , "Flüssiggas"@de .
+
+mv:LiquidPetroleumGas
+	rdfs:subClassOf mv:LiquidGas ;
+	rdfs:comment "Mixtures of hydrocarbon gases used as fuel for vehicles." ;
+	rdfs:isDefinedBy <https://en.wikipedia.org/wiki/Liquefied_petroleum_gas> ;
+	rdfs:label "LiquidPetroleumGas fuel"@en , "Petrol flüssigas"@de ;
+	skos:hiddenLabel "LPG"@en .
+
+mv:LKWDiesel
+	rdfs:subClassOf mv:DieselFuel ;
+	rdfs:comment "Liquid fuel used in diesel engines." ;
+	rdfs:label "LKW-Diesel"@en , "LKW-Diesel"@de .
+
+mv:MaxxMotionDiesel
+	rdfs:subClassOf mv:DieselFuel ;
+	rdfs:comment "Liquid fuel used in diesel engines." ;
+	rdfs:label "Maxx motion diesel"@en , "Maxx motion diesel"@de .
+
+mv:MaxxMotionSuper100
+	rdfs:subClassOf mv:Fuel;
+	rdfs:comment "Liquid fuel used in fuel engines." ;
+	rdfs:label "Maxx motion super 100"@en , "Maxx motion super 100"@de .
+
+mv:Methane
+	rdfs:subClassOf mv:Fuel ;
+	rdfs:comment "Methane stored at high pressure which is used in place of gasoline (petrol)." ;
+	rdfs:isDefinedBy <https://en.wikipedia.org/wiki/Methane> ;
+	rdfs:label "Compressed natural gas fuel"@en , "Erdgas"@de ;
+	skos:hiddenLabel "CNG"@en .
+
+mv:Petrol
+	rdfs:subClassOf mv:Fuel ;
+	rdfs:comment "Transparent, petroleum-derived liquid that is used primarily as a fuel in internal combustion engines." ;
+	rdfs:isDefinedBy <https://en.wikipedia.org/wiki/Petroleum> ;
+	rdfs:label "Petrol"@en , "Benzin"@de ;
+	skos:altLabel "Gasoline"@en-US, "Motorenbenzin"@de .
+
+mv:SuperE5
+	rdfs:subClassOf mv:Fuel ;
+	rdfs:comment "Liquid fuel used in diesel engines." ;
+	rdfs:isDefinedBy <https://en.wikipedia.org/wiki/Common_ethanol_fuel_mixtures> ;
+	rdfs:label "Super E5"@en , "Super E5"@de .
+
+mv:SuperE10
+	rdfs:subClassOf mv:Fuel ;
+	rdfs:comment "Liquid fuel used in diesel engines." ;
+	rdfs:isDefinedBy <https://en.wikipedia.org/wiki/Common_ethanol_fuel_mixtures> ;
+	rdfs:label "Super E10"@en , "Super E10"@de .
+
+mv:SuperDiesel
+	rdfs:subClassOf mv:Petrol ;
+	rdfs:comment "Liquid fuel used in diesel engines." ;
+	rdfs:label "Super diesel"@en , "Super diesel"@de .
+
+mv:SuperPlus
+	rdfs:subClassOf mv:Petrol ;
+	rdfs:comment "Gasoline type under RON(Research octane number) 98" ;
+	rdfs:seeAlso <https://en.wikipedia.org/wiki/Octane_rating> ;
+	rdfs:label "Super plus"@en , "Super plus"@de .
+
+mv:UltimateDiesel
+	rdfs:subClassOf mv:DieselFuel  ;
+	rdfs:comment "Liquid fuel used in diesel engines." ;
+	rdfs:seeAlso <http://www.bp.com/en_za/on-the-road/south-africa/products-and-services/bp-ultimate-diesel.html> ;
+	rdfs:label "Ultimate diesel"@en , "Ultimate diesel"@de .
+
+mv:UltimateSuper
+	rdfs:subClassOf mv:Petrol ;
+	rdfs:comment "Gasoline type under RON(Research octane number) 98" ;
+	rdfs:label "Ultimate super"@en , "Ultimate super"@de .
+
+mv:VPowerDiesel
+	rdfs:subClassOf mv:DieselFuel  ;
+	rdfs:comment "Blend of regular petroleum-based diesel and synthetic diesel, created using gas to liquids (GTL), along with some extra additives designed to clean the injection system and improve injection pump and injector lubricity." ;
+	rdfs:seeAlso <http://www.shell.de/products-services/on-the-road/fuels/v-power-2011-tpkg.html> ;
+	rdfs:label "V-Power diesel"@en , "V-Power diesel"@de .
+
+mv:VPowerRacing
+	rdfs:subClassOf mv:Petrol ;
+	rdfs:comment "Gasoline type under RON(Research octane number) 100" ;
+	rdfs:seeAlso <http://www.shell.de/products-services/on-the-road/fuels/v-power-2011-tpkg.html> ;
+	rdfs:label "V-Power racing"@en , "V-Power racing"@de .
+
+
+# Properties
+
+mv:Aldehyde
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Aldehyd amount of the fuel" ;
+	rdfs:label "Aldehyde"@en , "Aldehyd"@de ;
+	rdfs:seeAlso <http://www.iso22241.org/> ;
+	rdfs:domain mv:Adblue ;
+	rdfs:range rdfs:Integer .
+
+mv:Alkalinity
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Alkalinity percentage as NH3 of the fuel" ;
+	rdfs:label "Alkalinity"@en , "Alkalinität"@de ;
+	rdfs:seeAlso <http://www.iso22241.org/> ;
+	rdfs:domain mv:Adblue ;
+	rdfs:range rdfs:Integer .
+
+mv:Aluminium
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Aluminium amount of the fuel" ;
+	rdfs:label "Aluminium"@en , "Aluminium"@de ;
+	rdfs:seeAlso <http://www.iso22241.org/> ;
+	rdfs:domain mv:Adblue ;
+	rdfs:range rdfs:Integer .
+
+mv:AutoignitionTemperature
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Indicates lowest temperature at which a flammable gas vapor will ignite spontaneously, without a source of ignition, after several minutes of exposure to sources of heat." ;
+	rdfs:label "Autoignition temperature"@en , "Selbstentzündungs temperatur"@de ;
+	rdfs:seeAlso <http://www.afdc.energy.gov/fuels/fuel_properties.php> ;
+	rdfs:domain mv:Fuel ;
+	rdfs:range rdfs:Integer .
+
+mv:Biuret
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Biuret percentage of the fuel" ;
+	rdfs:label "Biuret"@en , "Biuret"@de ;
+	rdfs:seeAlso <http://www.iso22241.org/> ;
+	rdfs:domain mv:Adblue ;
+	rdfs:range rdfs:Integer .
+
+mv:Calcium
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Calcium amount of the fuel" ;
+	rdfs:label "Calcium"@en , "Kalzium"@de ;
+	rdfs:seeAlso <http://www.iso22241.org/> ;
+	rdfs:domain mv:Adblue ;
+	rdfs:range rdfs:Integer .
+
+mv:CarbonResidue
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Measure of the carbon depositing tendencies of a diesel fuel after evaporation and pyrolysis under prescribed conditions" ;
+	rdfs:label "Carbon residue"@en , "Kohlenstoffrückstand"@de ;
+	rdfs:seeAlso <http://www.ufa.com/petroleum/resources/fuel/diesel_fuel_resources.html> ;
+	rdfs:domain mv:DieselFuel ;
+	rdfs:range rdfs:Integer .
+
+mv:CetaneNumber
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Indicates the combustion speed of diesel fuel." ; #It is an inverse of the similar octane rating for petrol.
+	rdfs:label "Cetane number"@en , "Cetanzahl"@de ;
+	rdfs:seeAlso <http://www.ufa.com/petroleum/resources/fuel/diesel_fuel_resources.html> ;
+	rdfs:domain mv:DieselFuel ;
+	rdfs:range rdfs:Integer .
+
+mv:ChemicalStructure
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Indicates chemical structure of the fuel" ;
+	rdfs:label "Chemical structure"@en , "Chemische struktur"@de ;
+	rdfs:seeAlso <http://www.afdc.energy.gov/fuels/fuel_properties.php> ;
+	rdfs:domain mv:Fuel ;
+	rdfs:range rdfs:Literal .
+
+mv:Chromium
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Chromium amount of the fuel" ;
+	rdfs:label "Chromium"@en , "Chrom"@de ;
+	rdfs:seeAlso <http://www.iso22241.org/> ;
+	rdfs:domain mv:Adblue ;
+	rdfs:range rdfs:Integer .
+
+mv:CloudPoint
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Temperature at which paraffin wax falls out of solution and starts to form wax crystals in the fuel." ;
+	rdfs:label "Cloud point"@en , "Trübungspunkt"@de ;
+	rdfs:seeAlso <http://www.ufa.com/petroleum/resources/fuel/diesel_fuel_resources.html> ;
+	rdfs:domain mv:DieselFuel ;
+	rdfs:range rdfs:Integer .
+
+mv:ColdFilterPlugPoint
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Temperature where fuel can no longer flow freely through a fuel filter, approximately halfway between the cloud point and the pour point." ;
+	rdfs:label "Cold filter plug point"@en , "Cold filter plug point"@de ;
+	rdfs:seeAlso <http://www.ufa.com/petroleum/resources/fuel/diesel_fuel_resources.html> ;
+	skos:altLabel "CFPP"@en , "CFPP"@de ;
+	rdfs:domain mv:DieselFuel ;
+	rdfs:range rdfs:Integer .
+
+mv:Combustion
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "The heat of combustion of a petrol" ;
+	rdfs:label "Combustion"@en , "Verbrennung"@de ;
+	rdfs:isDefinedBy <https://en.wikipedia.org/wiki/Petroleum> ;
+	rdfs:domain mv:Petrol ;
+	rdfs:range rdfs:Integer .
+
+mv:Copper
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Copper amount of the fuel" ;
+	rdfs:label "Copper"@en , "Kupfer"@de ;
+	rdfs:seeAlso <http://www.iso22241.org/> ;
+	rdfs:domain mv:Adblue ;
+	rdfs:range rdfs:Integer .
+
+mv:Cost
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Indicates the price of the fuel" ;
+	rdfs:label "Cost"@en , "Kosten"@de ;
+	rdfs:domain mv:Fuel ;
+	rdfs:range rdfs:Integer .
+
+mv:Currency
+	rdfs:subClassOf gr:PaymentMethod ;
+	rdfs:comment "Defines currency of payment method." ;
+	rdfs:label "Currency"@en, "Währung"@de .
+
+mv:Density
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Density of the fuel at 20 C" ;
+	rdfs:label "Density"@en , "Dichte"@de ;
+	rdfs:seeAlso <http://www.iso22241.org/> ;
+	rdfs:domain mv:Adblue ;
+	rdfs:range rdfs:Integer .
+
+mv:Dissipation
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "LPG gas is heavier than air and will sink to and collect at the lowest point.  If LPG is vented to the outside air, it will quickly dissipate with the slightest movement of air. " ;
+	rdfs:label "Dissipation"@en , "Verschwendung"@de ;
+	rdfs:seeAlso <http://www.elgas.com.au/blog/453-the-science-a-properties-of-lpg> ;
+	rdfs:domain mv:Autogas ;
+	rdfs:range rdfs:Literal .
+
+mv:ElectricalConductivity
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Ability of a fuel to dissipate electric charge that has been generated during pumping and filtering operations is controller by its conductivity" ;
+	rdfs:label "Electrical conductivity"@en , "Elektrische leitfähigkeit"@de ;
+	rdfs:seeAlso <http://www.ufa.com/petroleum/resources/fuel/diesel_fuel_resources.html> ;
+	rdfs:domain mv:DieselFuel ;
+	rdfs:range rdfs:Literal .
+
+mv:EnergyContent
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Indicates amount of heat released during the combustion" ;
+	rdfs:label "Energy content"@en , "Energiegehalt"@de ;
+	rdfs:seeAlso <http://www.afdc.energy.gov/fuels/fuel_properties.php> ;
+	rdfs:domain mv:Fuel ;
+	rdfs:range rdfs:Integer .
+
+mv:FlashPoint
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Indicates minimum temperature at which a liquid gives off vapor within a test vessel in sufficient concentration to form an ignitable mixture with air near the surface of the liquid" ;
+	rdfs:label "Flash point"@en , "Flammpunkt"@de ;
+	rdfs:seeAlso <http://www.afdc.energy.gov/fuels/fuel_properties.php> ;
+	rdfs:domain mv:Fuel ;
+	rdfs:range rdfs:Integer .
+
+mv:FuelMaterial
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Indicates materials that fuel is made of" ;
+	rdfs:label "Fuel material"@en , "Brennmaterial"@de ;
+	rdfs:seeAlso <http://www.afdc.energy.gov/fuels/fuel_properties.php> ;
+	rdfs:domain mv:Fuel ;
+	rdfs:range rdfs:Literal .
+
+mv:GasolineGallonEquivalent
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Indicates the amount of alternative fuel it takes to equal the energy content of one liquid gallon of gasoline" ;
+	rdfs:label "Gasoline gallon equivalent"@en , "Benzin equivalent"@de ;
+	rdfs:seeAlso <http://www.afdc.energy.gov/fuels/fuel_properties.php> ;
+	skos:altLabel "GGE"@en ;
+	rdfs:domain mv:Fuel ;
+	rdfs:range rdfs:Integer .
+
+mv:HigherHeatingValue
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Determined by bringing all the products of combustion back to the original pre-combustion temperature, and in particular condensing any vapor produced" ;
+	rdfs:label "Higher heating value"@en , "Brennwert"@de ;
+	rdfs:seeAlso <http://www.afdc.energy.gov/fuels/fuel_properties.php> ;
+	rdfs:domain mv:EnergyContent ;
+	rdfs:range rdfs:Literal .
+
+mv:Iron
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Iron amount of the fuel" ;
+	rdfs:label "Iron"@en , "Eisen"@de ;
+	rdfs:seeAlso <http://www.iso22241.org/> ;
+	rdfs:domain mv:Adblue ;
+	rdfs:range rdfs:Integer .
+
+mv:Insolubles
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Insolubles amount of the fuel" ;
+	rdfs:label "Insolubles"@en , "Unlösliche bestandteile"@de ;
+	rdfs:seeAlso <http://www.iso22241.org/> ;
+	rdfs:domain mv:Adblue ;
+	rdfs:range rdfs:Integer .
+
+mv:LimitsofFlammability
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "The lower and upper limits of flammability are the percentages of LPG that must be present in an LPG/air mixture." ;
+	rdfs:label "Limits of Flammability"@en , "Grenzen der Entzündbarkeit"@de ;
+	rdfs:seeAlso <http://www.elgas.com.au/blog/453-the-science-a-properties-of-lpg> ;
+	rdfs:domain mv:Autogas ;
+	rdfs:range rdfs:Integer .
+
+mv:LowerHeatingValue
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Determined by subtracting the heat of vaporization of the water vapor from the higher heating value" ;
+	rdfs:label "Lower heating value"@en , "Heizwert"@de ;
+	rdfs:seeAlso <http://www.afdc.energy.gov/fuels/fuel_properties.php> ;
+	rdfs:domain mv:EnergyContent ;
+	rdfs:range rdfs:Integer .
+
+mv:Lubricity
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Since engines require the diesel fuel to act as a lubricant for their injection systems, diesel fuel must have sufficient lubricity to give adequate protection against excessive injection system wear. " ;
+	rdfs:label "Lubricity"@en , "Schlüpfrigkeit"@de ;
+	rdfs:seeAlso <http://www.ufa.com/petroleum/resources/fuel/diesel_fuel_resources.html> ;
+	rdfs:domain mv:DieselFuel ;
+	rdfs:range rdfs:Integer .
+
+mv:Magnesium
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Magnesium amount of the fuel" ;
+	rdfs:label "Magnesium"@en , "Magnesium"@de ;
+	rdfs:seeAlso <http://www.iso22241.org/> ;
+	rdfs:domain mv:Adblue ;
+	rdfs:range rdfs:Integer .
+
+mv:MethaneNumber
+	a rdf:Property , owl:DatatypeProperty ; #Unterschied bei den einzelnen nummern ist der Referenzkraftstoff
+	rdfs:comment "Indicates the methane number of fuel. It uses a reference fuel blend of methane, with a methane number of 100, and hydrogen, with a methane number of 0" ;
+	rdfs:label "Methane number"@en , "Methanzahl"@de ;
+	rdfs:seeAlso <http://www.afdc.energy.gov/fuels/fuel_properties.php> ;
+	rdfs:domain mv:Fuel ;
+	rdfs:range rdfs:Integer .
+
+mv:Nickel
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Nickel amount of the fuel" ;
+	rdfs:label "Nickel"@en , "Nickel"@de ;
+	rdfs:seeAlso <http://www.iso22241.org/> ;
+	rdfs:domain mv:Adblue ;
+	rdfs:range rdfs:Integer .
+
+mv:OctaneNumber
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Indicates the octane number of fuel." ;
+	rdfs:label "Octane number"@en , "Oktanzahl"@de ;
+	skos:altLabel "Octane rating"@en ;
+	rdfs:isDefinedBy <https://en.wikipedia.org/wiki/Petroleum> ;
+	rdfs:domain mv:Petrol ; #aber auch CNG und LPG haben Oktanzahl (und Diesel theoretisch auch?), mehrere Oktanzahlarten
+	rdfs:range rdfs:Integer .
+
+mv:Payment
+	rdfs:subClassOf gr:PaymentMethod ;
+	rdfs:comment "Defines  payment method." ;
+	rdfs:label "Payment"@en, "Zahlung"@de .
+
+mv:Phosphate
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Phosphate amount of the fuel" ;
+	rdfs:label "Phosphate"@en , "Phosphate"@de ;
+	skos:altLabel "PO4"@en ;
+	rdfs:seeAlso <http://www.iso22241.org/> ;
+	rdfs:domain mv:Adblue ;
+	rdfs:range rdfs:Integer .
+
+mv:PhysicalState
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Indicates physical state of the fuel " ;
+	rdfs:label "Physical state"@en , "Physikalischer zustand"@de ;
+	rdfs:seeAlso <http://www.afdc.energy.gov/fuels/fuel_properties.php> ;
+	rdfs:domain mv:Fuel ;
+	rdfs:range rdfs:Integer .
+
+mv:PourPoint
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Temperature at which fuel will no longer flow or the point at which fuel gels or turns solid." ;
+	rdfs:label "Pour point"@en , "Stockpunkt"@de ;
+	rdfs:seeAlso <http://www.ufa.com/petroleum/resources/fuel/diesel_fuel_resources.html> ;
+	rdfs:domain mv:DieselFuel ;
+	rdfs:range rdfs:Integer .
+
+mv:Potassium
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Potassium amount of the fuel" ;
+	rdfs:label "Potassium"@en , "Kalium"@de ;
+	rdfs:seeAlso <http://www.iso22241.org/> ;
+	rdfs:domain mv:Adblue ;
+	rdfs:range rdfs:Integer .
+
+mv:RefractingIndex
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Refracting index of the fuel at 20 C" ;
+	rdfs:label "Refracting index"@en , "Brechungsindex"@de ;
+	rdfs:seeAlso <http://www.iso22241.org/> ;
+	rdfs:domain mv:Adblue,mv:Ethanol ;
+	rdfs:range rdfs:Integer .
+
+mv:Sodium
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Sodium amount of the fuel" ;
+	rdfs:label "Sodium"@en , "Natrium"@de ;
+	rdfs:seeAlso <http://www.iso22241.org/> ;
+	rdfs:domain mv:Adblue ;
+	rdfs:range rdfs:Integer .
+
+mv:SulphurContent
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Sulphur tolerance by an engine is dependant on the type of engine, the type of service and lube oil used" ;
+	rdfs:label "Sulphur content"@en , "Schwefelgehalt"@de ;
+	rdfs:seeAlso <http://www.ufa.com/petroleum/resources/fuel/diesel_fuel_resources.html> ;
+	rdfs:domain mv:DieselFuel ;
+	rdfs:range rdfs:Literal .
+
+mv:ThermalConductivity
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "The thermal conductivity of petrol" ;
+	rdfs:label "Thermal conductivity"@en , "Wärmeleitfähigkeit"@de ;
+	rdfs:isDefinedBy <https://en.wikipedia.org/wiki/Petroleum> ;
+	rdfs:domain mv:Petrol ;
+	rdfs:range rdfs:Literal .
+
+mv:Viscosity
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Indicates measure of fuel resistance to gradual deformation by shear stress or tensile stress" ;
+	rdfs:label "Viscosity"@en , "Viskosität"@de ;
+	rdfs:seeAlso <http://www.afdc.energy.gov/fuels/fuel_properties.php> ;
+	rdfs:domain mv:Fuel ;
+	rdfs:range rdfs:Integer .
+
+mv:Volatility
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "The distillation characteristic of the fuel" ;
+	rdfs:label "Volatility"@en , "Flüchtigkeit"@de ;
+	rdfs:seeAlso <http://www.ufa.com/petroleum/resources/fuel/diesel_fuel_resources.html> ;
+	rdfs:domain mv:DieselFuel ;
+	rdfs:range rdfs:Literal .
+
+mv:Zinc
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Zinc amount of the fuel" ;
+	rdfs:label "Zinc"@en , "Zink"@de ;
+	rdfs:seeAlso <http://www.iso22241.org/> ;
+	rdfs:domain mv:Adblue ;
+	rdfs:range rdfs:Integer .
+
+
+# Individuals
+
+mv:Biodiesel
+	a mv:DieselFuel ;
+	mv:Payment "Cash" ;
+	mv:Cost "50";
+	mv:Currency "$";
+	mv:Lubricity "250g" ;
+	mv:Density "7328lb/gal".
+
+mv:ExcelliumSuperPlus
+	a mv:Fuel ;
+	mv:Payment "VISA" ;
+	mv:Cost "45";
+	mv:Currency "£";
+	mv:OctaneNumber"88".
+
+mv:LiquidPetroleumGas
+	a mv:LiquidGas ;
+	mv:Payment "DirektDebit" ;
+	mv:Cost "150";
+	mv:Currency "€";
+	mv:ChemicalStructure "C3H8 and C4H10";
+	mv:FlashPoint "52 ºF".
+
+
+
+# CLASSES
+
+mv:BicycleDockingStation
+  a rdfs:Class , owl:Class ;
+  rdfs:comment "A docking station of a bicycle sharing system for picking up and returning bicycles." ;
+  rdfs:label "bicycle docking station"@en , "Fahrradstation"@de .
+
+
+
+#PROPERTIES
+
+mv:dockingStationNumber
+  a rdf:Property , owl:DatatypeProperty ;
+  rdfs:label "docking station number"@en , "Stationsnummer"@de ;
+  rdfs:comment "Identification number of the bicycle docking station." ;
+  rdfs:domain mv:BicycleDockingStation ;
+  rdfs:range rdfs:Literal .
+
+mv:numberOfDockingPoints
+  a rdf:Property , owl:DatatypeProperty ;
+  rdfs:label "number of docking points"@en , "Anzahl Fahrradstellplätze"@de ;
+  rdfs:comment "Indicates the number of docking points for bicycles." ;
+  rdfs:domain mv:BicycleDockingStation ;
+  rdfs:range rdfs:Literal .
+
+mv:numberOfBicyclesAvailable
+  a rdf:Property , owl:DatatypeProperty ;
+  rdfs:label "number of bicycles available"@en , "Anzahl verfügbarer Fahrräder"@de ;
+  rdfs:comment "Indicates the number of bicycles available at the docking station." ;
+  rdfs:domain mv:BicycleDockingStation ;
+  rdfs:range rdfs:Literal .
+
+mv:numberOfSpacesAvailable
+  a rdf:Property , owl:DatatypeProperty ;
+  rdfs:label "number of spaces available"@en , "Anzahl freier Stellplätze"@de ;
+  rdfs:comment "Indicates the number of spaces available at the docking station." ;
+  rdfs:domain mv:BicycleDockingStation ;
+  rdfs:range rdfs:Literal .
+
+
+
+mv:Vehicle
+	a rdfs:Class , owl:Class ;
+	rdfs:comment "A vehicle is a mobile machine that transports people or cargo." ;
+	rdfs:seeAlso <https://en.wikipedia.org/wiki/Vehicle> ;
+	rdfs:label "vehicle"@en , "Auto"@de .
+
+mv:FuelVehicle
+	rdfs:subClassOf mv:Vehicle ;
+	rdfs:comment "A vehicle which runs with fuel(gas)." ;
+	rdfs:label "Fuel Vehicle"@en , "KraftstoffAuto"@de .
+
+mv:BatteryElectricVehicle
+	rdfs:subClassOf mv:Vehicle ;
+	rdfs:comment "A type of electric vehicle that uses chemical energy stored in rechargeable battery packs." ;
+	rdfs:seeAlso <https://en.wikipedia.org/wiki/Battery_electric_vehicle> ;
+	rdfs:label "Battery Electric Vehicle"@en , "BatterieElektroAuto"@de .
+
+mv:PlugInHybridElectricVehicle
+	rdfs:subClassOf mv:Vehicle ;
+	rdfs:comment "A type of hybrid and electric vehicle that combines a conventional internal combustion engine (ICE) propulsion system with an electric propulsion system" ;
+	rdfs:seeAlso <https://en.wikipedia.org/wiki/Plug-in_hybrid> ;
+	rdfs:label "PlugIn Hybrid Electric Vehicle"@en , "PlugInHybridElektroAuto"@de .
+
+
+#Properties
+
+mv:hasHeight
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Indicates the height of the vehicle." ;
+	rdfs:label "Height"@en , "Höhe"@de ;
+	rdfs:domain mv:Vehicle ;
+	rdfs:range mv:integer .
+
+mv:usesFuel
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Indicates if the specific vehicle uses fuel(gas)." ;
+	rdfs:label "uses Fuel"@en , "benutzt Gas"@de ;
+	rdfs:domain mv:Vehicle ;
+	rdfs:range mv:boolean .
+
+mv:usesBattery
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Indicates if the specific vehicle uses battery." ;
+	rdfs:label "uses Battery"@en , "benutzt Batterie"@de ;
+	rdfs:domain mv:Vehicle ;
+	rdfs:range mv:boolean .
+
+mv:ChargeColumn
+        rdfs:label "Ladesäule"@de ,
+                   "Charge column"@en,
+                   "Station de recharge"@fr .
+
+
+
+
+
+#################################################################
+#
+#    Object Properties
+#
+#################################################################
+
+
+###  http://purl.org/net/mobivoc/access
+
+mv:access rdf:type owl:ObjectProperty ;
+
+          rdfs:label "access"@en ;
+
+          rdfs:comment "Access types of charging point. " ;
+
+          rdfs:domain mv:AccessInformation ;
+
+          rdfs:range mv:AccessType .
+
+
+
+###  http://purl.org/net/mobivoc/isLocated
+
+mv:isLocated rdf:type owl:ObjectProperty ;
+
+             rdfs:label "isLocated"@en,
+				"istLokalisiert"@de;
+
+             rdfs:comment "Location ." ;
+
+             rdfs:range mv:ConvexHull ;
+
+             rdfs:domain mv:Low-EmissionZone .
+
+
+
+###  http://purl.org/net/mobivoc/isOwnedBy
+
+mv:isOwnedBy rdf:type owl:ObjectProperty ;
+
+             rdfs:label "isImBesitzvon"@de ,
+                        "isOwnedBy"@en ;
+
+             rdfs:comment "Low-EmissionZone's owner." ;
+
+             rdfs:domain mv:Low-EmissionZone ;
+
+             rdfs:range s:EmissionZone .
+
+
+
+###  http://purl.org/net/mobivoc/openingHours
+
+mv:openingHours rdf:type owl:ObjectProperty ;
+
+                rdfs:label "hatOeffnungszeiten"@de ,
+                           "hasOpeningHours"@en ;
+
+                rdfs:comment "Opening Hours. In Italy, an Low-EmissionZone has opening hours" ;
+
+                rdfs:domain mv:Low-EmissionZone ;
+
+                rdfs:range s:openingHours .
+
+
+
+###  http://purl.org/net/mobivoc/#allowedVehicles
+
+<http://purl.org/net/mobivoc/#allowedVehicles> rdf:type owl:ObjectProperty ;
+
+											   rdfs:label "erlaubteFahrzeuge"@de ,
+														"allowedVehicles"@en ;
+                                               rdfs:domain s:EmissionZone ;
+
+											    rdfs:comment "An EmissionZone is characterized by a type of vehicles." ;
+
+                                               rdfs:range <http://www.co-ode.org/ontologies/ont.owl#Vehicle> .
+
+
+
+###  http://purl.org/net/mobivoc/#hasEngine
+
+<http://purl.org/net/mobivoc/#hasEngine> rdf:type owl:FunctionalProperty ,
+                                                  owl:ObjectProperty ;
+
+										  rdfs:label "hatMotor"@de ,
+														"hasEngine"@en ;
+
+										rdfs:comment "An Vehicles has en engine which has an effect to the EmissionZone." ;
+
+                                         rdfs:range <http://purl.org/net/mobivoc/#Engine> ;
+
+                                         rdfs:domain <http://www.co-ode.org/ontologies/ont.owl#Vehicle> .
+
+
+
+
+
+#################################################################
+#
+#    Data properties
+#
+#################################################################
+
+
+###  http://purl.org/net/mobivoc/adressedVehicleTypes
+
+mv:adressedVehicleTypes rdf:type owl:DatatypeProperty ;
+
+                        rdfs:label "adressedVehicleTypes"@en ;
+
+                        rdfs:comment "It describes the kinds of vehicles which are part of the emission zone" ;
+
+                        rdfs:domain mv:EmissionZone ;
+
+                        rdfs:range rdfs:Literal .
+
+
+
+###  http://purl.org/net/mobivoc/hasSootParticleFilter
+
+mv:hasSootParticleFilter rdf:type owl:DatatypeProperty ;
+
+                         rdfs:label "hasSootParticleFilter"@en ;
+
+                         rdfs:comment "It describes the existence of a hasSootParticleFilter" ;
+
+                         rdfs:domain mv:EmissionZone ;
+
+                         rdfs:range rdfs:Literal .
+
+
+
+###  http://purl.org/net/mobivoc/kindOfPetrol
+
+mv:kindOfPetrol rdf:type owl:DatatypeProperty ;
+
+                rdfs:label "kinfOfPretrol"@en ;
+
+                rdfs:comment "It describes the kind of petrol" ;
+
+                rdfs:domain mv:EmissionZone ;
+
+                rdfs:range rdfs:Literal .
+
+
+
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+###  http://purl.org/net/mobivoc/AccessInformation
+
+mv:AccessInformation rdf:type owl:Class .
+
+
+
+###  http://purl.org/net/mobivoc/AccessType
+
+mv:AccessType rdf:type owl:Class ;
+
+              rdfs:label "Access Type"@en ;
+
+              rdfs:comment "Describes the access type of the Low-EmissionZone. For example a street or a highway" .
+
+
+
+###  http://purl.org/net/mobivoc/ConvexHull
+
+mv:ConvexHull rdf:type owl:Class ;
+
+              rdfs:subClassOf s:polygon ;
+
+              rdfs:comment "the region of the environmental zone defined as a Convex Hull." .
+
+
+
+###  http://purl.org/net/mobivoc/EmissionZone
+
+mv:EmissionZone rdf:type owl:Class ;
+
+                rdfs:label "Umweltzone"@de ,
+                           "EmissionZone"@en ;
+
+                rdfs:subClassOf s:Place ;
+
+                rdfs:comment "EmissionZone" .
+
+
+
+###  http://purl.org/net/mobivoc/Low-EmissionZone
+
+mv:Low-EmissionZone rdf:type owl:Class ;
+
+                    rdfs:label "Umweltzone"@de ,
+                               "Environmental zone"@en ;
+
+                    rdfs:comment "Defines the public environmental zone. " .
+
+
+
+###  http://purl.org/net/mobivoc/#Engine
+
+<http://purl.org/net/mobivoc/#Engine> rdf:type owl:Class .
+
+
+
+###  http://purl.org/net/mobivoc/#Four-Stroker
+
+<http://purl.org/net/mobivoc/#Four-Stroker> rdf:type owl:Class ;
+
+                                            rdfs:subClassOf <http://purl.org/net/mobivoc/#Engine> .
+
+
+
+###  http://purl.org/net/mobivoc/#Two-Stroker
+
+<http://purl.org/net/mobivoc/#Two-Stroker> rdf:type owl:Class ;
+
+                                           rdfs:subClassOf <http://purl.org/net/mobivoc/#Engine> .
+
+
+
+###  http://schema.org/EmissionZone
+
+s:EmissionZone rdf:type owl:Class .
+
+
+
+###  http://schema.org/Place
+
+s:Place rdf:type owl:Class .
+
+
+
+###  http://schema.org/openingHours
+
+s:openingHours rdf:type owl:Class .
+
+
+
+###  http://schema.org/polygon
+
+s:polygon rdf:type owl:Class .
+
+
+
+###  http://www.co-ode.org/ontologies/ont.owl#Vehicle
+
+<http://www.co-ode.org/ontologies/ont.owl#Vehicle> rdf:type owl:Class .
+<http://linkedgeodata.org/triplify/way76246393>
+      a       <http://eccenca.com/mobivoc/FuelStation> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "Aral" ;
+      <http://eccenca.com/mobivoc/fillingStationHeight>
+              "10" ;
+      <http://eccenca.com/mobivoc/fillingStationNumber>
+              "48"^^<http://www.w3.org/2001/XMLSchema#int> ;
+      <http://eccenca.com/mobivoc/hasOffer>
+              <http://eccenca.com/mobivoc/Autogas> , <http://eccenca.com/mobivoc/SuperDiesel> , <http://eccenca.com/mobivoc/DieselFuel> , <http://eccenca.com/mobivoc/Ethanol> , <http://eccenca.com/mobivoc/CompressedNaturalGas> , <http://eccenca.com/mobivoc/LKWDiesel> , <http://eccenca.com/mobivoc/Super(E10)> , <http://eccenca.com/mobivoc/ExcelliumDiesel> , <http://eccenca.com/mobivoc/ExcelliumSuperPlus> , <http://eccenca.com/mobivoc/Biodiesel> , <http://eccenca.com/mobivoc/Super(E5)> , <http://eccenca.com/mobivoc/Methane> , <http://eccenca.com/mobivoc/UltimateSuper> , <http://eccenca.com/mobivoc/VPowerDiesel> , <http://eccenca.com/mobivoc/MaxxMotionDiesel> , <http://eccenca.com/mobivoc/Hydrogen> , <http://eccenca.com/mobivoc/VPowerRacing> , <http://eccenca.com/mobivoc/LiquidGas> , <http://eccenca.com/mobivoc/UltimateDiesel> , <http://eccenca.com/mobivoc/E85> , <http://eccenca.com/mobivoc/Petrol> , <http://eccenca.com/mobivoc/Adblue> , <http://eccenca.com/mobivoc/MaxxMotionSuper100> ;
+      <http://eccenca.com/mobivoc/hasParkingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasShoppingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWCFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWashingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWheelChairEnabled>
+              "Yes" .
+
+<http://linkedgeodata.org/triplify/way238448838>
+      a       <http://eccenca.com/mobivoc/FuelStation> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "Star" ;
+      <http://eccenca.com/mobivoc/fillingStationHeight>
+              "10" ;
+      <http://eccenca.com/mobivoc/fillingStationNumber>
+              "15"^^<http://www.w3.org/2001/XMLSchema#int> ;
+      <http://eccenca.com/mobivoc/hasOffer>
+              <http://eccenca.com/mobivoc/Autogas> , <http://eccenca.com/mobivoc/SuperDiesel> , <http://eccenca.com/mobivoc/Ethanol> , <http://eccenca.com/mobivoc/DieselFuel> , <http://eccenca.com/mobivoc/CompressedNaturalGas> , <http://eccenca.com/mobivoc/LKWDiesel> , <http://eccenca.com/mobivoc/Super(E10)> , <http://eccenca.com/mobivoc/ExcelliumDiesel> , <http://eccenca.com/mobivoc/ExcelliumSuperPlus> , <http://eccenca.com/mobivoc/Biodiesel> , <http://eccenca.com/mobivoc/Super(E5)> , <http://eccenca.com/mobivoc/Methane> , <http://eccenca.com/mobivoc/UltimateSuper> , <http://eccenca.com/mobivoc/MaxxMotionDiesel> , <http://eccenca.com/mobivoc/VPowerDiesel> , <http://eccenca.com/mobivoc/VPowerRacing> , <http://eccenca.com/mobivoc/Hydrogen> , <http://eccenca.com/mobivoc/UltimateDiesel> , <http://eccenca.com/mobivoc/LiquidGas> , <http://eccenca.com/mobivoc/E85> , <http://eccenca.com/mobivoc/Petrol> , <http://eccenca.com/mobivoc/Adblue> , <http://eccenca.com/mobivoc/MaxxMotionSuper100> ;
+      <http://eccenca.com/mobivoc/hasParkingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasShoppingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWCFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWashingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWheelChairEnabled>
+              "Yes" .
+
+<http://linkedgeodata.org/triplify/way241095295>
+      a       <http://eccenca.com/mobivoc/FuelStation> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "Aral" ;
+      <http://eccenca.com/mobivoc/fillingStationHeight>
+              "10" ;
+      <http://eccenca.com/mobivoc/fillingStationNumber>
+              "44"^^<http://www.w3.org/2001/XMLSchema#int> ;
+      <http://eccenca.com/mobivoc/hasOffer>
+              <http://eccenca.com/mobivoc/Autogas> , <http://eccenca.com/mobivoc/SuperDiesel> , <http://eccenca.com/mobivoc/DieselFuel> , <http://eccenca.com/mobivoc/Ethanol> , <http://eccenca.com/mobivoc/LKWDiesel> , <http://eccenca.com/mobivoc/CompressedNaturalGas> , <http://eccenca.com/mobivoc/Super(E10)> , <http://eccenca.com/mobivoc/ExcelliumDiesel> , <http://eccenca.com/mobivoc/ExcelliumSuperPlus> , <http://eccenca.com/mobivoc/Biodiesel> , <http://eccenca.com/mobivoc/Super(E5)> , <http://eccenca.com/mobivoc/Methane> , <http://eccenca.com/mobivoc/UltimateSuper> , <http://eccenca.com/mobivoc/MaxxMotionDiesel> , <http://eccenca.com/mobivoc/VPowerDiesel> , <http://eccenca.com/mobivoc/Hydrogen> , <http://eccenca.com/mobivoc/VPowerRacing> , <http://eccenca.com/mobivoc/UltimateDiesel> , <http://eccenca.com/mobivoc/LiquidGas> , <http://eccenca.com/mobivoc/E85> , <http://eccenca.com/mobivoc/Petrol> , <http://eccenca.com/mobivoc/Adblue> , <http://eccenca.com/mobivoc/MaxxMotionSuper100> ;
+      <http://eccenca.com/mobivoc/hasParkingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasShoppingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWCFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWashingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWheelChairEnabled>
+              "Yes" .
+
+<http://linkedgeodata.org/triplify/way250925841>
+      a       <http://eccenca.com/mobivoc/FuelStation> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "Total Autohof A14" ;
+      <http://eccenca.com/mobivoc/fillingStationHeight>
+              "10" ;
+      <http://eccenca.com/mobivoc/fillingStationNumber>
+              "40"^^<http://www.w3.org/2001/XMLSchema#int> ;
+      <http://eccenca.com/mobivoc/hasOffer>
+              <http://eccenca.com/mobivoc/Autogas> , <http://eccenca.com/mobivoc/SuperDiesel> , <http://eccenca.com/mobivoc/DieselFuel> , <http://eccenca.com/mobivoc/Ethanol> , <http://eccenca.com/mobivoc/CompressedNaturalGas> , <http://eccenca.com/mobivoc/LKWDiesel> , <http://eccenca.com/mobivoc/Super(E10)> , <http://eccenca.com/mobivoc/ExcelliumDiesel> , <http://eccenca.com/mobivoc/ExcelliumSuperPlus> , <http://eccenca.com/mobivoc/Biodiesel> , <http://eccenca.com/mobivoc/Super(E5)> , <http://eccenca.com/mobivoc/Methane> , <http://eccenca.com/mobivoc/UltimateSuper> , <http://eccenca.com/mobivoc/VPowerDiesel> , <http://eccenca.com/mobivoc/MaxxMotionDiesel> , <http://eccenca.com/mobivoc/Hydrogen> , <http://eccenca.com/mobivoc/VPowerRacing> , <http://eccenca.com/mobivoc/UltimateDiesel> , <http://eccenca.com/mobivoc/LiquidGas> , <http://eccenca.com/mobivoc/E85> , <http://eccenca.com/mobivoc/Petrol> , <http://eccenca.com/mobivoc/Adblue> , <http://eccenca.com/mobivoc/MaxxMotionSuper100> ;
+      <http://eccenca.com/mobivoc/hasParkingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasShoppingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWCFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWashingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWheelChairEnabled>
+              "Yes" .
+
+<http://linkedgeodata.org/triplify/way66240632>
+      a       <http://eccenca.com/mobivoc/FuelStation> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "CleanCar" ;
+      <http://eccenca.com/mobivoc/fillingStationHeight>
+              "10" ;
+      <http://eccenca.com/mobivoc/fillingStationNumber>
+              "45"^^<http://www.w3.org/2001/XMLSchema#int> ;
+      <http://eccenca.com/mobivoc/hasOffer>
+              <http://eccenca.com/mobivoc/Autogas> , <http://eccenca.com/mobivoc/SuperDiesel> , <http://eccenca.com/mobivoc/Ethanol> , <http://eccenca.com/mobivoc/DieselFuel> , <http://eccenca.com/mobivoc/CompressedNaturalGas> , <http://eccenca.com/mobivoc/LKWDiesel> , <http://eccenca.com/mobivoc/Super(E10)> , <http://eccenca.com/mobivoc/ExcelliumDiesel> , <http://eccenca.com/mobivoc/ExcelliumSuperPlus> , <http://eccenca.com/mobivoc/Biodiesel> , <http://eccenca.com/mobivoc/Super(E5)> , <http://eccenca.com/mobivoc/Methane> , <http://eccenca.com/mobivoc/UltimateSuper> , <http://eccenca.com/mobivoc/VPowerDiesel> , <http://eccenca.com/mobivoc/MaxxMotionDiesel> , <http://eccenca.com/mobivoc/Hydrogen> , <http://eccenca.com/mobivoc/VPowerRacing> , <http://eccenca.com/mobivoc/LiquidGas> , <http://eccenca.com/mobivoc/UltimateDiesel> , <http://eccenca.com/mobivoc/E85> , <http://eccenca.com/mobivoc/Petrol> , <http://eccenca.com/mobivoc/Adblue> , <http://eccenca.com/mobivoc/MaxxMotionSuper100> ;
+      <http://eccenca.com/mobivoc/hasParkingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasShoppingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWCFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWashingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWheelChairEnabled>
+              "Yes" .
+
+<http://linkedgeodata.org/triplify/way241095299>
+      a       <http://eccenca.com/mobivoc/FuelStation> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "STAR" ;
+      <http://eccenca.com/mobivoc/fillingStationHeight>
+              "10" ;
+      <http://eccenca.com/mobivoc/fillingStationNumber>
+              "36"^^<http://www.w3.org/2001/XMLSchema#int> ;
+      <http://eccenca.com/mobivoc/hasOffer>
+              <http://eccenca.com/mobivoc/Autogas> , <http://eccenca.com/mobivoc/SuperDiesel> , <http://eccenca.com/mobivoc/Ethanol> , <http://eccenca.com/mobivoc/DieselFuel> , <http://eccenca.com/mobivoc/LKWDiesel> , <http://eccenca.com/mobivoc/CompressedNaturalGas> , <http://eccenca.com/mobivoc/Super(E10)> , <http://eccenca.com/mobivoc/ExcelliumDiesel> , <http://eccenca.com/mobivoc/ExcelliumSuperPlus> , <http://eccenca.com/mobivoc/Biodiesel> , <http://eccenca.com/mobivoc/Super(E5)> , <http://eccenca.com/mobivoc/Methane> , <http://eccenca.com/mobivoc/UltimateSuper> , <http://eccenca.com/mobivoc/VPowerDiesel> , <http://eccenca.com/mobivoc/MaxxMotionDiesel> , <http://eccenca.com/mobivoc/Hydrogen> , <http://eccenca.com/mobivoc/VPowerRacing> , <http://eccenca.com/mobivoc/UltimateDiesel> , <http://eccenca.com/mobivoc/LiquidGas> , <http://eccenca.com/mobivoc/E85> , <http://eccenca.com/mobivoc/Petrol> , <http://eccenca.com/mobivoc/Adblue> , <http://eccenca.com/mobivoc/MaxxMotionSuper100> ;
+      <http://eccenca.com/mobivoc/hasParkingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasShoppingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWCFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWashingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWheelChairEnabled>
+              "Yes" .
+
+<http://linkedgeodata.org/triplify/way37235833>
+      a       <http://eccenca.com/mobivoc/FuelStation> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "Tankstelle Marktkauf" ;
+      <http://eccenca.com/mobivoc/fillingStationHeight>
+              "10" ;
+      <http://eccenca.com/mobivoc/fillingStationNumber>
+              "13"^^<http://www.w3.org/2001/XMLSchema#int> ;
+      <http://eccenca.com/mobivoc/hasOffer>
+              <http://eccenca.com/mobivoc/Autogas> , <http://eccenca.com/mobivoc/SuperDiesel> , <http://eccenca.com/mobivoc/DieselFuel> , <http://eccenca.com/mobivoc/Ethanol> , <http://eccenca.com/mobivoc/LKWDiesel> , <http://eccenca.com/mobivoc/CompressedNaturalGas> , <http://eccenca.com/mobivoc/Super(E10)> , <http://eccenca.com/mobivoc/ExcelliumDiesel> , <http://eccenca.com/mobivoc/ExcelliumSuperPlus> , <http://eccenca.com/mobivoc/Biodiesel> , <http://eccenca.com/mobivoc/Super(E5)> , <http://eccenca.com/mobivoc/Methane> , <http://eccenca.com/mobivoc/UltimateSuper> , <http://eccenca.com/mobivoc/VPowerDiesel> , <http://eccenca.com/mobivoc/MaxxMotionDiesel> , <http://eccenca.com/mobivoc/Hydrogen> , <http://eccenca.com/mobivoc/VPowerRacing> , <http://eccenca.com/mobivoc/LiquidGas> , <http://eccenca.com/mobivoc/UltimateDiesel> , <http://eccenca.com/mobivoc/E85> , <http://eccenca.com/mobivoc/Petrol> , <http://eccenca.com/mobivoc/Adblue> , <http://eccenca.com/mobivoc/MaxxMotionSuper100> ;
+      <http://eccenca.com/mobivoc/hasParkingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasShoppingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWCFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWashingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWheelChairEnabled>
+              "Yes" .
+
+<http://linkedgeodata.org/triplify/way32754334>
+      a       <http://eccenca.com/mobivoc/FuelStation> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "Aral" ;
+      <http://eccenca.com/mobivoc/fillingStationHeight>
+              "10" ;
+      <http://eccenca.com/mobivoc/fillingStationNumber>
+              "2"^^<http://www.w3.org/2001/XMLSchema#int> ;
+      <http://eccenca.com/mobivoc/hasOffer>
+              <http://eccenca.com/mobivoc/Autogas> , <http://eccenca.com/mobivoc/SuperDiesel> , <http://eccenca.com/mobivoc/DieselFuel> , <http://eccenca.com/mobivoc/Ethanol> , <http://eccenca.com/mobivoc/CompressedNaturalGas> , <http://eccenca.com/mobivoc/LKWDiesel> , <http://eccenca.com/mobivoc/Super(E10)> , <http://eccenca.com/mobivoc/ExcelliumDiesel> , <http://eccenca.com/mobivoc/ExcelliumSuperPlus> , <http://eccenca.com/mobivoc/Biodiesel> , <http://eccenca.com/mobivoc/Super(E5)> , <http://eccenca.com/mobivoc/Methane> , <http://eccenca.com/mobivoc/UltimateSuper> , <http://eccenca.com/mobivoc/VPowerDiesel> , <http://eccenca.com/mobivoc/MaxxMotionDiesel> , <http://eccenca.com/mobivoc/Hydrogen> , <http://eccenca.com/mobivoc/VPowerRacing> , <http://eccenca.com/mobivoc/UltimateDiesel> , <http://eccenca.com/mobivoc/LiquidGas> , <http://eccenca.com/mobivoc/E85> , <http://eccenca.com/mobivoc/Petrol> , <http://eccenca.com/mobivoc/Adblue> , <http://eccenca.com/mobivoc/MaxxMotionSuper100> ;
+      <http://eccenca.com/mobivoc/hasParkingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasShoppingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWCFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWashingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWheelChairEnabled>
+              "Yes" .
+
+<http://linkedgeodata.org/triplify/node82689845>
+      a       <http://eccenca.com/mobivoc/FuelStation> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "Shell" ;
+      <http://eccenca.com/mobivoc/fillingStationHeight>
+              "10" ;
+      <http://eccenca.com/mobivoc/fillingStationNumber>
+              "16"^^<http://www.w3.org/2001/XMLSchema#int> ;
+      <http://eccenca.com/mobivoc/hasOffer>
+              <http://eccenca.com/mobivoc/Autogas> , <http://eccenca.com/mobivoc/SuperDiesel> , <http://eccenca.com/mobivoc/DieselFuel> , <http://eccenca.com/mobivoc/Ethanol> , <http://eccenca.com/mobivoc/CompressedNaturalGas> , <http://eccenca.com/mobivoc/LKWDiesel> , <http://eccenca.com/mobivoc/Super(E10)> , <http://eccenca.com/mobivoc/ExcelliumDiesel> , <http://eccenca.com/mobivoc/ExcelliumSuperPlus> , <http://eccenca.com/mobivoc/Biodiesel> , <http://eccenca.com/mobivoc/Super(E5)> , <http://eccenca.com/mobivoc/Methane> , <http://eccenca.com/mobivoc/UltimateSuper> , <http://eccenca.com/mobivoc/VPowerDiesel> , <http://eccenca.com/mobivoc/MaxxMotionDiesel> , <http://eccenca.com/mobivoc/VPowerRacing> , <http://eccenca.com/mobivoc/Hydrogen> , <http://eccenca.com/mobivoc/UltimateDiesel> , <http://eccenca.com/mobivoc/LiquidGas> , <http://eccenca.com/mobivoc/E85> , <http://eccenca.com/mobivoc/Petrol> , <http://eccenca.com/mobivoc/Adblue> , <http://eccenca.com/mobivoc/MaxxMotionSuper100> ;
+      <http://eccenca.com/mobivoc/hasParkingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasShoppingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWCFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWashingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWheelChairEnabled>
+              "Yes" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
+              "51.3653"^^<http://www.w3.org/2001/XMLSchema#double> ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#long>
+              "12.4564"^^<http://www.w3.org/2001/XMLSchema#double> .
+
+<http://linkedgeodata.org/triplify/node82689506>
+      a       <http://eccenca.com/mobivoc/FuelStation> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "Kaufland" ;
+      <http://eccenca.com/mobivoc/fillingStationHeight>
+              "10" ;
+      <http://eccenca.com/mobivoc/fillingStationNumber>
+              "22"^^<http://www.w3.org/2001/XMLSchema#int> ;
+      <http://eccenca.com/mobivoc/hasOffer>
+              <http://eccenca.com/mobivoc/Autogas> , <http://eccenca.com/mobivoc/SuperDiesel> , <http://eccenca.com/mobivoc/DieselFuel> , <http://eccenca.com/mobivoc/Ethanol> , <http://eccenca.com/mobivoc/CompressedNaturalGas> , <http://eccenca.com/mobivoc/LKWDiesel> , <http://eccenca.com/mobivoc/Super(E10)> , <http://eccenca.com/mobivoc/ExcelliumDiesel> , <http://eccenca.com/mobivoc/ExcelliumSuperPlus> , <http://eccenca.com/mobivoc/Biodiesel> , <http://eccenca.com/mobivoc/Super(E5)> , <http://eccenca.com/mobivoc/Methane> , <http://eccenca.com/mobivoc/UltimateSuper> , <http://eccenca.com/mobivoc/VPowerDiesel> , <http://eccenca.com/mobivoc/MaxxMotionDiesel> , <http://eccenca.com/mobivoc/Hydrogen> , <http://eccenca.com/mobivoc/VPowerRacing> , <http://eccenca.com/mobivoc/UltimateDiesel> , <http://eccenca.com/mobivoc/LiquidGas> , <http://eccenca.com/mobivoc/E85> , <http://eccenca.com/mobivoc/Petrol> , <http://eccenca.com/mobivoc/Adblue> , <http://eccenca.com/mobivoc/MaxxMotionSuper100> ;
+      <http://eccenca.com/mobivoc/hasParkingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasShoppingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWCFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWashingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWheelChairEnabled>
+              "Yes" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
+              "51.3669"^^<http://www.w3.org/2001/XMLSchema#double> ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#long>
+              "12.4577"^^<http://www.w3.org/2001/XMLSchema#double> .
+
+<http://linkedgeodata.org/triplify/node2626943480>
+      a       <http://eccenca.com/mobivoc/FuelStation> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "Total" ;
+      <http://eccenca.com/mobivoc/fillingStationHeight>
+              "10" ;
+      <http://eccenca.com/mobivoc/fillingStationNumber>
+              "7"^^<http://www.w3.org/2001/XMLSchema#int> ;
+      <http://eccenca.com/mobivoc/hasOffer>
+              <http://eccenca.com/mobivoc/Autogas> , <http://eccenca.com/mobivoc/SuperDiesel> , <http://eccenca.com/mobivoc/Ethanol> , <http://eccenca.com/mobivoc/DieselFuel> , <http://eccenca.com/mobivoc/LKWDiesel> , <http://eccenca.com/mobivoc/CompressedNaturalGas> , <http://eccenca.com/mobivoc/Super(E10)> , <http://eccenca.com/mobivoc/ExcelliumDiesel> , <http://eccenca.com/mobivoc/ExcelliumSuperPlus> , <http://eccenca.com/mobivoc/Biodiesel> , <http://eccenca.com/mobivoc/Super(E5)> , <http://eccenca.com/mobivoc/Methane> , <http://eccenca.com/mobivoc/UltimateSuper> , <http://eccenca.com/mobivoc/VPowerDiesel> , <http://eccenca.com/mobivoc/MaxxMotionDiesel> , <http://eccenca.com/mobivoc/VPowerRacing> , <http://eccenca.com/mobivoc/Hydrogen> , <http://eccenca.com/mobivoc/UltimateDiesel> , <http://eccenca.com/mobivoc/LiquidGas> , <http://eccenca.com/mobivoc/E85> , <http://eccenca.com/mobivoc/Petrol> , <http://eccenca.com/mobivoc/Adblue> , <http://eccenca.com/mobivoc/MaxxMotionSuper100> ;
+      <http://eccenca.com/mobivoc/hasParkingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasShoppingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWCFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWashingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWheelChairEnabled>
+              "Yes" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
+              "51.3431"^^<http://www.w3.org/2001/XMLSchema#double> ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#long>
+              "12.3953"^^<http://www.w3.org/2001/XMLSchema#double> .
+
+<http://linkedgeodata.org/triplify/node2850750837>
+      a       <http://eccenca.com/mobivoc/FuelStation> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "Tankstelle" ;
+      <http://eccenca.com/mobivoc/fillingStationHeight>
+              "10" ;
+      <http://eccenca.com/mobivoc/fillingStationNumber>
+              "24"^^<http://www.w3.org/2001/XMLSchema#int> ;
+      <http://eccenca.com/mobivoc/hasOffer>
+              <http://eccenca.com/mobivoc/Autogas> , <http://eccenca.com/mobivoc/SuperDiesel> , <http://eccenca.com/mobivoc/Ethanol> , <http://eccenca.com/mobivoc/DieselFuel> , <http://eccenca.com/mobivoc/CompressedNaturalGas> , <http://eccenca.com/mobivoc/LKWDiesel> , <http://eccenca.com/mobivoc/Super(E10)> , <http://eccenca.com/mobivoc/ExcelliumDiesel> , <http://eccenca.com/mobivoc/ExcelliumSuperPlus> , <http://eccenca.com/mobivoc/Biodiesel> , <http://eccenca.com/mobivoc/Super(E5)> , <http://eccenca.com/mobivoc/Methane> , <http://eccenca.com/mobivoc/UltimateSuper> , <http://eccenca.com/mobivoc/VPowerDiesel> , <http://eccenca.com/mobivoc/MaxxMotionDiesel> , <http://eccenca.com/mobivoc/VPowerRacing> , <http://eccenca.com/mobivoc/Hydrogen> , <http://eccenca.com/mobivoc/UltimateDiesel> , <http://eccenca.com/mobivoc/LiquidGas> , <http://eccenca.com/mobivoc/E85> , <http://eccenca.com/mobivoc/Petrol> , <http://eccenca.com/mobivoc/Adblue> , <http://eccenca.com/mobivoc/MaxxMotionSuper100> ;
+      <http://eccenca.com/mobivoc/hasParkingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasShoppingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWCFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWashingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWheelChairEnabled>
+              "Yes" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
+              "51.3762"^^<http://www.w3.org/2001/XMLSchema#double> ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#long>
+              "12.3777"^^<http://www.w3.org/2001/XMLSchema#double> .
+
+<http://linkedgeodata.org/triplify/node472272096>
+      a       <http://eccenca.com/mobivoc/FuelStation> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "BMW-Werktankstelle" ;
+      <http://eccenca.com/mobivoc/fillingStationHeight>
+              "10" ;
+      <http://eccenca.com/mobivoc/fillingStationNumber>
+              "35"^^<http://www.w3.org/2001/XMLSchema#int> ;
+      <http://eccenca.com/mobivoc/hasOffer>
+              <http://eccenca.com/mobivoc/Autogas> , <http://eccenca.com/mobivoc/SuperDiesel> , <http://eccenca.com/mobivoc/DieselFuel> , <http://eccenca.com/mobivoc/Ethanol> , <http://eccenca.com/mobivoc/LKWDiesel> , <http://eccenca.com/mobivoc/CompressedNaturalGas> , <http://eccenca.com/mobivoc/Super(E10)> , <http://eccenca.com/mobivoc/ExcelliumDiesel> , <http://eccenca.com/mobivoc/ExcelliumSuperPlus> , <http://eccenca.com/mobivoc/Biodiesel> , <http://eccenca.com/mobivoc/Super(E5)> , <http://eccenca.com/mobivoc/Methane> , <http://eccenca.com/mobivoc/UltimateSuper> , <http://eccenca.com/mobivoc/VPowerDiesel> , <http://eccenca.com/mobivoc/MaxxMotionDiesel> , <http://eccenca.com/mobivoc/Hydrogen> , <http://eccenca.com/mobivoc/VPowerRacing> , <http://eccenca.com/mobivoc/LiquidGas> , <http://eccenca.com/mobivoc/UltimateDiesel> , <http://eccenca.com/mobivoc/E85> , <http://eccenca.com/mobivoc/Petrol> , <http://eccenca.com/mobivoc/Adblue> , <http://eccenca.com/mobivoc/MaxxMotionSuper100> ;
+      <http://eccenca.com/mobivoc/hasParkingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasShoppingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWCFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWashingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWheelChairEnabled>
+              "Yes" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
+              "51.401"^^<http://www.w3.org/2001/XMLSchema#double> ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#long>
+              "12.4434"^^<http://www.w3.org/2001/XMLSchema#double> .
+
+<http://linkedgeodata.org/triplify/way92105974>
+      a       <http://eccenca.com/mobivoc/FuelStation> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "Agip Podelwitz" ;
+      <http://eccenca.com/mobivoc/fillingStationHeight>
+              "10" ;
+      <http://eccenca.com/mobivoc/fillingStationNumber>
+              "38"^^<http://www.w3.org/2001/XMLSchema#int> ;
+      <http://eccenca.com/mobivoc/hasOffer>
+              <http://eccenca.com/mobivoc/Autogas> , <http://eccenca.com/mobivoc/SuperDiesel> , <http://eccenca.com/mobivoc/Ethanol> , <http://eccenca.com/mobivoc/DieselFuel> , <http://eccenca.com/mobivoc/LKWDiesel> , <http://eccenca.com/mobivoc/CompressedNaturalGas> , <http://eccenca.com/mobivoc/Super(E10)> , <http://eccenca.com/mobivoc/ExcelliumDiesel> , <http://eccenca.com/mobivoc/ExcelliumSuperPlus> , <http://eccenca.com/mobivoc/Biodiesel> , <http://eccenca.com/mobivoc/Super(E5)> , <http://eccenca.com/mobivoc/Methane> , <http://eccenca.com/mobivoc/UltimateSuper> , <http://eccenca.com/mobivoc/VPowerDiesel> , <http://eccenca.com/mobivoc/MaxxMotionDiesel> , <http://eccenca.com/mobivoc/VPowerRacing> , <http://eccenca.com/mobivoc/Hydrogen> , <http://eccenca.com/mobivoc/UltimateDiesel> , <http://eccenca.com/mobivoc/LiquidGas> , <http://eccenca.com/mobivoc/E85> , <http://eccenca.com/mobivoc/Petrol> , <http://eccenca.com/mobivoc/Adblue> , <http://eccenca.com/mobivoc/MaxxMotionSuper100> ;
+      <http://eccenca.com/mobivoc/hasParkingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasShoppingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWCFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWashingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWheelChairEnabled>
+              "Yes" .
+
+<http://linkedgeodata.org/triplify/way33188875>
+      a       <http://eccenca.com/mobivoc/FuelStation> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "Aral" ;
+      <http://eccenca.com/mobivoc/fillingStationHeight>
+              "10" ;
+      <http://eccenca.com/mobivoc/fillingStationNumber>
+              "12"^^<http://www.w3.org/2001/XMLSchema#int> ;
+      <http://eccenca.com/mobivoc/hasOffer>
+              <http://eccenca.com/mobivoc/Autogas> , <http://eccenca.com/mobivoc/SuperDiesel> , <http://eccenca.com/mobivoc/DieselFuel> , <http://eccenca.com/mobivoc/Ethanol> , <http://eccenca.com/mobivoc/LKWDiesel> , <http://eccenca.com/mobivoc/CompressedNaturalGas> , <http://eccenca.com/mobivoc/Super(E10)> , <http://eccenca.com/mobivoc/ExcelliumDiesel> , <http://eccenca.com/mobivoc/ExcelliumSuperPlus> , <http://eccenca.com/mobivoc/Biodiesel> , <http://eccenca.com/mobivoc/Super(E5)> , <http://eccenca.com/mobivoc/Methane> , <http://eccenca.com/mobivoc/UltimateSuper> , <http://eccenca.com/mobivoc/MaxxMotionDiesel> , <http://eccenca.com/mobivoc/VPowerDiesel> , <http://eccenca.com/mobivoc/VPowerRacing> , <http://eccenca.com/mobivoc/Hydrogen> , <http://eccenca.com/mobivoc/LiquidGas> , <http://eccenca.com/mobivoc/UltimateDiesel> , <http://eccenca.com/mobivoc/E85> , <http://eccenca.com/mobivoc/Petrol> , <http://eccenca.com/mobivoc/Adblue> , <http://eccenca.com/mobivoc/MaxxMotionSuper100> ;
+      <http://eccenca.com/mobivoc/hasParkingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasShoppingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWCFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWashingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWheelChairEnabled>
+              "Yes" .
+
+<http://linkedgeodata.org/triplify/way239285012>
+      a       <http://eccenca.com/mobivoc/FuelStation> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "Total" ;
+      <http://eccenca.com/mobivoc/fillingStationHeight>
+              "10" ;
+      <http://eccenca.com/mobivoc/fillingStationNumber>
+              "9"^^<http://www.w3.org/2001/XMLSchema#int> ;
+      <http://eccenca.com/mobivoc/hasOffer>
+              <http://eccenca.com/mobivoc/Autogas> , <http://eccenca.com/mobivoc/SuperDiesel> , <http://eccenca.com/mobivoc/DieselFuel> , <http://eccenca.com/mobivoc/Ethanol> , <http://eccenca.com/mobivoc/CompressedNaturalGas> , <http://eccenca.com/mobivoc/LKWDiesel> , <http://eccenca.com/mobivoc/Super(E10)> , <http://eccenca.com/mobivoc/ExcelliumDiesel> , <http://eccenca.com/mobivoc/ExcelliumSuperPlus> , <http://eccenca.com/mobivoc/Biodiesel> , <http://eccenca.com/mobivoc/Super(E5)> , <http://eccenca.com/mobivoc/Methane> , <http://eccenca.com/mobivoc/UltimateSuper> , <http://eccenca.com/mobivoc/MaxxMotionDiesel> , <http://eccenca.com/mobivoc/VPowerDiesel> , <http://eccenca.com/mobivoc/Hydrogen> , <http://eccenca.com/mobivoc/VPowerRacing> , <http://eccenca.com/mobivoc/UltimateDiesel> , <http://eccenca.com/mobivoc/LiquidGas> , <http://eccenca.com/mobivoc/E85> , <http://eccenca.com/mobivoc/Petrol> , <http://eccenca.com/mobivoc/Adblue> , <http://eccenca.com/mobivoc/MaxxMotionSuper100> ;
+      <http://eccenca.com/mobivoc/hasParkingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasShoppingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWCFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWashingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWheelChairEnabled>
+              "Yes" .
+
+<http://linkedgeodata.org/triplify/node59960302>
+      a       <http://eccenca.com/mobivoc/FuelStation> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "BFT" ;
+      <http://eccenca.com/mobivoc/fillingStationHeight>
+              "10" ;
+      <http://eccenca.com/mobivoc/fillingStationNumber>
+              "28"^^<http://www.w3.org/2001/XMLSchema#int> ;
+      <http://eccenca.com/mobivoc/hasOffer>
+              <http://eccenca.com/mobivoc/Autogas> , <http://eccenca.com/mobivoc/SuperDiesel> , <http://eccenca.com/mobivoc/DieselFuel> , <http://eccenca.com/mobivoc/Ethanol> , <http://eccenca.com/mobivoc/LKWDiesel> , <http://eccenca.com/mobivoc/CompressedNaturalGas> , <http://eccenca.com/mobivoc/Super(E10)> , <http://eccenca.com/mobivoc/ExcelliumDiesel> , <http://eccenca.com/mobivoc/ExcelliumSuperPlus> , <http://eccenca.com/mobivoc/Biodiesel> , <http://eccenca.com/mobivoc/Super(E5)> , <http://eccenca.com/mobivoc/Methane> , <http://eccenca.com/mobivoc/UltimateSuper> , <http://eccenca.com/mobivoc/VPowerDiesel> , <http://eccenca.com/mobivoc/MaxxMotionDiesel> , <http://eccenca.com/mobivoc/Hydrogen> , <http://eccenca.com/mobivoc/VPowerRacing> , <http://eccenca.com/mobivoc/UltimateDiesel> , <http://eccenca.com/mobivoc/LiquidGas> , <http://eccenca.com/mobivoc/E85> , <http://eccenca.com/mobivoc/Petrol> , <http://eccenca.com/mobivoc/Adblue> , <http://eccenca.com/mobivoc/MaxxMotionSuper100> ;
+      <http://eccenca.com/mobivoc/hasParkingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasShoppingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWCFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWashingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWheelChairEnabled>
+              "Yes" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
+              "51.3172"^^<http://www.w3.org/2001/XMLSchema#double> ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#long>
+              "12.3102"^^<http://www.w3.org/2001/XMLSchema#double> .
+
+<http://linkedgeodata.org/triplify/node732716479>
+      a       <http://eccenca.com/mobivoc/FuelStation> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "Firma Dieter Schulz" ;
+      <http://eccenca.com/mobivoc/fillingStationHeight>
+              "10" ;
+      <http://eccenca.com/mobivoc/fillingStationNumber>
+              "6"^^<http://www.w3.org/2001/XMLSchema#int> ;
+      <http://eccenca.com/mobivoc/hasOffer>
+              <http://eccenca.com/mobivoc/Autogas> , <http://eccenca.com/mobivoc/SuperDiesel> , <http://eccenca.com/mobivoc/Ethanol> , <http://eccenca.com/mobivoc/DieselFuel> , <http://eccenca.com/mobivoc/LKWDiesel> , <http://eccenca.com/mobivoc/CompressedNaturalGas> , <http://eccenca.com/mobivoc/Super(E10)> , <http://eccenca.com/mobivoc/ExcelliumDiesel> , <http://eccenca.com/mobivoc/ExcelliumSuperPlus> , <http://eccenca.com/mobivoc/Biodiesel> , <http://eccenca.com/mobivoc/Super(E5)> , <http://eccenca.com/mobivoc/Methane> , <http://eccenca.com/mobivoc/UltimateSuper> , <http://eccenca.com/mobivoc/MaxxMotionDiesel> , <http://eccenca.com/mobivoc/VPowerDiesel> , <http://eccenca.com/mobivoc/Hydrogen> , <http://eccenca.com/mobivoc/VPowerRacing> , <http://eccenca.com/mobivoc/UltimateDiesel> , <http://eccenca.com/mobivoc/LiquidGas> , <http://eccenca.com/mobivoc/E85> , <http://eccenca.com/mobivoc/Petrol> , <http://eccenca.com/mobivoc/Adblue> , <http://eccenca.com/mobivoc/MaxxMotionSuper100> ;
+      <http://eccenca.com/mobivoc/hasParkingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasShoppingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWCFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWashingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWheelChairEnabled>
+              "Yes" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
+              "51.3652"^^<http://www.w3.org/2001/XMLSchema#double> ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#long>
+              "12.4367"^^<http://www.w3.org/2001/XMLSchema#double> .
+
+<http://linkedgeodata.org/triplify/way142277010>
+      a       <http://eccenca.com/mobivoc/FuelStation> ;
+      <http://eccenca.com/mobivoc/fillingStationHeight>
+              "10" ;
+      <http://eccenca.com/mobivoc/fillingStationNumber>
+              "32"^^<http://www.w3.org/2001/XMLSchema#int> ;
+      <http://eccenca.com/mobivoc/hasOffer>
+              <http://eccenca.com/mobivoc/Autogas> , <http://eccenca.com/mobivoc/SuperDiesel> , <http://eccenca.com/mobivoc/DieselFuel> , <http://eccenca.com/mobivoc/Ethanol> , <http://eccenca.com/mobivoc/CompressedNaturalGas> , <http://eccenca.com/mobivoc/LKWDiesel> , <http://eccenca.com/mobivoc/Super(E10)> , <http://eccenca.com/mobivoc/ExcelliumDiesel> , <http://eccenca.com/mobivoc/ExcelliumSuperPlus> , <http://eccenca.com/mobivoc/Biodiesel> , <http://eccenca.com/mobivoc/Super(E5)> , <http://eccenca.com/mobivoc/Methane> , <http://eccenca.com/mobivoc/UltimateSuper> , <http://eccenca.com/mobivoc/VPowerDiesel> , <http://eccenca.com/mobivoc/MaxxMotionDiesel> , <http://eccenca.com/mobivoc/VPowerRacing> , <http://eccenca.com/mobivoc/Hydrogen> , <http://eccenca.com/mobivoc/UltimateDiesel> , <http://eccenca.com/mobivoc/LiquidGas> , <http://eccenca.com/mobivoc/E85> , <http://eccenca.com/mobivoc/Petrol> , <http://eccenca.com/mobivoc/Adblue> , <http://eccenca.com/mobivoc/MaxxMotionSuper100> ;
+      <http://eccenca.com/mobivoc/hasParkingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasShoppingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWCFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWashingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWheelChairEnabled>
+              "Yes" .
+
+<http://linkedgeodata.org/triplify/node279358486>
+      a       <http://eccenca.com/mobivoc/FuelStation> ;
+      <http://eccenca.com/mobivoc/fillingStationHeight>
+              "10" ;
+      <http://eccenca.com/mobivoc/fillingStationNumber>
+              "23"^^<http://www.w3.org/2001/XMLSchema#int> ;
+      <http://eccenca.com/mobivoc/hasOffer>
+              <http://eccenca.com/mobivoc/Autogas> , <http://eccenca.com/mobivoc/SuperDiesel> , <http://eccenca.com/mobivoc/Ethanol> , <http://eccenca.com/mobivoc/DieselFuel> , <http://eccenca.com/mobivoc/CompressedNaturalGas> , <http://eccenca.com/mobivoc/LKWDiesel> , <http://eccenca.com/mobivoc/Super(E10)> , <http://eccenca.com/mobivoc/ExcelliumDiesel> , <http://eccenca.com/mobivoc/ExcelliumSuperPlus> , <http://eccenca.com/mobivoc/Biodiesel> , <http://eccenca.com/mobivoc/Super(E5)> , <http://eccenca.com/mobivoc/Methane> , <http://eccenca.com/mobivoc/UltimateSuper> , <http://eccenca.com/mobivoc/MaxxMotionDiesel> , <http://eccenca.com/mobivoc/VPowerDiesel> , <http://eccenca.com/mobivoc/VPowerRacing> , <http://eccenca.com/mobivoc/Hydrogen> , <http://eccenca.com/mobivoc/LiquidGas> , <http://eccenca.com/mobivoc/UltimateDiesel> , <http://eccenca.com/mobivoc/E85> , <http://eccenca.com/mobivoc/Petrol> , <http://eccenca.com/mobivoc/Adblue> , <http://eccenca.com/mobivoc/MaxxMotionSuper100> ;
+      <http://eccenca.com/mobivoc/hasParkingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasShoppingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWCFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWashingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWheelChairEnabled>
+              "Yes" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
+              "51.3078"^^<http://www.w3.org/2001/XMLSchema#double> ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#long>
+              "12.3271"^^<http://www.w3.org/2001/XMLSchema#double> .
+
+<http://linkedgeodata.org/triplify/node2774668368>
+      a       <http://eccenca.com/mobivoc/FuelStation> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "Star" ;
+      <http://eccenca.com/mobivoc/fillingStationHeight>
+              "10" ;
+      <http://eccenca.com/mobivoc/fillingStationNumber>
+              "30"^^<http://www.w3.org/2001/XMLSchema#int> ;
+      <http://eccenca.com/mobivoc/hasOffer>
+              <http://eccenca.com/mobivoc/Autogas> , <http://eccenca.com/mobivoc/SuperDiesel> , <http://eccenca.com/mobivoc/DieselFuel> , <http://eccenca.com/mobivoc/Ethanol> , <http://eccenca.com/mobivoc/LKWDiesel> , <http://eccenca.com/mobivoc/CompressedNaturalGas> , <http://eccenca.com/mobivoc/Super(E10)> , <http://eccenca.com/mobivoc/ExcelliumDiesel> , <http://eccenca.com/mobivoc/ExcelliumSuperPlus> , <http://eccenca.com/mobivoc/Biodiesel> , <http://eccenca.com/mobivoc/Super(E5)> , <http://eccenca.com/mobivoc/Methane> , <http://eccenca.com/mobivoc/UltimateSuper> , <http://eccenca.com/mobivoc/MaxxMotionDiesel> , <http://eccenca.com/mobivoc/VPowerDiesel> , <http://eccenca.com/mobivoc/Hydrogen> , <http://eccenca.com/mobivoc/VPowerRacing> , <http://eccenca.com/mobivoc/LiquidGas> , <http://eccenca.com/mobivoc/UltimateDiesel> , <http://eccenca.com/mobivoc/E85> , <http://eccenca.com/mobivoc/Petrol> , <http://eccenca.com/mobivoc/Adblue> , <http://eccenca.com/mobivoc/MaxxMotionSuper100> ;
+      <http://eccenca.com/mobivoc/hasParkingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasShoppingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWCFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWashingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWheelChairEnabled>
+              "Yes" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
+              "51.3106"^^<http://www.w3.org/2001/XMLSchema#double> ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#long>
+              "12.309"^^<http://www.w3.org/2001/XMLSchema#double> .
+
+<http://linkedgeodata.org/triplify/way237649227>
+      a       <http://eccenca.com/mobivoc/FuelStation> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "Aral" ;
+      <http://eccenca.com/mobivoc/fillingStationHeight>
+              "10" ;
+      <http://eccenca.com/mobivoc/fillingStationNumber>
+              "33"^^<http://www.w3.org/2001/XMLSchema#int> ;
+      <http://eccenca.com/mobivoc/hasOffer>
+              <http://eccenca.com/mobivoc/Autogas> , <http://eccenca.com/mobivoc/SuperDiesel> , <http://eccenca.com/mobivoc/Ethanol> , <http://eccenca.com/mobivoc/DieselFuel> , <http://eccenca.com/mobivoc/CompressedNaturalGas> , <http://eccenca.com/mobivoc/LKWDiesel> , <http://eccenca.com/mobivoc/Super(E10)> , <http://eccenca.com/mobivoc/ExcelliumDiesel> , <http://eccenca.com/mobivoc/ExcelliumSuperPlus> , <http://eccenca.com/mobivoc/Biodiesel> , <http://eccenca.com/mobivoc/Super(E5)> , <http://eccenca.com/mobivoc/Methane> , <http://eccenca.com/mobivoc/UltimateSuper> , <http://eccenca.com/mobivoc/MaxxMotionDiesel> , <http://eccenca.com/mobivoc/VPowerDiesel> , <http://eccenca.com/mobivoc/Hydrogen> , <http://eccenca.com/mobivoc/VPowerRacing> , <http://eccenca.com/mobivoc/LiquidGas> , <http://eccenca.com/mobivoc/UltimateDiesel> , <http://eccenca.com/mobivoc/E85> , <http://eccenca.com/mobivoc/Petrol> , <http://eccenca.com/mobivoc/Adblue> , <http://eccenca.com/mobivoc/MaxxMotionSuper100> ;
+      <http://eccenca.com/mobivoc/hasParkingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasShoppingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWCFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWashingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWheelChairEnabled>
+              "Yes" .
+
+<http://linkedgeodata.org/triplify/way237392591>
+      a       <http://eccenca.com/mobivoc/FuelStation> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "Bavaria Petrol" ;
+      <http://eccenca.com/mobivoc/fillingStationHeight>
+              "10" ;
+      <http://eccenca.com/mobivoc/fillingStationNumber>
+              "4"^^<http://www.w3.org/2001/XMLSchema#int> ;
+      <http://eccenca.com/mobivoc/hasOffer>
+              <http://eccenca.com/mobivoc/Autogas> , <http://eccenca.com/mobivoc/SuperDiesel> , <http://eccenca.com/mobivoc/Ethanol> , <http://eccenca.com/mobivoc/DieselFuel> , <http://eccenca.com/mobivoc/LKWDiesel> , <http://eccenca.com/mobivoc/CompressedNaturalGas> , <http://eccenca.com/mobivoc/Super(E10)> , <http://eccenca.com/mobivoc/ExcelliumDiesel> , <http://eccenca.com/mobivoc/ExcelliumSuperPlus> , <http://eccenca.com/mobivoc/Biodiesel> , <http://eccenca.com/mobivoc/Super(E5)> , <http://eccenca.com/mobivoc/Methane> , <http://eccenca.com/mobivoc/UltimateSuper> , <http://eccenca.com/mobivoc/VPowerDiesel> , <http://eccenca.com/mobivoc/MaxxMotionDiesel> , <http://eccenca.com/mobivoc/VPowerRacing> , <http://eccenca.com/mobivoc/Hydrogen> , <http://eccenca.com/mobivoc/UltimateDiesel> , <http://eccenca.com/mobivoc/LiquidGas> , <http://eccenca.com/mobivoc/E85> , <http://eccenca.com/mobivoc/Petrol> , <http://eccenca.com/mobivoc/Adblue> , <http://eccenca.com/mobivoc/MaxxMotionSuper100> ;
+      <http://eccenca.com/mobivoc/hasParkingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasShoppingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWCFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWashingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWheelChairEnabled>
+              "Yes" .
+
+<http://linkedgeodata.org/triplify/way33504189>
+      a       <http://eccenca.com/mobivoc/FuelStation> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "HEM" ;
+      <http://eccenca.com/mobivoc/fillingStationHeight>
+              "10" ;
+      <http://eccenca.com/mobivoc/fillingStationNumber>
+              "47"^^<http://www.w3.org/2001/XMLSchema#int> ;
+      <http://eccenca.com/mobivoc/hasOffer>
+              <http://eccenca.com/mobivoc/Autogas> , <http://eccenca.com/mobivoc/SuperDiesel> , <http://eccenca.com/mobivoc/DieselFuel> , <http://eccenca.com/mobivoc/Ethanol> , <http://eccenca.com/mobivoc/LKWDiesel> , <http://eccenca.com/mobivoc/CompressedNaturalGas> , <http://eccenca.com/mobivoc/Super(E10)> , <http://eccenca.com/mobivoc/ExcelliumDiesel> , <http://eccenca.com/mobivoc/ExcelliumSuperPlus> , <http://eccenca.com/mobivoc/Biodiesel> , <http://eccenca.com/mobivoc/Super(E5)> , <http://eccenca.com/mobivoc/Methane> , <http://eccenca.com/mobivoc/UltimateSuper> , <http://eccenca.com/mobivoc/MaxxMotionDiesel> , <http://eccenca.com/mobivoc/VPowerDiesel> , <http://eccenca.com/mobivoc/Hydrogen> , <http://eccenca.com/mobivoc/VPowerRacing> , <http://eccenca.com/mobivoc/UltimateDiesel> , <http://eccenca.com/mobivoc/LiquidGas> , <http://eccenca.com/mobivoc/E85> , <http://eccenca.com/mobivoc/Petrol> , <http://eccenca.com/mobivoc/Adblue> , <http://eccenca.com/mobivoc/MaxxMotionSuper100> ;
+      <http://eccenca.com/mobivoc/hasParkingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasShoppingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWCFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWashingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWheelChairEnabled>
+              "Yes" .
+
+<http://linkedgeodata.org/triplify/node2774941417>
+      a       <http://eccenca.com/mobivoc/FuelStation> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "JET" ;
+      <http://eccenca.com/mobivoc/fillingStationHeight>
+              "10" ;
+      <http://eccenca.com/mobivoc/fillingStationNumber>
+              "41"^^<http://www.w3.org/2001/XMLSchema#int> ;
+      <http://eccenca.com/mobivoc/hasOffer>
+              <http://eccenca.com/mobivoc/Autogas> , <http://eccenca.com/mobivoc/SuperDiesel> , <http://eccenca.com/mobivoc/DieselFuel> , <http://eccenca.com/mobivoc/Ethanol> , <http://eccenca.com/mobivoc/LKWDiesel> , <http://eccenca.com/mobivoc/CompressedNaturalGas> , <http://eccenca.com/mobivoc/Super(E10)> , <http://eccenca.com/mobivoc/ExcelliumDiesel> , <http://eccenca.com/mobivoc/ExcelliumSuperPlus> , <http://eccenca.com/mobivoc/Biodiesel> , <http://eccenca.com/mobivoc/Super(E5)> , <http://eccenca.com/mobivoc/Methane> , <http://eccenca.com/mobivoc/UltimateSuper> , <http://eccenca.com/mobivoc/VPowerDiesel> , <http://eccenca.com/mobivoc/MaxxMotionDiesel> , <http://eccenca.com/mobivoc/VPowerRacing> , <http://eccenca.com/mobivoc/Hydrogen> , <http://eccenca.com/mobivoc/UltimateDiesel> , <http://eccenca.com/mobivoc/LiquidGas> , <http://eccenca.com/mobivoc/E85> , <http://eccenca.com/mobivoc/Petrol> , <http://eccenca.com/mobivoc/Adblue> , <http://eccenca.com/mobivoc/MaxxMotionSuper100> ;
+      <http://eccenca.com/mobivoc/hasParkingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasShoppingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWCFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWashingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWheelChairEnabled>
+              "Yes" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
+              "51.3105"^^<http://www.w3.org/2001/XMLSchema#double> ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#long>
+              "12.3267"^^<http://www.w3.org/2001/XMLSchema#double> .
+
+<http://linkedgeodata.org/triplify/way33627293>
+      a       <http://eccenca.com/mobivoc/FuelStation> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "Go" ;
+      <http://eccenca.com/mobivoc/fillingStationHeight>
+              "10" ;
+      <http://eccenca.com/mobivoc/fillingStationNumber>
+              "8"^^<http://www.w3.org/2001/XMLSchema#int> ;
+      <http://eccenca.com/mobivoc/hasOffer>
+              <http://eccenca.com/mobivoc/Autogas> , <http://eccenca.com/mobivoc/SuperDiesel> , <http://eccenca.com/mobivoc/Ethanol> , <http://eccenca.com/mobivoc/DieselFuel> , <http://eccenca.com/mobivoc/LKWDiesel> , <http://eccenca.com/mobivoc/CompressedNaturalGas> , <http://eccenca.com/mobivoc/Super(E10)> , <http://eccenca.com/mobivoc/ExcelliumDiesel> , <http://eccenca.com/mobivoc/ExcelliumSuperPlus> , <http://eccenca.com/mobivoc/Biodiesel> , <http://eccenca.com/mobivoc/Super(E5)> , <http://eccenca.com/mobivoc/Methane> , <http://eccenca.com/mobivoc/UltimateSuper> , <http://eccenca.com/mobivoc/MaxxMotionDiesel> , <http://eccenca.com/mobivoc/VPowerDiesel> , <http://eccenca.com/mobivoc/VPowerRacing> , <http://eccenca.com/mobivoc/Hydrogen> , <http://eccenca.com/mobivoc/UltimateDiesel> , <http://eccenca.com/mobivoc/LiquidGas> , <http://eccenca.com/mobivoc/E85> , <http://eccenca.com/mobivoc/Petrol> , <http://eccenca.com/mobivoc/Adblue> , <http://eccenca.com/mobivoc/MaxxMotionSuper100> ;
+      <http://eccenca.com/mobivoc/hasParkingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasShoppingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWCFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWashingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWheelChairEnabled>
+              "Yes" .
+
+<http://linkedgeodata.org/triplify/way264317062>
+      a       <http://eccenca.com/mobivoc/FuelStation> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "Q1" ;
+      <http://eccenca.com/mobivoc/fillingStationHeight>
+              "10" ;
+      <http://eccenca.com/mobivoc/fillingStationNumber>
+              "42"^^<http://www.w3.org/2001/XMLSchema#int> ;
+      <http://eccenca.com/mobivoc/hasOffer>
+              <http://eccenca.com/mobivoc/Autogas> , <http://eccenca.com/mobivoc/SuperDiesel> , <http://eccenca.com/mobivoc/DieselFuel> , <http://eccenca.com/mobivoc/Ethanol> , <http://eccenca.com/mobivoc/CompressedNaturalGas> , <http://eccenca.com/mobivoc/LKWDiesel> , <http://eccenca.com/mobivoc/Super(E10)> , <http://eccenca.com/mobivoc/ExcelliumDiesel> , <http://eccenca.com/mobivoc/ExcelliumSuperPlus> , <http://eccenca.com/mobivoc/Biodiesel> , <http://eccenca.com/mobivoc/Super(E5)> , <http://eccenca.com/mobivoc/Methane> , <http://eccenca.com/mobivoc/UltimateSuper> , <http://eccenca.com/mobivoc/MaxxMotionDiesel> , <http://eccenca.com/mobivoc/VPowerDiesel> , <http://eccenca.com/mobivoc/VPowerRacing> , <http://eccenca.com/mobivoc/Hydrogen> , <http://eccenca.com/mobivoc/LiquidGas> , <http://eccenca.com/mobivoc/UltimateDiesel> , <http://eccenca.com/mobivoc/E85> , <http://eccenca.com/mobivoc/Petrol> , <http://eccenca.com/mobivoc/Adblue> , <http://eccenca.com/mobivoc/MaxxMotionSuper100> ;
+      <http://eccenca.com/mobivoc/hasParkingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasShoppingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWCFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWashingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWheelChairEnabled>
+              "Yes" .
+
+<http://linkedgeodata.org/triplify/way32756103>
+      a       <http://eccenca.com/mobivoc/FuelStation> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "Aral" ;
+      <http://eccenca.com/mobivoc/fillingStationHeight>
+              "10" ;
+      <http://eccenca.com/mobivoc/fillingStationNumber>
+              "25"^^<http://www.w3.org/2001/XMLSchema#int> ;
+      <http://eccenca.com/mobivoc/hasOffer>
+              <http://eccenca.com/mobivoc/Autogas> , <http://eccenca.com/mobivoc/SuperDiesel> , <http://eccenca.com/mobivoc/Ethanol> , <http://eccenca.com/mobivoc/DieselFuel> , <http://eccenca.com/mobivoc/CompressedNaturalGas> , <http://eccenca.com/mobivoc/LKWDiesel> , <http://eccenca.com/mobivoc/Super(E10)> , <http://eccenca.com/mobivoc/ExcelliumDiesel> , <http://eccenca.com/mobivoc/ExcelliumSuperPlus> , <http://eccenca.com/mobivoc/Biodiesel> , <http://eccenca.com/mobivoc/Super(E5)> , <http://eccenca.com/mobivoc/Methane> , <http://eccenca.com/mobivoc/UltimateSuper> , <http://eccenca.com/mobivoc/MaxxMotionDiesel> , <http://eccenca.com/mobivoc/VPowerDiesel> , <http://eccenca.com/mobivoc/Hydrogen> , <http://eccenca.com/mobivoc/VPowerRacing> , <http://eccenca.com/mobivoc/LiquidGas> , <http://eccenca.com/mobivoc/UltimateDiesel> , <http://eccenca.com/mobivoc/E85> , <http://eccenca.com/mobivoc/Petrol> , <http://eccenca.com/mobivoc/Adblue> , <http://eccenca.com/mobivoc/MaxxMotionSuper100> ;
+      <http://eccenca.com/mobivoc/hasParkingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasShoppingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWCFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWashingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWheelChairEnabled>
+              "Yes" .
+
+<http://linkedgeodata.org/triplify/way239285011>
+      a       <http://eccenca.com/mobivoc/FuelStation> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "Minol" ;
+      <http://eccenca.com/mobivoc/fillingStationHeight>
+              "10" ;
+      <http://eccenca.com/mobivoc/fillingStationNumber>
+              "34"^^<http://www.w3.org/2001/XMLSchema#int> ;
+      <http://eccenca.com/mobivoc/hasOffer>
+              <http://eccenca.com/mobivoc/Autogas> , <http://eccenca.com/mobivoc/SuperDiesel> , <http://eccenca.com/mobivoc/Ethanol> , <http://eccenca.com/mobivoc/DieselFuel> , <http://eccenca.com/mobivoc/LKWDiesel> , <http://eccenca.com/mobivoc/CompressedNaturalGas> , <http://eccenca.com/mobivoc/Super(E10)> , <http://eccenca.com/mobivoc/ExcelliumDiesel> , <http://eccenca.com/mobivoc/ExcelliumSuperPlus> , <http://eccenca.com/mobivoc/Biodiesel> , <http://eccenca.com/mobivoc/Super(E5)> , <http://eccenca.com/mobivoc/Methane> , <http://eccenca.com/mobivoc/UltimateSuper> , <http://eccenca.com/mobivoc/MaxxMotionDiesel> , <http://eccenca.com/mobivoc/VPowerDiesel> , <http://eccenca.com/mobivoc/VPowerRacing> , <http://eccenca.com/mobivoc/Hydrogen> , <http://eccenca.com/mobivoc/LiquidGas> , <http://eccenca.com/mobivoc/UltimateDiesel> , <http://eccenca.com/mobivoc/E85> , <http://eccenca.com/mobivoc/Petrol> , <http://eccenca.com/mobivoc/Adblue> , <http://eccenca.com/mobivoc/MaxxMotionSuper100> ;
+      <http://eccenca.com/mobivoc/hasParkingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasShoppingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWCFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWashingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWheelChairEnabled>
+              "Yes" .
+
+<http://linkedgeodata.org/triplify/way38424460>
+      a       <http://eccenca.com/mobivoc/FuelStation> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "HEM" ;
+      <http://eccenca.com/mobivoc/fillingStationHeight>
+              "10" ;
+      <http://eccenca.com/mobivoc/fillingStationNumber>
+              "3"^^<http://www.w3.org/2001/XMLSchema#int> ;
+      <http://eccenca.com/mobivoc/hasOffer>
+              <http://eccenca.com/mobivoc/Autogas> , <http://eccenca.com/mobivoc/SuperDiesel> , <http://eccenca.com/mobivoc/DieselFuel> , <http://eccenca.com/mobivoc/Ethanol> , <http://eccenca.com/mobivoc/LKWDiesel> , <http://eccenca.com/mobivoc/CompressedNaturalGas> , <http://eccenca.com/mobivoc/Super(E10)> , <http://eccenca.com/mobivoc/ExcelliumDiesel> , <http://eccenca.com/mobivoc/ExcelliumSuperPlus> , <http://eccenca.com/mobivoc/Biodiesel> , <http://eccenca.com/mobivoc/Super(E5)> , <http://eccenca.com/mobivoc/Methane> , <http://eccenca.com/mobivoc/UltimateSuper> , <http://eccenca.com/mobivoc/MaxxMotionDiesel> , <http://eccenca.com/mobivoc/VPowerDiesel> , <http://eccenca.com/mobivoc/VPowerRacing> , <http://eccenca.com/mobivoc/Hydrogen> , <http://eccenca.com/mobivoc/LiquidGas> , <http://eccenca.com/mobivoc/UltimateDiesel> , <http://eccenca.com/mobivoc/E85> , <http://eccenca.com/mobivoc/Petrol> , <http://eccenca.com/mobivoc/Adblue> , <http://eccenca.com/mobivoc/MaxxMotionSuper100> ;
+      <http://eccenca.com/mobivoc/hasParkingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasShoppingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWCFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWashingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWheelChairEnabled>
+              "Yes" .
+
+<http://linkedgeodata.org/triplify/way31075269>
+      a       <http://eccenca.com/mobivoc/FuelStation> ;
+      <http://eccenca.com/mobivoc/fillingStationHeight>
+              "10" ;
+      <http://eccenca.com/mobivoc/fillingStationNumber>
+              "27"^^<http://www.w3.org/2001/XMLSchema#int> ;
+      <http://eccenca.com/mobivoc/hasOffer>
+              <http://eccenca.com/mobivoc/Autogas> , <http://eccenca.com/mobivoc/SuperDiesel> , <http://eccenca.com/mobivoc/Ethanol> , <http://eccenca.com/mobivoc/DieselFuel> , <http://eccenca.com/mobivoc/LKWDiesel> , <http://eccenca.com/mobivoc/CompressedNaturalGas> , <http://eccenca.com/mobivoc/Super(E10)> , <http://eccenca.com/mobivoc/ExcelliumDiesel> , <http://eccenca.com/mobivoc/ExcelliumSuperPlus> , <http://eccenca.com/mobivoc/Biodiesel> , <http://eccenca.com/mobivoc/Super(E5)> , <http://eccenca.com/mobivoc/Methane> , <http://eccenca.com/mobivoc/UltimateSuper> , <http://eccenca.com/mobivoc/VPowerDiesel> , <http://eccenca.com/mobivoc/MaxxMotionDiesel> , <http://eccenca.com/mobivoc/VPowerRacing> , <http://eccenca.com/mobivoc/Hydrogen> , <http://eccenca.com/mobivoc/LiquidGas> , <http://eccenca.com/mobivoc/UltimateDiesel> , <http://eccenca.com/mobivoc/E85> , <http://eccenca.com/mobivoc/Petrol> , <http://eccenca.com/mobivoc/Adblue> , <http://eccenca.com/mobivoc/MaxxMotionSuper100> ;
+      <http://eccenca.com/mobivoc/hasParkingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasShoppingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWCFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWashingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWheelChairEnabled>
+              "Yes" .
+
+<http://linkedgeodata.org/triplify/way66240634>
+      a       <http://eccenca.com/mobivoc/FuelStation> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "Sprint" ;
+      <http://eccenca.com/mobivoc/fillingStationHeight>
+              "10" ;
+      <http://eccenca.com/mobivoc/fillingStationNumber>
+              "50"^^<http://www.w3.org/2001/XMLSchema#int> ;
+      <http://eccenca.com/mobivoc/hasOffer>
+              <http://eccenca.com/mobivoc/Autogas> , <http://eccenca.com/mobivoc/SuperDiesel> , <http://eccenca.com/mobivoc/Ethanol> , <http://eccenca.com/mobivoc/DieselFuel> , <http://eccenca.com/mobivoc/CompressedNaturalGas> , <http://eccenca.com/mobivoc/LKWDiesel> , <http://eccenca.com/mobivoc/Super(E10)> , <http://eccenca.com/mobivoc/ExcelliumDiesel> , <http://eccenca.com/mobivoc/ExcelliumSuperPlus> , <http://eccenca.com/mobivoc/Biodiesel> , <http://eccenca.com/mobivoc/Super(E5)> , <http://eccenca.com/mobivoc/Methane> , <http://eccenca.com/mobivoc/UltimateSuper> , <http://eccenca.com/mobivoc/VPowerDiesel> , <http://eccenca.com/mobivoc/MaxxMotionDiesel> , <http://eccenca.com/mobivoc/Hydrogen> , <http://eccenca.com/mobivoc/VPowerRacing> , <http://eccenca.com/mobivoc/UltimateDiesel> , <http://eccenca.com/mobivoc/LiquidGas> , <http://eccenca.com/mobivoc/E85> , <http://eccenca.com/mobivoc/Petrol> , <http://eccenca.com/mobivoc/Adblue> , <http://eccenca.com/mobivoc/MaxxMotionSuper100> ;
+      <http://eccenca.com/mobivoc/hasParkingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasShoppingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWCFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWashingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWheelChairEnabled>
+              "Yes" .
+
+<http://linkedgeodata.org/triplify/way32964549>
+      a       <http://eccenca.com/mobivoc/FuelStation> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "Globus" ;
+      <http://eccenca.com/mobivoc/fillingStationHeight>
+              "10" ;
+      <http://eccenca.com/mobivoc/fillingStationNumber>
+              "1"^^<http://www.w3.org/2001/XMLSchema#int> ;
+      <http://eccenca.com/mobivoc/hasOffer>
+              <http://eccenca.com/mobivoc/Autogas> , <http://eccenca.com/mobivoc/SuperDiesel> , <http://eccenca.com/mobivoc/DieselFuel> , <http://eccenca.com/mobivoc/Ethanol> , <http://eccenca.com/mobivoc/CompressedNaturalGas> , <http://eccenca.com/mobivoc/LKWDiesel> , <http://eccenca.com/mobivoc/Super(E10)> , <http://eccenca.com/mobivoc/ExcelliumDiesel> , <http://eccenca.com/mobivoc/ExcelliumSuperPlus> , <http://eccenca.com/mobivoc/Biodiesel> , <http://eccenca.com/mobivoc/Super(E5)> , <http://eccenca.com/mobivoc/Methane> , <http://eccenca.com/mobivoc/UltimateSuper> , <http://eccenca.com/mobivoc/MaxxMotionDiesel> , <http://eccenca.com/mobivoc/VPowerDiesel> , <http://eccenca.com/mobivoc/Hydrogen> , <http://eccenca.com/mobivoc/VPowerRacing> , <http://eccenca.com/mobivoc/LiquidGas> , <http://eccenca.com/mobivoc/UltimateDiesel> , <http://eccenca.com/mobivoc/E85> , <http://eccenca.com/mobivoc/Petrol> , <http://eccenca.com/mobivoc/Adblue> , <http://eccenca.com/mobivoc/MaxxMotionSuper100> ;
+      <http://eccenca.com/mobivoc/hasParkingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasShoppingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWCFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWashingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWheelChairEnabled>
+              "Yes" .
+
+<http://linkedgeodata.org/triplify/node269064972>
+      a       <http://eccenca.com/mobivoc/FuelStation> ;
+      <http://eccenca.com/mobivoc/fillingStationHeight>
+              "10" ;
+      <http://eccenca.com/mobivoc/fillingStationNumber>
+              "26"^^<http://www.w3.org/2001/XMLSchema#int> ;
+      <http://eccenca.com/mobivoc/hasOffer>
+              <http://eccenca.com/mobivoc/Autogas> , <http://eccenca.com/mobivoc/SuperDiesel> , <http://eccenca.com/mobivoc/Ethanol> , <http://eccenca.com/mobivoc/DieselFuel> , <http://eccenca.com/mobivoc/CompressedNaturalGas> , <http://eccenca.com/mobivoc/LKWDiesel> , <http://eccenca.com/mobivoc/Super(E10)> , <http://eccenca.com/mobivoc/ExcelliumDiesel> , <http://eccenca.com/mobivoc/ExcelliumSuperPlus> , <http://eccenca.com/mobivoc/Biodiesel> , <http://eccenca.com/mobivoc/Super(E5)> , <http://eccenca.com/mobivoc/Methane> , <http://eccenca.com/mobivoc/UltimateSuper> , <http://eccenca.com/mobivoc/VPowerDiesel> , <http://eccenca.com/mobivoc/MaxxMotionDiesel> , <http://eccenca.com/mobivoc/Hydrogen> , <http://eccenca.com/mobivoc/VPowerRacing> , <http://eccenca.com/mobivoc/UltimateDiesel> , <http://eccenca.com/mobivoc/LiquidGas> , <http://eccenca.com/mobivoc/E85> , <http://eccenca.com/mobivoc/Petrol> , <http://eccenca.com/mobivoc/Adblue> , <http://eccenca.com/mobivoc/MaxxMotionSuper100> ;
+      <http://eccenca.com/mobivoc/hasParkingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasShoppingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWCFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWashingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWheelChairEnabled>
+              "Yes" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
+              "51.2727"^^<http://www.w3.org/2001/XMLSchema#double> ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#long>
+              "12.3082"^^<http://www.w3.org/2001/XMLSchema#double> .
+
+<http://linkedgeodata.org/triplify/way237681280>
+      a       <http://eccenca.com/mobivoc/FuelStation> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "Aral" ;
+      <http://eccenca.com/mobivoc/fillingStationHeight>
+              "10" ;
+      <http://eccenca.com/mobivoc/fillingStationNumber>
+              "21"^^<http://www.w3.org/2001/XMLSchema#int> ;
+      <http://eccenca.com/mobivoc/hasOffer>
+              <http://eccenca.com/mobivoc/Autogas> , <http://eccenca.com/mobivoc/SuperDiesel> , <http://eccenca.com/mobivoc/DieselFuel> , <http://eccenca.com/mobivoc/Ethanol> , <http://eccenca.com/mobivoc/CompressedNaturalGas> , <http://eccenca.com/mobivoc/LKWDiesel> , <http://eccenca.com/mobivoc/Super(E10)> , <http://eccenca.com/mobivoc/ExcelliumDiesel> , <http://eccenca.com/mobivoc/ExcelliumSuperPlus> , <http://eccenca.com/mobivoc/Biodiesel> , <http://eccenca.com/mobivoc/Super(E5)> , <http://eccenca.com/mobivoc/Methane> , <http://eccenca.com/mobivoc/UltimateSuper> , <http://eccenca.com/mobivoc/MaxxMotionDiesel> , <http://eccenca.com/mobivoc/VPowerDiesel> , <http://eccenca.com/mobivoc/Hydrogen> , <http://eccenca.com/mobivoc/VPowerRacing> , <http://eccenca.com/mobivoc/LiquidGas> , <http://eccenca.com/mobivoc/UltimateDiesel> , <http://eccenca.com/mobivoc/E85> , <http://eccenca.com/mobivoc/Petrol> , <http://eccenca.com/mobivoc/Adblue> , <http://eccenca.com/mobivoc/MaxxMotionSuper100> ;
+      <http://eccenca.com/mobivoc/hasParkingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasShoppingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWCFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWashingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWheelChairEnabled>
+              "Yes" .
+
+<http://linkedgeodata.org/triplify/way111326952>
+      a       <http://eccenca.com/mobivoc/FuelStation> ;
+      <http://eccenca.com/mobivoc/fillingStationHeight>
+              "10" ;
+      <http://eccenca.com/mobivoc/fillingStationNumber>
+              "46"^^<http://www.w3.org/2001/XMLSchema#int> ;
+      <http://eccenca.com/mobivoc/hasOffer>
+              <http://eccenca.com/mobivoc/Autogas> , <http://eccenca.com/mobivoc/SuperDiesel> , <http://eccenca.com/mobivoc/Ethanol> , <http://eccenca.com/mobivoc/DieselFuel> , <http://eccenca.com/mobivoc/LKWDiesel> , <http://eccenca.com/mobivoc/CompressedNaturalGas> , <http://eccenca.com/mobivoc/Super(E10)> , <http://eccenca.com/mobivoc/ExcelliumDiesel> , <http://eccenca.com/mobivoc/ExcelliumSuperPlus> , <http://eccenca.com/mobivoc/Biodiesel> , <http://eccenca.com/mobivoc/Super(E5)> , <http://eccenca.com/mobivoc/Methane> , <http://eccenca.com/mobivoc/UltimateSuper> , <http://eccenca.com/mobivoc/MaxxMotionDiesel> , <http://eccenca.com/mobivoc/VPowerDiesel> , <http://eccenca.com/mobivoc/VPowerRacing> , <http://eccenca.com/mobivoc/Hydrogen> , <http://eccenca.com/mobivoc/LiquidGas> , <http://eccenca.com/mobivoc/UltimateDiesel> , <http://eccenca.com/mobivoc/E85> , <http://eccenca.com/mobivoc/Petrol> , <http://eccenca.com/mobivoc/Adblue> , <http://eccenca.com/mobivoc/MaxxMotionSuper100> ;
+      <http://eccenca.com/mobivoc/hasParkingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasShoppingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWCFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWashingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWheelChairEnabled>
+              "Yes" .
+
+<http://linkedgeodata.org/triplify/node732716518>
+      a       <http://eccenca.com/mobivoc/FuelStation> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "Autohaus Günther Mühl" ;
+      <http://eccenca.com/mobivoc/fillingStationHeight>
+              "10" ;
+      <http://eccenca.com/mobivoc/fillingStationNumber>
+              "18"^^<http://www.w3.org/2001/XMLSchema#int> ;
+      <http://eccenca.com/mobivoc/hasOffer>
+              <http://eccenca.com/mobivoc/Autogas> , <http://eccenca.com/mobivoc/SuperDiesel> , <http://eccenca.com/mobivoc/Ethanol> , <http://eccenca.com/mobivoc/DieselFuel> , <http://eccenca.com/mobivoc/LKWDiesel> , <http://eccenca.com/mobivoc/CompressedNaturalGas> , <http://eccenca.com/mobivoc/Super(E10)> , <http://eccenca.com/mobivoc/ExcelliumDiesel> , <http://eccenca.com/mobivoc/ExcelliumSuperPlus> , <http://eccenca.com/mobivoc/Biodiesel> , <http://eccenca.com/mobivoc/Super(E5)> , <http://eccenca.com/mobivoc/Methane> , <http://eccenca.com/mobivoc/UltimateSuper> , <http://eccenca.com/mobivoc/MaxxMotionDiesel> , <http://eccenca.com/mobivoc/VPowerDiesel> , <http://eccenca.com/mobivoc/VPowerRacing> , <http://eccenca.com/mobivoc/Hydrogen> , <http://eccenca.com/mobivoc/LiquidGas> , <http://eccenca.com/mobivoc/UltimateDiesel> , <http://eccenca.com/mobivoc/E85> , <http://eccenca.com/mobivoc/Petrol> , <http://eccenca.com/mobivoc/Adblue> , <http://eccenca.com/mobivoc/MaxxMotionSuper100> ;
+      <http://eccenca.com/mobivoc/hasParkingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasShoppingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWCFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWashingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWheelChairEnabled>
+              "Yes" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
+              "51.3038"^^<http://www.w3.org/2001/XMLSchema#double> ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#long>
+              "12.374"^^<http://www.w3.org/2001/XMLSchema#double> .
+
+<http://linkedgeodata.org/triplify/way28203562>
+      a       <http://eccenca.com/mobivoc/FuelStation> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "Star" ;
+      <http://eccenca.com/mobivoc/fillingStationHeight>
+              "10" ;
+      <http://eccenca.com/mobivoc/fillingStationNumber>
+              "43"^^<http://www.w3.org/2001/XMLSchema#int> ;
+      <http://eccenca.com/mobivoc/hasOffer>
+              <http://eccenca.com/mobivoc/Autogas> , <http://eccenca.com/mobivoc/SuperDiesel> , <http://eccenca.com/mobivoc/DieselFuel> , <http://eccenca.com/mobivoc/Ethanol> , <http://eccenca.com/mobivoc/CompressedNaturalGas> , <http://eccenca.com/mobivoc/LKWDiesel> , <http://eccenca.com/mobivoc/Super(E10)> , <http://eccenca.com/mobivoc/ExcelliumDiesel> , <http://eccenca.com/mobivoc/ExcelliumSuperPlus> , <http://eccenca.com/mobivoc/Biodiesel> , <http://eccenca.com/mobivoc/Super(E5)> , <http://eccenca.com/mobivoc/Methane> , <http://eccenca.com/mobivoc/UltimateSuper> , <http://eccenca.com/mobivoc/VPowerDiesel> , <http://eccenca.com/mobivoc/MaxxMotionDiesel> , <http://eccenca.com/mobivoc/VPowerRacing> , <http://eccenca.com/mobivoc/Hydrogen> , <http://eccenca.com/mobivoc/UltimateDiesel> , <http://eccenca.com/mobivoc/LiquidGas> , <http://eccenca.com/mobivoc/E85> , <http://eccenca.com/mobivoc/Petrol> , <http://eccenca.com/mobivoc/Adblue> , <http://eccenca.com/mobivoc/MaxxMotionSuper100> ;
+      <http://eccenca.com/mobivoc/hasParkingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasShoppingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWCFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWashingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWheelChairEnabled>
+              "Yes" .
+
+<http://linkedgeodata.org/triplify/way239285008>
+      a       <http://eccenca.com/mobivoc/FuelStation> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "Aral" ;
+      <http://eccenca.com/mobivoc/fillingStationHeight>
+              "10" ;
+      <http://eccenca.com/mobivoc/fillingStationNumber>
+              "19"^^<http://www.w3.org/2001/XMLSchema#int> ;
+      <http://eccenca.com/mobivoc/hasOffer>
+              <http://eccenca.com/mobivoc/Autogas> , <http://eccenca.com/mobivoc/SuperDiesel> , <http://eccenca.com/mobivoc/DieselFuel> , <http://eccenca.com/mobivoc/Ethanol> , <http://eccenca.com/mobivoc/CompressedNaturalGas> , <http://eccenca.com/mobivoc/LKWDiesel> , <http://eccenca.com/mobivoc/Super(E10)> , <http://eccenca.com/mobivoc/ExcelliumDiesel> , <http://eccenca.com/mobivoc/ExcelliumSuperPlus> , <http://eccenca.com/mobivoc/Biodiesel> , <http://eccenca.com/mobivoc/Super(E5)> , <http://eccenca.com/mobivoc/Methane> , <http://eccenca.com/mobivoc/UltimateSuper> , <http://eccenca.com/mobivoc/MaxxMotionDiesel> , <http://eccenca.com/mobivoc/VPowerDiesel> , <http://eccenca.com/mobivoc/VPowerRacing> , <http://eccenca.com/mobivoc/Hydrogen> , <http://eccenca.com/mobivoc/LiquidGas> , <http://eccenca.com/mobivoc/UltimateDiesel> , <http://eccenca.com/mobivoc/E85> , <http://eccenca.com/mobivoc/Petrol> , <http://eccenca.com/mobivoc/Adblue> , <http://eccenca.com/mobivoc/MaxxMotionSuper100> ;
+      <http://eccenca.com/mobivoc/hasParkingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasShoppingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWCFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWashingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWheelChairEnabled>
+              "Yes" .
+
+<http://linkedgeodata.org/triplify/node203098644>
+      a       <http://eccenca.com/mobivoc/FuelStation> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "Agip Service-Station" ;
+      <http://eccenca.com/mobivoc/fillingStationHeight>
+              "10" ;
+      <http://eccenca.com/mobivoc/fillingStationNumber>
+              "29"^^<http://www.w3.org/2001/XMLSchema#int> ;
+      <http://eccenca.com/mobivoc/hasOffer>
+              <http://eccenca.com/mobivoc/Autogas> , <http://eccenca.com/mobivoc/SuperDiesel> , <http://eccenca.com/mobivoc/DieselFuel> , <http://eccenca.com/mobivoc/Ethanol> , <http://eccenca.com/mobivoc/LKWDiesel> , <http://eccenca.com/mobivoc/CompressedNaturalGas> , <http://eccenca.com/mobivoc/Super(E10)> , <http://eccenca.com/mobivoc/ExcelliumDiesel> , <http://eccenca.com/mobivoc/ExcelliumSuperPlus> , <http://eccenca.com/mobivoc/Biodiesel> , <http://eccenca.com/mobivoc/Super(E5)> , <http://eccenca.com/mobivoc/Methane> , <http://eccenca.com/mobivoc/UltimateSuper> , <http://eccenca.com/mobivoc/VPowerDiesel> , <http://eccenca.com/mobivoc/MaxxMotionDiesel> , <http://eccenca.com/mobivoc/Hydrogen> , <http://eccenca.com/mobivoc/VPowerRacing> , <http://eccenca.com/mobivoc/LiquidGas> , <http://eccenca.com/mobivoc/UltimateDiesel> , <http://eccenca.com/mobivoc/E85> , <http://eccenca.com/mobivoc/Petrol> , <http://eccenca.com/mobivoc/Adblue> , <http://eccenca.com/mobivoc/MaxxMotionSuper100> ;
+      <http://eccenca.com/mobivoc/hasParkingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasShoppingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWCFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWashingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWheelChairEnabled>
+              "Yes" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
+              "51.3387"^^<http://www.w3.org/2001/XMLSchema#double> ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#long>
+              "12.445"^^<http://www.w3.org/2001/XMLSchema#double> .
+
+<http://linkedgeodata.org/triplify/node303755216>
+      a       <http://eccenca.com/mobivoc/FuelStation> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "tankpool24" ;
+      <http://eccenca.com/mobivoc/fillingStationHeight>
+              "10" ;
+      <http://eccenca.com/mobivoc/fillingStationNumber>
+              "10"^^<http://www.w3.org/2001/XMLSchema#int> ;
+      <http://eccenca.com/mobivoc/hasOffer>
+              <http://eccenca.com/mobivoc/Autogas> , <http://eccenca.com/mobivoc/SuperDiesel> , <http://eccenca.com/mobivoc/Ethanol> , <http://eccenca.com/mobivoc/DieselFuel> , <http://eccenca.com/mobivoc/CompressedNaturalGas> , <http://eccenca.com/mobivoc/LKWDiesel> , <http://eccenca.com/mobivoc/Super(E10)> , <http://eccenca.com/mobivoc/ExcelliumDiesel> , <http://eccenca.com/mobivoc/ExcelliumSuperPlus> , <http://eccenca.com/mobivoc/Biodiesel> , <http://eccenca.com/mobivoc/Super(E5)> , <http://eccenca.com/mobivoc/Methane> , <http://eccenca.com/mobivoc/UltimateSuper> , <http://eccenca.com/mobivoc/MaxxMotionDiesel> , <http://eccenca.com/mobivoc/VPowerDiesel> , <http://eccenca.com/mobivoc/VPowerRacing> , <http://eccenca.com/mobivoc/Hydrogen> , <http://eccenca.com/mobivoc/UltimateDiesel> , <http://eccenca.com/mobivoc/LiquidGas> , <http://eccenca.com/mobivoc/E85> , <http://eccenca.com/mobivoc/Petrol> , <http://eccenca.com/mobivoc/Adblue> , <http://eccenca.com/mobivoc/MaxxMotionSuper100> ;
+      <http://eccenca.com/mobivoc/hasParkingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasShoppingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWCFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWashingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWheelChairEnabled>
+              "Yes" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
+              "51.4082"^^<http://www.w3.org/2001/XMLSchema#double> ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#long>
+              "12.303"^^<http://www.w3.org/2001/XMLSchema#double> .
+
+<http://linkedgeodata.org/triplify/way85207845>
+      a       <http://eccenca.com/mobivoc/FuelStation> ;
+      <http://eccenca.com/mobivoc/fillingStationHeight>
+              "10" ;
+      <http://eccenca.com/mobivoc/fillingStationNumber>
+              "37"^^<http://www.w3.org/2001/XMLSchema#int> ;
+      <http://eccenca.com/mobivoc/hasOffer>
+              <http://eccenca.com/mobivoc/Autogas> , <http://eccenca.com/mobivoc/SuperDiesel> , <http://eccenca.com/mobivoc/DieselFuel> , <http://eccenca.com/mobivoc/Ethanol> , <http://eccenca.com/mobivoc/LKWDiesel> , <http://eccenca.com/mobivoc/CompressedNaturalGas> , <http://eccenca.com/mobivoc/Super(E10)> , <http://eccenca.com/mobivoc/ExcelliumDiesel> , <http://eccenca.com/mobivoc/ExcelliumSuperPlus> , <http://eccenca.com/mobivoc/Biodiesel> , <http://eccenca.com/mobivoc/Super(E5)> , <http://eccenca.com/mobivoc/Methane> , <http://eccenca.com/mobivoc/UltimateSuper> , <http://eccenca.com/mobivoc/MaxxMotionDiesel> , <http://eccenca.com/mobivoc/VPowerDiesel> , <http://eccenca.com/mobivoc/VPowerRacing> , <http://eccenca.com/mobivoc/Hydrogen> , <http://eccenca.com/mobivoc/UltimateDiesel> , <http://eccenca.com/mobivoc/LiquidGas> , <http://eccenca.com/mobivoc/E85> , <http://eccenca.com/mobivoc/Petrol> , <http://eccenca.com/mobivoc/Adblue> , <http://eccenca.com/mobivoc/MaxxMotionSuper100> ;
+      <http://eccenca.com/mobivoc/hasParkingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasShoppingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWCFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWashingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWheelChairEnabled>
+              "Yes" .
+
+<http://linkedgeodata.org/triplify/node26023847>
+      a       <http://eccenca.com/mobivoc/FuelStation> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "Gulf" ;
+      <http://eccenca.com/mobivoc/fillingStationHeight>
+              "10" ;
+      <http://eccenca.com/mobivoc/fillingStationNumber>
+              "49"^^<http://www.w3.org/2001/XMLSchema#int> ;
+      <http://eccenca.com/mobivoc/hasOffer>
+              <http://eccenca.com/mobivoc/Autogas> , <http://eccenca.com/mobivoc/SuperDiesel> , <http://eccenca.com/mobivoc/Ethanol> , <http://eccenca.com/mobivoc/DieselFuel> , <http://eccenca.com/mobivoc/LKWDiesel> , <http://eccenca.com/mobivoc/CompressedNaturalGas> , <http://eccenca.com/mobivoc/Super(E10)> , <http://eccenca.com/mobivoc/ExcelliumDiesel> , <http://eccenca.com/mobivoc/ExcelliumSuperPlus> , <http://eccenca.com/mobivoc/Biodiesel> , <http://eccenca.com/mobivoc/Super(E5)> , <http://eccenca.com/mobivoc/Methane> , <http://eccenca.com/mobivoc/UltimateSuper> , <http://eccenca.com/mobivoc/MaxxMotionDiesel> , <http://eccenca.com/mobivoc/VPowerDiesel> , <http://eccenca.com/mobivoc/Hydrogen> , <http://eccenca.com/mobivoc/VPowerRacing> , <http://eccenca.com/mobivoc/UltimateDiesel> , <http://eccenca.com/mobivoc/LiquidGas> , <http://eccenca.com/mobivoc/E85> , <http://eccenca.com/mobivoc/Petrol> , <http://eccenca.com/mobivoc/Adblue> , <http://eccenca.com/mobivoc/MaxxMotionSuper100> ;
+      <http://eccenca.com/mobivoc/hasParkingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasShoppingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWCFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWashingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWheelChairEnabled>
+              "Yes" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
+              "51.3744"^^<http://www.w3.org/2001/XMLSchema#double> ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#long>
+              "12.4116"^^<http://www.w3.org/2001/XMLSchema#double> .
+
+<http://linkedgeodata.org/triplify/way239966956>
+      a       <http://eccenca.com/mobivoc/FuelStation> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "Esso" ;
+      <http://eccenca.com/mobivoc/fillingStationHeight>
+              "10" ;
+      <http://eccenca.com/mobivoc/fillingStationNumber>
+              "17"^^<http://www.w3.org/2001/XMLSchema#int> ;
+      <http://eccenca.com/mobivoc/hasOffer>
+              <http://eccenca.com/mobivoc/Autogas> , <http://eccenca.com/mobivoc/SuperDiesel> , <http://eccenca.com/mobivoc/Ethanol> , <http://eccenca.com/mobivoc/DieselFuel> , <http://eccenca.com/mobivoc/LKWDiesel> , <http://eccenca.com/mobivoc/CompressedNaturalGas> , <http://eccenca.com/mobivoc/Super(E10)> , <http://eccenca.com/mobivoc/ExcelliumDiesel> , <http://eccenca.com/mobivoc/ExcelliumSuperPlus> , <http://eccenca.com/mobivoc/Biodiesel> , <http://eccenca.com/mobivoc/Super(E5)> , <http://eccenca.com/mobivoc/Methane> , <http://eccenca.com/mobivoc/UltimateSuper> , <http://eccenca.com/mobivoc/VPowerDiesel> , <http://eccenca.com/mobivoc/MaxxMotionDiesel> , <http://eccenca.com/mobivoc/VPowerRacing> , <http://eccenca.com/mobivoc/Hydrogen> , <http://eccenca.com/mobivoc/LiquidGas> , <http://eccenca.com/mobivoc/UltimateDiesel> , <http://eccenca.com/mobivoc/E85> , <http://eccenca.com/mobivoc/Petrol> , <http://eccenca.com/mobivoc/Adblue> , <http://eccenca.com/mobivoc/MaxxMotionSuper100> ;
+      <http://eccenca.com/mobivoc/hasParkingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasShoppingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWCFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWashingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWheelChairEnabled>
+              "Yes" .
+
+<http://linkedgeodata.org/triplify/node2850776898>
+      a       <http://eccenca.com/mobivoc/FuelStation> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "Tankstelle" ;
+      <http://eccenca.com/mobivoc/fillingStationHeight>
+              "10" ;
+      <http://eccenca.com/mobivoc/fillingStationNumber>
+              "20"^^<http://www.w3.org/2001/XMLSchema#int> ;
+      <http://eccenca.com/mobivoc/hasOffer>
+              <http://eccenca.com/mobivoc/Autogas> , <http://eccenca.com/mobivoc/SuperDiesel> , <http://eccenca.com/mobivoc/Ethanol> , <http://eccenca.com/mobivoc/DieselFuel> , <http://eccenca.com/mobivoc/CompressedNaturalGas> , <http://eccenca.com/mobivoc/LKWDiesel> , <http://eccenca.com/mobivoc/Super(E10)> , <http://eccenca.com/mobivoc/ExcelliumDiesel> , <http://eccenca.com/mobivoc/ExcelliumSuperPlus> , <http://eccenca.com/mobivoc/Biodiesel> , <http://eccenca.com/mobivoc/Super(E5)> , <http://eccenca.com/mobivoc/Methane> , <http://eccenca.com/mobivoc/UltimateSuper> , <http://eccenca.com/mobivoc/VPowerDiesel> , <http://eccenca.com/mobivoc/MaxxMotionDiesel> , <http://eccenca.com/mobivoc/Hydrogen> , <http://eccenca.com/mobivoc/VPowerRacing> , <http://eccenca.com/mobivoc/LiquidGas> , <http://eccenca.com/mobivoc/UltimateDiesel> , <http://eccenca.com/mobivoc/E85> , <http://eccenca.com/mobivoc/Petrol> , <http://eccenca.com/mobivoc/Adblue> , <http://eccenca.com/mobivoc/MaxxMotionSuper100> ;
+      <http://eccenca.com/mobivoc/hasParkingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasShoppingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWCFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWashingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWheelChairEnabled>
+              "Yes" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
+              "51.366"^^<http://www.w3.org/2001/XMLSchema#double> ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#long>
+              "12.3661"^^<http://www.w3.org/2001/XMLSchema#double> .
+
+<http://linkedgeodata.org/triplify/node382035509>
+      a       <http://eccenca.com/mobivoc/FuelStation> ;
+      <http://eccenca.com/mobivoc/fillingStationHeight>
+              "10" ;
+      <http://eccenca.com/mobivoc/fillingStationNumber>
+              "11"^^<http://www.w3.org/2001/XMLSchema#int> ;
+      <http://eccenca.com/mobivoc/hasOffer>
+              <http://eccenca.com/mobivoc/Autogas> , <http://eccenca.com/mobivoc/SuperDiesel> , <http://eccenca.com/mobivoc/Ethanol> , <http://eccenca.com/mobivoc/DieselFuel> , <http://eccenca.com/mobivoc/LKWDiesel> , <http://eccenca.com/mobivoc/CompressedNaturalGas> , <http://eccenca.com/mobivoc/Super(E10)> , <http://eccenca.com/mobivoc/ExcelliumDiesel> , <http://eccenca.com/mobivoc/ExcelliumSuperPlus> , <http://eccenca.com/mobivoc/Biodiesel> , <http://eccenca.com/mobivoc/Super(E5)> , <http://eccenca.com/mobivoc/Methane> , <http://eccenca.com/mobivoc/UltimateSuper> , <http://eccenca.com/mobivoc/VPowerDiesel> , <http://eccenca.com/mobivoc/MaxxMotionDiesel> , <http://eccenca.com/mobivoc/Hydrogen> , <http://eccenca.com/mobivoc/VPowerRacing> , <http://eccenca.com/mobivoc/LiquidGas> , <http://eccenca.com/mobivoc/UltimateDiesel> , <http://eccenca.com/mobivoc/E85> , <http://eccenca.com/mobivoc/Petrol> , <http://eccenca.com/mobivoc/Adblue> , <http://eccenca.com/mobivoc/MaxxMotionSuper100> ;
+      <http://eccenca.com/mobivoc/hasParkingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasShoppingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWCFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWashingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWheelChairEnabled>
+              "Yes" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
+              "51.3641"^^<http://www.w3.org/2001/XMLSchema#double> ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#long>
+              "12.4643"^^<http://www.w3.org/2001/XMLSchema#double> .
+
+<http://linkedgeodata.org/triplify/way265421491>
+      a       <http://eccenca.com/mobivoc/FuelStation> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "JET" ;
+      <http://eccenca.com/mobivoc/fillingStationHeight>
+              "10" ;
+      <http://eccenca.com/mobivoc/fillingStationNumber>
+              "31"^^<http://www.w3.org/2001/XMLSchema#int> ;
+      <http://eccenca.com/mobivoc/hasOffer>
+              <http://eccenca.com/mobivoc/Autogas> , <http://eccenca.com/mobivoc/SuperDiesel> , <http://eccenca.com/mobivoc/Ethanol> , <http://eccenca.com/mobivoc/DieselFuel> , <http://eccenca.com/mobivoc/LKWDiesel> , <http://eccenca.com/mobivoc/CompressedNaturalGas> , <http://eccenca.com/mobivoc/Super(E10)> , <http://eccenca.com/mobivoc/ExcelliumDiesel> , <http://eccenca.com/mobivoc/ExcelliumSuperPlus> , <http://eccenca.com/mobivoc/Biodiesel> , <http://eccenca.com/mobivoc/Super(E5)> , <http://eccenca.com/mobivoc/Methane> , <http://eccenca.com/mobivoc/UltimateSuper> , <http://eccenca.com/mobivoc/VPowerDiesel> , <http://eccenca.com/mobivoc/MaxxMotionDiesel> , <http://eccenca.com/mobivoc/VPowerRacing> , <http://eccenca.com/mobivoc/Hydrogen> , <http://eccenca.com/mobivoc/UltimateDiesel> , <http://eccenca.com/mobivoc/LiquidGas> , <http://eccenca.com/mobivoc/E85> , <http://eccenca.com/mobivoc/Petrol> , <http://eccenca.com/mobivoc/Adblue> , <http://eccenca.com/mobivoc/MaxxMotionSuper100> ;
+      <http://eccenca.com/mobivoc/hasParkingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasShoppingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWCFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWashingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWheelChairEnabled>
+              "Yes" .
+
+<http://linkedgeodata.org/triplify/node238080786>
+      a       <http://eccenca.com/mobivoc/FuelStation> ;
+      <http://eccenca.com/mobivoc/fillingStationHeight>
+              "10" ;
+      <http://eccenca.com/mobivoc/fillingStationNumber>
+              "5"^^<http://www.w3.org/2001/XMLSchema#int> ;
+      <http://eccenca.com/mobivoc/hasOffer>
+              <http://eccenca.com/mobivoc/Autogas> , <http://eccenca.com/mobivoc/SuperDiesel> , <http://eccenca.com/mobivoc/Ethanol> , <http://eccenca.com/mobivoc/DieselFuel> , <http://eccenca.com/mobivoc/CompressedNaturalGas> , <http://eccenca.com/mobivoc/LKWDiesel> , <http://eccenca.com/mobivoc/Super(E10)> , <http://eccenca.com/mobivoc/ExcelliumDiesel> , <http://eccenca.com/mobivoc/ExcelliumSuperPlus> , <http://eccenca.com/mobivoc/Biodiesel> , <http://eccenca.com/mobivoc/Super(E5)> , <http://eccenca.com/mobivoc/Methane> , <http://eccenca.com/mobivoc/UltimateSuper> , <http://eccenca.com/mobivoc/MaxxMotionDiesel> , <http://eccenca.com/mobivoc/VPowerDiesel> , <http://eccenca.com/mobivoc/VPowerRacing> , <http://eccenca.com/mobivoc/Hydrogen> , <http://eccenca.com/mobivoc/UltimateDiesel> , <http://eccenca.com/mobivoc/LiquidGas> , <http://eccenca.com/mobivoc/E85> , <http://eccenca.com/mobivoc/Petrol> , <http://eccenca.com/mobivoc/Adblue> , <http://eccenca.com/mobivoc/MaxxMotionSuper100> ;
+      <http://eccenca.com/mobivoc/hasParkingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasShoppingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWCFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWashingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWheelChairEnabled>
+              "Yes" ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
+              "51.3455"^^<http://www.w3.org/2001/XMLSchema#double> ;
+      <http://www.w3.org/2003/01/geo/wgs84_pos#long>
+              "12.4616"^^<http://www.w3.org/2001/XMLSchema#double> .
+
+<http://linkedgeodata.org/triplify/way107959624>
+      a       <http://eccenca.com/mobivoc/FuelStation> ;
+      <http://eccenca.com/mobivoc/fillingStationHeight>
+              "10" ;
+      <http://eccenca.com/mobivoc/fillingStationNumber>
+              "14"^^<http://www.w3.org/2001/XMLSchema#int> ;
+      <http://eccenca.com/mobivoc/hasOffer>
+              <http://eccenca.com/mobivoc/Autogas> , <http://eccenca.com/mobivoc/SuperDiesel> , <http://eccenca.com/mobivoc/Ethanol> , <http://eccenca.com/mobivoc/DieselFuel> , <http://eccenca.com/mobivoc/CompressedNaturalGas> , <http://eccenca.com/mobivoc/LKWDiesel> , <http://eccenca.com/mobivoc/Super(E10)> , <http://eccenca.com/mobivoc/ExcelliumDiesel> , <http://eccenca.com/mobivoc/ExcelliumSuperPlus> , <http://eccenca.com/mobivoc/Biodiesel> , <http://eccenca.com/mobivoc/Super(E5)> , <http://eccenca.com/mobivoc/Methane> , <http://eccenca.com/mobivoc/UltimateSuper> , <http://eccenca.com/mobivoc/VPowerDiesel> , <http://eccenca.com/mobivoc/MaxxMotionDiesel> , <http://eccenca.com/mobivoc/Hydrogen> , <http://eccenca.com/mobivoc/VPowerRacing> , <http://eccenca.com/mobivoc/LiquidGas> , <http://eccenca.com/mobivoc/UltimateDiesel> , <http://eccenca.com/mobivoc/E85> , <http://eccenca.com/mobivoc/Petrol> , <http://eccenca.com/mobivoc/Adblue> , <http://eccenca.com/mobivoc/MaxxMotionSuper100> ;
+      <http://eccenca.com/mobivoc/hasParkingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasShoppingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWCFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWashingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWheelChairEnabled>
+              "Yes" .
+
+<http://linkedgeodata.org/triplify/way102157726>
+      a       <http://eccenca.com/mobivoc/FuelStation> ;
+      <http://www.w3.org/2000/01/rdf-schema#label>
+              "Total" ;
+      <http://eccenca.com/mobivoc/fillingStationHeight>
+              "10" ;
+      <http://eccenca.com/mobivoc/fillingStationNumber>
+              "39"^^<http://www.w3.org/2001/XMLSchema#int> ;
+      <http://eccenca.com/mobivoc/hasOffer>
+              <http://eccenca.com/mobivoc/Autogas> , <http://eccenca.com/mobivoc/SuperDiesel> , <http://eccenca.com/mobivoc/Ethanol> , <http://eccenca.com/mobivoc/DieselFuel> , <http://eccenca.com/mobivoc/LKWDiesel> , <http://eccenca.com/mobivoc/CompressedNaturalGas> , <http://eccenca.com/mobivoc/Super(E10)> , <http://eccenca.com/mobivoc/ExcelliumDiesel> , <http://eccenca.com/mobivoc/ExcelliumSuperPlus> , <http://eccenca.com/mobivoc/Biodiesel> , <http://eccenca.com/mobivoc/Super(E5)> , <http://eccenca.com/mobivoc/Methane> , <http://eccenca.com/mobivoc/UltimateSuper> , <http://eccenca.com/mobivoc/VPowerDiesel> , <http://eccenca.com/mobivoc/MaxxMotionDiesel> , <http://eccenca.com/mobivoc/Hydrogen> , <http://eccenca.com/mobivoc/VPowerRacing> , <http://eccenca.com/mobivoc/LiquidGas> , <http://eccenca.com/mobivoc/UltimateDiesel> , <http://eccenca.com/mobivoc/E85> , <http://eccenca.com/mobivoc/Petrol> , <http://eccenca.com/mobivoc/Adblue> , <http://eccenca.com/mobivoc/MaxxMotionSuper100> ;
+      <http://eccenca.com/mobivoc/hasParkingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasShoppingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWCFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWashingFacility>
+              "Yes" ;
+      <http://eccenca.com/mobivoc/hasWheelChairEnabled>
+              "Yes" .
+
+
+
+mv:FillingStation
+	a rdfs:Class , owl:Class ;
+	rdfs:comment "Facility for combustion motor vehicles or electric motor vehicle." ;
+	rdfs:label "filling station"@en, "Abfullstation"@de .
+
+mv:FuelStation
+	rdfs:subClassOf mv:FillingStation ;
+	rdfs:comment "Facility for refueling motor vehicle." ;
+	rdfs:label "fuel station"@en, "Tankstelle"@de ;
+	skos:altLabel "petrol station"@en , "gas station"@en-US. # property is used when synonyms, near-synonyms, or abbrevia- tions need to be represented.
+
+mv:ChargingStation
+	rdfs:subClassOf mv:FillingStation ;
+	rdfs:comment "Facility for electric motor vehicle." ;
+	rdfs:label "charging station"@en, "Ladestation"@de .
+
+
+# Properties
+
+mv:ChargingStationName
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Indicates the name of the charging station" ;
+	rdfs:label "charging station name"@en , "Ladestationnnummer"@de ;
+	rdfs:domain mv:ChargingStation ;
+	rdfs:range rdfs:Literal .
+
+mv:fillingStationNumber
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Indicates the unique number of the filling station." ;
+	rdfs:label "filling station number"@en , "Tankstellennummer"@de ;
+	rdfs:domain mv:FillingStation ;
+	rdfs:range rdfs:Literal .
+
+mv:fillingStationHeight
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Indicates the height of the filling station. This is important especially for trucks" ;
+	rdfs:label "filling station height"@en, "Tankstelle heit"@de ;
+	rdfs:domain mv:FuelStation ;
+	rdfs:range rdfs:Literal .
+
+mv:hasIdentifications
+	a rdf:Property , owl:ObjectProperty ;
+	rdfs:comment "Way of identifying the booked vehicle" ;
+	rdfs:label "has identifications"@en, "hat Identifikation"@de;
+	rdfs:domain mv:ChargingStation ;
+	rdfs:range mv:Fuel .
+
+mv:hasOffer
+	a rdf:Property , owl:ObjectProperty ;
+	rdfs:comment "Indicates the sort of fuels product the filling station offers." ;
+	rdfs:label "has offer"@en, "hat Angebot"@de ;
+	rdfs:domain mv:FuelStation ;
+	rdfs:range mv:Fuel .
+
+mv:hasParkingFacility
+	a rdf:Property, owl:DatatypeProperty ;
+	rdfs:comment "Indicates what kind of parking facilities the station has" ;
+	rdfs:label "has parking facility"@en, "hat Parkmoglichkeit"@de ;
+	rdfs:domain mv:FuelStation ;
+	rdfs:range rdfs:Literal .
+
+mv:hasPrice
+	a rdf:Property, owl:DatatypeProperty ;
+	rdfs:comment "Indicates the information about the price of the facilities." ;
+	rdfs:label "has price"@en, "hat Preis"@de ;
+	rdfs:domain mv:FuelStation;
+	rdfs:range rdfs:Literal .
+
+mv:hasShoppingFacility
+	a rdf:Property, owl:DatatypeProperty ;
+	rdfs:comment "Indicate whether Filling Station has Shopping Facility or not" ;
+	rdfs:label "has shopping facility"@en, "weist Einkaufsgelenheit"@de ;
+	rdfs:domain mv:FuelStation ;
+	rdfs:range rdfs:Literal .
+
+mv:hasWashingFacility
+	a rdf:Property, owl:DatatypeProperty ;
+	rdfs:comment "Indicate whether Filling Station has Washing Facility or not" ;
+	rdfs:label "has washing facility"@en, "hat Waschmoglichkeit"@de ;
+	rdfs:domain mv:FuelStation ;
+	rdfs:range rdfs:Literal .
+
+mv:hasWCFacility
+	a rdf:Property, owl:DatatypeProperty ;
+	rdfs:comment "Indicate whether Filling Station has WC Facility or not" ;
+	rdfs:label "has WC facility"@en, "hat WC Fazilitat"@de ;
+	rdfs:domain mv:FuelStation ;
+	rdfs:range rdfs:Literal .
+
+mv:hasWheelChairEnabled
+	a rdf:Property, owl:DatatypeProperty ;
+	rdfs:comment "Indicate whether Filling Station is Wheelchair enabled or not" ;
+	rdfs:label "has WC facility"@en, "hat WC Fazilitat"@de ;
+	rdfs:domain mv:FuelStation ;
+	rdfs:range rdfs:Literal .
+
+
+mv:offersAccess
+	a rdf:Property, owl:DatatypeProperty ;
+	rdfs:comment "Indicates for which people access is permitted." ;
+	rdfs:label "offers access"@en, "bietet Zugang"@de ;
+	rdfs:domain mv:ChargingStation ;
+	rdfs:range rdfs:Literal .
+
+mv:offersBooking
+	a rdf:Property, owl:DatatypeProperty ;
+	rdfs:comment "Indicates whether charging Station offers booking option or not." ;
+	rdfs:label "offers booking"@en, "angebote Buchung"@de ;
+	rdfs:domain mv:ChargingStation ;
+	rdfs:range rdfs:Literal .
+
+mv:offersPlugTypes
+	a rdf:Property, owl:DatatypeProperty ;
+	rdfs:comment "Indicates which are the offered plug types in the charging Station." ;
+	rdfs:label "offers plug type"@en, "bietet Steckertypen"@de ;
+	rdfs:domain mv:ChargingStation ;
+	rdfs:range rdfs:Literal .
+
+mv:openingHours
+	a rdf:Property, owl:DatatypeProperty ;
+	rdfs:comment "Indicates the opening hours of the filling station." ;
+	rdfs:label "opening hours"@en, "offnungszeiten"@de ;
+	rdfs:domain mv:FillingStation ;
+	rdfs:range rdfs:Literal .
+
+mv:PaymentMethod
+	a rdf:Property, owl:DatatypeProperty ;
+	rdfs:comment "Indicates which type of payment is available." ;
+	rdfs:label "payment method"@en, "zahlungsmethode"@de ;
+	rdfs:domain mv:FillingStation ;
+	rdfs:range rdfs:Literal .
+
+
+# Individuals
+
+mv:FuelStationA
+	a mv:FuelStation ;
+	mv:fillingStationNumber "" ;
+	mv:fillingStationHeight "5.0m" ;
+	vcard:organization-name "Shell Tankstelle" ;
+	vcard:hasAddress [
+						vcard:country-name "Germany" ;
+						vcard:locality "Bonn" ;
+						vcard:postal-code "53117" ;
+						vcard:region "North Rhine-Westphalia" ;
+						vcard:street-address "Kölnstraße 655"
+					 ];
+	vcard:tel "0228 673966" ;
+	vcard:url "shell.de" ;
+	geo:long "7.057300" ;
+	geo:lat "50.761966" .
+
+
+mv:FuelStationB
+	a mv:FuelStation ;
+	mv:fillingStationNumber "" ;
+	mv:fillingStationHeight "5.0m" ;
+	vcard:organization-name "Esso" ;
+	vcard:hasAddress [
+						vcard:country-name "Germany" ;
+						vcard:locality "Bonn" ;
+						vcard:postal-code "53225" ;
+						vcard:region "North Rhine-Westphalia" ;
+						vcard:street-address "St. Augustiner Str. 145"
+					 ];
+	vcard:tel "0228 476790" ;
+	vcard:url "essofuelfinder.com" ;
+	geo:long "7.122874" ;
+	geo:lat "50.747196" .
+
+
+mv:FuelStationC
+	a mv:FuelStation ;
+	mv:fillingStationNumber "" ;
+	mv:fillingStationHeight "5.0m" ;
+	vcard:organization-name "ED-Tankstelle Jürgen Metzling e.K." ;
+	vcard:hasAddress [
+						vcard:country-name "Germany" ;
+						vcard:locality "Bonn" ;
+						vcard:postal-code "53119" ;
+						vcard:region "North Rhine-Westphalia" ;
+						vcard:street-address "Lievelingsweg 10"
+					 ];
+	vcard:tel "0228 676991" ;
+	vcard:url "essofuelfinder.com" ;
+	geo:long "7.084079" ;
+	geo:lat "50.745675" .
+
+
+mv:FuelStationD
+	a mv:FuelStation ;
+	mv:fillingStationNumber "" ;
+	mv:fillingStationHeight "5.0m" ;
+	vcard:organization-name "SVG-Tankstelle" ;
+	vcard:hasAddress [
+						vcard:country-name "Germany" ;
+						vcard:locality "Bonn" ;
+						vcard:postal-code "53119" ;
+						vcard:region "North Rhine-Westphalia" ;
+						vcard:street-address "Potsdamer Platz 7"
+					 ];
+	vcard:tel "0228 654851" ;
+	vcard:url "svg-nordrhein.de" ;
+	geo:long "7.077556" ;
+	geo:lat "50.741982" .
+
+mv:ChargingStationA
+	a mv:ChargingStation ;
+	mv:ChargingStationName "Beethoven Tiefgarage" ;
+	vcard:hasAddress [
+						vcard:country-name "Germany" ;
+						vcard:city "Bonn" ;
+						vcard:postal-code "53111" ;
+						vcard:region "North Rhine-Westphalia" ;
+						vcard:street-address "Engeltalstraße"
+					 ];
+	geo:long "7.103397" ;
+	geo:lat "50.738999" ;
+	mv:offersAccess "Open to all users" ;
+	mv:hasIdentifications "None" ;
+	mv:hasPrice "Free charging, Paid parking" ;
+	mv:hasParking "2 parking spaces for electric vehicles only" ;
+	mv:offersBooking "Impossible" ;
+	mv:offersPlugTypes "Schuko plug, Plug Type 2" ;
+	mv:openingHours "Monday/Tuesday/Wednesday/Thursday from 00:00 to 01:00 and from 07:00 to 23:59, Friday/Saturday from 00:00 to 02:30 and from 07:00 to 23:59, Sunday from 00:00 to 01:00 and from 09:00 to 23:59" .
+
+mv:ChargingStationB
+	a mv:ChargingStation ;
+	mv:ChargingStationName"Kameha Grand Bonn" ;
+	vcard:hasAddress [
+						vcard:country-name "Germany" ;
+						vcard:city "Bonn" ;
+						vcard:postal-code "53227" ;
+						vcard:region "North Rhine-Westphalia" ;
+						vcard:street-address "Am Bonner Bogen"
+					 ];
+	geo:long "7.151704" ;
+	geo:lat "50.718117" ;
+	mv:offersAccess "Open to all users" ;
+	mv:hasIdentifications "Key" ;
+	mv:hasPrice "Free charging" ;
+	mv:hasParking "2 parking spaces for electric vehicles only" ;
+	mv:offersBooking "Optional" ;
+	mv:offersPlugTypes "Plug Type 2" ;
+	mv:openingHours "Open 24/24" .
+
+mv:ChargingStationC
+	a mv:ChargingStation ;
+	mv:ChargingStationName"OBI Markt Bonn-Nord" ;
+	vcard:hasAddress [
+						vcard:country-name "Germany" ;
+						vcard:city "Bonn" ;
+						vcard:postal-code "53119" ;
+						vcard:region "North Rhine-Westphalia" ;
+						vcard:housenumber "166" ;
+						vcard:street-address "Bornheimer Straße"
+					 ];
+
+	vcard:website "http://www.obi.de/de/maerkte/Bonn-Nord/index.html" ;
+	geo:long "7.080653" ;
+	geo:lat "50.738228" ;
+	mv:offersAccess "Open to all users" ;
+	mv:hasIdentifications "None" ;
+	mv:hasPrice "Free charging" ;
+	mv:hasParking "1 parking space for electric vehicles only" ;
+	mv:offersBooking "Impossible" ;
+	mv:offersPlugTypes "Schoko plug" ;
+	mv:openingHours "Monday to Saturday from 08:00 to 20:00" .
+
+mv:ChargingStationD
+	a mv:ChargingStation ;
+	mv:ChargingStationName"Stadthausgarage - Bonn" ;
+	vcard:hasAddress [
+						vcard:country-name "Germany" ;
+						vcard:city "Bonn" ;
+						vcard:postal-code "53111" ;
+						vcard:region "North Rhine-Westphalia" ;
+						vcard:street-address "Weiherstraße"
+					 ];
+	geo:long "7.093778" ;
+	geo:lat "50.737613" ;
+	mv:offersAccess "Open to all users" ;
+	mv:hasIdentifications "None" ;
+	mv:hasPrice "Free charging" ;
+	mv:hasParking "1 parking space for electric vehicles only" ;
+	mv:offersBooking "Impossible" ;
+	mv:offersPlugTypes "Schoko plug" ;
+	mv:openingHours "Open 24/24" .
+
+mv:ChargingStationE
+	a mv:ChargingStation ;
+	mv:ChargingStationName"Automobilgruppe Dirkes Bonn GmbH" ;
+	vcard:hasAddress [
+						vcard:country-name "Germany" ;
+						vcard:city "Bonn" ;
+						vcard:postal-code "53175" ;
+						vcard:region "North Rhine-Westphalia" ;
+						vcard:housenumber "60-80" ;
+						vcard:street-address "Godesberger Str."
+					 ];
+	geo:long "7.140795" ;
+	geo:lat "50.695074" ;
+	mv:offersAccess "Open to all users" ;
+	mv:hasIdentifications "Other" ;
+	mv:hasPrice "Paid charging" ;
+	mv:offersPlugTypes "Schoko plug" .
+
+mv:ChargingStationF
+	a mv:ChargingStation ;
+	mv:ChargingStationName"Am Rathaus Alfter" ;
+	vcard:hasAddress [
+						vcard:country-name "Germany" ;
+						vcard:city "Alfter" ;
+						vcard:postal-code "53347" ;
+						vcard:region "North Rhine-Westphalia" ;
+						vcard:housenumber "7" ;
+						vcard:street-address "Am Rathaus"
+					 ];
+	geo:long "7.026320" ;
+	geo:lat "50.721710" ;
+	mv:offersAccess "For identified persons only" ;
+	mv:hasIdentifications "Text message, Phone call, Other, Mobile Application" ;
+	mv:PaymentMethod "Text message, Mobile Application" ;
+	mv:hasPrice "Paid charging" ;
+	mv:offersPlugTypes "Plug type 2" ;
+	vcard:operator "RWE" ;
+	mv:openingHours "Open 24/24" .
+
+mv:ChargingStationG
+	a mv:ChargingStation ;
+	mv:ChargingStationName"TankE - Bornheim" ;
+	vcard:hasAddress [
+						vcard:country-name "Germany" ;
+						vcard:city "Bornheim" ;
+						vcard:postal-code "53332" ;
+						vcard:region "North Rhine-Westphalia" ;
+						vcard:housenumber "2" ;
+						vcard:street-address "Rathausstraße"
+					 ];
+	geo:long "7.004420" ;
+	geo:lat "50.757470" ;
+	vcard:website "http://www.rheinenergie.com/TankEn" ;
+	vcard:operator "Rheinenergie" ;
+	mv:hasIdentifications "Unknown" ;
+	mv:hasPrice "Free charging" ;
+	mv:offersPlugTypes "Schuko plug, Plug Type 2" ;
+	mv:openingHours "Open 24/24" .
+
+mv:ChargingStationH
+	a mv:ChargingStation ;
+	mv:ChargingStationName"TankE RheinEnergie Ladestation - Stadtbetrieb Bornheim Anstalt des öffentlichen Rechts" ;
+	vcard:hasAddress [
+						vcard:country-name "Germany" ;
+						vcard:city "Bornheim" ;
+						vcard:postal-code "53332" ;
+						vcard:region "North Rhine-Westphalia" ;
+						vcard:housenumber "15" ;
+						vcard:street-address "Donnerbachweg"
+					 ];
+	geo:long "6.948360" ;
+	geo:lat "50.767600" ;
+	vcard:owner "TankE RheinEnergie" ;
+	vcard:website "http://www.rheinenergie.com/de/unternehmensportal/technik_zukunft/elektromobilitaet_1/ladestationen/ladestationen_1.php" ;
+	mv:offersAccess "Open to all users" ;
+	mv:hasIdentifications "Badge has to be ordered" ;
+	mv:hasPrice "Paid charging" ;
+	mv:offersPlugTypes "Schoko plug, Plug type 2" ;
+	mv:openingHours "Open 24/24" .
+
+mv:ChargingStationI
+	a mv:ChargingStation ;
+	mv:ChargingStationName"3-5 Reichsstr. Bonn" ;
+	vcard:hasAddress [
+						vcard:country-name "Germany" ;
+						vcard:city "Bonn" ;
+						vcard:postal-code "53125" ;
+						vcard:region "North Rhine-Westphalia" ;
+						vcard:housenumber "3-5" ;
+						vcard:street-address "Reichstrasse"
+					 ];
+	geo:long "7.075870" ;
+	geo:lat "50.683040" ;
+	vcard:operator "RWE" ;
+	mv:offersAccess "For identified persons only" ;
+	mv:hasIdentifications "Text message, Phone call, Other, Mobile Application" ;
+	mv:PaymentMethod "Text message, Mobile Application" ;
+	mv:hasPrice "Paid charging" ;
+	mv:offersPlugTypes "Plug type 2" ;
+	mv:openingHours "Open 24/24" .
+
+mv:ChargingStationK
+	a mv:ChargingStation ;
+	mv:ChargingStationName"104 Zeithstraße Siegburg" ;
+	vcard:hasAddress [
+						vcard:country-name "Germany" ;
+						vcard:city "Siegburg" ;
+						vcard:postal-code "53721" ;
+						vcard:region "North Rhine-Westphalia" ;
+						vcard:housenumber "104" ;
+						vcard:street-address "Zeithstraße"
+					 ];
+	geo:long "7.218302" ;
+	geo:lat "50.802184" ;
+	vcard:operator "RWE" ;
+	mv:offersAccess "For identified persons only" ;
+	mv:hasIdentifications "Text message, Phone call, Other, Mobile Application" ;
+	mv:PaymentMethod "Text message, Mobile Application" ;
+	mv:hasPrice "Paid charging" ;
+	mv:offersPlugTypes "Plug type 2" ;
+	mv:openingHours "Open 24/24" .
+
+mv:ChargingStationL
+	a mv:ChargingStation ;
+	mv:ChargingStationName"Konrad-Adenauer-Allee Siegburg" ;
+	vcard:hasAddress [
+						vcard:country-name "Germany" ;
+						vcard:city "Siegburg" ;
+						vcard:postal-code "53721" ;
+						vcard:region "North Rhine-Westphalia" ;
+						vcard:street-address "Konrad-Adenauer-Allee"
+					 ];
+	geo:long "7.203024" ;
+	geo:lat "50.793180" ;
+	vcard:operator "RWE" ;
+	mv:offersAccess "For identified persons only" ;
+	mv:hasIdentifications "Text message, Phone call, Other, Mobile Application" ;
+	mv:PaymentMethod "Text message, Mobile Application" ;
+	mv:hasPrice "Paid charging" ;
+	mv:offersPlugTypes "Plug type 2" ;
+	mv:openingHours "Open 24/24" .
+
+mv:ChargingStationM
+	a mv:ChargingStation ;
+	mv:ChargingStationName"10 Wilhelmstr. Siegburg" ;
+	vcard:hasAddress [
+						vcard:country-name "Germany" ;
+						vcard:city "Siegburg" ;
+						vcard:postal-code "53721" ;
+						vcard:region "North Rhine-Westphalia" ;
+						vcard:housenumber "10" ;
+						vcard:street-address "Wilhelmstr."
+					 ];
+	geo:long "7.205730" ;
+	geo:lat "50.793205" ;
+	vcard:operator "RWE" ;
+	mv:offersAccess "For identified persons only" ;
+	mv:hasIdentifications "Text message, Phone call, Other, Mobile Application" ;
+	mv:PaymentMethod "Text message, Mobile Application" ;
+	mv:hasPrice "Paid charging" ;
+	mv:offersPlugTypes "Plug type 2" ;
+	mv:openingHours "Open 24/24" .
+
+mv:ChargingStationN
+	a mv:ChargingStation ;
+	mv:ChargingStationName"3 Bachstraße Siegburg" ;
+	vcard:hasAddress [
+						vcard:country-name "Germany" ;
+						vcard:city "Siegburg" ;
+						vcard:postal-code "53721" ;
+						vcard:region "North Rhine-Westphalia" ;
+						vcard:housenumber "3" ;
+						vcard:street-address "Bachstrasse"
+					 ];
+	geo:long "7.203999" ;
+	geo:lat "50.798530" ;
+	vcard:operator "RWE" ;
+	mv:offersAccess "For identified persons only" ;
+	mv:hasIdentifications "Text message, Phone call, Other, Mobile Application" ;
+	mv:PaymentMethod "Text message, Mobile Application" ;
+	mv:hasPrice "Paid charging" ;
+	mv:offersPlugTypes "Plug type 2" ;
+	mv:openingHours "Open 24/24" .
+
+mv:ChargingStationO
+	a mv:ChargingStation ;
+	mv:ChargingStationName" Ringstraße Siegburg" ;
+	vcard:hasAddress [
+						vcard:country-name "Germany" ;
+						vcard:city "Siegburg" ;
+						vcard:postal-code "53721" ;
+						vcard:region "North Rhine-Westphalia" ;
+						vcard:street-address "Ringstrasse"
+					 ];
+	geo:long "7.205371" ;
+	geo:lat "50.797767" ;
+	vcard:operator "RWE" ;
+	mv:offersAccess "For identified persons only" ;
+	mv:hasIdentifications "Text message, Phone call, Other, Mobile Application" ;
+	mv:PaymentMethod "Text message, Mobile Application" ;
+	mv:hasPrice "Paid charging" ;
+	mv:offersPlugTypes "Plug type 2" ;
+	mv:openingHours "Open 24/24" .
+
+mv:ChargingStationP
+	a mv:ChargingStation ;
+	mv:ChargingStationName" 1 Am Turm Siegburg" ;
+	vcard:hasAddress [
+						vcard:country-name "Germany" ;
+						vcard:city "Siegburg" ;
+						vcard:postal-code "53721" ;
+						vcard:region "North Rhine-Westphalia" ;
+						vcard:housenumber "1" ;
+						vcard:street-address "Am Turm"
+					 ];
+	geo:long "7.223880" ;
+	geo:lat "50.792406" ;
+	vcard:operator "RWE" ;
+	mv:offersAccess "For identified persons only" ;
+	mv:hasIdentifications "Text message, Phone call, Other, Mobile Application" ;
+	mv:PaymentMethod "Text message, Mobile Application" ;
+	mv:hasPrice "Paid charging" ;
+	mv:offersPlugTypes "Plug type 2" ;
+	mv:openingHours "Open 24/24" .
+
+
+
+
+
+<http://purl.org/net/mobivoc/> a owl:Ontology .
+
+mv:MeansOfTransport a owl:Class;
+  rdfs:label "Means of Transport".
+
+mv:Car   a mv:MeansOfTransport .
+mv:Boat  a mv:MeansOfTransport .
+mv:Plane a mv:MeansOfTransport .
+mv:Bike  a mv:MeansOfTransport .
+mv:Tram  a mv:MeansOfTransport .
+
+
+
+<http://purl.org/net/mobivoc/> a owl:Ontology .
+
+# CLASSES
+
+mv:AccessInformation
+	a rdfs:Class, owl:Class ;
+	rdfs:comment	"Access information of the charging point." ;
+	rdfs:label "Access Information"@en, "Zugagsinformation"@de .
+
+mv:AccessType
+	a rdfs:Class, owl:Class ;
+	rdfs:comment	"Describes access type of the charging point." ;
+	rdfs:label "Access Type"@en .
+
+mv:BookingType
+	a rdfs:Class, owl:Class ;
+	rdfs:comment	"Describes booking type of the charging point." ;
+	rdfs:label "Booking Type"@en .
+
+mv:Charger
+	a rdfs:Class, owl:Class ;
+	rdfs:comment	"Describes characteristics of the charger." ;
+	rdfs:label "Charger"@en, "Ladergerät"@de .
+
+mv:ChargingPoint
+	a rdfs:Class, owl:Class ;
+	rdfs:comment	"Defines the public or semi-public charging points for electric vehicles available worldwide. " ;
+	rdfs:label "Ladestation"@de ;
+	rdfs:label "Charging Point"@en ;
+        rdfs:label "Pika rimbushese"@en ;
+	rdfs:label "Point de charge"@fr ;
+	rdfs:label "Punto de Recarga"@es ;
+	rdfs:label "Oplaadpunt"@nl ;
+	rdfs:label "Ponto de Carregamento"@pt .
+
+mv:ChargingPointFees
+	a rdfs:Class, owl:Class ;
+	rdfs:comment	"Captures information about the charging point fees." ;
+	rdfs:label "Charging Point Fees"@en .
+
+mv:ChargingPointLocation
+	a rdfs:Class, owl:Class ;
+	rdfs:subClassOf	 s:Place ;
+	rdfs:comment	"Describes the charging point location." ;
+	rdfs:label "Charging Point Location"@en ;
+	rdfs:label "Lokalisierung der Ladestation"@de .
+
+mv:ChargingPointOwner
+	a rdfs:Class, owl:Class ;
+	rdfs:subClassOf	 foaf:Agent ;
+	rdfs:comment	"Captures information about the owner of charging point." ;
+	rdfs:label "Charging Point Owner"@en ;
+	rdfs:label "Besitzer der Ladestation"@de .
+
+mv:ChargingSpeed
+	a rdfs:Class, owl:Class ;
+	rdfs:comment	"Describes speed types available at the  types of vehicle the can be loaded by charging point." ;
+	rdfs:label "Charging Speed"@en .
+
+mv:IdentificationSystem
+	a rdfs:Class, owl:Class ;
+	rdfs:comment	"Describes identification system of the charging point." ;
+	rdfs:label "Identification System"@en .
+
+mv:Payment
+	a rdfs:Class, owl:Class ;
+	rdfs:subClassOf gr:PaymentMethod ;
+	rdfs:comment	"Defines  payment method." ;
+	rdfs:label "Payment"@en, "Zahlung"@de .
+
+mv:Plug
+	a rdfs:Class, owl:Class ;
+	rdfs:comment	"Describes  plug characteristics." ;
+	rdfs:label "Plug"@en, "Anschluss"@de .
+
+mv:PlugType
+	a rdfs:Class, owl:Class ;
+	rdfs:comment	"Describes  type of available plug." ;
+	rdfs:label "Plug Type"@en, "Steckertyp"@de .
+
+mv:VehicleType
+	a rdfs:Class, owl:Class ;
+	rdfs:comment	"Describes  types of vehicle tht can be loaded by charging point." ;
+	rdfs:label "Vehicle Type"@en, "Fahrzeugstyp"@de .
+
+
+# INSTANCES
+
+# Plug Types
+
+mv:ComboPlug
+	a mv:PlugType ;
+	rdfs:label "Combo Plug"@en .
+
+mv:CHAdeMOPlug
+	a mv:PlugType ;
+	rdfs:label "CHAdeMO"@en ;
+	owl:sameAs <http://dbpedia.org/resource/CHAdeMO> ;
+	foaf:depiction <http://upload.wikimedia.org/wikipedia/commons/f/f3/VDE-AR-E_2623-2-2-plug.jpg> .
+
+mv:EUDomesticPlug
+	a mv:PlugType ;
+	owl:sameAs <http://dbpedia.org/resource/Europlug> ;
+	rdfs:label "EU Domestic Plug"@en .
+
+mv:SchukoPlug
+	a mv:PlugType ;
+	owl:sameAs <http://dbpedia.org/resource/Schuko> ;
+	foaf:depiction <http://upload.wikimedia.org/wikipedia/commons/e/ef/Schuko_plug_and_socket.png> ;
+	rdfs:label "Schuko Plug"@en .
+
+mv:Type1Plug
+	a mv:PlugType ;
+	rdfs:label "Type1 Plug"@en ;
+	skos:altLabel "SAE J1772" ;
+	owl:sameAs <http://dbpedia.org/resource/SAE_J1772> ;
+	foaf:depiction <http://commons.wikimedia.org/wiki/Special:FilePath/SAE_J1772_7058855567.jpg> .
+
+mv:Type2Plug
+	a mv:PlugType ;
+	rdfs:label "Type2 Plug"@en ;
+	skos:altLabel "EN 62196-2" ;
+	owl:sameAs "http://en.wikipedia.org/wiki/IEC_62196#Type_2:_VDE-AR-E_2623-2-2" ;
+	foaf:depiction <http://upload.wikimedia.org/wikipedia/commons/f/f3/VDE-AR-E_2623-2-2-plug.jpg> .
+
+mv:Type3Plug
+	a mv:PlugType ;
+	rdfs:label "Type3 Plug"@en ;
+	skos:altLabel "EV Plug" .
+
+mv:UnknownPlug
+	a mv:PlugType ;
+	rdfs:label "Unknown Plug"@en , "Unbekannter Anschluss"@de .
+
+# Identification System Types
+
+mv:AccessCode
+	a mv:IdentificationSystem ;
+	rdfs:label "AccessCode"@en, "Zugangskode"@en .
+
+mv:BadgeHasToBeOrdered
+	a mv:IdentificationSystem ;
+	rdfs:label "BadgeHasToBeOrdered"@en .
+
+mv:BadgeIsAvailable
+	a mv:IdentificationSystem ;
+	rdfs:label "BadgeIsAvailable"@en .
+
+mv:CreditCard
+	a mv:IdentificationSystem ;
+	rdfs:label "CreditCard"@en, "Kreditkarte"@de .
+
+mv:Key
+	a mv:IdentificationSystem ;
+	rdfs:label "Key"@en, "Schlüssel"@de .
+
+mv:MobileApplication
+	a mv:IdentificationSystem ;
+	rdfs:label "MobileApplication"@en .
+
+mv:None
+	a mv:IdentificationSystem ;
+	rdfs:label "None"@en, "Keine"@en .
+
+mv:Other
+	a mv:IdentificationSystem ;
+	rdfs:label "Other"@en .
+
+mv:PhoneCall
+	a mv:IdentificationSystem ;
+	rdfs:label "PhoneCall"@en .
+
+mv:TextMessage
+	a mv:IdentificationSystem ;
+	rdfs:label "TextMessage"@en .
+
+mv:UndefinedIdentificationSystem
+	a mv:IdentificationSystem ;
+	rdfs:label "Undefined"@en, "Nicht bekannt"@de .
+
+#Access Types
+
+mv:BrandsCustomers
+	a mv:AccessType ;
+	rdfs:label "BrandsCustomers"@en .
+
+mv:CustomerOfPremise
+	a mv:AccessType ;
+	rdfs:label "CustomerOfPremise"@en .
+
+mv:EmployeesOnly
+	a mv:AccessType ;
+	rdfs:label "EmployeesOnly"@en, "Nur Angestellte"@de .
+
+mv:IdentifiedPerson
+	a mv:AccessType ;
+	rdfs:label "IdentifiedPerson"@en, "Autorisierte Person"@de .
+
+mv:InhabitantsOnly
+	a mv:AccessType ;
+	rdfs:label "InhabitantsOnly"@en, "Nur Einwohner"@de .
+
+mv:OpenToAllUsers
+	a mv:AccessType ;
+	rdfs:label "Open to all"@en.
+
+mv:UndefinedAccessType
+	a mv:AccessType ;
+	rdfs:label "Undefined"@en, "Undefiniert"@de .
+
+#Chargin Speed types
+
+mv:Acelerated
+	a mv:ChargingSpeed ;
+	rdfs:label "Acelerated"@en .
+
+mv:Fast
+	a mv:ChargingSpeed ;
+	rdfs:label "Fast"@en .
+
+mv:Standard
+	a mv:ChargingSpeed ;
+	rdfs:label "Standard"@en .
+
+# Payment method
+
+mv:MobileApplication
+	a mv:Payment ;
+	rdfs:label "Mobile Application"@en .
+
+mv:TextMessage
+	a mv:Payment ;
+	rdfs:label "Text message"@en .
+
+# Booking types
+
+mv:Impossible
+	a mv:BookingType ;
+	rdfs:label "Impossible"@en .
+
+mv:Mandatory
+	a mv:BookingType ;
+	rdfs:label "Mandatory"@en .
+
+mv:Optional
+	a mv:BookingType ;
+	rdfs:label "Optional"@en .
+
+# Charging point fees
+
+mv:FreeCharging
+	a mv:ChargingPointFees;
+	rdfs:label "Free Charging"@en .
+
+mv:PaidCharging
+	a mv:ChargingPointFees;
+	rdfs:label "Paid Charging"@en .
+
+
+# PROPERTIES
+
+# Abstract Properties
+
+mv:access
+a	rdf:Property, owl:ObjectProperty ;
+	rdfs:label	"access"@en ;
+	rdfs:comment	"Access types of charging point. " ;
+	rdfs:domain	mv:AccessInformation ;
+	rdfs:range	mv:AccessType  .
+
+mv:accessible
+a	rdf:Property, owl:ObjectProperty ;
+	rdfs:label	"has charger"@en ;
+	rdfs:comment	"Access information of the charging point." ;
+	rdfs:domain	mv:ChargingPoint ;
+	rdfs:range	mv:AccessInformation .
+
+mv:accessTimes
+a	rdf:Property, owl:DatatypeProperty ;
+	rdfs:label	"Access Time"@en ;
+	rdfs:comment	"Defines access time of the charging point. " ;
+	rdfs:domain	mv:AccessInformation ;
+	rdfs:range	rdfs:Literal .
+
+mv:additionalInformation
+a	rdf:Property, owl:DatatypeProperty ;
+	rdfs:label	"Additional Information"@en ;
+	rdfs:comment	"Other information about the charging point." ;
+	rdfs:domain	mv:ChargingPoint ;
+	rdfs:range	rdfs:Literal .
+
+mv:availableFromTime
+a	rdf:Property, owl:DatatypeProperty ;
+	rdfs:label	"availableFromTime"@en ;
+	rdfs:comment	"Intormation when the charging point will be available. " ;
+	rdfs:domain	mv:AccessInformation ;
+	rdfs:range	rdfs:Literal .
+
+mv:booking
+a	rdf:Property, owl:ObjectProperty ;
+	rdfs:label	"Booking"@en ;
+	rdfs:comment	"Booking types for charging point. " ;
+	rdfs:domain	mv:AccessInformation ;
+	rdfs:range	mv:BookingType  .
+
+mv:brand
+a	rdf:Property, owl:DatatypeProperty ;
+	rdfs:label	"Brand"@en ;
+	rdfs:comment	"Defines the charger brand. " ;
+	rdfs:domain	mv:Charger ;
+	rdfs:range	rdfs:Literal .
+
+mv:cableAvailable
+a	rdf:Property, owl:DatatypeProperty ;
+	rdfs:label	"Cable available"@en ;
+	rdfs:comment	"Indicates whether plug has a cable. " ;
+	rdfs:domain	mv:Plug ;
+	rdfs:range	rdfs:Literal .
+
+mv:ChargingPointName
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Indicates the name of the charging station" ;
+	rdfs:label "charging station name"@en , "Ladestationnnummer"@de ;
+	rdfs:domain mv:ChargingPoint;
+	rdfs:range rdfs:Literal .
+
+mv:chargingSpeed
+a	rdf:Property, owl:DatatypeProperty ;
+	rdfs:label	"Charging Speed"@en ;
+	rdfs:comment	"Charging speed of plug. " ;
+	rdfs:domain	mv:Plug ;
+	rdfs:range	mv:ChargingSpeed .
+
+mv:coveredLocation
+a	rdf:Property, owl:DatatypeProperty ;
+	rdfs:label	"Covered Location"@en ;
+	rdfs:comment	"Indicates whether the location of the charging point is covered." ;
+	rdfs:domain	mv:AccessInformation ;
+	rdfs:range	rdfs:Literal .
+
+mv:currentType
+a	rdf:Property, owl:DatatypeProperty ;
+	rdfs:label	"CurrentType"@en ;
+	rdfs:comment	"Current type.  " ;
+	rdfs:domain	mv:Plug ;
+	rdfs:range	rdfs:Literal .
+
+mv:description
+a	rdf:Property, owl:DatatypeProperty ;
+	rdfs:label	"Description"@en ;
+	rdfs:comment	"Description of charging point." ;
+	rdfs:domain	mv:ChargingPoint ;
+	rdfs:range	rdfs:Literal .
+
+mv:energyType
+a	rdf:Property, owl:DatatypeProperty ;
+	rdfs:label	"energy type"@en ;
+	rdfs:comment	"Energy type of the charging point. " ;
+	rdfs:domain	mv:Charger ;
+	rdfs:range	rdfs:Literal .
+
+mv:hasPlug
+a	rdf:Property, owl:ObjectProperty ;
+	rdfs:label	"has plugs"@en ;
+	rdfs:comment	"Plugs available at the charging point." ;
+	rdfs:domain	mv:ChargingPoint ;
+	rdfs:range	mv:Plug .
+
+mv:feesDescription
+a	rdf:Property, owl:DatatypeProperty ;
+	rdfs:label	"Fees description"@en ;
+	rdfs:comment	"Defines recharging fees." ;
+	rdfs:domain	mv:ChargingPointFees ;
+	rdfs:range	rdfs:Literal .
+
+mv:hasCharger
+a	rdf:Property, owl:ObjectProperty ;
+	rdfs:label	"has charger"@en ;
+	rdfs:comment	"Charging point charger." ;
+	rdfs:domain	mv:ChargingPoint ;
+	rdfs:range	mv:Charger .
+
+mv:HasParkingFacility
+	a rdf:Property, owl:DatatypeProperty ;
+	rdfs:comment "Indicate whether Filling Station has Parking Facility or not" ;
+	rdfs:label "has parking facility"@en, "hat Parkmoglichkeit"@de ;
+	rdfs:domain mv:ChargingPoint ;
+	rdfs:range rdfs:literal .
+
+mv:identification
+a	rdf:Property, owl:ObjectProperty ;
+	rdfs:label	"identification"@en ;
+	rdfs:comment	"Identification system to assess charging point. " ;
+	rdfs:domain	mv:AccessInformation ;
+	rdfs:range	mv:IdentificationSystem .
+
+mv:intensity
+a	rdf:Property, owl:DatatypeProperty ;
+	rdfs:label	"Intensity"@en ;
+	rdfs:comment	"Plug intensity.  " ;
+	rdfs:domain	mv:Plug ;
+	rdfs:range	rdfs:Literal .
+
+mv:isLocated
+	a	rdf:Property, owl:ObjectProperty ;
+	rdfs:label	"isLocated"@en ;
+	rdfs:comment	"Location of the charging point." ;
+	rdfs:domain	mv:ChargingPoint ;
+	rdfs:range	mv:ChargingPointLocation .
+
+mv:isOwnedBy
+	a	rdf:Property, owl:ObjectProperty ;
+	rdfs:label	"isOwnedBy"@en ;
+	rdfs:comment	"Charging point's owner." ;
+	rdfs:domain	mv:ChargingPoint ;
+	rdfs:range	mv:ChargingPointOwner .
+
+mv:isPaidChargingPoint
+a	rdf:Property, owl:DatatypeProperty ;
+	rdfs:label	"Is paid charging point"@en ;
+	rdfs:comment	"Indicated whether it is paid charging point." ;
+	rdfs:domain	mv:ChargingPointFees ;
+	rdfs:range	rdfs:Literal .
+
+mv:lockerAvailable
+a	rdf:Property, owl:DatatypeProperty ;
+	rdfs:label	"Locker available"@en ;
+	rdfs:comment	"Indicates whether plug has a locker. " ;
+	rdfs:domain	mv:Plug ;
+	rdfs:range	rdfs:Literal .
+
+mv:model
+a	rdf:Property, owl:DatatypeProperty ;
+	rdfs:label	"Model"@en ;
+	rdfs:comment	"Charger model of the charging point. " ;
+	rdfs:domain	mv:Charger ;
+	rdfs:range	rdfs:Literal .
+
+mv:numberOfParkingPlaces
+a	rdf:Property, owl:DatatypeProperty ;
+	rdfs:label	"number of parking places"@en ;
+	rdfs:comment	"Number of parking places. " ;
+	rdfs:domain	mv:AccessInformation ;
+	rdfs:range	rdfs:Literal .
+
+mv:openingHours
+	a rdf:Property, owl:DatatypeProperty ;
+	rdfs:comment "Indicates the opening hours of the filling station." ;
+	rdfs:label "opening hours"@en, "offnungszeiten"@de ;
+	rdfs:domain mv:ChargingPoint ;
+	rdfs:range rdfs:Literal .
+
+mv:payment
+a	rdf:Property, owl:ObjectProperty ;
+	rdfs:label	"Payment forms"@en ;
+	rdfs:comment	"Available payment forms for recharging fees." ;
+	rdfs:domain	mv:ChargingPointFees ;
+	rdfs:range	mv:Payment .
+
+mv:picture
+a	rdf:Property, owl:ObjectProperty ;
+	rdfs:label	"picture"@en ;
+	rdfs:comment	"Picture of charging point." ;
+	rdfs:domain	mv:ChargingPoint ;
+	rdfs:range	rdfs:Resource .
+
+mv:placeName
+a	rdf:Property, owl:DatatypeProperty ;
+	rdfs:label	"placeName"@en ;
+	rdfs:comment	"Place name where charging point is located." ;
+	rdfs:domain	mv:ChargingPoint ;
+	rdfs:range	rdfs:Literal .
+
+mv:placeType
+a	rdf:Property, owl:DatatypeProperty ;
+	rdfs:label	"placeType"@en ;
+	rdfs:comment	"Place type where charging point is located, e.g. airport, restaurant." ;
+	rdfs:domain	mv:ChargingPoint ;
+	rdfs:range	rdfs:Literal .
+
+mv:plugCondition
+a	rdf:Property, owl:DatatypeProperty ;
+	rdfs:label	"Plug Condition"@en ;
+	rdfs:comment	"Plug condition. " ;
+	rdfs:domain	mv:Plug ;
+	rdfs:range	rdfs:Literal .
+
+mv:plugInformation
+a	rdf:Property, owl:DatatypeProperty ;
+	rdfs:label	"Plug Information"@en ;
+	rdfs:comment	"Captures information about plug. " ;
+	rdfs:domain	mv:Plug ;
+	rdfs:range	rdfs:Literal .
+
+mv:power
+a	rdf:Property, owl:DatatypeProperty ;
+	rdfs:label	"Power"@en ;
+	rdfs:comment	"Plug power. " ;
+	rdfs:domain	mv:Plug ;
+	rdfs:range	rdfs:Literal .
+
+mv:status
+a	rdf:Property, owl:DatatypeProperty ;
+	rdfs:label	"status"@en ;
+	rdfs:comment	"Current status of the charging point, e.g. out-of-order or functional." ;
+	rdfs:domain	mv:ChargingPoint ;
+	rdfs:range	rdfs:Literal .
+
+mv:threePhasedCurrentavailable
+a	rdf:Property, owl:DatatypeProperty ;
+	rdfs:label	"Three-phased current available"@en ;
+	rdfs:comment	"Indicates whether Three-phased current is available.  " ;
+	rdfs:domain	mv:Plug ;
+	rdfs:range	rdfs:Literal .
+
+mv:vehicleType
+a	rdf:Property, owl:ObjectProperty ;
+	rdfs:label	"vehicle type"@en ;
+	rdfs:comment	"Vehicle type. " ;
+	rdfs:domain	mv:Plug ;
+	rdfs:range	mv:VehicleType .
+
+mv:voltage
+a	rdf:Property, owl:DatatypeProperty ;
+	rdfs:label	"Voltage"@en ;
+	rdfs:comment	"Plug voltage.  " ;
+	rdfs:domain	mv:Plug ;
+	rdfs:range	rdfs:Literal .
+
+#Individuals
+
+mv:ChargingPointA
+	a mv:ChargingPoint ;
+	mv:ChargingPointName "Beethoven Tiefgarage" ;
+	vcard:hasAddress [
+						vcard:country-name "Germany" ;
+						vcard:city "Bonn" ;
+						vcard:postal-code "53111" ;
+						vcard:region "North Rhine-Westphalia" ;
+						vcard:street-address "Engeltalstraße"
+					 ];
+	geo:long "7.103397" ;
+	geo:lat "50.738999" ;
+	mv:AccessType mv:OpenToAllUsers ;
+	mv:IdentificationSystem mv:None ;
+	mv:ChargingPointFees mv:FreeCharging ;
+	mv:ChargingPointFees mv:PaidCharging ;
+	mv:HasParkingFacility "2 parking spaces for electric vehicles only" ;
+	mv:BookingType mv:Impossible ;
+	mv:PlugType mv:SchukoPlug ;
+	mv:PlugType mv:Type2Plug ;
+	mv:openingHours "Monday/Tuesday/Wednesday/Thursday from 00:00 to 01:00 and from 07:00 to 23:59, Friday/Saturday from 00:00 to 02:30 and from 07:00 to 23:59, Sunday from 00:00 to 01:00 and from 09:00 to 23:59" .
+
+mv:ChargingPointB
+	a mv:ChargingPoint;
+	mv:ChargingPointName"Kameha Grand Bonn" ;
+	vcard:hasAddress [
+						vcard:country-name "Germany" ;
+						vcard:city "Bonn" ;
+						vcard:postal-code "53227" ;
+						vcard:region "North Rhine-Westphalia" ;
+						vcard:street-address "Am Bonner Bogen"
+					 ];
+	geo:long "7.151704" ;
+	geo:lat "50.718117" ;
+	mv:AccessType "OpenToAllUsers" ;
+	mv:IdentificationSystem mv:Key ;
+	mv:ChargingPointFees mv:FreeCharging ;
+	mv:HasParkingFacility "2 parking spaces for electric vehicles only" ;
+	mv:BookingType mv:Optional ;
+	mv:PlugType mv:Type2Plug ;
+	mv:openingHours "Open 24/24" .
+
+mv:ChargingPointC
+	a mv:ChargingPoint;
+	mv:ChargingPointName"OBI Markt Bonn-Nord" ;
+	vcard:hasAddress [
+						vcard:country-name "Germany" ;
+						vcard:city "Bonn" ;
+						vcard:postal-code "53119" ;
+						vcard:region "North Rhine-Westphalia" ;
+						vcard:housenumber "166" ;
+						vcard:street-address "Bornheimer Straße"
+					 ];
+
+	vcard:website "http://www.obi.de/de/maerkte/Bonn-Nord/index.html" ;
+	geo:long "7.080653" ;
+	geo:lat "50.738228" ;
+	mv:AccessType mv:OpenToAllUsers ;
+	mv:IdentificationSystem mv:None ;
+	mv:ChargingPointFees mv:FreeCharging ;
+	mv:HasParkingFacility "1 parking space for electric vehicles only" ;
+	mv:BookingType mv:Impossible ;
+	mv:PlugType mv:SchukoPlug ;
+	mv:openingHours "Monday to Saturday from 08:00 to 20:00" .
+
+mv:ChargingPointD
+	a mv:ChargingPoint ;
+	mv:ChargingPointName"Stadthaus Garage" ;
+	vcard:hasAddress [
+						vcard:country-name "Germany" ;
+						vcard:city "Bonn" ;
+						vcard:postal-code "53111" ;
+						vcard:region "North Rhine-Westphalia" ;
+						vcard:street-address "Weiherstraße"
+					 ];
+	geo:long "7.093778" ;
+	geo:lat "50.737613" ;
+	mv:AccessType mv:OpenToAllUsers ;
+	mv:IdentificationSystem mv:None ;
+	mv:ChargingPointFees mv:FreeCharging ;
+	mv:HasParkingFacility "1 parking space for electric vehicles only" ;
+	mv:BookingType mv:Impossible ;
+	mv:PlugType mv:SchukoPlug ;
+	mv:openingHours "Open 24/24" .
+
+mv:ChargingPointE
+	a mv:ChargingPoint;
+	mv:ChargingPointName"Automobilgruppe Dirkes Bonn GmbH" ;
+	vcard:hasAddress [
+						vcard:country-name "Germany" ;
+						vcard:city "Bonn" ;
+						vcard:postal-code "53175" ;
+						vcard:region "North Rhine-Westphalia" ;
+						vcard:housenumber "60-80" ;
+						vcard:street-address "Godesberger Str."
+					 ];
+	geo:long "7.140795" ;
+	geo:lat "50.695074" ;
+	mv:AccessType mv:OpenToAllUsers ;
+	mv:IdentificationSystem mv:Other ;
+	mv:hasPrice mv:PaidCharging ;
+	mv:PlugType mv:SchukoPlug .
+
+mv:ChargingPointF
+	a mv:ChargingPoint;
+	mv:ChargingPointName"Am Rathaus Alfter" ;
+	vcard:hasAddress [
+						vcard:country-name "Germany" ;
+						vcard:city "Alfter" ;
+						vcard:postal-code "53347" ;
+						vcard:region "North Rhine-Westphalia" ;
+						vcard:housenumber "7" ;
+						vcard:street-address "Am Rathaus"
+					 ];
+	geo:long "7.026320" ;
+	geo:lat "50.721710" ;
+	mv:AccessType mv:IdentifiedPerson ;
+	mv:IdentificationSystem mv:TextMessage ;
+	mv:IdentificationSystem mv:PhoneCall ;
+	mv:IdentificationSystem mv:Other ;
+	mv:IdentificationSystem mv:MobileApplication ;
+	mv:IdentificationSystem mv:Payment ;
+	mv:IdentificationSystem mv:TextMessage ;
+	mv:Payment mv:MobileApplication ;
+	mv:ChargingPointFees mv:PaidCharging ;
+	mv:PlugType mv:Type2Plug ;
+	vcard:operator "RWE" ;
+	mv:openingHours "Open 24/24" .
+
+mv:ChargingPointG
+	a mv:ChargingPoint;
+	mv:ChargingPointName"TankE - Bornheim" ;
+	vcard:hasAddress [
+						vcard:country-name "Germany" ;
+						vcard:city "Bornheim" ;
+						vcard:postal-code "53332" ;
+						vcard:region "North Rhine-Westphalia" ;
+						vcard:housenumber "2" ;
+						vcard:street-address "Rathausstraße"
+					 ];
+	geo:long "7.004420" ;
+	geo:lat "50.757470" ;
+	vcard:website "http://www.rheinenergie.com/TankEn" ;
+	vcard:operator "Rheinenergie" ;
+	mv:IdentificationSystem mv:UndefinedIdentificationSystem ;
+	mv:ChargingPointFees mv:FreeCharging ;
+	mv:PlugType mv:SchukoPlug ;
+	mv:PlugType mv:Type2Plug ;
+	mv:openingHours "Open 24/24" .
+
+mv:ChargingPointH
+	a mv:ChargingPoint;
+	mv:ChargingPointName"TankE RheinEnergie Ladestation" ;
+	vcard:hasAddress [
+						vcard:country-name "Germany" ;
+						vcard:city "Bornheim" ;
+						vcard:postal-code "53332" ;
+						vcard:region "North Rhine-Westphalia" ;
+						vcard:housenumber "15" ;
+						vcard:street-address "Donnerbachweg"
+					 ];
+	geo:long "6.948360" ;
+	geo:lat "50.767600" ;
+	vcard:owner "TankE RheinEnergie" ;
+	vcard:website "http://www.rheinenergie.com/de/unternehmensportal/technik_zukunft/elektromobilitaet_1/ladestationen/ladestationen_1.php" ;
+	mv:AccessType mv:OpenToAllUsers ;
+	mv:IdentificationSystem mv:BadgeHasToBeOrdered ;
+	mv:ChargingPointFees mv:PaidCharging ;
+	mv:PlugType mv:SchukoPlug ;
+	mv:PlugType mv:Type2Plug ;
+	mv:openingHours "Open 24/24" .
+
+mv:ChargingPointI
+	a mv:ChargingPoint;
+	mv:ChargingPointName"3-5 Reichsstr. Bonn" ;
+	vcard:hasAddress [
+						vcard:country-name "Germany" ;
+						vcard:city "Bonn" ;
+						vcard:postal-code "53125" ;
+						vcard:region "North Rhine-Westphalia" ;
+						vcard:housenumber "3-5" ;
+						vcard:street-address "Reichstrasse"
+					 ];
+	geo:long "7.075870" ;
+	geo:lat "50.683040" ;
+	vcard:operator "RWE" ;
+	mv:AccessType mv:IdentifiedPerson ;
+	mv:IdentificationSystem mv:TextMessage ;
+	mv:IdentificationSystem mv:PhoneCall ;
+	mv:IdentificationSystem mv:Other ;
+	mv:IdentificationSystem mv:MobileApplication ;
+	mv:Payment mv:TextMessage ;
+	mv:Payment mv:MobileApplication ;
+	mv:ChargingPointFees mv:PaidCharging ;
+	mv:PlugType mv:Type2Plug ;
+	mv:openingHours "Open 24/24" .
+
+mv:ChargingPointK
+	a mv:ChargingPoint;
+	mv:ChargingPointName"104 Zeithstraße Siegburg" ;
+	vcard:hasAddress [
+						vcard:country-name "Germany" ;
+						vcard:city "Siegburg" ;
+						vcard:postal-code "53721" ;
+						vcard:region "North Rhine-Westphalia" ;
+						vcard:housenumber "104" ;
+						vcard:street-address "Zeithstraße"
+					 ];
+	geo:long "7.218302" ;
+	geo:lat "50.802184" ;
+	vcard:operator "RWE" ;
+	mv:AccessType mv:IdentifiedPerson ;
+	mv:IdentificationSystem mv:TextMessage ;
+	mv:IdentificationSystem mv:PhoneCall ;
+	mv:IdentificationSystem mv:Other ;
+	mv:IdentificationSystem mv:MobileApplication ;
+	mv:Payment mv:TextMessage ;
+	mv:Payment mv:MobileApplication ;
+	mv:ChargingPointFees mv:PaidCharging ;
+	mv:PlugType mv:Type2Plug ;
+	mv:openingHours "Open 24/24" .
+
+mv:ChargingPointL
+	a mv:ChargingPoint;
+	mv:ChargingPointName"Konrad-Adenauer-Allee Siegburg" ;
+	vcard:hasAddress [
+						vcard:country-name "Germany" ;
+						vcard:city "Siegburg" ;
+						vcard:postal-code "53721" ;
+						vcard:region "North Rhine-Westphalia" ;
+						vcard:street-address "Konrad-Adenauer-Allee"
+					 ];
+	geo:long "7.203024" ;
+	geo:lat "50.793180" ;
+	vcard:operator "RWE" ;
+	mv:AccessType mv:IdentifiedPerson ;
+	mv:IdentificationSystem mv:TextMessage ;
+	mv:IdentificationSystem mv:PhoneCall ;
+	mv:IdentificationSystem mv:Other ;
+	mv:IdentificationSystem mv:MobileApplication ;
+	mv:Payment mv:TextMessage ;
+	mv:Payment mv:MobileApplication ;
+	mv:ChargingPointFees mv:PaidCharging ;
+	mv:PlugType mv:Type2Plug ;
+	mv:openingHours "Open 24/24" .
+
+mv:ChargingPointM
+	a mv:ChargingPoint;
+	mv:ChargingPointName"10 Wilhelmstr. Siegburg" ;
+	vcard:hasAddress [
+						vcard:country-name "Germany" ;
+						vcard:city "Siegburg" ;
+						vcard:postal-code "53721" ;
+						vcard:region "North Rhine-Westphalia" ;
+						vcard:housenumber "10" ;
+						vcard:street-address "Wilhelmstr."
+					 ];
+	geo:long "7.205730" ;
+	geo:lat "50.793205" ;
+	vcard:operator "RWE" ;
+	mv:AccessType mv:IdentifiedPerson ;
+	mv:IdentificationSystem mv:TextMessage ;
+	mv:IdentificationSystem mv:PhoneCall ;
+	mv:IdentificationSystem mv:Other ;
+	mv:IdentificationSystem mv:MobileApplication ;
+	mv:Payment mv:TextMessage ;
+	mv:Payment mv:MobileApplication ;
+	mv:ChargingPointFees mv:PaidCharging ;
+	mv:PlugType mv:Type2Plug ;
+	mv:openingHours "Open 24/24" .
+
+mv:ChargingPointN
+	a mv:ChargingPoint;
+	mv:ChargingPointName"3 Bachstraße Siegburg" ;
+	vcard:hasAddress [
+						vcard:country-name "Germany" ;
+						vcard:city "Siegburg" ;
+						vcard:postal-code "53721" ;
+						vcard:region "North Rhine-Westphalia" ;
+						vcard:housenumber "3" ;
+						vcard:street-address "Bachstrasse"
+					 ];
+	geo:long "7.203999" ;
+	geo:lat "50.798530" ;
+	vcard:operator "RWE" ;
+	mv:AccessType mv:IdentifiedPerson ;
+	mv:IdentificationSystem mv:TextMessage ;
+	mv:IdentificationSystem mv:PhoneCall ;
+	mv:IdentificationSystem mv:Other ;
+	mv:IdentificationSystem mv:MobileApplication ;
+	mv:Payment mv:TextMessage ;
+	mv:Payment mv:MobileApplication ;
+	mv:ChargingPointFees mv:PaidCharging ;
+	mv:PlugType mv:Type2Plug ;
+	mv:openingHours "Open 24/24" .
+
+mv:ChargingPointO
+	a mv:ChargingPoint;
+	mv:ChargingPointName" Ringstraße Siegburg" ;
+	vcard:hasAddress [
+						vcard:country-name "Germany" ;
+						vcard:city "Siegburg" ;
+						vcard:postal-code "53721" ;
+						vcard:region "North Rhine-Westphalia" ;
+						vcard:street-address "Ringstrasse"
+					 ];
+	geo:long "7.205371" ;
+	geo:lat "50.797767" ;
+	vcard:operator "RWE" ;
+	mv:AccessType mv:IdentifiedPerson ;
+	mv:IdentificationSystem mv:TextMessage ;
+	mv:IdentificationSystem mv:PhoneCall ;
+	mv:IdentificationSystem mv:Other ;
+	mv:IdentificationSystem mv:MobileApplication ;
+	mv:Payment mv:TextMessage ;
+	mv:Payment mv:MobileApplication ;
+	mv:ChargingPointFees mv:PaidCharging ;
+	mv:PlugType mv:Type2Plug ;
+	mv:openingHours "Open 24/24" .
+
+mv:ChargingPointP
+	a mv:ChargingPoint;
+	mv:ChargingPointName" 1 Am Turm Siegburg" ;
+	vcard:hasAddress [
+						vcard:country-name "Germany" ;
+						vcard:city "Siegburg" ;
+						vcard:postal-code "53721" ;
+						vcard:region "North Rhine-Westphalia" ;
+						vcard:housenumber "1" ;
+						vcard:street-address "Am Turm"
+					 ];
+	geo:long "7.223880" ;
+	geo:lat "50.792406" ;
+	vcard:operator "RWE" ;
+	mv:AccessType mv:IdentifiedPerson ;
+	mv:IdentificationSystem mv:TextMessage ;
+	mv:IdentificationSystem mv:PhoneCall ;
+	mv:IdentificationSystem mv:Other ;
+	mv:IdentificationSystem mv:MobileApplication ;
+	mv:Payment mv:TextMessage ;
+	mv:Payment mv:MobileApplication ;
+	mv:ChargingPointFees mv:PaidCharging ;
+	mv:PlugType mv:Type2Plug ;
+	mv:openingHours "Open 24/24" .
+
+
+
+mv:stationX1  a mv:FillingStation;
+	     	rdfs:label "Aral Tankstelle";
+	     	mv:isLocated mv:location11 ;
+	     	mv:hasOpeningHours		"6:00 - 23:00";
+	     	mv:hasOffer mv:AralSuper95,
+	     				mv:AralSuper95E10,
+	     				mv:AralSuperPlus98,
+	     				mv:AralSuperPlus102 .
+
+
+mv:stationA2  a mv:FillingStation;
+	     	rdfs:label "Shell Tankstelle";
+	     	mv:hasOpeningHours	"5:00 - 24:00";
+	     	mv:isLocated mv:location75 ;
+	     	mv:hasOffer mv:ShellFuelSave95,
+	     				mv:ShellFuelSaveE10,
+	     				mv:ShellDieselFuelSave .
+
+mv:location11 a mv:ChargingPointLocation;
+	     	schema:streetAddress	"Weihertstr. 20";
+	     	schema:postalCode		"53115";
+	     	schema:addressLocality	"Bonn".
+
+mv:location75 a mv:ChargingPointLocation;
+	     	schema:streetAddress	"Nordstr. 8";
+	     	schema:postalCode		"50441";
+	     	schema:addressLocality	"Köln".
+
+mv:UnknownPlug a mv:PlugType ;
+	rdfs:label "Unknown Plug"@en , "Unbekannter Anschluss"@de .
+
+mv:SchukoPlug a mv:PlugType ;
+	owl:sameAs <http://dbpedia.org/resource/Schuko> ;
+	foaf:depiction <http://upload.wikimedia.org/wikipedia/commons/e/ef/Schuko_plug_and_socket.png> ;
+	rdfs:label "Schuko Plug"@en .
+
+mv:CHAdeMOPlug a mv:PlugType ;
+	rdfs:label "CHAdeMO"@en ;
+	owl:sameAs <http://dbpedia.org/resource/CHAdeMO> ;
+	foaf:depiction <http://upload.wikimedia.org/wikipedia/commons/f/f3/VDE-AR-E_2623-2-2-plug.jpg> .
+
+
+mv:ShellFuelSave95 a mv:Fuel;
+		 	 rdfs:label "Shell Fuel Save 95";
+		 	 mv:hasPrice "1,55".
+
+
+mv:ShellFuelSaveE10 a mv:Fuel;
+		 	 rdfs:label "Shell Fuel Save E10";
+		 	 mv:hasPrice "1,58".
+
+
+mv:ShellDieselFuelSave a mv:Fuel;
+		 	 rdfs:label "Shell Diesel Fuel Save";
+		 	 mv:hasPrice "1,32".
+
+
+
+mv:AralSuper95 a mv:Fuel;
+		 	 rdfs:label "Aral Super 95";
+		 	 mv:hasPrice "1,57".
+
+mv:AralSuper95E10 a mv:Fuel;
+		 	 rdfs:label "Aral Super 95 E10";
+		 	 mv:hasPrice "1,59".
+
+mv:AralSuperPlus98 a mv:Fuel;
+		 	 rdfs:label "Aral Super Plus 98";
+		 	 mv:hasPrice "1,63".
+
+mv:AralSuperPlus102 a mv:Fuel;
+		 	 rdfs:label "Aral Super Plus 92";
+		 	 mv:hasPrice "1,60".
+
+mv:AralDiesel a mv:DieselFuel;
+		 	 rdfs:label "Aral Diesel";
+		 	 mv:hasPrice "1,30".
+
+mv:AralUltimateDiesel a mv:DieselFuel;
+		 	 rdfs:label "Aral Ultimate Diesel";
+		 	 mv:hasPrice "1,32".
+
+
+# CLASSES
+
+mv:ParkingFacility
+	a rdfs:Class , owl:Class ;
+	rdfs:comment "A parking lot or other parking facility with several parking spaces for vehicles." ;
+	rdfs:label "parking facility"@en , "Parkeinrichtung"@de
+	.
+
+mv:ParkingFacilityStatus
+	a rdfs:Class , owl:Class ;
+	rdfs:comment "Status information of a parking facility." ;
+	rdfs:label "parking facility status"@en , "Status der Parkeinrichtung"@de .
+
+mv:ParkingFacilityConfiguration
+	a rdfs:Class , owl:Class ;
+	rdfs:comment "Configuration or layout of a parking facility." ;
+	rdfs:label "Configuration"@en , "Typ"@de ;
+	skos:altLabel "Bauart"@de .
+
+# subclass ev. nur Person?
+mv:ParkingFacilityOwner
+	a rdfs:Class, owl:Class ;
+	rdfs:subClassOf gr:BusinessEntity , s:Organization ;
+	rdfs:comment "Captures information about the owner of a parking facility." ;
+	rdfs:label "Parking Facility Owner"@en , "Besitzer der Parkeinrichtung"@de .
+
+mv:ParkingFacilityLocation
+	a rdfs:Class, owl:Class ;
+	rdfs:subClassOf s:Place ;
+	rdfs:comment "Describes the parking facility location." ;
+	rdfs:label "Parking Facility Location"@en , "Ortsangabe der Parkeinrichtung"@de .
+
+mv:ParkingFacilityFeature
+	a rdfs:Class , owl:Class ;
+	rdfs:comment "Features of the parking facility (e.g. parking for handicapped people)." ;
+	rdfs:label "Parking Facility Feature"@en , "Ausstattung der Parkeinrichtung"@de .
+
+mv:ParkingFacilityConnection
+	a rdfs:Class , owl:Class ;
+	rdfs:comment "Transport connections available at the parking facility (e.g. Park & Ride)." ;
+	rdfs:label "Parking Facility Connections"@en , "Anschlussmöglichkeiten der Parkeinrichtung"@de .
+
+mv:VehicleType
+	a rdfs:Class, owl:Class ;
+	rdfs:comment "Describes types of vehicle that can use the parking facility" ;
+	rdfs:label "Vehicle Type"@en, "Fahrzeugtyp"@de .
+
+mv:ParkingFees
+	a rdfs:Class, owl:Class ;
+	rdfs:comment "Captures information about the parking fees." ;
+	rdfs:label "Parking Fees"@en , "Parkgebühren" .
+
+
+# INSTANCES
+
+## PARKING FACILITY CONFIGURATION
+
+mv:SingleLevel
+	a mv:ParkingFacilityConfiguration ;
+	rdfs:comment "Parking area on a single groundfloor level." ;
+	skos:prefLabel "Parking lot"@en-US , "Car park"@en-UK , "Parkplatz"@de ;
+	skos:hiddenLabel "car lot"@en , "Parkfläche"@de .
+
+mv:MultiStorey
+	a mv:ParkingFacilityConfiguration ;
+	rdfs:comment "Parking on multiple levels within a car park building." ;
+	skos:prefLabel "multi-storey car park"@en , "Parkhaus"@de ;
+	skos:hiddenLabel "parking garage"@en , "parking structure"@en , "parking building"@en , "indoor parking"@en , "Hochgarage"@de .
+
+mv:Underground
+	a mv:ParkingFacilityConfiguration ;
+	rdfs:comment "Parking is on one or more floors below ground level." ;
+	skos:prefLabel "underground parking garage"@en , "Tiefgarage"@de ;
+	skos:hiddenLabel "Rampengarage"@de .
+
+
+## PARKING FACILITY STATUS
+
+mv:Closed
+	a mv:ParkingFacilityStatus ;
+	rdfs:comment "The parking facility is closed." ;
+	rdfs:label "closed"@en , "geschlossen"@de .
+
+mv:Full
+	a mv:ParkingFacilityStatus ;
+	rdfs:comment "The parking facility is completely occupied." ;
+	rdfs:label "full"@en , "belegt"@de .
+
+mv:AllParkingFacilitiesFull
+	a mv:ParkingFacilityStatus ;
+	rdfs:comment "All parking facilities within a specified area are completely occupied." ;
+	rdfs:label "full"@en , "belegt"@de .
+
+mv:Faulty
+	a mv:ParkingFacilityStatus ;
+	rdfs:comment "The parking facility is not operating normally." ;
+	rdfs:label "faulty"@en , "defekt"@de .
+
+mv:StatusUnknown
+	a mv:ParkingFacilityStatus ;
+	rdfs:comment "The status of the parking facility is unknown." ;
+	rdfs:label "status unknown"@en , "Status unbekannt"@de .
+
+mv:EnoughParkingSpacesAvailable
+	a mv:ParkingFacilityStatus ;
+	rdfs:comment "The parking facility has parking spaces available." ;
+	rdfs:label "enough parking spaces available"@en , "genügend Stellplätze frei"@de .
+
+mv:OnlyAFewParkingSpacesAvailable
+	a mv:ParkingFacilityStatus ;
+	rdfs:comment "The parking facility has 95% or greater occupancy." ;
+	rdfs:label "only a few parking spaces available"@en , "nur noch wenige Stellplätze frei"@de .
+
+mv:NoParkAndRideInformation
+	a mv:ParkingFacilityStatus ;
+	rdfs:comment "No park and ride information will be available until the specified time." ;### specified time?
+	rdfs:label "no park and ride information"@en ,"keine P+R-Informationen"@de .
+
+mv:NoParkingAllowed
+	a mv:ParkingFacilityStatus ;
+	rdfs:comment "No parking allowed until the specified time." ;
+	rdfs:label "no parking allowed"@en , "Parken verboten"@de .
+
+mv:NoParkingInformationAvailable
+	a mv:ParkingFacilityStatus ;
+	rdfs:comment "Parking information is not available until a specified time." ;
+	rdfs:label "no parking information available"@en , "Keine Parkinformationen verfügbar"@de .
+
+mv:NormalParkingRestrictionsLifted
+	a mv:ParkingFacilityStatus ;
+	rdfs:comment "The parking restrictions that normally apply in the specified location have been temporarily lifted." ;
+	rdfs:label "normal parking restrictions lifted"@en , "Normale Parkbeschränkungen aufgehoben"@de .
+
+mv:SpecialParkingRestrictionsInForce
+	a mv:ParkingFacilityStatus ;
+	rdfs:comment "Parking restrictions, other than those that normally apply, are in force in a specified area." ;
+	rdfs:label "special parking restrictions in force"@en , "besondere Parkbeschränkungen in Kraft"@de .
+
+mv:ParkAndRideServiceNotOperating
+	a mv:ParkingFacilityStatus ;
+	rdfs:comment "Park and ride services are not operating until the specified time." ;
+	rdfs:label "park and ride service not operating"@en , "kein P+R-Service"@de .
+
+mv:ParkAndRideServiceOperating
+	a mv:ParkingFacilityStatus ;
+	rdfs:comment "Park and ride services are operating until the specified time." ;
+	rdfs:label "park and ride service operating"@en , "P+R-Service vorhanden"@de .
+
+## PARKING FACILITY FEATURE
+
+mv:ParkingSpaceForDisabledPersons
+	a mv:ParkingFacilityFeature ;
+	rdfs:label "parking space for disabled persons"@en , "Behindertenparkplatz"@de.
+
+mv:LadiesParkingSpace
+	a mv:ParkingFacilityFeature ;
+	rdfs:label "ladies' parking space" , "Frauenparkplatz"@de .
+
+mv:XXLParkingSpace
+	a mv:ParkingFacilityFeature ;
+	rdfs:label "XXL parking space" , "XXL-Parkplatz"@de ;
+	skos:altLabel "extra-breiter Stellplatz"@de .
+
+mv:VideoSurveillance
+	a mv:ParkingFacilityFeature ;
+	rdfs:label "video surveillance"@en , "Videoüberwachung"@de .
+
+mv:SurveillanceBySecurityGuards
+	a mv:ParkingFacilityFeature ;
+	rdfs:label "surveillance by security guards"@en , "Bewacht durch Personal"@de ;
+	skos:altLabel "personenbewacht"@de .
+
+mv:PayStation
+	a mv:ParkingFacilityFeature ;
+	rdfs:label "pay station"@en , "Kassenautomat"@de .
+
+mv:ParkingBarrier
+	a mv:ParkingFacilityFeature ;
+	skos:prefLabel "parking barrier"@en , "Parkschranke"@de ;
+	skos:altLabel "park barrier"@en .
+
+## PARKING FACILITY CONNECTION
+
+mv:ParkAndRide
+	a mv:ParkingFacilityConnection ;
+	rdfs:label "Park & Ride"@en , "Parken und Reisen"@de ;
+	skos:altLabel "P+R" , "P&R";
+	rdfs:comment "Connection to public transport." .
+
+mv:ParkAndFly
+	a mv:ParkingFacilityConnection ;
+	rdfs:label "Park & Fly" , "Parken und Fliegen"@de ;
+	skos:altLabel "P+F" , "P&F";
+	rdfs:comment "Connection to airport." .
+
+mv:Carpooling
+	a mv:ParkingFacilityConnection ;
+	rdfs:label "Carpooling" , "Parken und Mitfahren"@de ;
+	skos:altLabel "Park & Drive" , "P+M" , "P&M" , "Parken und Mitnehmen"@de ;
+	rdfs:comment "Parking facility used for carpooling or ridesharing." .
+
+mv:ParkAndRail
+	a mv:ParkingFacilityConnection ;
+	rdfs:label "Park and Rail" ;
+	rdfs:comment "Connection to railway station." .
+
+mv:BikeAndRide
+	a mv:ParkingFacilityConnection ;
+	rdfs:label "Bike and Ride" ;
+	rdfs:comment "Parking facilities for bicycles with connection to public transport." .
+
+## VEHICLE TYPE
+
+mv:Bicycle
+	a mv:VehicleType ;
+	rdfs:label "Bicycle"@en, "Fahrrad"@de .
+
+mv:Motorcycle
+	a mv:VehicleType ;
+	rdfs:label "Motorcycle"@en, "Motorrad"@de .
+
+mv:Car
+	a mv:VehicleType ;
+	rdfs:label "Car"@en, "Auto"@de ;
+	skos:altLabel "Pkw"@de .
+
+mv:Caravan
+	a mv:VehicleType ;
+	rdfs:label "Caravan"@en, "Wohnmobil"@de .
+
+# PROPERTIES
+
+mv:statusParkingFacility
+	a rdf:Property , owl:ObjectProperty ;
+	rdfs:label "status of parking facility"@en , "Status der Parkeinrichtung"@de ;
+	rdfs:comment "Indicates the current status of the parking facility." ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range mv:ParkingFacilityStatus .
+
+mv:configuration
+	a rdf:Property , owl:ObjectProperty ;
+	rdfs:label "configuration"@en , "Typ"@de ;
+	rdfs:comment "Describes the configuration or layout of the parking facility." ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range mv:ParkingFacilityConfiguration .
+
+mv:isOwnedBy
+	a rdf:Property , owl:ObjectProperty ;
+	rdfs:label "is owned by"@en ;
+	rdfs:comment "Parking Facility's owner." ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range mv:ParkingFacilityOwner .
+
+mv:isLocated
+	a rdf:Property , owl:ObjectProperty ;
+	rdfs:label "is located"@en ;
+	rdfs:comment "Location of the parking facility." ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range mv:ParkingFacilityLocation .
+
+mv:placeName
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:label "name"@en , "Name"@de ;
+	rdfs:comment "Name of the parking facility." ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range rdfs:Literal .
+
+mv:features
+	a rdf:Property , owl:ObjectProperty ;
+	rdfs:label "features" ;
+	rdfs:comment "Indicates which features the parking facility provides." ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range mv:ParkingFacilityFeature .
+
+mv:numberOfLadiesParkingSpaces
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:label "Number of ladies' parking spaces"@en , "Anzahl Frauenparkplätze"@de ;
+	rdfs:comment "Indicates the number of ladies' parking spaces." ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range rdfs:Literal .
+
+mv:numberOfParkingSpacesForDisabledPersons
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:label "Number of parking spaces for disabled persons"@en , "Anzahl Behindertenparkplätze"@de ;
+	rdfs:comment "Indicates the number of parking spaces for disabled persons." ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range rdfs:Literal .
+
+mv:numberOfXXLParkingSpaces
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:label "Number of XXL parking spaces"@en , "Anzahl XXL-Parkplätze"@de ;
+	rdfs:comment "Indicates the number of XXL parking spaces." ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range rdfs:Literal .
+
+mv:hasChargingPoint
+	a rdf:Property , owl:ObjectProperty ;
+	rdfs:label "has charging point" , "hat Ladestation"@de ;
+	rdfs:comment "Indicates whether charging points are available." ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range mv:ChargingPoint .
+
+mv:occupancy
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:label "occupancy" , "Belegung"@de ;
+	rdfs:comment "Indicates the percentage value of parking spaces occupied." ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range rdfs:Literal .
+
+mv:numberOfOccupiedParkingSpaces
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:label "number of occupied parking spaces"@en , "Anzahl belegter Stellplätze"@de ;
+	rdfs:comment "Indicates the number of currently occupied parking spaces." ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range rdfs:Literal .
+
+mv:numberOfVacantParkingSpaces
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:label "number of vacant"@en , "Anzahl freier Stellplätze"@de ;
+	rdfs:comment "Indicates the number of vacant parking spaces available." ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range rdfs:Literal .
+
+mv:totalCapacity
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:label "Total capacity"@en , "Gesamtkapazität"@de ;
+	rdfs:comment "Indicates the total number of parking spaces." ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range rdfs:Literal .
+
+mv:queuingTime
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:label "Queuing time"@en , "Wartezeit"@de ;
+	rdfs:comment "The current queuing time (duration) for entering the parking facility." ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range rdfs:Literal .
+
+mv:exitRate
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:label "Exit rate"@en ;
+	rdfs:comment "The rate at which vehicles are exiting the parking facility." ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range rdfs:Literal .
+
+mv:fillRate
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:label "Fill rate"@en ;
+	rdfs:comment "The rate at which vehicles are entering the parking facility." ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range rdfs:Literal .
+
+mv:picture
+	a rdf:Property, owl:ObjectProperty ;
+	rdfs:label "picture"@en , "Bild"@de ;
+	rdfs:comment "Picture of parking facility." ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range rdfs:Resource .
+
+mv:isConnectedTo
+	a rdf:Property , owl:ObjectProperty ;
+	rdfs:label "is connected to" ;
+	rdfs:comment "Indicates the transport connections available." ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range mv:ParkingFacilityConnection .
+
+mv:vehicleType
+	a rdf:Property, owl:ObjectProperty ;
+	rdfs:label "vehicle type"@en ;
+	rdfs:comment "Vehicle type suitable for the parking facility. " ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range mv:VehicleType .
+
+mv:hasOpeningHours
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:label "has opening hours"@en ;
+	rdfs:comment "Indicates the opening hours of the parking facility." ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range rdfs:Literal .
+
+mv:hasParkingFees
+	a rdf:Property, owl:DatatypeProperty ;
+	rdfs:label "Has parking fees"@en , "hat Parkgebühren"@de ;
+	rdfs:comment "Indicates whether parking fees have to be paid." ;
+	rdfs:domain mv:ParkingFees ;
+	rdfs:range rdfs:Literal .
+
+mv:feesDescription
+	a rdf:Property, owl:DatatypeProperty ;
+	rdfs:label "Fees description"@en , "Tarife"@de;
+	rdfs:comment "Defines parking fees." ;
+	rdfs:domain mv:ParkingFees ;
+	rdfs:range rdfs:Literal .
+
+mv:payment
+	a rdf:Property, owl:ObjectProperty ;
+	rdfs:label "Payment forms"@en , "Bezahlmöglichkeiten"@de ;
+	rdfs:comment "Available payment forms for parking fees." ;
+	rdfs:domain mv:ParkingFees ;
+	rdfs:range mv:Payment . # fürs Parken braucht man zusätzlich folgende Möglichkeiten: Münzen, Scheine, EC-Karte
+
+mv:additionalInformation
+	a rdf:Property, owl:DatatypeProperty ;
+	rdfs:label "Additional Information"@en , "Zusätzliche Informationen" ;
+	rdfs:comment "Additional information about the parking facility." ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range rdfs:Literal .
+
+mv:hasHeightLimit
+	a rdf:Property, owl:DatatypeProperty ;
+	rdfs:label "Has height limit"@en , "Hat Höhenbegrenzung" ;
+	rdfs:comment "Indicates the height limit for vehicles using the parking facility." ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range rdfs:Literal .
+
+mv:hasWidthLimit
+	a rdf:Property, owl:DatatypeProperty ;
+	rdfs:label "Has width limit"@en , "Hat Breitenbegrenzung" ;
+	rdfs:comment "Indicates the width limit for vehicles using the parking facility." ;
+	rdfs:domain mv:ParkingFacility ;
+	rdfs:range rdfs:Literal .
+
+mv:ElectricVehicleBattery
+	a rdfs:Class , owl:Class ;
+	rdfs:comment "A battery used to power the propulsion of a battery electric vehicle." ;
+	rdfs:label "Electric Vehicle Battery"@en , "Traktionsbatterie"@de ;
+	rdfs:altlabel "Traction battery"@en , "Traktionsakku"@de ;
+	skos:hiddenLabel "EVB"@en,"Antriebsbatterie"@de .
+
+mv:DeepCycle
+	rdfs:subClassOf mv:LeadAcid ;
+	rdfs:comment "A lead-acid battery designed to be regularly deeply discharged using most of its capacity." ;
+	rdfs:label "Deep-Cycle Battery"@en , "****Batterie"@de .
+
+mv:FloodedLeadAcid
+	rdfs:subClassOf mv:LeadAcid ;
+	rdfs:comment "Flooded lead acid batteries have cells with liquid electrolyte and are available in flat and tubular plate constructions with a wide variety of plate sizes." ;
+	rdfs:label "Flooded Lead-Acid Battery"@en , " Blei-Säure-Batterie"@de .
+
+mv:LeadAcid
+	rdfs:subClassOf mv:Battery ;
+	rdfs:comment "The oldest type of rechargeable battery. The cells have a relatively large power-to-weight ratio and these batteries have low cost." ;
+	rdfs:label "Lead-Acid Battery"@en , "Bleiakkumulator"@de .
+
+mv:LithiumIon
+	rdfs:subClassOf mv:Battery ;
+	rdfs:comment "One of the most popular types of rechargeable batteries for electric vehicles. They use an intercalated lithium compound as one electrode material." ;
+	rdfs:label "Lithium-ion Battery"@en , "Lithium-Ionen-Akkumulator"@de ;
+	rdfs:altlabel "Li-ion battery"@en , "Lithium-Akkumulator"@de ;
+	skos:hiddenLabel "LIB"@en .
+
+mv:LithiumIonPolymer
+	rdfs:subClassOf mv:Battery ; #maybe subclass of LithiumIon
+	rdfs:comment "A rechargeable battery of lithium-ion technology in a pouch format." ;
+	rdfs:label "Lithium Polymer Battery"@en , "Lithium-Polymer-Akkumulator"@de ;
+	rdfs:altlabel "LiPo"@en , "LiPoly"@de .
+
+mv:LithiumTitanate
+	rdfs:subClassOf mv:Battery ;
+	rdfs:comment "A type of rechargeable battery, which has the advantage of being faster to charge than other lithium-ion batteries." ;
+	rdfs:label "Lithium–titanate Battery"@en , "Lithium–titanate-Akkumulator"@de .
+
+mv:MoltenSalt
+	rdfs:subClassOf mv:Battery ;
+	rdfs:comment "A type of battery that uses molten salts as an electrolyte and offers both a high energy density and a high power density." ;
+	rdfs:label "Molten salt Battery"@en , "Thermalbatterie"@de .
+
+mv:NickelCadmium
+	rdfs:subClassOf mv:Battery ;
+	rdfs:comment "A type of rechargeable battery using nickel oxide hydroxide and metallic cadmium as electrodes." ;
+	rdfs:label "Nickel–cadmium battery"@en , "Nickel-Cadmium-Akkumulator"@de ;
+	rdfs:altlabel "NiCd"@en , "NiCd-Akku"@de ;
+	skos:hiddenLabel "NiCad"@en .
+
+mv:NickelMetalHydride
+	rdfs:subClassOf mv:Battery ;
+	rdfs:comment "A type of rechargeable battery. The chemical reaction at the positive electrode (cathode) is similar to that of the nickel–cadmium cell." ;
+	rdfs:label "Nickel–metal hydride battery"@en , "Nickel-Metallhydrid-Akkumulator"@de ;
+	rdfs:altlabel "NiMH"@en , "NiMH"@de ;
+	skos:hiddenLabel "Ni–MH"@en .
+
+mv:NickelZinc
+	rdfs:subClassOf mv:Battery ;
+	rdfs:comment "A type of rechargeable battery which uses a stabilized zinc electrode system." ;
+	rdfs:label "Nickel-Zinc Battery"@en , "Nickel-Zink-Akkumulator"@de ;
+	rdfs:altlabel "NiZn"@en .
+
+mv:ValveRegulatedLeadAcid
+	rdfs:subClassOf mv:LeadAcid ;
+	rdfs:comment "Α type of lead-acid rechargeable battery" ;
+	rdfs:label "Valve-regulated lead-acid battery"@en , "VRLA-Akkumulator"@de ;
+	rdfs:altlabel "sealed battery"@en ;
+	skos:hiddenLabel "VRLA "@en .
+
+mv:ZincAir
+	rdfs:subClassOf mv:Battery ;
+	rdfs:comment "A metal-air battery powered by oxidizing zinc with oxygen from the air. These batteries have high energy densities and are relatively inexpensive to produce." ;
+	rdfs:label "Zinc–air battery"@en , "Zink-Luft-Batterie"@de .
+
+#I haven't found anything for these two on the internet
+mv:DieselBatteryHybrid
+	rdfs:subClassOf mv:Battery ;
+	rdfs:comment "*****" ;
+	rdfs:label "DieselBatteryHybrid"@en , "DieselBatterieHybrid"@de .
+
+mv:petrolBatteryHybrid
+	rdfs:subClassOf mv:Battery ;
+	rdfs:comment "****" ;
+	rdfs:label "PetrolBatteryHybrid"@en , "PetrolBatterieHybrid"@de .
+
+
+#Properties
+
+mv:Ampere
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Represents the flow rate of electric charge." ;
+	rdfs:label "Ampere"@en , "Ampere"@de ;
+	rdfs:domain mv:Battery ;
+	rdfs:range rdfs:Literal .
+
+mv:hasCapacity
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "It is the amount of electric charge it can deliver at the rated voltage. It is measured in units such as Ampere-hour (Ah), Watt-hour (Wh), kiloWatt-hour (kWh)." ;
+	rdfs:label "Capacity"@en , "Kapazität"@de ;
+	rdfs:domain mv:Battery ;
+	rdfs:range rdfs:Literal .
+
+mv:hasCellVoltage
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Represents either a source of energy or lost, used, or stored energy. It is measured in Voltage(V)." ;
+	rdfs:label "CellVoltage"@en , "Spannung"@de ;
+	rdfs:altlabel "Cell nominal Voltage"@en ;
+	rdfs:domain mv:Battery ;
+	rdfs:range rdfs:Literal .
+
+mv:hasChargeTime
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Indicates the time that is needed for a battery's full charge." ;
+	rdfs:label "Charge time"@en , "Ladezeit"@de ;
+	rdfs:domain mv:Battery ;
+	rdfs:range rdfs:Literal .
+
+mv:hasCRate
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "The C-rate is a measure of the rate at which a battery is being discharged." ;
+	rdfs:label "CRate"@en , "CRate"@de ;
+	rdfs:domain mv:Battery ;
+	rdfs:range rdfs:Literal .
+
+mv:hasCycleLife
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "The cycle life is the number of complete charge/discharge cycles that the battery is able to support before that its capacity falls under 80% of it's original capacity." ;
+	rdfs:label "Cycle Life"@en , "Batterielebensdauer"@de ;
+	rdfs:domain mv:Battery ;
+	rdfs:range rdfs:Literal .
+
+mv:hasOperatingTemperature
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Battery operating temperature is the temperature at which a battery operates effectively." ;
+	rdfs:label "Operating temperature"@en , "Betriebstemperatur"@de ;
+	rdfs:domain mv:Battery ;
+	rdfs:range rdfs:Literal .
+
+mv:hasSelfDischarge
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Self-discharge is the electrical capacity that is lost when the cell simply sits on the shelf. It is highly dependent on temperature, increasing as the battery temperature is increased." ;
+	rdfs:label "Self Discharge"@en , "Selbstentladung"@de ;
+	rdfs:domain mv:Battery ;
+	rdfs:range rdfs:Literal .
+
+mv:hasSpecificEnergyDensity
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "It is the amount of energy stored in a given system or region of space per unit volume or mass. It is measured in Wh/kg." ;
+	rdfs:label "Specific Energy Density"@en , "Energiedichte"@de ;
+	rdfs:domain mv:Battery ;
+	rdfs:range rdfs:Literal .
+
+mv:hasSpecificPower
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Specific power demonstrates acceleration. It is the power that can be derived per unit weight of the cell (W/kg)." ;
+	rdfs:label "Specific Power"@en , " Leistungskonstante"@de ;
+	rdfs:domain mv:Battery ;
+	rdfs:range rdfs:Literal .
+
+mv:Longevity
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Indicates the period of time that a battery can still work ." ;
+	rdfs:label "Longevity"@en , "Langlebigkeit"@de ;
+	rdfs:domain mv:Battery ;
+	rdfs:range rdfs:Literal .
+
+mv:Performance
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "It reflects the condition of the battery when driving the EV in blistering summer heat and freezing temperatures." ;
+	rdfs:label "Performance"@en , "Leistung"@de ;
+	rdfs:domain mv:Battery ;
+	rdfs:range rdfs:Literal .
+
+mv:Price
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Indicates the price of the battery." ;
+	rdfs:label "Price"@en , "Preis"@de ;
+	rdfs:domain mv:Battery ;
+	rdfs:range rdfs:Literal .
+
+mv:Watt
+	a rdf:Property , owl:DatatypeProperty ;
+	rdfs:comment "Expresses the rate of energy conversion or transfer with respect to time." ;
+	rdfs:label "Watt"@en , "Watt"@de ;
+	rdfs:domain mv:Battery ;
+	rdfs:range rdfs:Literal .

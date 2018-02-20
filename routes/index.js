@@ -6,21 +6,17 @@ var session = require('express-session');
 
 //  GET home page.
 router.get('/', function(req, res) {
-  
   if (!req.session.isAuthenticated && req.app.locals.authRequired)
     res.render('login', {
       title: 'login'
     });
   else {
-  // check if the userConfigurations file is exist
-  // for the first time of app running
-  var path = "jsonDataFiles/userConfigurations.json";
-  fs.exists(path, function(exists) {
-    if (!exists) {
-      res.redirect('./config');
-    } else {
+    // check if the userConfigurations file is exist
+    // for the first time of app running
+    var path = "jsonDataFiles/userConfigurations.json";
+    fs.exists(path, function(exists) {
       var data = fs.readFileSync(path);
-      if (data.includes('vocabularyName')) {
+      if (exists && data.includes('vocabularyName')) {
         jsonfile.readFile(path, function(err, obj)  {
           if (err)
             console.log(err); 
@@ -30,13 +26,9 @@ router.get('/', function(req, res) {
               homePage: obj.text
             });
         });
-      } else {
-        // when it "userConfigurations.json" is empty
-        res.redirect('./config');
       }
-    }
-  });
-}
+    });
+  }
 });
 
 module.exports = router;

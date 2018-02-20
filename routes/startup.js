@@ -25,12 +25,10 @@ router.get('/', function(req, res) {
 
         // get out of the root of the vocol folder
         shell.cd('..');
-        //shell.exec('chmod -R u+x .');
 
         var clientHooks = (obj.hasOwnProperty('clientHooks')) ? true : false;
         var webHook = (obj.hasOwnProperty('webHook')) ? true : false;
         var turtleEditor = (obj.turtleEditor === "true") ? true : false;
-        var removeHistory = false;
         var repositoryURL = obj.repositoryURL;
         repositoryURL = repositoryURL.trim();
         if (repositoryURL[repositoryURL.length - 1] === ('/'))
@@ -50,7 +48,7 @@ router.get('/', function(req, res) {
           // check if the localRepository same same entered config
           if (localRepository === obj.repositoryURL || localRepository === 'https://' + obj.user + ':' + obj.password + '@' + obj.repositoryURL.slice(8)) {
             console.log('ready to pull');
-            shell.exec('git checkout master', {
+            shell.exec('git checkout ' + obj.branchName, {
               silent: false
             }).stdout;
             shell.exec('git reset --hard', {
@@ -67,7 +65,6 @@ router.get('/', function(req, res) {
               silent: false
             }).stdout;
             shell.cd("repoFolder");
-            removeHistory = true;
           }
         } else {
           //TODO*:change  the following login
@@ -76,10 +73,9 @@ router.get('/', function(req, res) {
             silent: false
           }).stdout;
           shell.cd("repoFolder");
-          removeHistory = true;
         }
 
-        shell.exec('git checkout ${2}', {
+        shell.exec('git checkout ' + obj.branchName, {
           silent: false
         }).stdout;
         shell.exec('git reset --hard', {
@@ -98,15 +94,17 @@ router.get('/', function(req, res) {
         if (currentrepositoryURL != obj.repositoryURL) {
           // reset the app. if the repositoryURL was changed
           shell.exec('echo -n > ../vocol/helper/tools/evolution/evolutionReport.txt').stdout;
-          shell.exec('echo -n > ../vocol/helper/tools/serializations/SingleVoc.ttl').stdout;
+          shell.exec('echo -n > ../vocol/helper/tools/serializations/SingleVoc.nt').stdout;
+          shell.exec('echo -n > ../vocol/helper/tools/rdf2rdf/temp.nt').stdout;
           shell.exec('echo -n > ../vocol/jsonDataFiles/syntaxErrors.json').stdout;
           shell.exec('rm -f ../vocol/views/webvowl/data/SingleVoc.json').stdout;
           shell.exec('rm -f ../vocol/jsonDataFiles/RDFSConcepts.json').stdout;
           shell.exec('rm -f ../vocol/jsonDataFiles/SKOSConcepts.json').stdout;
           shell.exec('rm -f ../vocol/jsonDataFiles/SKOSObjects.json').stdout;
           shell.exec('rm -f ../vocol/jsonDataFiles/RDFSObjects.json').stdout;
+          shell.exec('rm -f ../vocol/jsonDataFiles/OWLIndividuals.json').stdout;
           shell.exec('rm -f ../vocol/helper/tools/serializations/SingleVoc.nt').stdout;
-          shell.exec('rm -f ../vocol/helper/tools/evolution/SingleVoc.ttl').stdout;
+          shell.exec('rm -f ../vocol/helper/tools/evolution/SingleVoc.nt').stdout;
           console.log("App's previous data was deleted");
         }
 
@@ -126,10 +124,18 @@ router.get('/', function(req, res) {
           var output = shell.exec('ttl ' + files[i] + '', {
             silent: true
           })
+          shell.cd('../vocol/helper/tools/rdf2rdf/').stdout;
+
           // converting file from turtle to ntriples format
-          shell.exec('rapper -i turtle -o ntriples ' + files[i] + ' >> ../vocol/helper/tools/serializations/SingleVoc.nt', {
+          shell.exec('java -jar rdf2rdf.jar ../../../../repoFolder' + files[i].substring(1) + ' temp.nt ', {
             silent: false
           }).stdout;
+          shell.exec('cat  temp.nt | tee -a  ../serializations/SingleVoc.nt', {
+            silent: false
+          }).stdout;
+
+          shell.cd('../../../../repoFolder/').stdout;
+
           // check if there are syntax errors of turtle format
           if (!output.stdout.includes("0 errors.")) {
             var errorObject = {
@@ -143,7 +149,6 @@ router.get('/', function(req, res) {
           }
         }
         // display syntax errors
-        console.log("Errors:\n" + JSON.stringify(errors));
         if (errors) {
           shell.cd('../vocol/helper/tools/VoColClient/').stdout;
           shell.exec('fuser -k 3030/tcp').stdout;
@@ -166,25 +171,22 @@ router.get('/', function(req, res) {
           }).stdout;
           // filePath where we read from
           var filePath = '../vocol/views/turtleEditor/js/turtle-editor.js';
-          // read contents of the file with the filePath
+          // read contents of the file with the filePathgetTree
           var contents = fs.readFileSync(filePath, 'utf8');
           contents = contents.replace(/(owner\.val\(")(.*?)"/mg, "owner.val(\"" + obj.repositoryOwner + "\"");
           contents = contents.replace(/(repo\.val\(")(.*?)"/mg, "repo.val(\"" + obj.repositoryName + "\"");
+          contents = contents.replace(/(branch\.val\(")(.*?)"/mg, "branch.val(\"" + obj.branchName + "\"");
+          contents = contents.replace(/(getTree\(")(.*?)"/mg, "getTree(\"" + obj.branchName + "\"");
           // write back to the file with the filePath
           fs.writeFileSync(filePath, contents);
         }
-
-        //fs.writeFileSync(filePath, errors);
+        // go to vocol root
         shell.cd('../vocol/');
         shell.exec('pwd').stdout
 
 
         //if no syntax errors, then contiune otherwise stop
         if (pass) {
-          // converting back to turtle format
-          shell.exec('rapper -i ntriples  -o turtle ../vocol/helper/tools/serializations/SingleVoc.nt > ../vocol/helper/tools/serializations/SingleVoc.ttl', {
-            silent: false
-          }).stdout;
           // Kill fuseki if it is running
           shell.cd('-P', '../vocol/helper/tools/apache-jena-fuseki');
           shell.exec('fuser -k 3030/tcp', {
@@ -204,7 +206,7 @@ router.get('/', function(req, res) {
           if (obj.visualization === "true") {
             shell.exec('pwd');
             shell.cd('../owl2vowl/').stdout;
-            shell.exec('java -jar owl2vowl.jar -file ../serializations/SingleVoc.ttl', {
+            shell.exec('java -jar owl2vowl.jar -file ../serializations/SingleVoc.nt', {
               silent: false
             }).stdout;
             shell.mv('SingleVoc.json', '../../../views/webvowl/data/').stdout;
@@ -217,8 +219,8 @@ router.get('/', function(req, res) {
               silent: false
             }).stdout;
             shell.mkdir('../evolution').stdout;
-            shell.cp('../serializations/SingleVoc.ttl', '../evolution/SingleVoc.ttl').stdout;
-            console.log("SingleVoc.ttl is copied to evolution");
+            shell.cp('../serializations/SingleVoc.nt', '../evolution/SingleVoc.nt').stdout;
+            console.log("SingleVoc.nt is copied to evolution");
           }
 
           //TODO: just disable for testing perpose
@@ -246,6 +248,7 @@ router.get('/', function(req, res) {
             shell.exec('git add .', {
               silent: false
             }).stdout;
+            //TODO: check if "client services" are enabled
             shell.exec('git commit -m "configuration of repository"', {
               silent: false
             }).stdout;

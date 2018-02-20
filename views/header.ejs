@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="./stylesheets/yasqe.min.css">
   <link rel="stylesheet" href="./stylesheets/style.css">
   <link href="./stylesheets/mTab-style.css" type="text/css" rel="stylesheet" />
-  <script src="dist/vis.js"></script>
+  <script src="dist/vis.min.js"></script>
   <script src="./javascripts/bower_components/jquery/dist/jquery.min.js"></script>
   <script src="./javascripts/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="./semantic/dist/semantic.min.js"></script>
@@ -30,41 +30,7 @@
   <script src="./javascripts/d3.min.js"></script>
   <script src="./javascripts/lodash.js"></script>
   <script type="text/javascript" src="./javascripts/datatables.min.js"></script>
-
-  <!-- global replaceAll fuction to remove string from text of turtle code -->
-  <script>
-    String.prototype.replaceAll = function(search, replacement) {
-      var target = this;
-      return target.replace(new RegExp(search, 'g'), replacement);
-    };
-    $.ajax({
-      url: "./checkErrors",
-      type: "GET",
-      dataType: 'text',
-      data: 'isExistSyntaxError=value',
-      success: function(value) {
-        if (value == "true") {
-          for (i = 0; i < 3; i++) {
-            setTimeout(function() {
-              $('#validationLi').transition('flash');
-              $("#validationLi").css({
-                "backgroundColor": "yellow"
-              });
-            }, 1000);
-          }
-          setTimeout(function() {
-            $("#validationLi").css({
-              "backgroundColor": "red"
-            });
-          }, 3000);
-        }
-      },
-    });
-  </script>
-
-
 </head>
-
 <body>
   <div class="container">
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -106,7 +72,45 @@
                                     <li id="validationLi"><a href="./validation">Validation</a></li>
 
           </ul>
-
+          <ul id="rightNavbar" class="nav navbar-nav navbar-right">
+          </ul>
         </div>
+        <!-- global replaceAll fuction to remove string from text of turtle code -->
+        <script>
+          String.prototype.replaceAll = function(search, replacement) {
+            var target = this;
+            return target.replace(new RegExp(search, 'g'), replacement);
+          };
+          $.ajax({
+            url: "./checkErrors",
+            type: "GET",
+            dataType: 'text',
+            data: 'isExistSyntaxError=value',
+            success: function(value) {
+              if (value == "true") {
+                for (i = 0; i < 3; i++) {
+                  setTimeout(function() {
+                    $('#validationLi').transition('flash');
+                    $("#validationLi").css({
+                      "backgroundColor": "yellow"
+                    });
+                  }, 1000);
+                }
+                setTimeout(function() {
+                  $("#validationLi").css({
+                    "backgroundColor": "red"
+                  });
+                }, 3000);
+              }
+            },
+          });
+        var repoURL = <%- JSON.stringify(repositoryURL) %>;
+        if(repoURL){
+          $('#rightNavbar').html("");
+          $("#rightNavbar").show();
+          $('#rightNavbar').append($('<li><a href="'+repoURL+'"><i class="alternate github icon"></i> Repository</a></li>'));
+
+        }
+        </script>
       </div>
     </nav>
