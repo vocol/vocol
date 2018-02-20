@@ -403,6 +403,7 @@ Repository Type         </a>
   });
 
   var inputs = <%- JSON.stringify(inputComponentsValues) %>
+  console.log(inputs);
   if (inputs) {
     console.log(inputs);
     $("#vocabularyName").val(inputs.vocabularyName);
