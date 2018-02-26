@@ -62,8 +62,8 @@ Finally, give "public/semantic" as the location of Sematic-Ui in VoCol Project.
 ```
 npm start
 ```
-8. Normally, You can access VoCol start page with http://localhost:3000 URL if the port number was not changed. If you clear old data as step 4 describes, then the configuration page will be displayed. otherwise, you can use http://localhost:3000/config URL for configuring VoCol.
-9. You have a posibility to change the vocol access's port number by accessing the file bin/www from the root path of VoCol.
+8. Normally, you can access VoCol start page with http://localhost:3000 URL if the port number was not changed. If you clear old data as step 4 describes, then the configuration page will be displayed. Otherwise, you can use http://localhost:3000/config URL for configuring VoCol.
+9. You have a possibility to change the vocol access's port number by accessing the file bin/www from the root path of VoCol.
 
 For more details about VoCol repository, please have a look on our VoColWiki
 
