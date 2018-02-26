@@ -33,14 +33,11 @@ chmod u+x  .
 cd vocol
 ./helper/scripts/resetApp.sh
 ```
-5. To install the depdent packages first start with [Turtle validator](https://github.com/IDLabResearch/TurtleValidator): this package is also needed to run the VoCol app. If you have the [NPM](https://www.npmjs.com/get-npm) package manager installed, then the following command-line should be given for installing this package:
+5. To install the dependent packages, first, let's start with [Turtle validator](https://github.com/IDLabResearch/TurtleValidator): this package is also needed to run the VoCol app. If you have the [NPM](https://www.npmjs.com/get-npm) package manager installed, then the following command-line should be given for installing this package:
 ```
 sudo npm install -g turtle-validator
 ````
-
-
-
-6. If VoCol started without errors, then go to step 7. otherwise, if you have different NPM or Node versions, then continue with this step. First, remove all previously installed node modules, then re-install them with the following command-in.
+6. Then, install other packages listed in "package.json" with the following command-in.
 ```
 sudo npm install
 ```
@@ -61,11 +58,11 @@ Finally, give "public/semantic" as the location of Sematic-Ui in VoCol Project.
 ```
 ? Where should we put Semantic UI inside your project? (semantic/) public/semantic/
 ```
-7. The last step is to start VoCol with NPM command-line:
+7. The last step is to start VoCol with:
 ```
 npm start
 ```
-8. Normally, You can access VoCol start page with http://localhost:3000 URL if the port number was not changed. If you clear old data as step 5 describes, then the configuration page will be displayed. otherwise, you can use http://localhost:3000/config URL for configuring VoCol.
+8. Normally, You can access VoCol start page with http://localhost:3000 URL if the port number was not changed. If you clear old data as step 4 describes, then the configuration page will be displayed. otherwise, you can use http://localhost:3000/config URL for configuring VoCol.
 9. You have a posibility to change the vocol access's port number by accessing the file bin/www from the root path of VoCol.
 
 For more details about VoCol repository, please have a look on our VoColWiki
