@@ -67,7 +67,7 @@ var repositoryURL = "";
 app.locals.projectTitle = "MobiVoc";
 app.locals.userConfigurations = Array(6).fill(true);
 app.locals.isExistAdminAccount = false;
-
+app.locals.repositoryURL ="";
 function readUserConfigurationFile() {
   if (fs.existsSync(userConfigurationsFile)) {
     var data = fs.readFileSync(userConfigurationsFile);
@@ -147,7 +147,9 @@ app.get('*', function(req, res, next) {
   if (!req.app.locals.isExistAdminAccount)
     res.render('config', {
       title: 'Configuration Page',
-      inputComponentsValues: ""
+      inputComponentsValues: "",
+      data: {},
+      errors: {}
     });
   else {
     next();

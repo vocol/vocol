@@ -41,6 +41,7 @@ router.post('/', function(req, res) {
 
           } else if (repositoryService === 'gitLab') {
             var data = JSON.parse(req.body.payload);
+            console.log(req.body);
             repositoryName = data.repository.homepage;
             branchName = data.ref;
             commitMessage = data.commits[0].message;
@@ -85,7 +86,7 @@ router.post('/', function(req, res) {
               silent: false
             }).stdout;
 
-            shell.exec('echo -n > ../vocol/jsonDataFiles/syntaxErrors.json').stdout;
+            shell.exec('echo "[]" > ../vocol/jsonDataFiles/syntaxErrors.json').stdout;
             var pass = true;
             var data = shell.exec('find . -type f -name \'*.ttl\'', {
               silent: false
@@ -101,10 +102,10 @@ router.post('/', function(req, res) {
               var output = shell.exec('ttl ' + files[i] + '', {
                 silent: true
               })
-              shell.cd('../vocol/helper/tools/rdf2rdf/').stdout;
+              shell.cd('../vocol/helper/tools/ttl2ntConverter/').stdout;
 
               // converting file from turtle to ntriples format
-              shell.exec('java -jar rdf2rdf.jar ../../../../repoFolder' + files[i].substring(1) + ' temp.nt ', {
+              shell.exec('java -jar ttl2ntConverter.jar ../../../../repoFolder' + files[i].substring(1) + ' temp.nt ', {
                 silent: false
               }).stdout;
               shell.exec('cat  temp.nt | tee -a  ../serializations/SingleVoc.nt', {

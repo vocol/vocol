@@ -3,7 +3,7 @@
 ###########################################################################
 
 echo -n > helper/tools/serializations/SingleVoc.nt
-echo -n > jsonDataFiles/syntaxErrors.json
+echo "[]" > jsonDataFiles/syntaxErrors.json
 echo -n > helper/tools/evolution/evolutionReport.txt
 echo -n > jsonDataFiles/userConfigurations.json
 rm -f jsonDataFiles/RDFSConcepts.json

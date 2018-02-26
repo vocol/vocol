@@ -295,7 +295,18 @@ Repository Type         </a>
             </div>
           </div>
           <div class="field">
-            <div class="ui error message"></div>
+            <div class="ui error message">
+              <% if (Object.keys(errors).length > 0) { %>
+                <ul class="list">
+                  <script>$(".ui.console.error(.message").show();</script>
+                  <% Object.values(errors).forEach(error => { %>
+                    <li>
+                      <%= error.msg %>
+                    </li>
+                    <% }) %>
+                </ul>
+                <% } %>
+            </div>
           </div>
         </form>
       </div>
@@ -414,7 +425,7 @@ Repository Type         </a>
     $("#repositoryOwner").val(inputs.repositoryOwner);
     $("#adminUserName").val(inputs.adminUserName);
     $("#adminPass").val(inputs.adminPass);
-    if(inputs.loginUserName){
+    if (inputs.loginUserName) {
       $("#loginUserName").val(inputs.loginUserName);
       $("#loginPassword").val(inputs.loginPassword);
     }

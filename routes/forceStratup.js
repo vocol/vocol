@@ -24,10 +24,10 @@ var data = shell.exec('find . -type f -name "*.ttl"', {
           var output = shell.exec('ttl ' + files[i] + '', {
             silent: true
           })
-          shell.cd('../vocol/helper/tools/rdf2rdf/').stdout;
+          shell.cd('../vocol/helper/tools/ttl2ntConverter/').stdout;
 
           // converting file from turtle to ntriples format
-          shell.exec('java -jar rdf2rdf.jar ../../../../repoFolder' + files[i].substring(1) + ' temp.nt ', {
+          shell.exec('java -jar ttl2ntConverter.jar ../../../../repoFolder' + files[i].substring(1) + ' temp.nt ', {
             silent: false
           }).stdout;
           shell.exec('cat  temp.nt | tee -a  ../serializations/SingleVoc.nt', {

@@ -61,19 +61,37 @@ router.get('/', function(req, res) {
             shell.cd("..");
             shell.rm("-rf", "repoFolder");
             //TODO*:change  the following login
-            shell.exec('git clone "' + repositoryURL + '" repoFolder', {
-              silent: false
-            }).stdout;
+            if (obj.repositoryType === "private")
+              shell.exec('git clone https://"' + obj.user + ":" + encodeURIComponent(obj.password) + "@" + repositoryURL.slice(8) + '" repoFolder', {
+                silent: false
+              }).stdout;
+            else
+              shell.exec('git clone "' + repositoryURL + '" repoFolder', {
+                silent: false
+              }).stdout;
             shell.cd("repoFolder");
           }
         } else {
-          //TODO*:change  the following login
-          shell.mkdir("repoFolder");
-          shell.exec('git clone "' + repositoryURL + '" repoFolder', {
-            silent: false
-          }).stdout;
+          // if (obj.repositoryType === "private") {
+          //   shell.exec('git clone https://"' + obj.user + ":" + encodeURIComponent(obj.password) + "@" + repositoryURL.slice(8) + '" repoFolder', {
+          //     silent: false
+          //   }).stdout;
+          //   shell.exec('git config --global credential.helper store', {
+          //     silent: false
+          //   }).stdout;
+          // }
+          if (obj.repositoryType === "public") {
+            shell.mkdir("repoFolder");
+            shell.exec('git clone "' + repositoryURL + '" repoFolder', {
+              silent: false
+            }).stdout;
+          }
+          // else it was catched at /config as a private
           shell.cd("repoFolder");
+
         }
+
+
 
         shell.exec('git checkout ' + obj.branchName, {
           silent: false
@@ -96,7 +114,7 @@ router.get('/', function(req, res) {
           shell.exec('echo -n > ../vocol/helper/tools/evolution/evolutionReport.txt').stdout;
           shell.exec('echo -n > ../vocol/helper/tools/serializations/SingleVoc.nt').stdout;
           shell.exec('echo -n > ../vocol/helper/tools/rdf2rdf/temp.nt').stdout;
-          shell.exec('echo -n > ../vocol/jsonDataFiles/syntaxErrors.json').stdout;
+          shell.exec('echo "[]" > ../vocol/jsonDataFiles/syntaxErrors.json').stdout;
           shell.exec('rm -f ../vocol/views/webvowl/data/SingleVoc.json').stdout;
           shell.exec('rm -f ../vocol/jsonDataFiles/RDFSConcepts.json').stdout;
           shell.exec('rm -f ../vocol/jsonDataFiles/SKOSConcepts.json').stdout;
@@ -108,7 +126,7 @@ router.get('/', function(req, res) {
           console.log("App's previous data was deleted");
         }
 
-        shell.exec('echo -n > ../vocol/jsonDataFiles/syntaxErrors.json').stdout;
+        shell.exec('echo "[]" > ../vocol/jsonDataFiles/syntaxErrors.json').stdout;
         var pass = true;
         var data = shell.exec('find . -type f -name "*.ttl"', {
           silent: false
@@ -124,10 +142,10 @@ router.get('/', function(req, res) {
           var output = shell.exec('ttl ' + files[i] + '', {
             silent: true
           })
-          shell.cd('../vocol/helper/tools/rdf2rdf/').stdout;
+          shell.cd('../vocol/helper/tools/ttl2ntConverter/').stdout;
 
           // converting file from turtle to ntriples format
-          shell.exec('java -jar rdf2rdf.jar ../../../../repoFolder' + files[i].substring(1) + ' temp.nt ', {
+          shell.exec('java -jar ttl2ntConverter.jar ../../../../repoFolder' + files[i].substring(1) + ' temp.nt ', {
             silent: false
           }).stdout;
           shell.exec('cat  temp.nt | tee -a  ../serializations/SingleVoc.nt', {
