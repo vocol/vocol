@@ -24,20 +24,20 @@ mkdir newFolder
 cd newFolder
 git clone https://github.com/vocol/vocol.git
 ```
-3. Give the required command-line permission on the new directory, again it is the "newFolder" directory here.
+3. Give the required execution permissions cmd on the new directory, again, the "newFolder" is assumed here.
 ```
 chmod u+x  .
 ```
-4. Enter in "VoCol" folder and clear old data if any is exsit:
+4. Enter inside "VoCol" folder and clear old saved data if any is exsit:
 ```
 cd vocol
 ./helper/scripts/resetApp.sh
 ```
-5. To install the dependent packages, first, let's start with [Turtle validator](https://github.com/IDLabResearch/TurtleValidator): this package is also needed to run the VoCol app. If you have the [NPM](https://www.npmjs.com/get-npm) package manager installed, then the following command-line should be given for installing this package:
+5. To install the dependent packages, first, let's start with [Turtle validator](https://github.com/IDLabResearch/TurtleValidator): this package is also needed to run the VoCol app. If you have the [NPM](https://www.npmjs.com/get-npm) package manager installed, then the following cmd should be given for installing this package:
 ```
 sudo npm install -g turtle-validator
 ````
-6. Then, install other packages listed in "package.json" with the following command-in.
+6. Then, install other packages listed in "package.json" 
 ```
 sudo npm install
 ```
@@ -62,8 +62,7 @@ Finally, give "public/semantic" as the location of Sematic-Ui in VoCol Project.
 ```
 npm start
 ```
-8. Normally, you can access VoCol start page with http://localhost:3000 URL if the port number was not changed. If you clear old data as step 4 describes, then the configuration page will be displayed. Otherwise, you can use http://localhost:3000/config URL for configuring VoCol.
-9. You have a possibility to change the vocol access's port number by accessing the file bin/www from the root path of VoCol.
+8. Normally, you can access VoCol start page with http://localhost:3000 URL if the port number was not changed. If you clear old data as step 4 describes, then the configuration page will be displayed. Otherwise, you can use http://localhost:3000/config URL for configuring VoCol. Sometimes, the port number is also changed during our project's development, for that, you have a possibility to look-up the vocol access's port number and as well change it, by opening **bin/www** file if you are on the root path of VoCol.
 
 For more details about VoCol repository, please have a look on our VoColWiki
 
