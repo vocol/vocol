@@ -37,8 +37,6 @@
 <http://kerndatensatz-forschung.de/owl/Basis#Review> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Pu114" .
 <http://kerndatensatz-forschung.de/owl/Basis#Review> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#Journalartikel> .
 <http://kerndatensatz-forschung.de/owl/Basis#Review> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:B80dc1f46X2D723dX2D46ebX2D9891X2D72c8f978ffaf <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B32bbe6a9X2D1f0eX2D4c7bX2D9a45X2Dec436c6d3995 .
-_:B80dc1f46X2D723dX2D46ebX2D9891X2D72c8f978ffaf <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Beschaeftigter> .
 <http://kerndatensatz-forschung.de/owl/Basis#Habilitationsschrift> <http://www.w3.org/2000/01/rdf-schema#label> "Habilitationsschrift"@de .
 <http://kerndatensatz-forschung.de/owl/Basis#Habilitationsschrift> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#prohibitedFromUpdateBelowRoleLevelAnnot> <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> .
 <http://kerndatensatz-forschung.de/owl/Basis#Habilitationsschrift> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#inClassGroup> <http://vivoweb.org/ontology#vitroClassGrouppublications> .
@@ -56,8 +54,6 @@ _:B80dc1f46X2D723dX2D46ebX2D9891X2D72c8f978ffaf <http://www.w3.org/1999/02/22-rd
 <http://kerndatensatz-forschung.de/owl/Basis#Verlag> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Pu67" .
 <http://kerndatensatz-forschung.de/owl/Basis#Verlag> <http://www.w3.org/2002/07/owl#equivalentClass> <http://vivoweb.org/ontology/core#Publisher> .
 <http://kerndatensatz-forschung.de/owl/Basis#Verlag> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:B959b323eX2D9eb6X2D44feX2D81ebX2D0e852cd8f80b <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Ba218bfb7X2D7b0bX2D4456X2D8d98X2Df3d510936f21 .
-_:B959b323eX2D9eb6X2D44feX2D81ebX2D0e852cd8f80b <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Beschaeftigter> .
 <http://kerndatensatz-forschung.de/owl/Basis#AnzahlNutzer> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#prohibitedFromUpdateBelowRoleLevelAnnot> <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> .
 <http://kerndatensatz-forschung.de/owl/Basis#AnzahlNutzer> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#hiddenFromPublishBelowRoleLevelAnnot> <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> .
 <http://kerndatensatz-forschung.de/owl/Basis#AnzahlNutzer> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#hiddenFromDisplayBelowRoleLevelAnnot> <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> .
@@ -66,6 +62,8 @@ _:B959b323eX2D9eb6X2D44feX2D81ebX2D0e852cd8f80b <http://www.w3.org/1999/02/22-rd
 <http://kerndatensatz-forschung.de/owl/Basis#AnzahlNutzer> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Fi7" .
 <http://kerndatensatz-forschung.de/owl/Basis#AnzahlNutzer> <http://www.w3.org/2000/01/rdf-schema#label> "Anzahl Nutzer"@de .
 <http://kerndatensatz-forschung.de/owl/Basis#AnzahlNutzer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:B21473cccX2Db154X2D44c8X2Dad87X2D96cb37f437ff <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:B21473cccX2Db154X2D44c8X2Dad87X2D96cb37f437ff <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#StrukturiertesPromotionsprogramm> .
 <http://kerndatensatz-forschung.de/owl/Basis#Editorial> <http://www.w3.org/2000/01/rdf-schema#label> "Editorial"@de .
 <http://kerndatensatz-forschung.de/owl/Basis#Editorial> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#prohibitedFromUpdateBelowRoleLevelAnnot> <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> .
 <http://kerndatensatz-forschung.de/owl/Basis#Editorial> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#inClassGroup> <http://vivoweb.org/ontology#vitroClassGrouppublications> .
@@ -147,8 +145,6 @@ _:B959b323eX2D9eb6X2D44feX2D81ebX2D0e852cd8f80b <http://www.w3.org/1999/02/22-rd
 <http://kerndatensatz-forschung.de/owl/Basis#Professoren> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://vivoweb.org/ontology/core#FacultyMember> .
 <http://kerndatensatz-forschung.de/owl/Basis#Professoren> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#WissenschaftlichesUndKuenstlerischesPersonal> .
 <http://kerndatensatz-forschung.de/owl/Basis#Professoren> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:B205370cc9ee89772a7873525819e65ee <http://www.w3.org/2002/07/owl#unionOf> _:B80dc1f46X2D723dX2D46ebX2D9891X2D72c8f978ffaf .
-_:B205370cc9ee89772a7873525819e65ee <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://kerndatensatz-forschung.de/owl/Basis#Forschungsinfrastruktur> <http://www.w3.org/2000/01/rdf-schema#label> "Forschungsinfrastruktur"@de .
 <http://kerndatensatz-forschung.de/owl/Basis#Forschungsinfrastruktur> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#descriptionAnnot> "Forschungsinfrastrukturen im Sinne des Kerndatensatzes sind umfangreiche / aufwendige Instrumente, Ressourcen oder Serviceeinrichtungen für die Forschung in allen Wissenschaftsgebieten, die sich durch eine mindestens überregionale Bedeutung für das jeweilige Wissenschaftsgebiet sowie durch eine mittel- bis langfristige Lebensdauer (mehr als 5 Jahre) auszeichnen und für eine externe Nutzung zur Verfügung stehen für die Zugangs- bzw. Nutzungsregelungen etabliert sind." .
 <http://kerndatensatz-forschung.de/owl/Basis#Forschungsinfrastruktur> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#prohibitedFromUpdateBelowRoleLevelAnnot> <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> .
@@ -157,8 +153,6 @@ _:B205370cc9ee89772a7873525819e65ee <http://www.w3.org/1999/02/22-rdf-syntax-ns#
 <http://kerndatensatz-forschung.de/owl/Basis#Forschungsinfrastruktur> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#hiddenFromDisplayBelowRoleLevelAnnot> <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> .
 <http://kerndatensatz-forschung.de/owl/Basis#Forschungsinfrastruktur> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Fi2" .
 <http://kerndatensatz-forschung.de/owl/Basis#Forschungsinfrastruktur> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:Be0764818X2D5efbX2D4720X2Db23cX2D51ca238e9bbc <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B95f82cb4X2D6922X2D42c8X2Da43eX2D578fc4f0ce8b .
-_:Be0764818X2D5efbX2D4720X2Db23cX2D51ca238e9bbc <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Publikation> .
 <http://kerndatensatz-forschung.de/owl/Basis#Habilitation> <http://www.w3.org/2000/01/rdf-schema#label> "Habilitation"@de .
 <http://kerndatensatz-forschung.de/owl/Basis#Habilitation> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Na44" .
 <http://kerndatensatz-forschung.de/owl/Basis#Habilitation> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Be16" .
@@ -173,8 +167,6 @@ _:Be0764818X2D5efbX2D4720X2Db23cX2D51ca238e9bbc <http://www.w3.org/1999/02/22-rd
 <http://kerndatensatz-forschung.de/owl/Basis#Universitaet> <http://www.w3.org/2002/07/owl#equivalentClass> <http://vivoweb.org/ontology/core#University> .
 <http://kerndatensatz-forschung.de/owl/Basis#Universitaet> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#Promotionskooperationspartner> .
 <http://kerndatensatz-forschung.de/owl/Basis#Universitaet> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:Ba218bfb7X2D7b0bX2D4456X2D8d98X2Df3d510936f21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bad227bdbX2Df21cX2D4969X2D9999X2D4e6b48fdd6be .
-_:Ba218bfb7X2D7b0bX2D4456X2D8d98X2Df3d510936f21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Drittmittelprojekt> .
 <http://kerndatensatz-forschung.de/owl/Basis#WissenschaftlicheVortragsfolien> <http://www.w3.org/2000/01/rdf-schema#label> "Wissenschaftliche Vortragsfolien"@de .
 <http://kerndatensatz-forschung.de/owl/Basis#WissenschaftlicheVortragsfolien> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#prohibitedFromUpdateBelowRoleLevelAnnot> <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> .
 <http://kerndatensatz-forschung.de/owl/Basis#WissenschaftlicheVortragsfolien> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#inClassGroup> <http://vivoweb.org/ontology#vitroClassGrouppublications> .
@@ -184,6 +176,8 @@ _:Ba218bfb7X2D7b0bX2D4456X2D8d98X2Df3d510936f21 <http://www.w3.org/1999/02/22-rd
 <http://kerndatensatz-forschung.de/owl/Basis#WissenschaftlicheVortragsfolien> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#Publikation> .
 <http://kerndatensatz-forschung.de/owl/Basis#WissenschaftlicheVortragsfolien> <http://www.w3.org/2002/07/owl#equivalentClass> <http://purl.org/ontology/bibo/Slideshow> .
 <http://kerndatensatz-forschung.de/owl/Basis#WissenschaftlicheVortragsfolien> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B406623e5X2D4a2eX2D4d21X2D8fbeX2De0e5facab107 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Ba4a25decX2D1da3X2D4500X2D93adX2D49d477b31df3 .
+_:B406623e5X2D4a2eX2D4d21X2D8fbeX2De0e5facab107 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Drittmittelprojekt> .
 <http://kerndatensatz-forschung.de/owl/Basis#Monographie> <http://www.w3.org/2000/01/rdf-schema#label> "Monographie"@de .
 <http://kerndatensatz-forschung.de/owl/Basis#Monographie> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#prohibitedFromUpdateBelowRoleLevelAnnot> <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> .
 <http://kerndatensatz-forschung.de/owl/Basis#Monographie> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#inClassGroup> <http://vivoweb.org/ontology#vitroClassGrouppublications> .
@@ -192,6 +186,8 @@ _:Ba218bfb7X2D7b0bX2D4456X2D8d98X2Df3d510936f21 <http://www.w3.org/1999/02/22-rd
 <http://kerndatensatz-forschung.de/owl/Basis#Monographie> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Pu13" .
 <http://kerndatensatz-forschung.de/owl/Basis#Monographie> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#Buch> .
 <http://kerndatensatz-forschung.de/owl/Basis#Monographie> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:Bdcdad307X2D2e04X2D4a59X2Dbfa1X2D0d09d94666bc <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bd5724a2aX2D926dX2D4c63X2Db652X2D21ef632f4cfd .
+_:Bdcdad307X2D2e04X2D4a59X2Dbfa1X2D0d09d94666bc <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Beschaeftigter> .
 <http://kerndatensatz-forschung.de/owl/Basis#InformationsUndKommunikationsinfrastrukturen> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#prohibitedFromUpdateBelowRoleLevelAnnot> <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> .
 <http://kerndatensatz-forschung.de/owl/Basis#InformationsUndKommunikationsinfrastrukturen> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#hiddenFromPublishBelowRoleLevelAnnot> <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> .
 <http://kerndatensatz-forschung.de/owl/Basis#InformationsUndKommunikationsinfrastrukturen> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#hiddenFromDisplayBelowRoleLevelAnnot> <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> .
@@ -200,6 +196,8 @@ _:Ba218bfb7X2D7b0bX2D4456X2D8d98X2Df3d510936f21 <http://www.w3.org/1999/02/22-rd
 <http://kerndatensatz-forschung.de/owl/Basis#InformationsUndKommunikationsinfrastrukturen> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#Forschungsinfrastruktur> .
 <http://kerndatensatz-forschung.de/owl/Basis#InformationsUndKommunikationsinfrastrukturen> <http://www.w3.org/2000/01/rdf-schema#label> "Informations- und Kommunikationsinfrastrukturen"@de .
 <http://kerndatensatz-forschung.de/owl/Basis#InformationsUndKommunikationsinfrastrukturen> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:Ba22f2b2863d92d8a6de0c2cac930d94b <http://www.w3.org/2002/07/owl#unionOf> _:B8ed70d35X2Db16fX2D4702X2D9b15X2D7cc8af834bdc .
+_:Ba22f2b2863d92d8a6de0c2cac930d94b <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://kerndatensatz-forschung.de/owl/Basis#Fach> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Pu138" .
 <http://kerndatensatz-forschung.de/owl/Basis#Fach> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Na2" .
 <http://kerndatensatz-forschung.de/owl/Basis#Fach> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#prohibitedFromUpdateBelowRoleLevelAnnot> <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> .
@@ -218,8 +216,8 @@ _:Ba218bfb7X2D7b0bX2D4456X2D8d98X2Df3d510936f21 <http://www.w3.org/1999/02/22-rd
 <http://kerndatensatz-forschung.de/owl/Basis#LetterToTheEditor> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Pu120" .
 <http://kerndatensatz-forschung.de/owl/Basis#LetterToTheEditor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#Journalartikel> .
 <http://kerndatensatz-forschung.de/owl/Basis#LetterToTheEditor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:B95f82cb4X2D6922X2D42c8X2Da43eX2D578fc4f0ce8b <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:B95f82cb4X2D6922X2D42c8X2Da43eX2D578fc4f0ce8b <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#StrukturiertesPromotionsprogramm> .
+_:Ba4a25decX2D1da3X2D4500X2D93adX2D49d477b31df3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B21473cccX2Db154X2D44c8X2Dad87X2D96cb37f437ff .
+_:Ba4a25decX2D1da3X2D4500X2D93adX2D49d477b31df3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Publikation> .
 <http://kerndatensatz-forschung.de/owl/Basis#Datensammlung> <http://www.w3.org/2000/01/rdf-schema#label> "Datensammlung"@de .
 <http://kerndatensatz-forschung.de/owl/Basis#Datensammlung> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#prohibitedFromUpdateBelowRoleLevelAnnot> <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> .
 <http://kerndatensatz-forschung.de/owl/Basis#Datensammlung> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#inClassGroup> <http://vivoweb.org/ontology#vitroClassGrouppublications> .
@@ -229,6 +227,8 @@ _:B95f82cb4X2D6922X2D42c8X2Da43eX2D578fc4f0ce8b <http://www.w3.org/1999/02/22-rd
 <http://kerndatensatz-forschung.de/owl/Basis#Datensammlung> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#Publikation> .
 <http://kerndatensatz-forschung.de/owl/Basis#Datensammlung> <http://www.w3.org/2002/07/owl#equivalentClass> <http://vivoweb.org/ontology/core#Dataset> .
 <http://kerndatensatz-forschung.de/owl/Basis#Datensammlung> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:B231b8628X2Dc25aX2D4294X2Dbc54X2Dd914adf0a4b2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B908f5930X2Dbd2dX2D4d8bX2D84a8X2D90bf6639e680 .
+_:B231b8628X2Dc25aX2D4294X2Dbc54X2Dd914adf0a4b2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Beschaeftigter> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatQualifikation> <http://www.w3.org/2000/01/rdf-schema#domain> <http://kerndatensatz-forschung.de/owl/Basis#Person> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatQualifikation> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#selectFromExistingAnnot> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatQualifikation> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Be9" .
@@ -256,6 +256,8 @@ _:B95f82cb4X2D6922X2D42c8X2Da43eX2D578fc4f0ce8b <http://www.w3.org/1999/02/22-rd
 <http://kerndatensatz-forschung.de/owl/Basis#Finanzierungsform> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Na14" .
 <http://kerndatensatz-forschung.de/owl/Basis#Finanzierungsform> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Be8" .
 <http://kerndatensatz-forschung.de/owl/Basis#Finanzierungsform> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:Bdff62f1eX2D9140X2D4cf6X2Daf97X2Dabf3f29133f1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B357f326fX2Dbf88X2D47cbX2Db311X2Dd3cb0d2c35cc .
+_:Bdff62f1eX2D9140X2D4cf6X2Daf97X2Dabf3f29133f1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Publikation> .
 <http://kerndatensatz-forschung.de/owl/Basis#BibliographieDokumenttyp> <http://www.w3.org/2000/01/rdf-schema#label> "Bibliographie [Journalartikel]"@de .
 <http://kerndatensatz-forschung.de/owl/Basis#BibliographieDokumenttyp> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#prohibitedFromUpdateBelowRoleLevelAnnot> <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> .
 <http://kerndatensatz-forschung.de/owl/Basis#BibliographieDokumenttyp> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#inClassGroup> <http://vivoweb.org/ontology#vitroClassGrouppublications> .
@@ -272,8 +274,8 @@ _:B95f82cb4X2D6922X2D42c8X2Da43eX2D578fc4f0ce8b <http://www.w3.org/1999/02/22-rd
 <http://kerndatensatz-forschung.de/owl/Basis#AnzahlGenutzteStunden> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Fi28" .
 <http://kerndatensatz-forschung.de/owl/Basis#AnzahlGenutzteStunden> <http://www.w3.org/2000/01/rdf-schema#label> "Anzahl genutzte Stunden"@de .
 <http://kerndatensatz-forschung.de/owl/Basis#AnzahlGenutzteStunden> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-_:B7e0273dbX2D516eX2D48c6X2Da825X2D7378fc0e7518 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B9497582eX2D55a2X2D40d4X2Db0eaX2D9d463afc8ed7 .
-_:B7e0273dbX2D516eX2D48c6X2Da825X2D7378fc0e7518 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Beschaeftigter> .
+_:B357f326fX2Dbf88X2D47cbX2Db311X2Dd3cb0d2c35cc <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:B357f326fX2Dbf88X2D47cbX2Db311X2Dd3cb0d2c35cc <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#StrukturiertesPromotionsprogramm> .
 <http://kerndatensatz-forschung.de/owl/Basis#HerausgeberschaftEinesSonderheftsEinerZeitschrift> <http://www.w3.org/2000/01/rdf-schema#label> "Herausgeberschaft eines Sonderhefts einer Zeitschrift"@de .
 <http://kerndatensatz-forschung.de/owl/Basis#HerausgeberschaftEinesSonderheftsEinerZeitschrift> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#prohibitedFromUpdateBelowRoleLevelAnnot> <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> .
 <http://kerndatensatz-forschung.de/owl/Basis#HerausgeberschaftEinesSonderheftsEinerZeitschrift> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#inClassGroup> <http://vivoweb.org/ontology#vitroClassGrouppublications> .
@@ -318,27 +320,29 @@ _:B7e0273dbX2D516eX2D48c6X2Da825X2D7378fc0e7518 <http://www.w3.org/1999/02/22-rd
 <http://kerndatensatz-forschung.de/owl/Basis#hatFach> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#hiddenFromDisplayBelowRoleLevelAnnot> <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatFach> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#hiddenFromPublishBelowRoleLevelAnnot> <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatFach> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Be38" .
-<http://kerndatensatz-forschung.de/owl/Basis#hatFach> <http://www.w3.org/2000/01/rdf-schema#domain> _:Bf391b4a4c1227766041fa5a8d72adb75 .
 <http://kerndatensatz-forschung.de/owl/Basis#hatFach> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#selectFromExistingAnnot> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatFach> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#prohibitedFromUpdateBelowRoleLevelAnnot> <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatFach> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatFach> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Dr28" .
 <http://kerndatensatz-forschung.de/owl/Basis#hatFach> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Pu138" .
 <http://kerndatensatz-forschung.de/owl/Basis#hatFach> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topObjectProperty> .
+<http://kerndatensatz-forschung.de/owl/Basis#hatFach> <http://www.w3.org/2000/01/rdf-schema#domain> _:Bcc56af4a9d1f11c099f2a875c6db5347 .
 <http://kerndatensatz-forschung.de/owl/Basis#hatFach> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Na2" .
 <http://kerndatensatz-forschung.de/owl/Basis#hatFach> <http://www.w3.org/2000/01/rdf-schema#label> "hat Fach"@de .
 <http://kerndatensatz-forschung.de/owl/Basis#hatFinanzierungsform> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#displayRankAnnot> "10"^^<http://www.w3.org/2001/XMLSchema#int> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatFinanzierungsform> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#prohibitedFromUpdateBelowRoleLevelAnnot> <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatFinanzierungsform> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#selectFromExistingAnnot> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
+<http://kerndatensatz-forschung.de/owl/Basis#hatFinanzierungsform> <http://www.w3.org/2000/01/rdf-schema#domain> _:Bf27fccb37e05058863d96a3f5c92f461 .
 <http://kerndatensatz-forschung.de/owl/Basis#hatFinanzierungsform> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatFinanzierungsform> <http://www.w3.org/2000/01/rdf-schema#label> "hat Finanzierungsform"@de .
 <http://kerndatensatz-forschung.de/owl/Basis#hatFinanzierungsform> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#hiddenFromPublishBelowRoleLevelAnnot> <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatFinanzierungsform> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Na14" .
 <http://kerndatensatz-forschung.de/owl/Basis#hatFinanzierungsform> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Be8" .
-<http://kerndatensatz-forschung.de/owl/Basis#hatFinanzierungsform> <http://www.w3.org/2000/01/rdf-schema#domain> _:B205370cc9ee89772a7873525819e65ee .
 <http://kerndatensatz-forschung.de/owl/Basis#hatFinanzierungsform> <http://www.w3.org/2000/01/rdf-schema#range> <http://kerndatensatz-forschung.de/owl/Basis#Finanzierungsform> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatFinanzierungsform> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topObjectProperty> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatFinanzierungsform> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#hiddenFromDisplayBelowRoleLevelAnnot> <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> .
+_:Bcc56af4a9d1f11c099f2a875c6db5347 <http://www.w3.org/2002/07/owl#unionOf> _:B6391428aX2D5aa7X2D4402X2DacaeX2D032a787e0811 .
+_:Bcc56af4a9d1f11c099f2a875c6db5347 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://kerndatensatz-forschung.de/owl/Basis#WissenschaftlicheUndKuenstlerischeMitarbeiter> <http://www.w3.org/2000/01/rdf-schema#label> "Wissenschaftliche und künstlerische Mitarbeiter"@de .
 <http://kerndatensatz-forschung.de/owl/Basis#WissenschaftlicheUndKuenstlerischeMitarbeiter> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#prohibitedFromUpdateBelowRoleLevelAnnot> <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> .
 <http://kerndatensatz-forschung.de/owl/Basis#WissenschaftlicheUndKuenstlerischeMitarbeiter> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#hiddenFromPublishBelowRoleLevelAnnot> <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> .
@@ -347,8 +351,6 @@ _:B7e0273dbX2D516eX2D48c6X2Da825X2D7378fc0e7518 <http://www.w3.org/1999/02/22-rd
 <http://kerndatensatz-forschung.de/owl/Basis#WissenschaftlicheUndKuenstlerischeMitarbeiter> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Be22" .
 <http://kerndatensatz-forschung.de/owl/Basis#WissenschaftlicheUndKuenstlerischeMitarbeiter> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#WissenschaftlichesUndKuenstlerischesPersonal> .
 <http://kerndatensatz-forschung.de/owl/Basis#WissenschaftlicheUndKuenstlerischeMitarbeiter> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:Bf391b4a4c1227766041fa5a8d72adb75 <http://www.w3.org/2002/07/owl#unionOf> _:B7e0273dbX2D516eX2D48c6X2Da825X2D7378fc0e7518 .
-_:Bf391b4a4c1227766041fa5a8d72adb75 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://kerndatensatz-forschung.de/owl/Basis#Konferenzposter> <http://www.w3.org/2000/01/rdf-schema#label> "Konferenzposter"@de .
 <http://kerndatensatz-forschung.de/owl/Basis#Konferenzposter> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#prohibitedFromUpdateBelowRoleLevelAnnot> <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> .
 <http://kerndatensatz-forschung.de/owl/Basis#Konferenzposter> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#inClassGroup> <http://vivoweb.org/ontology#vitroClassGrouppublications> .
@@ -391,6 +393,8 @@ _:Bf391b4a4c1227766041fa5a8d72adb75 <http://www.w3.org/1999/02/22-rdf-syntax-ns#
 <http://kerndatensatz-forschung.de/owl/Basis> <http://www.w3.org/2000/01/rdf-schema#comment> "This ontology is available under the Creative Commons Attribution-ShareAlike 4.0 International." .
 <http://kerndatensatz-forschung.de/owl/Basis> <http://www.w3.org/2000/01/rdf-schema#comment> "This ontology is an adoption of the Research Core Dataset (KDSF). This alignment was created by Tatiana Walther, Anna Kasprzik and Christian Hauschke (Technische Informationsbibliothek (TIB)) for use in current research information system VIVO. It is tested with VIVO 1.9.\"" .
 <http://kerndatensatz-forschung.de/owl/Basis> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+_:Bd21a8d33f8b8a65258fd1a2e5991734a <http://www.w3.org/2002/07/owl#unionOf> _:B231b8628X2Dc25aX2D4294X2Dbc54X2Dd914adf0a4b2 .
+_:Bd21a8d33f8b8a65258fd1a2e5991734a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://kerndatensatz-forschung.de/owl/Basis#AusserplanmaessigeProfessoren> <http://www.w3.org/2000/01/rdf-schema#label> "Ausserplanmässiger Professor"@de .
 <http://kerndatensatz-forschung.de/owl/Basis#AusserplanmaessigeProfessoren> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#inClassGroup> <http://vivoweb.org/ontology#vitroClassGrouppeople> .
 <http://kerndatensatz-forschung.de/owl/Basis#AusserplanmaessigeProfessoren> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#prohibitedFromUpdateBelowRoleLevelAnnot> <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> .
@@ -399,8 +403,6 @@ _:Bf391b4a4c1227766041fa5a8d72adb75 <http://www.w3.org/1999/02/22-rdf-syntax-ns#
 <http://kerndatensatz-forschung.de/owl/Basis#AusserplanmaessigeProfessoren> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Be89" .
 <http://kerndatensatz-forschung.de/owl/Basis#AusserplanmaessigeProfessoren> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#Professoren> .
 <http://kerndatensatz-forschung.de/owl/Basis#AusserplanmaessigeProfessoren> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:B0b21973502704acb3e5ff76443788e72 <http://www.w3.org/2002/07/owl#unionOf> _:B57fbf142X2D79dbX2D45f7X2D9562X2D83bf217656a1 .
-_:B0b21973502704acb3e5ff76443788e72 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://kerndatensatz-forschung.de/owl/Basis#Koordinationsrolle> <http://www.w3.org/2000/01/rdf-schema#label> "Koordinationsrolle (Einrichtung)"@de .
 <http://kerndatensatz-forschung.de/owl/Basis#Koordinationsrolle> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#prohibitedFromUpdateBelowRoleLevelAnnot> <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> .
 <http://kerndatensatz-forschung.de/owl/Basis#Koordinationsrolle> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#hiddenFromPublishBelowRoleLevelAnnot> <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> .
@@ -422,9 +424,9 @@ _:B0b21973502704acb3e5ff76443788e72 <http://www.w3.org/1999/02/22-rdf-syntax-ns#
 <http://kerndatensatz-forschung.de/owl/Basis#hatUnterstuetzungDurch> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#selectFromExistingAnnot> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatUnterstuetzungDurch> <http://kerndatensatz-forschung.de/owl/Meta#pgbid> "dcterms.funding" .
 <http://kerndatensatz-forschung.de/owl/Basis#hatUnterstuetzungDurch> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Pu86" .
+<http://kerndatensatz-forschung.de/owl/Basis#hatUnterstuetzungDurch> <http://www.w3.org/2000/01/rdf-schema#range> _:Ba22f2b2863d92d8a6de0c2cac930d94b .
 <http://kerndatensatz-forschung.de/owl/Basis#hatUnterstuetzungDurch> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://vivoweb.org/ontology/core#informationResourceSupportedBy> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatUnterstuetzungDurch> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#hiddenFromPublishBelowRoleLevelAnnot> <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> .
-<http://kerndatensatz-forschung.de/owl/Basis#hatUnterstuetzungDurch> <http://www.w3.org/2000/01/rdf-schema#range> _:B0b21973502704acb3e5ff76443788e72 .
 <http://kerndatensatz-forschung.de/owl/Basis#OrdentlicheProfessoren> <http://www.w3.org/2000/01/rdf-schema#label> "Ordentlicher Professor"@de .
 <http://kerndatensatz-forschung.de/owl/Basis#OrdentlicheProfessoren> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#prohibitedFromUpdateBelowRoleLevelAnnot> <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> .
 <http://kerndatensatz-forschung.de/owl/Basis#OrdentlicheProfessoren> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#inClassGroup> <http://vivoweb.org/ontology#vitroClassGrouppeople> .
@@ -517,8 +519,6 @@ _:B0b21973502704acb3e5ff76443788e72 <http://www.w3.org/1999/02/22-rdf-syntax-ns#
 <http://kerndatensatz-forschung.de/owl/Basis#Zugangsart> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Fi6" .
 <http://kerndatensatz-forschung.de/owl/Basis#Zugangsart> <http://www.w3.org/2000/01/rdf-schema#label> "Art des Zugangs"@de .
 <http://kerndatensatz-forschung.de/owl/Basis#Zugangsart> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:Bc9d0c12dX2D00d2X2D42f3X2Da2b1X2Da36f84f43d95 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:Bc9d0c12dX2D00d2X2D42f3X2Da2b1X2Da36f84f43d95 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#StrukturiertesPromotionsprogramm> .
 <http://kerndatensatz-forschung.de/owl/Basis#ArbeitspapierForschungsbericht> <http://www.w3.org/2000/01/rdf-schema#label> "Arbeitspapier/Forschungsbericht"@de .
 <http://kerndatensatz-forschung.de/owl/Basis#ArbeitspapierForschungsbericht> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#prohibitedFromUpdateBelowRoleLevelAnnot> <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> .
 <http://kerndatensatz-forschung.de/owl/Basis#ArbeitspapierForschungsbericht> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#inClassGroup> <http://vivoweb.org/ontology#vitroClassGrouppublications> .
@@ -608,8 +608,6 @@ _:Bc9d0c12dX2D00d2X2D42f3X2Da2b1X2Da36f84f43d95 <http://www.w3.org/1999/02/22-rd
 <http://kerndatensatz-forschung.de/owl/Basis#Patent> <http://www.w3.org/2002/07/owl#equivalentClass> <http://purl.org/ontology/bibo/Patent> .
 <http://kerndatensatz-forschung.de/owl/Basis#Patent> <http://www.w3.org/2000/01/rdf-schema#comment> "Technisch einmalige erteilte Patente. Erteilungen für die gleiche Erfindung in zwei oder mehr Ländern werden nur einfach gezählt. Wenn ein technisch einmaliges erteiltes Patent im Vorjahr gezählt wurde, kann es nicht noch einmal aufgeführt werden." .
 <http://kerndatensatz-forschung.de/owl/Basis#Patent> <http://www.w3.org/2000/01/rdf-schema#label> "Patent"@de .
-_:B57fbf142X2D79dbX2D45f7X2D9562X2D83bf217656a1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bc9d0c12dX2D00d2X2D42f3X2Da2b1X2Da36f84f43d95 .
-_:B57fbf142X2D79dbX2D45f7X2D9562X2D83bf217656a1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Drittmittelprojekt> .
 <http://kerndatensatz-forschung.de/owl/Basis#WissenschaftlicherArtikel> <http://www.w3.org/2000/01/rdf-schema#label> "Wissenschaftlicher Artikel"@de .
 <http://kerndatensatz-forschung.de/owl/Basis#WissenschaftlicherArtikel> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#prohibitedFromUpdateBelowRoleLevelAnnot> <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> .
 <http://kerndatensatz-forschung.de/owl/Basis#WissenschaftlicherArtikel> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#inClassGroup> <http://vivoweb.org/ontology#vitroClassGrouppublications> .
@@ -626,8 +624,6 @@ _:B57fbf142X2D79dbX2D45f7X2D9562X2D83bf217656a1 <http://www.w3.org/1999/02/22-rd
 <http://kerndatensatz-forschung.de/owl/Basis#Promotionskooperationspartner> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#hiddenFromDisplayBelowRoleLevelAnnot> <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> .
 <http://kerndatensatz-forschung.de/owl/Basis#Promotionskooperationspartner> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Na86" .
 <http://kerndatensatz-forschung.de/owl/Basis#Promotionskooperationspartner> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:B8344b10cX2Df5d4X2D419dX2Da549X2D806d7bf49416 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:B8344b10cX2Df5d4X2D419dX2Da549X2D806d7bf49416 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#StrukturiertesPromotionsprogramm> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatPublikation> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#selectFromExistingAnnot> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatPublikation> <http://www.w3.org/2000/01/rdf-schema#domain> <http://kerndatensatz-forschung.de/owl/Basis#Forschungsinfrastruktur> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatPublikation> <http://www.w3.org/2000/01/rdf-schema#range> <http://kerndatensatz-forschung.de/owl/Basis#Publikation> .
@@ -639,8 +635,6 @@ _:B8344b10cX2Df5d4X2D419dX2Da549X2D806d7bf49416 <http://www.w3.org/1999/02/22-rd
 <http://kerndatensatz-forschung.de/owl/Basis#hatPublikation> <http://www.w3.org/2000/01/rdf-schema#label> "hat Publikation"@de .
 <http://kerndatensatz-forschung.de/owl/Basis#hatPublikation> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topObjectProperty> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatPublikation> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#prohibitedFromUpdateBelowRoleLevelAnnot> <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> .
-_:Bad227bdbX2Df21cX2D4969X2D9999X2D4e6b48fdd6be <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B8344b10cX2Df5d4X2D419dX2Da549X2D806d7bf49416 .
-_:Bad227bdbX2Df21cX2D4969X2D9999X2D4e6b48fdd6be <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Publikation> .
 <http://kerndatensatz-forschung.de/owl/Basis#Vertretungsprofessoren> <http://www.w3.org/2000/01/rdf-schema#label> "Vertretungsprofessor/Lehrstuhlvertreter"@de .
 <http://kerndatensatz-forschung.de/owl/Basis#Vertretungsprofessoren> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#inClassGroup> <http://vivoweb.org/ontology#vitroClassGrouppeople> .
 <http://kerndatensatz-forschung.de/owl/Basis#Vertretungsprofessoren> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#prohibitedFromUpdateBelowRoleLevelAnnot> <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> .
@@ -675,6 +669,8 @@ _:Bad227bdbX2Df21cX2D4969X2D9999X2D4e6b48fdd6be <http://www.w3.org/1999/02/22-rd
 <http://kerndatensatz-forschung.de/owl/Basis#hatMittelgeber> <http://www.w3.org/2000/01/rdf-schema#label> "hat Mittelgeber"@de .
 <http://kerndatensatz-forschung.de/owl/Basis#hatMittelgeber> <http://www.w3.org/2000/01/rdf-schema#domain> <http://kerndatensatz-forschung.de/owl/Basis#Drittmittelprojekt> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatMittelgeber> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#hiddenFromPublishBelowRoleLevelAnnot> <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> .
+_:Bd5724a2aX2D926dX2D4c63X2Db652X2D21ef632f4cfd <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:Bd5724a2aX2D926dX2D4c63X2Db652X2D21ef632f4cfd <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#StrukturiertesPromotionsprogramm> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatOrganisationseinheit> <http://www.w3.org/2000/01/rdf-schema#label> "hat Organisationseinheit"@de .
 <http://kerndatensatz-forschung.de/owl/Basis#hatOrganisationseinheit> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Pu140" .
 <http://kerndatensatz-forschung.de/owl/Basis#hatOrganisationseinheit> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topObjectProperty> .
@@ -683,12 +679,12 @@ _:Bad227bdbX2Df21cX2D4969X2D9999X2D4e6b48fdd6be <http://www.w3.org/1999/02/22-rd
 <http://kerndatensatz-forschung.de/owl/Basis#hatOrganisationseinheit> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Dr121" .
 <http://kerndatensatz-forschung.de/owl/Basis#hatOrganisationseinheit> <http://www.w3.org/2000/01/rdf-schema#range> <http://kerndatensatz-forschung.de/owl/Basis#Organisationseinheit> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatOrganisationseinheit> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Be75" .
-<http://kerndatensatz-forschung.de/owl/Basis#hatOrganisationseinheit> <http://www.w3.org/2000/01/rdf-schema#domain> _:B1f17881f47cf568a6c947a35f6fa1f7f .
 <http://kerndatensatz-forschung.de/owl/Basis#hatOrganisationseinheit> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Pa35" .
 <http://kerndatensatz-forschung.de/owl/Basis#hatOrganisationseinheit> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#prohibitedFromUpdateBelowRoleLevelAnnot> <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatOrganisationseinheit> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#hiddenFromDisplayBelowRoleLevelAnnot> <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatOrganisationseinheit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatOrganisationseinheit> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#hiddenFromPublishBelowRoleLevelAnnot> <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> .
+<http://kerndatensatz-forschung.de/owl/Basis#hatOrganisationseinheit> <http://www.w3.org/2000/01/rdf-schema#domain> _:Bd21a8d33f8b8a65258fd1a2e5991734a .
 <http://kerndatensatz-forschung.de/owl/Basis#hatOrganisationseinheit> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#selectFromExistingAnnot> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
 <http://kerndatensatz-forschung.de/owl/Basis#BezeichnungDerProfessur> <http://www.w3.org/2000/01/rdf-schema#label> "Bezeichnung der Professur"@de .
 <http://kerndatensatz-forschung.de/owl/Basis#BezeichnungDerProfessur> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#prohibitedFromUpdateBelowRoleLevelAnnot> <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> .
@@ -785,6 +781,8 @@ _:Bad227bdbX2Df21cX2D4969X2D9999X2D4e6b48fdd6be <http://www.w3.org/1999/02/22-rd
 <http://kerndatensatz-forschung.de/owl/Basis#Sammelbandbeitrag> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Pu110" .
 <http://kerndatensatz-forschung.de/owl/Basis#Sammelbandbeitrag> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#Artikel> .
 <http://kerndatensatz-forschung.de/owl/Basis#Sammelbandbeitrag> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:Bf27fccb37e05058863d96a3f5c92f461 <http://www.w3.org/2002/07/owl#unionOf> _:Bdcdad307X2D2e04X2D4a59X2Dbfa1X2D0d09d94666bc .
+_:Bf27fccb37e05058863d96a3f5c92f461 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://kerndatensatz-forschung.de/owl/Basis#Wissensressourcen> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#prohibitedFromUpdateBelowRoleLevelAnnot> <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> .
 <http://kerndatensatz-forschung.de/owl/Basis#Wissensressourcen> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#hiddenFromPublishBelowRoleLevelAnnot> <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> .
 <http://kerndatensatz-forschung.de/owl/Basis#Wissensressourcen> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#hiddenFromDisplayBelowRoleLevelAnnot> <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> .
@@ -793,10 +791,8 @@ _:Bad227bdbX2Df21cX2D4969X2D9999X2D4e6b48fdd6be <http://www.w3.org/1999/02/22-rd
 <http://kerndatensatz-forschung.de/owl/Basis#Wissensressourcen> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#Forschungsinfrastruktur> .
 <http://kerndatensatz-forschung.de/owl/Basis#Wissensressourcen> <http://www.w3.org/2000/01/rdf-schema#label> "Wissensressourcen" .
 <http://kerndatensatz-forschung.de/owl/Basis#Wissensressourcen> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:B1f17881f47cf568a6c947a35f6fa1f7f <http://www.w3.org/2002/07/owl#unionOf> _:B959b323eX2D9eb6X2D44feX2D81ebX2D0e852cd8f80b .
-_:B1f17881f47cf568a6c947a35f6fa1f7f <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:B32bbe6a9X2D1f0eX2D4c7bX2D9a45X2Dec436c6d3995 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:B32bbe6a9X2D1f0eX2D4c7bX2D9a45X2Dec436c6d3995 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#StrukturiertesPromotionsprogramm> .
+_:B908f5930X2Dbd2dX2D4d8bX2D84a8X2D90bf6639e680 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bdff62f1eX2D9140X2D4cf6X2Daf97X2Dabf3f29133f1 .
+_:B908f5930X2Dbd2dX2D4d8bX2D84a8X2D90bf6639e680 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Drittmittelprojekt> .
 <http://kerndatensatz-forschung.de/owl/Basis#Journalartikel> <http://www.w3.org/2000/01/rdf-schema#label> "Journalartikel"@de .
 <http://kerndatensatz-forschung.de/owl/Basis#Journalartikel> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#prohibitedFromUpdateBelowRoleLevelAnnot> <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> .
 <http://kerndatensatz-forschung.de/owl/Basis#Journalartikel> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#inClassGroup> <http://vivoweb.org/ontology#vitroClassGrouppublications> .
@@ -826,6 +822,8 @@ _:B32bbe6a9X2D1f0eX2D4c7bX2D9a45X2Dec436c6d3995 <http://www.w3.org/1999/02/22-rd
 <http://kerndatensatz-forschung.de/owl/Basis#hatQualifizierungsverfahren> <http://www.w3.org/2000/01/rdf-schema#domain> <http://kerndatensatz-forschung.de/owl/Basis#Person> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatQualifizierungsverfahren> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#offerCreateNewOptionAnnot> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatQualifizierungsverfahren> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topObjectProperty> .
+_:B8ed70d35X2Db16fX2D4702X2D9b15X2D7cc8af834bdc <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B584c5ce3X2D3898X2D48dfX2D97a8X2D3379bd4f7788 .
+_:B8ed70d35X2Db16fX2D4702X2D9b15X2D7cc8af834bdc <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Drittmittelprojekt> .
 <http://kerndatensatz-forschung.de/owl/Basis#Buch> <http://www.w3.org/2000/01/rdf-schema#label> "Buch"@de .
 <http://kerndatensatz-forschung.de/owl/Basis#Buch> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#prohibitedFromUpdateBelowRoleLevelAnnot> <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> .
 <http://kerndatensatz-forschung.de/owl/Basis#Buch> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#inClassGroup> <http://vivoweb.org/ontology#vitroClassGrouppublications> .
@@ -835,8 +833,6 @@ _:B32bbe6a9X2D1f0eX2D4c7bX2D9a45X2Dec436c6d3995 <http://www.w3.org/1999/02/22-rd
 <http://kerndatensatz-forschung.de/owl/Basis#Buch> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#Publikation> .
 <http://kerndatensatz-forschung.de/owl/Basis#Buch> <http://www.w3.org/2002/07/owl#equivalentClass> <http://purl.org/ontology/bibo/Book> .
 <http://kerndatensatz-forschung.de/owl/Basis#Buch> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:B9497582eX2D55a2X2D40d4X2Db0eaX2D9d463afc8ed7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Be0764818X2D5efbX2D4720X2Db23cX2D51ca238e9bbc .
-_:B9497582eX2D55a2X2D40d4X2Db0eaX2D9d463afc8ed7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Drittmittelprojekt> .
 <http://kerndatensatz-forschung.de/owl/Basis#Seniorprofessoren> <http://www.w3.org/2000/01/rdf-schema#label> "Seniorprofessor"@de .
 <http://kerndatensatz-forschung.de/owl/Basis#Seniorprofessoren> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#inClassGroup> <http://vivoweb.org/ontology#vitroClassGrouppeople> .
 <http://kerndatensatz-forschung.de/owl/Basis#Seniorprofessoren> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#prohibitedFromUpdateBelowRoleLevelAnnot> <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> .
@@ -881,3 +877,7 @@ _:B9497582eX2D55a2X2D40d4X2Db0eaX2D9d463afc8ed7 <http://www.w3.org/1999/02/22-rd
 <http://kerndatensatz-forschung.de/owl/Basis#hatUebergeordnetesProjekt> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#hiddenFromPublishBelowRoleLevelAnnot> <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatUebergeordnetesProjekt> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#selectFromExistingAnnot> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatUebergeordnetesProjekt> <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#hiddenFromDisplayBelowRoleLevelAnnot> <http://vitro.mannlib.cornell.edu/ns/vitro/role#public> .
+_:B6391428aX2D5aa7X2D4402X2DacaeX2D032a787e0811 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B406623e5X2D4a2eX2D4d21X2D8fbeX2De0e5facab107 .
+_:B6391428aX2D5aa7X2D4402X2DacaeX2D032a787e0811 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Beschaeftigter> .
+_:B584c5ce3X2D3898X2D48dfX2D97a8X2D3379bd4f7788 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:B584c5ce3X2D3898X2D48dfX2D97a8X2D3379bd4f7788 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#StrukturiertesPromotionsprogramm> .

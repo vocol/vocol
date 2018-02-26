@@ -27,14 +27,25 @@ router.post('/', function(req, res) {
           isPrivateLoginPasswordModified = false;
       }
     if (userData.repositoryType === "private") {
+       shell.cd("..");
+          shell.exec('pwd', {
+          silent: false
+        }).stdout;
+
       var isRepoCloned = shell.exec('git clone https://"' + userData.user + ":" + encodeURIComponent(userData.password) + "@" + userData.repositoryURL.slice(8) + '" repoFolder', {
         silent: false
       }).stdout;
       console.log('git clone https://"' + userData.user + ":" + encodeURIComponent(userData.password) + "@" + userData.repositoryURL.slice(8) + '" repoFolder');
       if (!isRepoCloned.includes("failed")){
-        shell.exec('git config --global credential.helper store', {
+          shell.cd("repoFolder");
+	  shell.exec('git config --global credential.helper store', {
           silent: false
         }).stdout;
+        shell.cd("../vocol/");
+                 shell.exec('pwd', {
+          silent: false
+        }).stdout;
+
 
               if (isAdminPasswordModified || isPrivateLoginPasswordModified) {
                 bcrypt.genSalt(saltRounds, function(err, salt) {

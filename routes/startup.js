@@ -12,7 +12,7 @@ router.get('/', function(req, res) {
     extended: true
   }));
   shell.exec('pwd').stdout;
-
+ console.log("show I am from startup.js")
   // check if the userConfigurations file is exist
   // for the first time of app running
   var path = "jsonDataFiles/userConfigurations.json";

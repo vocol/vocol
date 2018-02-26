@@ -40,11 +40,13 @@ router.post('/', function(req, res) {
             pusher = data.pusher.name;
 
           } else if (repositoryService === 'gitLab') {
-            var data = JSON.parse(req.body.payload);
-            console.log(req.body);
-            repositoryName = data.repository.homepage;
-            branchName = data.ref;
+            var data =  JSON.parse(JSON.stringify(req.body));
+            repositoryName = data.repository.name;
+            branchName = data.ref.split('/')[2];
             commitMessage = data.commits[0].message;
+            commitTimestamp = data.commits[0].timestamp;
+            pusher = data.user_username;
+
           } else if (repositoryService === 'bitBucket') {
             var data = JSON.parse(req.body.payload);
             repositoryName = data.repository.links.html.href;
@@ -62,6 +64,12 @@ router.post('/', function(req, res) {
             commitTimestamp = event.toJSON();
             console.log("data are " + branchName + " " + commitMessage + " " + pusher + "timestap" + commitTimeInMilliseconds + " " + commitTimestamp);
           }
+	   console.log(branchName);
+           console.log(branchNameParam);
+           console.log(repositoryNameParam);
+           console.log(repositoryName);
+           console.log(commitMessage);
+
 
           if (branchName == branchNameParam && repositoryNameParam === repositoryName && !commitMessage.includes("merge")) {
             console.log('contains');
@@ -176,7 +184,7 @@ router.post('/', function(req, res) {
                   // add commit details when user make new commit
                   var commitDetails = "";
                   if (commitTimestamp != "")
-                    commitDetails = "commitTimestamp:" + commitTimestamp + "\n" + "pusher:" + pusher + "\n" + "commitMessage:" + commitMessage;
+                    commitDetails = "commitTimestamp:" + commitTimestamp + "\n" + "pusher:" + pusher + "\n" + "commitMessage:" + commitMessage  + "\n";
                   var evolutionReport = shell.exec('./owl2diff ../evolution/SingleVoc.nt ../serializations/SingleVoc.nt', {
                     silent: false
                   }).stdout;

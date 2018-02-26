@@ -5,7 +5,7 @@
 echo -n > helper/tools/serializations/SingleVoc.nt
 echo "[]" > jsonDataFiles/syntaxErrors.json
 echo -n > helper/tools/evolution/evolutionReport.txt
-echo -n > jsonDataFiles/userConfigurations.json
+echo "{}" > jsonDataFiles/userConfigurations.json
 rm -f jsonDataFiles/RDFSConcepts.json
 rm -f jsonDataFiles/SKOSConcepts.json
 rm -f jsonDataFiles/SKOSObjects.json
