@@ -17,7 +17,7 @@ All VoCol components, even the repository engine, can be exchanged with little e
 The following steps are needed to setup the VoCol Environment either on a local machine or a web server.
 
 1. First, we assumed that you are using a Linux-based operating system.
-1. Next, to prepare the VoCol environment, you should have the following libraries installed: Java JDK, NodeJS, NPM, Rapper, Git, and Turtle-validator packages with their respective versions or higher. They are listed in section **[Required libraries and tools](https://github.com/vocol/vocol/wiki/Required-libraries-and-tools)**. 
+1. Next, to prepare the VoCol environment, you should have the following libraries installed: Java JDK, NodeJS, NPM, Git, and Turtle-validator packages with their respective versions or higher. They are listed in section **[Required libraries and tools](https://github.com/vocol/vocol/wiki/Required-libraries-and-tools)**. 
 2. Make a new directory, in the following command-line "newFolder" is given but you are free to choose your own, then inside the new directory, clone VoCol repository as follows:
 ```
 mkdir newFolder
@@ -28,17 +28,20 @@ git clone https://github.com/vocol/vocol.git
 ```
 chmod u+x  .
 ```
-4. Now, we are almost done, go "VoCol" folder and clear old data with the command-line:
+4. Enter in "VoCol" folder and clear old data if any is exsit:
 ```
-sh helper/scripts/resetApp.sh
+cd vocol
+./helper/scripts/resetApp.sh
 ```
-5. The last step is to start VoCol with NPM command-line:
+5. To install the depdent packages first start with [Turtle validator](https://github.com/IDLabResearch/TurtleValidator): this package is also needed to run the VoCol app. If you have the [NPM](https://www.npmjs.com/get-npm) package manager installed, then the following command-line should be given for installing this package:
 ```
-npm start
-```
+sudo npm install -g turtle-validator
+````
+
+
+
 6. If VoCol started without errors, then go to step 7. otherwise, if you have different NPM or Node versions, then continue with this step. First, remove all previously installed node modules, then re-install them with the following command-in.
 ```
-sudo rm -rf node_modules/
 sudo npm install
 ```
 Semantic-Ui framework is used in VoCol development, a couple of selections need to be given while installing it. 
@@ -58,7 +61,12 @@ Finally, give "public/semantic" as the location of Sematic-Ui in VoCol Project.
 ```
 ? Where should we put Semantic UI inside your project? (semantic/) public/semantic/
 ```
-7. Normally, You can access VoCol start page with http://localhost:3000 URL if the port number was not changed. If you clear old data as step 5 describes, then the configuration page will be displayed. otherwise, you can use http://localhost:3000/config URL for configuring VoCol.
+7. The last step is to start VoCol with NPM command-line:
+```
+npm start
+```
+8. Normally, You can access VoCol start page with http://localhost:3000 URL if the port number was not changed. If you clear old data as step 5 describes, then the configuration page will be displayed. otherwise, you can use http://localhost:3000/config URL for configuring VoCol.
+9. You have a posibility to change the vocol access's port number by accessing the file bin/www from the root path of VoCol.
 
 For more details about VoCol repository, please have a look on our VoColWiki
 
