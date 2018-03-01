@@ -32,7 +32,7 @@ router.post('/', function(req, res) {
           var pusher = "";
 
           if (repositoryService === 'gitHub') {
-            var data = JSON.parse(req.body.payload);
+            var data =  JSON.parse(JSON.stringify(req.body));
             repositoryName = data.repository.name;
             branchName = data.ref.split('/')[2];
             commitMessage = data.head_commit.message;
