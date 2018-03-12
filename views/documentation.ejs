@@ -74,6 +74,10 @@
                             <input type="radio" name="typesRadio" id="datatypePropertyRadio">
                             <label>Datatype Property</label>
                           </div>
+                          <div class="ui radio checkbox">
+                            <input type="radio" name="typesRadio" id="individualsPropertyRadio">
+                            <label>Individuals</label>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -175,7 +179,7 @@
             var RDFObjPlusURI = <%- JSON.stringify(RDFObjectsPlusURI) %>;
             var SKOSObjPlusURI = <%- JSON.stringify(SKOSObjectsPlusURI) %>;
             var OWLIndividiualsData = <%- JSON.stringify(OWLIndividuals) %>;
-
+            console.log(OWLIndividiualsData);
             // store the selected concept
             var currentSelectedConcept = "";
             // store current elements in the tree, it has RDFS concepts initially
@@ -217,6 +221,87 @@
               }
               return viewData;
             }
+
+
+            // show SKOS concepts on treeview
+            function showIndividualTree() {
+              //
+              // if (data === SKOSData || data.length === 0) {
+              //   var viewData = SKOSData;
+              //   currentTreeData = SKOSData;
+              // } else {
+              //   var viewData = data;
+              //   currentTreeData = data;
+              // }
+              var viewData = OWLIndividiualsData;
+              //currentTreeData = OWLIndividiualsData;
+
+              // Just one check is on not both
+              // if (isCheckedshowTypesCheckBox)
+              //   $('#showFilesCheckBox').prop('checked', false);
+              // if (isCheckedshowFilesCheckBox)
+              //   $('#showTypesCheckBox').prop('checked', false);
+
+              // if (str) {
+              //   viewData = getViewDataBasedOnType(viewData, str);
+              //   currentTreeData = viewData;
+              // }
+
+              //var allParents = getUniqueParents(viewData);
+              var data = [];
+              //var parentNodes = [];
+              // if ($('#showTypesCheckBox').is(':checked')) {
+              //   for (var i = 0; i < viewData.length; i++) {
+              //     viewData[i].text = viewData[i].subject;
+              //     // check for multiple types
+              //     const allTypes = _(SKOSData)
+              //       .filter(o => {
+              //         return o.concept === viewData[i].concept
+              //       })
+              //       .map(o => {
+              //         return '<a  class="ui tiny teal tag label">' + o.RDFType + '</a>';
+              //       })
+              //       .valueOf();
+              //     var allUniqueTypes = allTypes;
+              //     viewData[i].tags = uniqueArray(allUniqueTypes, "RDFType");
+              //   }
+              //   parentNodes = getParentWithChildren(viewData, allParents, 'typeTag');
+              //
+              // } else if ($('#showFilesCheckBox').is(':checked')) {
+              //   for (var i = 0; i < viewData.length; i++) {
+              //     viewData[i].text = viewData[i].concept;
+              //     viewData[i].tags = ['<a  class="ui tiny pink tag label">' + viewData[i].fileName + '</a>'];
+              //   }
+              //   parentNodes = getParentWithChildren(viewData, allParents, 'fileTag');
+              //
+              // } else {
+                for (var i = 0; i < viewData.length; i++) {
+                  viewData[i].text = viewData[i].subject;
+                  viewData[i].tags = [''];
+              //  }
+              //  parentNodes = getParentWithChildren(viewData, allParents);
+
+              }
+              data = viewData;
+
+              // if (file !== "ALL Files") {
+              //   currentTreeData = getSKOSFileData(data, file);
+              //   data = getSKOSFileData(data, file);
+              // }
+              $('#notFoundMessage').hide();
+              $("#tree").show();
+
+              // make array unique
+              data = uniqueArray(data);
+              // sorting the tree before viewing
+              data.sort(function(a, b) {
+                return ((a.text.toLowerCase() == b.text.toLowerCase()) ? 0 : ((a.text.toLowerCase() > b.text.toLowerCase()) ? 1 : -1));
+              });
+              // rebuild tree with the new SKOS data
+              buildTree(data);
+            }
+
+
 
             // show SKOS concepts on treeview
             function showSKOSTree(data, file, str) {
@@ -321,6 +406,14 @@
               }
               return externalConcepts;
             }
+
+
+//////////////////////////////////////////////////////////////////////
+
+//showIndividualTree();
+
+//////////////////////////////////////////////////////////////////////
+
 
             // show full tree for the first time
             // since RDFS checkbox is clicked by default
@@ -540,7 +633,18 @@
                 icon: "glyphicon glyphicon-chevron-right",
                 selectedIcon: "glyphicon glyphicon-chevron-right",
                 onNodeSelected: function(event, node) {
-                  if (node.hasOwnProperty('child')) { // child right now only a property for SKOS object
+                  // catch the individuals if it has "subject" property
+                  if(node.hasOwnProperty('subject')){
+                  event.stopPropagation();
+                  $('#externalInfo').hide();
+                  $('#infoDetails').show();
+                  $('#viewList').show();
+                  getConceptInfo(node.subject);
+                  showTurtleSource(node.subject);
+                  currentSelectedConcept = node.subject;
+                  }
+                  // child right now only a property for SKOS object
+                  else if (node.hasOwnProperty('child')) {
                     var str;
                     currentSelectedSKOSURI = node.URI;
                     $('#externalInfo').hide();
@@ -553,7 +657,7 @@
                       $(this).find('.tag-cont').html($(this).find('.badge'));
                     });
                   } else {
-                    if (node.concept) {
+                    if (node.concept ) {
                       event.stopPropagation();
                       $('#externalInfo').hide();
                       $('#infoDetails').show();
@@ -562,8 +666,8 @@
                       showInstances(node.concept);
                       showTurtleSource(node.concept);
                       currentSelectedConcept = node.concept;
-                    } else if (node.hasOwnProperty('nodes')) { //check for SKOS parents nodes
-
+                    }//check for SKOS parents nodes
+                    else if (node.hasOwnProperty('nodes')) {
                       if (node.nodes[0].hasOwnProperty('child')) {
                         currentSelectedSKOSURI = node.nodes[0].parentURI;
                         $('#externalInfo').hide();
@@ -630,7 +734,9 @@
                 var inputType = "";
                 inputType = getClickedTypeRadio();
                 $("#infoTabs").hide();
-                if ($('#SKOSViewCheckBox').is(':checked')) {
+                if ($('#individualsPropertyRadio').is(':checked')){
+                  showIndividualTree();
+                } else if ($('#SKOSViewCheckBox').is(':checked')) {
                   showSKOSTree(SKOSData, currentSelectedFile, inputType);
                 } else if ($('#RDFSViewCheckBox').is(':checked')) {
                   showRDFSTree(RDFSData, currentSelectedFile, inputType);
