@@ -4,6 +4,11 @@
   height: auto;
 }
 
+.ui.segments>.segment {
+    padding-right: 5px;
+    padding-left: 5px;
+
+  }
 
 .ui.form .field {
   margin: 0 0 0;

@@ -45,7 +45,7 @@
               </div>
             </div>
           </div>
-          <div class="ui vertical stripe segment" style="padding-top: 0px; padding-left: 8%;padding-bottom: 0px;">
+          <div class="ui vertical stripe segment" style="padding-top: 0px; padding-left: 3%;padding-bottom: 0px;">
             <div class="ui grid stackable container">
               <div class="row">
                 <div class="ui three column stackable divided grid">
@@ -178,8 +178,8 @@
             var currentFiles = <%- JSON.stringify(fileNames) %>;
             var RDFObjPlusURI = <%- JSON.stringify(RDFObjectsPlusURI) %>;
             var SKOSObjPlusURI = <%- JSON.stringify(SKOSObjectsPlusURI) %>;
-            var OWLIndividiualsData = <%- JSON.stringify(OWLIndividuals) %>;
-            console.log(OWLIndividiualsData);
+            var individiualsData = <%- JSON.stringify(OWLIndividuals) %>;
+            console.log(currentFiles);
             // store the selected concept
             var currentSelectedConcept = "";
             // store current elements in the tree, it has RDFS concepts initially
@@ -224,70 +224,43 @@
 
 
             // show SKOS concepts on treeview
-            function showIndividualTree() {
-              //
-              // if (data === SKOSData || data.length === 0) {
-              //   var viewData = SKOSData;
-              //   currentTreeData = SKOSData;
-              // } else {
-              //   var viewData = data;
-              //   currentTreeData = data;
-              // }
-              var viewData = OWLIndividiualsData;
-              //currentTreeData = OWLIndividiualsData;
+            function showIndividualTree(data, file) {
+              if (data === individiualsData || data.length === 0) {
+                var viewData = individiualsData;
+                currentTreeData = individiualsData;
+              } else {
+                var viewData = data;
+                currentTreeData = data;
+              }
 
               // Just one check is on not both
-              // if (isCheckedshowTypesCheckBox)
-              //   $('#showFilesCheckBox').prop('checked', false);
-              // if (isCheckedshowFilesCheckBox)
-              //   $('#showTypesCheckBox').prop('checked', false);
-
-              // if (str) {
-              //   viewData = getViewDataBasedOnType(viewData, str);
-              //   currentTreeData = viewData;
-              // }
-
-              //var allParents = getUniqueParents(viewData);
-              var data = [];
-              //var parentNodes = [];
-              // if ($('#showTypesCheckBox').is(':checked')) {
-              //   for (var i = 0; i < viewData.length; i++) {
-              //     viewData[i].text = viewData[i].subject;
-              //     // check for multiple types
-              //     const allTypes = _(SKOSData)
-              //       .filter(o => {
-              //         return o.concept === viewData[i].concept
-              //       })
-              //       .map(o => {
-              //         return '<a  class="ui tiny teal tag label">' + o.RDFType + '</a>';
-              //       })
-              //       .valueOf();
-              //     var allUniqueTypes = allTypes;
-              //     viewData[i].tags = uniqueArray(allUniqueTypes, "RDFType");
-              //   }
-              //   parentNodes = getParentWithChildren(viewData, allParents, 'typeTag');
-              //
-              // } else if ($('#showFilesCheckBox').is(':checked')) {
-              //   for (var i = 0; i < viewData.length; i++) {
-              //     viewData[i].text = viewData[i].concept;
-              //     viewData[i].tags = ['<a  class="ui tiny pink tag label">' + viewData[i].fileName + '</a>'];
-              //   }
-              //   parentNodes = getParentWithChildren(viewData, allParents, 'fileTag');
-              //
-              // } else {
+              if (isCheckedshowTypesCheckBox)
+                $('#showFilesCheckBox').prop('checked', false);
+              if (isCheckedshowFilesCheckBox)
+                $('#showTypesCheckBox').prop('checked', false);
+                if ($('#showTypesCheckBox').is(':checked')) {
+                  for (var i = 0; i < viewData.length; i++) {
+                    viewData[i].text = viewData[i].subject;
+                    viewData[i].tags = ['<a  class="ui tiny teal tag label">' + viewData[i].RDFType + '</a>'];
+                  }
+                }
+              else if ($('#showFilesCheckBox').is(':checked')) {
+                for (var i = 0; i < viewData.length; i++) {
+                  viewData[i].text = viewData[i].subject;
+                  viewData[i].tags = ['<a  class="ui tiny pink tag label">' + viewData[i].fileName + '</a>'];
+                }
+              } else {
                 for (var i = 0; i < viewData.length; i++) {
                   viewData[i].text = viewData[i].subject;
                   viewData[i].tags = [''];
-              //  }
-              //  parentNodes = getParentWithChildren(viewData, allParents);
-
+                }
               }
+              var data = [];
               data = viewData;
-
-              // if (file !== "ALL Files") {
-              //   currentTreeData = getSKOSFileData(data, file);
-              //   data = getSKOSFileData(data, file);
-              // }
+              if (file !== "ALL Files") {
+                currentTreeData = getIndividualsFileData(data, file);
+                data = getIndividualsFileData(data, file);
+              }
               $('#notFoundMessage').hide();
               $("#tree").show();
 
@@ -406,14 +379,6 @@
               }
               return externalConcepts;
             }
-
-
-//////////////////////////////////////////////////////////////////////
-
-//showIndividualTree();
-
-//////////////////////////////////////////////////////////////////////
-
 
             // show full tree for the first time
             // since RDFS checkbox is clicked by default
@@ -566,7 +531,7 @@
               if (str) {
                 viewData = getViewDataBasedOnType(viewData, str);
               }
-              // only one chec is on not both
+              // only one is checked but not both
               if (isCheckedshowTypesCheckBox)
                 $('#showFilesCheckBox').prop('checked', false);
               if (isCheckedshowFilesCheckBox)
@@ -634,14 +599,14 @@
                 selectedIcon: "glyphicon glyphicon-chevron-right",
                 onNodeSelected: function(event, node) {
                   // catch the individuals if it has "subject" property
-                  if(node.hasOwnProperty('subject')){
-                  event.stopPropagation();
-                  $('#externalInfo').hide();
-                  $('#infoDetails').show();
-                  $('#viewList').show();
-                  getConceptInfo(node.subject);
-                  showTurtleSource(node.subject);
-                  currentSelectedConcept = node.subject;
+                  if (node.hasOwnProperty('subject')) {
+                    event.stopPropagation();
+                    $('#externalInfo').hide();
+                    $('#infoDetails').show();
+                    $('#viewList').show();
+                    getConceptInfo(node.subjectURI, "Individuals");
+                    showTurtleSource(node.subject);
+                    currentSelectedConcept = node.subject;
                   }
                   // child right now only a property for SKOS object
                   else if (node.hasOwnProperty('child')) {
@@ -657,7 +622,7 @@
                       $(this).find('.tag-cont').html($(this).find('.badge'));
                     });
                   } else {
-                    if (node.concept ) {
+                    if (node.concept) {
                       event.stopPropagation();
                       $('#externalInfo').hide();
                       $('#infoDetails').show();
@@ -666,7 +631,7 @@
                       showInstances(node.concept);
                       showTurtleSource(node.concept);
                       currentSelectedConcept = node.concept;
-                    }//check for SKOS parents nodes
+                    } //check for SKOS parents nodes
                     else if (node.hasOwnProperty('nodes')) {
                       if (node.nodes[0].hasOwnProperty('child')) {
                         currentSelectedSKOSURI = node.nodes[0].parentURI;
@@ -714,7 +679,12 @@
                 inputType = getClickedTypeRadio();
                 isCheckedshowFilesCheckBox = ($(this).prop('checked') && $(this).attr('id') == 'showFilesCheckBox') ? true : false;
                 isCheckedshowTypesCheckBox = ($(this).prop('checked') && $(this).attr('id') == 'showTypesCheckBox') ? true : false;
-                if (($(this).prop('checked') || !$(this).prop('checked')) && $('#SKOSViewCheckBox').is(':checked')) {
+                if (($(this).prop('checked') || !$(this).prop('checked')) && $('#individualsPropertyRadio').is(':checked')) {
+                  if ($('#input-search').val() !== "")
+                    showIndividualTree(currentTreeData, currentSelectedFile);
+                  else
+                    showIndividualTree(individiualsData, currentSelectedFile);
+                } else if (($(this).prop('checked') || !$(this).prop('checked')) && $('#SKOSViewCheckBox').is(':checked')) {
                   if ($('#input-search').val() !== "") {
                     showSKOSTree(currentTreeData, currentSelectedFile);
                   } else
@@ -734,8 +704,8 @@
                 var inputType = "";
                 inputType = getClickedTypeRadio();
                 $("#infoTabs").hide();
-                if ($('#individualsPropertyRadio').is(':checked')){
-                  showIndividualTree();
+                if ($('#individualsPropertyRadio').is(':checked')) {
+                  showIndividualTree(individiualsData, currentSelectedFile);
                 } else if ($('#SKOSViewCheckBox').is(':checked')) {
                   showSKOSTree(SKOSData, currentSelectedFile, inputType);
                 } else if ($('#RDFSViewCheckBox').is(':checked')) {
@@ -764,7 +734,27 @@
               var pattern = $('#input-search').val();
               var ignoreCase = $('#chk-ignore-case').is(':checked');
               var array = [];
-              if ($('#SKOSViewCheckBox').is(':checked')) {
+              // search pattern in individuals
+              if ($('#individualsPropertyRadio').is(':checked')) {
+                if (currentSelectedFile != "ALL Files") {
+                  array = _.filter(individiualsData, function(o) {
+                    if (o.fileName === currentSelectedFile)
+                      return o;
+                  });
+                } else {
+                  array = individiualsData;
+                }
+                showIndividualTree(array, currentSelectedFile);
+                var result = $('#tree').treeview('search', [pattern, {
+                  ignoreCase: ignoreCase, // case insensitive
+                  exactMatch: false, // like or equals
+                  revealResults: false, // reveal matching nodes
+                }]);
+                currentTreeData = result;
+                buildTree(result);
+              }
+              // search pattern in SKOS concepts
+              else if ($('#SKOSViewCheckBox').is(':checked')) {
                 if (currentSelectedFile != "ALL Files") {
                   array = _.filter(SKOSData, function(o) {
                     if (o.fileName === currentSelectedFile)
@@ -806,7 +796,9 @@
               } else if ($('#input-search').val() === "") {
                 $('#infoTabs').hide();
                 $('#tree').show();
-                if ($('#RDFSViewCheckBox').is(':checked'))
+                if  ($('#individualsPropertyRadio').is(':checked'))
+                  showIndividualTree(array, currentSelectedFile);
+                else if ($('#RDFSViewCheckBox').is(':checked'))
                   showRDFSTree(array, currentSelectedFile);
                 else
                   showSKOSTree(array, currentSelectedFile);
@@ -929,6 +921,23 @@
               return filteredData;
             }
 
+            // get Individuals of the tree to display filtered by file
+            function getIndividualsFileData(result, selectedFileName) {
+              if (selectedFileName) {
+                var filteredData = [];
+                var k = 0;
+                for (var i = 0; i < result.length; i++) {
+                  if (result[i].hasOwnProperty('fileName')) {
+                    if (result[i].fileName.trim() === selectedFileName) {
+                      filteredData[k] = result[i];
+                      k++;
+                    }
+                  }
+                }
+              }
+              return filteredData;
+            }
+
             // Get the word after slash char of a string
             function trimSlash(str) {
               if (str.includes("/")) {
@@ -966,7 +975,7 @@
 
             //check if concept is OWLIndividiual
             function isOWLIndividiual(str) {
-              if (OWLIndividiualsData.find(x => x.subject === str)) {
+              if (individiualsData.find(x => x.subject === str)) {
                 return true;
               } else
                 return false;
@@ -1012,64 +1021,28 @@
               return;
             }
 
-            // update dropDownMenu with SKOS fileNames
-            function getSKOSFiles() {
-              $('#itemFiles').html('');
-              var SKOSFiles = [];
-              for (var i = 0; i < SKOSData.length; i++) {
-                if (SKOSData[i].fileName)
-                  SKOSFiles.push(SKOSData[i].fileName);
-              }
-              SKOSFiles = [...new Set(SKOSFiles.map(item => item))];
-              SKOSFiles.sort();
-
-              $('#itemFiles').append('<div  class="item"><div class="ui red empty circular label"></div> ALL Files</div>');
-              SKOSFiles.forEach(function(item) {
-                $('#itemFiles').append('<div class="item"><div class="ui blue empty circular label"></div> ' + item + ' </div>');
-              });
-              $('.ui.dropdown').dropdown("refresh");
-            }
-
-            // update dropDownMenu with RDFS fileNames
-            function getRDFSFiles() {
-              $('#itemFiles').html('');
-              var RDFSFiles = [];
-              for (var i = 0; i < RDFSData.length; i++) {
-                if (RDFSData[i].fileName)
-                  RDFSFiles.push(RDFSData[i].fileName);
-              }
-              RDFSFiles = [...new Set(RDFSFiles.map(item => item))];
-              RDFSFiles.sort();
-              $('#itemFiles').append('<div  class="item"><div class="ui red empty circular label"></div>ALL Files</div>');
-              RDFSFiles.forEach(function(item) {
-                $('#itemFiles').append('<div class="item"><div class="ui blue empty circular label"></div> ' + item + ' </div>');
-              });
-              $('.ui.dropdown').dropdown("refresh");
-
-            }
-
             // get selected fileNames for dropDownMenu and rebuild treeview
             function getSelectedFileName() {
               var selectedFileName = $('.ui.dropdown').dropdown('get text');
-              // fill the dropdown menu of the either SKOS or RDFS files
-              if ($('#SKOSViewCheckBox').is(':checked')) {
-                getSKOSFiles();
-              } else if ($('#RDFSViewCheckBox').is(':checked')) {
-                getRDFSFiles();
-              }
-
               selectedFileName = selectedFileName.trim();
               if (selectedFileName != "Choose File") {
                 $('#infoTabs').hide(); //hide previos infoTabs
                 if (selectedFileName === "ALL Files") {
-                  if ($('#SKOSViewCheckBox').is(':checked')) {
+                  if ($('#individualsPropertyRadio').is(':checked')) {
+                    $('#infoTabs').hide(); //hide previos infoTabs
+                    showIndividualTree(individiualsData, "ALL Files");
+                  } else if ($('#SKOSViewCheckBox').is(':checked')) {
                     showSKOSTree(SKOSData, "ALL Files");
                   } else if ($('#RDFSViewCheckBox').is(':checked')) {
                     showRDFSTree(RDFSData, "ALL Files");
                   }
                 } else {
                   currentSelectedFile = selectedFileName;
-                  if ($('#SKOSViewCheckBox').is(':checked')) {
+                  if ($('#individualsPropertyRadio').is(':checked')) {
+                    $('#infoTabs').hide(); //hide previos infoTabs
+                    currentTreeData = individiualsData;
+                    showIndividualTree(individiualsData, selectedFileName);
+                  } else if ($('#SKOSViewCheckBox').is(':checked')) {
                     currentTreeData = SKOSData;
                     $('#infoTabs').hide(); //hide previos infoTabs
                     showSKOSTree(SKOSData, selectedFileName);
@@ -1355,18 +1328,16 @@
                     domainPropertyTable += '</tbody></table> ';
                     rangePropertyTable += '</tbody></table> ';
                     // show domainPropertyTable if it has Values
-                    if (hasdomainPropertyValues){
+                    if (hasdomainPropertyValues) {
                       $("#domainPropertyTable").show();
                       $("#domainPropertyTable").html(domainPropertyTable);
-                    }
-                    else
+                    } else
                       $("#domainPropertyTable").hide();
                     // show rangePropertyTable if it has Values
-                    if (hasRangePropertyValues){
+                    if (hasRangePropertyValues) {
                       $("#rangePropertyTable").show();
                       $("#rangePropertyTable").html(rangePropertyTable);
-                    }
-                    else
+                    } else
                       $("#rangePropertyTable").hide();
                   }
                 }
@@ -1383,6 +1354,9 @@
               if (view === "SKOS") {
                 conceptURI = item;
                 isURIExist = true;
+              } else if (view === "Individuals") {
+                conceptURI = item;
+                isURIExist = true;
               } else {
                 for (var i = 0; i < RDFSData.length; i++) {
                   if (item.toLowerCase() === RDFSData[i].concept.toLowerCase()) {
@@ -1394,7 +1368,35 @@
               }
               // highlight the selected node
               var selectedNode = $('#tree').treeview('getSelected');
-              if (selectedNode[0].concept != item && view !== "SKOS") {
+              if (view === "SKOS" || view === "Individuals") {
+                //scrollTop if class clicked from instanceDetailsTable
+                $("#infoTabs").animate({
+                  scrollTop: 0
+                }, "fast");
+                $("#instanceHead").hide();
+                $("#instanceDetailsTable").hide();
+                $("#instancesTable").hide();
+
+                // scroll to the clicked node from documentation and select the node
+                const callback = element => element.innerHTML == trimHash(replaceWithRDFType(trimSlash(item)));
+                const elements = Array.from(document.getElementsByTagName('a'));
+                const result = elements.filter(callback);
+                var $s = $('#treeContainer');
+                //  get nodeid of string node.text
+                var liTop = $s.find('[data-nodeid=' + parseInt(result["0"].firstChild.parentNode.offsetParent.dataset.nodeid) + ']').offset().top;
+                var ulTop = $s.offset().top;
+                // scroll to the selected node
+                //  $s.scrollTop($s.scrollTop() + (liTop - ulTop));
+                // select the node of the treeview
+                $('#tree').treeview('selectNode', [parseInt(result["0"].firstChild.parentNode.offsetParent.dataset.nodeid), {
+                  silent: true
+                }]);
+              } else if (selectedNode[0].concept != item) {
+
+                if (!$('#allTypesRadio').is(':checked'))
+                  //$('#allTypesRadio').click();
+                  $('#allTypesRadio').click();;
+
                 //scrollTop if class clicked from instanceDetailsTable
                 $("#infoTabs").animate({
                   scrollTop: 0
@@ -1417,30 +1419,7 @@
                   silent: true
                 }]);
               }
-              if (view === "SKOS") {
-                //scrollTop if class clicked from instanceDetailsTable
-                $("#infoTabs").animate({
-                  scrollTop: 0
-                }, "fast");
-                $("#instanceHead").hide();
-                $("#instanceDetailsTable").hide();
-                $("#instancesTable").hide();
 
-                // scroll to the clicked node from documentation and select the node
-                const callback = element => element.innerHTML == trimHash(replaceWithRDFType(trimSlash(item)));
-                const elements = Array.from(document.getElementsByTagName('a'));
-                const result = elements.filter(callback);
-                var $s = $('#treeContainer');
-                //  get nodeid of string node.text
-                var liTop = $s.find('[data-nodeid=' + parseInt(result["0"].firstChild.parentNode.offsetParent.dataset.nodeid) + ']').offset().top;
-                var ulTop = $s.offset().top;
-                // scroll to the selected node
-                $s.scrollTop($s.scrollTop() + (liTop - ulTop));
-                // select the node of the treeview
-                $('#tree').treeview('selectNode', [parseInt(result["0"].firstChild.parentNode.offsetParent.dataset.nodeid), {
-                  silent: true
-                }]);
-              }
               if (isURIExist) {
                 var endpoint = "./fuseki/dataset/sparql"
                 if (!anotherQuery)
@@ -1538,8 +1517,10 @@
                     table += '<tr><td>' + key1 + '</td>    <td>' + key2 + '</td>  </tr>';
                   }
                 }
-
-                if ($('#SKOSViewCheckBox').is(':checked'))
+                if($('#individualsPropertyRadio').is(':checked')){
+                  //donothing
+                }
+                else if ($('#SKOSViewCheckBox').is(':checked'))
                   var data = SKOSData;
                 else {
                   var data = RDFSData;

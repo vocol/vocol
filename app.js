@@ -146,12 +146,10 @@ app.use(session({
 // redirect to /config for first time if userConfigurations.json does not exsit
 app.get('*', function(req, res, next) {
 var userConfigurationsFile2 = __dirname + '/jsonDataFiles/userConfigurations.json';
-console.log(userConfigurationsFile2)
-    var data = fs.readFileSync(userConfigurationsFile2);
-console.log(data);
+    var data = fs.readFileSync(userConfigurationsFile2, "utf8");
     if (!data.includes("adminUserName"))
     res.render('config', {
-      title: 'Configuration Page !!!',
+      title: 'Configuration Page',
       inputComponentsValues: "",
       data: {},
       errors: {}

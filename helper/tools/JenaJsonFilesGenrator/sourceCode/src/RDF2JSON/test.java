@@ -1,4 +1,4 @@
-
+package RDF2JSON;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -17,7 +17,6 @@ import org.apache.jena.ontology.OntModel;
 import org.apache.jena.ontology.OntModelSpec;
 import org.apache.jena.query.QueryExecution;
 import org.apache.jena.query.QueryExecutionFactory;
-import org.apache.jena.query.QueryFactory;
 import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.query.ResultSetFormatter;
@@ -25,7 +24,7 @@ import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.util.FileManager;
 
-public class app {
+public class test {
 	static String  	mainQuery = "", Query = "";
 	static String turtleFolderPath = "../../../../repoFolder/";
 	static String outputFolderPath = "../../../jsonDataFiles/";
@@ -43,7 +42,6 @@ public class app {
 		JSONObject mergedJsonObjectallSKOSObjecs = new JSONObject();
 		JSONObject mergedJsonOWLNamedIndividuals = new JSONObject();
 		JSONArray mergingJsonOWLNamedIndividuals = new JSONArray();
-
 		try {
 
 			File dir = new File(turtleFolderPath);
@@ -92,14 +90,13 @@ public class app {
 			objectsFileDecode(mergedJsonObjectallRDFObjecs, "RDFS");
 			objectsFileDecode(mergedJsonObjectallSKOSObjecs, "SKOS");
 			objectsFileDecode(mergedJsonOWLNamedIndividuals, "OWLIndividiual");
-
-			// System.out.println(mergedJsonOWLNamedIndividuals);
-
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
 		} finally {
-			
+
 		}
+
+
 	}
 
 	// @SuppressWarnings({ "null", "resource" })
@@ -120,15 +117,22 @@ public class app {
 				+ "PREFIX foaf: <http://xmlns.com/foaf/0.1/>"
 				+ "PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>"
 				+ "PREFIX skos: <http://www.w3.org/2004/02/skos/core#> " 
-				+ "SELECT DISTINCT ?concept ?RDFType ?label"
+				+ "SELECT DISTINCT ?concept ?RDFType "
 				+ "WHERE {{"
 				+ "  ?concept rdfs:subClassOf ?p"
 				+ "  OPTIONAL {?concept a ?RDFType.} "
-				+ "  Filter(!bound(?RDFType))}"
+				+ "  Filter(!bound(?RDFType))"
+				+ "}"
 				+ "UNION{"
 				+ "?concept a ?RDFType . "
-				+ "           OPTIONAL {?concept rdfs:label ?label .}"
-				+ "FILTER (!contains(str(?RDFType), \"skos/core#\"))}"
+				+ "           OPTIONAL {?concept ?p ?o.}"
+				+ "FILTER (!contains(str(?RDFType), \"skos/core#\"))"
+				+ "FILTER (contains(str(?RDFType), \"owl#\")||contains(str(?RDFType), \"22-rdf-syntax-ns#\")||contains(str(?RDFType),\"rdf-schema#\" ))"
+
+				+ "MINUS{?concept a owl:NamedIndividual  ."+
+				"}"+
+				"MINUS{?concept a owl:Thing ."+
+				"}}"
 				+ "}";
 		QueryExecution qexec2 = QueryExecutionFactory.create(mainQuery, ontModel);
 		ResultSet result2 = qexec2.execSelect();
@@ -140,7 +144,6 @@ public class app {
 
 		JSONObject jsonObject = new JSONObject();
 		JSONArray array = new JSONArray();
-		int counter = 0 ;
 		while (result2.hasNext()) {
 			QuerySolution binding = result2.nextSolution();
 			//if (binding.get("concept") != null && isNotInstances(binding.get("RDFType").toString())) {
@@ -152,27 +155,24 @@ public class app {
 
 				if (binding.get("RDFType") != null) {
 
-					counter++;
 					Resource RDFType = (Resource) binding.get("RDFType");
 
 					// trimming of the concept from URI
-					if (RDFType.getURI() != null)
+					if (RDFType.getURI() != null) {
 						obj.put("RDFType", replaceWithRDFType(RDFType.getURI().toString()));
 
+					}
 				}
 				else {
 					obj.put("RDFType", "Class");
-					counter++;
 
 				}
 
-				if (binding.get("label") != null) {
-					obj.put("label", binding.get("label").toString());
-				} else
-					obj.put("label", "");
 				// trimming of the concept from URI
+				if(concept.getURI()!= null)
 				obj.put("concept", replaceWithRDFType(concept.getURI().toString()));
-
+				else 
+					continue;
 				obj.put("URI", concept.getURI());
 
 
@@ -210,7 +210,6 @@ public class app {
 				jsonObject.put("concepts", array);
 			}
 		}
-		System.out.print("Number of RDF concepts is "+counter+"\n");
 		return jsonObject;
 	}
 
@@ -225,9 +224,9 @@ public class app {
 
 		mainQuery = "PREFIX skos: <http://www.w3.org/2004/02/skos/core#> " 
 				+ "SELECT  distinct ?subject ?oBroader ?RDFType  WHERE {"
-				+ "?subject a skos:Concept ."
-				+ "OPTIONAL{?subject a ?RDFType .}" 
-				+ "OPTIONAL{?subject skos:broader ?oBroader .}}";
+				+ "?subject a ?RDFType ."
+				+ "OPTIONAL{?subject skos:broader ?oBroader .}"
+				+ " FILTER (contains(str(?RDFType), \"skos/core#\"))}";
 		JSONObject jsonObject = new JSONObject();
 		JSONArray array = new JSONArray();
 
@@ -347,7 +346,7 @@ public class app {
 				"PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>"+
 				"PREFIX owl:  <http://www.w3.org/2002/07/owl#>"+
 				"PREFIX skos: <http://www.w3.org/2004/02/skos/core#>"+  
-				"SELECT DISTINCT ?s "+
+				"SELECT DISTINCT ?s ?RDFType "+
 				"WHERE {{"+
 				"?s a ?RDFType ; ?p ?o."+
 				"FILTER (!contains(str(?RDFType), \"owl#\"))"+
@@ -381,7 +380,13 @@ public class app {
 					obj.put("subject", trimInstance(subject.getURI()));
 				else 
 					continue;
+				
 				obj.put("subjectURI", subject.getURI());
+				
+				if (binding.get("RDFType") != null) {
+					Resource RDFType = (Resource) binding.get("RDFType");
+					obj.put("RDFType", replaceWithRDFType(RDFType.getURI().toString()));
+				}
 				File file = new File(_sourceFile);
 				obj.put("fileName", file.getName());
 				array.put(obj);
@@ -729,7 +734,6 @@ public class app {
 							JSONObject orginzedOject = new JSONObject();
 							orginzedOject.put("concept", issue.getString("concept"));
 							orginzedOject.put("fileName", issue.getString("fileName"));
-							orginzedOject.put("label", issue.getString("label"));
 							orginzedOject.put("URI", issue.getString("URI"));
 							orginzedOject.put("RDFType", issue.getString("RDFType"));
 							// System.out.println("\nRDFType: " + issue.getString("RDFType"));
