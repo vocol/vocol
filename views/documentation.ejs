@@ -181,7 +181,8 @@
             var individiualsData = <%- JSON.stringify(OWLIndividuals) %>;
             console.log(currentFiles);
             // store the selected concept
-            var currentSelectedConcept = "";
+            var currentSelectedConcept = "",
+              currentSelectedIndividualURI = "";
             // store current elements in the tree, it has RDFS concepts initially
             var currentTreeData = RDFSData;
             // store which file is selected from the dropdown menuSize
@@ -238,13 +239,12 @@
                 $('#showFilesCheckBox').prop('checked', false);
               if (isCheckedshowFilesCheckBox)
                 $('#showTypesCheckBox').prop('checked', false);
-                if ($('#showTypesCheckBox').is(':checked')) {
-                  for (var i = 0; i < viewData.length; i++) {
-                    viewData[i].text = viewData[i].subject;
-                    viewData[i].tags = ['<a  class="ui tiny teal tag label">' + viewData[i].RDFType + '</a>'];
-                  }
+              if ($('#showTypesCheckBox').is(':checked')) {
+                for (var i = 0; i < viewData.length; i++) {
+                  viewData[i].text = viewData[i].subject;
+                  viewData[i].tags = ['<a  class="ui tiny teal tag label">' + viewData[i].RDFType + '</a>'];
                 }
-              else if ($('#showFilesCheckBox').is(':checked')) {
+              } else if ($('#showFilesCheckBox').is(':checked')) {
                 for (var i = 0; i < viewData.length; i++) {
                   viewData[i].text = viewData[i].subject;
                   viewData[i].tags = ['<a  class="ui tiny pink tag label">' + viewData[i].fileName + '</a>'];
@@ -605,8 +605,9 @@
                     $('#infoDetails').show();
                     $('#viewList').show();
                     getConceptInfo(node.subjectURI, "Individuals");
-                    showTurtleSource(node.subject);
+                    showTurtleSource(node.subjectURI, "Individuals");
                     currentSelectedConcept = node.subject;
+                    currentSelectedIndividualURI = node.subjectURI;
                   }
                   // child right now only a property for SKOS object
                   else if (node.hasOwnProperty('child')) {
@@ -796,7 +797,7 @@
               } else if ($('#input-search').val() === "") {
                 $('#infoTabs').hide();
                 $('#tree').show();
-                if  ($('#individualsPropertyRadio').is(':checked'))
+                if ($('#individualsPropertyRadio').is(':checked'))
                   showIndividualTree(array, currentSelectedFile);
                 else if ($('#RDFSViewCheckBox').is(':checked'))
                   showRDFSTree(array, currentSelectedFile);
@@ -1177,7 +1178,7 @@
             function showTurtleSource(item, view, anotherQuery) {
               var conceptURI;
               var isURIExist = false;
-              if (view == "SKOS") {
+              if (view == "SKOS" || view == "Individuals") {
                 conceptURI = item;
                 isURIExist = true;
               } else {
@@ -1239,7 +1240,9 @@
             // call to showTurtleSource to display the turtle format
             // when checkbox is clicked
             $("#sourceCodeTab").on('click', function() {
-              if ($('#SKOSViewCheckBox').is(':checked')) {
+              if ($('#individualsPropertyRadio').is(':checked'))
+                showTurtleSource(currentSelectedIndividualURI, "Individuals");
+              else if ($('#SKOSViewCheckBox').is(':checked')) {
                 if (justOneTimeExectuted)
                   showTurtleSource(currentSelectedSKOSURI, "SKOS", "queryAsObject");
                 else
@@ -1517,10 +1520,9 @@
                     table += '<tr><td>' + key1 + '</td>    <td>' + key2 + '</td>  </tr>';
                   }
                 }
-                if($('#individualsPropertyRadio').is(':checked')){
+                if ($('#individualsPropertyRadio').is(':checked')) {
                   //donothing
-                }
-                else if ($('#SKOSViewCheckBox').is(':checked'))
+                } else if ($('#SKOSViewCheckBox').is(':checked'))
                   var data = SKOSData;
                 else {
                   var data = RDFSData;

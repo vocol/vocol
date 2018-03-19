@@ -56,7 +56,7 @@ if (errors) {
   shell.exec('fuser -k 3030/tcp').stdout;
   const child = spawn('sh', ['../../scripts/run.sh', '&']);
   shell.cd('../../../../repoFolder/').stdout;
-  var filePath = '../../../jsonDataFiles/syntaxErrors.json';
+  var filePath = '../vocol/jsonDataFiles/syntaxErrors.json';
   shell.exec('pwd');
   jsonfile.writeFile(filePath, errors, {
     spaces:  2,

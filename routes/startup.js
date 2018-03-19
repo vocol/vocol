@@ -113,7 +113,6 @@ router.get('/', function(req, res) {
           // reset the app. if the repositoryURL was changed
           shell.exec('echo -n > ../vocol/helper/tools/evolution/evolutionReport.txt').stdout;
           shell.exec('echo -n > ../vocol/helper/tools/serializations/SingleVoc.nt').stdout;
-          shell.exec('echo -n > ../vocol/helper/tools/rdf2rdf/temp.nt').stdout;
           shell.exec('echo "[]" > ../vocol/jsonDataFiles/syntaxErrors.json').stdout;
           shell.exec('rm -f ../vocol/views/webvowl/data/SingleVoc.json').stdout;
           shell.exec('rm -f ../vocol/jsonDataFiles/RDFSConcepts.json').stdout;
