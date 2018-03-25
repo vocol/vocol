@@ -63,7 +63,7 @@ Finally, give "public/semantic" as the location of Sematic-Ui in VoCol Project.
 npm start
 ```
 8. Normally, you can access VoCol start page with http://localhost:3000 URL if the port number was not changed. If you clear old data as step 4 describes, then the configuration page will be displayed. Otherwise, you can use http://localhost:3000/config URL for configuring VoCol. Sometimes, the port number is also changed during our project's development, for that, you have a possibility to look-up the vocol access's port number and as well change it, by opening **bin/www** file if you are on the root path of VoCol.
-9. To keep your repository synchronized with VoCol instance (for example when you push something), you should configure the web hook path on the hosting server which hosting you repository such (gitHub, gitLab, bitBucket ..) with a VoCol API: http(s)://hostname(:port or /vocolInstancePath)/listener. The important part to have this works, is to have an established connection between both hosting server and VoCol instance, either by having both of them publicly or locally accessible. 
+9. To keep your repository synchronized with VoCol instance (for example when you push something), you should configure *a web hook path* on the hosting server which hosting you repository such (gitHub, gitLab, bitBucket ..) with a VoCol API: *http(s)://hostname(:port or /vocolInstancePath)/listener*. The important part to have this works, is to have an established connection between both hosting server and VoCol instance, either by having both of them publicly or locally accessible. 
 
 For more details about VoCol repository, please have a look on our VoColWiki
 
