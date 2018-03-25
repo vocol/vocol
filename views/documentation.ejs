@@ -471,7 +471,7 @@
                       var instancesTable = '<table class="ui pink table" style="table-layout:fixed;>' +
                         '<colgroup> <col class="col-md-4"> </colgroup>' +
                         '<tr>' +
-                        '<th>Instances</th>' +
+                        '<th>Individuals</th>' +
                         '</tr>';
                       for (var i = 0; i < instances.length; i++) {
                         var instanceURI = instances[i]["s"].value;
@@ -491,7 +491,7 @@
                       var instancesTable = '<table class="ui red table" style="table-layout:fixed;>' +
                         '<colgroup> <col class="col-md-4"> </colgroup>' +
                         '<tr>' +
-                        '<th>Instances</th>' +
+                        '<th>Individuals</th>' +
                         '</tr>';
                       for (var i = 0; i < instances.length; i++) {
                         var instanceURI = instances[i]["s"].value;
@@ -1151,7 +1151,7 @@
                         var instancesTable = '<table class="ui red table" style="table-layout:fixed;>' +
                           '<colgroup> <col class="col-md-4"> </colgroup>' +
                           '<tr>' +
-                          '<th>Instances</th>' +
+                          '<th>Individuals</th>' +
                           '</tr>';
                         for (var i = 0; i < instances.length; i++) {
                           var instanceURI = instances[i]["s"].value;
@@ -1254,6 +1254,9 @@
 
             //check if concept used either as domain or range by other conceptsget
             function getValuesUseditAsProperty(conceptURI, type) {
+
+              $("#rangePropertyTable").hide();
+              $("#domainPropertyTable").hide();
               // make both rangePropertyTable and domainPropertyTable  empty
               $("#rangePropertyTable").hide();
               $("#domainPropertyTable").hide();
@@ -1303,11 +1306,19 @@
                           var key1 = trimHash(replaceWithRDFType(trimSlash(domianPropertyResult[i]['s'].value)));
                           var key2 = trimHash(replaceWithRDFType(trimSlash(domianPropertyResult[i]['range'].value)));
                           var key3 = domianPropertyResult[i]['comment'].value;
+                         // if(domianPropertyResult[i]['comment'].hasOwnProperty())
+                          var key4 = "";
+                          if(domianPropertyResult[i]['comment'].hasOwnProperty("xml:lang"))
+                           key4 = domianPropertyResult[i]['comment']['xml:lang'];
+
+                          var key5 = domianPropertyResult[i]['comment']['type'];
                           if (isConceptInside(key1) && domianPropertyResult[i]['s'].type === "uri")
                             key1 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key1 + '&quot;); return false; ">' + key1 + '</a>';
                           if (isConceptInside(key2) && domianPropertyResult[i]['range'].type === "uri")
                             key2 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
-
+                          if (key4 && key5 === "literal")
+                          domainPropertyTable += '<tr><td>' + key1 + '</td>    <td>' + key2 + '</td>   <td>' + key3 + '@' + key4 + '</td> </tr>';
+                          else
                           domainPropertyTable += '<tr><td>' + key1 + '</td>    <td>' + key2 + '</td>   <td>' + key3 + '</td> </tr>';
                         }
                       }
@@ -1319,11 +1330,19 @@
                           var key1 = trimHash(replaceWithRDFType(trimSlash(rangePropertyResult[i]['s'].value)));
                           var key2 = trimHash(replaceWithRDFType(trimSlash(rangePropertyResult[i]['range'].value)));
                           var key3 = rangePropertyResult[i]['comment'].value;
+                          var key4 ="";// domianPropertyResult[i]['comment']['xml:lang'];
+                          if(rangePropertyResult[i]['comment'].hasOwnProperty("xml:lang"))
+                                key4 = rangePropertyResult[i]['comment']['xml:lang'];
+
+                          var key5 = rangePropertyResult[i]['comment']['type'];
+
                           if (isConceptInside(key1) && rangePropertyResult[i]['s'].type === "uri")
                             key1 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key1 + '&quot;); return false; ">' + key1 + '</a>';
                           if (isConceptInside(key2) && rangePropertyResult[i]['range'].type === "uri")
                             key2 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
-
+                          if (key4 && key5 === "literal")
+                          rangePropertyTable += '<tr><td>' + key1 + '</td>    <td>' + key2 + '</td>   <td>' + key3 + '@' + key4 + '</td> </tr>';
+                          else
                           rangePropertyTable += '<tr><td>' + key1 + '</td>    <td>' + key2 + '</td>   <td>' + key3 + '</td> </tr>';
                         }
                       }
@@ -1521,7 +1540,10 @@
                   }
                 }
                 if ($('#individualsPropertyRadio').is(':checked')) {
-                  //donothing
+                                // make both rangePropertyTable and domainPropertyTable  empty
+              $("#rangePropertyTable").hide();
+              $("#domainPropertyTable").hide();
+
                 } else if ($('#SKOSViewCheckBox').is(':checked'))
                   var data = SKOSData;
                 else {
@@ -1531,10 +1553,15 @@
                     if (o.concept === currentSelectedConcept)
                       return o;
                   }).URI;
+
+
+                 if (!$('#individualsPropertyRadio').is(':checked')) {
+
                   // check if other concepts use this word as domain
                   getValuesUseditAsProperty(conceptURI, 'domain');
                   // check if other concepts use this word as range
                   getValuesUseditAsProperty(conceptURI, 'range');
+                 }
                   // close HTML tables with thier tags
                   table += '</table> ';
                   domainTable += '</table> ';
