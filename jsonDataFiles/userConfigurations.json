@@ -1,1 +1,23 @@
-{}
+{
+  "vocabularyName": "Mobivoc",
+  "server": "http://vocol.vagrantshare.com",
+  "adminUserName": "admin",
+  "adminPass": "$2a$10$ihLGJnN5fMMJGZxbNqAry.8aij.3brUK9aCs41eqBZqYEcSvja40a",
+  "repositoryURL": "https://github.com/ahemaid/vocotest.git",
+  "repositoryOwner": "ahemaid",
+  "repositoryName": "vocotest",
+  "branchName": "master",
+  "user": "admin",
+  "password": "addsddfsdf",
+  "repositoryService": "gitHub",
+  "repositoryType": "public",
+  "visualization": "true",
+  "sparqlEndPoint": "true",
+  "documentationGeneration": "true",
+  "evolutionReport": "true",
+  "turtleEditor": "true",
+  "analytics": "true",
+  "loginUserName": "",
+  "loginPassword": "$2a$10$ihLGJnN5fMMJGZxbNqAry.ol13YjbIyBcrZoqNaA6mkFjQFoUvFiy",
+  "text": ""
+}

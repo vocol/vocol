@@ -158,6 +158,8 @@
           </div>
           <div class="tab-pane" class="tabContent" id="showGraph" role="tabpanel">
             <div id='graph'></div>
+            <div id="mynetwork"></div>
+
           </div>
         </div>
       </div>
@@ -179,7 +181,6 @@
             var RDFObjPlusURI = <%- JSON.stringify(RDFObjectsPlusURI) %>;
             var SKOSObjPlusURI = <%- JSON.stringify(SKOSObjectsPlusURI) %>;
             var individiualsData = <%- JSON.stringify(OWLIndividuals) %>;
-            console.log(currentFiles);
             // store the selected concept
             var currentSelectedConcept = "",
               currentSelectedIndividualURI = "";
@@ -1471,6 +1472,7 @@
                 var conceptHasRange = "";
                 var conceptHasDomain = "";
                 var conceptLabel;
+                var nodes = [] , edges = [] ;
                 var table = '<table class="ui green celled striped table" style="table-layout:fixed;">' +
                   '<colgroup> <col class="col-md-auto"><col class="col-md-7"> </colgroup>' +
                   '<tr class="positive">' +
@@ -1492,7 +1494,9 @@
                   var key1 = trimHash(replaceWithRDFType(trimSlash(dataSPARQL[i]['p'].value)));
                   var key2 = dataSPARQL[i]['o'].value;
                   var key2URI = key2;
-                  var key3 = dataSPARQL[i]['o']['xml:lang'];
+                  var key3 = "";
+                  if(dataSPARQL[i]['o'].hasOwnProperty("xml:lang"))
+                   key3 = dataSPARQL[i]['o']['xml:lang'];
                   var key4 = dataSPARQL[i]['o']['type'];
 
                   if ((key2.includes("http://") || key2.includes("https://")) && key4 === "literal") {
@@ -1503,8 +1507,16 @@
                     if (key2[key2.length - 1] === ('/'))
                       key2 = key2.slice(0, -1);
                     key2 = trimHash(replaceWithRDFType(trimSlash(key2)));
-
                   }
+                  // create an array with nodes for graph visualization
+                  if(key3){
+                    nodes.push({id: i+2 , label: key2+"@"+key3});
+                }else{
+                  nodes.push( {id: i+2 , label: key2});
+                }
+                // create an array with edges for graph visualization
+
+                edges.push({from: 1, to: i+2, label: key1, font: {color: 'green'}});
 
                   if (key1.includes("domain")) {
                     conceptHasDomain = key1;
@@ -1575,9 +1587,11 @@
 
                 //display returned data on the Html tables
                 $("#conceptHead").show();
-                if (currentSelectedConcept.includes("http://")) { //check if it skosURI
+                if (currentSelectedConcept.includes("http://")||currentSelectedConcept.includes("https://")) { //check if it skosURI
                   currentSelectedConcept = trimHash(trimSlash(currentSelectedConcept));
                 }
+                nodes.push({id: 1, label:  currentSelectedConcept  , font: {size:20, color:'red', face:'sans'} , color:'#FFFF00'});
+
                 $("#conceptHead ").html('<p >  Details: <code>' + currentSelectedConcept + '</code></p>');
                 $("#infoDetails").show();
                 $('#viewList').show();
@@ -1597,32 +1611,78 @@
                 $("#domainTable").html(domainTable);
                 $("#rangeTable").html(rangeTable);
                 $("#sourceCodeTab").show();
-                // To render the graph id the graphTab if a concept node is selected
-                showConceptGraph(json);
+                $('#graphTab').show();
 
-                // To render oncemore the graph id the graphTab is clicked
-                $('#graphTab').on('click', function() {
-                  showConceptGraph(json);
-                });
+                 // create a network
+                 var container = document.getElementById('mynetwork');
+                 var data = {
+                   nodes: nodes,
+                   edges: edges
+                 };
+                 var options = {
+                   autoResize: true,
+                   height: '300px',
+                   width: '500px',
+                   nodes : {
+                     shape: 'dot',
+                     size: 20
+                   },
+                   physics:{
+                       enabled: true,
+                       barnesHut: {
+                         gravitationalConstant: -2000,
+                         centralGravity: 0.3,
+                         springLength: 95,
+                         springConstant: 0.04,
+                         damping: 0.09,
+                         avoidOverlap: 0
+                       },
+                       forceAtlas2Based: {
+                         gravitationalConstant: -50,
+                         centralGravity: 0.01,
+                         springConstant: 0.08,
+                         springLength: 100,
+                         damping: 0.4,
+                         avoidOverlap: 0
+                       },
+                       repulsion: {
+                         centralGravity: 0.2,
+                         springLength: 200,
+                         springConstant: 0.05,
+                         nodeDistance: 100,
+                         damping: 0.09
+                       },
+                       hierarchicalRepulsion: {
+                         centralGravity: 0.0,
+                         springLength: 100,
+                         springConstant: 0.01,
+                         nodeDistance: 120,
+                         damping: 0.09
+                       },
+                       maxVelocity: 50,
+                       minVelocity: 0.1,
+                       solver: 'barnesHut',
+                       stabilization: {
+                         enabled: true,
+                         iterations: 1000,
+                         updateInterval: 100,
+                         onlyDynamicEdges: false,
+                         fit: true
+                       },
+                       timestep: 0.5,
+                       adaptiveTimestep: true
+                     }
+                 };
+                 var network = new vis.Network(container, data, options);
+
+                 // To render oncemore the graph id the graphTab is clicked
+    $('#graphTab').on('click', function() {
+       network = new vis.Network(container, data, options);
+    });
               }
             }
 
-            // To show the graph of the selected concept
-            function showConceptGraph(json) {
-              // config. of the graph
-              var config = {
-                "radius": 20,
-                "charge": -100,
-                "distance": 10,
-                "width": 500,
-                "height": 310,
-                "selector ": '#showGraph'
-              };
-              d3sparql.forcegraph(json, config);
-              $('#graph').html('');
-              $('#graphTab').show();
-              $('div.d3sparql.forcegraph').appendTo($('#graph'));
-            }
+
 
             // To display in TabView
             $(document).ready(function(e) {
