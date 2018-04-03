@@ -151,15 +151,14 @@
               <div id="instancesTable" style="display: none"></div>
               <h4 id="instanceHead" style="display: none; margin-top:9px"></h4>
               <div id="instanceDetailsTable" style="display: none"></div>
-            </div>
+              </div>
           </div>
           <div class="tab-pane" class="tabContent" id="sourceCode" role="tabpanel">
             <div id="yasqe" style="overflow: hidden"></div>
           </div>
           <div class="tab-pane" class="tabContent" id="showGraph" role="tabpanel">
-            <div id='graph'></div>
             <div id="mynetwork"></div>
-
+            <p id="selection"></p>
           </div>
         </div>
       </div>
@@ -1129,10 +1128,15 @@
             function showInstances(item) {
               var conceptURI;
               var isURIExist = false;
+              var data = [];
+              if ($('#SKOSViewCheckBox').is(':checked'))
+                 data = SKOSData;
+              else
+                 data = RDFSData;
               if (item) {
-                for (var i = 0; i < RDFSData.length; i++) {
-                  if (item.toLowerCase() === RDFSData[i].concept.toLowerCase()) {
-                    conceptURI = RDFSData[i].URI;
+                for (var i = 0; i < data.length; i++) {
+                  if (item.toLowerCase() === data[i].concept.toLowerCase()) {
+                    conceptURI = data[i].URI;
                     isURIExist = true;
                     break;
                   }
@@ -1255,9 +1259,9 @@
 
             //check if concept used either as domain or range by other conceptsget
             function getValuesUseditAsProperty(conceptURI, type) {
+              var hasdomainPropertyValues = false;
+              var hasRangePropertyValues = false;
 
-              $("#rangePropertyTable").hide();
-              $("#domainPropertyTable").hide();
               // make both rangePropertyTable and domainPropertyTable  empty
               $("#rangePropertyTable").hide();
               $("#domainPropertyTable").hide();
@@ -1282,8 +1286,8 @@
                 },
                 success: function(data, textStatus, jqXHR) {
                   var result = data.results.bindings;
-                  var hasdomainPropertyValues = false;
-                  var hasRangePropertyValues = false;
+                  hasdomainPropertyValues = false;
+                  hasRangePropertyValues = false;
 
                   if (result[0] != null) {
                     var rangePropertyTable = '<table class="ui yellow celled table" style="table-layout:fixed;" >' +
@@ -1307,10 +1311,10 @@
                           var key1 = trimHash(replaceWithRDFType(trimSlash(domianPropertyResult[i]['s'].value)));
                           var key2 = trimHash(replaceWithRDFType(trimSlash(domianPropertyResult[i]['range'].value)));
                           var key3 = domianPropertyResult[i]['comment'].value;
-                         // if(domianPropertyResult[i]['comment'].hasOwnProperty())
+                          // if(domianPropertyResult[i]['comment'].hasOwnProperty())
                           var key4 = "";
-                          if(domianPropertyResult[i]['comment'].hasOwnProperty("xml:lang"))
-                           key4 = domianPropertyResult[i]['comment']['xml:lang'];
+                          if (domianPropertyResult[i]['comment'].hasOwnProperty("xml:lang"))
+                            key4 = domianPropertyResult[i]['comment']['xml:lang'];
 
                           var key5 = domianPropertyResult[i]['comment']['type'];
                           if (isConceptInside(key1) && domianPropertyResult[i]['s'].type === "uri")
@@ -1318,9 +1322,9 @@
                           if (isConceptInside(key2) && domianPropertyResult[i]['range'].type === "uri")
                             key2 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
                           if (key4 && key5 === "literal")
-                          domainPropertyTable += '<tr><td>' + key1 + '</td>    <td>' + key2 + '</td>   <td>' + key3 + '@' + key4 + '</td> </tr>';
+                            domainPropertyTable += '<tr><td>' + key1 + '</td>    <td>' + key2 + '</td>   <td>' + key3 + '@' + key4 + '</td> </tr>';
                           else
-                          domainPropertyTable += '<tr><td>' + key1 + '</td>    <td>' + key2 + '</td>   <td>' + key3 + '</td> </tr>';
+                            domainPropertyTable += '<tr><td>' + key1 + '</td>    <td>' + key2 + '</td>   <td>' + key3 + '</td> </tr>';
                         }
                       }
                     } else if (type === 'range') {
@@ -1331,9 +1335,9 @@
                           var key1 = trimHash(replaceWithRDFType(trimSlash(rangePropertyResult[i]['s'].value)));
                           var key2 = trimHash(replaceWithRDFType(trimSlash(rangePropertyResult[i]['range'].value)));
                           var key3 = rangePropertyResult[i]['comment'].value;
-                          var key4 ="";// domianPropertyResult[i]['comment']['xml:lang'];
-                          if(rangePropertyResult[i]['comment'].hasOwnProperty("xml:lang"))
-                                key4 = rangePropertyResult[i]['comment']['xml:lang'];
+                          var key4 = ""; // domianPropertyResult[i]['comment']['xml:lang'];
+                          if (rangePropertyResult[i]['comment'].hasOwnProperty("xml:lang"))
+                            key4 = rangePropertyResult[i]['comment']['xml:lang'];
 
                           var key5 = rangePropertyResult[i]['comment']['type'];
 
@@ -1342,9 +1346,9 @@
                           if (isConceptInside(key2) && rangePropertyResult[i]['range'].type === "uri")
                             key2 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
                           if (key4 && key5 === "literal")
-                          rangePropertyTable += '<tr><td>' + key1 + '</td>    <td>' + key2 + '</td>   <td>' + key3 + '@' + key4 + '</td> </tr>';
+                            rangePropertyTable += '<tr><td>' + key1 + '</td>    <td>' + key2 + '</td>   <td>' + key3 + '@' + key4 + '</td> </tr>';
                           else
-                          rangePropertyTable += '<tr><td>' + key1 + '</td>    <td>' + key2 + '</td>   <td>' + key3 + '</td> </tr>';
+                            rangePropertyTable += '<tr><td>' + key1 + '</td>    <td>' + key2 + '</td>   <td>' + key3 + '</td> </tr>';
                         }
                       }
                     }
@@ -1354,14 +1358,12 @@
                     if (hasdomainPropertyValues) {
                       $("#domainPropertyTable").show();
                       $("#domainPropertyTable").html(domainPropertyTable);
-                    } else
-                      $("#domainPropertyTable").hide();
+                    }
                     // show rangePropertyTable if it has Values
                     if (hasRangePropertyValues) {
                       $("#rangePropertyTable").show();
                       $("#rangePropertyTable").html(rangePropertyTable);
-                    } else
-                      $("#rangePropertyTable").hide();
+                    }
                   }
                 }
               });
@@ -1472,7 +1474,8 @@
                 var conceptHasRange = "";
                 var conceptHasDomain = "";
                 var conceptLabel;
-                var nodes = [] , edges = [] ;
+                var nodes = [],
+                  edges = [];
                 var table = '<table class="ui green celled striped table" style="table-layout:fixed;">' +
                   '<colgroup> <col class="col-md-auto"><col class="col-md-7"> </colgroup>' +
                   '<tr class="positive">' +
@@ -1495,8 +1498,8 @@
                   var key2 = dataSPARQL[i]['o'].value;
                   var key2URI = key2;
                   var key3 = "";
-                  if(dataSPARQL[i]['o'].hasOwnProperty("xml:lang"))
-                   key3 = dataSPARQL[i]['o']['xml:lang'];
+                  if (dataSPARQL[i]['o'].hasOwnProperty("xml:lang"))
+                    key3 = dataSPARQL[i]['o']['xml:lang'];
                   var key4 = dataSPARQL[i]['o']['type'];
 
                   if ((key2.includes("http://") || key2.includes("https://")) && key4 === "literal") {
@@ -1509,14 +1512,27 @@
                     key2 = trimHash(replaceWithRDFType(trimSlash(key2)));
                   }
                   // create an array with nodes for graph visualization
-                  if(key3){
-                    nodes.push({id: i+2 , label: key2+"@"+key3});
-                }else{
-                  nodes.push( {id: i+2 , label: key2});
-                }
-                // create an array with edges for graph visualization
+                  if (key3) {
+                    nodes.push({
+                      id: i + 2,
+                      label: key2 + "@" + key3
+                    });
+                  } else {
+                    nodes.push({
+                      id: i + 2,
+                      label: key2
+                    });
+                  }
+                  // create an array with edges for graph visualization
 
-                edges.push({from: 1, to: i+2, label: key1, font: {color: 'green'}});
+                  edges.push({
+                    from: 1,
+                    to: i + 2,
+                    label: key1,
+                    font: {
+                      color: 'green'
+                    }
+                  });
 
                   if (key1.includes("domain")) {
                     conceptHasDomain = key1;
@@ -1551,29 +1567,7 @@
                     table += '<tr><td>' + key1 + '</td>    <td>' + key2 + '</td>  </tr>';
                   }
                 }
-                if ($('#individualsPropertyRadio').is(':checked')) {
-                                // make both rangePropertyTable and domainPropertyTable  empty
-              $("#rangePropertyTable").hide();
-              $("#domainPropertyTable").hide();
 
-                } else if ($('#SKOSViewCheckBox').is(':checked'))
-                  var data = SKOSData;
-                else {
-                  var data = RDFSData;
-                  // get currentSelectedURI for domainPropertyTable and rangePropertyTable
-                  var conceptURI = _.find(data, function(o) {
-                    if (o.concept === currentSelectedConcept)
-                      return o;
-                  }).URI;
-
-
-                 if (!$('#individualsPropertyRadio').is(':checked')) {
-
-                  // check if other concepts use this word as domain
-                  getValuesUseditAsProperty(conceptURI, 'domain');
-                  // check if other concepts use this word as range
-                  getValuesUseditAsProperty(conceptURI, 'range');
-                 }
                   // close HTML tables with thier tags
                   table += '</table> ';
                   domainTable += '</table> ';
@@ -1587,10 +1581,19 @@
 
                 //display returned data on the Html tables
                 $("#conceptHead").show();
-                if (currentSelectedConcept.includes("http://")||currentSelectedConcept.includes("https://")) { //check if it skosURI
+                if (currentSelectedConcept.includes("http://") || currentSelectedConcept.includes("https://")) { //check if it skosURI
                   currentSelectedConcept = trimHash(trimSlash(currentSelectedConcept));
                 }
-                nodes.push({id: 1, label:  currentSelectedConcept  , font: {size:20, color:'red', face:'sans'} , color:'#FFFF00'});
+                nodes.push({
+                  id: 1,
+                  label: currentSelectedConcept,
+                  font: {
+                    size: 20,
+                    color: 'red',
+                    face: 'sans'
+                  },
+                  color: '#FFFF00'
+                });
 
                 $("#conceptHead ").html('<p >  Details: <code>' + currentSelectedConcept + '</code></p>');
                 $("#infoDetails").show();
@@ -1610,76 +1613,107 @@
                 $("#detailTable").html(table);
                 $("#domainTable").html(domainTable);
                 $("#rangeTable").html(rangeTable);
+                var dataToBeChecked = [];
+                if ($('#individualsPropertyRadio').is(':checked')) {
+                  // make both rangePropertyTable and domainPropertyTable  empty
+                  $("#rangePropertyTable").hide();
+                  $("#domainPropertyTable").hide();
+                } else if ($('#SKOSViewCheckBox').is(':checked'))
+                   dataToBeChecked = SKOSData;
+                else
+                   dataToBeChecked = RDFSData;
+                  // get currentSelectedURI for domainPropertyTable and rangePropertyTable
+                  var conceptURI = _.find(dataToBeChecked, function(o) {
+                    if (o.concept === currentSelectedConcept)
+                      return o;
+                  }).URI;
+
+                  if (!$('#individualsPropertyRadio').is(':checked')) {
+                    $("#rangePropertyTable").hide();
+                    $("#domainPropertyTable").hide();
+                    // check if other concepts use this word as domain
+                    getValuesUseditAsProperty(conceptURI, 'domain');
+                    // check if other concepts use this word as range
+                    getValuesUseditAsProperty(conceptURI, 'range');
+                  }
                 $("#sourceCodeTab").show();
                 $('#graphTab').show();
 
-                 // create a network
-                 var container = document.getElementById('mynetwork');
-                 var data = {
-                   nodes: nodes,
-                   edges: edges
-                 };
-                 var options = {
-                   autoResize: true,
-                   height: '300px',
-                   width: '500px',
-                   nodes : {
-                     shape: 'dot',
-                     size: 20
-                   },
-                   physics:{
-                       enabled: true,
-                       barnesHut: {
-                         gravitationalConstant: -2000,
-                         centralGravity: 0.3,
-                         springLength: 95,
-                         springConstant: 0.04,
-                         damping: 0.09,
-                         avoidOverlap: 0
-                       },
-                       forceAtlas2Based: {
-                         gravitationalConstant: -50,
-                         centralGravity: 0.01,
-                         springConstant: 0.08,
-                         springLength: 100,
-                         damping: 0.4,
-                         avoidOverlap: 0
-                       },
-                       repulsion: {
-                         centralGravity: 0.2,
-                         springLength: 200,
-                         springConstant: 0.05,
-                         nodeDistance: 100,
-                         damping: 0.09
-                       },
-                       hierarchicalRepulsion: {
-                         centralGravity: 0.0,
-                         springLength: 100,
-                         springConstant: 0.01,
-                         nodeDistance: 120,
-                         damping: 0.09
-                       },
-                       maxVelocity: 50,
-                       minVelocity: 0.1,
-                       solver: 'barnesHut',
-                       stabilization: {
-                         enabled: true,
-                         iterations: 1000,
-                         updateInterval: 100,
-                         onlyDynamicEdges: false,
-                         fit: true
-                       },
-                       timestep: 0.5,
-                       adaptiveTimestep: true
-                     }
-                 };
-                 var network = new vis.Network(container, data, options);
+                // create a network
+                var container = document.getElementById('mynetwork');
+                var data = {
+                  nodes: nodes,
+                  edges: edges
+                };
+                var options = {
+                  autoResize: true,
+                  height: '400px',
+                  width: '500px',
+                  nodes: {
+                    shape: 'dot',
+                    size: 20
+                  },
+                  interaction: {
+                    navigationButtons: true,
+                    keyboard: true
+                  },
+                  physics: {
+                    enabled: true,
+                    barnesHut: {
+                      gravitationalConstant: -2000,
+                      centralGravity: 0.3,
+                      springLength: 95,
+                      springConstant: 0.04,
+                      damping: 0.09,
+                      avoidOverlap: 0
+                    },
+                    forceAtlas2Based: {
+                      gravitationalConstant: -50,
+                      centralGravity: 0.01,
+                      springConstant: 0.08,
+                      springLength: 100,
+                      damping: 0.4,
+                      avoidOverlap: 0
+                    },
+                    repulsion: {
+                      centralGravity: 0.2,
+                      springLength: 200,
+                      springConstant: 0.05,
+                      nodeDistance: 100,
+                      damping: 0.09
+                    },
+                    hierarchicalRepulsion: {
+                      centralGravity: 0.0,
+                      springLength: 100,
+                      springConstant: 0.01,
+                      nodeDistance: 120,
+                      damping: 0.09
+                    },
+                    maxVelocity: 50,
+                    minVelocity: 0.1,
+                    solver: 'barnesHut',
+                    stabilization: {
+                      enabled: true,
+                      iterations: 1000,
+                      updateInterval: 100,
+                      onlyDynamicEdges: false,
+                      fit: true
+                    },
+                    timestep: 0.5,
+                    adaptiveTimestep: true
+                  }
+                };
+                var network = new vis.Network(container, data, options);
+                // add event listeners
+                network.on('select', function(params) {
+                  document.getElementById('selection').innerHTML = 'Selection: ' + params.nodes;
+                });
 
-                 // To render oncemore the graph id the graphTab is clicked
-    $('#graphTab').on('click', function() {
-       network = new vis.Network(container, data, options);
-    });
-              }
+                // To render oncemore the graph id the graphTab is clicked
+                $('#graphTab').on('click', function() {
+                  network = new vis.Network(container, data, options);
+                });
+
             }
 
 

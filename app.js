@@ -236,7 +236,7 @@ app.get(['\/\/checkErrors', '/checkErrors'], function(req, res, next) {
 });
 
 // catch something else
-app.use('*', referenceRoutes);
+app.use(['//*', '*'], referenceRoutes);
 
 // monitor ErrorsFilePath
 watch(ErrorsFilePath, {
