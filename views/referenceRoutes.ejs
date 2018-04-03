@@ -52,6 +52,8 @@
       var currentSelectedFile = "ALL Files";
       // store SKOS URI of the selected node
       var currentSelectedSKOSURI = "";
+      // change page title
+      $(document).prop('title', currentSelectedConcept);
 
       // get getExternalsConcepts for either SKOS or RFS(S)
       function getExternalsConcepts() {
