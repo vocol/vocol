@@ -11,7 +11,6 @@ VoCol is implemented without dependencies on complex software components, it pro
 The VoCol environment is employing loose coupling of validation and documentation generation components on top of a standard Git repository. 
 All VoCol components, even the repository engine, can be exchanged with little effort. 
 
-
 ## Installation on a local machine or on a Web Server
 
 The following steps are needed to setup the VoCol Environment either on a local machine or a web server.
