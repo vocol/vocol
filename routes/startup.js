@@ -72,14 +72,6 @@ router.get('/', function(req, res) {
             shell.cd("repoFolder");
           }
         } else {
-          // if (obj.repositoryType === "private") {
-          //   shell.exec('git clone https://"' + obj.user + ":" + encodeURIComponent(obj.password) + "@" + repositoryURL.slice(8) + '" repoFolder', {
-          //     silent: false
-          //   }).stdout;
-          //   shell.exec('git config --global credential.helper store', {
-          //     silent: false
-          //   }).stdout;
-          // }
           if (obj.repositoryType === "public") {
             shell.mkdir("repoFolder");
             shell.exec('git clone "' + repositoryURL + '" repoFolder', {
@@ -113,7 +105,6 @@ router.get('/', function(req, res) {
           // reset the app. if the repositoryURL was changed
           shell.exec('echo -n > ../vocol/helper/tools/evolution/evolutionReport.txt').stdout;
           shell.exec('echo -n > ../vocol/helper/tools/serializations/SingleVoc.nt').stdout;
-          shell.exec('echo -n > ../vocol/helper/tools/rdf2rdf/temp.nt').stdout;
           shell.exec('echo "[]" > ../vocol/jsonDataFiles/syntaxErrors.json').stdout;
           shell.exec('rm -f ../vocol/views/webvowl/data/SingleVoc.json').stdout;
           shell.exec('rm -f ../vocol/jsonDataFiles/RDFSConcepts.json').stdout;
@@ -137,6 +128,9 @@ router.get('/', function(req, res) {
         var k = 1;
         var errors = [];
         shell.mkdir('../vocol/helper/tools/serializations');
+        shell.exec('rm -f   ../vocol/helper/tools/serializations/SingleVoc.nt',{
+          silent: false
+        }).stdout;
         for (var i = 0; i < files.length - 1; i++) {
           // validation of the turtle files
           var output = shell.exec('ttl ' + files[i] + '', {

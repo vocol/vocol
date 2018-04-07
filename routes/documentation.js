@@ -112,9 +112,16 @@ router.get('/', function(req, res) {
         appdata.forEach(function(item) {
           files.push(item.fileName);
         });
+        SKOSData.forEach(function(item) {
+          files.push(item.fileName);
+        });
+        OWLIndividuals.forEach(function(item) {
+          files.push(item.fileName);
+        });
         files.sort(SortFiles);
         files = uniquefileNames(files);
-
+        console.log("\nfiles\n");
+        console.log(files);
         var concepts = [];
         var allRDFObjects = filterExternalConcept(RDFObjectsPlusURI);
         var allSKOSObjects = filterExternalConcept(SKOSObjectsPlusURI);

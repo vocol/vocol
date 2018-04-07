@@ -105,6 +105,9 @@ router.post('/', function(req, res) {
             var k = 1;
             var errors = [];
             shell.mkdir('../vocol/helper/tools/serializations');
+            shell.exec('rm -f   ../vocol/helper/tools/serializations/SingleVoc.nt',{
+              silent: false
+            }).stdout;
             for (var i = 0; i < files.length - 1; i++) {
               // validation of the turtle files
               var output = shell.exec('ttl ' + files[i] + '', {

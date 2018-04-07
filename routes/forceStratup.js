@@ -19,6 +19,10 @@ var data = shell.exec('find . -type f -name "*.ttl"', {
         var k = 1;
         var errors = [];
         shell.mkdir('../vocol/helper/tools/serializations');
+        shell.exec('rm -f   ../vocol/helper/tools/serializations/SingleVoc.nt',{
+          silent: false
+        }).stdout;
+
         for (var i = 0; i < files.length - 1; i++) {
           // validation of the turtle files
           var output = shell.exec('ttl ' + files[i] + '', {
@@ -56,7 +60,7 @@ if (errors) {
   shell.exec('fuser -k 3030/tcp').stdout;
   const child = spawn('sh', ['../../scripts/run.sh', '&']);
   shell.cd('../../../../repoFolder/').stdout;
-  var filePath = '../../../jsonDataFiles/syntaxErrors.json';
+  var filePath = '../vocol/jsonDataFiles/syntaxErrors.json';
   shell.exec('pwd');
   jsonfile.writeFile(filePath, errors, {
     spaces:  2,
