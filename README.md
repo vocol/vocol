@@ -56,7 +56,7 @@ npm start
 
 9. To keep your repository synchronized with VoCol instance (for example when you push something), you should configure **a webhook path** on the repository hosting platform such as Github, GitLab and BitBucket to point with the VoCol API: **http(s)://hostname(:port or /vocolInstancePath)/listener**. The connection between both hosting server and VoCol instance should be available in such a way that hosting platform can send the notification to the VoCol instance. Please the fundamental explanations of WebHooks in the following link: [https://developer.github.com/webhooks/](https://developer.github.com/webhooks/).
 
-For more details about VoCol repository, please have a look on our VoColWiki.
+For more details about VoCol repository, please have a look on our [VoColWiki](https://github.com/vocol/vocol/wiki).
     
 Check out a list of projects that are currently using [VoCol](http://vocol.iais.fraunhofer.de/).
 
