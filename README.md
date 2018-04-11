@@ -2,11 +2,7 @@
 VoCol - Vocabulary collaboration and build environment.
 =====
 
-Linked Data vocabularies are a crucial building block of the Semantic Data Web and semantic-aware data-value chains.
-Vocabularies  reflect a consensus among experts in a certain application domain. 
-They are thus implemented in collaboration of domain experts and knowledge engineers. Particularly the presence of domain experts with little technical background requires a low-threshold vocabulary engineering environment.
-
-Inspired by agile software and content development methodologies, the VoCol methodology and tool environment addresses this requirement. 
+Inspired by agile software and content development methodologies, the VoCol methodology and tool environment allows building leight-weight ontologies using version control systems such as Git and repository hosting platforms such as Github. 
 VoCol is implemented without dependencies on complex software components, it provides collaborators with comprehensible feedback on syntax and semantics errors in a tight loop, and gives access to a human-readable presentation of the vocabulary. 
 The VoCol environment is employing loose coupling of validation and documentation generation components on top of a standard Git repository. 
 All VoCol components, even the repository engine, can be exchanged with little effort. 
@@ -14,31 +10,25 @@ All VoCol components, even the repository engine, can be exchanged with little e
 
 ## Installation on a local machine or on a Web Server
 
-The following steps are needed to setup the VoCol Environment either on a local machine or a web server.
+The following steps are needed to setup the VoCol Environment either on a local machine or a web server. These steps are valid in the Linux-based operating systems and with slight modifications can be used in Windows-based as well.
 
-1. First, we assumed that you are using a Linux-based operating system.
-1. Next, to prepare the VoCol environment, you should have the following libraries installed: Java JDK, NodeJS, NPM, Git, and Turtle-validator packages with their respective versions or higher. They are listed in section **[Required libraries and tools](https://github.com/vocol/vocol/wiki/Required-libraries-and-tools)**. 
-2. Make a new directory, in the following command-line "newFolder" is given but you are free to choose your own, then inside the new directory, clone VoCol repository as follows:
+1. You should have the following libraries installed: Java JDK, NodeJS, NPM, Git, and Turtle-validator packages with their respective versions or higher. For more info see in **[Required libraries and tools](https://github.com/vocol/vocol/wiki/Required-libraries-and-tools)**. 
+
+2. Create a new directory e.g. "newFolder", clone the VoCol repository, and give the execution permissions as follows:
 ```
 mkdir newFolder
 cd newFolder
 git clone https://github.com/vocol/vocol.git
-```
-3. Give the required execution permissions cmd on the new directory, again, the "newFolder" is assumed here.
-```
 chmod u+x  .
 ```
-4. Enter inside "VoCol" folder and clear old saved data if any is exsit:
+4. Enter inside the "VoCol" folder and run the following script to clean up any not necessary file:
 ```
 cd vocol
 ./helper/scripts/resetApp.sh
 ```
-5. To install the dependent packages, first, let's start with [Turtle validator](https://github.com/IDLabResearch/TurtleValidator): this package is also needed to run the VoCol app. If you have the [NPM](https://www.npmjs.com/get-npm) package manager installed, then the following cmd should be given for installing this package:
+5. Install the dependent packages (assuming that node package manager is installed already):
 ```
 sudo npm install -g turtle-validator
-````
-6. Then, install other packages listed in "package.json" 
-```
 sudo npm install
 ```
 Semantic-Ui framework is used in VoCol development, a couple of selections need to be given while installing it. 
@@ -58,49 +48,21 @@ Finally, give "public/semantic" as the location of Sematic-Ui in VoCol Project.
 ```
 ? Where should we put Semantic UI inside your project? (semantic/) public/semantic/
 ```
-7. The last step is to start VoCol with:
+6. The last step is to start VoCol with:
 ```
 npm start
 ```
-8. Normally, you can access VoCol start page with http://localhost:3000 URL if the port number was not changed. If you clear old data as step 4 describes, then the configuration page will be displayed. Otherwise, you can use http://localhost:3000/config URL for configuring VoCol. Sometimes, the port number is also changed during our project's development, for that, you have a possibility to look-up the vocol access's port number and as well change it, by opening **bin/www** file if you are on the root path of VoCol.
+8. You can access VoCol start page with http://localhost:3000 , if the port number was not changed. If you clear old data as step 4 describes, then the configuration page will be displayed. Otherwise, you can use http://localhost:3000/config URL for configuring of the VoCol. Sometimes, the port number is also changed during our project's development, for that, you have a possibility to look-up the vocol access's port number and as well change it, by opening **bin/www** file if you are on the root path of VoCol.
 
-9. To keep your repository synchronized with VoCol instance (for example when you push something), you should configure **a webhook path** on the hosting server which hosting you repository such (gitHub, gitLab, bitBucket ..) with the VoCol API: **http(s)://hostname(:port or /vocolInstancePath)/listener**. The important part to have this works, is to have an established connection between both hosting server and VoCol instance, either by having both of them publicly or locally accessible. As well, if you are not what is the meaning of webhook, then please read the following link, provided by gitHub, which explains its basics and how it can be configured [https://developer.github.com/webhooks/](https://developer.github.com/webhooks/) . Similarly, based on your repository hosting service, you can find a web reference about how can web hooks configured, indeed, with few searches and clicks with your favorite web engine.
+9. To keep your repository synchronized with VoCol instance (for example when you push something), you should configure **a webhook path** on the repository hosting platform such as Github, GitLab and BitBucket to point with the VoCol API: **http(s)://hostname(:port or /vocolInstancePath)/listener**. The connection between both hosting server and VoCol instance should be available in such a way that hosting platform can send the notification to the VoCol instance. Please the fundamental explanations of WebHooks in the following link: [https://developer.github.com/webhooks/](https://developer.github.com/webhooks/).
 
-For more details about VoCol repository, please have a look on our VoColWiki
-
-**VoColWiki's Table of Contents**
-  - [Home](https://github.com/vocol/vocol/wiki) 
-  - [VoCol Features](https://github.com/vocol/vocol/wiki/VoCol-Features)
-  - [Required libraries and tools](https://github.com/vocol/vocol/wiki/Required-libraries-and-tools)
-  - [Installation and Configuration](https://github.com/vocol/vocol/wiki/Installation-and-Configuration/)
-      - [Installation on a local machine or on a Web Server](https://github.com/vocol/vocol/wiki/Installation-and-Configuration#installation-on-a-web-server)
-      - [Installation using a Virtual Machine Image (Vagrant Box)](https://github.com/vocol/vocol/wiki/Installation-and-Configuration#installation-using-a-virtual-machine-image-vagrant-box)
-      - [Installation of the VoCol Environment](https://github.com/vocol/vocol/wiki/Installation-and-Configuration#installation-and-configuration-of-vocol-environment)
-      - [Configuration of the VoCol Environment](https://github.com/vocol/vocol/wiki/Installation-and-Configuration#configuration-of-the-vocol-environment)
-  - [Working with VoCol](https://github.com/vocol/vocol/wiki/Working-with-VoCol)
-      - [VoCol on local machine](https://github.com/vocol/vocol/wiki/Working-with-VoCol#vocol-on-local-machine)
-      - [VoCol on the GitHub](https://github.com/vocol/vocol/wiki/Working-with-VoCol#vocol-on-the-github)
-
-  - [How it works](https://github.com/vocol/vocol/wiki/How-it-works)
-    - [Client Side](https://github.com/vocol/vocol/wiki/How-it-works#client-side)
-    - [Server Side](https://github.com/vocol/vocol/wiki/How-it-works#server-side) 
- 
-- [Developing Vocabularies with VoCol Environment](https://github.com/vocol/vocol/wiki/Developing-Vocabularies-with-VoCol-Environment)
-    - [Vocabulary Language and Representation](https://github.com/vocol/vocol/wiki/Developing-Vocabularies-with-VoCol-Environment#vocabulary-language-and-representation)
-    - [Branching and Merging](https://github.com/vocol/vocol/wiki/Developing-Vocabularies-with-VoCol-Environment#branching-and-merging)
-    - [Vocabulary Organization Structure](https://github.com/vocol/vocol/wiki/Developing-Vocabularies-with-VoCol-Environment#vocabulary-organization-structure)
-    - [Labeling of Release Versions](https://github.com/vocol/vocol/wiki/Developing-Vocabularies-with-VoCol-Environment#labeling-of-release-versions)
-  - [Best Practices for Vocabulary Development](https://github.com/vocol/vocol/wiki/Developing-Vocabularies-with-VoCol-Environment#best-practices-for-vocabulary-development)
-    - [Reuse](#reuse)
-    - [Naming Conventions](https://github.com/vocol/vocol/wiki/Developing-Vocabularies-with-VoCol-Environment#naming-conventions)
-    - [Dereferenceability](https://github.com/vocol/vocol/wiki/Developing-Vocabularies-with-VoCol-Environment#dereferenceability)
-    - [Multilinguality](https://github.com/vocol/vocol/wiki/Developing-Vocabularies-with-VoCol-Environment#multilinguality)
-    - [Documentation](https://github.com/vocol/vocol/wiki/Developing-Vocabularies-with-VoCol-Environment#documentation)
-    - [Validation](https://github.com/vocol/vocol/wiki/Developing-Vocabularies-with-VoCol-Environment#validation)
-    - [Authoring](https://github.com/vocol/vocol/wiki/Developing-Vocabularies-with-VoCol-Environment#authoring)
-    - [Utilization of SKOS Vocabulary](https://github.com/vocol/vocol/wiki/Developing-Vocabularies-with-VoCol-Environment#utilization-of-skos-vocabulary)
+For more details about VoCol repository, please have a look on our [VoColWiki](https://github.com/vocol/vocol/wiki).
     
-Also, Check out a list of projects that are currently using [VoCol](http://vocol.iais.fraunhofer.de/).
+Check out a list of projects that are currently using [VoCol](http://vocol.iais.fraunhofer.de/).
 
-Moreover, you can use the **updated docker image** of VoCol [here](https://hub.docker.com/r/ahemid/newvocol/)
+Moreover, you can use the **docker image** of VoCol [here](https://hub.docker.com/r/ahemid/newvocol/).
+
+## License
+
+VoCol is licensed under the MIT License. See LICENSE.txt for more details. For respective licenses of individual components and libraries please refer to the **[Required libraries and tools](https://github.com/vocol/vocol/wiki/Required-libraries-and-tools)** section. 
 
