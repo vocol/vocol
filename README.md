@@ -100,7 +100,11 @@ For more details about VoCol repository, please have a look on our VoColWiki
     - [Authoring](https://github.com/vocol/vocol/wiki/Developing-Vocabularies-with-VoCol-Environment#authoring)
     - [Utilization of SKOS Vocabulary](https://github.com/vocol/vocol/wiki/Developing-Vocabularies-with-VoCol-Environment#utilization-of-skos-vocabulary)
     
-Also, Check out a list of projects that are currently using [VoCol](http://vocol.iais.fraunhofer.de/).
+Also, check out a list of projects that are currently using [VoCol](http://vocol.iais.fraunhofer.de/).
 
-Moreover, you can use the **updated docker image** of VoCol [here](https://hub.docker.com/r/ahemid/newvocol/)
+Moreover, you can use the **updated docker image** of VoCol [here](https://hub.docker.com/r/ahemid/newvocol/).
+
+## License
+
+VoCol is licensed under the MIT License. See LICENSE.txt for more details. For respective licenses of individual components and libraries please refer to the **[Required libraries and tools](https://github.com/vocol/vocol/wiki/Required-libraries-and-tools)** section. 
 
