@@ -92,40 +92,38 @@ router.get('/', function(req, res) {
 
         var allRDFObjects = filterExternalConcept(RDFObjectsPlusURI);
         var allSKOSObjects = filterExternalConcept(SKOSObjectsPlusURI);
-
+        var acceptHeader = req.headers['accept'];
         // check if the content-type is text-turtle to send the turtle code
-        if (req.headers['content-type'] === 'text/turtle') {
+        if (acceptHeader === 'text/turtle' ||
+          acceptHeader === 'text/ntriples' ||
+          acceptHeader === 'application/rdf+xml' ||
+          acceptHeader === 'application/ld+json') {
           var searchConceptURI = "";
           // search the sent term in RDFSData and SKOSData as well in OWLIndividuals
-          if (searchedConcept === "All-Data")
-            searchConceptURI = "All-Data";
-          else {
-            if (treeData) {
-              const result = treeData.find(o => o.concept === searchedConcept);
-              if (result)
-                searchConceptURI = result.URI;
-            }
-            if (SKOSData) {
-              const result = SKOSData.find(o => o.concept === searchedConcept);
-              if (result)
-                searchConceptURI = result.URI;
-            }
-            if (OWLIndividuals) {
-              const result = OWLIndividuals.find(o => o.subject === searchedConcept);
-              if (result)
-                searchConceptURI = result.subjectURI;
-            }
+
+          if (treeData) {
+            const result = treeData.find(o => o.concept === searchedConcept);
+            if (result)
+              searchConceptURI = result.URI;
           }
+          if (SKOSData) {
+            const result = SKOSData.find(o => o.concept === searchedConcept);
+            if (result)
+              searchConceptURI = result.URI;
+          }
+          if (OWLIndividuals) {
+            const result = OWLIndividuals.find(o => o.subject === searchedConcept);
+            if (result)
+              searchConceptURI = result.subjectURI;
+          }
+
           // if the term URI is found that means that we have some info to send to the requester
           if (searchConceptURI) {
-            if (searchConceptURI == "All-Data")
-              var queryObject = 'CONSTRUCT{?s ?p ?o .}WHERE {?s ?p ?o .}';
-            else
-              var queryObject = 'CONSTRUCT{<' + encodeURIComponent(searchConceptURI) + '> ?p ?o .}WHERE {<' + encodeURIComponent(searchConceptURI) + '> ?p ?o .}';
-
+            var queryObject = 'CONSTRUCT{<' + encodeURIComponent(searchConceptURI) + '> ?p ?o .}WHERE {<' + encodeURIComponent(searchConceptURI) + '> ?p ?o .}';
             var endpoint = "http:\/\/localhost:3030/dataset/sparql?query="
             request({
               url: endpoint + queryObject,
+              headers: {'accept': acceptHeader},
             }, function(error, response, body) {
               if (error) {
                 console.log('error:', error); // Print the error if one occurred
@@ -133,7 +131,7 @@ router.get('/', function(req, res) {
               } else if (response && body) {
                 console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
 
-                res.write("RDF TURTLE Code:\n");
+                res.write("RDF code in "+ acceptHeader+":\n");
                 res.write("========================================================\n");
                 res.write(body);
                 res.end();
