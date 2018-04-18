@@ -54,26 +54,31 @@ var data = shell.exec('find . -type f -name "*.ttl"', {
         }
 
 // display syntax errors
+if(!pass){
+// display syntax errors
 console.log("Errors:\n" + JSON.stringify(errors));
 if (errors) {
   shell.cd('../vocol/helper/tools/VoColClient/').stdout;
   shell.exec('fuser -k 3030/tcp').stdout;
   const child = spawn('sh', ['../../scripts/run.sh', '&']);
+  shell.cd('../../../jsonDataFiles/').stdout;
+  var pathErrorFile = shell.exec('pwd').stdout;
   shell.cd('../../../../repoFolder/').stdout;
-  var filePath = '../vocol/jsonDataFiles/syntaxErrors.json';
-  shell.exec('pwd');
+  var filePath = pathErrorFile.trim()+'/'+'syntaxErrors.json';
+  console.log(filePath);
+  shell.exec('pwd').stdout;
   jsonfile.writeFile(filePath, errors, {
-    spaces:  2,
-     EOL:   '\r\n'
-  },  function(err)  {  
+    spaces:   2,
+      EOL:    '\r\n'
+  },   function(err)   {
     if (err)
       throw err;
     console.log("Errors file is generated\n");
 
   })
 }
-
-
+}
+else{
 // Kill fuseki if it is running
 shell.cd('-P', '../vocol/helper/tools/apache-jena-fuseki');
 shell.exec('fuser -k 3030/tcp', {
@@ -103,3 +108,4 @@ const child = spawn('sh', ['../../scripts/run.sh', '&']);
 child.stdout.pipe(process.stdout);
 shell.exec('pwd');
 shell.cd('../../../.').stdout;
+}
