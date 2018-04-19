@@ -131,19 +131,14 @@ router.post('/', function(req, res) {
                 pass = false;
               }
             }
-            // display syntax errors
             if (!pass) {
-              // display syntax errors
-              console.log("Errors:\n" + JSON.stringify(errors));
               if (errors) {
-                shell.cd('../vocol/helper/tools/VoColClient/').stdout;
-                shell.exec('fuser -k 3030/tcp').stdout;
-                const child = spawn('sh', ['../../scripts/run.sh', '&']);
-                shell.cd('../../../jsonDataFiles/').stdout;
+                // display syntax errors
+                console.log("Errors:\n" + JSON.stringify(errors));
+                shell.cd('../vocol/jsonDataFiles/').stdout;
                 var pathErrorFile = shell.exec('pwd').stdout;
-                shell.cd('../../../../repoFolder/').stdout;
+                shell.cd('../.').stdout;
                 var filePath = pathErrorFile.trim() + '/' + 'syntaxErrors.json';
-                console.log(filePath);
                 shell.exec('pwd').stdout;
                 jsonfile.writeFile(filePath, errors, {
                   spaces: 2,
@@ -152,10 +147,9 @@ router.post('/', function(req, res) {
                   if (err)
                     throw err;
                   console.log("Errors file is generated\n");
-
                 })
               }
-            } else // continue the process 
+            } else // continue the process
              {
               // Kill fuseki if it is running
               shell.cd('-P', '../vocol/helper/tools/apache-jena-fuseki');
