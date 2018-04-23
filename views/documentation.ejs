@@ -135,7 +135,7 @@
       <div id="infoTabs" class="col-sm-12 col-md-6" style="display: none;overflow-x: hidden; overflow-y: auto; height:500px;border-style: outset;border-radius: 10px;">
         <div id="externalInfo"></div>
         <ul id="viewList" class="nav nav-tabs" style="display: none">
-          <li class="active"><a class="nav-link active" data-toggle="tab" id="showExternalInfo" href="#documentation">Documentation</a></li>
+          <li class="active"><a class="nav-link active" data-toggle="tab" id="documentationTab" href="#documentation">Documentation</a></li>
           <li><a class="nav-link" data-toggle="tab" id="sourceCodeTab" href="#sourceCode">Source</a></li>
           <li><a class="nav-link" data-toggle="tab" id="graphTab" href="#showGraph">Graphical Depiction</a></li>
         </ul>
@@ -1485,6 +1485,7 @@
               });
             };
 
+
             // to query sparql endpoint return graph and queryResult
             function getConceptInfo(item, view, anotherQuery) {
               var str = "";
@@ -1654,14 +1655,14 @@
                     conceptHasDomain = key1;
                     if (isConceptInside(key2) && key4 === "uri")
                       key2 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
-                    else if (isConceptExternal(key2) && key4 === "uri")
+                    else if (!isOWLIndividiual(key2) && !isConceptInside(key2) && key4 === "uri")
                       key2 = '<a href="#" onmousedown="showExternalInfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
                     domainTable += '<tr>    <td>' + key2 + '</td>  </tr>';
                   } else if (key1.includes("range")) {
                     conceptHasRange = key1;
                     if (isConceptInside(key2) && key4 === "uri")
                       key2 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
-                    else if (isConceptExternal(key2) && key4 === "uri")
+                    else if (!isOWLIndividiual(key2) && !isConceptInside(key2) && key4 === "uri")
                       key2 = '<a href="#" onmousedown="showExternalInfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
                     rangeTable += '<tr>    <td>' + key2 + '</td>  </tr>';
                   } else {
@@ -1671,7 +1672,7 @@
                     if (isOWLIndividiual(key2) && !key1.includes("label") && key4 === "uri") {
                       key2 = '<a href="#" onmousedown="showInstanceDetails(&quot;' + key2URI + '&quot;); return false; ">' + key2 + '</a>';
                     }
-                    if (isConceptExternal(key2) && !key1.includes("label") && key4 === "uri") {
+                    if (!isOWLIndividiual(key2) && !isConceptInside(key2) && !key1.includes("label") && key4 === "uri") {
                       key2 = '<a href="#" onmousedown="showExternalInfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
                     }
                     if (isConceptInside(key2) && !key1.includes("label") && key4 === "uri") {
@@ -1709,7 +1710,7 @@
                   color: 'red',
                   face: 'sans'
                 },
-                color: '#FFFF00'
+                color: '#FFFF90'
               });
 
               $("#conceptHead ").html('<p >  Details: <code>' + currentSelectedConcept + '</code></p>');
@@ -1769,6 +1770,21 @@
                   shape: 'dot',
                   size: 20
                 },
+                layout: {
+                  randomSeed: undefined,
+                  improvedLayout: true,
+                  hierarchical: {
+                    enabled: false,
+                    levelSeparation: 150,
+                    nodeSpacing: 100,
+                    treeSpacing: 200,
+                    blockShifting: true,
+                    edgeMinimization: true,
+                    parentCentralization: true,
+                    direction: 'RL', // UD, DU, LR, RL
+                    sortMethod: 'hubsize' // hubsize, directed
+                  }
+                },
                 interaction: {
                   navigationButtons: true,
                   keyboard: true
@@ -1820,21 +1836,39 @@
                 }
               };
               var network = new vis.Network(container, data, options);
+              var fitNetworkFirstTime = false;
               // add event listeners
               network.on('select', function(params) {
                 document.getElementById('selection').innerHTML = 'Selection: ' + params.nodes;
               });
 
+              network.on('afterDrawing', function() {
+                if (!fitNetworkFirstTime)
+                  network.fit();
+                fitNetworkFirstTime = true;
+              });
+
               // To render oncemore the graph id the graphTab is clicked
               $('#graphTab').on('click', function() {
                 network = new vis.Network(container, data, options);
+                network.on('afterDrawing', function() {
+                  if (!fitNetworkFirstTime)
+                    network.fit();
+                  fitNetworkFirstTime = true;
+
+                });
+              });
+              // To reset fitNetworkFirstTime when user click other than graphTab
+              $('#documentationTab').on('click', function() {
+                  fitNetworkFirstTime = false;
+              });
+              $('#sourceCodeTab').on('click', function() {
+                  fitNetworkFirstTime = false;
               });
 
             }
 
-
-
-            // To display in TabView
+            // Call when document is ready
             $(document).ready(function(e) {
               $(document).on('click', 'a[href="#"]', function(e) {
                 e.preventDefault();
