@@ -1,0 +1,17 @@
+
+[extensions]
+hgext.extdiff =
+
+[extdiff]
+cmd.owl2diff = owl2diff
+
+[diff-patterns]
+**.rdf = owl2diff
+**.ttl = owl2diff
+**.owl = owl2diff
+
+[merge-tools]
+owl2diff.priority=-100
+owl2diff.gui=False
+owl2diff.diffargs=$parent $child -f indented
+owl2diff.executable=owl2diff-gui
