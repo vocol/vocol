@@ -72,7 +72,6 @@
 
       // change the title of the page with currentSelectedConcept
       $(document).attr("title", currentSelectedConcept);
-      console.log(RDFSData);
 
       // make unique concept in  tree
       function uniqueArray(array) {
@@ -471,7 +470,7 @@
             isURIExist = false;
         }
         if (isURIExist) {
-          var endpoint = "./fuseki/dataset/sparql?query="
+          var endpoint = "./fuseki/dataset/sparql?query=";
           if (!anotherQuery)
             var querystring = 'CONSTRUCT{<' + encodeURIComponent(conceptURI) + '> ?p ?o .}WHERE {<' + encodeURIComponent(conceptURI) + '> ?p ?o .}';
           else
@@ -740,13 +739,12 @@
           showInstances(currentSelectedConcept);
           isURIExist = false;
           conceptIsExternal = true;
-          debugger;
         } else {
           alert("Concept is not found !!");
         }
 
         if (isURIExist) {
-          var endpoint = "http:/\/localhost:3030/dataset/sparql?query="
+          var endpoint = "./fuseki/dataset/sparql?query="
           if (!anotherQuery)
             var querystring = 'SELECT  ?p ?o WHERE {  <' + conceptURI + '> ?p ?o }'
           else
