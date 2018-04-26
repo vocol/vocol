@@ -228,6 +228,19 @@ app.get(['\/\/querying', '/querying'], function(req, res) {
     });
 });
 
+
+app.get(['\/\/Imprint', '/Imprint'], function(req, res) {
+  if (!req.session.isAuthenticated && req.app.locals.authRequired)
+    res.render('login', {
+      title: 'login'
+    });
+  else
+    res.render('Imprint', {
+      title: 'Imprint'
+    });
+});
+
+
 app.get(['\/\/checkErrors', '/checkErrors'], function(req, res, next) {
   readSyntaxErrorsFile();
   console.log(req.body);

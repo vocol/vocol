@@ -32,7 +32,7 @@ router.post('/', function(req, res) {
           var pusher = "";
 
           if (repositoryService === 'gitHub') {
-            var data =  JSON.parse(JSON.stringify(req.body));
+            var data = JSON.parse(JSON.stringify(req.body));
             repositoryName = data.repository.name;
             branchName = data.ref.split('/')[2];
             commitMessage = data.head_commit.message;
@@ -40,7 +40,7 @@ router.post('/', function(req, res) {
             pusher = data.pusher.name;
 
           } else if (repositoryService === 'gitLab') {
-            var data =  JSON.parse(JSON.stringify(req.body));
+            var data = JSON.parse(JSON.stringify(req.body));
             repositoryName = data.repository.name;
             branchName = data.ref.split('/')[2];
             commitMessage = data.commits[0].message;
@@ -64,12 +64,6 @@ router.post('/', function(req, res) {
             commitTimestamp = event.toJSON();
             console.log("data are " + branchName + " " + commitMessage + " " + pusher + "timestap" + commitTimeInMilliseconds + " " + commitTimestamp);
           }
-	   console.log(branchName);
-           console.log(branchNameParam);
-           console.log(repositoryNameParam);
-           console.log(repositoryName);
-           console.log(commitMessage);
-
 
           if (branchName == branchNameParam && repositoryNameParam === repositoryName && !commitMessage.includes("merge")) {
             console.log('contains');
@@ -105,7 +99,7 @@ router.post('/', function(req, res) {
             var k = 1;
             var errors = [];
             shell.mkdir('../vocol/helper/tools/serializations');
-            shell.exec('rm -f   ../vocol/helper/tools/serializations/SingleVoc.nt',{
+            shell.exec('rm -f   ../vocol/helper/tools/serializations/SingleVoc.nt', {
               silent: false
             }).stdout;
             for (var i = 0; i < files.length - 1; i++) {
@@ -137,8 +131,26 @@ router.post('/', function(req, res) {
                 pass = false;
               }
             }
-            // display syntax errors
-            if (errors) {
+            if (!pass) {
+              if (errors) {
+                // display syntax errors
+                console.log("Errors:\n" + JSON.stringify(errors));
+                shell.cd('../vocol/jsonDataFiles/').stdout;
+                var pathErrorFile = shell.exec('pwd').stdout;
+                shell.cd('../.').stdout;
+                var filePath = pathErrorFile.trim() + '/' + 'syntaxErrors.json';
+                shell.exec('pwd').stdout;
+                jsonfile.writeFile(filePath, errors, {
+                  spaces: 2,
+                  EOL: '\r\n'
+                }, function(err) {
+                  if (err)
+                    throw err;
+                  console.log("Errors file is generated\n");
+                })
+              }
+            } else // continue the process
+             {
               // Kill fuseki if it is running
               shell.cd('-P', '../vocol/helper/tools/apache-jena-fuseki');
               shell.exec('fuser -k 3030/tcp', {
@@ -187,7 +199,7 @@ router.post('/', function(req, res) {
                   // add commit details when user make new commit
                   var commitDetails = "";
                   if (commitTimestamp != "")
-                    commitDetails = "commitTimestamp:" + commitTimestamp + "\n" + "pusher:" + pusher + "\n" + "commitMessage:" + commitMessage  + "\n";
+                    commitDetails = "commitTimestamp:" + commitTimestamp + "\n" + "pusher:" + pusher + "\n" + "commitMessage:" + commitMessage + "\n";
                   var evolutionReport = shell.exec('./owl2diff ../evolution/SingleVoc.nt ../serializations/SingleVoc.nt', {
                     silent: false
                   }).stdout;
