@@ -1,5 +1,3 @@
-_:B917fd818X2D9e07X2D4131X2D8083X2Dd2c32a2f5d8a <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:B917fd818X2D9e07X2D4131X2D8083X2Dd2c32a2f5d8a <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/i40/rami#Integration> .
 <https://w3id.org/i40/sto#IEC_62541> <https://w3id.org/i40/sto#hasOfficialResource> "https://opcfoundation.org/about/opc-technologies/opc-ua/" .
 <https://w3id.org/i40/sto#IEC_62541> <https://w3id.org/i40/sto#hasClassification> <https://w3id.org/i40/rami#ControlDevice> .
 <https://w3id.org/i40/sto#IEC_62541> <https://w3id.org/i40/sto#publisher> <https://w3id.org/i40/sto#IEC> .
@@ -146,8 +144,6 @@ _:B917fd818X2D9e07X2D4131X2D8083X2Dd2c32a2f5d8a <http://www.w3.org/1999/02/22-rd
 <https://w3id.org/i40/sto#hasHeadquaterIn> <http://www.w3.org/2000/01/rdf-schema#range> <http://dbpedia.org/ontology#Place> .
 <https://w3id.org/i40/sto#hasHeadquaterIn> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/i40/sto#StandardOrganization> .
 <https://w3id.org/i40/sto#hasHeadquaterIn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-_:B6af7c9a9X2Df2d2X2D4753X2Db4fdX2D10a4cf5fcacd <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Be99fa6d2X2D8394X2D4293X2D9a6dX2D0bf345387067 .
-_:B6af7c9a9X2Df2d2X2D4753X2Db4fdX2D10a4cf5fcacd <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/i40/rami#FieldDevice> .
 <https://w3id.org/i40/sto#ProductionSystemEngineering> <http://www.w3.org/2000/01/rdf-schema#label> "Production System Engineering"@en .
 <https://w3id.org/i40/sto#ProductionSystemEngineering> <http://www.w3.org/2000/01/rdf-schema#comment> "Standards can interconnect engineering tools from different disciplines, e.g., system engineering, mechanical plant engineering, electrical design, process engineering, process control engineering, Human Machine Interface (HMI) development, PLC programming, and robotic programming."@en .
 <https://w3id.org/i40/sto#ProductionSystemEngineering> <https://w3id.org/i40/sto#isDescribedin> <https://w3id.org/i40/sto#NISTInitiative> .
@@ -156,6 +152,8 @@ _:B6af7c9a9X2Df2d2X2D4753X2Db4fdX2D10a4cf5fcacd <http://www.w3.org/1999/02/22-rd
 <https://w3id.org/i40/rami#Business> <https://w3id.org/i40/sto#isDescribedin> <https://w3id.org/i40/sto#RAMI40> .
 <https://w3id.org/i40/rami#Business> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/i40/rami#RAMIITLayer> .
 <https://w3id.org/i40/rami#Business> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+_:B0c65a2bbX2Dd47fX2D4be6X2D8586X2D9065b92cfe57 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B8095753bX2D598aX2D41cbX2D8a81X2D30dbff393fab .
+_:B0c65a2bbX2Dd47fX2D4be6X2D8586X2D9065b92cfe57 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/i40/rami#Station> .
 <https://w3id.org/i40/sto#CAD> <https://w3id.org/i40/sto#hasDBpediaResource> <http://dbpedia.org/resource/Computer-aided_design> .
 <https://w3id.org/i40/sto#CAD> <http://www.w3.org/2000/01/rdf-schema#label> "CAD" .
 <https://w3id.org/i40/sto#CAD> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://en.wikipedia.org/wiki/Computer-aided_design> .
@@ -182,10 +180,6 @@ _:B6af7c9a9X2Df2d2X2D4753X2Db4fdX2D10a4cf5fcacd <http://www.w3.org/1999/02/22-rd
 <https://w3id.org/i40/sto#ETSI_ULE> <https://w3id.org/i40/sto#hasTag> "Ultra Low Energy"@en .
 <https://w3id.org/i40/sto#ETSI_ULE> <http://www.w3.org/2000/01/rdf-schema#comment> "DECT Ultra Low Energy (DECT ULE) is a technology based on DECT, and intended for Machine-to-Machine communications such as Home and Industrial automation. The main characteristics of the technology are ultra-low power consumption (much lower than IEEE 802.11) and wider coverage (much wider than IEEE 802.15 and Bluetooth Low Energy)."@en .
 <https://w3id.org/i40/sto#ETSI_ULE> <http://www.w3.org/2000/01/rdf-schema#label> "ETSI ULE"@en .
-_:B91cf0687X2Ddf58X2D469fX2D8f36X2Df2e19f126480 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B6af7c9a9X2Df2d2X2D4753X2Db4fdX2D10a4cf5fcacd .
-_:B91cf0687X2Ddf58X2D469fX2D8f36X2Df2e19f126480 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/i40/rami#Enterprise> .
-_:B646e112aX2D1db6X2D4835X2D8d40X2D3e88ee76eb2e <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B39d93961X2Df210X2D4805X2Dbed9X2D0d49b97af00e .
-_:B646e112aX2D1db6X2D4835X2D8d40X2D3e88ee76eb2e <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/i40/rami#Functional> .
 <https://w3id.org/i40/sto#isDescribedin> <http://www.w3.org/2000/01/rdf-schema#label> "is Described in"@en .
 <https://w3id.org/i40/sto#isDescribedin> <http://www.w3.org/2000/01/rdf-schema#comment> "Links the Standarization Frameworks with the Classification of Standards"@en .
 <https://w3id.org/i40/sto#isDescribedin> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/i40/sto#StandardizationFramework> .
@@ -195,8 +189,6 @@ _:B646e112aX2D1db6X2D4835X2D8d40X2D3e88ee76eb2e <http://www.w3.org/1999/02/22-rd
 <https://w3id.org/i40/sto#ConditionMonitoring> <https://w3id.org/i40/sto#isDescribedin> <https://w3id.org/i40/sto#AdministrationShell> .
 <https://w3id.org/i40/sto#ConditionMonitoring> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/i40/rami#AdminShellSubmodel> .
 <https://w3id.org/i40/sto#ConditionMonitoring> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-_:Be99fa6d2X2D8394X2D4293X2D9a6dX2D0bf345387067 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B23a5985dX2D4d51X2D48b6X2Dad70X2D1028101dedbe .
-_:Be99fa6d2X2D8394X2D4293X2D9a6dX2D0bf345387067 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/i40/rami#Product> .
 <https://w3id.org/i40/sto#BBF_TR-069> <http://www.w3.org/2000/01/rdf-schema#comment> "Digital Enhanced Cordless Telecommunications (DECT™) is the ETSI standard for short-range cordless communications, which can be adapted for many applications and can be used over unlicensed frequency allocations world-wide."@en .
 <https://w3id.org/i40/sto#BBF_TR-069> <http://www.w3.org/2000/01/rdf-schema#label> "BBF TR-069"@en .
 <https://w3id.org/i40/sto#BBF_TR-069> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
@@ -272,6 +264,8 @@ _:Be99fa6d2X2D8394X2D4293X2D9a6dX2D0bf345387067 <http://www.w3.org/1999/02/22-rd
 <https://w3id.org/i40/sto#OMG> <https://w3id.org/i40/sto#abbreviation> "OMG" .
 <https://w3id.org/i40/sto#OMG> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/i40/sto#StandardOrganization> .
 <https://w3id.org/i40/sto#OMG> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+_:Ba23db878X2Dca17X2D4f25X2D84f0X2D27923eac1d2f <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Beea314a5X2D98c4X2D4244X2Dbd6dX2D5f272ef10b6a .
+_:Ba23db878X2Dca17X2D4f25X2D84f0X2D27923eac1d2f <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/i40/rami#FieldDevice> .
 <https://w3id.org/i40/sto#ISO_15746> <https://w3id.org/i40/sto#hasClassification> <https://w3id.org/i40/rami#FieldDevice> .
 <https://w3id.org/i40/sto#ISO_15746> <https://w3id.org/i40/sto#publisher> <https://w3id.org/i40/sto#ISO> .
 <https://w3id.org/i40/sto#ISO_15746> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/i40/sto#Standard> .
@@ -290,11 +284,9 @@ _:Be99fa6d2X2D8394X2D4293X2D9a6dX2D0bf345387067 <http://www.w3.org/1999/02/22-rd
 <https://w3id.org/i40/sto#ISO_15746> <https://w3id.org/i40/sto#hasDomain> <https://w3id.org/i40/sto#IndustrialAutomation> .
 <https://w3id.org/i40/sto#ISO_15746> <https://w3id.org/i40/sto#hasClassification> <https://w3id.org/i40/rami#ControlDevice> .
 <https://w3id.org/i40/sto#ISO_15746> <https://w3id.org/i40/sto#relatedTo> <https://w3id.org/i40/sto#ISO_15926> .
-_:B44497357X2D0c0fX2D47e1X2Da752X2De066e5d676ed <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B0ac91cabX2D3f85X2D4afcX2D8c54X2D0358433a9378 .
-_:B44497357X2D0c0fX2D47e1X2Da752X2De066e5d676ed <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/i40/rami#Asset> .
 <https://w3id.org/i40/rami#RAMIITLayer> <http://www.w3.org/2000/01/rdf-schema#label> "RAMI IT Layer"@en .
 <https://w3id.org/i40/rami#RAMIITLayer> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/i40/sto#StandardClassification> .
-<https://w3id.org/i40/rami#RAMIITLayer> <http://www.w3.org/2002/07/owl#equivalentClass> _:B1f288812d7d713b176ec0ece67ff120c .
+<https://w3id.org/i40/rami#RAMIITLayer> <http://www.w3.org/2002/07/owl#equivalentClass> _:B2728382308dcc4b98cd0868ec708df5a .
 <https://w3id.org/i40/rami#RAMIITLayer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/i40/sto#ISO_15704> <http://www.w3.org/2000/01/rdf-schema#comment> "Identifies requirements for enterprise-reference architectures and methodologies"@en .
 <https://w3id.org/i40/sto#ISO_15704> <http://www.w3.org/2000/01/rdf-schema#label> "ISO 15704"@en .
@@ -313,6 +305,8 @@ _:B44497357X2D0c0fX2D47e1X2Da752X2De066e5d676ed <http://www.w3.org/1999/02/22-rd
 <https://w3id.org/i40/sto#hasDBpediaResource> <http://www.w3.org/2000/01/rdf-schema#label> "has DBpedia Resource"@en .
 <https://w3id.org/i40/sto#hasDBpediaResource> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
 <https://w3id.org/i40/sto#hasDBpediaResource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:B2d19fa2bX2Dd847X2D422bX2Db6b0X2D6cf1cb6089bf <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bced19ebaX2D01a7X2D40d9X2D9b9cX2D7fb5df4fac92 .
+_:B2d19fa2bX2Dd847X2D422bX2Db6b0X2D6cf1cb6089bf <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/i40/rami#Business> .
 <https://w3id.org/i40/sto#ISO_8062-4> <http://www.w3.org/2000/01/rdf-schema#label> "ISO 8062-4"@en .
 <https://w3id.org/i40/sto#ISO_8062-4> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/i40/sto#Standard> .
 <https://w3id.org/i40/sto#ISO_8062-4> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
@@ -367,6 +361,8 @@ _:B44497357X2D0c0fX2D47e1X2Da752X2De066e5d676ed <http://www.w3.org/1999/02/22-rd
 <https://w3id.org/i40/sto#ASME> <https://w3id.org/i40/sto#hasDBpediaResource> <http://dbpedia.org/resource/ASME> .
 <https://w3id.org/i40/sto#ASME> <https://w3id.org/i40/sto#abbreviation> "ASME" .
 <https://w3id.org/i40/sto#ASME> <https://w3id.org/i40/sto#hasWikipediaArticle> <https://en.wikipedia.org/wiki/ASME> .
+_:B2728382308dcc4b98cd0868ec708df5a <http://www.w3.org/2002/07/owl#oneOf> _:Bb8d5f15cX2D874eX2D4e9fX2DbcebX2Dc05c977e7cad .
+_:B2728382308dcc4b98cd0868ec708df5a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/i40/sto#ISO_18828-2> <https://w3id.org/i40/sto#hasClassification> <https://w3id.org/i40/rami#Enterprise> .
 <https://w3id.org/i40/sto#ISO_18828-2> <https://w3id.org/i40/sto#publisher> <https://w3id.org/i40/sto#ISO> .
 <https://w3id.org/i40/sto#ISO_18828-2> <https://w3id.org/i40/sto#hasClassification> <https://w3id.org/i40/rami#Engineering> .
@@ -511,6 +507,8 @@ _:B44497357X2D0c0fX2D47e1X2Da752X2De066e5d676ed <http://www.w3.org/1999/02/22-rd
 <https://w3id.org/i40/sto#MTConnect_Institute> <https://w3id.org/i40/sto#abbreviation> "MTC" .
 <https://w3id.org/i40/sto#MTConnect_Institute> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/i40/sto#StandardOrganization> .
 <https://w3id.org/i40/sto#MTConnect_Institute> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+_:Bc5352409X2D41fdX2D4263X2D97c8X2D461febb8186f <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B20bbd5ceX2D1a7dX2D43a2X2Da10cX2D55b91d143a3b .
+_:Bc5352409X2D41fdX2D4263X2D97c8X2D461febb8186f <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/i40/rami#ControlDevice> .
 <https://w3id.org/i40/rami#Station> <https://w3id.org/i40/sto#isDescribedin> <https://w3id.org/i40/sto#RAMI40> .
 <https://w3id.org/i40/rami#Station> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/i40/rami#RAMIHierarchyLevel> .
 <https://w3id.org/i40/rami#Station> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
@@ -660,6 +658,8 @@ _:B44497357X2D0c0fX2D47e1X2Da752X2De066e5d676ed <http://www.w3.org/1999/02/22-rd
 <https://w3id.org/i40/sto#isImplementationOf> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://w3id.org/i40/sto#relatedTo> .
 <https://w3id.org/i40/sto#isImplementationOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <http://dbpedia.org/resource#China> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+_:Bb8d5f15cX2D874eX2D4e9fX2DbcebX2Dc05c977e7cad <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B2d19fa2bX2Dd847X2D422bX2Db6b0X2D6cf1cb6089bf .
+_:Bb8d5f15cX2D874eX2D4e9fX2DbcebX2Dc05c977e7cad <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/i40/rami#Asset> .
 <https://w3id.org/i40/sto#OASIS> <https://w3id.org/i40/sto#hasWikipediaArticle> "https://en.wikipedia.org/wiki/OASIS_(organization)" .
 <https://w3id.org/i40/sto#OASIS> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/i40/sto#StandardOrganization> .
 <https://w3id.org/i40/sto#OASIS> <https://w3id.org/i40/sto#hasOfficialResource> "https://www.oasis-open.org/" .
@@ -696,6 +696,8 @@ _:B44497357X2D0c0fX2D47e1X2Da752X2De066e5d676ed <http://www.w3.org/1999/02/22-rd
 <https://w3id.org/i40/sto#MOMLevel> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes the MOM level according to the ISA95 level classification."@en .
 <https://w3id.org/i40/sto#MOMLevel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/i40/sto#ISA95Level> .
 <https://w3id.org/i40/sto#MOMLevel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+_:Bde8fd8d3X2D9ae4X2D42c1X2Dab98X2Da2b90a283c37 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bc5352409X2D41fdX2D4263X2D97c8X2D461febb8186f .
+_:Bde8fd8d3X2D9ae4X2D42c1X2Dab98X2Da2b90a283c37 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/i40/rami#ConnectedWorld> .
 <https://w3id.org/i40/sto#IEC_TS_62237> <https://w3id.org/i40/sto#hasClassification> <https://w3id.org/i40/sto#ProductionSystemModelData> .
 <https://w3id.org/i40/sto#IEC_TS_62237> <https://w3id.org/i40/sto#hasClassification> <https://w3id.org/i40/rami#GeneralAdminShell> .
 <https://w3id.org/i40/sto#IEC_TS_62237> <https://w3id.org/i40/sto#publisher> <https://w3id.org/i40/sto#IEC> .
@@ -741,8 +743,6 @@ _:B44497357X2D0c0fX2D47e1X2Da752X2De066e5d676ed <http://www.w3.org/1999/02/22-rd
 <https://w3id.org/i40/sto#ISO_15531> <https://w3id.org/i40/sto#hasDomain> <https://w3id.org/i40/sto#IndustrialProcessMeasurementControl> .
 <https://w3id.org/i40/sto#ISO_15531> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/i40/sto#Standard> .
 <https://w3id.org/i40/sto#ISO_15531> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-_:Be7bd38e253587dda729fa29f4fc09797 <http://www.w3.org/2002/07/owl#oneOf> _:B032528a0X2D5947X2D405fX2D83bdX2D73f8674da6a4 .
-_:Be7bd38e253587dda729fa29f4fc09797 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/i40/sto#IEC_29161> <https://w3id.org/i40/sto#hasTag> "Information technology -- Data structure -- Unique identification for the Internet of Things"@en .
 <https://w3id.org/i40/sto#IEC_29161> <http://www.w3.org/2000/01/rdf-schema#label> "IEC 29161"@en .
 <https://w3id.org/i40/sto#IEC_29161> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/i40/sto#Standard> .
@@ -932,17 +932,6 @@ _:Be7bd38e253587dda729fa29f4fc09797 <http://www.w3.org/1999/02/22-rdf-syntax-ns#
 <http://purl.org/dc/terms/LicenseDocument> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://xmlns.com/foaf/0.1/Document> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://dbpedia.org/resource#United_States> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<https://w3id.org/i40/sto#W3C_RDF> <https://w3id.org/i40/sto#hasOfficialResource> "https://www.w3.org/RDF/" .
-<https://w3id.org/i40/sto#W3C_RDF> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/i40/sto#Standard> .
-<https://w3id.org/i40/sto#W3C_RDF> <http://www.w3.org/2000/01/rdf-schema#comment> "RDF is a standard model for data interchange on the Web. RDF has features that facilitate data merging even if the underlying schemas differ, and it specifically supports the evolution of schemas over time without requiring all the data consumers to be changed. "@en .
-<https://w3id.org/i40/sto#W3C_RDF> <https://w3id.org/i40/sto#hasDBpediaResource> "http://dbpedia.org/resource/Resource_Description_Framework" .
-<https://w3id.org/i40/sto#W3C_RDF> <http://www.w3.org/2000/01/rdf-schema#label> "RDF"@en .
-<https://w3id.org/i40/sto#W3C_RDF> <http://purl.org/dc/terms/license> "Public"@en .
-<https://w3id.org/i40/sto#W3C_RDF> <https://w3id.org/i40/sto#hasTag> "RDF"@en .
-<https://w3id.org/i40/sto#W3C_RDF> <https://w3id.org/i40/sto#publisher> <https://w3id.org/i40/sto#W3C> .
-<https://w3id.org/i40/sto#W3C_RDF> <http://www.w3.org/2000/01/rdf-schema#comment> "RDF is a standard model for data interchange on the Web."@en .
-<https://w3id.org/i40/sto#W3C_RDF> <https://w3id.org/i40/sto#hasWikipediaArticle> "https://en.wikipedia.org/wiki/Resource_Description_Framework" .
-<https://w3id.org/i40/sto#W3C_RDF> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 <https://w3id.org/i40/sto#NIST> <https://w3id.org/i40/sto#hasOfficialResource> "https://www.nist.gov/" .
 <https://w3id.org/i40/sto#NIST> <https://w3id.org/i40/sto#abbreviation> "NIST" .
 <https://w3id.org/i40/sto#NIST> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
@@ -954,16 +943,27 @@ _:Be7bd38e253587dda729fa29f4fc09797 <http://www.w3.org/1999/02/22-rdf-syntax-ns#
 <https://w3id.org/i40/sto#NIST> <https://w3id.org/i40/sto#orgName> "National Institute of Standards and Technology"@en .
 <https://w3id.org/i40/sto#NIST> <https://w3id.org/i40/sto#belongsTo> <http://dbpedia.org/resource#United_States> .
 <https://w3id.org/i40/sto#NIST> <https://w3id.org/i40/sto#formationDate> "1901-01-01"^^<http://www.w3.org/2001/XMLSchema#date> .
+_:Bb9d510abX2Dd37cX2D407dX2DbcacX2D04c1ab96b149 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Ba6ddab59X2D234aX2D4a0dX2Dbad3X2D15ab3ee7bdda .
+_:Bb9d510abX2Dd37cX2D407dX2DbcacX2D04c1ab96b149 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/i40/rami#Information> .
 <https://w3id.org/i40/sto#IEC_20140_5> <http://www.w3.org/2000/01/rdf-schema#label> "IEC 20140"@en .
 <https://w3id.org/i40/sto#IEC_20140_5> <https://w3id.org/i40/sto#publisher> <https://w3id.org/i40/sto#IEC> .
 <https://w3id.org/i40/sto#IEC_20140_5> <http://www.w3.org/2002/07/owl#sameAs> <https://w3id.org/i40/sto#ISO_20140_5> .
 <https://w3id.org/i40/sto#IEC_20140_5> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/i40/sto#Standard> .
 <https://w3id.org/i40/sto#IEC_20140_5> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/i40/sto#W3C_RDF> <https://w3id.org/i40/sto#hasOfficialResource> "https://www.w3.org/RDF/" .
+<https://w3id.org/i40/sto#W3C_RDF> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/i40/sto#Standard> .
+<https://w3id.org/i40/sto#W3C_RDF> <http://www.w3.org/2000/01/rdf-schema#comment> "RDF is a standard model for data interchange on the Web. RDF has features that facilitate data merging even if the underlying schemas differ, and it specifically supports the evolution of schemas over time without requiring all the data consumers to be changed. "@en .
+<https://w3id.org/i40/sto#W3C_RDF> <https://w3id.org/i40/sto#hasDBpediaResource> "http://dbpedia.org/resource/Resource_Description_Framework" .
+<https://w3id.org/i40/sto#W3C_RDF> <http://www.w3.org/2000/01/rdf-schema#label> "RDF"@en .
+<https://w3id.org/i40/sto#W3C_RDF> <http://purl.org/dc/terms/license> "Public"@en .
+<https://w3id.org/i40/sto#W3C_RDF> <https://w3id.org/i40/sto#hasTag> "RDF"@en .
+<https://w3id.org/i40/sto#W3C_RDF> <https://w3id.org/i40/sto#publisher> <https://w3id.org/i40/sto#W3C> .
+<https://w3id.org/i40/sto#W3C_RDF> <http://www.w3.org/2000/01/rdf-schema#comment> "RDF is a standard model for data interchange on the Web."@en .
+<https://w3id.org/i40/sto#W3C_RDF> <https://w3id.org/i40/sto#hasWikipediaArticle> "https://en.wikipedia.org/wiki/Resource_Description_Framework" .
+<https://w3id.org/i40/sto#W3C_RDF> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 <https://w3id.org/i40/rami#Identification> <https://w3id.org/i40/sto#isDescribedin> <https://w3id.org/i40/sto#AdministrationShell> .
 <https://w3id.org/i40/rami#Identification> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/i40/rami#AdminShellSubmodel> .
 <https://w3id.org/i40/rami#Identification> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-_:B353a10a3X2Dea6bX2D47bdX2Db81fX2D50315e04f41a <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B91cf0687X2Ddf58X2D469fX2D8f36X2Df2e19f126480 .
-_:B353a10a3X2Dea6bX2D47bdX2Db81fX2D50315e04f41a <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/i40/rami#ControlDevice> .
 <https://w3id.org/i40/rami#Communication> <https://w3id.org/i40/sto#isDescribedin> <https://w3id.org/i40/sto#RAMI40> .
 <https://w3id.org/i40/rami#Communication> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/i40/rami#RAMIITLayer> .
 <https://w3id.org/i40/rami#Communication> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
@@ -998,7 +998,7 @@ _:B353a10a3X2Dea6bX2D47bdX2Db81fX2D50315e04f41a <http://www.w3.org/1999/02/22-rd
 <https://w3id.org/i40/sto#IEC_62061> <https://w3id.org/i40/sto#hasWikipediaArticle> "https://en.wikipedia.org/wiki/IEC_62061" .
 <https://w3id.org/i40/rami#RAMIHierarchyLevel> <http://www.w3.org/2000/01/rdf-schema#label> "RAMI Hierarchy Level"@en .
 <https://w3id.org/i40/rami#RAMIHierarchyLevel> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/i40/sto#StandardClassification> .
-<https://w3id.org/i40/rami#RAMIHierarchyLevel> <http://www.w3.org/2002/07/owl#equivalentClass> _:Be7bd38e253587dda729fa29f4fc09797 .
+<https://w3id.org/i40/rami#RAMIHierarchyLevel> <http://www.w3.org/2002/07/owl#equivalentClass> _:B80fee9b6d3476734030c44d6c6a1f0ad .
 <https://w3id.org/i40/rami#RAMIHierarchyLevel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/i40/sto#MESA> <http://www.w3.org/2000/01/rdf-schema#comment> "The Manufacturing Enterprise Solutions Association International is a global community of manufacturers, producers, industry leaders, and solution providers who are focused on driving business results from manufacturing information."@en .
 <https://w3id.org/i40/sto#MESA> <https://w3id.org/i40/sto#orgName> "Manufacturing Enterprise Solutions Association"@en .
@@ -1129,8 +1129,6 @@ _:B353a10a3X2Dea6bX2D47bdX2Db81fX2D50315e04f41a <http://www.w3.org/1999/02/22-rd
 <https://w3id.org/i40/sto#hasStatus> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
 <https://w3id.org/i40/sto#hasStatus> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/i40/sto#Standard> .
 <https://w3id.org/i40/sto#hasStatus> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-_:B23a5985dX2D4d51X2D48b6X2Dad70X2D1028101dedbe <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bb4eaf489X2D0cffX2D4c8cX2Db6edX2De49e59581bdc .
-_:B23a5985dX2D4d51X2D48b6X2Dad70X2D1028101dedbe <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/i40/rami#Station> .
 <https://w3id.org/i40/rami#FieldDevice> <https://w3id.org/i40/sto#isDescribedin> <https://w3id.org/i40/sto#RAMI40> .
 <https://w3id.org/i40/rami#FieldDevice> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/i40/rami#RAMIHierarchyLevel> .
 <https://w3id.org/i40/rami#FieldDevice> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
@@ -1190,8 +1188,6 @@ _:B23a5985dX2D4d51X2D48b6X2Dad70X2D1028101dedbe <http://www.w3.org/1999/02/22-rd
 <https://w3id.org/i40/sto#Communication> <https://w3id.org/i40/sto#isDescribedin> <https://w3id.org/i40/sto#AdministrationShell> .
 <https://w3id.org/i40/sto#Communication> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/i40/rami#AdminShellSubmodel> .
 <https://w3id.org/i40/sto#Communication> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-_:B1f288812d7d713b176ec0ece67ff120c <http://www.w3.org/2002/07/owl#oneOf> _:B44497357X2D0c0fX2D47e1X2Da752X2De066e5d676ed .
-_:B1f288812d7d713b176ec0ece67ff120c <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/i40/sto#orgName> <http://www.w3.org/2000/01/rdf-schema#label> "Org Name"@en .
 <https://w3id.org/i40/sto#orgName> <http://www.w3.org/2000/01/rdf-schema#commment> "Name of the Organization"@en .
 <https://w3id.org/i40/sto#orgName> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral> .
@@ -1203,6 +1199,7 @@ _:B1f288812d7d713b176ec0ece67ff120c <http://www.w3.org/1999/02/22-rdf-syntax-ns#
 <https://w3id.org/i40/sto#IndustrialAutomation> <https://w3id.org/i40/sto#domainName> "Industrial Automation"@en .
 <https://w3id.org/i40/sto#IndustrialAutomation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/i40/sto#Domain> .
 <https://w3id.org/i40/sto#IndustrialAutomation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/i40/sto#EndOfLifeReclying> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 <https://w3id.org/i40/sto#BBF> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/i40/sto#StandardOrganization> .
 <https://w3id.org/i40/sto#BBF> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 <https://w3id.org/i40/sto#BBF> <http://www.w3.org/2000/01/rdf-schema#comment> "The Broadband Forum is a non-profit industry consortium dedicated to developing broadband network specifications. Members include telecommunications networking and service provider companies, broadband device and equipment vendors, consultants and independent testing labs (ITLs). Service provider members are primarily wire-line service providers (non-mobile) telephone companies."@en .
@@ -1213,9 +1210,6 @@ _:B1f288812d7d713b176ec0ece67ff120c <http://www.w3.org/1999/02/22-rdf-syntax-ns#
 <https://w3id.org/i40/sto#BBF> <https://w3id.org/i40/sto#orgName> "Broadband Forum"@en .
 <https://w3id.org/i40/sto#BBF> <https://w3id.org/i40/sto#hasWikipediaArticle> "https://en.wikipedia.org/wiki/Broadband_Forum" .
 <https://w3id.org/i40/sto#BBF> <https://w3id.org/i40/sto#hasDBpediaResource> "http://dbpedia.org/resource/Broadband_Forum" .
-<https://w3id.org/i40/sto#EndOfLifeReclying> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-_:B032528a0X2D5947X2D405fX2D83bdX2D73f8674da6a4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B353a10a3X2Dea6bX2D47bdX2Db81fX2D50315e04f41a .
-_:B032528a0X2D5947X2D405fX2D83bdX2D73f8674da6a4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/i40/rami#ConnectedWorld> .
 <https://w3id.org/i40/sto#ISO_18629> <http://www.w3.org/2000/01/rdf-schema#label> "ISO 19629"@en .
 <https://w3id.org/i40/sto#ISO_18629> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 <https://w3id.org/i40/sto#ISO_18629> <https://w3id.org/i40/sto#hasOfficialResource> "https://www.iso.org/standard/35431.html" .
@@ -1304,8 +1298,6 @@ _:B032528a0X2D5947X2D405fX2D83bdX2D73f8674da6a4 <http://www.w3.org/1999/02/22-rd
 <https://w3id.org/i40/rami#Safety> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/i40/rami#AdminShellSubmodel> .
 <https://w3id.org/i40/rami#Safety> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 <http://creativecommons.org/ns#attributionName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-_:B0ac91cabX2D3f85X2D4afcX2D8c54X2D0358433a9378 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bbd28d673X2Dbb8eX2D4dfdX2Daef4X2D8f3b289de0b8 .
-_:B0ac91cabX2D3f85X2D4afcX2D8c54X2D0358433a9378 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/i40/rami#Business> .
 <https://w3id.org/i40/sto#eClass> <http://www.w3.org/2000/01/rdf-schema#comment> "eCl@ss is THE cross-industry product data standard for classification and clear description of products and services."@en .
 <https://w3id.org/i40/sto#eClass> <https://w3id.org/i40/sto#hasClassification> <https://w3id.org/i40/rami#Station> .
 <https://w3id.org/i40/sto#eClass> <https://w3id.org/i40/sto#hasClassification> <https://w3id.org/i40/rami#WorkCenter> .
@@ -1400,6 +1392,8 @@ _:B0ac91cabX2D3f85X2D4afcX2D8c54X2D0358433a9378 <http://www.w3.org/1999/02/22-rd
 <https://w3id.org/i40/sto#IEC_61400> <https://w3id.org/i40/sto#publisher> <https://w3id.org/i40/sto#IEC> .
 <https://w3id.org/i40/sto#IEC_61400> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/i40/sto#Standard> .
 <https://w3id.org/i40/sto#IEC_61400> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+_:Bced19ebaX2D01a7X2D40d9X2D9b9cX2D7fb5df4fac92 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B556ed197X2D6921X2D4c76X2D9a9fX2Dd26e2dbb113f .
+_:Bced19ebaX2D01a7X2D40d9X2D9b9cX2D7fb5df4fac92 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/i40/rami#Communication> .
 <https://w3id.org/i40/sto#IEC_62890> <https://w3id.org/i40/sto#hasClassification> <https://w3id.org/i40/sto#ProductionLifeCycleDataManagement> .
 <https://w3id.org/i40/sto#IEC_62890> <http://purl.org/dc/terms/license> "Private"@en .
 <https://w3id.org/i40/sto#IEC_62890> <https://w3id.org/i40/sto#hasClassification> <https://w3id.org/i40/rami#WorkCenter> .
@@ -1502,6 +1496,8 @@ _:B0ac91cabX2D3f85X2D4afcX2D8c54X2D0358433a9378 <http://www.w3.org/1999/02/22-rd
 <https://w3id.org/i40/sto#ISO_50001> <https://w3id.org/i40/sto#hasClassification> <https://w3id.org/i40/sto#CrossLevel> .
 <https://w3id.org/i40/sto#ISO_50001> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/i40/sto#Standard> .
 <https://w3id.org/i40/sto#ISO_50001> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+_:Beea314a5X2D98c4X2D4244X2Dbd6dX2D5f272ef10b6a <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B0c65a2bbX2Dd47fX2D4be6X2D8586X2D9065b92cfe57 .
+_:Beea314a5X2D98c4X2D4244X2Dbd6dX2D5f272ef10b6a <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/i40/rami#Product> .
 <http://xmlns.com/foaf/0.1/Organization> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/i40/sto#EnterpriseIntegration> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 <https://w3id.org/i40/sto#motivation> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes the motivation of the standards"@en .
@@ -1603,12 +1599,6 @@ _:B0ac91cabX2D3f85X2D4afcX2D8c54X2D0358433a9378 <http://www.w3.org/1999/02/22-rd
 <https://w3id.org/i40/sto#ISO_22400> <https://w3id.org/i40/sto#hasOfficialResource> "https://www.iso.org/standard/54497.html" .
 <https://w3id.org/i40/sto#ISO_22400> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/i40/sto#Standard> .
 <https://w3id.org/i40/sto#ISO_22400> <https://w3id.org/i40/sto#hasClassification> <https://w3id.org/i40/rami#Business> .
-<https://w3id.org/i40/rami#Configuration> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-<https://w3id.org/i40/sto#formationDate> <http://www.w3.org/2000/01/rdf-schema#label> "has Formation Date"@en .
-<https://w3id.org/i40/sto#formationDate> <http://www.w3.org/2000/01/rdf-schema#comment> "Formation date of the Organization"@en .
-<https://w3id.org/i40/sto#formationDate> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#date> .
-<https://w3id.org/i40/sto#formationDate> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/i40/sto#StandardOrganization> .
-<https://w3id.org/i40/sto#formationDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <https://w3id.org/i40/sto#ISO_14739-1> <https://w3id.org/i40/sto#publisher> <https://w3id.org/i40/sto#ISO> .
 <https://w3id.org/i40/sto#ISO_14739-1> <https://w3id.org/i40/sto#hasPublicationDate> "2014-12-01"^^<http://www.w3.org/2001/XMLSchema#date> .
 <https://w3id.org/i40/sto#ISO_14739-1> <http://www.w3.org/2004/02/skos/core#altLabel> "STEP"@en .
@@ -1619,6 +1609,14 @@ _:B0ac91cabX2D3f85X2D4afcX2D8c54X2D0358433a9378 <http://www.w3.org/1999/02/22-rd
 <https://w3id.org/i40/sto#ISO_14739-1> <https://w3id.org/i40/sto#hasClassification> <https://w3id.org/i40/sto#ProductModelDataExchange> .
 <https://w3id.org/i40/sto#ISO_14739-1> <http://www.w3.org/2000/01/rdf-schema#comment> "Document management -- 3D use of Product Representation Compact (PRC) format-ISO 14739-1:2014 describes PRC 10001 of a product representation compact (PRC) file format for three dimensional (3D) content data. This format is designed to be included in PDF (ISO 32000) and other similar document formats for the purpose of 3D visualization and exchange. "@en .
 <https://w3id.org/i40/sto#ISO_14739-1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/i40/sto#Standard> .
+<https://w3id.org/i40/rami#Configuration> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/i40/sto#formationDate> <http://www.w3.org/2000/01/rdf-schema#label> "has Formation Date"@en .
+<https://w3id.org/i40/sto#formationDate> <http://www.w3.org/2000/01/rdf-schema#comment> "Formation date of the Organization"@en .
+<https://w3id.org/i40/sto#formationDate> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#date> .
+<https://w3id.org/i40/sto#formationDate> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/i40/sto#StandardOrganization> .
+<https://w3id.org/i40/sto#formationDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:Ba6ddab59X2D234aX2D4a0dX2Dbad3X2D15ab3ee7bdda <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:Ba6ddab59X2D234aX2D4a0dX2Dbad3X2D15ab3ee7bdda <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/i40/rami#Integration> .
 <https://w3id.org/i40/sto#IEC_61508> <http://purl.org/dc/terms/license> "Private"@en .
 <https://w3id.org/i40/sto#IEC_61508> <https://w3id.org/i40/sto#relatedTo> <https://w3id.org/i40/sto#IEC_61511> .
 <https://w3id.org/i40/sto#IEC_61508> <http://www.w3.org/2000/01/rdf-schema#label> "IEC 60508"@en .
@@ -1654,6 +1652,8 @@ _:B0ac91cabX2D3f85X2D4afcX2D8c54X2D0358433a9378 <http://www.w3.org/1999/02/22-rd
 <https://w3id.org/i40/sto#KATS> <http://www.w3.org/2000/01/rdf-schema#comment> "Korean Agency for Technology and Standards is the government standards organization for South Korea. It is part of the Ministry of Knowledge Economy. It is authorized to regulate and manage the legal measures of South Korea by the current Measures Act."@en .
 <https://w3id.org/i40/sto#KATS> <https://w3id.org/i40/sto#belongsTo> <http://dbpedia.org/resource#South_Korea> .
 <https://w3id.org/i40/sto#KATS> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/i40/sto#StandardOrganization> .
+_:B80fee9b6d3476734030c44d6c6a1f0ad <http://www.w3.org/2002/07/owl#oneOf> _:Bde8fd8d3X2D9ae4X2D42c1X2Dab98X2Da2b90a283c37 .
+_:B80fee9b6d3476734030c44d6c6a1f0ad <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://w3id.org/i40/sto#VDMA_24582> <https://w3id.org/i40/sto#hasTag> "Condition Monitoring"@en .
 <https://w3id.org/i40/sto#VDMA_24582> <http://www.w3.org/2000/01/rdf-schema#label> "VDMA 24582"@en .
 <https://w3id.org/i40/sto#VDMA_24582> <http://www.w3.org/2000/01/rdf-schema#comment> "Fieldbus neutral reference architecture for Condition Monitoring in production automation"@en .
@@ -1769,8 +1769,6 @@ _:B0ac91cabX2D3f85X2D4afcX2D8c54X2D0358433a9378 <http://www.w3.org/1999/02/22-rd
 <https://w3id.org/i40/rami#Information> <https://w3id.org/i40/sto#isDescribedin> <https://w3id.org/i40/sto#RAMI40> .
 <https://w3id.org/i40/rami#Information> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/i40/rami#RAMIITLayer> .
 <https://w3id.org/i40/rami#Information> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-_:Bb4eaf489X2D0cffX2D4c8cX2Db6edX2De49e59581bdc <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:Bb4eaf489X2D0cffX2D4c8cX2Db6edX2De49e59581bdc <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/i40/rami#WorkCenter> .
 <https://w3id.org/i40/sto#IEC_60839-5-2> <https://w3id.org/i40/sto#hasClassification> <https://w3id.org/i40/rami#Security> .
 <https://w3id.org/i40/sto#IEC_60839-5-2> <https://w3id.org/i40/sto#hasClassification> <https://w3id.org/i40/rami#Communication> .
 <https://w3id.org/i40/sto#IEC_60839-5-2> <https://w3id.org/i40/sto#hasDomain> <https://w3id.org/i40/sto#M2M> .
@@ -1793,8 +1791,6 @@ _:Bb4eaf489X2D0cffX2D4c8cX2Db6edX2De49e59581bdc <http://www.w3.org/1999/02/22-rd
 <https://w3id.org/i40/sto#ISO_20140_5> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/i40/sto#Standard> .
 <https://w3id.org/i40/sto#ISO_20140_5> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 <http://purl.org/spar/deo/Motivation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:Bbd28d673X2Dbb8eX2D4dfdX2Daef4X2D8f3b289de0b8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B646e112aX2D1db6X2D4835X2D8d40X2D3e88ee76eb2e .
-_:Bbd28d673X2Dbb8eX2D4dfdX2Daef4X2D8f3b289de0b8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/i40/rami#Communication> .
 <https://w3id.org/i40/sto#IndustrialProcessMeasurementControl> <http://www.w3.org/2000/01/rdf-schema#comment> "Industrial process measurement and control"@en .
 <https://w3id.org/i40/sto#IndustrialProcessMeasurementControl> <https://w3id.org/i40/sto#domainName> "Industrial process measurement and control"@en .
 <https://w3id.org/i40/sto#IndustrialProcessMeasurementControl> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/i40/sto#Domain> .
@@ -1824,6 +1820,8 @@ _:Bbd28d673X2Dbb8eX2D4dfdX2Daef4X2D8f3b289de0b8 <http://www.w3.org/1999/02/22-rd
 <https://w3id.org/i40/sto#RAMI> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes the RAMI model"@en .
 <https://w3id.org/i40/sto#RAMI> <https://w3id.org/i40/sto#isDescribedin> <https://w3id.org/i40/rami#InformationLayer> .
 <https://w3id.org/i40/sto#RAMI> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+_:B556ed197X2D6921X2D4c76X2D9a9fX2Dd26e2dbb113f <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bb9d510abX2Dd37cX2D407dX2DbcacX2D04c1ab96b149 .
+_:B556ed197X2D6921X2D4c76X2D9a9fX2Dd26e2dbb113f <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/i40/rami#Functional> .
 <https://w3id.org/i40/sto#ISO_5459> <https://w3id.org/i40/sto#hasOfficialResource> "https://www.iso.org/standard/40358.html" .
 <https://w3id.org/i40/sto#ISO_5459> <https://w3id.org/i40/sto#hasClassification> <https://w3id.org/i40/rami#Asset> .
 <https://w3id.org/i40/sto#ISO_5459> <https://w3id.org/i40/sto#hasClassification> <https://w3id.org/i40/rami#Product> .
@@ -1934,8 +1932,8 @@ _:Bbd28d673X2Dbb8eX2D4dfdX2Daef4X2D8f3b289de0b8 <http://www.w3.org/1999/02/22-rd
 <https://w3id.org/i40/sto#B2MML> <https://w3id.org/i40/sto#hasClassification> <https://w3id.org/i40/sto#EnterpriseLevel> .
 <https://w3id.org/i40/sto#B2MML> <https://w3id.org/i40/sto#hasOfficialResource> "https://services.mesa.org/ResourceLibrary/ShowResource/0f47758b-60f0-40c6-a71b-fa7b2363fb3a" .
 <https://w3id.org/i40/sto#B2MML> <http://www.w3.org/2000/01/rdf-schema#label> "B2MML" .
-<http://purl.org/dc/terms/issued> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
 <https://w3id.org/i40/sto#Product> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://purl.org/dc/terms/issued> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
 <https://w3id.org/i40/sto#NISTIR_8107> <http://www.w3.org/2004/02/skos/core#note> "TODO - improve this classification" .
 <https://w3id.org/i40/sto#NISTIR_8107> <http://www.w3.org/2000/01/rdf-schema#label> "NISTIR_8107"@en .
 <https://w3id.org/i40/sto#NISTIR_8107> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "http://nvlpubs.nist.gov/nistpubs/ir/2016/NIST.IR.8107.pdf" .
@@ -1985,6 +1983,8 @@ _:Bbd28d673X2Dbb8eX2D4dfdX2Daef4X2D8f3b289de0b8 <http://www.w3.org/1999/02/22-rd
 <https://w3id.org/i40/sto#IEC_81714> <https://w3id.org/i40/sto#hasClassification> <https://w3id.org/i40/rami#Asset> .
 <https://w3id.org/i40/sto#IEC_81714> <https://w3id.org/i40/sto#hasClassification> <https://w3id.org/i40/rami#Identifikation> .
 <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isMemberOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+_:B20bbd5ceX2D1a7dX2D43a2X2Da10cX2D55b91d143a3b <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Ba23db878X2Dca17X2D4f25X2D84f0X2D27923eac1d2f .
+_:B20bbd5ceX2D1a7dX2D43a2X2Da10cX2D55b91d143a3b <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/i40/rami#Enterprise> .
 <https://w3id.org/i40/sto#hasDomain> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes the domain, in which the standard is used"@en .
 <https://w3id.org/i40/sto#hasDomain> <http://www.w3.org/2000/01/rdf-schema#label> "has Domain"@en .
 <https://w3id.org/i40/sto#hasDomain> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/i40/sto#Domain> .
@@ -2003,8 +2003,6 @@ _:Bbd28d673X2Dbb8eX2D4dfdX2Daef4X2D8f3b289de0b8 <http://www.w3.org/1999/02/22-rd
 <https://w3id.org/i40/sto#IEC_15459> <http://www.w3.org/2002/07/owl#sameAs> <https://w3id.org/i40/sto#ISO_15459> .
 <https://w3id.org/i40/sto#IEC_15459> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/i40/sto#Standard> .
 <https://w3id.org/i40/sto#IEC_15459> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
-_:B39d93961X2Df210X2D4805X2Dbed9X2D0d49b97af00e <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B917fd818X2D9e07X2D4131X2D8083X2Dd2c32a2f5d8a .
-_:B39d93961X2Df210X2D4805X2Dbed9X2D0d49b97af00e <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/i40/rami#Information> .
 <https://w3id.org/i40/rami#Lifecycle_Status> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
 <https://w3id.org/i40/sto#ISO_9000> <http://www.w3.org/2000/01/rdf-schema#label> "ISO 9000"@en .
 <https://w3id.org/i40/sto#ISO_9000> <http://www.w3.org/2000/01/rdf-schema#comment> "The ISO 9000 family of quality management systems standards is designed to help organizations ensure that they meet the needs of customers and other stakeholders while meeting statutory and regulatory requirements related to a product or program."@en .
@@ -2015,3 +2013,5 @@ _:B39d93961X2Df210X2D4805X2Dbed9X2D0d49b97af00e <http://www.w3.org/1999/02/22-rd
 <https://w3id.org/i40/sto#ISO_9000> <https://w3id.org/i40/sto#hasClassification> <https://w3id.org/i40/sto#CrossLevel> .
 <https://w3id.org/i40/sto#ISO_9000> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/i40/sto#Standard> .
 <https://w3id.org/i40/sto#ISO_9000> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+_:B8095753bX2D598aX2D41cbX2D8a81X2D30dbff393fab <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:B8095753bX2D598aX2D41cbX2D8a81X2D30dbff393fab <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/i40/rami#WorkCenter> .

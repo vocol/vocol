@@ -1338,36 +1338,6 @@
               }
             });
 
-            // function to reduce redundant cells in tables
-            function SummerizeTable(table) {
-              $(table).each(function() {
-                $(table).find('td').each(function() {
-                  var $this = $(this);
-                  var col = $this.index();
-                  var html = $this.html();
-                  var row = $(this).parent()[0].rowIndex;
-                  var span = 1;
-                  var cell_above = $($this.parent().prev().children()[col]);
-
-                  // look for cells one above another with the same text
-                  while (cell_above.html() === html) { // if the text is the same
-                    span += 1; // increase the span
-                    cell_above_old = cell_above; // store this cell
-                    cell_above = $(cell_above.parent().prev().children()[col]); // and go to the next cell above
-                  }
-
-                  // if there are at least two columns with the same value,
-                  // set a new span to the first and hide the other
-                  if (span > 1) {
-                    // console.log(span);
-                    $(cell_above_old).attr('rowspan', span);
-                    $this.hide();
-                  }
-
-                });
-              });
-            }
-
             //check if concept used either as domain or range by other conceptsget
             function getValuesUseditAsProperty(conceptURI, type) {
               var hasdomainPropertyValues = false;
@@ -1414,6 +1384,8 @@
                       '<tr>' +
                       '<th colspan="3">Terms use it as domain</th></thead>' +
                       '<tbody></tr><tr><th>Property</th><th>Expected Type</th><th>Description</th></tr>';
+                    var perviousKey1DomainProperty = "",
+                      perviousKey2DomainProperty = "";
                     if (type === 'domain') {
                       var domianPropertyResult = result;
                       if (domianPropertyResult) {
@@ -1421,8 +1393,9 @@
                         for (var i = 0; i < domianPropertyResult.length; i++) {
                           var key1 = trimHash(replaceWithRDFType(trimSlash(domianPropertyResult[i]['s'].value)));
                           var key2 = trimHash(replaceWithRDFType(trimSlash(domianPropertyResult[i]['property'].value)));
-                          var key3 = domianPropertyResult[i]['comment'].value;
-                          // if(domianPropertyResult[i]['comment'].hasOwnProperty())
+                          var key3 = "";
+                          if (domianPropertyResult[i].hasOwnProperty("comment"))
+                            key3 = domianPropertyResult[i]['comment'].value;
                           var key4 = "";
                           if (domianPropertyResult[i]['comment'].hasOwnProperty("xml:lang"))
                             key4 = domianPropertyResult[i]['comment']['xml:lang'];
@@ -1432,34 +1405,58 @@
                             key1 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key1 + '&quot;); return false; ">' + key1 + '</a>';
                           if (isConceptInside(key2) && domianPropertyResult[i]['property'].type === "uri")
                             key2 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
-                          if (key4 && key5 === "literal")
+                            // check if rows share same values of subject and property, then combine the last comment in the same table cell
+                          if (perviousKey1DomainProperty === key1 && perviousKey2DomainProperty === key2 && key4 && key5 === "literal") {
+                            domainPropertyTable = domainPropertyTable.substring(0, domainPropertyTable.lastIndexOf('</td> </tr>'))
+                            domainPropertyTable += '<br/><br/>' + key3 + '@' + key4 + '</td> </tr>';
+                          } else if (perviousKey1DomainProperty === key1 && perviousKey2DomainProperty === key2) {
+                            domainPropertyTable = domainPropertyTable.substring(0, domainPropertyTable.lastIndexOf('</td> </tr>'))
+                            domainPropertyTable += '<br/><br/>' + key3 + '</td> </tr>';
+                          } else if (key4 && key5 === "literal")
                             domainPropertyTable += '<tr><td style="vertical-align:middle;">' + key1 + '</td>    <td style="vertical-align:middle; text-align: center;">' + key2 + '</td>   <td>' + key3 + '@' + key4 + '</td> </tr>';
                           else
                             domainPropertyTable += '<tr><td style="vertical-align:middle;">' + key1 + '</td>    <td style="vertical-align:middle; text-align: center;">' + key2 + '</td>   <td>' + key3 + '</td> </tr>';
+                          //save pervious values of key1 and key2
+                          perviousKey1DomainProperty = key1;
+                          perviousKey2DomainProperty = key2;
+
                         }
                       }
                     } else if (type === 'range') {
                       var rangePropertyResult = result;
+                      var perviousKey1RangeProperty = "",
+                        perviousKey2RangeProperty = "";
                       if (rangePropertyResult) {
                         hasRangePropertyValues = true;
                         for (var i = 0; i < rangePropertyResult.length; i++) {
                           var key1 = trimHash(replaceWithRDFType(trimSlash(rangePropertyResult[i]['s'].value)));
                           var key2 = trimHash(replaceWithRDFType(trimSlash(rangePropertyResult[i]['property'].value)));
-                          var key3 = rangePropertyResult[i]['comment'].value;
-                          var key4 = ""; // domianPropertyResult[i]['comment']['xml:lang'];
+                          var key3 = "";
+                          if (rangePropertyResult[i].hasOwnProperty("comment"))
+                            key3 = rangePropertyResult[i]['comment'].value;
+                          var key4 = "";
                           if (rangePropertyResult[i]['comment'].hasOwnProperty("xml:lang"))
                             key4 = rangePropertyResult[i]['comment']['xml:lang'];
-
                           var key5 = rangePropertyResult[i]['comment']['type'];
 
                           if (isConceptInside(key1) && rangePropertyResult[i]['s'].type === "uri")
                             key1 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key1 + '&quot;); return false; ">' + key1 + '</a>';
                           if (isConceptInside(key2) && rangePropertyResult[i]['property'].type === "uri")
                             key2 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
-                          if (key4 && key5 === "literal")
+                            // check if rows share same values of subject and property, then combine the last comment in the same table cell
+                          if (perviousKey1RangeProperty === key1 && perviousKey2RangeProperty === key2 && key4 && key5 === "literal") {
+                            rangePropertyTable = rangePropertyTable.substring(0, rangePropertyTable.lastIndexOf('</td> </tr>'))
+                            rangePropertyTable += '<br/><br/>' + key3 + '@' + key4 + '</td> </tr>';
+                          } else if (perviousKey1RangeProperty === key1 && perviousKey2RangeProperty === key2) {
+                            rangePropertyTable = rangePropertyTable.substring(0, rangePropertyTable.lastIndexOf('</td> </tr>'))
+                            rangePropertyTable += '<br/><br/>'  + key3 + '</td> </tr>';
+                          } else if (key4 && key5 === "literal")
                             rangePropertyTable += '<tr ><td style="vertical-align:middle;">' + key1 + '</td>    <td style="vertical-align:middle; text-align: center;">' + key2 + '</td>   <td>' + key3 + '@' + key4 + '</td> </tr>';
                           else
                             rangePropertyTable += '<tr><td style="vertical-align:middle;">' + key1 + '</td>    <td style="vertical-align:middle; text-align: center;">' + key2 + '</td>   <td>' + key3 + '</td> </tr>';
+
+                          perviousKey1RangeProperty = key1;
+                          perviousKey2RangeProperty = key2;
                         }
                       }
                     }
@@ -1469,17 +1466,12 @@
                     if (hasdomainPropertyValues) {
                       $("#domainPropertyTable").show();
                       $("#domainPropertyTable").html(domainPropertyTable);
-                      SummerizeTable("#domainPropertyTable");
-
                     }
                     // show rangePropertyTable if it has Values
                     if (hasRangePropertyValues) {
                       $("#rangePropertyTable").show();
                       $("#rangePropertyTable").html(rangePropertyTable);
-                      SummerizeTable("#rangePropertyTable");
-
                     }
-
                   }
                 }
               });
@@ -1670,9 +1662,8 @@
                       key2 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key2URI + '&quot;,&quot;SKOS&quot;); return false; ">' + key2 + '</a>';
                     }
                     if (isOWLIndividiual(key2) && !key1.includes("label") && key4 === "uri") {
-                      key2 = '<a href="#" onmousedown="showInstanceDetails(&quot;' + key2URI + '&quot;); return false; ">' + key2 + '</a>';
-                    }
-                    if (!isOWLIndividiual(key2) && !isConceptInside(key2) && !key1.includes("label") && key4 === "uri") {
+                      key2 = '<a href="#" onclick="showInstanceDetails(&quot;' + key2URI + '&quot;); ">' + key2 + '</a>';
+                    } else if (!isOWLIndividiual(key2) && !isConceptInside(key2) && !key1.includes("label") && key4 === "uri") {
                       key2 = '<a href="#" onmousedown="showExternalInfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
                     }
                     if (isConceptInside(key2) && !key1.includes("label") && key4 === "uri") {
@@ -1681,7 +1672,7 @@
                     if (key3 && key4 === "literal") {
                       key2 = key2 + '@' + key3;
                     }
-
+                    debugger;
                     table += '<tr><td>' + key1 + '</td>    <td>' + key2 + '</td>  </tr>';
                   }
                 }
@@ -1763,7 +1754,7 @@
                 edges: edges
               };
               var options = {
-                autoResize: true,
+                autoResize: false,
                 height: '400px',
                 width: '500px',
                 nodes: {
@@ -1843,14 +1834,31 @@
               });
 
               network.on('afterDrawing', function() {
-                if (!fitNetworkFirstTime)
+                if (!fitNetworkFirstTime) {
                   network.fit();
+                }
                 fitNetworkFirstTime = true;
               });
+              network.once('stabilized', function() {
+                if (network.getScale() < 0.2)
+                  var scaleOption = {
+                    scale: 0.3
+                  };
+                network.moveTo(scaleOption);
+              })
+
+
 
               // To render oncemore the graph id the graphTab is clicked
               $('#graphTab').on('click', function() {
                 network = new vis.Network(container, data, options);
+                network.once('stabilized', function() {
+                  if (network.getScale() < 0.2)
+                    var scaleOption = {
+                      scale: 0.3
+                    };
+                  network.moveTo(scaleOption);
+                })
                 network.on('afterDrawing', function() {
                   if (!fitNetworkFirstTime)
                     network.fit();
@@ -1860,10 +1868,10 @@
               });
               // To reset fitNetworkFirstTime when user click other than graphTab
               $('#documentationTab').on('click', function() {
-                  fitNetworkFirstTime = false;
+                fitNetworkFirstTime = false;
               });
               $('#sourceCodeTab').on('click', function() {
-                  fitNetworkFirstTime = false;
+                fitNetworkFirstTime = false;
               });
 
             }

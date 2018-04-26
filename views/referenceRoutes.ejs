@@ -864,7 +864,7 @@
                 rangeTable += '<tr>    <td>' + key2 + '</td>  </tr>';
               } else {
                 if (key1.includes("broader") || key1.includes("narrower")) {
-                  key2 = '<a href="./' + key2 + '">' + key2 + '</a>';
+                  key2 = '<a href=./' + key2 + '>' + key2 + '</a>';
                 }
                 if (isOWLIndividiual(key2) && !key1.includes("label") && key4 === "uri") {
                   key2 = '<a href="./' + key2 + '">' + key2 + '</a>';
