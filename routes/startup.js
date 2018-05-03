@@ -103,20 +103,20 @@ router.get('/', function(req, res) {
         }).stdout;
         if (currentrepositoryURL != obj.repositoryURL) {
           // reset the app. if the repositoryURL was changed
-          shell.exec('echo -n > ../vocol/helper/tools/evolution/evolutionReport.txt').stdout;
-          shell.exec('echo -n > ../vocol/helper/tools/serializations/SingleVoc.nt').stdout;
+          shell.exec('echo "" > ../vocol/helper/tools/evolution/evolutionReport.txt').stdout;
           shell.exec('echo "[]" > ../vocol/jsonDataFiles/syntaxErrors.json').stdout;
-          shell.exec('rm -f ../vocol/views/webvowl/data/SingleVoc.json').stdout;
-          shell.exec('rm -f ../vocol/jsonDataFiles/RDFSConcepts.json').stdout;
-          shell.exec('rm -f ../vocol/jsonDataFiles/SKOSConcepts.json').stdout;
-          shell.exec('rm -f ../vocol/jsonDataFiles/SKOSObjects.json').stdout;
-          shell.exec('rm -f ../vocol/jsonDataFiles/RDFSObjects.json').stdout;
-          shell.exec('rm -f ../vocol/jsonDataFiles/OWLIndividuals.json').stdout;
+          shell.exec('echo "[]" > ../vocol/jsonDataFiles/RDFSConcepts.json').stdout;
+          shell.exec('echo "[]" > ../vocol/jsonDataFiles/SKOSConcepts.json').stdout;
+          shell.exec('echo "[]" > ../vocol/jsonDataFiles/SKOSObjects.json').stdout;
+          shell.exec('echo "[]" > ../vocol/jsonDataFiles/RDFSObjects.json').stdout;
+          shell.exec('echo "[]" > ../vocol/jsonDataFiles/OWLIndividuals.json').stdout;
           shell.exec('rm -f ../vocol/helper/tools/serializations/SingleVoc.nt').stdout;
+          shell.exec('rm -f ../vocol/helper/tools/ttl2ntConverter/temp.nt').stdout;
           shell.exec('rm -f ../vocol/helper/tools/evolution/SingleVoc.nt').stdout;
+          shell.exec('rm -f ../vocol/views/webvowl/data/SingleVoc.json').stdout;
           console.log("App's previous data was deleted");
         }
-
+        // everytime remove all pervious errors if some were saved
         shell.exec('echo "[]" > ../vocol/jsonDataFiles/syntaxErrors.json').stdout;
         var pass = true;
         var data = shell.exec('find . -type f -name "*.ttl"', {
@@ -127,8 +127,12 @@ router.get('/', function(req, res) {
         var files = data.split(/[\n]/);
         var k = 1;
         var errors = [];
+        // delete oldData if something is there
         shell.mkdir('../vocol/helper/tools/serializations');
-        shell.exec('rm -f   ../vocol/helper/tools/serializations/SingleVoc.nt',{
+        shell.exec('rm -f   ../vocol/helper/tools/serializations/SingleVoc.nt', {
+          silent: false
+        }).stdout;
+        shell.exec('rm -f   ../vocol/helper/tools/ttl2ntConverter/temp.nt',{
           silent: false
         }).stdout;
         for (var i = 0; i < files.length - 1; i++) {
@@ -199,6 +203,14 @@ router.get('/', function(req, res) {
 
         //if no syntax errors, then contiune otherwise stop
         if (pass) {
+          // delete previous data if there is any
+          shell.exec('rm -f ../vocol/views/webvowl/data/SingleVoc.json').stdout;
+          shell.exec('echo "[]" > ../vocol/jsonDataFiles/RDFSConcepts.json').stdout;
+          shell.exec('echo "[]" > ../vocol/jsonDataFiles/SKOSConcepts.json').stdout;
+          shell.exec('echo "[]" >../vocol/jsonDataFiles/SKOSObjects.json').stdout;
+          shell.exec('echo "[]" > ../vocol/jsonDataFiles/RDFSObjects.json').stdout;
+          shell.exec('echo "[]" > ../vocol/jsonDataFiles/OWLIndividuals.json').stdout;
+          shell.exec('rm -f ../vocol/helper/tools/ttl2ntConverter/temp.nt').stdout;
           // Kill fuseki if it is running
           shell.cd('-P', '../vocol/helper/tools/apache-jena-fuseki');
           shell.exec('fuser -k 3030/tcp', {
