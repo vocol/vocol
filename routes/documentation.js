@@ -14,6 +14,11 @@ router.get('/', function(req, res) {
     var filePath = 'jsonDataFiles/RDFSConcepts.json'
     fs.exists(filePath, function(exists) {
       if (exists) {
+        (function clearRequireCache() {
+          Object.keys(require.cache).forEach(function(key) {
+            delete require.cache[key];
+          })})();  
+
         var appdata = require('../jsonDataFiles/RDFSConcepts.json');
         var SKOSData = require('../jsonDataFiles/SKOSConcepts.json');
         var RDFObjectsPlusURI = require('../jsonDataFiles/RDFSObjects.json');

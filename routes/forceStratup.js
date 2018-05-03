@@ -7,7 +7,7 @@ var shell = require('shelljs');
 var router = express.Router();
 var spawn = require('child_process').spawn;
 
-shell.exec('echo -n > ../vocol/jsonDataFiles/syntaxErrors.json').stdout;
+shell.exec('echo "{}" > ../vocol/jsonDataFiles/syntaxErrors.json').stdout;
 var pass = true;
 var data = shell.exec('find . -type f -name "*.ttl"', {
   silent: false
@@ -22,7 +22,9 @@ var data = shell.exec('find . -type f -name "*.ttl"', {
         shell.exec('rm -f   ../vocol/helper/tools/serializations/SingleVoc.nt',{
           silent: false
         }).stdout;
-
+        shell.exec('rm -f   ../vocol/helper/tools/ttl2ntConverter/temp.nt',{
+          silent: false
+        }).stdout;
         for (var i = 0; i < files.length - 1; i++) {
           // validation of the turtle files
           var output = shell.exec('ttl ' + files[i] + '', {
@@ -74,6 +76,14 @@ if(!pass){
   }
 }
 else{
+  // delete previous data if there is any
+  shell.exec('rm -f ../vocol/views/webvowl/data/SingleVoc.json').stdout;
+  shell.exec('rm -f ../vocol/jsonDataFiles/RDFSConcepts.json').stdout;
+  shell.exec('rm -f ../vocol/jsonDataFiles/SKOSConcepts.json').stdout;
+  shell.exec('rm -f ../vocol/jsonDataFiles/SKOSObjects.json').stdout;
+  shell.exec('rm -f ../vocol/jsonDataFiles/RDFSObjects.json').stdout;
+  shell.exec('rm -f ../vocol/jsonDataFiles/OWLIndividuals.json').stdout;
+  shell.exec('rm -f ../vocol/helper/tools/ttl2ntConverter/temp.nt').stdout;
 // Kill fuseki if it is running
 shell.cd('-P', '../vocol/helper/tools/apache-jena-fuseki');
 shell.exec('fuser -k 3030/tcp', {

@@ -4,15 +4,14 @@
 
 echo -n > helper/tools/serializations/SingleVoc.nt
 echo "[]" > jsonDataFiles/syntaxErrors.json
-echo -n > helper/tools/evolution/evolutionReport.txt
+echo "" > helper/tools/evolution/evolutionReport.txt
 echo "{}" > jsonDataFiles/userConfigurations.json
-rm -f jsonDataFiles/RDFSConcepts.json
-rm -f jsonDataFiles/SKOSConcepts.json
-rm -f jsonDataFiles/SKOSObjects.json
-rm -f jsonDataFiles/RDFSObjects.json
-rm -f jsonDataFiles/OWLIndividiuals.json
-rm -f helper/tools/serializations/SingleVoc.nt
+echo "[]" > jsonDataFiles/RDFSConcepts.json
+echo "[]" > jsonDataFiles/SKOSConcepts.json
+echo "[]" > jsonDataFiles/SKOSObjects.json
+echo "[]" > jsonDataFiles/RDFSObjects.json
+echo "[]" > jsonDataFiles/OWLIndividiuals.json
 rm -f helper/tools/serializations/SingleVoc.nt
 rm -f helper/tools/evolution/SingleVoc.nt
-rm -f helper/tools/rdf2rdf/temp.nt
+rm -f helper/tools/ttl2ntConverter/temp.nt
 rm -f views/webvowl/data/SingleVoc.json
