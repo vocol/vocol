@@ -870,7 +870,7 @@
                   key2 = '<a href="./' + key2 + '">' + key2 + '</a>';
 
                 }
-                if (!isConceptInside(key2) && !isOWLIndividiual(key2) && !key1.includes("label") && key4 === "uri") {
+                else if (!isConceptInside(key2) && !isOWLIndividiual(key2) && !key1.includes("label") && key4 === "uri") {
                   key2 = '<a href="./' + key2 + '">' + key2 + '</a>';
                 }
                 if (isConceptInside(key2) && !key1.includes("label") && key4 === "uri") {
