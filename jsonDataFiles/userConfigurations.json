@@ -1,1 +1,22 @@
-{}
+{
+  "vocabularyName": "test",
+  "server": "http://vocol.iais.fraunhofer.de/tib/",
+  "adminUserName": "admin",
+  "adminPass": "$2a$10$4hpzQSA2NsyvuEk9Ybr3L.xtCkSS3VxfbvtGwVy.rQaawGGlgDJAa",
+  "repositoryURL": "https://github.com/ahemaid/vocotest.git",
+  "repositoryOwner": "ahemaid",
+  "repositoryName": "vocotest",
+  "branchName": "master",
+  "user": "i40-Tools",
+  "password": "jhlhljkhh",
+  "repositoryService": "gitHub",
+  "repositoryType": "public",
+  "visualization": "true",
+  "sparqlEndPoint": "true",
+  "documentationGeneration": "true",
+  "evolutionReport": "true",
+  "analytics": "true",
+  "loginUserName": "ahmed",
+  "loginPassword": "$2a$10$4hpzQSA2NsyvuEk9Ybr3L.IugxpqGxns5W23WogNR8eKCDUlizVJO",
+  "text": ""
+}

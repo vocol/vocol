@@ -1,6 +1,6 @@
 var express = require('express');
 var path = require('path');
-var favicon = require('serve-favicon');
+//var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -187,7 +187,8 @@ app.use(['\/\/fuseki/', '/fuseki/'],  proxy('localhost:3030/',   {  
 app.get(['\/\/analytics', '/analytics'], function(req, res) {
   if (!req.session.isAuthenticated && req.app.locals.authRequired)
     res.render('login', {
-      title: 'login'
+      title: 'login',
+      hash : ""
     });
   else
     res.render('analytics', {
@@ -198,7 +199,8 @@ app.get(['\/\/analytics', '/analytics'], function(req, res) {
 app.get(['\/\/turtleEditor', '/turtleEditor'], function(req, res) {
   if (!req.session.isAuthenticated && req.app.locals.authRequired)
     res.render('login', {
-      title: 'login'
+      title: 'login',
+      hash : ""
     });
   else
     res.render('turtleEditor', {
@@ -209,7 +211,8 @@ app.get(['\/\/turtleEditor', '/turtleEditor'], function(req, res) {
 app.get(['\/\/visualization', '/visualization'], function(req, res) {
   if (!req.session.isAuthenticated && req.app.locals.authRequired)
     res.render('login', {
-      title: 'login'
+      title: 'login',
+      hash : ""
     });
   else
     res.render('visualization', {
@@ -220,7 +223,8 @@ app.get(['\/\/visualization', '/visualization'], function(req, res) {
 app.get(['\/\/querying', '/querying'], function(req, res) {
   if (!req.session.isAuthenticated && req.app.locals.authRequired)
     res.render('login', {
-      title: 'login'
+      title: 'login',
+      hash : ""
     });
   else
     res.render('querying', {
@@ -232,11 +236,25 @@ app.get(['\/\/querying', '/querying'], function(req, res) {
 app.get(['\/\/Imprint', '/Imprint'], function(req, res) {
   if (!req.session.isAuthenticated && req.app.locals.authRequired)
     res.render('login', {
-      title: 'login'
+      title: 'login',
+      hash : ""
     });
   else
     res.render('Imprint', {
       title: 'Imprint'
+    });
+});
+
+
+app.get(['\/\/gdpr', '/gdpr'], function(req, res) {
+  if (!req.session.isAuthenticated && req.app.locals.authRequired)
+    res.render('login', {
+      title: 'login',
+      hash : ""
+    });
+  else
+    res.render('gdpr', {
+      title: 'Datenschutz'
     });
 });
 

@@ -16,9 +16,9 @@ router.post('/', function(req, res) {
     if (exists) {
       var data = fs.readFileSync(path);
       if (data.includes('vocabularyName')) {
-        jsonfile.readFile(path, function(err, obj)  {
+        jsonfile.readFile(path, function(err, obj)  {
           if (err)
-            console.log(err); 
+            console.log(err);
           if (obj.loginUserName) {
             bcrypt.compare(req.body.password, obj.loginPassword, function(err, result) {
               if (result) {
