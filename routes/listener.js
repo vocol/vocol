@@ -212,7 +212,7 @@ router.post('/', function(req, res) {
                   var commitDetails = "";
                   if (commitTimestamp != "")
                     commitDetails = "commitTimestamp:" + commitTimestamp + "\n" + "pusher:" + pusher + "\n" + "commitMessage:" + commitMessage + "\n";
-                  var evolutionReport = shell.exec('./owl2diff ../evolution/SingleVoc.nt ../serializations/SingleVoc.nt', {
+                  var evolutionReport = shell.exec('java -jar owl2vcs.jar  ../evolution/SingleVoc.nt ../serializations/SingleVoc.nt', {
                     silent: false
                   }).stdout;
                   if (evolutionReport.includes('+') || evolutionReport.includes('-')) {

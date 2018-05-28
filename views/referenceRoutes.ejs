@@ -26,8 +26,8 @@
           <div class="tab-pane" class="tabContent" id="sourceCode" role="tabpanel">
             <div class="ui buttons">
               <button class="ui red basic button" id="turtleCodeBnt" value="text/turtle">Turtle</button>
-              <button class="ui olive basic button" id="ntriplesCodeBnt" value="text/ntriples">NTriples</button>
-              <button class="ui teal basic button" id="ldJsonCodeBnt" value="application/ld+json">ld-JSON</button>
+              <button class="ui olive basic button" id="ntriplesCodeBnt" value="text/ntriples">N-Triples</button>
+              <button class="ui teal basic button" id="ldJsonCodeBnt" value="application/ld+json">JSON-LD</button>
               <button class="ui blue basic button" id="rdfxmlCodeBnt" value="application/rdf+xml">RDF/XML</button>
             </div>
             <div id="yasqe" style="overflow: hidden"></div>
@@ -870,7 +870,7 @@
                   key2 = '<a href="./' + key2 + '">' + key2 + '</a>';
 
                 }
-                if (!isConceptInside(key2) && !isOWLIndividiual(key2) && !key1.includes("label") && key4 === "uri") {
+                else if (!isConceptInside(key2) && !isOWLIndividiual(key2) && !key1.includes("label") && key4 === "uri") {
                   key2 = '<a href="./' + key2 + '">' + key2 + '</a>';
                 }
                 if (isConceptInside(key2) && !key1.includes("label") && key4 === "uri") {
