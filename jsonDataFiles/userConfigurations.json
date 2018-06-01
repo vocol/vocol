@@ -1,1 +1,22 @@
-{}
+{
+  "vocabularyName": "test",
+  "server": "http://localhost:3000/",
+  "adminUserName": "admin",
+  "adminPass": "$2a$10$WAm6DV5AwVs881S5y/E39.kSAL/NL9B0irjj0qyCUdPuT7Umyr6oG",
+  "repositoryURL": "https://github.com/ahemaid/vocotest.git",
+  "repositoryOwner": "ahemaid",
+  "repositoryName": "vocotest",
+  "branchName": "master",
+  "user": "ahmed",
+  "password": "U2FsdGVkX1/KxHvFVaZb2M97/OdQN+aqAA9DubEfizw=",
+  "repositoryService": "gitHub",
+  "repositoryType": "private",
+  "visualization": "true",
+  "sparqlEndPoint": "true",
+  "documentationGeneration": "true",
+  "evolutionReport": "true",
+  "analytics": "true",
+  "loginUserName": "",
+  "loginPassword": "$2a$10$WAm6DV5AwVs881S5y/E39.w3071VmJ6RztvPw2kQfrMnL7V7nER12",
+  "text": ""
+}

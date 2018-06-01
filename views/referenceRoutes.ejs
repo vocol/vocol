@@ -537,162 +537,147 @@
           showTurtleSource(currentSelectedConcept);
       });
 
-      // function to reduce redundant cells in tables
-      function SummerizeTable(table) {
-        $(table).each(function() {
-          $(table).find('td').each(function() {
-            var $this = $(this);
-            var col = $this.index();
-            var html = $this.html();
-            var row = $(this).parent()[0].rowIndex;
-            var span = 1;
-            var cell_above = $($this.parent().prev().children()[col]);
 
-            // look for cells one above another with the same text
-            while (cell_above.html() === html) { // if the text is the same
-              span += 1; // increase the span
-              cell_above_old = cell_above; // store this cell
-              cell_above = $(cell_above.parent().prev().children()[col]); // and go to the next cell above
-            }
+                  //check if concept used either as domain or range by other conceptsget
+                  function getValuesUseditAsProperty(conceptURI, type) {
+                    var hasdomainPropertyValues = false;
+                    var hasRangePropertyValues = false;
 
-            // if there are at least two columns with the same value,
-            // set a new span to the first and hide the other
-            if (span > 1) {
-              // console.log(span);
-              $(cell_above_old).attr('rowspan', span);
-              $this.hide();
-            }
-
-          });
-        });
-      }
-
-
-      //check if concept used either as domain or range by other conceptsget
-      function getValuesUseditAsProperty(conceptURI, type) {
-        var hasdomainPropertyValues = false;
-        var hasRangePropertyValues = false;
-
-        // make both rangePropertyTable and domainPropertyTable  empty
-        $("#rangePropertyTable").hide();
-        $("#domainPropertyTable").hide();
-        if (type === "range") {
-          var propertyType = "rdfs:range";
-        } else {
-          var propertyType = "rdfs:domain";
-        }
-        var endpoint = "./fuseki/dataset/sparql?query=";
-        var querystring = 'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>' +
-          'SELECT  ?s ?property ?comment ' +
-          'WHERE {' +
-          ' ?s ' + propertyType + ' <' + conceptURI + '>.' +
-          '?s ' + propertyType + '?property.' +
-          'OPTIONAL{?s rdfs:comment ?comment.}}';
-        $.ajax({
-          type: 'GET',
-          url: endpoint + encodeURIComponent(querystring),
-          'async': true,
-          headers: {
-            Accept: 'application/sparql-results+json;charset=UTF-8'
-          },
-          success: function(data, textStatus, jqXHR) {
-            var result = data.results.bindings;
-            hasdomainPropertyValues = false;
-            hasRangePropertyValues = false;
-
-            if (result[0] != null) {
-              var rangePropertyTable = '<table class="ui yellow celled table" style="table-layout:fixed;" >' +
-                '<thead>' +
-                '<colgroup> <col class="col-md-2"><col class="col-md-2"><col class="col-md-2"> </colgroup>' +
-                '<tr>' +
-                '<th colspan="3">Terms use it as range</th></thead>' +
-                '<tbody></tr><tr><th>Property</th><th>On Types</th><th>Description</th></tr>';
-
-              var domainPropertyTable = '<table class="ui brown celled striped table"style="table-layout:fixed;" >' +
-                '<thead>' +
-                '<colgroup> <col class="col-md-2"><col class="col-md-2"><col class="col-md-2"> </colgroup>' +
-                '<tr>' +
-                '<th colspan="3">Terms use it as domain</th></thead>' +
-                '<tbody></tr><tr><th>Property</th><th>Expected Type</th><th>Description</th></tr>';
-              if (type === 'domain') {
-                var domianPropertyResult = result;
-                if (domianPropertyResult) {
-                  hasdomainPropertyValues = true;
-                  for (var i = 0; i < domianPropertyResult.length; i++) {
-                    var key1 = trimHash(replaceWithRDFType(trimSlash(domianPropertyResult[i]['s'].value)));
-                    var key2 = trimHash(replaceWithRDFType(trimSlash(domianPropertyResult[i]['property'].value)));
-                    var key3 = domianPropertyResult[i]['comment'].value;
-                    // if(domianPropertyResult[i]['comment'].hasOwnProperty())
-                    var key4 = "";
-                    if (domianPropertyResult[i]['comment'].hasOwnProperty("xml:lang"))
-                      key4 = domianPropertyResult[i]['comment']['xml:lang'];
-
-                    var key5 = domianPropertyResult[i]['comment']['type'];
-                    if (isConceptInside(key1) && domianPropertyResult[i]['s'].type === "uri")
-                      key1 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key1 + '&quot;); return false; ">' + key1 + '</a>';
-                    else if (!isConceptInside(key1) && !isOWLIndividiual(key1) && domianPropertyResult[i]['s'].type === "uri") {
-                      //key1 = '<a href="./' + key1 + '">' + key1 + '</a>';
-                      key1 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key1 + '&quot;); return false; ">' + key1 + '</a>';
-
+                    // make both rangePropertyTable and domainPropertyTable  empty
+                    $("#rangePropertyTable").hide();
+                    $("#domainPropertyTable").hide();
+                    if (type === "range") {
+                      var propertyType = "rdfs:range";
+                    } else {
+                      var propertyType = "rdfs:domain";
                     }
-                    if (isConceptInside(key2) && domianPropertyResult[i]['property'].type === "uri")
-                      key2 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
-                    else if (!isConceptInside(key2) && !isOWLIndividiual(key2) && domianPropertyResult[i]['property'].type === "uri") {
-                      //key2 = '<a href="./' + key2 + '">' + key2 + '</a>';
-                      key2 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
-                    }
-                    if (key4 && key5 === "literal")
-                      domainPropertyTable += '<tr><td style="vertical-align:middle;">' + key1 + '</td>    <td style="vertical-align:middle; text-align: center;">' + key2 + '</td>   <td>' + key3 + '@' + key4 + '</td> </tr>';
-                    else
-                      domainPropertyTable += '<tr><td style="vertical-align:middle;">' + key1 + '</td>    <td style="vertical-align:middle; text-align: center;">' + key2 + '</td>   <td>' + key3 + '</td> </tr>';
-                  }
-                }
-              } else if (type === 'range') {
-                var rangePropertyResult = result;
-                if (rangePropertyResult) {
-                  hasRangePropertyValues = true;
-                  for (var i = 0; i < rangePropertyResult.length; i++) {
-                    var key1 = trimHash(replaceWithRDFType(trimSlash(rangePropertyResult[i]['s'].value)));
-                    var key2 = trimHash(replaceWithRDFType(trimSlash(rangePropertyResult[i]['property'].value)));
-                    var key3 = rangePropertyResult[i]['comment'].value;
-                    var key4 = ""; // domianPropertyResult[i]['comment']['xml:lang'];
-                    if (rangePropertyResult[i]['comment'].hasOwnProperty("xml:lang"))
-                      key4 = rangePropertyResult[i]['comment']['xml:lang'];
+                    var endpoint = "./fuseki/dataset/sparql?query=";
+                    var querystring = 'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>' +
+                      'SELECT  ?s ?property ?comment ' +
+                      'WHERE {' +
+                      ' ?s ' + propertyType + ' <' + conceptURI + '>.' +
+                      '?s ' + propertyType + '?property.' +
+                      'OPTIONAL{?s rdfs:comment ?comment.}}';
+                    $.ajax({
+                      type: 'GET',
+                      url: endpoint + encodeURIComponent(querystring),
+                      'async': true,
+                      headers: {
+                        Accept: 'application/sparql-results+json;charset=UTF-8'
+                      },
+                      success: function(data, textStatus, jqXHR) {
+                        var result = data.results.bindings;
+                        hasdomainPropertyValues = false;
+                        hasRangePropertyValues = false;
 
-                    var key5 = rangePropertyResult[i]['comment']['type'];
+                        if (result[0] != null) {
+                          var rangePropertyTable = '<table class="ui yellow celled table" style="table-layout:fixed;" >' +
+                            '<thead>' +
+                            '<colgroup> <col class="col-md-2"><col class="col-md-2"><col class="col-md-2"> </colgroup>' +
+                            '<tr>' +
+                            '<th colspan="3">Terms use it as range</th></thead>' +
+                            '<tbody></tr><tr><th>Property</th><th>On Types</th><th>Description</th></tr>';
 
-                    if (isConceptInside(key1) && rangePropertyResult[i]['s'].type === "uri")
-                      key1 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key1 + '&quot;); return false; ">' + key1 + '</a>';
-                    if (isConceptInside(key2) && rangePropertyResult[i]['property'].type === "uri")
-                      key2 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
-                    if (key4 && key5 === "literal")
-                      rangePropertyTable += '<tr ><td style="vertical-align:middle;">' + key1 + '</td>    <td style="vertical-align:middle; text-align: center;">' + key2 + '</td>   <td>' + key3 + '@' + key4 + '</td> </tr>';
-                    else
-                      rangePropertyTable += '<tr><td style="vertical-align:middle;">' + key1 + '</td>    <td style="vertical-align:middle; text-align: center;">' + key2 + '</td>   <td>' + key3 + '</td> </tr>';
-                  }
-                }
-              }
-              domainPropertyTable += '</tbody></table> ';
-              rangePropertyTable += '</tbody></table> ';
-              // show domainPropertyTable if it has Values
-              if (hasdomainPropertyValues) {
-                $("#domainPropertyTable").show();
-                $("#domainPropertyTable").html(domainPropertyTable);
-                SummerizeTable("#domainPropertyTable");
+                          var domainPropertyTable = '<table class="ui brown celled striped table"style="table-layout:fixed;" >' +
+                            '<thead>' +
+                            '<colgroup> <col class="col-md-2"><col class="col-md-2"><col class="col-md-2"> </colgroup>' +
+                            '<tr>' +
+                            '<th colspan="3">Terms use it as domain</th></thead>' +
+                            '<tbody></tr><tr><th>Property</th><th>Expected Type</th><th>Description</th></tr>';
+                          var perviousKey1DomainProperty = "",
+                            perviousKey2DomainProperty = "";
+                          if (type === 'domain') {
+                            var domianPropertyResult = result;
+                            if (domianPropertyResult) {
+                              hasdomainPropertyValues = true;
+                              for (var i = 0; i < domianPropertyResult.length; i++) {
+                                var key1 = trimHash(replaceWithRDFType(trimSlash(domianPropertyResult[i]['s'].value)));
+                                var key2 = trimHash(replaceWithRDFType(trimSlash(domianPropertyResult[i]['property'].value)));
+                                var key3 = "";
+                                if (domianPropertyResult[i].hasOwnProperty("comment"))
+                                  key3 = domianPropertyResult[i]['comment'].value;
+                                var key4 = "";
+                                if (domianPropertyResult[i]['comment'].hasOwnProperty("xml:lang"))
+                                  key4 = domianPropertyResult[i]['comment']['xml:lang'];
 
-              }
-              // show rangePropertyTable if it has Values
-              if (hasRangePropertyValues) {
-                $("#rangePropertyTable").show();
-                $("#rangePropertyTable").html(rangePropertyTable);
-                SummerizeTable("#rangePropertyTable");
+                                var key5 = domianPropertyResult[i]['comment']['type'];
+                                if (isConceptInside(key1) && domianPropertyResult[i]['s'].type === "uri")
+                                  key1 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key1 + '&quot;); return false; ">' + key1 + '</a>';
+                                if (isConceptInside(key2) && domianPropertyResult[i]['property'].type === "uri")
+                                  key2 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
+                                // check if rows share same values of subject and property, then combine the last comment in the same table cell
+                                if (perviousKey1DomainProperty === key1 && perviousKey2DomainProperty === key2 && key4 && key5 === "literal") {
+                                  domainPropertyTable = domainPropertyTable.substring(0, domainPropertyTable.lastIndexOf('</td> </tr>'))
+                                  domainPropertyTable += '<br/><br/>' + key3 + '@' + key4 + '</td> </tr>';
+                                } else if (perviousKey1DomainProperty === key1 && perviousKey2DomainProperty === key2) {
+                                  domainPropertyTable = domainPropertyTable.substring(0, domainPropertyTable.lastIndexOf('</td> </tr>'))
+                                  domainPropertyTable += '<br/><br/>' + key3 + '</td> </tr>';
+                                } else if (key4 && key5 === "literal")
+                                  domainPropertyTable += '<tr><td style="vertical-align:middle;">' + key1 + '</td>    <td style="vertical-align:middle; text-align: center;">' + key2 + '</td>   <td>' + key3 + '@' + key4 + '</td> </tr>';
+                                else
+                                  domainPropertyTable += '<tr><td style="vertical-align:middle;">' + key1 + '</td>    <td style="vertical-align:middle; text-align: center;">' + key2 + '</td>   <td>' + key3 + '</td> </tr>';
+                                //save pervious values of key1 and key2
+                                perviousKey1DomainProperty = key1;
+                                perviousKey2DomainProperty = key2;
 
-              }
+                              }
+                            }
+                          } else if (type === 'range') {
+                            var rangePropertyResult = result;
+                            var perviousKey1RangeProperty = "",
+                              perviousKey2RangeProperty = "";
+                            if (rangePropertyResult) {
+                              hasRangePropertyValues = true;
+                              for (var i = 0; i < rangePropertyResult.length; i++) {
+                                var key1 = trimHash(replaceWithRDFType(trimSlash(rangePropertyResult[i]['s'].value)));
+                                var key2 = trimHash(replaceWithRDFType(trimSlash(rangePropertyResult[i]['property'].value)));
+                                var key3 = "";
+                                if (rangePropertyResult[i].hasOwnProperty("comment"))
+                                  key3 = rangePropertyResult[i]['comment'].value;
+                                var key4 = "";
+                                if (rangePropertyResult[i]['comment'].hasOwnProperty("xml:lang"))
+                                  key4 = rangePropertyResult[i]['comment']['xml:lang'];
+                                var key5 = rangePropertyResult[i]['comment']['type'];
 
-            }
-          }
-        });
-      };
+                                if (isConceptInside(key1) && rangePropertyResult[i]['s'].type === "uri")
+                                  key1 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key1 + '&quot;); return false; ">' + key1 + '</a>';
+                                if (isConceptInside(key2) && rangePropertyResult[i]['property'].type === "uri")
+                                  key2 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
+                                // check if rows share same values of subject and property, then combine the last comment in the same table cell
+                                if (perviousKey1RangeProperty === key1 && perviousKey2RangeProperty === key2 && key4 && key5 === "literal") {
+                                  rangePropertyTable = rangePropertyTable.substring(0, rangePropertyTable.lastIndexOf('</td> </tr>'))
+                                  rangePropertyTable += '<br/><br/>' + key3 + '@' + key4 + '</td> </tr>';
+                                } else if (perviousKey1RangeProperty === key1 && perviousKey2RangeProperty === key2) {
+                                  rangePropertyTable = rangePropertyTable.substring(0, rangePropertyTable.lastIndexOf('</td> </tr>'))
+                                  rangePropertyTable += '<br/><br/>' + key3 + '</td> </tr>';
+                                } else if (key4 && key5 === "literal")
+                                  rangePropertyTable += '<tr ><td style="vertical-align:middle;">' + key1 + '</td>    <td style="vertical-align:middle; text-align: center;">' + key2 + '</td>   <td>' + key3 + '@' + key4 + '</td> </tr>';
+                                else
+                                  rangePropertyTable += '<tr><td style="vertical-align:middle;">' + key1 + '</td>    <td style="vertical-align:middle; text-align: center;">' + key2 + '</td>   <td>' + key3 + '</td> </tr>';
+
+                                perviousKey1RangeProperty = key1;
+                                perviousKey2RangeProperty = key2;
+                              }
+                            }
+                          }
+                          domainPropertyTable += '</tbody></table> ';
+                          rangePropertyTable += '</tbody></table> ';
+                          // show domainPropertyTable if it has Values
+                          if (hasdomainPropertyValues) {
+                            $("#domainPropertyTable").show();
+                            $("#domainPropertyTable").html(domainPropertyTable);
+                          }
+                          // show rangePropertyTable if it has Values
+                          if (hasRangePropertyValues) {
+                            $("#rangePropertyTable").show();
+                            $("#rangePropertyTable").html(rangePropertyTable);
+                          }
+                        }
+                      }
+                    });
+                  };
+
+
 
       //set some of variables to false
       var conceptIsExternal = false;
@@ -866,7 +851,7 @@
                 if (key1.includes("broader") || key1.includes("narrower")) {
                   key2 = '<a href=./' + key2 + '>' + key2 + '</a>';
                 }
-                if (isOWLIndividiual(key2) && !key1.includes("label") && key4 === "uri") {
+                else if (isOWLIndividiual(key2) && !key1.includes("label") && key4 === "uri") {
                   key2 = '<a href="./' + key2 + '">' + key2 + '</a>';
 
                 }

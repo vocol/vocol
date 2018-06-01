@@ -136,12 +136,14 @@ if (fs.existsSync(repoFolderPath)) {
   }).stdout;
 }
 
-
 app.use(session({
-  secret: 'secret',
-  resave: false,
-  saveUninitialized: true
-}));
+  secret: 'secretC44-4D44-WppQ38S',
+  resave: true,
+  saveUninitialized: true,
+    cookie: { path: '/', maxAge: 10 * 30 * 1000}
+}
+));
+
 
 // redirect to /config for first time if userConfigurations.json does not exsit
 app.get('*', function(req, res, next) {

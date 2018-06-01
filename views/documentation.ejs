@@ -138,6 +138,12 @@
           <li class="active"><a class="nav-link active" data-toggle="tab" id="documentationTab" href="#documentation">Documentation</a></li>
           <li><a class="nav-link" data-toggle="tab" id="sourceCodeTab" href="#sourceCode">Source</a></li>
           <li><a class="nav-link" data-toggle="tab" id="graphTab" href="#showGraph">Graphical Depiction</a></li>
+
+          <li class="nav-item">
+            <div id="fullScreenButton"  class="ui basic icon button" style="margin-left: 85px; margin-top: 2px;" data-tooltip="Add users to your feed">
+              <a href="#" onmousedown="getFullScreenConcept(); return false; ">  <i class="expand icon"></i> </a>
+            </div>
+          </li>
         </ul>
         <div class="tab-content">
           <div class="tab-pane active" id="documentation" role="tabpanel">
@@ -233,6 +239,11 @@
               return viewData;
             }
 
+            // redirect to getFullScreen of the concept
+            function getFullScreenConcept() {
+              if (currentSelectedConcept)
+                location.href = "./" + currentSelectedConcept;
+            }
 
             // show SKOS concepts on treeview
             function showIndividualTree(data, file) {
@@ -1405,7 +1416,7 @@
                             key1 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key1 + '&quot;); return false; ">' + key1 + '</a>';
                           if (isConceptInside(key2) && domianPropertyResult[i]['property'].type === "uri")
                             key2 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
-                            // check if rows share same values of subject and property, then combine the last comment in the same table cell
+                          // check if rows share same values of subject and property, then combine the last comment in the same table cell
                           if (perviousKey1DomainProperty === key1 && perviousKey2DomainProperty === key2 && key4 && key5 === "literal") {
                             domainPropertyTable = domainPropertyTable.substring(0, domainPropertyTable.lastIndexOf('</td> </tr>'))
                             domainPropertyTable += '<br/><br/>' + key3 + '@' + key4 + '</td> </tr>';
@@ -1443,13 +1454,13 @@
                             key1 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key1 + '&quot;); return false; ">' + key1 + '</a>';
                           if (isConceptInside(key2) && rangePropertyResult[i]['property'].type === "uri")
                             key2 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
-                            // check if rows share same values of subject and property, then combine the last comment in the same table cell
+                          // check if rows share same values of subject and property, then combine the last comment in the same table cell
                           if (perviousKey1RangeProperty === key1 && perviousKey2RangeProperty === key2 && key4 && key5 === "literal") {
                             rangePropertyTable = rangePropertyTable.substring(0, rangePropertyTable.lastIndexOf('</td> </tr>'))
                             rangePropertyTable += '<br/><br/>' + key3 + '@' + key4 + '</td> </tr>';
                           } else if (perviousKey1RangeProperty === key1 && perviousKey2RangeProperty === key2) {
                             rangePropertyTable = rangePropertyTable.substring(0, rangePropertyTable.lastIndexOf('</td> </tr>'))
-                            rangePropertyTable += '<br/><br/>'  + key3 + '</td> </tr>';
+                            rangePropertyTable += '<br/><br/>' + key3 + '</td> </tr>';
                           } else if (key4 && key5 === "literal")
                             rangePropertyTable += '<tr ><td style="vertical-align:middle;">' + key1 + '</td>    <td style="vertical-align:middle; text-align: center;">' + key2 + '</td>   <td>' + key3 + '@' + key4 + '</td> </tr>';
                           else
@@ -1661,7 +1672,7 @@
                     if (key1.includes("broader") || key1.includes("narrower")) {
                       key2 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key2URI + '&quot;,&quot;SKOS&quot;); return false; ">' + key2 + '</a>';
                     }
-                    if (isOWLIndividiual(key2) && !key1.includes("label") && key4 === "uri") {
+                    else if (isOWLIndividiual(key2) && !key1.includes("label") && key4 === "uri") {
                       key2 = '<a href="#" onclick="showInstanceDetails(&quot;' + key2URI + '&quot;); ">' + key2 + '</a>';
                     } else if (!isOWLIndividiual(key2) && !isConceptInside(key2) && !key1.includes("label") && key4 === "uri") {
                       key2 = '<a href="#" onmousedown="showExternalInfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';

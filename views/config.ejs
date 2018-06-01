@@ -13,6 +13,7 @@
   <link rel="stylesheet" type="text/css" href="./semantic/dist/semantic.min.css">
   <link rel="stylesheet" href="./stylesheets/style.css">
   <script src="./javascripts/bower_components/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="./javascripts/crypto-js/crypto-js.js"></script>
   <script src="./javascripts/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="./semantic/dist/semantic.min.js"></script>
   <script src="./ckeditor/ckeditor.js"></script>
@@ -30,7 +31,7 @@
     <h1 style="padding-top:10px">Configuration Page</h1>
     <div class="ui two column stackable grid">
       <div class="column">
-        <form class="ui form" action="./config" method="post">
+        <form id="configForm"  class="ui form" action="./config" method="post">
           <div class="ui styled accordion">
             <div id="generalInfoTitle" class="active title">
               <i class="dropdown icon"></i> General Info
@@ -298,7 +299,7 @@ Repository Type         </a>
             <div class="ui large right floated buttons">
               <button id="restBtn" class="ui reset button">Reset</button>
               <div class="or"></div>
-              <button type="submit" class="ui blue submit button" value="Save Configurations">Save Configurations</button>
+              <button id="submitBtn" type="submit" onclick="submitBtn_clickHandler(event);" class="ui blue submit button" value="Save Configurations">Save Configurations</button>
             </div>
           </div>
           <div class="field">
@@ -499,12 +500,14 @@ Repository Type         </a>
       $('input[name="repositoryType"]').filter("[value='public']").attr('checked', true);
     else
       $('input[name="repositoryType"]').filter("[value='private']").attr('checked', true);
-
-
-
-
-
   }
+  
+// do some security works
+  function submitBtn_clickHandler(event) {
+    var ciphertext = CryptoJS.AES.encrypt(document.getElementById('password').value , document.getElementById('user').value );
+    document.getElementById('password').value = ciphertext;
+    document.getElementById('configForm').submit();
+}
 </script>
 </body>
 
