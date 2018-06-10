@@ -14,7 +14,7 @@ define( [], function() {
                  "  ?subject ?predicate ?object\n}\n" +
                  "LIMIT 25"
       },
-      { "name": "Selection of classes111",
+      { "name": "Selection of classes",
         "query": "SELECT DISTINCT ?class ?label ?description\nWHERE {\n" +
                  "  ?class a owl:Class.\n" +
                  "  OPTIONAL { ?class rdfs:label ?label}\n" +

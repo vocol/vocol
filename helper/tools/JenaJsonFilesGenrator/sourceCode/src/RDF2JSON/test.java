@@ -49,7 +49,7 @@ public class test {
 			List<File> files = (List<File>) FileUtils.listFiles(dir, extensions, true);
 			for (File file : files) {
 				// System.out.println("file: " + file.getCanonicalPath());
-				JSONObject objClasses = generateClassesJSON(file.getCanonicalPath());
+				JSONObject objClasses = generateRDFSJSON(file.getCanonicalPath());
 				JSONObject objSKOS = generateSKOSJSON(file.getCanonicalPath());
 				JSONObject objExternalClassesRDF = allRDFObjectsJSON(file.getCanonicalPath());
 				JSONObject objExternalClassesSKOS = allSKOSObjectsJSON(file.getCanonicalPath());
@@ -100,7 +100,7 @@ public class test {
 	}
 
 	// @SuppressWarnings({ "null", "resource" })
-	public static JSONObject generateClassesJSON(String _sourceFile) throws IOException {
+	public static JSONObject generateRDFSJSON(String _sourceFile) throws IOException {
 
 		//org.apache.log4j.BasicConfigurator.configure(new NullAppender());
 
@@ -170,7 +170,7 @@ public class test {
 
 				// trimming of the concept from URI
 				if(concept.getURI()!= null)
-				obj.put("concept", replaceWithRDFType(concept.getURI().toString()));
+					obj.put("concept", replaceWithRDFType(concept.getURI().toString()));
 				else 
 					continue;
 				obj.put("URI", concept.getURI());
@@ -183,8 +183,8 @@ public class test {
 						+ "PREFIX owl:  <http://www.w3.org/2002/07/owl#>" + "PREFIX foaf: <http://xmlns.com/foaf/0.1/>"
 						+ "PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>"
 						+ "PREFIX skos: <http://www.w3.org/2004/02/skos/core#> "
-						+ "SELECT  ?classChild ?classParent WHERE {" + //
-						"?classChild rdfs:subClassOf  ?classParent ." + "}";
+						+ "SELECT  ?classChild ?classParent WHERE {" 
+						+ "?classChild rdfs:subClassOf  ?classParent .}";
 				QueryExecution qexec3 = QueryExecutionFactory.create(Query, ontModel);
 				ResultSet result3 = qexec3.execSelect();
 				while (result3.hasNext()) {
@@ -193,9 +193,14 @@ public class test {
 					Resource classParent = (Resource) binding3.get("classParent");
 
 					if (classChild.getURI() == concept.getURI()) {
-
+						String nodeParnet = classParent.getURI().toString();
 						if (classParent.getURI() != null) {
-							obj.put("parent", classParent.getURI().toString());
+							if(classParent.getURI().toString().contains("owl#Thing"))
+							{
+								nodeParnet = "";
+							}
+
+							obj.put("parent", nodeParnet);
 							// System.out.println("parent: " + classParent.getURI().toString());
 						}
 					}
@@ -380,9 +385,9 @@ public class test {
 					obj.put("subject", trimInstance(subject.getURI()));
 				else 
 					continue;
-				
+
 				obj.put("subjectURI", subject.getURI());
-				
+
 				if (binding.get("RDFType") != null) {
 					Resource RDFType = (Resource) binding.get("RDFType");
 					obj.put("RDFType", replaceWithRDFType(RDFType.getURI().toString()));

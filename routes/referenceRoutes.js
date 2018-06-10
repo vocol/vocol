@@ -120,7 +120,7 @@ router.get('/', function(req, res) {
           // if the term URI is found that means that we have some info to send to the requester
           if (searchConceptURI) {
             var queryObject = 'CONSTRUCT{<' + encodeURIComponent(searchConceptURI) + '> ?p ?o .}WHERE {<' + encodeURIComponent(searchConceptURI) + '> ?p ?o .}';
-            var endpoint = "http:\/\/localhost:3030/dataset/sparql?query="
+            var endpoint = "http:\/\/localhost:"+process.argv.slice(2)[1] || 3030+"/dataset/sparql?query="
             request({
               url: endpoint + queryObject,
               headers: {'accept': acceptHeader},

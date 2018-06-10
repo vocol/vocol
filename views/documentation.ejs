@@ -205,7 +205,6 @@
             var currentSelectedFile = "ALL Files";
             // store SKOS URI of the selected node
             var currentSelectedSKOSURI = "";
-
             // initilaiztion of ui elements
             $('.ui.radio.checkbox').checkbox();
             $('.ui.dropdown').dropdown();
@@ -622,6 +621,7 @@
                 }
               });
               // rebuild tree with the new data
+              console.log(data);
               buildTree(data);
             }
 

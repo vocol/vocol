@@ -165,7 +165,7 @@ router.post('/', function(req, res) {
                shell.exec('rm -f ../vocol/helper/tools/ttl2ntConverter/temp.nt').stdout;
               // Kill fuseki if it is running
               shell.cd('-P', '../vocol/helper/tools/apache-jena-fuseki');
-              shell.exec('fuser -k 3030/tcp', {
+              shell.exec('fuser -k '+process.argv.slice(2)[1] || 3030+'/tcp', {
                 silent: false
               }).stdout;
               shell.exec('rm run/system/tdb.lock', {

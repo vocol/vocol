@@ -177,7 +177,7 @@ app.use(['\/\/adminLogin', '/adminLogin'], adminLogin);
 app.use(['\/\/config', '/config'], config);
 
 
-app.use(['\/\/fuseki/', '/fuseki/'],  proxy('localhost:3030/',   {  
+app.use(['\/\/fuseki/', '/fuseki/'],  proxy('localhost:'+process.argv.slice(2)[1] || 3030+'/',   {  
   proxyReqPathResolver:   function(req)  {
     if (req.method === 'POST')
       return  require('url').parse(req.url).path + "?query=" + escape(req.body.query);

@@ -20,7 +20,7 @@ router.get('/', function(req, res) {
       acceptHeader === 'application/rdf+xml' ||
       acceptHeader === 'application/ld+json') {
       var queryObject = 'CONSTRUCT{?s ?p ?o .}WHERE {?s ?p ?o .}';
-      var endpoint = "http:\/\/localhost:3030/dataset/sparql?query="
+      var endpoint = "http:\/\/localhost:"+process.argv.slice(2)[1] || 3030+"/dataset/sparql?query="
       request({
         url: endpoint + queryObject,
         headers: {'accept': acceptHeader},
