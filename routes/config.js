@@ -4,6 +4,7 @@ var fs = require('fs');
 var jsonfile = require('jsonfile');
 var session = require('express-session');
 var shell = require('shelljs');
+var CryptoJS = require("crypto-js");
 // this for creating hash for password
 var bcrypt = require('bcrypt');
 const saltRounds = 10;
@@ -19,6 +20,7 @@ router.post('/', function(req, res) {
     if (err)
       console.log(err);  
     var userData = req.body;
+    console.log(userData);
     if (obj)
       if (obj.hasOwnProperty("adminPass")) {
         if (obj.adminPass === userData.adminPass)
@@ -32,10 +34,9 @@ router.post('/', function(req, res) {
           silent: false
         }).stdout;
 
-      var isRepoCloned = shell.exec('git clone https://"' + userData.user + ":" + encodeURIComponent(userData.password) + "@" + userData.repositoryURL.slice(8) + '" repoFolder', {
+      var isRepoCloned = shell.exec('git clone https://"' + userData.user + ":" + encodeURIComponent(CryptoJS.AES.decrypt(userData.password.toString(), userData.user).toString(CryptoJS.enc.Utf8)) + "@" + userData.repositoryURL.slice(8) + '" repoFolder', {
         silent: false
       }).stdout;
-      console.log('git clone https://"' + userData.user + ":" + encodeURIComponent(userData.password) + "@" + userData.repositoryURL.slice(8) + '" repoFolder');
       if (!isRepoCloned.includes("failed")){
           shell.cd("repoFolder");
 	  shell.exec('git config --global credential.helper store', {

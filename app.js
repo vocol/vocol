@@ -136,12 +136,14 @@ if (fs.existsSync(repoFolderPath)) {
   }).stdout;
 }
 
-
 app.use(session({
-  secret: 'secret',
-  resave: false,
-  saveUninitialized: true
-}));
+  secret: 'secretC44-4D44-WppQ38S',
+  resave: true,
+  saveUninitialized: true,
+    cookie: { path: '/', maxAge: 10 * 30 * 1000}
+}
+));
+
 
 // redirect to /config for first time if userConfigurations.json does not exsit
 app.get('*', function(req, res, next) {
@@ -175,7 +177,7 @@ app.use(['\/\/adminLogin', '/adminLogin'], adminLogin);
 app.use(['\/\/config', '/config'], config);
 
 
-app.use(['\/\/fuseki/', '/fuseki/'],  proxy('localhost:3030/',   {  
+app.use(['\/\/fuseki/', '/fuseki/'],  proxy('localhost:'+process.argv.slice(2)[1] || 3030+'/',   {  
   proxyReqPathResolver:   function(req)  {
     if (req.method === 'POST')
       return  require('url').parse(req.url).path + "?query=" + escape(req.body.query);
