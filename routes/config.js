@@ -8,6 +8,7 @@ var CryptoJS = require("crypto-js");
 // this for creating hash for password
 var bcrypt = require('bcrypt');
 const saltRounds = 10;
+var escapeHtml = require('escape-html');
 
 // http post when  a user configurations is submitted
 router.post('/', function(req, res) {
@@ -20,7 +21,6 @@ router.post('/', function(req, res) {
     if (err)
       console.log(err);  
     var userData = req.body;
-    console.log(userData);
     if (obj)
       if (obj.hasOwnProperty("adminPass")) {
         if (obj.adminPass === userData.adminPass)
@@ -149,8 +149,10 @@ router.get('/', function(req, res) {
       if (err)
         throw err;  
       var userData = {};
-      if (obj)
+      if (obj){
         userData = obj;
+        userData.text3 =   escapeHtml(userData.text3);
+      }
       res.render('config', {
         title: 'Configuration Page',
         inputComponentsValues: userData,

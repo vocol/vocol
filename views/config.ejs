@@ -31,7 +31,7 @@
     <h1 style="padding-top:10px">Configuration Page</h1>
     <div class="ui two column stackable grid">
       <div class="column">
-        <form id="configForm"  class="ui form" action="./config" method="post">
+        <form id="configForm" class="ui form" action="./config" method="post">
           <div class="ui styled accordion">
             <div id="generalInfoTitle" class="active title">
               <i class="dropdown icon"></i> General Info
@@ -251,6 +251,12 @@ Repository Type         </a>
                   <label>Analytics</label>
                 </div>
               </div>
+              <div class="field">
+                <div class="ui checkbox">
+                  <input type="checkbox" id="infomationProtectionAgreement" name="infomationProtectionAgreement" value="true">
+                  <label>Enable Data Protection Policy </label>
+                </div>
+              </div>
             </div>
             <div id="serializationFormatTitle" class="title">
               <i class="dropdown icon"></i> Serializations Format
@@ -295,6 +301,9 @@ Repository Type         </a>
             </div>
           </div>
           <input type="hidden" name="text" id="text" />
+          <input type="hidden" name="text2" id="text2" />
+          <input type="hidden" name="text3" id="text3" />
+
           <div class="field">
             <div class="ui large right floated buttons">
               <button id="restBtn" class="ui reset button">Reset</button>
@@ -306,7 +315,9 @@ Repository Type         </a>
             <div class="ui error message">
               <% if (Object.keys(errors).length > 0) { %>
                 <ul class="list">
-                  <script>$(".ui.console.error(.message").show();</script>
+                  <script>
+                    $(".ui.console.error(.message").show();
+                  </script>
                   <% Object.values(errors).forEach(error => { %>
                     <li>
                       <%= error.msg %>
@@ -318,19 +329,28 @@ Repository Type         </a>
           </div>
         </form>
       </div>
-      <div class="column">
-        <ul class="nav nav-tabs" role="tablist" id="sourceCodeTabs">
+      <div class="column" id="tabs">
+        <ul class="nav nav-tabs" role="tablist" id="userInputContent">
           <li role="presentation" class="active"><a href="#homepage" aria-controls="homepage" role="tab" data-toggle="tab">Homepage Description</a></li>
+          <li role="presentation" class="disabled"><a href="#dataProtectionhomepage" aria-controls="dataProtectionhomepage" role="tab" data-toggle="tab">Data Protection Policy</a></li>
         </ul>
         <div class="tab-content">
-          <div role="tabpanel" class="tab-pane active" id="homepage">
+          <div role="tabpanel" class="tab-pane fade in active" id="homepage">
             <textarea id="editor" placeholder="Please, provide a description of your ontology or vocabulary to be shown in the VoCol's homepage.<br/> You can include images, hyperlinks, etc. <br/> Moreover, you can as well paste your HTML code using the 'Source' button in the toolbar above."
               name="editor" onchange="submition();" style="overflow:auto; width:540px;height:382px">
+            </textarea>
+          </div>
+          <div role="tabpanel" class="tab-pane fade" id="dataProtectionhomepage">
+            <textarea id="editor2" placeholder="Please, provide a description of your Information Protection Policy.<br/> You can include images, hyperlinks, etc. <br/> Moreover, you can as well paste your HTML code using the 'Source' button in the toolbar above."
+              name="editor2" onchange="submition();" style="overflow:auto; width:540px;height:382px">
+            </textarea>
+            <textarea id="editor3" placeholder="Please, insert your script for the Information Protection Policy here ." name="editor3" onchange="submition();" style="overflow:auto; width:540px;height:382px">
             </textarea>
           </div>
         </div>
       </div>
     </div>
+  </div>
   </div>
 </body>
 
@@ -338,6 +358,12 @@ Repository Type         </a>
 <script>
   $('.ui.checkbox').checkbox();
   $('.ui.accordion').accordion();
+
+  $('#infomationProtectionAgreement').click(function() {
+    alert("hi");
+    console.log("hu");
+  });
+
 
   // form validation
   $('.ui.form')
@@ -414,6 +440,7 @@ Repository Type         </a>
     location.reload("./config");
   });
 
+  // save homepage of VoCol in text
   CKEDITOR.replace('editor', {
     extraPlugins: 'confighelper'
   });
@@ -421,10 +448,21 @@ Repository Type         </a>
     $('#text').val(CKEDITOR.instances.editor.getData());
   });
 
+  // save dataProtection Policy in text2
+  CKEDITOR.replace('editor2', {
+    extraPlugins: 'confighelper'
+  });
+  CKEDITOR.instances['editor2'].on('change', function() {
+    $('#text2').val(CKEDITOR.instances.editor2.getData());
+  });
+
+  // save dataProtectionScript in text3
+  $('#editor3').on('change', function() {
+    $('#text3').val($('#editor3').val());
+  });
+
   var inputs = <%- JSON.stringify(inputComponentsValues) %>
-  console.log(inputs);
   if (inputs) {
-    console.log(inputs);
     $("#vocabularyName").val(inputs.vocabularyName);
     $("#server").val(inputs.server);
     $("#branchName").val(inputs.branchName);
@@ -441,8 +479,24 @@ Repository Type         </a>
     $("#user").val(inputs.user);
     $("#password").val(inputs.password);
     // set Editor text
-    var data = inputs.text;
-    CKEDITOR.instances.editor.setData(data)
+    if (inputs.text);
+    CKEDITOR.instances.editor.setData(inputs.text)
+
+    // set Editor text2
+    if (inputs.text2)
+      CKEDITOR.instances.editor2.setData(inputs.text2)
+
+    // set Editor text3
+    if (inputs.text3){
+      $('#editor3').val(decodeHtml(inputs.text3));
+    }
+
+    if (inputs.infomationProtectionAgreement)
+    {
+      $("a[href='#dataProtectionhomepage']").parent("li").removeClass("disabled");
+      $("a[href='#dataProtectionhomepage']").parent("li").addClass("enabled");
+    }
+
     if (inputs.turtleEditor)
       $('[name=turtleEditor]')[0].checked = true;
     else
@@ -473,6 +527,11 @@ Repository Type         </a>
     else
       $('[name=analytics]')[0].checked = false;
 
+    if (inputs.infomationProtectionAgreement)
+      $('[name=infomationProtectionAgreement]')[0].checked = true;
+    else
+      $('[name=infomationProtectionAgreement]')[0].checked = false;
+
     if (inputs.clientHooks)
       $('[name=clientHooks]')[0].checked = true;
     else
@@ -501,14 +560,48 @@ Repository Type         </a>
     else
       $('input[name="repositoryType"]').filter("[value='private']").attr('checked', true);
   }
-  
-// do some security works
+
+  // do some security works
   function submitBtn_clickHandler(event) {
-    var ciphertext = CryptoJS.AES.encrypt(document.getElementById('password').value , document.getElementById('user').value );
+    var ciphertext = CryptoJS.AES.encrypt(document.getElementById('password').value, document.getElementById('user').value);
     document.getElementById('password').value = ciphertext;
     document.getElementById('configForm').submit();
+  }
+
+// to unescape html special characters
+  function decodeHtml(str)
+{
+    var map =
+    {
+        '&amp;': '&',
+        '&lt;': '<',
+        '&gt;': '>',
+        '&quot;': '"',
+        '&#039;': "'"
+    };
+    return str.replace(/&amp;|&lt;|&gt;|&quot;|&#039;/g, function(m) {return map[m];});
 }
+
+  // disable or enable information Protection Policy Tab
+  var ckbox = $('#infomationProtectionAgreement');
+  $('.ui.checkbox').on('click', function() {
+    if (ckbox.is(':checked')) {
+      // enable information Protection Policy tab
+      $("a[href='#dataProtectionhomepage']").parent("li").removeClass("disabled");
+      $("a[href='#dataProtectionhomepage']").parent("li").addClass("enabled");
+    } else {
+      // disable information Protection Policy tab
+      $("a[href='#dataProtectionhomepage']").parent("li").removeClass("enabled");
+      $("a[href='#dataProtectionhomepage']").parent("li").addClass("disabled");
+    }
+  });
 </script>
+<style>
+  .nav-tabs li.disabled a {
+    pointer-events: none;
+  }
+</style>
+
 </body>
 
 </html>

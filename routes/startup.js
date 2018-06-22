@@ -6,6 +6,7 @@ var  jsonfile  =  require('jsonfile');
 var shell = require('shelljs');
 var router = express.Router();
 var spawn = require('child_process').spawn;
+var path = require('path');
 
 router.get('/', function(req, res) {
   app.use(bodyParser.urlencoded({
@@ -245,6 +246,31 @@ router.get('/', function(req, res) {
             shell.mkdir('../evolution').stdout;
             shell.cp('../serializations/SingleVoc.nt', '../evolution/SingleVoc.nt').stdout;
             console.log("SingleVoc.nt is copied to evolution");
+          }
+
+          // Update the dataProtection policy and script if infomationProtectionAgreement was selected
+          if(obj.dataProtectionAgreement == "true"){
+            console.log("I am here ");
+            shell.exec('pwd', {
+              silent: false
+            }).stdout;
+            shell.cd('../../../');
+            shell.exec('pwd', {
+              silent: false
+            }).stdout;
+            if(obj.text2){
+              var dataProtectionHtmlPage = '<% include header %><div style="margin-top: 3% !important;"></div><div class="ui grid"><div class="ui container">'
+              dataProtectionHtmlPage += obj.text2;
+              dataProtectionHtmlPage += '</div></div><% include footer %>';
+            fs.writeFileSync("views/dataProtection.ejs", dataProtectionHtmlPage, {encoding:'utf8',flag:'w'});
+             }
+            if(obj.text3){
+            fs.writeFileSync("views/dataProtectionScript.ejs",obj['text3'],{encoding:'utf8',flag:'w'});
+             }
+             shell.cd('helper/tools/owl2vowl/');
+             shell.exec('pwd', {
+               silent: false
+             }).stdout;
           }
 
           //TODO: just disable for testing perpose

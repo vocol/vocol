@@ -94,6 +94,7 @@ shell.exec('rm run/system/tdb.lock', {
 }).stdout;
 // show the cuurent path
 shell.exec('pwd');
+
 // generation the Json files
 shell.cd("../JenaJsonFilesGenrator/").stdout;
 shell.exec('java -jar JenaJsonFilesGenerator.jar').stdout;
