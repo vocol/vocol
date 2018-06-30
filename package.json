@@ -21,7 +21,8 @@
     "node-watch": "^0.5.5",
     "semantic-ui": "^2.2.13",
     "serve-favicon": "~2.3.2",
-    "shelljs": "^0.7.8"
+    "shelljs": "^0.7.8",
+    "sparql-client": "^0.2.0"
   },
   "devDependencies": {
     "nodemon": "^1.12.0"

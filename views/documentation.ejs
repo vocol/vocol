@@ -57,24 +57,33 @@
                     </h3>
                       </div>
                       <div class="ui segment">
-                        <div class="field">
+                        <div class="fields">
                           <div class="ui radio checkbox">
                             <input type="radio" name="typesRadio" id="allTypesRadio" value="1" checked="checked">
                             <label>All</label>
                           </div>
                           <div class="ui radio checkbox">
                             <input type="radio" name="typesRadio" id="classRadio" value="2">
-                            <label>Class</label>
+                            <label>Classes</label>
                           </div>
                           <div class="ui radio checkbox">
-                            <input type="radio" name="typesRadio" id="objectPropertyRadio">
-                            <label>Object Property</label>
+                            <input type="radio" name="typesRadio" id="propertyRadio" value="2">
+                            <label>Properties</label>
                           </div>
-                          <div class="ui radio checkbox">
-                            <input type="radio" name="typesRadio" id="datatypePropertyRadio">
-                            <label>Datatype Property</label>
+                          <div class="ui item">
+                            <div class="ui fluid selection dropdown" id="propertyTypeDropdown" style="width:180px; margin-top: -9px;; margin-left: 8px;">
+                              <div class="text"> Select Property ... </div>
+                              <i class="dropdown icon"></i>
+                              <div class="menu">
+                                <div class="item">All</div>
+                                <div class="item">RDF Property</div>
+                                <div class="item">Object Property</div>
+                                <div class="item">Datatype Property</div>
+                                <div class="item">Annotation Property</div>
+                              </div>
+                            </div>
                           </div>
-                          <div class="ui radio checkbox">
+                          <div class="ui radio checkbox" style="padding-right:5px">
                             <input type="radio" name="typesRadio" id="individualsPropertyRadio">
                             <label>Individuals</label>
                           </div>
@@ -138,9 +147,8 @@
           <li class="active"><a class="nav-link active" data-toggle="tab" id="documentationTab" href="#documentation">Documentation</a></li>
           <li><a class="nav-link" data-toggle="tab" id="sourceCodeTab" href="#sourceCode">Source</a></li>
           <li><a class="nav-link" data-toggle="tab" id="graphTab" href="#showGraph">Graphical Depiction</a></li>
-
           <li class="nav-item">
-            <div id="fullScreenButton"  class="ui basic icon button" style="margin-left: 85px; margin-top: 2px;" data-tooltip="Add users to your feed">
+            <div id="fullScreenButton" class="ui basic icon button" style="margin-left: 85px; margin-top: 2px;" data-tooltip="Add users to your feed">
               <a href="#" onmousedown="getFullScreenConcept(); return false; ">  <i class="expand icon"></i> </a>
             </div>
           </li>
@@ -205,37 +213,22 @@
             var currentSelectedFile = "ALL Files";
             // store SKOS URI of the selected node
             var currentSelectedSKOSURI = "";
+            // store RDF type filter if it is selcted
+            var currentSelectedRDFType = "";
             // initilaiztion of ui elements
             $('.ui.radio.checkbox').checkbox();
             $('.ui.dropdown').dropdown();
             $('.ui.checkbox').checkbox();
+            //
+            $('#propertyTypeDropdown').addClass("disabled");
+
 
             // filter treeData based on type
             function getViewDataBasedOnType(data, str) {
-              var viewData = data;
-              switch (str) {
-                case "class":
-                  viewData = viewData.filter(function(element) {
-                    if (element.RDFType.includes("Class"))
-                      return element
-                  })
-                  break;
-                case "objectProperty":
-                  viewData = viewData.filter(function(element) {
-                    if (element.RDFType.includes("ObjectProperty"))
-                      return element
-                  })
-                  break;
-                case "datatypeProperty":
-                  viewData = viewData.filter(function(element) {
-                    if (element.RDFType.includes("DatatypeProperty"))
-                      return element
-                  })
-                  break;
-                default:
-                  viewData = data;
-              }
-              return viewData;
+              return data.filter(function(element) {
+                if (element.RDFType.includes(str))
+                  return element
+              })
             }
 
             // redirect to getFullScreen of the concept
@@ -365,7 +358,6 @@
                 data = getSKOSFileData(data, file);
               }
               if (data.length > 0) {
-                console.log(data);
                 $('#notFoundMessage').hide();
                 $("#treeContainer").show();
                 $("#tree").show();
@@ -558,7 +550,7 @@
               } else {
                 var viewData = data;
               }
-              // check if typesRadio is checked and refill the data
+              // check if typesRadio is checked and update current data
               if (str) {
                 viewData = getViewDataBasedOnType(viewData, str);
               }
@@ -621,7 +613,6 @@
                 }
               });
               // rebuild tree with the new data
-              console.log(data);
               buildTree(data);
             }
 
@@ -726,12 +717,13 @@
                   if ($('#input-search').val() !== "") {
                     showSKOSTree(currentTreeData, currentSelectedFile);
                   } else
-                    showSKOSTree(SKOSData, currentSelectedFile, inputType);
+                    showSKOSTree(SKOSData, currentSelectedFile, currentSelectedRDFType);
                 } else if (($(this).prop('checked') || !$(this).prop('checked')) && $('#RDFSViewCheckBox').is(':checked')) {
-                  if ($('#input-search').val() !== "")
-                    showRDFSTree(currentTreeData, currentSelectedFile);
-                  else
-                    showRDFSTree(RDFSData, currentSelectedFile, inputType);
+                  if ($('#input-search').val() !== "") {
+                      showRDFSTree(currentTreeData, currentSelectedFile);
+                  } else {
+                    showRDFSTree(RDFSData, currentSelectedFile, currentSelectedRDFType);
+                  }
                 }
               });
 
@@ -743,6 +735,8 @@
                 inputType = getClickedTypeRadio();
                 $("#infoTabs").hide();
                 if ($('#individualsPropertyRadio').is(':checked')) {
+                  $('#propertyTypeDropdown').removeClass("enabled");
+                  $('#propertyTypeDropdown').addClass("disabled");
                   showIndividualTree(individiualsData, currentSelectedFile);
                 } else if ($('#SKOSViewCheckBox').is(':checked')) {
                   showSKOSTree(SKOSData, currentSelectedFile, inputType);
@@ -753,15 +747,54 @@
 
             function getClickedTypeRadio() {
               var type = "";
-              if ($('#classRadio').is(':checked'))
-                type = "class";
-              else if ($('#objectPropertyRadio').is(':checked'))
-                type = "objectProperty";
-              else if ($('#datatypePropertyRadio').is(':checked'))
-                type = "datatypeProperty";
-
+              if ($('#classRadio').is(':checked')) {
+                type = "Class";
+                currentSelectedRDFType = "Class";
+                $('#propertyTypeDropdown').removeClass("enabled");
+                $('#propertyTypeDropdown').addClass("disabled");
+              } else if ($('#allTypesRadio').is(':checked')) {
+                currentSelectedRDFType = "";
+                $('#propertyTypeDropdown').removeClass("enabled");
+                $('#propertyTypeDropdown').addClass("disabled");
+              } else if ($('#propertyRadio').is(':checked')) {
+                //type = "Property";
+                if (! currentSelectedRDFType.includes("Property"))
+                  type = currentSelectedRDFType = "Property";
+                $('#propertyTypeDropdown').removeClass("disabled");
+                $('#propertyTypeDropdown').addClass("enabled");
+              }
               return type;
             }
+
+            // filter based on property types
+            $('#propertyTypeDropdown')
+              .dropdown({
+                onChange: function(value) {
+                  if (value == "object property")
+                    type = currentSelectedRDFType = "ObjectProperty";
+                  else if (value == "rdf property")
+                    type = currentSelectedRDFType = "rdf:Property";
+                  else if (value == "annotation property")
+                    type = currentSelectedRDFType = "AnnotationProperty";
+                  else if (value == "datatype property")
+                    type = currentSelectedRDFType = "DatatypeProperty";
+                  else
+                    type = currentSelectedRDFType = "Property";
+
+                  // build tree based on selected type
+                  if ($('#SKOSViewCheckBox').is(':checked')) {
+                    if ($('#input-search').val() !== "") {
+                      showSKOSTree(currentTreeData, currentSelectedFile);
+                    } else
+                      showSKOSTree(SKOSData, currentSelectedFile, type);
+                  } else if ($('#RDFSViewCheckBox').is(':checked')) {
+                    if ($('#input-search').val() !== "")
+                      showRDFSTree(currentTreeData, currentSelectedFile);
+                    else
+                      showRDFSTree(RDFSData, currentSelectedFile, type);
+                  }
+                }
+              });
 
             //show concept was not found as a message
             function conceptNotFoundMessage() {
@@ -801,7 +834,11 @@
                 } else {
                   array = SKOSData;
                 }
-                showSKOSTree(array, currentSelectedFile);
+                // check if the RDF type is selected
+                if (currentSelectedRDFType)
+                  showSKOSTree(array, currentSelectedFile, currentSelectedRDFType);
+                else
+                  showSKOSTree(array, currentSelectedFile);
                 var result = $('#tree').treeview('search', [pattern, {
                   ignoreCase: ignoreCase, // case insensitive
                   exactMatch: false, // like or equals
@@ -820,7 +857,11 @@
                 } else {
                   array = RDFSData;
                 }
-                showRDFSTree(array, currentSelectedFile);
+                // check if the RDF type is selected
+                if (currentSelectedRDFType)
+                  showRDFSTree(array, currentSelectedFile, currentSelectedRDFType);
+                else
+                  showRDFSTree(array, currentSelectedFile);
                 var result = $("#tree").treeview('search', [pattern, {
                   ignoreCase: ignoreCase, // case insensitive
                   exactMatch: false, // like or equals
@@ -829,6 +870,7 @@
                 currentTreeData = result;
                 buildTree(result);
               }
+              // if no result is returned with the searchString
               if (result.length === 0 && $('#input-search').val() !== "") {
                 conceptNotFoundMessage();
               } else if ($('#input-search').val() === "") {
@@ -836,10 +878,19 @@
                 $('#tree').show();
                 if ($('#individualsPropertyRadio').is(':checked'))
                   showIndividualTree(array, currentSelectedFile);
-                else if ($('#RDFSViewCheckBox').is(':checked'))
-                  showRDFSTree(array, currentSelectedFile);
-                else
-                  showSKOSTree(array, currentSelectedFile);
+                else if ($('#RDFSViewCheckBox').is(':checked')) {
+                  // check if the RDF type is selected
+                  if (currentSelectedRDFType)
+                    showRDFSTree(array, currentSelectedFile, currentSelectedRDFType);
+                  else
+                    showRDFSTree(array, currentSelectedFile);
+                } else {
+                  // check if the RDF type is selected
+                  if (currentSelectedRDFType)
+                    showSKOSTree(array, currentSelectedFile, currentSelectedRDFType);
+                  else
+                    showSKOSTree(array, currentSelectedFile);
+                }
                 $('#notFoundMessage').html('');
                 $('#notFoundMessage').hide();
               }
@@ -1671,8 +1722,7 @@
                   } else {
                     if (key1.includes("broader") || key1.includes("narrower")) {
                       key2 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key2URI + '&quot;,&quot;SKOS&quot;); return false; ">' + key2 + '</a>';
-                    }
-                    else if (isOWLIndividiual(key2) && !key1.includes("label") && key4 === "uri") {
+                    } else if (isOWLIndividiual(key2) && !key1.includes("label") && key4 === "uri") {
                       key2 = '<a href="#" onclick="showInstanceDetails(&quot;' + key2URI + '&quot;); ">' + key2 + '</a>';
                     } else if (!isOWLIndividiual(key2) && !isConceptInside(key2) && !key1.includes("label") && key4 === "uri") {
                       key2 = '<a href="#" onmousedown="showExternalInfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';

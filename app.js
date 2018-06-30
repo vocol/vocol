@@ -175,7 +175,7 @@ var userConfigurationsFile2 = __dirname + '/jsonDataFiles/userConfigurations.jso
 app.use(['\/\/', '/'], routes);
 app.use(['\/\/documentation', '/documentation'], documentation);
 app.use(['\/\/webvowlLink', '/webvowlLink'], express.static(path.join(__dirname, "views/webvowl")));
-app.use(['\/\/turtleEditorLink', '/turtleEditorLink'], express.static(path.join(__dirname, "views/turtleEditor")));
+app.use(['\/\/turtleEditorLink', '/turtleEditorLink'], express.static(path.join(__dirname, "views/editor")));
 app.use(['\/\/analyticsLink', '/analyticsLink'], express.static(path.join(__dirname, "views/d3sparql")));
 app.use(['\/\/evolution', '/evolution'], evolution);
 app.use(['\/\/startup', '/startup'], startup);
@@ -208,14 +208,14 @@ app.get(['\/\/analytics', '/analytics'], function(req, res) {
     });
 })
 
-app.get(['\/\/turtleEditor', '/turtleEditor'], function(req, res) {
+app.get(['\/\/editor', '/editor'], function(req, res) {
   if (!req.session.isAuthenticated && req.app.locals.authRequired)
     res.render('login', {
       title: 'login',
       hash : ""
     });
   else
-    res.render('turtleEditor', {
+    res.render('editor', {
       title: 'Editing'
     });
 })
