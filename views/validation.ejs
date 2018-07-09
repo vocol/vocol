@@ -4,6 +4,17 @@
     <div class="ui container">
       <h1><%- title %></h1>
       <div id="errors"></div>
+      <table id="errorTable" class="ui celled padded table">
+  <thead>
+    <tr><th class="single line">Error Number</th>
+    <th>Filename</th>
+    <th>Error Type</th>
+    <th>Error Source</th>
+    <th>Error Message</th>
+  </tr></thead>
+  <tbody>
+  </tbody>
+</table>
     </div>
   </div>
   <% include footer %>
@@ -11,7 +22,19 @@
       if (<%= isExistSyntaxError %>) {
         var errors = <%- JSON.parse(JSON.stringify(syntaxErrors)) %>
         errors.forEach(function(element) {
-          $('#errors').append("<p><h6> Error Number: " + element.id + "</h6>" + "<h6> Found in file:" + element.file + "  <code>" + element.errMessege + "</code></h6></p>");
+          $('#errorTable').find('tbody').append('<tr><td><h2 class="ui center aligned header">'+
+          + element.id
+          + '</h2></td><td class="single line">'
+          + element.file
+          + '<td><div>'
+          + element.errType
+          +'</div></td>'
+          + '<td class="single line">'
+          + element.errSource
+          + '</td><td>'
+          + element.errMessege
+          + '</td></tr>');
+          // $('#errors').append("<p>Error Number: " + element.id + " " + "<h5> Found in file:" + element.file + "  <code>" + element.errMessege + "</code><br/>Error Type: " +element.errType +"<br/>Error Source: "+element.errSource+"</h5></p>");
         })
         $('#errors').append("<h5 style=\"color:red\">Please fix the error(s) in the turtle file(s).</h5>");
       } else

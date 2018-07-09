@@ -16,7 +16,7 @@ router.get('/', function(req, res) {
     var ErrorsFilePath = 'jsonDataFiles/syntaxErrors.json';
     if (fs.existsSync(ErrorsFilePath)) {
       var content = fs.readFileSync(ErrorsFilePath).toString();
-      if (content.includes('Error')) {
+      if (content.includes('errMessege')) {
         isExistSyntaxError = true;
         errors = content;
         console.log("errors:" + errors);

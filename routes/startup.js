@@ -13,7 +13,7 @@ router.get('/', function(req, res) {
     extended: true
   }));
   shell.exec('pwd').stdout;
- console.log("show I am from startup.js")
+  console.log("show I am from startup.js")
   // check if the userConfigurations file is exist
   // for the first time of app running
   var path = "jsonDataFiles/userConfigurations.json";
@@ -84,8 +84,6 @@ router.get('/', function(req, res) {
 
         }
 
-
-
         shell.exec('git checkout ' + obj.branchName, {
           silent: false
         }).stdout;
@@ -133,42 +131,61 @@ router.get('/', function(req, res) {
         shell.exec('rm -f   ../vocol/helper/tools/serializations/SingleVoc.nt', {
           silent: false
         }).stdout;
-        shell.exec('rm -f   ../vocol/helper/tools/ttl2ntConverter/temp.nt',{
+        shell.exec('rm -f   ../vocol/helper/tools/ttl2ntConverter/temp.nt', {
           silent: false
         }).stdout;
+
         for (var i = 0; i < files.length - 1; i++) {
-          // validation of the turtle files
-          var output = shell.exec('ttl ' + files[i] + '', {
-            silent: true
-          })
+          var errorType = "";
+          var errorSource = "";
           shell.cd('../vocol/helper/tools/ttl2ntConverter/').stdout;
 
           // converting file from turtle to ntriples format
-          shell.exec('java -jar ttl2ntConverter.jar ../../../../repoFolder' + files[i].substring(1) + ' temp.nt ', {
+          var output = shell.exec('java -jar ttl2ntConverter.jar ../../../../repoFolder' + files[i].substring(1) + ' temp.nt ', {
+            silent: true
+          });
+          shell.exec('cat  temp.nt', {
             silent: false
           }).stdout;
+
           shell.exec('cat  temp.nt | tee -a  ../serializations/SingleVoc.nt', {
             silent: false
           }).stdout;
 
+
           shell.cd('../../../../repoFolder/').stdout;
 
           // check if there are syntax errors of turtle format
-          if (!output.stdout.includes("0 errors.")) {
+          if (output.stdout.includes("an error is found") || output.stdout.includes("(KB is inconsistent!):")) {
+            var errorMessage = "";
+            if (output.stdout.includes("an error is found")) {
+              errorMessage = output.split("an error is found \n")[1];
+              errorType = "Bad Syntax";
+              errorSource = "Jena Riot Parser";
+            } else {
+              errorMessage = output.split("(KB is inconsistent!):")[1];
+              errorType = "Inconsistency";
+              errorSource = "Pellet";
+            }
+
             var errorObject = {
               id: k,
               file: files[i],
-              errMessege: output.split('\n')[0]
+              errType: errorType,
+              errMessege: errorMessage,
+              errSource: errorSource
+
             };
             errors.push(errorObject)
             k++;
             pass = false;
           }
         }
+
         // display syntax errors
         if (errors) {
           shell.cd('../vocol/helper/tools/VoColClient/').stdout;
-          shell.exec('fuser -k '+process.argv.slice(2)[1] || 3030+'/tcp').stdout;
+          shell.exec('fuser -k ' + process.argv.slice(2)[1] || 3030 + '/tcp').stdout;
           shell.cd('../../../../repoFolder/').stdout;
           var filePath = '../vocol/jsonDataFiles/syntaxErrors.json';
           jsonfile.writeFile(filePath, errors, {
@@ -214,7 +231,7 @@ router.get('/', function(req, res) {
           shell.exec('rm -f ../vocol/helper/tools/ttl2ntConverter/temp.nt').stdout;
           // Kill fuseki if it is running
           shell.cd('-P', '../vocol/helper/tools/apache-jena-fuseki');
-          shell.exec('fuser -k '+process.argv.slice(2)[1] || 3030+'/tcp', {
+          shell.exec('fuser -k ' + process.argv.slice(2)[1] || 3030 + '/tcp', {
             silent: false
           }).stdout;
           shell.exec('rm run/system/tdb.lock', {
@@ -249,7 +266,7 @@ router.get('/', function(req, res) {
           }
 
           // Update the dataProtection policy and script if infomationProtectionAgreement was selected
-          if(obj.dataProtectionAgreement == "true"){
+          if (obj.dataProtectionAgreement == "true") {
             console.log("I am here ");
             shell.exec('pwd', {
               silent: false
@@ -258,19 +275,25 @@ router.get('/', function(req, res) {
             shell.exec('pwd', {
               silent: false
             }).stdout;
-            if(obj.text2){
+            if (obj.text2) {
               var dataProtectionHtmlPage = '<% include header %><div style="margin-top: 3% !important;"></div><div class="ui grid"><div class="ui container">'
               dataProtectionHtmlPage += obj.text2;
               dataProtectionHtmlPage += '</div></div><% include footer %>';
-            fs.writeFileSync("views/dataProtection.ejs", dataProtectionHtmlPage, {encoding:'utf8',flag:'w'});
-             }
-            if(obj.text3){
-            fs.writeFileSync("views/dataProtectionScript.ejs",obj['text3'],{encoding:'utf8',flag:'w'});
-             }
-             shell.cd('helper/tools/owl2vowl/');
-             shell.exec('pwd', {
-               silent: false
-             }).stdout;
+              fs.writeFileSync("views/dataProtection.ejs", dataProtectionHtmlPage, {
+                encoding: 'utf8',
+                flag: 'w'
+              });
+            }
+            if (obj.text3) {
+              fs.writeFileSync("views/dataProtectionScript.ejs", obj['text3'], {
+                encoding: 'utf8',
+                flag: 'w'
+              });
+            }
+            shell.cd('helper/tools/owl2vowl/');
+            shell.exec('pwd', {
+              silent: false
+            }).stdout;
           }
 
           //TODO: just disable for testing perpose

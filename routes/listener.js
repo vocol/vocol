@@ -107,28 +107,46 @@ router.post('/', function(req, res) {
               silent: false
             }).stdout;
             for (var i = 0; i < files.length - 1; i++) {
-              // validation of the turtle files
-              var output = shell.exec('ttl ' + files[i] + '', {
-                silent: true
-              })
+              var errorType = "";
+              var errorSource = "";
               shell.cd('../vocol/helper/tools/ttl2ntConverter/').stdout;
 
               // converting file from turtle to ntriples format
-              shell.exec('java -jar ttl2ntConverter.jar ../../../../repoFolder' + files[i].substring(1) + ' temp.nt ', {
+              var output = shell.exec('java -jar ttl2ntConverter.jar ../../../../repoFolder' + files[i].substring(1) + ' temp.nt ', {
+                silent: true
+              });
+              shell.exec('cat  temp.nt', {
                 silent: false
               }).stdout;
+
               shell.exec('cat  temp.nt | tee -a  ../serializations/SingleVoc.nt', {
                 silent: false
               }).stdout;
 
+
               shell.cd('../../../../repoFolder/').stdout;
 
               // check if there are syntax errors of turtle format
-              if (!output.stdout.includes("0 errors.")) {
+              if (output.stdout.includes("an error is found") || output.stdout.includes("(KB is inconsistent!):")) {
+                var errorMessage = "";
+                if (output.stdout.includes("an error is found")){
+                  errorMessage = output.split("an error is found \n")[1];
+                  errorType = "Bad Syntax";
+                  errorSource = "Jena Riot Parser";
+                }
+                else{
+                  errorMessage = output.split("(KB is inconsistent!):")[1];
+                  errorType = "Inconsistency";
+                  errorSource = "Pellet";
+                }
+
                 var errorObject = {
                   id: k,
                   file: files[i],
-                  errMessege: output.split('\n')[0]
+                  errType: errorType,
+                  errMessege: errorMessage,
+                  errSource: errorSource
+
                 };
                 errors.push(errorObject)
                 k++;
