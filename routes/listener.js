@@ -131,7 +131,7 @@ router.post('/', function(req, res) {
                 var errorMessage = "";
                 if (output.stdout.includes("an error is found")){
                   errorMessage = output.split("an error is found \n")[1];
-                  errorType = "Bad Syntax";
+                  errorType = "Syntactic";
                   errorSource = "Jena Riot Parser";
                 }
                 else{
@@ -141,12 +141,13 @@ router.post('/', function(req, res) {
                 }
 
                 var errorObject = {
-                  id: k,
+                  id: k.toString(),
                   file: files[i],
                   errType: errorType,
                   errMessege: errorMessage,
-                  errSource: errorSource
-
+                  errSource: errorSource,
+                  pusher : pusher,
+                  date : commitTimestamp.split("T")[0]
                 };
                 errors.push(errorObject)
                 k++;

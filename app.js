@@ -51,7 +51,7 @@ var ErrorsFilePath = __dirname + '/jsonDataFiles/syntaxErrors.json';
 function readSyntaxErrorsFile() {
   if (fs.existsSync(ErrorsFilePath)) {
     var data = fs.readFileSync(ErrorsFilePath);
-    if (data.toString().includes('errMessege')) {
+    if (data.toString().includes('1')) {
       app.locals.isExistSyntaxError = "true";
     } else {
       app.locals.isExistSyntaxError = "false";

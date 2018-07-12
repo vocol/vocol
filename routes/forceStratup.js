@@ -50,7 +50,7 @@ for (var i = 0; i < files.length - 1; i++) {
     var errorMessage = "";
     if (output.stdout.includes("an error is found")){
       errorMessage = output.split("an error is found \n")[1];
-      errorType = "Bad Syntax";
+      errorType = "Syntactic";
       errorSource = "Jena Riot Parser";
     }
     else{
@@ -60,12 +60,13 @@ for (var i = 0; i < files.length - 1; i++) {
     }
 
     var errorObject = {
-      id: k,
+      id: k.toString(),
       file: files[i],
       errType: errorType,
       errMessege: errorMessage,
-      errSource: errorSource
-
+      errSource: errorSource,
+      pusher : "",
+      date : new Date().toISOString().slice(0, 10)
     };
     errors.push(errorObject)
     k++;

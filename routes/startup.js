@@ -160,7 +160,7 @@ router.get('/', function(req, res) {
             var errorMessage = "";
             if (output.stdout.includes("an error is found")) {
               errorMessage = output.split("an error is found \n")[1];
-              errorType = "Bad Syntax";
+              errorType = "Syntactic";
               errorSource = "Jena Riot Parser";
             } else {
               errorMessage = output.split("(KB is inconsistent!):")[1];
@@ -169,12 +169,13 @@ router.get('/', function(req, res) {
             }
 
             var errorObject = {
-              id: k,
+              id: k.toString(),
               file: files[i],
               errType: errorType,
               errMessege: errorMessage,
-              errSource: errorSource
-
+              errSource: errorSource,
+              pusher : obj.user,
+              date : new Date().toISOString().slice(0, 10)
             };
             errors.push(errorObject)
             k++;

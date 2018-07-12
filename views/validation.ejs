@@ -3,40 +3,49 @@
   <div class="ui grid">
     <div class="ui container">
       <h1><%- title %></h1>
-      <div id="errors"></div>
       <table id="errorTable" class="ui celled padded table">
-  <thead>
-    <tr><th class="single line">Error Number</th>
-    <th>Filename</th>
-    <th>Error Type</th>
-    <th>Error Source</th>
-    <th>Error Message</th>
-  </tr></thead>
-  <tbody>
-  </tbody>
-</table>
+        <thead>
+          <tr>
+            <th >Error No.</th>
+            <th>Pusher</th>
+            <th>Filename</th>
+            <th>Error Type</th>
+            <th class="single line">Error Source</th>
+            <th class="single line"> Date </th>
+            <th>Error Message</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+      <div id="errors"></div>
     </div>
   </div>
   <% include footer %>
+
+
     <script>
+      function filterTableData(data) {
+        var tableBody = "";
+        var dataTable = JSON.parse(data);
+        var array = [];
+        for (var i = 0; i < dataTable.length; i++) {
+          var arr = [];
+          arr.push(dataTable[i].id.trim(), dataTable[i].pusher.trim(), dataTable[i].file.trim(), dataTable[i].errType.trim(), dataTable[i].errSource.trim(), dataTable[i].date.trim(), dataTable[i].errMessege.trim());
+          array.push(arr);
+        }
+        return array;
+      }
       if (<%= isExistSyntaxError %>) {
-        var errors = <%- JSON.parse(JSON.stringify(syntaxErrors)) %>
-        errors.forEach(function(element) {
-          $('#errorTable').find('tbody').append('<tr><td><h2 class="ui center aligned header">'+
-          + element.id
-          + '</h2></td><td class="single line">'
-          + element.file
-          + '<td><div>'
-          + element.errType
-          +'</div></td>'
-          + '<td class="single line">'
-          + element.errSource
-          + '</td><td>'
-          + element.errMessege
-          + '</td></tr>');
-          // $('#errors').append("<p>Error Number: " + element.id + " " + "<h5> Found in file:" + element.file + "  <code>" + element.errMessege + "</code><br/>Error Type: " +element.errType +"<br/>Error Source: "+element.errSource+"</h5></p>");
-        })
-        $('#errors').append("<h5 style=\"color:red\">Please fix the error(s) in the turtle file(s).</h5>");
+        var errors = <%- JSON.stringify(syntaxErrors) %>
+
+        // show this message if there is an error or more
+        $('#errors').append("<h5 style=\"color:red\">Please fix the following identified errors, in order to continue with updating the latest version!</h5>");
+        // show error table
+        $('#errorTable').DataTable({
+          data: filterTableData(errors)
+
+        });
       } else
         $('#errors').html('<h5>No errors were found</h5>');
     </script>
