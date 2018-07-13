@@ -174,8 +174,8 @@ router.get('/', function(req, res) {
               errType: errorType,
               errMessege: errorMessage,
               errSource: errorSource,
-              pusher : obj.user,
-              date : new Date().toISOString().slice(0, 10)
+              pusher: obj.user,
+              date: new Date().toISOString().slice(0, 10)
             };
             errors.push(errorObject)
             k++;
@@ -240,6 +240,51 @@ router.get('/', function(req, res) {
           }).stdout;
           // show the cuurent path
           shell.exec('pwd');
+
+          //////////////////////////////
+          // update queries in fuseki //
+          /////////////////////////////
+          // update fuseki queries file with some user-defined queries if there is any
+          var fusekiQueriesFilePath = 'webapp/js/app/qonsole-config.js';
+          // read contents of the file with the filePathgetTree
+          var fusekiQuerieFileContent = fs.readFileSync(fusekiQueriesFilePath, 'utf8');
+          var queriesContents = fusekiQuerieFileContent.split("queries:")[1];
+          var index = queriesContents.lastIndexOf(']');
+          var data = shell.exec('find ../../../../repoFolder/ -type f -name "*.rq"', {
+            silent: false
+          });
+          var files = data.split(/[\n]/);
+          // remove last element, it is empty
+          files.pop();
+          // start the content of fusekiQueries with the following:
+          queriesContents = 'queries:' + queriesContents.substring(0, index);
+          // loop for all the files with the extension of ".rq"
+          for (key in files) {
+            var fileName = files[key].substring(2).split(".rq")[0];
+            if (fileName.includes('/')) {
+              var slachLocation = fileName.lastIndexOf('/');
+              fileName = fileName.substring(slachLocation + 1, fileName.length);
+            }
+            if (!fusekiQuerieFileContent.split("queries:")[1].includes(fileName)) {
+              var currentQueryFileContent = fs.readFileSync(files[key], 'utf8');
+              queriesContents += ', { "name" :"' + fileName + '",\n';
+              queriesContents += '"query" :' + JSON.stringify(currentQueryFileContent) + '\n}\n';
+            }
+          }
+          // end the content of fusekiQueries with the following:
+          queriesContents += "]\n};\n});";
+          var upperFusekiQueriesFileContent = 'define( [], function() {\n' +
+            'return {\n' +
+            'prefixes: {\n' +
+            '"rdf":      "http://www.w3.org/1999/02/22-rdf-syntax-ns#",\n' +
+            '"rdfs":     "http://www.w3.org/2000/01/rdf-schema#",\n' +
+            '"owl":      "http://www.w3.org/2002/07/owl#",\n' +
+            '"xsd":      "http://www.w3.org/2001/XMLSchema#"\n' +
+            '},\n';
+          console.log(upperFusekiQueriesFileContent + queriesContents);
+          // combine the upper upperFusekiQueriesFileContent with the new queries if there is any
+          fs.writeFileSync(fusekiQueriesFilePath, upperFusekiQueriesFileContent + queriesContents)
+
           // generation the Json files
           shell.cd("../JenaJsonFilesGenrator/").stdout;
           shell.exec('java -jar JenaJsonFilesGenerator.jar').stdout;

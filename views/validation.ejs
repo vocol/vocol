@@ -3,6 +3,8 @@
   <div class="ui grid">
     <div class="ui container">
       <h1><%- title %></h1>
+      <%if (isExistSyntaxError !="") {%>
+
       <table id="errorTable" class="ui celled padded table">
         <thead>
           <tr>
@@ -18,6 +20,8 @@
         <tbody>
         </tbody>
       </table>
+      <% } %>
+
       <div id="errors"></div>
     </div>
   </div>

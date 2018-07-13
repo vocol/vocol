@@ -103,7 +103,7 @@ router.post('/', function(req, res) {
             shell.exec('rm -f   ../vocol/helper/tools/serializations/SingleVoc.nt', {
               silent: false
             }).stdout;
-            shell.exec('rm -f   ../vocol/helper/tools/ttl2ntConverter/temp.nt',{
+            shell.exec('rm -f   ../vocol/helper/tools/ttl2ntConverter/temp.nt', {
               silent: false
             }).stdout;
             for (var i = 0; i < files.length - 1; i++) {
@@ -129,12 +129,11 @@ router.post('/', function(req, res) {
               // check if there are syntax errors of turtle format
               if (output.stdout.includes("an error is found") || output.stdout.includes("(KB is inconsistent!):")) {
                 var errorMessage = "";
-                if (output.stdout.includes("an error is found")){
+                if (output.stdout.includes("an error is found")) {
                   errorMessage = output.split("an error is found \n")[1];
                   errorType = "Syntactic";
                   errorSource = "Jena Riot Parser";
-                }
-                else{
+                } else {
                   errorMessage = output.split("(KB is inconsistent!):")[1];
                   errorType = "Inconsistency";
                   errorSource = "Pellet";
@@ -146,8 +145,8 @@ router.post('/', function(req, res) {
                   errType: errorType,
                   errMessege: errorMessage,
                   errSource: errorSource,
-                  pusher : pusher,
-                  date : commitTimestamp.split("T")[0]
+                  pusher: pusher,
+                  date: commitTimestamp.split("T")[0]
                 };
                 errors.push(errorObject)
                 k++;
@@ -173,18 +172,18 @@ router.post('/', function(req, res) {
                 })
               }
             } else // continue the process
-             {
-               // delete previous data if there is any
-               shell.exec('rm -f ../vocol/views/webvowl/data/SingleVoc.json').stdout;
-               shell.exec('rm -f ../vocol/jsonDataFiles/RDFSConcepts.json').stdout;
-               shell.exec('rm -f ../vocol/jsonDataFiles/SKOSConcepts.json').stdout;
-               shell.exec('rm -f ../vocol/jsonDataFiles/SKOSObjects.json').stdout;
-               shell.exec('rm -f ../vocol/jsonDataFiles/RDFSObjects.json').stdout;
-               shell.exec('rm -f ../vocol/jsonDataFiles/OWLIndividuals.json').stdout;
-               shell.exec('rm -f ../vocol/helper/tools/ttl2ntConverter/temp.nt').stdout;
+            {
+              // delete previous data if there is any
+              shell.exec('rm -f ../vocol/views/webvowl/data/SingleVoc.json').stdout;
+              shell.exec('rm -f ../vocol/jsonDataFiles/RDFSConcepts.json').stdout;
+              shell.exec('rm -f ../vocol/jsonDataFiles/SKOSConcepts.json').stdout;
+              shell.exec('rm -f ../vocol/jsonDataFiles/SKOSObjects.json').stdout;
+              shell.exec('rm -f ../vocol/jsonDataFiles/RDFSObjects.json').stdout;
+              shell.exec('rm -f ../vocol/jsonDataFiles/OWLIndividuals.json').stdout;
+              shell.exec('rm -f ../vocol/helper/tools/ttl2ntConverter/temp.nt').stdout;
               // Kill fuseki if it is running
               shell.cd('-P', '../vocol/helper/tools/apache-jena-fuseki');
-              shell.exec('fuser -k '+process.argv.slice(2)[1] || 3030+'/tcp', {
+              shell.exec('fuser -k ' + process.argv.slice(2)[1] || 3030 + '/tcp', {
                 silent: false
               }).stdout;
               shell.exec('rm run/system/tdb.lock', {
@@ -192,6 +191,51 @@ router.post('/', function(req, res) {
               }).stdout;
               // show the cuurent path
               shell.exec('pwd');
+
+              //////////////////////////////
+              // update queries in fuseki //
+              /////////////////////////////
+              // update fuseki queries file with some user-defined queries if there is any
+              var fusekiQueriesFilePath = 'webapp/js/app/qonsole-config.js';
+              // read contents of the file with the filePathgetTree
+              var fusekiQuerieFileContent = fs.readFileSync(fusekiQueriesFilePath, 'utf8');
+              var queriesContents = fusekiQuerieFileContent.split("queries:")[1];
+              var index = queriesContents.lastIndexOf(']');
+              var data = shell.exec('find ../../../../repoFolder/ -type f -name "*.rq"', {
+                silent: false
+              });
+              var files = data.split(/[\n]/);
+              // remove last element, it is empty
+              files.pop();
+              // start the content of fusekiQueries with the following:
+              queriesContents = 'queries:' + queriesContents.substring(0, index);
+              // loop for all the files with the extension of ".rq"
+              for (key in files) {
+                var fileName = files[key].substring(2).split(".rq")[0];
+                if (fileName.includes('/')) {
+                  var slachLocation = fileName.lastIndexOf('/');
+                  fileName = fileName.substring(slachLocation + 1, fileName.length);
+                }
+                if (!fusekiQuerieFileContent.split("queries:")[1].includes(fileName)) {
+                  var currentQueryFileContent = fs.readFileSync(files[key], 'utf8');
+                  queriesContents += ', { "name" :"' + fileName + '",\n';
+                  queriesContents += '"query" :' + JSON.stringify(currentQueryFileContent) + '\n}\n';
+                }
+              }
+              // end the content of fusekiQueries with the following:
+              queriesContents += "]\n};\n});";
+              var upperFusekiQueriesFileContent = 'define( [], function() {\n' +
+                'return {\n' +
+                'prefixes: {\n' +
+                '"rdf":      "http://www.w3.org/1999/02/22-rdf-syntax-ns#",\n' +
+                '"rdfs":     "http://www.w3.org/2000/01/rdf-schema#",\n' +
+                '"owl":      "http://www.w3.org/2002/07/owl#",\n' +
+                '"xsd":      "http://www.w3.org/2001/XMLSchema#"\n' +
+                '},\n';
+              console.log(upperFusekiQueriesFileContent + queriesContents);
+              // combine the upper upperFusekiQueriesFileContent with the new queries if there is any
+              fs.writeFileSync(fusekiQueriesFilePath, upperFusekiQueriesFileContent + queriesContents)
+
               // generation the Json files
               shell.cd("../JenaJsonFilesGenrator/").stdout;
               shell.exec('java -jar JenaJsonFilesGenerator.jar').stdout;
