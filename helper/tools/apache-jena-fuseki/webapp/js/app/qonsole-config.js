@@ -8,15 +8,17 @@ prefixes: {
 },
 queries: [
       { "name": "Selection of triples",
-        "query": "SELECT ?subject ?predicate ?object\nWHERE {\n" +
-                 "  ?subject ?predicate ?object\n}\n" +
-                 "LIMIT 25"
+        "query": "SELECT ?subject ?predicate ?object"+
+"WHERE {"+
+                 "  ?subject ?predicate ?object}"+
+                  "LIMIT 25"
       },
       { "name": "Selection of classes",
-        "query": "SELECT DISTINCT ?class ?label ?description\nWHERE {\n" +
-                 "  ?class a owl:Class.\n" +
-                 "  OPTIONAL { ?class rdfs:label ?label}\n" +
-                 "  OPTIONAL { ?class rdfs:comment ?description}\n}\n" +
+        "query": "SELECT DISTINCT ?class ?label ?description"+
+"WHERE {"+
+                 "  ?class a owl:Class."+
+                 "  OPTIONAL { ?class rdfs:label ?label}"+
+                 "  OPTIONAL { ?class rdfs:comment ?description}}"+
                  "LIMIT 25",
         "prefixes": ["owl", "rdfs"]
       }
