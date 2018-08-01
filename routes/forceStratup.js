@@ -50,7 +50,7 @@ for (var i = 0; i < files.length - 1; i++) {
     var errorMessage = "";
     if (output.stdout.includes("an error is found")) {
       errorMessage = output.split("an error is found \n")[1];
-      errorType = "Syntactic";
+      errorType = "Syntax";
       errorSource = "Jena Riot Parser";
     } else {
       errorMessage = output.split("(KB is inconsistent!):")[1];

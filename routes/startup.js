@@ -160,7 +160,7 @@ router.get('/', function(req, res) {
             var errorMessage = "";
             if (output.stdout.includes("an error is found")) {
               errorMessage = output.split("an error is found \n")[1];
-              errorType = "Syntactic";
+              errorType = "Syntax";
               errorSource = "Jena Riot Parser";
             } else {
               errorMessage = output.split("(KB is inconsistent!):")[1];
@@ -205,7 +205,7 @@ router.get('/', function(req, res) {
             silent: false
           }).stdout;
           // filePath where we read from
-          var filePath = '../vocol/views/turtleEditor/js/turtle-editor.js';
+          var filePath = '../vocol/views/editor/js/turtle-editor.js';
           // read contents of the file with the filePathgetTree
           var contents = fs.readFileSync(filePath, 'utf8');
           contents = contents.replace(/(owner\.val\(")(.*?)"/mg, "owner.val(\"" + obj.repositoryOwner + "\"");

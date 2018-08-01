@@ -25,7 +25,6 @@ import org.apache.jena.query.ResultSetFormatter;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.util.FileManager;
-import org.eclipse.rdf4j.rio.turtle.App;
 
 public class test {
 	static String  	mainQuery = "", Query = "";
@@ -189,7 +188,10 @@ public class test {
 						+ "PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>"
 						+ "PREFIX skos: <http://www.w3.org/2004/02/skos/core#> "
 						+ "SELECT  ?classChild ?classParent WHERE {" 
-						+ "?classChild rdfs:subClassOf  ?classParent .}";
+						+ "?classChild rdfs:subClassOf  ?classParent ."
+						+ "FILTER(!isBlank(?classParent))\n"
+						+ "FILTER(!isBlank(?classChild))"
+						+ "}";
 				QueryExecution qexec3 = QueryExecutionFactory.create(Query, ontModel);
 				ResultSet result3 = qexec3.execSelect();
 				while (result3.hasNext()) {
