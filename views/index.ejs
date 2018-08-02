@@ -1,11 +1,16 @@
-
-  <% include header %>
-
-<div style="margin-top: 3% !important;"></div>
-
-<div class="ui grid">
+<% include header.ejs %>
+  <div style="margin-top: 8% !important;"></div>
+  <div class="ui grid">
     <div class="ui container">
-      <%- homePage %>
-    </div>
-  </div>
-  <% include footer %>
+      <div class="ui two column stackable grid">
+        <div class="twelve wide column">
+          <%- homePage %>
+        </div>
+        <div class="four wide column">
+            <h4 class="ui header" style="rgba(243, 238, 238, 0.87)">Ontology MetaDATA</h4>
+            <table class="ui selectable inverted table" style="width:48%; position:relative;" id="response">
+              <%- metaData %>
+            </table>
+          </div>
+      </div>
+      <% include footer.ejs %>

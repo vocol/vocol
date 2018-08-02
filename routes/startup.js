@@ -6,13 +6,14 @@ var  jsonfile  =  require('jsonfile');
 var shell = require('shelljs');
 var router = express.Router();
 var spawn = require('child_process').spawn;
+var path = require('path');
 
 router.get('/', function(req, res) {
   app.use(bodyParser.urlencoded({
     extended: true
   }));
   shell.exec('pwd').stdout;
- console.log("show I am from startup.js")
+  console.log("show I am from startup.js")
   // check if the userConfigurations file is exist
   // for the first time of app running
   var path = "jsonDataFiles/userConfigurations.json";
@@ -83,8 +84,6 @@ router.get('/', function(req, res) {
 
         }
 
-
-
         shell.exec('git checkout ' + obj.branchName, {
           silent: false
         }).stdout;
@@ -132,42 +131,62 @@ router.get('/', function(req, res) {
         shell.exec('rm -f   ../vocol/helper/tools/serializations/SingleVoc.nt', {
           silent: false
         }).stdout;
-        shell.exec('rm -f   ../vocol/helper/tools/ttl2ntConverter/temp.nt',{
+        shell.exec('rm -f   ../vocol/helper/tools/ttl2ntConverter/temp.nt', {
           silent: false
         }).stdout;
+
         for (var i = 0; i < files.length - 1; i++) {
-          // validation of the turtle files
-          var output = shell.exec('ttl ' + files[i] + '', {
-            silent: true
-          })
+          var errorType = "";
+          var errorSource = "";
           shell.cd('../vocol/helper/tools/ttl2ntConverter/').stdout;
 
           // converting file from turtle to ntriples format
-          shell.exec('java -jar ttl2ntConverter.jar ../../../../repoFolder' + files[i].substring(1) + ' temp.nt ', {
+          var output = shell.exec('java -jar ttl2ntConverter.jar ../../../../repoFolder' + files[i].substring(1) + ' temp.nt ', {
+            silent: true
+          });
+          shell.exec('cat  temp.nt', {
             silent: false
           }).stdout;
+
           shell.exec('cat  temp.nt | tee -a  ../serializations/SingleVoc.nt', {
             silent: false
           }).stdout;
 
+
           shell.cd('../../../../repoFolder/').stdout;
 
           // check if there are syntax errors of turtle format
-          if (!output.stdout.includes("0 errors.")) {
+          if (output.stdout.includes("an error is found") || output.stdout.includes("(KB is inconsistent!):")) {
+            var errorMessage = "";
+            if (output.stdout.includes("an error is found")) {
+              errorMessage = output.split("an error is found \n")[1];
+              errorType = "Syntax";
+              errorSource = "Jena Riot Parser";
+            } else {
+              errorMessage = output.split("(KB is inconsistent!):")[1];
+              errorType = "Inconsistency";
+              errorSource = "Pellet";
+            }
+
             var errorObject = {
-              id: k,
+              id: k.toString(),
               file: files[i],
-              errMessege: output.split('\n')[0]
+              errType: errorType,
+              errMessege: errorMessage,
+              errSource: errorSource,
+              pusher: obj.user,
+              date: new Date().toISOString().slice(0, 10)
             };
             errors.push(errorObject)
             k++;
             pass = false;
           }
         }
+
         // display syntax errors
         if (errors) {
           shell.cd('../vocol/helper/tools/VoColClient/').stdout;
-          shell.exec('fuser -k '+process.argv.slice(2)[1] || 3030+'/tcp').stdout;
+          shell.exec('fuser -k ' + process.argv.slice(2)[1] || 3030 + '/tcp').stdout;
           shell.cd('../../../../repoFolder/').stdout;
           var filePath = '../vocol/jsonDataFiles/syntaxErrors.json';
           jsonfile.writeFile(filePath, errors, {
@@ -186,7 +205,7 @@ router.get('/', function(req, res) {
             silent: false
           }).stdout;
           // filePath where we read from
-          var filePath = '../vocol/views/turtleEditor/js/turtle-editor.js';
+          var filePath = '../vocol/views/editor/js/turtle-editor.js';
           // read contents of the file with the filePathgetTree
           var contents = fs.readFileSync(filePath, 'utf8');
           contents = contents.replace(/(owner\.val\(")(.*?)"/mg, "owner.val(\"" + obj.repositoryOwner + "\"");
@@ -213,7 +232,7 @@ router.get('/', function(req, res) {
           shell.exec('rm -f ../vocol/helper/tools/ttl2ntConverter/temp.nt').stdout;
           // Kill fuseki if it is running
           shell.cd('-P', '../vocol/helper/tools/apache-jena-fuseki');
-          shell.exec('fuser -k '+process.argv.slice(2)[1] || 3030+'/tcp', {
+          shell.exec('fuser -k ' + process.argv.slice(2)[1] || 3030 + '/tcp', {
             silent: false
           }).stdout;
           shell.exec('rm run/system/tdb.lock', {
@@ -221,6 +240,51 @@ router.get('/', function(req, res) {
           }).stdout;
           // show the cuurent path
           shell.exec('pwd');
+
+          //////////////////////////////
+          // update queries in fuseki //
+          /////////////////////////////
+          // update fuseki queries file with some user-defined queries if there is any
+          var fusekiQueriesFilePath = 'webapp/js/app/qonsole-config.js';
+          // read contents of the file with the filePathgetTree
+          var fusekiQuerieFileContent = fs.readFileSync(fusekiQueriesFilePath, 'utf8');
+          var queriesContents = fusekiQuerieFileContent.split("queries:")[1];
+          var index = queriesContents.lastIndexOf(']');
+          var data = shell.exec('find ../../../../repoFolder/ -type f -name "*.rq"', {
+            silent: false
+          });
+          var files = data.split(/[\n]/);
+          // remove last element, it is empty
+          files.pop();
+          // start the content of fusekiQueries with the following:
+          queriesContents = 'queries:' + queriesContents.substring(0, index);
+          // loop for all the files with the extension of ".rq"
+          for (key in files) {
+            var fileName = files[key].substring(2).split(".rq")[0];
+            if (fileName.includes('/')) {
+              var slachLocation = fileName.lastIndexOf('/');
+              fileName = fileName.substring(slachLocation + 1, fileName.length);
+            }
+            if (!fusekiQuerieFileContent.split("queries:")[1].includes(fileName)) {
+              var currentQueryFileContent = fs.readFileSync(files[key], 'utf8');
+              queriesContents += ', { "name" :"' + fileName + '",\n';
+              queriesContents += '"query" :' + JSON.stringify(currentQueryFileContent) + '\n}\n';
+            }
+          }
+          // end the content of fusekiQueries with the following:
+          queriesContents += "]\n};\n});";
+          var upperFusekiQueriesFileContent = 'define( [], function() {\n' +
+            'return {\n' +
+            'prefixes: {\n' +
+            '"rdf":      "http://www.w3.org/1999/02/22-rdf-syntax-ns#",\n' +
+            '"rdfs":     "http://www.w3.org/2000/01/rdf-schema#",\n' +
+            '"owl":      "http://www.w3.org/2002/07/owl#",\n' +
+            '"xsd":      "http://www.w3.org/2001/XMLSchema#"\n' +
+            '},\n';
+          console.log(upperFusekiQueriesFileContent + queriesContents);
+          // combine the upper upperFusekiQueriesFileContent with the new queries if there is any
+          fs.writeFileSync(fusekiQueriesFilePath, upperFusekiQueriesFileContent + queriesContents)
+
           // generation the Json files
           shell.cd("../JenaJsonFilesGenrator/").stdout;
           shell.exec('java -jar JenaJsonFilesGenerator.jar').stdout;
@@ -245,6 +309,37 @@ router.get('/', function(req, res) {
             shell.mkdir('../evolution').stdout;
             shell.cp('../serializations/SingleVoc.nt', '../evolution/SingleVoc.nt').stdout;
             console.log("SingleVoc.nt is copied to evolution");
+          }
+
+          // Update the dataProtection policy and script if infomationProtectionAgreement was selected
+          if (obj.dataProtectionAgreement == "true") {
+            console.log("I am here ");
+            shell.exec('pwd', {
+              silent: false
+            }).stdout;
+            shell.cd('../../../');
+            shell.exec('pwd', {
+              silent: false
+            }).stdout;
+            if (obj.text2) {
+              var dataProtectionHtmlPage = '<% include header %><div style="margin-top: 3% !important;"></div><div class="ui grid"><div class="ui container">'
+              dataProtectionHtmlPage += obj.text2;
+              dataProtectionHtmlPage += '</div></div><% include footer %>';
+              fs.writeFileSync("views/dataProtection.ejs", dataProtectionHtmlPage, {
+                encoding: 'utf8',
+                flag: 'w'
+              });
+            }
+            if (obj.text3) {
+              fs.writeFileSync("views/dataProtectionScript.ejs", obj['text3'], {
+                encoding: 'utf8',
+                flag: 'w'
+              });
+            }
+            shell.cd('helper/tools/owl2vowl/');
+            shell.exec('pwd', {
+              silent: false
+            }).stdout;
           }
 
           //TODO: just disable for testing perpose

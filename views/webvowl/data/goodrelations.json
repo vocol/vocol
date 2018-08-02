@@ -1,5 +1,5 @@
 {
-  "_comment" : "Created with OWL2VOWL (version 0.3.3-SNAPSHOT), http://vowl.visualdataweb.org",
+  "_comment" : "Created with OWL2VOWL (version 0.3.5), http://vowl.visualdataweb.org",
   "header" : {
     "languages" : [ "en", "undefined" ],
     "baseIris" : [ "http://www.w3.org/1999/02/22-rdf-syntax-ns", "http://schema.org", "http://purl.org/goodrelations/v1", "http://www.w3.org/2000/01/rdf-schema", "http://www.w3.org/2001/XMLSchema", "http://xmlns.com/foaf/0.1" ],
@@ -67,12 +67,6 @@
     }
   },
   "namespace" : [ ],
-  "metrics" : {
-    "classCount" : 38,
-    "objectPropertyCount" : 53,
-    "datatypePropertyCount" : 49,
-    "individualCount" : 46
-  },
   "class" : [ {
     "id" : "3",
     "type" : "owl:unionOf"
@@ -518,7 +512,7 @@
   "classAttribute" : [ {
     "instances" : 0,
     "union" : [ "4", "5", "6" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "3"
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
@@ -558,7 +552,7 @@
   }, {
     "instances" : 0,
     "union" : [ "33", "30", "34", "35", "2" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "32"
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#dateTime",
@@ -591,7 +585,7 @@
   }, {
     "instances" : 0,
     "union" : [ "46", "33", "47" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "45"
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
@@ -603,7 +597,7 @@
   }, {
     "instances" : 0,
     "union" : [ "4", "5", "6" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "55"
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
@@ -615,7 +609,7 @@
   }, {
     "instances" : 0,
     "union" : [ "33", "30", "34", "35", "2" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "60"
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#dateTime",
@@ -627,7 +621,7 @@
   }, {
     "instances" : 0,
     "union" : [ "41", "8", "49", "5", "14", "50", "23", "33", "30", "73", "74", "65", "21", "75", "76", "77", "47", "78", "28", "1", "79", "80", "2", "81", "11", "68", "82" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "72"
   }, {
     "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
@@ -647,7 +641,7 @@
   }, {
     "instances" : 0,
     "union" : [ "8", "1", "49" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "86"
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
@@ -708,7 +702,7 @@
   }, {
     "instances" : 0,
     "union" : [ "4", "5" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "92"
   }, {
     "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
@@ -744,7 +738,7 @@
   }, {
     "instances" : 0,
     "union" : [ "46", "33", "34", "14" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "98"
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#float",
@@ -828,7 +822,7 @@
   }, {
     "instances" : 0,
     "union" : [ "4", "5" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "110"
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#int",
@@ -1073,22 +1067,22 @@
   }, {
     "instances" : 0,
     "union" : [ "46", "14" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "117"
   }, {
     "instances" : 0,
     "union" : [ "46", "14" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "118"
   }, {
     "instances" : 0,
     "union" : [ "4", "5", "6" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "119"
   }, {
     "instances" : 0,
     "union" : [ "23", "47" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "120"
   }, {
     "iri" : "http://purl.org/goodrelations/v1#PaymentMethod",
@@ -1277,57 +1271,57 @@
   }, {
     "instances" : 0,
     "union" : [ "33", "34" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "125"
   }, {
     "instances" : 0,
     "union" : [ "46", "14" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "126"
   }, {
     "instances" : 0,
     "union" : [ "46", "14" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "129"
   }, {
     "instances" : 0,
     "union" : [ "46", "14" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "130"
   }, {
     "instances" : 0,
     "union" : [ "4", "5" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "131"
   }, {
     "instances" : 0,
     "union" : [ "4", "5", "6" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "113"
   }, {
     "instances" : 0,
     "union" : [ "77", "133" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "132"
   }, {
     "instances" : 0,
     "union" : [ "4", "5" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "135"
   }, {
     "instances" : 0,
     "union" : [ "33", "34" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "136"
   }, {
     "instances" : 0,
     "union" : [ "33", "34" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "137"
   }, {
     "instances" : 0,
     "union" : [ "46", "14" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "138"
   }, {
     "iri" : "http://purl.org/goodrelations/v1#QuantitativeValue",
@@ -1353,82 +1347,82 @@
   }, {
     "instances" : 0,
     "union" : [ "33", "8", "34" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "144"
   }, {
     "instances" : 0,
     "union" : [ "33", "34", "2" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "145"
   }, {
     "instances" : 0,
     "union" : [ "23", "33", "34" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "107"
   }, {
     "instances" : 0,
     "union" : [ "46", "23", "47" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "146"
   }, {
     "instances" : 0,
     "union" : [ "46", "14" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "147"
   }, {
     "instances" : 0,
     "union" : [ "33", "34" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "148"
   }, {
     "instances" : 0,
     "union" : [ "46", "14" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "25"
   }, {
     "instances" : 0,
     "union" : [ "33", "34" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "122"
   }, {
     "instances" : 0,
     "union" : [ "33", "34", "35" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "152"
   }, {
     "instances" : 0,
     "union" : [ "33", "34", "2" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "153"
   }, {
     "instances" : 0,
     "union" : [ "46", "4", "5", "14" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "154"
   }, {
     "instances" : 0,
     "union" : [ "33", "34" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "115"
   }, {
     "instances" : 0,
     "union" : [ "33", "34" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "157"
   }, {
     "instances" : 0,
     "union" : [ "33", "34" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "124"
   }, {
     "instances" : 0,
     "union" : [ "33", "34" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "165"
   }, {
     "instances" : 0,
     "union" : [ "33", "34" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "180"
   }, {
     "iri" : "http://purl.org/goodrelations/v1#PaymentMethodCreditCard",
@@ -1666,7 +1660,7 @@
       "IRI-based" : "Product"
     },
     "subClasses" : [ "23", "47", "28" ],
-    "attributes" : [ "equivalent", "external" ],
+    "attributes" : [ "external", "equivalent" ],
     "id" : "46"
   }, {
     "iri" : "http://purl.org/goodrelations/v1#DeliveryModeParcelService",
@@ -1944,7 +1938,7 @@
     "label" : {
       "IRI-based" : "Place"
     },
-    "attributes" : [ "equivalent", "external" ],
+    "attributes" : [ "external", "equivalent" ],
     "id" : "133"
   }, {
     "iri" : "http://purl.org/goodrelations/v1#WarrantyPromise",
@@ -2218,7 +2212,7 @@
   }, {
     "instances" : 0,
     "union" : [ "46", "33", "14" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "183"
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
@@ -2230,7 +2224,7 @@
   }, {
     "instances" : 0,
     "union" : [ "46", "33", "14" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "140"
   }, {
     "iri" : "http://purl.org/goodrelations/v1#BusinessEntityType",
@@ -2335,7 +2329,7 @@
   }, {
     "instances" : 0,
     "union" : [ "77", "133", "4", "5" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "264"
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
@@ -2347,7 +2341,7 @@
   }, {
     "instances" : 0,
     "union" : [ "77", "133", "4", "5" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "348"
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#int",
@@ -2359,7 +2353,7 @@
   }, {
     "instances" : 0,
     "union" : [ "46", "33", "14" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "317"
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
@@ -2559,7 +2553,7 @@
   }, {
     "instances" : 0,
     "union" : [ "33", "74", "34", "35" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "356"
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
@@ -2585,7 +2579,7 @@
   }, {
     "instances" : 0,
     "union" : [ "4", "5" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "353"
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
@@ -2597,7 +2591,7 @@
   }, {
     "instances" : 0,
     "union" : [ "46", "33", "14" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "321"
   }, {
     "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
@@ -2610,7 +2604,7 @@
   }, {
     "instances" : 0,
     "union" : [ "41", "8", "49", "5", "14", "50", "23", "33", "30", "73", "74", "65", "21", "75", "76", "77", "47", "78", "28", "1", "79", "80", "2", "81", "11", "68", "82" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "361"
   }, {
     "iri" : "http://purl.org/goodrelations/v1#UnitPriceSpecification",
@@ -2636,7 +2630,7 @@
   }, {
     "instances" : 0,
     "union" : [ "46", "77", "33", "133", "4", "5", "34", "14" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "200"
   }, {
     "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
@@ -2656,7 +2650,7 @@
   }, {
     "instances" : 0,
     "union" : [ "46", "14" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "364"
   }, {
     "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
@@ -2669,7 +2663,7 @@
   }, {
     "instances" : 0,
     "union" : [ "46", "33", "14" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "366"
   }, {
     "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
@@ -2682,12 +2676,12 @@
   }, {
     "instances" : 0,
     "union" : [ "46", "14" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "313"
   }, {
     "instances" : 0,
     "union" : [ "33", "34" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "368"
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#dateTime",
@@ -2706,22 +2700,22 @@
   }, {
     "instances" : 0,
     "union" : [ "1", "68" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "377"
   }, {
     "instances" : 0,
     "union" : [ "1", "68" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "378"
   }, {
     "instances" : 0,
     "union" : [ "46", "14" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "303"
   }, {
     "instances" : 0,
     "union" : [ "46", "14" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "311"
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#float",
@@ -2733,7 +2727,7 @@
   }, {
     "instances" : 0,
     "union" : [ "33", "34" ],
-    "attributes" : [ "anonymous", "union" ],
+    "attributes" : [ "union", "anonymous" ],
     "id" : "328"
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#dateTime",
@@ -3678,7 +3672,7 @@
     "comment" : {
       "en" : "This property indicates that the subject is a newer, often updated or improved variant of the gr:ProductOrServiceModel used as the object.\n\nExample: Golf III successorOf Golf II\n\nThis relation is transitive."
     },
-    "attributes" : [ "object", "transitive" ],
+    "attributes" : [ "transitive", "object" ],
     "id" : "52"
   }, {
     "range" : "41",
@@ -3758,7 +3752,7 @@
     "comment" : {
       "en" : "This ordering relation for gr:QualitativeValue pairs indicates that the subject is lesser than or equal to the object."
     },
-    "attributes" : [ "object", "transitive" ],
+    "attributes" : [ "transitive", "object" ],
     "id" : "67"
   }, {
     "iri" : "http://purl.org/goodrelations/v1#amountOfThisGood",
@@ -3807,7 +3801,7 @@
     "comment" : {
       "en" : "This boolean attribute indicates whether a gr:UnitPriceSpecification is a list price (usually a vendor recommendation) or not. \"true\"  indicates it is a list price, \"false\" indicates it is not.\nDEPRECATED. Use the gr:priceType property instead."
     },
-    "attributes" : [ "deprecated", "datatype" ],
+    "attributes" : [ "datatype", "deprecated" ],
     "id" : "91"
   }, {
     "iri" : "http://xmlns.com/foaf/0.1/depiction",
@@ -3818,7 +3812,7 @@
       "IRI-based" : "depiction"
     },
     "domain" : "12",
-    "attributes" : [ "object", "external" ],
+    "attributes" : [ "external", "object" ],
     "id" : "96"
   }, {
     "iri" : "http://purl.org/goodrelations/v1#equal",
@@ -3841,7 +3835,7 @@
     "comment" : {
       "en" : "This ordering relation for qualitative values indicates that the subject is equal to the object."
     },
-    "attributes" : [ "object", "transitive", "symmetric" ],
+    "attributes" : [ "transitive", "object", "symmetric" ],
     "id" : "102"
   }, {
     "iri" : "http://purl.org/goodrelations/v1#hasInventoryLevel",
@@ -3885,7 +3879,7 @@
     "comment" : {
       "en" : "This property indicates that the subject is a previous, often discontinued variant of the gr:ProductOrServiceModel used as the object.\n\nExample: Golf III predecessorOf Golf IV\n\nThis relation is transitive."
     },
-    "attributes" : [ "object", "transitive" ],
+    "attributes" : [ "transitive", "object" ],
     "id" : "53"
   }, {
     "iri" : "http://purl.org/goodrelations/v1#owns",
@@ -5086,7 +5080,7 @@
       "IRI-based" : "manufacturer"
     },
     "domain" : "12",
-    "attributes" : [ "object", "external" ],
+    "attributes" : [ "external", "object" ],
     "id" : "210"
   }, {
     "range" : "80",
@@ -5607,7 +5601,7 @@
     "comment" : {
       "en" : "This ordering relation for qualitative values indicates that the subject is greater than the object."
     },
-    "attributes" : [ "object", "transitive" ],
+    "attributes" : [ "transitive", "object" ],
     "id" : "334"
   }, {
     "iri" : "http://purl.org/goodrelations/v1#typeOfGood",
@@ -5739,7 +5733,7 @@
     "comment" : {
       "en" : "This ordering relation for qualitative values indicates that the subject is greater than or equal to the object."
     },
-    "attributes" : [ "object", "transitive" ],
+    "attributes" : [ "transitive", "object" ],
     "id" : "69"
   }, {
     "iri" : "http://purl.org/goodrelations/v1#appliesToPaymentMethod",
@@ -6027,7 +6021,7 @@
     "comment" : {
       "en" : "This ordering relation for gr:QualitativeValue pairs indicates that the subject is lesser than the object."
     },
-    "attributes" : [ "object", "transitive" ],
+    "attributes" : [ "transitive", "object" ],
     "id" : "360"
   }, {
     "iri" : "http://schema.org/image",
@@ -6038,7 +6032,7 @@
       "IRI-based" : "image"
     },
     "domain" : "12",
-    "attributes" : [ "object", "external" ],
+    "attributes" : [ "external", "object" ],
     "id" : "97"
   }, {
     "iri" : "http://purl.org/goodrelations/v1#appliesToDeliveryMethod",

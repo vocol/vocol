@@ -1,5 +1,5 @@
 {
-  "_comment" : "Created with OWL2VOWL (version 0.3.3-SNAPSHOT), http://vowl.visualdataweb.org",
+  "_comment" : "Created with OWL2VOWL (version 0.3.5), http://vowl.visualdataweb.org",
   "header" : {
     "languages" : [ "en", "undefined" ],
     "baseIris" : [ "http://purl.org/muto/core", "http://www.w3.org/1999/02/22-rdf-syntax-ns", "http://www.w3.org/2000/01/rdf-schema", "http://purl.org/dc/terms", "http://www.w3.org/2001/XMLSchema", "http://rdfs.org/sioc/ns", "http://www.w3.org/2004/02/skos/core" ],
@@ -34,16 +34,16 @@
         "value" : "Version 1.0 - Global changes (compared to earlier versions): Some properties have been renamed; cardinality constraints in class descriptions (owl:Restriction) have been replaced by global cardinality constraints (owl:FunctionalProperty).",
         "type" : "label"
       } ],
-      "title" : [ {
-        "identifier" : "title",
-        "language" : "undefined",
-        "value" : "Modular Unified Tagging Ontology (MUTO)",
-        "type" : "label"
-      } ],
       "issued" : [ {
         "identifier" : "issued",
         "language" : "undefined",
         "value" : "2011-11-16",
+        "type" : "label"
+      } ],
+      "title" : [ {
+        "identifier" : "title",
+        "language" : "undefined",
+        "value" : "Modular Unified Tagging Ontology (MUTO)",
         "type" : "label"
       } ],
       "seeAlso" : [ {
@@ -52,32 +52,26 @@
         "value" : "http://purl.org/muto/core#",
         "type" : "label"
       } ],
+      "depiction" : [ {
+        "identifier" : "depiction",
+        "language" : "undefined",
+        "value" : "http://purl.org/muto/core/muto-compact.png",
+        "type" : "label"
+      }, {
+        "identifier" : "depiction",
+        "language" : "undefined",
+        "value" : "http://purl.org/muto/core/muto-UML.png",
+        "type" : "label"
+      } ],
       "homepage" : [ {
         "identifier" : "homepage",
         "language" : "undefined",
         "value" : "http://purl.org/muto",
         "type" : "label"
-      } ],
-      "depiction" : [ {
-        "identifier" : "depiction",
-        "language" : "undefined",
-        "value" : "http://purl.org/muto/core/muto-UML.png",
-        "type" : "label"
-      }, {
-        "identifier" : "depiction",
-        "language" : "undefined",
-        "value" : "http://purl.org/muto/core/muto-compact.png",
-        "type" : "label"
       } ]
     }
   },
   "namespace" : [ ],
-  "metrics" : {
-    "classCount" : 7,
-    "objectPropertyCount" : 16,
-    "datatypePropertyCount" : 6,
-    "individualCount" : 0
-  },
   "class" : [ {
     "id" : "4",
     "type" : "owl:Class"
@@ -521,7 +515,7 @@
     },
     "domain" : "9",
     "subproperty" : [ "13" ],
-    "attributes" : [ "external", "object" ],
+    "attributes" : [ "object", "external" ],
     "id" : "26"
   }, {
     "iri" : "http://purl.org/muto/core#tagOf",
@@ -674,7 +668,7 @@
     "comment" : {
       "en" : "Every tag has exactly one label (usually the one given by the user) - otherwise it is not a tag. Additional labels can be defined in the resource that is linked via muto:tagMeaning."
     },
-    "attributes" : [ "functional", "datatype" ],
+    "attributes" : [ "datatype", "functional" ],
     "id" : "31"
   }, {
     "iri" : "http://rdfs.org/sioc/ns#creator_of",
@@ -685,7 +679,7 @@
     },
     "domain" : "9",
     "subproperty" : [ "11" ],
-    "attributes" : [ "external", "object" ],
+    "attributes" : [ "object", "external" ],
     "id" : "14"
   }, {
     "iri" : "http://purl.org/muto/core#tagMeaning",
@@ -764,7 +758,7 @@
     },
     "domain" : "9",
     "subproperty" : [ "0" ],
-    "attributes" : [ "external", "object" ],
+    "attributes" : [ "object", "external" ],
     "id" : "3"
   }, {
     "iri" : "http://purl.org/muto/core#nextTag",
@@ -814,7 +808,7 @@
     "comment" : {
       "en" : "Every tagging has exactly one creation date and time. The datatype of this property is xsd:dateTime (in contrast to its superproperty dcterms:created which has range rdfs:Literal)."
     },
-    "attributes" : [ "functional", "datatype" ],
+    "attributes" : [ "datatype", "functional" ],
     "id" : "35"
   }, {
     "iri" : "http://purl.org/dc/terms/created",
@@ -874,7 +868,7 @@
     "comment" : {
       "en" : "The creation date and time of a tag. This property can be omitted if muto:taggingCreated = muto:tagCreated (i.e. in the common case that a tag has been created along with a tagging, not in a later edit of the tagging). The datatype of this property is xsd:dateTime (in contrast to it superproperty dcterms:created which has range rdfs:Literal)."
     },
-    "attributes" : [ "functional", "datatype" ],
+    "attributes" : [ "datatype", "functional" ],
     "id" : "39"
   }, {
     "range" : "1",

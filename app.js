@@ -1,6 +1,5 @@
 var express = require('express');
 var path = require('path');
-//var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -52,7 +51,7 @@ var ErrorsFilePath = __dirname + '/jsonDataFiles/syntaxErrors.json';
 function readSyntaxErrorsFile() {
   if (fs.existsSync(ErrorsFilePath)) {
     var data = fs.readFileSync(ErrorsFilePath);
-    if (data.toString().includes('Error')) {
+    if (data.toString().includes('1')) {
       app.locals.isExistSyntaxError = "true";
     } else {
       app.locals.isExistSyntaxError = "false";
@@ -73,7 +72,7 @@ function readUserConfigurationFile() {
     var data = fs.readFileSync(userConfigurationsFile);
     if (data.includes('vocabularyName')) {
       jsonfile.readFile(userConfigurationsFile, function(err, obj) {
-        var menu = Array(6).fill(false);
+        var menu = Array(7).fill(false);
         var loginUserName = "";
         var adminAccount = "";
         Object.keys(obj).forEach(function(k) {
@@ -98,6 +97,17 @@ function readUserConfigurationFile() {
             menu[4] = true;
           } else if (k === "analytics") { //menu[5]
             menu[5] = true;
+          } else if (k === "infomationProtectionAgreement") {
+            if(obj['text2'] != ""){
+              var dataProtectionHtmlPage = '<% include header.ejs %><div style="margin-top: 3% !important;"></div><div class="ui grid"><div class="ui container">'
+              dataProtectionHtmlPage += obj['text2'];
+              dataProtectionHtmlPage += '</div></div><% include footer .ejs%>';
+            fs.writeFileSync(__dirname + '/views/dataProtection.ejs',dataProtectionHtmlPage,{encoding:'utf8',flag:'w'});
+             }
+             if(obj['text3'] != ""){
+             fs.writeFileSync(__dirname + '/views/dataProtectionScript.ejs',obj['text3'],{encoding:'utf8',flag:'w'});
+              }
+            menu[6] = true;
           } else if (k === "loginUserName") {
             loginUserName = obj[k];
           } else if (k === "adminUserName") {
@@ -165,7 +175,7 @@ var userConfigurationsFile2 = __dirname + '/jsonDataFiles/userConfigurations.jso
 app.use(['\/\/', '/'], routes);
 app.use(['\/\/documentation', '/documentation'], documentation);
 app.use(['\/\/webvowlLink', '/webvowlLink'], express.static(path.join(__dirname, "views/webvowl")));
-app.use(['\/\/turtleEditorLink', '/turtleEditorLink'], express.static(path.join(__dirname, "views/turtleEditor")));
+app.use(['\/\/turtleEditorLink', '/turtleEditorLink'], express.static(path.join(__dirname, "views/editor")));
 app.use(['\/\/analyticsLink', '/analyticsLink'], express.static(path.join(__dirname, "views/d3sparql")));
 app.use(['\/\/evolution', '/evolution'], evolution);
 app.use(['\/\/startup', '/startup'], startup);
@@ -198,14 +208,14 @@ app.get(['\/\/analytics', '/analytics'], function(req, res) {
     });
 })
 
-app.get(['\/\/turtleEditor', '/turtleEditor'], function(req, res) {
+app.get(['\/\/editor', '/editor'], function(req, res) {
   if (!req.session.isAuthenticated && req.app.locals.authRequired)
     res.render('login', {
       title: 'login',
       hash : ""
     });
   else
-    res.render('turtleEditor', {
+    res.render('editor', {
       title: 'Editing'
     });
 })
@@ -248,15 +258,15 @@ app.get(['\/\/Imprint', '/Imprint'], function(req, res) {
 });
 
 
-app.get(['\/\/gdpr', '/gdpr'], function(req, res) {
+app.get(['\/\/dataProtection', '/dataProtection'], function(req, res) {
   if (!req.session.isAuthenticated && req.app.locals.authRequired)
     res.render('login', {
       title: 'login',
       hash : ""
     });
   else
-    res.render('gdpr', {
-      title: 'Datenschutz'
+    res.render('dataProtection', {
+      title: 'dataProtection'
     });
 });
 

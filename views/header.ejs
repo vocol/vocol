@@ -10,7 +10,6 @@
   <title>
     <%- title %>
   </title>
-
   <link rel="stylesheet" href="./highlight/styles/default.css">
   <link href="dist/vis-timeline-graph2d.min.css" rel="stylesheet" type="text/css">
   <link href="dist/vis-network.min.css" rel="stylesheet" type="text/css">
@@ -34,8 +33,8 @@
   <script src="./javascripts/lodash.js"></script>
   <script type="text/javascript" src="./javascripts/datatables.min.js"></script>
   <script src="./highlight/highlight.pack.js"></script>
-
 </head>
+
 <body>
   <div class="container">
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -76,9 +75,9 @@
                                   <% } %>
                                     <li id="validationLi"><a href="./validation">Validation</a></li>
                                     <!--li id="imprintLi"><a href="./Imprint">Imprint</a></li-->
-                                    <!--li id="gdprLi"><a href="./gdpr">Datenschutz</a></li-->
-
-
+                                    <% if (userConfigurations[6]) {%>
+                                      <li id="dataProtectionLi"><a href="./dataProtection">Data Protection</a></li>
+                                      <% } %>
           </ul>
           <ul id="rightNavbar" class="nav navbar-nav navbar-right">
           </ul>
@@ -112,13 +111,13 @@
               }
             },
           });
-        var repoURL = <%- JSON.stringify(repositoryURL) %>;
-        if(repoURL){
-          $('#rightNavbar').html("");
-          $("#rightNavbar").show();
-          $('#rightNavbar').append($('<li><a href="'+repoURL+'"><i class="alternate github icon"></i> Repository</a></li>'));
+          var repoURL = <%- JSON.stringify(repositoryURL) %>;
+          if (repoURL) {
+            $('#rightNavbar').html("");
+            $("#rightNavbar").show();
+            $('#rightNavbar').append($('<li><a href="' + repoURL + '"><i class="alternate github icon"></i> Repository</a></li>'));
 
-        }
+          }
         </script>
       </div>
     </nav>

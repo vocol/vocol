@@ -1,7 +1,4 @@
 #!/bin/bash
-
-
-
 portNumber=3030
 fuser -k $portNumber/tcp
 rm -f run/system/tdb.lock

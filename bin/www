@@ -19,5 +19,5 @@ contents = contents.replace(/portNumber=[0-9]+/mg, "portNumber="+sparqlEndpointP
 fs.writeFileSync(filePath, contents);
 
 var server = app.listen(webPort, function() {
-  console.log('Express server listening on port ' + server.address().port + ' and SPARQL server running on port ' + sparqlEndpointPort);
+  console.log('VoCol server is running on port ' + server.address().port + '\nJena Fuseki server is running on port ' + sparqlEndpointPort);
 });

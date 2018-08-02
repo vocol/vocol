@@ -9,6 +9,8 @@ import java.io.*;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.json.*;
 
 import org.apache.commons.io.FileUtils;
@@ -30,8 +32,10 @@ public class test {
 	static String outputFolderPath = "../../../jsonDataFiles/";
 	//static String turtleFolderPath = "input/";
 	//static String outputFolderPath = "output/";
+    
 
 	public static void main(String[] args) throws IOException {
+		org.apache.log4j.Logger.getRootLogger().setLevel(org.apache.log4j.Level.OFF);
 		JSONArray mergingArrayClasses = new JSONArray();
 		JSONObject mergedJsonObjectClasses = new JSONObject();
 		JSONArray mergingArraySKOS = new JSONArray();
@@ -184,7 +188,10 @@ public class test {
 						+ "PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>"
 						+ "PREFIX skos: <http://www.w3.org/2004/02/skos/core#> "
 						+ "SELECT  ?classChild ?classParent WHERE {" 
-						+ "?classChild rdfs:subClassOf  ?classParent .}";
+						+ "?classChild rdfs:subClassOf  ?classParent ."
+						+ "FILTER(!isBlank(?classParent))\n"
+						+ "FILTER(!isBlank(?classChild))"
+						+ "}";
 				QueryExecution qexec3 = QueryExecutionFactory.create(Query, ontModel);
 				ResultSet result3 = qexec3.execSelect();
 				while (result3.hasNext()) {
@@ -192,7 +199,7 @@ public class test {
 					Resource classChild = (Resource) binding3.get("classChild");
 					Resource classParent = (Resource) binding3.get("classParent");
 
-					if (classChild.getURI() == concept.getURI()) {
+					if (classChild.getURI() == concept.getURI() && classParent.getURI()!= null) {
 						String nodeParnet = classParent.getURI().toString();
 						if (classParent.getURI() != null) {
 							if(classParent.getURI().toString().contains("owl#Thing"))
