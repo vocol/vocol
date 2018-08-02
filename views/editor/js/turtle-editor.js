@@ -6,10 +6,11 @@
 
 define(['jquery', 'github', 'N3', 'lib/codemirror',
     'addon/hint/show-hint', 'mode/turtle/turtle', 'hint/turtle-hint',
-    'logger'
+    'logger', 'addon/search/search', 'addon/search/searchcursor',
+    'addon/selection/mark-selection'
   ],
 
-  function($, Github, N3, CodeMirror, ShowHint, ModeTurtle, HintTurtle, logger) {
+  function($, Github, N3, CodeMirror, ShowHint, ModeTurtle, HintTurtle, logger, Search, SearchCursor, MarkSelection) {
 
     // HTML elements ------------------------------------------------------------
 
@@ -87,9 +88,9 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
     }
 
     // Prefill some fields for a quick example
-    inputElements.owner.val("i40-Tools");
-    inputElements.repo.val("StandardOntology");
-    inputElements.branch.val("semantic_lab");
+    inputElements.owner.val("ahemaid");
+    inputElements.repo.val("vocotest");
+    inputElements.branch.val("master");
 
     // Github Interaction -------------------------------------------------------
 
@@ -100,8 +101,10 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
       var reponame = inputElements.repo.val().trim();
       var branchname = inputElements.branch.val().trim();
 
+      document.getElementById('search-input').style.display = 'inline';
       if (state.fileIsLoaded) {
         logger.info("File already loaded.");
+
       } else {
         if (username != "") {
           gh = new Github({
@@ -127,7 +130,7 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
         // TODO:
         // the next call is redundant: branch already contains list of files,
         // and this should not be "master" but the selected branch:
-        var tree = repo.git.getTree("semantic_lab", null)
+        var tree = repo.git.getTree("master", null)
           .done(function(tree) {
             for (var i = 0; i < tree.length; i++) {
               if (tree[i].path.endsWith(".ttl")) {
@@ -219,6 +222,41 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
 
     // Syntax Check -------------------------------------------------------------
 
+    // Search in textArea--------------------------------------------------------
+
+    var lastPos = null,
+      lastQuery = null,
+      marked = [];
+
+    function unmark() {
+      for (var i = 0; i < marked.length; ++i) marked[i].clear();
+      marked.length = 0;
+    }
+
+    document.getElementById('search-input').addEventListener('keyup', function(e) {
+      unmark();
+      if (this.value != '') {
+        var text = this.value;
+        for (var cursor = editor.getSearchCursor(text); cursor.findNext();)
+          marked.push(editor.markText(cursor.from(), cursor.to(), {
+            className: "styled-background"
+          }));
+        if (lastQuery != text) lastPos = null;
+        var cursor = editor.getSearchCursor(text, lastPos || editor.getCursor());
+        if (!cursor.findNext()) {
+          cursor = editor.getSearchCursor(text);
+        }
+        editor.setSelection(cursor.from(), cursor.to());
+        lastQuery = text;
+        lastPos = cursor.to();
+
+        console.log(marked.length);
+      }
+    }, false);
+
+
+    //-----------------------------------------------------------------------------
+
     var toggleChecking = function() {
       console.log("toggleChecking");
       if (state.syntaxCheck === "off") {
@@ -233,6 +271,7 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
     syntaxCheckElements.checker.on("click", toggleChecking);
 
     var makeMarker = function(errorMessage) {
+      debugger
       var marker = document.createElement("div");
       marker.style.color = "#822";
       marker.innerHTML = "●";
@@ -259,49 +298,24 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
         var errorLineNumber = parseInt(errorSubString) - 1;
 
         /* add background color, gutter + tooltip */
-
-
-        ////////////////////////////////////////////////////////////////////////////
+        var lastPos = null,
+          lastQuery = null,
+          marked = [];
+        var text = this.value;
+        for (var cursor = editor.getSearchCursor(text); cursor.findNext();)
+          marked.push(editor.markText(cursor.from(), cursor.to(), {
+            className: "styled-background"
+          }));
+        if (lastQuery != text) lastPos = null;
+        var cursor = editor.getSearchCursor(text, lastPos || editor.getCursor());
+        if (!cursor.findNext()) {
+          cursor = editor.getSearchCursor(text);
+        }
+        editor.setSelection(cursor.from(), cursor.to());
+        lastQuery = text;
+        lastPos = cursor.to();
 
         editor.getDoc().addLineClass(errorLineNumber, "wrap", "ErrorLine-background");
-
-        //debugger;
-        editor.getDoc().markText({line: 1, ch: 1}, {line: 2, ch:2}, {readOnly: false});
-        // editor.defineMode( "turtle", function() {
-        //
-        //   return {
-        //     token: function(stream, state) {
-        //
-        //       if (stream.match("prefix")) {
-        //         return { color: red};
-        //       } else if (stream.match("bbb")) {
-        //         return "style2";
-        //       } else {
-        //         stream.next();
-        //         return null;
-        //       }
-        //     }
-        //   };
-        //
-        // });
-        // editor = CodeMirror.fromTextArea(inputElements.contents[0], {
-        //   mode: "turtle",
-        //   autofocus: false,
-        //   lineNumbers: true,
-        //   gutters: ["CodeMirror-linenumbers", "breakpoints"],
-        //   extraKeys: {
-        //     "Ctrl-Space": "autocomplete"
-        //   }
-        // });
-
-
-        // var editor = CodeMirror.fromTextArea(document.getElementById('input-contents'), {
-        //   mode: "mymode",
-        //   lineNumbers: true
-        // });
-
-        //////////////////////////////////////////////////////////////////////////////
-        console.log("I am here");
         editor.setGutterMarker(errorLineNumber, "breakpoints", makeMarker(error.message));
 
         changeSyntaxCheckState("failed", error.message);
@@ -320,7 +334,7 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
         dynamicNames[objectSplit.namespace][objectSplit.name] = true;
       } else if (!triple) {
         changeSyntaxCheckState("passed");
-//        editor.custom.dynamicNames = dynamicNames;
+        editor.custom.dynamicNames = dynamicNames;
       }
 
       if (prefixes) {

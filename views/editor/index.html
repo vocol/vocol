@@ -11,6 +11,7 @@
     <link href="css/main.css" rel="stylesheet">
     <script src="js/config.js" defer></script>
     <script data-main="turtle-editor" src="js/lib/require.js" defer></script>
+    <style type="text/css">.styled-background {background-color: yellow; }</style>
 </head>
 
 <body>
@@ -55,8 +56,10 @@
             </div><!-- /.col-md-3 -->
             <div class="col-md-9">
                 <div class="form-group">
+                    <input type='text' id='search-input' placeholder='search in the file...' class="form-control searchbox"><br>
                     <label for="input-contents">Content editor: <span class="current-filename"></span></label>
                     <textarea id="input-contents" placeholder="File content will appear here" rows="24" wrap="hard"></textarea>
+
                 </div>
                 <div id="syntax-check">
                     <p id="syntax-check-failed" style="display: none">

@@ -16,6 +16,18 @@
     height: 32px;
 }
 
+/* to show highlights in search process */
+.styled-background {
+  background-color: yellow;
+}
+
+/* For hiding a tag */
+
+.searchbox{
+  display: none;
+  width: 100%;
+}
+
 /* overwrite setting in codemirror.css */
 
 .CodeMirror {
@@ -27,8 +39,8 @@ div.menu3
     /*width:500px;margin:0 auto;*//*Uncomment this line to make the menu center-aligned.*/
     text-align:center;
     font-size:0;
-    height: 25px;    
-    *position:relative;*top:1px;/*Hacks for IE6 & IE7 */    
+    height: 25px;
+    *position:relative;*top:1px;/*Hacks for IE6 & IE7 */
 }
 
 div.menu3 a
