@@ -98,13 +98,13 @@ function readUserConfigurationFile() {
           } else if (k === "analytics") { //menu[5]
             menu[5] = true;
           } else if (k === "infomationProtectionAgreement") {
-            if(obj['text2']){
-              var dataProtectionHtmlPage = '<% include header %><div style="margin-top: 3% !important;"></div><div class="ui grid"><div class="ui container">'
+            if(obj['text2'] != ""){
+              var dataProtectionHtmlPage = '<% include header.ejs %><div style="margin-top: 3% !important;"></div><div class="ui grid"><div class="ui container">'
               dataProtectionHtmlPage += obj['text2'];
-              dataProtectionHtmlPage += '</div></div><% include footer %>';
+              dataProtectionHtmlPage += '</div></div><% include footer .ejs%>';
             fs.writeFileSync(__dirname + '/views/dataProtection.ejs',dataProtectionHtmlPage,{encoding:'utf8',flag:'w'});
              }
-             if(obj['text3']){
+             if(obj['text3'] != ""){
              fs.writeFileSync(__dirname + '/views/dataProtectionScript.ejs',obj['text3'],{encoding:'utf8',flag:'w'});
               }
             menu[6] = true;

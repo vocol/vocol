@@ -87,9 +87,9 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
     }
 
     // Prefill some fields for a quick example
-    inputElements.owner.val("ahemaid");
-    inputElements.repo.val("vocotest");
-    inputElements.branch.val("master");
+    inputElements.owner.val("i40-Tools");
+    inputElements.repo.val("StandardOntology");
+    inputElements.branch.val("semantic_lab");
 
     // Github Interaction -------------------------------------------------------
 
@@ -127,7 +127,7 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
         // TODO:
         // the next call is redundant: branch already contains list of files,
         // and this should not be "master" but the selected branch:
-        var tree = repo.git.getTree("master", null)
+        var tree = repo.git.getTree("semantic_lab", null)
           .done(function(tree) {
             for (var i = 0; i < tree.length; i++) {
               if (tree[i].path.endsWith(".ttl")) {
