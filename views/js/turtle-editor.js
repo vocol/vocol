@@ -224,35 +224,56 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
 
     // Search in textArea--------------------------------------------------------
 
-    var lastPos = null,
-      lastQuery = null,
-      marked = [];
+    var marked = [],
+      markedPositions = [],
+      lastPos = null,
+      lastQuery = null;
 
     function unmark() {
       for (var i = 0; i < marked.length; ++i) marked[i].clear();
       marked.length = 0;
     }
 
-    document.getElementById('search-input').addEventListener('keyup', function(e) {
-      unmark();
-      if (this.value != '') {
-        var text = this.value;
-        for (var cursor = editor.getSearchCursor(text); cursor.findNext();)
-          marked.push(editor.markText(cursor.from(), cursor.to(), {
-            className: "styled-background"
-          }));
-        if (lastQuery != text) lastPos = null;
-        var cursor = editor.getSearchCursor(text, lastPos || editor.getCursor());
-        if (!cursor.findNext()) {
-          cursor = editor.getSearchCursor(text);
-        }
-        editor.setSelection(cursor.from(), cursor.to());
-        lastQuery = text;
-        lastPos = cursor.to();
+    function search(select) {
 
-        console.log(marked.length);
+      function select() {
+        if (marked.length != 0) {
+          var currentIndex = 0;
+          //write a line to change display of button to visible.
+            $('#previous-btn').on("click", function() {
+              editor.setSelection(marked[currentIndex - 1].find()['from'], marked[currentIndex - 1].find()['to']);
+              if(currentIndex > 0)
+                  currentIndex--;
+            });
+
+            $('#next-btn').on("click", function() {
+              editor.setSelection(marked[currentIndex].find()['from'], marked[currentIndex].find()['to']);
+
+              if(currentIndex < marked.length -1)
+                currentIndex++;
+
+            });
+        }
       }
-    }, false);
+      unmark();
+      var text = document.getElementById("search-input").value;
+      if (this.value != '') {
+        for (var cursor = editor.getSearchCursor(text); cursor.findNext();) {
+          marked.push(editor.markText(cursor.from(), cursor.to(), {
+          css:"background-color: #fe3", clearOnEnter: true
+        }));
+        markedPositions.push({from:cursor.from(), to: cursor.to()});
+        }
+        document.getElementById('next-btn').style.display = 'inline-block';
+        document.getElementById('previous-btn').style.display = 'inline-block';
+        select();
+      }
+    }
+
+
+
+    $('#search-input').on("input", search);
+
 
 
     //-----------------------------------------------------------------------------

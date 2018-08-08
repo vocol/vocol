@@ -17,16 +17,59 @@
 }
 
 /* to show highlights in search process */
-.styled-background {
-  background-color: yellow;
+.searched-key {
+  background-color: #fe3;
+}
+
+/* To selec a tabbed searched key */
+.tabbed-key{
+  background-color: #192;
 }
 
 /* For hiding a tag */
 
-.searchbox{
+.hidden-element{
   display: none;
-  width: 100%;
 }
+
+/* For hiding a tag */
+
+.search-btn{
+  position:absolute;
+  top: 2px;
+  border:none;
+  height:30px;
+  width:30px;
+  border-radius:10%;
+  outline:none;
+  text-align:center;
+  font-weight:bold;
+  padding:2px;
+}
+
+#next-btn{
+  right: 10px;
+}
+
+#previous-btn{
+  right: 45px;
+}
+.search-box{
+  height:35px;
+  width:100%;
+  padding-left:20px;
+  border-radius: 4px;
+  border:none;outline:none;
+}
+
+.button-wrapper {
+  position:relative;
+  margin-bottom:10px;
+
+}
+
+
+
 
 /* overwrite setting in codemirror.css */
 

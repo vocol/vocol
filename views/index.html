@@ -56,7 +56,13 @@
             </div><!-- /.col-md-3 -->
             <div class="col-md-9">
                 <div class="form-group">
-                    <input type='text' id='search-input' placeholder='search in the file...' class="form-control searchbox"><br>
+                  <div class="button-wrapper">
+                    <input type='text' id='search-input' placeholder='search in the file...' class="form-control search-box hidden-element">
+                    <button type="button" id="next-btn" class="search-btn hidden-element">>></button><br>
+                    <button type="button" id="previous-btn" class="search-btn hidden-element"><<</button>
+
+                  </div><br>
+
                     <label for="input-contents">Content editor: <span class="current-filename"></span></label>
                     <textarea id="input-contents" placeholder="File content will appear here" rows="24" wrap="hard"></textarea>
 
