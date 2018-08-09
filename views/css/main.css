@@ -62,12 +62,18 @@
   border:none;outline:none;
 }
 
-.button-wrapper {
+.wrapper {
   position:relative;
   margin-bottom:10px;
 
 }
 
+.search-count{
+  position: absolute;
+  color: #888;
+  right:100px;
+  top:5px;
+}
 
 
 

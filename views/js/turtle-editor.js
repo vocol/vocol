@@ -229,7 +229,7 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
       lastPos = null,
       lastQuery = null;
 
-    function unmark() {
+    function unmark() {//editor.clearSelectedText();
       for (var i = 0; i < marked.length; ++i) marked[i].clear();
       marked.length = 0;
     }
@@ -239,20 +239,32 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
       function select() {
         if (marked.length != 0) {
           var currentIndex = 0;
-          //write a line to change display of button to visible.
+
             $('#previous-btn').on("click", function() {
               editor.setSelection(marked[currentIndex - 1].find()['from'], marked[currentIndex - 1].find()['to']);
-              if(currentIndex > 0)
-                  currentIndex--;
+              editor.setCursor(marked[currentIndex].find()['from']);
+              if(currentIndex ==  0){
+                currentIndex = marked.length -1;
+              }else {
+                currentIndex--;
+              }
+              document.getElementById('search-index').innerHTML = currentIndex.toString() + '/';
             });
 
             $('#next-btn').on("click", function() {
               editor.setSelection(marked[currentIndex].find()['from'], marked[currentIndex].find()['to']);
+              editor.setCursor(marked[currentIndex].find()['from']);
 
-              if(currentIndex < marked.length -1)
+              if(currentIndex ==  marked.length -1){
+                currentIndex = 0;
+              }else {
                 currentIndex++;
+              }
+              document.getElementById('search-index').innerHTML = currentIndex.toString() + '/';
 
             });
+
+
         }
       }
       unmark();
@@ -260,10 +272,13 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
       if (this.value != '') {
         for (var cursor = editor.getSearchCursor(text); cursor.findNext();) {
           marked.push(editor.markText(cursor.from(), cursor.to(), {
-          css:"background-color: #fe3", clearOnEnter: true
+          className:"searched-key", clearOnEnter: true
         }));
         markedPositions.push({from:cursor.from(), to: cursor.to()});
         }
+        document.getElementById('search-index').innerHTML = '0/';
+        document.getElementById('search-total').innerHTML = marked.length;
+        document.getElementById('search-count').style.display = 'inline-block';
         document.getElementById('next-btn').style.display = 'inline-block';
         document.getElementById('previous-btn').style.display = 'inline-block';
         select();
