@@ -7,10 +7,10 @@
 define(['jquery', 'github', 'N3', 'lib/codemirror',
     'addon/hint/show-hint', 'mode/turtle/turtle', 'hint/turtle-hint',
     'logger', 'addon/search/search', 'addon/search/searchcursor',
-    'addon/selection/mark-selection'
+    'addon/selection/mark-selection', 'semanticUI/semantic'
   ],
 
-  function($, Github, N3, CodeMirror, ShowHint, ModeTurtle, HintTurtle, logger, Search, SearchCursor, MarkSelection) {
+  function($, Github, N3, CodeMirror, ShowHint, ModeTurtle, HintTurtle, logger, Search, SearchCursor, MarkSelection, SemanticUI) {
 
     // HTML elements ------------------------------------------------------------
 
@@ -154,7 +154,43 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
 
         changeSyntaxCheckState("pending");
       }
+
+
+      //Show new commit on github------------------------------------------------
+      $.ajax({ //Initializing commit with last commit of repo by loading file
+        type: 'GET',
+        url: "https://api.github.com/repos/" + ownername + "/" + reponame + "/commits?Accept=application/vnd.github.v3+json",
+
+        data: {
+          get_param: 'value'
+        },
+        success: function(data) {
+          currentCommit = data[0]['sha']; //Get commit's sha
+          console.log(data[0]['sha']);
+        }
+      });
+
+      setInterval(function() { //In every 10 seconds get last commit of repo and compare it with current commit of user
+        $.ajax({
+          type: 'GET',
+          url: "https://api.github.com/repos/" + ownername + "/" + reponame + "/commits?Accept=application/vnd.github.v3+json",
+          data: {
+            get_param: 'value'
+          },
+          success: function(data) {
+            if (data[0]['sha'] != currentCommit) {
+              $('.ui.modal').modal({
+                centered: false,
+                blurring: true
+              }).modal('show');
+              currentCommit = data[0]['sha'];
+            }
+          }
+        });
+      }, 10000);
+      //------------------------------------------------------------------------
     };
+
 
     var readFile = function() {
       var filename = inputElements.file.val()
@@ -229,7 +265,7 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
       lastPos = null,
       lastQuery = null;
 
-    function unmark() {//editor.clearSelectedText();
+    function unmark() { //editor.clearSelectedText();
       for (var i = 0; i < marked.length; ++i) marked[i].clear();
       marked.length = 0;
     }
@@ -240,31 +276,29 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
         if (marked.length != 0) {
           var currentIndex = 0;
 
-            $('#previous-btn').on("click", function() {
-              editor.setSelection(marked[currentIndex - 1].find()['from'], marked[currentIndex - 1].find()['to']);
-              editor.setCursor(marked[currentIndex].find()['from']);
-              if(currentIndex ==  0){
-                currentIndex = marked.length -1;
-              }else {
-                currentIndex--;
-              }
-              document.getElementById('search-index').innerHTML = currentIndex.toString() + '/';
-            });
+          $('#previous-btn').on("click", function() {
+            editor.setSelection(marked[currentIndex - 1].find()['from'], marked[currentIndex - 1].find()['to']);
+            editor.setCursor(marked[currentIndex].find()['from']);
+            if (currentIndex == 0) {
+              currentIndex = marked.length - 1;
+            } else {
+              currentIndex--;
+            }
+            document.getElementById('search-index').innerHTML = currentIndex.toString() + '/';
+          });
 
-            $('#next-btn').on("click", function() {
-              editor.setSelection(marked[currentIndex].find()['from'], marked[currentIndex].find()['to']);
-              editor.setCursor(marked[currentIndex].find()['from']);
+          $('#next-btn').on("click", function() {
+            editor.setSelection(marked[currentIndex].find()['from'], marked[currentIndex].find()['to']);
+            editor.setCursor(marked[currentIndex].find()['from']);
 
-              if(currentIndex ==  marked.length -1){
-                currentIndex = 0;
-              }else {
-                currentIndex++;
-              }
-              document.getElementById('search-index').innerHTML = currentIndex.toString() + '/';
+            if (currentIndex == marked.length - 1) {
+              currentIndex = 0;
+            } else {
+              currentIndex++;
+            }
+            document.getElementById('search-index').innerHTML = currentIndex.toString() + '/';
 
-            });
-
-
+          });
         }
       }
       unmark();
@@ -272,9 +306,13 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
       if (this.value != '') {
         for (var cursor = editor.getSearchCursor(text); cursor.findNext();) {
           marked.push(editor.markText(cursor.from(), cursor.to(), {
-          className:"searched-key", clearOnEnter: true
-        }));
-        markedPositions.push({from:cursor.from(), to: cursor.to()});
+            className: "searched-key",
+            clearOnEnter: true
+          }));
+          markedPositions.push({
+            from: cursor.from(),
+            to: cursor.to()
+          });
         }
         document.getElementById('search-index').innerHTML = '0/';
         document.getElementById('search-total').innerHTML = marked.length;
@@ -285,9 +323,13 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
       }
     }
 
-
-
     $('#search-input').on("input", search);
+
+    //Check the new commit and popup it--------------------------------------------------
+
+
+
+
 
 
 
@@ -424,7 +466,6 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
     };
 
     // Event listeners ----------------------------------------------------------
-
     inputElements.load.on("click", loadFromGitHub);
     inputElements.save.on("click", storeToGitHub);
     inputElements.file.on("change", readFile);
