@@ -53,18 +53,20 @@ router.get('/', function(req, res) {
       PREFIX owl: <http://www.w3.org/2002/07/owl#> \
       PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\
       SELECT \
-      (count(?objProp) as ?objProperty) \
-      (count(?dtProp) as ?dtProperty) \
-      (count(?annot) as ?annotProperty)\
-      (count(?indiv) as ?individual)\
-      (count(?cls) as ?class)\
+      (count(?cls) as ?Classes)\
+      (count(?rdfProperty) as ?RDF_Property)\
+      (count(?objProp) as ?OWL_ObjectProperty) \
+      (count(?dtProp) as ?OWL_DatatypeProperty) \
+      (count(?annot) as ?OWL_AnnotationProperty)\
+      (count(?indiv) as ?Individuals)\
       WHERE {{?objProp a owl:ObjectProperty.} \
       UNION {?dtProp a owl:DatatypeProperty.}\
       UNION {?indiv a owl:NamedIndividual.} \
       UNION {?annot a owl:AnnotationProperty.} \
       UNION {?cls a rdfs:Class. FILTER(!isBlank(?cls))} \
       UNION {?cls a owl:Class. FILTER(!isBlank(?cls))} \
-      }";
+	    UNION {?rdfProperty a rdf:Property.}	  \
+	  }"
 
       // check if fuseki endpoint is running
       var output = shell.exec('fuser -v -n tcp '+ endpointPortNumber.toString(), {
@@ -76,10 +78,20 @@ router.get('/', function(req, res) {
             console.log(error);
           }
           if (results) {
-            str = '<tr><th>Metrics</th><th>Count</th></tr>'; //make table to show result.
+            // string to hold table content
+            str = "";
             for (key in results['results']['bindings'][0]) {
               var obj = results['results']['bindings'][0][key]['value'];
-              str += '<tr><td class="td_content">' + key + '</td><td class="td_content">' + obj + '</td></tr>';
+              if(key == "RDF_Property")
+                key = "RDF Properties";
+              if(key == "OWL_ObjectProperty")
+                key = "OWL ObjectProperties";
+                if(key == "OWL_DatatypeProperty")
+                  key = "OWL DatatypeProperties";
+                  if(key == "OWL_AnnotationProperty")
+                    key = "OWL AnnotationProperties";
+
+              str += '<tr><td class="td_content">' + key + '</td><td class="center aligned">' + obj + '</td></tr>';
             }
           }
           // check if the userConfigurations file is exist
@@ -91,12 +103,21 @@ router.get('/', function(req, res) {
               jsonfile.readFile(path, function(err, obj)  {
                 if (err)
                   console.log(err); 
-                if (obj.hasOwnProperty('text'))
+                if (obj.hasOwnProperty('vocabularyName')){
+                  // string to hold table content
+                  var metaData = "";
+                    metaData += '<tr><td class="td_content"> Instance Name</td><td class="center aligned">' + obj.vocabularyName + '</td></tr>';
+                    metaData += '<tr><td class="td_content"> Repository Owner </td><td class="center aligned">' + obj.repositoryOwner + '</td></tr>';
+                    metaData += '<tr><td class="td_content"> Repository Service </td><td class="center aligned">' + obj.repositoryService + '</td></tr>';
+                    metaData += '<tr><td class="td_content"> Repository Branch </td><td class="center aligned">' + obj.branchName + '</td></tr>';
+
                   res.render('index', {
                     title: 'Home',
-                    metaData: str,
+                    statistics: str,
+                    metaData: metaData,
                     homePage: obj.text
                   });
+                }
               });
             }
           });
