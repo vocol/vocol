@@ -23,58 +23,68 @@
 <body>
   <section id="message-queue"></section>
   <div class="container">
-    <header>
-      <div class="page-header">
-        <h2>Editing Turtle on GitHub <small>Load, view, edit, check, and save a turtle file on GitHub.</small></h2>
-      </div>
-    </header>
 
-    <div class="row">
-      <div class="col-md-3">
-        <div class="form-group">
+    <div class="row" style="font-size:12px;">
+      <div class="col-md-2">
+        <div class="form-group" style="padding-top:35px;">
           <label for="input-username">Username (for login)</label>
-          <input type="text" class="form-control" id="input-username" placeholder="Enter your username on GitHub">
+          <input type="text" class="form-control popup-show" id="input-username" placeholder="Your GitHub username">
+          <div class="ui special popup">
+            <div class="header">You need to provide your username and password only if you want to save the files after editing, or if the repository is private.</div>
+          </div>
+
         </div>
         <div class="form-group">
           <label for="input-password">Password or Token</label>
-          <input type="password" class="form-control" id="input-password" placeholder="Password or Token">
+          <input type="password" class="form-control popup-show" id="input-password" placeholder="Password or Token">
+          <div class="ui special popup">
+            <div class="header">To authenticate with a GitHub personal access token, leave the fields Username empty and paste the token into the field Password or Token.</div>
+          </div>
         </div>
         <div class="form-group">
           <label for="input-owner">Owner of Repository</label>
-          <input type="text" class="form-control" id="input-owner" placeholder="Owner's username on GitHub">
+          <input type="text" class="form-control popup-show" id="input-owner" placeholder="Owner's username on GitHub">
+          <div class="ui special popup">
+            <div class="header">Press Ctrl+Space to autocomplete.</div>
+          </div>
         </div>
         <div class="form-group">
           <label for="input-repo">Repository</label>
-          <input type="text" class="form-control" id="input-repo" value="main">
+          <input type="text" class="form-control popup-show" id="input-repo" value="main">
+          <div class="ui special popup">
+            <div class="header">Press Ctrl+Space to autocomplete.</div>
+          </div>
         </div>
         <div class="form-group">
           <label for="input-branch">Branch</label>
-          <input type="text" class="form-control" id="input-branch">
+          <input type="text" class="form-control popup-show" id="input-branch">
+          <div class="ui special popup">
+            <div class="header">Press Ctrl+Space to autocomplete.</div>
+          </div>
         </div>
         <div class="form-group">
           <label for="input-filename">Filename</label>
-          <select class="form-control" id="input-file"></select>
+          <select class="form-control popup-show" id="input-file"></select>
+          <div class="ui special popup">
+            <div class="header">Select individual files for viewing or editing.</div>
+          </div>
         </div>
         <div class="form-group">
-          <button type="button" id="button-load" class="btn btn-primary">Load Files</button>
-          <button type="button" id="button-save" class="btn btn-primary">Save File</button>
+          <button type="button" id="button-load" class="btn btn-primary popup-show">Load Files</button>
+          <div class="ui special popup">
+            <div class="header">For a quick tour leave the fields Username and Password blank and just click the Load Files button.</div>
+          </div>
         </div>
       </div>
-      <!-- /.col-md-3 -->
-      <div class="col-md-9">
+
+      <div class="col-md-8">
         <div class="form-group">
-          <div class="wrapper">
-            <input type='text' id='search-input' placeholder='search in the file...' class="form-control search-box hidden-element">
-            <p id='search-count' class='hidden-element search-count'><span id='search-index'></span><span id='search-total'></span></p>
-            <button type="button" id="next-btn" class="search-btn hidden-element">>></button><br>
-            <button type="button" id="previous-btn" class="search-btn hidden-element"><<</button>
-
-          </div><br>
-
+          <br><br>
           <label for="input-contents">Content editor: <span class="current-filename"></span></label>
           <textarea id="input-contents" placeholder="File content will appear here" rows="24" wrap="hard"></textarea>
-
         </div>
+
+
         <div class="ui modal">
           <i class="close icon"></i>
           <div class="header">
@@ -93,9 +103,29 @@
             <div class="ui button">Save my data</div>
           </div>
         </div>
-        <div id="syntax-check">
+      </div>
+
+      <div class="col-md-2">
+        <div class="form-group">
+          <div class="wrapper">
+            <br>
+            <input type='text' id='search-input' placeholder='search in the file...' class="form-control hidden-element">
+            <p id='search-count' class='hidden-element search-count'><span id='search-index'></span><span id='search-total'></span></p>
+            <button type="button" id="next-btn" class="search-btn hidden-element">>></button><br>
+            <button type="button" id="previous-btn" class="search-btn hidden-element"><<</button>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="input-message">Commit message</label>
+          <textarea class="form-control" id="input-message" placeholder="Turtle file edited, just for testing the editor."></textarea>
+        </div>
+        <div class="form-group">
+          <button type="button" id="button-save" class="btn btn-primary">Save File</button>
+        </div>
+
+        <div id="syntax-check" class="popup-show">
           <p id="syntax-check-failed" style="display: none">
-            <img src="img/red_orb.png" alt="A red orb." class="status-icon">
+            <img src="img/red_orb.png" alt="A red orb." class="status-icon popup-show">
             <span class="status">Syntax check failed.</span>
           </p>
           <p id="syntax-check-working" style="display: none">
@@ -115,28 +145,15 @@
             <span class="status">Syntax check passed.</span>
           </p>
         </div>
-        <div class="form-group">
-          <label for="input-message">Commit message</label>
-          <input type="text" class="form-control" id="input-message" placeholder="Turtle file edited, just for testing the editor.">
+        <div class="ui special popup">
+          <div class="header">Click the colored sphere to temporarily disable syntax checking.</div>
         </div>
+
       </div>
       <!-- /.col-md-9 -->
     </div>
     <!-- /.row -->
-    <div class="row">
-      <div class="col-md-12">
-        <div class="help">
-          <h2>Further Information and Help</h2>
-          <ul>
-            <li>For a quick tour leave the fields <em>Username</em> and <em>Password</em> blank and just click the <em>Load Files</em> button.
-              <li>Select individual files for viewing/editing in the field <em>Filename</em>.
-                <li>To use the autocomplete function, type <em>Ctrl+Space</em>.
-                  <li>Click the colored sphere to temporarily disable syntax checking.
-                    <li>You need to provide your username and password only if you want to save the files after editing, or if the repository is private.
-                      <li>To authenticate with a GitHub personal access token, leave the fields <em>Username</em> empty and paste the token into the field <em>Password or Token</em>.
-        </div>
-      </div>
-    </div>
+
     <!-- /.row -->
 
   </div>

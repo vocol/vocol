@@ -82,6 +82,15 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
       });
     };
 
+    //Further information to help User-------------------------------------------
+
+      $('.popup-show')
+        .popup({
+          inline: true,
+          position: 'bottom left'
+        });
+
+
     // Reenable input element (necessary for Firefox)
     for (var key in inputElements) {
       inputElements[key].prop("disabled", false);

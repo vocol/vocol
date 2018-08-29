@@ -16,6 +16,22 @@
     height: 32px;
 }
 
+
+.form-control::placeholder{
+  font-size: 12px;
+  padding-top: 5px;
+}
+
+#input-message {
+  height: 200px;
+}
+
+#input-message::placeholder {
+  font-size: 12px;
+  padding-top: 5px;
+
+}
+
 /* to show highlights in search process */
 .searched-key {
   background-color: #fe3;
