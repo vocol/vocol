@@ -1,0 +1,36 @@
+<% include header.ejs %>
+  <div style="margin-top: 8% !important;"></div>
+  <div class="ui grid">
+    <div class="ui container">
+      <div class="ui two column stackable grid">
+        <div class="ten wide column">
+          <%- homePage %>
+        </div>
+        <div class="six wide column">
+            <h2 class="ui header" style="rgba(243, 238, 238, 0.87)">
+  <i class="newspaper icon"></i>
+  <div class="content">
+Ontology MetaDATA
+  </div>
+</h2>
+            <table class="ui blue table"  id="metaData">
+              <%- metaData %>
+            </table>
+            <h2 class="ui header" style="rgba(243, 238, 238, 0.87)">
+  <i class="suitcase icon"></i>
+  <div class="content">
+    Ontology Statistics
+  </div>
+</h2>
+            <table class="ui red celled  table"  id="response">
+              <%- statistics %>
+            </table>
+          </div>
+      </div>
+      <% include footer.ejs %>
+      <style>
+      img {
+    width: 100%;
+    max-height: 100%
+    }
+      </style>

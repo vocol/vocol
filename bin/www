@@ -1,0 +1,23 @@
+#!/usr/bin/env node
+var app = require('../app');
+var shell = require('shelljs');
+var fs = require('fs');
+const { spawn } = require('child_process');
+
+
+//app.set('port', process.argv.slice(2)[0] || 3000);
+
+var webPort = process.argv.slice(2)[0] || 3000;
+var sparqlEndpointPort = process.argv.slice(2)[1] || 3030;
+
+// filePath where we read from
+var filePath = 'helper/scripts/run.sh';
+// read contents of the file with the filePathgetTree
+var contents = fs.readFileSync(filePath, 'utf8');
+contents = contents.replace(/portNumber=[0-9]+/mg, "portNumber="+sparqlEndpointPort);
+// write back to the file with the filePath
+fs.writeFileSync(filePath, contents);
+
+var server = app.listen(webPort, function() {
+  console.log('VoCol server is running on port ' + server.address().port + '\nJena Fuseki server is running on port ' + sparqlEndpointPort);
+});

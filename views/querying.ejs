@@ -1,0 +1,25 @@
+<% include header %>
+  <div class="ui grid">
+    <div class="ui container">
+      <iframe id="myframe" src="./fuseki/dataset.html?tab=query&ds=/dataset" frameborder="0" scrolling="auto" style="position: absolute; width:100% ; top:-190px ;right: 0px; left: 0px"></iframe>
+    </div>
+
+  </div>
+  <% include footer %>
+    <script>
+      $('#myframe').on('load', function() {
+        resizeIframe(this);
+        var iframe = $('#myframe').contents();
+          iframe.find("#results-block").change(function(){
+         });
+      });
+      function resizeIframe(obj) {
+        // Initially just set the height to 100% till the inner page loads and once the page inside the iframe is loaded
+        // then set the iframe height to match that page height so that it looks seamless to the user
+        obj.style.height = "100vH";
+        setTimeout(function() {
+          obj.style.display = "block";
+          obj.style.height = $(obj.contentWindow.document.body).height() + "px";
+        }, 1500);
+      }
+    </script>

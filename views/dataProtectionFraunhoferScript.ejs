@@ -1,0 +1,55 @@
+<link rel="stylesheet" type="text/css" href="./stylesheets/cookieconsent.min.css" />
+<script src="./javascripts/cookieconsent.min.js"></script>
+<script>
+  var pkBaseURL = (("https:" == document.location.protocol) ? "https://its-logan.iais.fraunhofer.de/piwik/" : "http://its-logan.iais.fraunhofer.de/piwik/");
+  document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+  window.addEventListener("load", function() {
+    window.cookieconsent.initialise({
+      "palette": {
+        "popup": {
+          "background": "#000"
+        },
+        "button": {
+          "background": "#f1d600"
+        }
+      },
+      "type": "opt-out",
+      "content" :{
+        "href": "./dataProtection"
+      }
+      ,
+      onInitialise: function(status) {
+        var type = this.options.type;
+        var didConsent = this.hasConsented();
+        try {
+          var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 29);
+          if (didConsent) {
+            piwikTracker.trackPageView();
+            piwikTracker.enableLinkTracking();
+          }
+          if (!didConsent) {
+            piwikTracker.disableCookies();
+            piwikTracker.deleteCookies();
+          }
+        } catch (err) {}
+      },
+      onStatusChange: function(status, chosenBefore) {
+        var type = this.options.type;
+        var didConsent = this.hasConsented();
+        try {
+          var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 29);
+          if (didConsent) {
+            piwikTracker.trackPageView();
+            piwikTracker.enableLinkTracking();
+          }
+          if (!didConsent) {
+            piwikTracker.disableCookies();
+            piwikTracker.deleteCookies();
+          }
+        } catch (err) {}
+      }
+    })
+  });
+</script>
+<noscript><p><img src="http://its-logan.iais.fraunhofer.de/piwik/piwik.php?idsite=29" style="border:0" alt="" /></p></noscript>
+</script>

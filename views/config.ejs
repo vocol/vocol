@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>
+    <%= title %>
+  </title>
+  <link rel="stylesheet" href="./javascripts/bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="./javascripts/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./javascripts/bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" type="text/css" href="./semantic/dist/semantic.min.css">
+  <link rel="stylesheet" href="./stylesheets/style.css">
+  <script src="./javascripts/bower_components/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="./javascripts/crypto-js/crypto-js.js"></script>
+  <script src="./javascripts/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="./semantic/dist/semantic.min.js"></script>
+  <script src="./ckeditor/ckeditor.js"></script>
+
+  <style>
+    .ui.checkbox {
+      padding-top: 1%;
+    }
+  </style>
+
+</head>
+
+<body style=" padding: 10px; ">
+  <div class="ui container" style="overflow:hidden">
+    <h1 style="padding-top:10px">Configuration Page</h1>
+    <div class="ui two column stackable grid">
+      <div class="column">
+        <form id="configForm" class="ui form" action="./config" method="post">
+          <div class="ui styled accordion">
+            <div id="generalInfoTitle" class="active title">
+              <i class="dropdown icon"></i> General Info
+            </div>
+            <div id="generalInfoContent" class="active content">
+              <div class="field" style="margin-bottom:5px">
+                <div class="ui corner  labeled input">
+                  <a class="ui left label" style="width: 150px;">
+          Vocabulary Name
+        </a>
+                  <input type="text" id="vocabularyName" name="vocabularyName" placeholder="e.g. Mobivoc" />
+                  <div class="ui corner label">
+                    <i class="asterisk icon"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="field" style="margin-bottom:5px">
+                <div class="ui labeled input">
+                  <a class="ui left label" style="width: 150px;">
+          Hosting Server
+        </a>
+                  <input type="text" id="server" name="server" placeholder="e.g. http://vocol.vagrantshare.com" />
+                  <div class="ui corner label">
+                    <i class="asterisk icon"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="field" style="margin-bottom:5px">
+
+                <div class="ui labeled input">
+                  <a class="ui left label" style="width: 150px;">
+          Admin Username
+        </a>
+                  <input type="text" id="adminUserName" name="adminUserName" placeholder="Enter an admin username for this instance" />
+                  <div class="ui corner label">
+                    <i class="asterisk icon"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="field" style="margin-bottom:5px">
+
+                <div class="ui labeled input">
+                  <a class="ui left label" style="width: 150px;">
+          Admin Password
+        </a>
+                  <input type="password" id="adminPass" name="adminPass" placeholder="Enter an admin password for this instance" />
+                  <div class="ui corner label">
+                    <i class="asterisk icon"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="repositoryInfoTitle" class="title">
+              <i class="dropdown icon"></i> Repository Info
+            </div>
+            <div id="repositoryInfoContent" class="content">
+              <div class="field" style="margin-bottom:5px">
+                <div class="ui labeled input">
+                  <a class="ui label" style="width: 150px;">
+          Repository URL
+        </a>
+                  <input type="text" id="repositoryURL" name="repositoryURL" placeholder="e.g. https://github.com/repositoryOwner/repositoryName.git" />
+                  <div class="ui corner label">
+                    <i class="asterisk icon"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="field" style="margin-bottom:5px">
+                <div class="ui labeled input">
+                  <a class="ui label" style="width: 150px;">
+          Repository owner
+        </a>
+                  <input type="text" id="repositoryOwner" name="repositoryOwner" placeholder="e.g. repositoryOwner" />
+                  <div class="ui corner label">
+                    <i class="asterisk icon"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="field" style="margin-bottom:5px">
+                <div class="ui labeled input">
+                  <a class="ui label" style="width: 150px;">
+          Repository name
+        </a>
+                  <input type="text" id="repositoryName" name="repositoryName" placeholder="e.g. repositoryName" />
+                  <div class="ui corner label">
+                    <i class="asterisk icon"></i>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="field" style="margin-bottom:5px">
+                <div class="ui labeled input">
+                  <a class="ui label" style="width: 150px;">
+          Branch Name
+        </a>
+                  <input type="text" id="branchName" name="branchName" placeholder="e.g. master" />
+                  <div class="ui corner label">
+                    <i class="asterisk icon"></i>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="field" style="margin-bottom:5px">
+                <div class="ui labeled input">
+                  <a class="ui label" style="width: 150px;">
+          User
+        </a>
+                  <input type="text" id="user" name="user" placeholder="Enter your repository username" />
+                  <div class="ui corner label">
+                    <i class="asterisk icon"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="field" style="margin-bottom:5px">
+                <div class="ui labeled input">
+                  <a class="ui label" style="width: 150px;">
+          Password
+        </a>
+                  <input type="password" id="password" name="password" placeholder="Enter your repository password" />
+                  <div class="ui corner label">
+                    <i class="asterisk icon"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="inline fields" style="margin-bottom:5px;paddin">
+                <div class="ui labeled input">
+                  <a class="ui label" style="width: 150px;margin-right: 20px;">
+Repository service         </a>
+                </div>
+
+                <div class="field">
+                  <div class="ui radio checkbox">
+                    <input type="radio" name="repositoryService" value="gitHub" checked>
+                    <label>GitHub</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui radio checkbox">
+                    <input type="radio" name="repositoryService" value="gitLab">
+                    <label>GitLab</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui radio checkbox">
+                    <input type="radio" name="repositoryService" value="bitBucket">
+                    <label>BitBucket</label>
+                  </div>
+                </div>
+              </div>
+              <div class="inline fields" style="margin-bottom:5px;paddin">
+                <div class="ui labeled input">
+                  <a class="ui label" style="width: 150px;margin-right: 20px;">
+Repository Type         </a>
+                </div>
+
+                <div class="field">
+                  <div class="ui radio checkbox">
+                    <input type="radio" name="repositoryType" value="public" checked>
+                    <label>public</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui radio checkbox">
+                    <input type="radio" name="repositoryType" value="private">
+                    <label>private</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="additionalServicesTitle" class="title">
+              <i class="dropdown icon"></i> Additional Services
+            </div>
+            <div id="additionalServicesContent" class="content">
+              <div class="field">
+                <div class="ui checkbox">
+                  <input type="checkbox" name="visualization" value="true" checked>
+                  <label>Visualization</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui checkbox">
+                  <input type="checkbox" name="sparqlEndPoint" value="true" checked>
+                  <label>SPARQL Endpoint</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui checkbox">
+                  <input type="checkbox" name="documentationGeneration" value="true" checked>
+                  <label>Documentation Generation</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui checkbox">
+                  <input type="checkbox" name="evolutionReport" value="true" checked>
+                  <label>Evolution Report</label>
+                </div>
+              </div>
+
+              <div class="field">
+                <div class="ui checkbox">
+                  <input type="checkbox" name="clientHooks" value="true">
+                  <label>Client Side Hooks</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui checkbox">
+                  <input type="checkbox" name="turtleEditor" value="true">
+                  <label>Turtle Editor</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui checkbox">
+                  <input type="checkbox" name="analytics" value="true" checked>
+                  <label>Analytics</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui checkbox">
+                  <input type="checkbox" id="infomationProtectionAgreement" name="infomationProtectionAgreement" value="true">
+                  <label>Enable Data Protection Policy </label>
+                </div>
+              </div>
+            </div>
+            <div id="serializationFormatTitle" class="title">
+              <i class="dropdown icon"></i> Serializations Format
+            </div>
+            <div id="serializationFormatContent" class="content">
+              <div class="field">
+                <div class="ui  checkbox">
+                  <input type="checkbox" name="rdfxml" value="true">
+                  <label>RdfXML</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui  checkbox">
+                  <input type="checkbox" name="ntriples" value="true">
+                  <label>NTriples</label>
+                </div>
+              </div>
+            </div>
+            <div id="privateAccessModeTitle" class="title">
+              <i class="dropdown icon"></i> Access in Private Mode
+            </div>
+            <div id="privateAccessModeContent" class="content">
+              <p>
+                Please create credentials to allow only a private access to the app instance
+              </p>
+              <div class="field" style="margin-bottom:5px">
+                <div class="ui labeled input">
+                  <a class="ui label" style="width: 150px;">
+           Username
+        </a>
+                  <input type="text" id="loginUserName" name="loginUserName" placeholder="Enter your login username" />
+                </div>
+              </div>
+              <div class="field" style="margin-bottom:5px">
+                <div class="ui labeled input">
+                  <a class="ui label" style="width: 150px;">
+           Password
+        </a>
+                  <input type="password" id="loginPassword" name="loginPassword" placeholder="Enter your login password" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <input type="hidden" name="text" id="text" />
+          <input type="hidden" name="text2" id="text2" />
+          <input type="hidden" name="text3" id="text3" />
+
+          <div class="field">
+            <div class="ui large right floated buttons">
+              <button id="restBtn" class="ui reset button">Reset</button>
+              <div class="or"></div>
+              <button id="submitBtn" type="submit" onclick="submitBtn_clickHandler(event);" class="ui blue submit button" value="Save Configurations">Save Configurations</button>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui error message">
+              <% if (Object.keys(errors).length > 0) { %>
+                <ul class="list">
+                  <script>
+                    $(".ui.console.error(.message").show();
+                  </script>
+                  <% Object.values(errors).forEach(error => { %>
+                    <li>
+                      <%= error.msg %>
+                    </li>
+                    <% }) %>
+                </ul>
+                <% } %>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="column" id="tabs">
+        <ul class="nav nav-tabs" role="tablist" id="userInputContent">
+          <li role="presentation" class="active"><a href="#homepage" aria-controls="homepage" role="tab" data-toggle="tab">Homepage Description</a></li>
+          <li role="presentation" class="disabled"><a href="#dataProtectionhomepage" aria-controls="dataProtectionhomepage" role="tab" data-toggle="tab">Data Protection Policy</a></li>
+        </ul>
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane fade in active" id="homepage">
+            <textarea id="editor" placeholder="Please, provide a description of your ontology or vocabulary to be shown in the VoCol's homepage.<br/> You can include images, hyperlinks, etc. <br/> Moreover, you can as well paste your HTML code using the 'Source' button in the toolbar above."
+              name="editor" onchange="submition();" style="overflow:auto; width:540px;height:382px">
+            </textarea>
+          </div>
+          <div role="tabpanel" class="tab-pane fade" id="dataProtectionhomepage">
+            <textarea id="editor2" placeholder="Please, provide a description of your Information Protection Policy.<br/> You can include images, hyperlinks, etc. <br/> Moreover, you can as well paste your HTML code using the 'Source' button in the toolbar above."
+              name="editor2" onchange="submition();" style="overflow:auto; width:540px;height:382px">
+            </textarea>
+            <textarea id="editor3" placeholder="Please, insert your script for the Information Protection Policy here ." name="editor3" onchange="submition();" style="overflow:auto; width:540px;height:382px">
+            </textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</body>
+
+</html>
+<script>
+  $('.ui.checkbox').checkbox();
+  $('.ui.accordion').accordion();
+
+  $('#infomationProtectionAgreement').click(function() {
+    alert("hi");
+    console.log("hu");
+  });
+
+
+  // form validation
+  $('.ui.form')
+    .form({
+      fields: {
+        vocabularyName: {
+          identifier: 'vocabularyName',
+          rules: [{
+            type: 'empty',
+            prompt: 'You must give the vocabulary name'
+
+          }]
+        },
+        repository: {
+          identifier: 'repository',
+          rules: [{
+            type: 'empty',
+            prompt: 'You must fill the repository name'
+          }]
+        },
+        server: {
+          identifier: 'server',
+          rules: [{
+            type: 'empty',
+            prompt: 'The server URL is missing'
+          }]
+        },
+        adminUsername: {
+          identifier: 'adminUsername',
+          rules: [{
+            type: 'empty',
+            prompt: 'You must give an admin username'
+          }]
+        },
+        adminPass: {
+          identifier: 'adminPass',
+          rules: [{
+            type: 'empty',
+            prompt: 'You must give an admin password'
+          }]
+        },
+        branchName: {
+          identifier: 'branchName',
+          rules: [{
+            type: 'empty',
+            prompt: 'You must give the github branch name'
+          }]
+        },
+        username: {
+          identifier: 'username',
+          rules: [{
+            type: 'empty',
+            prompt: 'The user name is missing'
+          }]
+        },
+        password: {
+          identifier: 'password',
+          rules: [{
+              type: 'empty',
+              prompt: 'password cannot be empty'
+            },
+            {
+              type: 'minLength[6]',
+              prompt: 'Your password must be at least {ruleValue} characters'
+            }
+          ]
+        }
+      }
+    });
+
+  // reset button is clicked to reset the form
+  $('#restBtn').on('click', function(event) {
+    event.preventDefault();
+    location.reload("./config");
+  });
+
+  // save homepage of VoCol in text
+  CKEDITOR.replace('editor', {
+    extraPlugins: 'confighelper'
+  });
+  CKEDITOR.instances['editor'].on('change', function() {
+    $('#text').val(CKEDITOR.instances.editor.getData());
+  });
+
+  // save dataProtection Policy in text2
+  CKEDITOR.replace('editor2', {
+    extraPlugins: 'confighelper'
+  });
+  CKEDITOR.instances['editor2'].on('change', function() {
+    $('#text2').val(CKEDITOR.instances.editor2.getData());
+  });
+
+  // save dataProtectionScript in text3
+  $('#editor3').on('change', function() {
+    $('#text3').val($('#editor3').val());
+  });
+
+  var inputs = <%- JSON.stringify(inputComponentsValues) %>
+  if (inputs) {
+    $("#vocabularyName").val(inputs.vocabularyName);
+    $("#server").val(inputs.server);
+    $("#branchName").val(inputs.branchName);
+    $("#repositoryName").val(inputs.repositoryName);
+    $("#repositoryURL").val(inputs.repositoryURL);
+    $("#repositoryOwner").val(inputs.repositoryOwner);
+    $("#adminUserName").val(inputs.adminUserName);
+    $("#adminPass").val(inputs.adminPass);
+    if (inputs.loginUserName) {
+      $("#loginUserName").val(inputs.loginUserName);
+      $("#loginPassword").val(inputs.loginPassword);
+    }
+
+    $("#user").val(inputs.user);
+    $("#password").val(inputs.password);
+    // set Editor text
+    if (inputs.text);
+    CKEDITOR.instances.editor.setData(inputs.text)
+
+    // set Editor text2
+    if (inputs.text2)
+      CKEDITOR.instances.editor2.setData(inputs.text2)
+
+    // set Editor text3
+    if (inputs.text3){
+      $('#editor3').val(decodeHtml(inputs.text3));
+    }
+
+    if (inputs.infomationProtectionAgreement)
+    {
+      $("a[href='#dataProtectionhomepage']").parent("li").removeClass("disabled");
+      $("a[href='#dataProtectionhomepage']").parent("li").addClass("enabled");
+    }
+
+    if (inputs.turtleEditor)
+      $('[name=turtleEditor]')[0].checked = true;
+    else
+      $('[name=turtleEditor]')[0].checked = false;
+
+    if (inputs.sparqlEndPoint)
+      $('[name=sparqlEndPoint]')[0].checked = true;
+    else
+      $('[name=sparqlEndPoint]')[0].checked = false;
+
+    if (inputs.visualization)
+      $('[name=visualization]')[0].checked = true;
+    else
+      $('[name=visualization]')[0].checked = false;
+
+    if (inputs.documentationGeneration)
+      $('[name=documentationGeneration]')[0].checked = true;
+    else
+      $('[name=documentationGeneration]')[0].checked = false;
+
+    if (inputs.evolutionReport)
+      $('[name=evolutionReport]')[0].checked = true;
+    else
+      $('[name=evolutionReport]')[0].checked = false;
+
+    if (inputs.analytics)
+      $('[name=analytics]')[0].checked = true;
+    else
+      $('[name=analytics]')[0].checked = false;
+
+    if (inputs.infomationProtectionAgreement)
+      $('[name=infomationProtectionAgreement]')[0].checked = true;
+    else
+      $('[name=infomationProtectionAgreement]')[0].checked = false;
+
+    if (inputs.clientHooks)
+      $('[name=clientHooks]')[0].checked = true;
+    else
+      $('[name=clientHooks]')[0].checked = false;
+
+    if (inputs.rdfxml)
+      $('[name=rdfxml]')[0].checked = true;
+    else
+      $('[name=rdfxml]')[0].checked = false;
+
+    if (inputs.ntriples)
+      $('[name=ntriples]')[0].checked = true;
+    else
+      $('[name=ntriples]')[0].checked = false
+
+    if (inputs.repositoryService === "gitHub")
+      $('input[name="repositoryService"]').filter("[value='gitHub']").attr('checked', true);
+    else if (inputs.repositoryService === "gitLab")
+      $('input[name="repositoryService"]').filter("[value='gitLab']").attr('checked', true);
+    else
+      $('input[name="repositoryService"]').filter("[value='bitBucket']").attr('checked', true);
+
+
+    if (inputs.repositoryType === "public")
+      $('input[name="repositoryType"]').filter("[value='public']").attr('checked', true);
+    else
+      $('input[name="repositoryType"]').filter("[value='private']").attr('checked', true);
+  }
+
+  // do some security works
+  function submitBtn_clickHandler(event) {
+    var ciphertext = CryptoJS.AES.encrypt(document.getElementById('password').value, document.getElementById('user').value);
+    document.getElementById('password').value = ciphertext;
+    document.getElementById('configForm').submit();
+  }
+
+// to unescape html special characters
+  function decodeHtml(str)
+{
+    var map =
+    {
+        '&amp;': '&',
+        '&lt;': '<',
+        '&gt;': '>',
+        '&quot;': '"',
+        '&#039;': "'"
+    };
+    return str.replace(/&amp;|&lt;|&gt;|&quot;|&#039;/g, function(m) {return map[m];});
+}
+
+  // disable or enable information Protection Policy Tab
+  var ckbox = $('#infomationProtectionAgreement');
+  $('.ui.checkbox').on('click', function() {
+    if (ckbox.is(':checked')) {
+      // enable information Protection Policy tab
+      $("a[href='#dataProtectionhomepage']").parent("li").removeClass("disabled");
+      $("a[href='#dataProtectionhomepage']").parent("li").addClass("enabled");
+    } else {
+      // disable information Protection Policy tab
+      $("a[href='#dataProtectionhomepage']").parent("li").removeClass("enabled");
+      $("a[href='#dataProtectionhomepage']").parent("li").addClass("disabled");
+    }
+  });
+</script>
+<style>
+  .nav-tabs li.disabled a {
+    pointer-events: none;
+  }
+</style>
+
+</body>
+
+</html>

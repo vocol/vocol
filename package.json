@@ -1,0 +1,30 @@
+{
+  "name": "vocol",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "bcrypt": "^3.0.0",
+    "body-parser": "^1.18.3",
+    "cookie-parser": "~1.4.3",
+    "crypto-js": "^3.1.9-1",
+    "debug": "~2.6.0",
+    "ejs": "^2.6.1",
+    "escape-html": "^1.0.3",
+    "express": "^4.16.3",
+    "express-http-proxy": "^1.1.0",
+    "express-session": "^1.15.6",
+    "jsonfile": "^4.0.0",
+    "morgan": "^1.9.0",
+    "node-watch": "^0.5.5",
+    "semantic-ui": "^2.3.3",
+    "serve-favicon": "^2.5.0",
+    "shelljs": "^0.7.8",
+    "sparql-client": "^0.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.3"
+  }
+}

@@ -1,0 +1,28 @@
+Add this directory to your PATH
+
+javamem
+javamem.cmd
+	A script which finds the maximum amount of memory for JVM
+
+owl2vcs.jar
+	Main library with dependencies
+
+owl2diff
+owl2diff.cmd
+	Diff tool runner
+
+owl2diff.git.sh
+	owl2diff wrapper for Git.
+	owl2enable configures Git repository to use this file.
+
+owl2diff.svn.sh
+owl2diff.svn.cmd
+	owl2diff wrapper for Subversion.
+	Usage: svn diff ... --diff-cmd owl2diff.svn.cmd
+
+owl2enable
+owl2enable.cmd
+	Shell script that enables owl2vcs for a Git or Mercurial repository
+
+hgrc.sample
+	Mercurial config sample. owl2enable appends contents of this file to your .hg/hgrc.

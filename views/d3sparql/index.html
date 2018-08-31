@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title></title>
+  <meta name="description" />
+  <link rel="stylesheet" type="text/css" href="lib/css/style.css" />
+  <link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
+  <link rel="stylesheet" href="lib/css/bootstrap-theme.min.css">
+  <script src="../javascripts/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="../javascripts/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="../semantic/dist/semantic.min.js"></script>
+  <script src="lib/d3/d3.v3.min.js"></script>
+  <script src="lib/d3/sankey.js"></script>
+  <script src="d3sparql.js"></script>
+  <script src="queries.js"></script>
+  <script src="lib/js/topojson.min.js"></script>
+</head>
+
+<body>
+  <div style="margin-top: 3% !important;"></div>
+  <h1>Analytical Graphs</h1>
+  <div style="margin-top: 30px">
+
+    <div class="ui form">
+
+      <div class="inline fields">
+        <div class="seven wide field">
+
+          <div class="ui large dropdown labeled search icon button">
+            <i class="bar chart icon"></i>
+            <span class="text">Select Graph Type</span>
+            <div class="menu">
+              <div class="header">Chart</div>
+              <div class=" item" data-text="BarChart">BarChart</div>
+              <div class=" large item" data-text="PieChart">PieChart</div>
+              <div class="header">Graph</div>
+              <div class=" item" data-text="ForceGraph">ForceGraph</div>
+              <div class=" item" data-text="Sankey">Sankey</div>
+              <div class="header">Tree</div>
+              <div class=" item" data-text="RoundTree">RoundTree</div>
+              <div class=" item" data-text="DendroGram">DendroGram</div>
+              <div class=" item" data-text="TreeMap">TreeMap</div>
+              <div class=" item" data-text="SunBurst">SunBurst</div>
+              <div class=" item" data-text="CirclePack">CirclePack</div>
+            </div>
+          </div>
+        </div>
+        <div class="four wide field">
+
+          <div class="ui large button" onclick="toggle()"> Query
+          </div>
+          <div class="ui large right labeled icon button" onclick="exec()">
+            <i class="right arrow icon"></i> Show
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <input id="endpoint" value="http://dbpedia.org/sparql" type="hidden" class="form-control">
+    <textarea id="sparql" class="form-control" rows="15" style="margin:20px 0 30px 0;width:850px;display: inline;"> </textarea>
+    <div id="result"></div>
+  </div>
+  </div>
+
+  <script>
+    var selectedgraphtype = "";
+    $('.ui.dropdown').dropdown({
+      // action: 'combo',
+      onChange: function(value, text) {
+        selectedgraphtype = text;
+        if (selectedgraphtype == 'BarChart') {
+          $('#sparql').val(data[0]['query']);
+        } else if (selectedgraphtype == 'PieChart') {
+          $('#sparql').val(data[0]['query']);
+        } else if (selectedgraphtype == 'ForceGraph') {
+          $('#sparql').val(data[1]['query']);
+        } else if (selectedgraphtype == 'Sankey') {
+          $('#sparql').val(data[2]['query']);
+        } else if (selectedgraphtype == 'RoundTree') {
+          $('#sparql').val(data[3]['query']);
+        } else if (selectedgraphtype == 'DendroGram') {
+          $('#sparql').val(data[3]['query']);
+        } else if (selectedgraphtype == 'TreeMap') {
+          $('#sparql').val(data[3]['query']);
+        } else if (selectedgraphtype == 'SunBurst') {
+          $('#sparql').val(data[3]['query']);
+        } else if (selectedgraphtype == 'CirclePack') {
+          $('#sparql').val(data[3]['query']);
+        }
+      }
+    });
+
+
+    $(function() {
+      loadQueries();
+      d3sparql.toggle();
+    });
+
+    function exec() {
+      // var selectedgraphtype = d3.select("#graphtype").property("value")
+      var endpoint = d3.select("#endpoint").property("value")
+      var sparql = d3.select("#sparql").property("value")
+      if (selectedgraphtype == 'BarChart') {
+        d3sparql.query(endpoint, sparql, barchart)
+      } else if (selectedgraphtype == 'PieChart') {
+        d3sparql.query(endpoint, sparql, piechart)
+      } else if (selectedgraphtype == 'ForceGraph') {
+        d3sparql.query(endpoint, sparql, forcegraph)
+      } else if (selectedgraphtype == 'Sankey') {
+        d3sparql.query(endpoint, sparql, sankey)
+      } else if (selectedgraphtype == 'RoundTree') {
+        d3sparql.query(endpoint, sparql, roundtree)
+      } else if (selectedgraphtype == 'DendroGram') {
+        d3sparql.query(endpoint, sparql, dendrogram)
+      } else if (selectedgraphtype == 'TreeMap') {
+        d3sparql.query(endpoint, sparql, treemap)
+      } else if (selectedgraphtype == 'TreeMapZoom') {
+        d3sparql.query(endpoint, sparql, treemapzoom)
+      } else if (selectedgraphtype == 'SunBurst') {
+        d3sparql.query(endpoint, sparql, sunburst)
+      } else if (selectedgraphtype == 'CirclePack') {
+        d3sparql.query(endpoint, sparql, circlepack)
+      }
+    }
+
+    function barchart(json) {
+      var config = {
+        "label_x": "Type",
+        "label_y": "Number",
+        "var_x": "conceptType",
+        "var_y": "value",
+        "width": 800, // canvas width
+        "height": 450, // canvas height
+        "margin": 140, // canvas margin
+        "selector": "#result"
+      }
+      d3sparql.barchart(json, config)
+    }
+
+    function piechart(json) {
+      var config = {
+        "label": "conceptType",
+        "size": "value",
+        "width": 800, // canvas width
+        "height": 600, // canvas height
+        "margin": 10, // canvas margin
+        "hole": 200, // doughnut hole: 0 for pie, r > 0 for doughnut
+        "selector": "#result"
+      }
+      d3sparql.piechart(json, config)
+    }
+
+    function forcegraph(json) {
+      var config = {
+        "charge": -400,
+        "distance": 50,
+        "width": 800,
+        "height": 700,
+        "selector": "#result"
+      }
+      d3sparql.forcegraph(json, config)
+    }
+
+    function sankey(json) {
+      var config = {
+        "key1": "parent",
+        "key2": "child",
+        "label1": "parent_name",
+        "label2": "child_name",
+        "width": 800,
+        "height": 750,
+        "margin": 10,
+        "selector": "#result"
+      }
+      d3sparql.sankey(json, config)
+    }
+
+    function roundtree(json) {
+      var config = {
+        "root": "root_name",
+        "parent": "parent_name",
+        "child": "child_name",
+        "diameter": 800,
+        "angle": 360,
+        "depth": 200,
+        "radius": 20,
+        "selector": "#result"
+      }
+      d3sparql.roundtree(json, config)
+    }
+
+    function dendrogram(json) {
+      var config = {
+        "root": "root_name",
+        "parent": "parent_name",
+        "child": "child_name",
+        "width": 800,
+        "height": 750,
+        "margin": 300,
+        "radius": 10,
+        "selector": "#result"
+      }
+      d3sparql.dendrogram(json, config)
+    }
+
+    function treemap(json) {
+      var config = {
+        "root": "root_name",
+        "parent": "parent_name",
+        "child": "child_name",
+        "width": 800,
+        "height": 520,
+        "selector": "#result"
+      }
+      d3sparql.treemap(json, config)
+    }
+
+    function treemapzoom(json) {
+      var config = {
+        "width": 800,
+        "height": 500,
+        "selector": "#result"
+      }
+      d3sparql.treemapzoom(json, config)
+    }
+
+    function sunburst(json) {
+      var config = {
+        "root": "root_name",
+        "parent": "parent_name",
+        "child": "child_name",
+        "width": 800,
+        "height": 720,
+        "margin": 50,
+        "selector": "#result"
+      }
+      d3sparql.sunburst(json, config)
+    }
+
+    function circlepack(json) {
+      var config = {
+        "root": "root_name",
+        "parent": "parent_name",
+        "child": "child_name",
+        "width": 800,
+        "height": 850,
+        "diameter": 700,
+        "selector": "#result"
+      }
+      d3sparql.circlepack(json, config)
+    }
+
+    function coordmap(json) {
+      var config = {
+        "var_lat": "lat",
+        "var_lng": "lng",
+        "width": 800,
+        "height": 400,
+        "radius": 5,
+        "color": "#55C25E",
+        "topojson": "lib/d3/map/world-50m.json",
+        "selector": "#result"
+      }
+      d3sparql.coordmap(json, config)
+    }
+
+    function namedmap(json) {
+      var config = {
+        "label": "label",
+        "value": "size",
+        "color_max": "red",
+        "topojson": "lib/d3/map/japan.topojson",
+        "mapname": "japan",
+        "keyname": "name_local",
+        "center_lat": 34,
+        "center_lng": 137,
+        "scale": 10000,
+        "selector": "#result"
+      }
+      d3sparql.namedmap(json, config)
+    }
+
+    function toggle() {
+      d3sparql.toggle()
+    }
+
+    function exec_offline() {
+      d3.json("cache/dbpedia/area-ja.json", render)
+    }
+
+    function loadQueries() {
+      var pathName = window.location.pathname;
+      var dynamicPath = "";
+      if (pathName.split('/').length === 4)
+        dynamicPath = '/' + pathName.split('/')[1];
+      for (var i = 0; i < data.length; i++) {
+        $('#queries').append($("<option/>", {
+          value: i,
+          text: data[i]['name']
+        }));
+        if (i == 0) {
+          $('#sparql').val(data[i]['query']);
+          $('#endpoint').val(data[i]['endpoint'].replace('domain', window.location.origin + dynamicPath));
+        }
+      }
+    }
+  </script>
+  <style>
+    .ui.dropdown .menu>.item {
+      font-size: 1.2rem;
+    }
+
+    .bar:hover {
+      fill: brown;
+    }
+
+    text {
+      font-size: 11px;
+      pointer-events: none;
+    }
+
+    text.parent {
+      fill: #1f77b4;
+    }
+
+    circle {
+      fill: #ccc;
+      stroke: #999;
+      pointer-events: all;
+    }
+
+    circle.parent {
+      fill: #1f77b4;
+      fill-opacity: .1;
+      stroke: steelblue;
+    }
+
+    circle.parent:hover {
+      stroke: #ff7f0e;
+      stroke-width: .5px;
+    }
+
+    circle.child {
+      pointer-events: none;
+    }
+  </style>
+
+</body>
+
+</html>

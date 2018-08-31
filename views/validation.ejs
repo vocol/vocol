@@ -1,0 +1,55 @@
+<% include header %>
+  <div style="margin-top: 3% !important;"></div>
+  <div class="ui grid">
+    <div class="ui container">
+      <h1><%- title %></h1>
+      <%if (isExistSyntaxError !="") {%>
+
+      <table id="errorTable" class="ui celled padded table">
+        <thead>
+          <tr>
+            <th >No.</th>
+            <th>Pusher</th>
+            <th>Filename</th>
+            <th>Error Type</th>
+            <th class="single line">Error Source</th>
+            <th class="single line"> Date </th>
+            <th>Error Message</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+      <% } %>
+
+      <div id="errors"></div>
+    </div>
+  </div>
+  <% include footer %>
+
+
+    <script>
+      function filterTableData(data) {
+        var tableBody = "";
+        var dataTable = JSON.parse(data);
+        var array = [];
+        for (var i = 0; i < dataTable.length; i++) {
+          var arr = [];
+          arr.push(dataTable[i].id.trim(), dataTable[i].pusher.trim(), dataTable[i].file.trim(), dataTable[i].errType.trim(), dataTable[i].errSource.trim(), dataTable[i].date.trim(), dataTable[i].errMessege.trim());
+          array.push(arr);
+        }
+        return array;
+      }
+      if (<%= isExistSyntaxError %>) {
+        var errors = <%- JSON.stringify(syntaxErrors) %>
+
+        // show this message if there is an error or more
+        $('#errors').append("<h5 style=\"color:red\">Please fix the following identified errors, in order to continue with updating the latest version!</h5>");
+        // show error table
+        $('#errorTable').DataTable({
+          data: filterTableData(errors)
+
+        });
+      } else
+        $('#errors').html('<h5>No errors were found</h5>');
+    </script>
