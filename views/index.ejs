@@ -7,30 +7,40 @@
           <%- homePage %>
         </div>
         <div class="six wide column">
-            <h2 class="ui header" style="rgba(243, 238, 238, 0.87)">
+          <h3 class="ui header" style="rgba(243, 238, 238, 0.87)">
   <i class="newspaper icon"></i>
   <div class="content">
-Ontology MetaDATA
+    Ontology MetaData
   </div>
-</h2>
-            <table class="ui blue table"  id="metaData">
-              <%- metaData %>
-            </table>
-            <h2 class="ui header" style="rgba(243, 238, 238, 0.87)">
-  <i class="suitcase icon"></i>
+  </h3>
+          <table class="ui blue table" id="metaData">
+            <%- metaData %>
+          </table>
+
+          <h3 class="ui header" style="rgba(243, 238, 238, 0.87)">
+  <i class="chart bar icon"></i>
   <div class="content">
     Ontology Statistics
   </div>
-</h2>
-            <table class="ui red celled  table"  id="response">
-              <%- statistics %>
-            </table>
-          </div>
+</h3>
+          <table class="ui red celled  table" id="response">
+            <%- statistics %>
+          </table>
+        </div>
+        <h3 class="ui header" style="rgba(243, 238, 238, 0.87)">
+<i class="file outline icon"></i>
+<div class="content">
+  Repository Information
+</div>
+</h3>
+        <table class="ui blue table" id="metaData">
+          <%- repoInfo %>
+        </table>
       </div>
       <% include footer.ejs %>
-      <style>
-      img {
-    width: 100%;
-    max-height: 100%
-    }
-      </style>
+        <style>
+          img {
+            width: 100%;
+            max-height: 100%
+          }
+        </style>
