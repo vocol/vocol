@@ -5,12 +5,13 @@
 
 
 define(['jquery', 'github', 'N3', 'lib/codemirror',
-    'addon/hint/show-hint', 'mode/turtle/turtle', 'hint/turtle-hint',
-    'logger', 'addon/search/search', 'addon/search/searchcursor',
-    'addon/selection/mark-selection', 'semanticUI/semantic'
-  ],
+  'addon/hint/show-hint', 'mode/turtle/turtle', 'hint/turtle-hint',
+  'logger', 'addon/search/search', 'addon/search/searchcursor',
+  'addon/selection/mark-selection', 'semanticUI/semantic'
+],
 
-  function($, Github, N3, CodeMirror, ShowHint, ModeTurtle, HintTurtle, logger, Search, SearchCursor, MarkSelection, SemanticUI) {
+  function($, Github, N3, CodeMirror, ShowHint, ModeTurtle, HintTurtle,
+    logger, Search, SearchCursor, MarkSelection, SemanticUI) {
 
     // HTML elements ------------------------------------------------------------
 
@@ -46,7 +47,10 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
 
     var isBinary = false;
 
-    var gh, repo, branch, user;
+    var gh,
+      repo,
+      branch,
+      user;
     var currentFile;
 
     var state = {
@@ -177,7 +181,8 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
       //Show new commit on github------------------------------------------------
       $.ajax({ //Initializing commit with last commit of repo by loading file
         type: 'GET',
-        url: "https://api.github.com/repos/" + ownername + "/" + reponame + "/commits?Accept=application/vnd.github.v3+json",
+        url: "https://api.github.com/repos/" + ownername + "/" +
+          reponame + "/commits?Accept=application/vnd.github.v3+json",
 
         data: {
           get_param: 'value'
@@ -191,7 +196,9 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
       setInterval(function() { //In every 10 seconds get last commit of repo and compare it with current commit of user
         $.ajax({
           type: 'GET',
-          url: "https://api.github.com/repos/" + ownername + "/" + reponame + "/commits?Accept=application/vnd.github.v3+json",
+          url: "https://api.github.com/repos/" + ownername + "/" +
+            reponame +
+            "/commits?Accept=application/vnd.github.v3+json",
           data: {
             get_param: 'value'
           },
@@ -206,7 +213,7 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
           }
         });
       }, 10000);
-      //------------------------------------------------------------------------
+    //------------------------------------------------------------------------
     };
 
 
@@ -246,7 +253,9 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
           logger.info("Nothing to save.");
         }
       } else {
-        alert("Please, fill-in the commit message box, it cannot be empty...");
+        alert(
+          "Please, fill-in the commit message box, it cannot be empty..."
+        );
       }
 
     };
@@ -261,14 +270,17 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
       var specific = ownername + "/" + reponame + "/" + branchname;
       inputElements.fileDisp.html(filename)
       inputElements.vowlLink.removeAttr("href");
-      inputElements.vowlLink.attr("href", baseUri + specific + "/" + filename);
+      inputElements.vowlLink.attr("href", baseUri + specific + "/" +
+        filename);
 
       // external links //////////////////////////
       var githubURI = "https://github.com";
-      inputElements.ghLink.attr("href", githubURI + "/" + ownername + "/" + reponame + "/");
+      inputElements.ghLink.attr("href", githubURI + "/" + ownername + "/" +
+        reponame + "/");
       var sparqlProcessorURI = "../SparqlProcessor/sparql-processor.html";
 
-      inputElements.sparqlURL.attr("href", sparqlProcessorURI + "#" + ownername + "/" + reponame + "/" + filename);
+      inputElements.sparqlURL.attr("href", sparqlProcessorURI + "#" +
+        ownername + "/" + reponame + "/" + filename);
       $("#menu").show();
     };
 
@@ -295,7 +307,8 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
           var currentIndex = 0;
 
           $('#previous-btn').on("click", function() {
-            editor.setSelection(marked[currentIndex - 1].find()['from'], marked[currentIndex - 1].find()['to']);
+            editor.setSelection(marked[currentIndex - 1].find()['from'],
+              marked[currentIndex - 1].find()['to']);
             editor.setCursor(marked[currentIndex].find()['from']);
             if (currentIndex == 0) {
               currentIndex = marked.length - 1;
@@ -306,7 +319,8 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
           });
 
           $('#next-btn').on("click", function() {
-            editor.setSelection(marked[currentIndex].find()['from'], marked[currentIndex].find()['to']);
+            editor.setSelection(marked[currentIndex].find()['from'],
+              marked[currentIndex].find()['to']);
             editor.setCursor(marked[currentIndex].find()['from']);
 
             if (currentIndex == marked.length - 1) {
@@ -347,10 +361,6 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
 
 
 
-
-
-
-
     //-----------------------------------------------------------------------------
 
     var playChecking = function() {
@@ -361,7 +371,7 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
       }
     };
 
-    var pauseChecking = function(){
+    var pauseChecking = function() {
       if (state.syntaxCheck !== "off") {
         changeSyntaxCheckState("off");
         console.log("-> off");
@@ -395,7 +405,8 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
       if (error) {
 
         /* extract line Number, only consider the end of the string after "line" */
-        var errorSubString = error.message.substr(error.message.indexOf("line") + 4);
+        var errorSubString = error.message.substr(error.message.indexOf(
+            "line") + 4);
         var errorLineNumber = parseInt(errorSubString) - 1;
 
         /* add background color, gutter + tooltip */
@@ -407,7 +418,8 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
           marked.push(editor.markText(cursor.from(), cursor.to(), {
             className: "styled-background"
           }));
-        if (lastQuery != text) lastPos = null;
+        if (lastQuery != text)
+          lastPos = null;
         var cursor = editor.getSearchCursor(text, lastPos || editor.getCursor());
         if (!cursor.findNext()) {
           cursor = editor.getSearchCursor(text);
@@ -416,8 +428,10 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
         lastQuery = text;
         lastPos = cursor.to();
 
-        editor.getDoc().addLineClass(errorLineNumber, "wrap", "ErrorLine-background");
-        editor.setGutterMarker(errorLineNumber, "breakpoints", makeMarker(error.message));
+        editor.getDoc().addLineClass(errorLineNumber, "wrap",
+          "ErrorLine-background");
+        editor.setGutterMarker(errorLineNumber, "breakpoints", makeMarker(
+          error.message));
 
         changeSyntaxCheckState("failed", error.message);
       } else if (triple) {
@@ -428,7 +442,8 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
         dynamicNames[subjectSplit.namespace] = dynamicNames[subjectSplit.namespace] || {};
         dynamicNames[subjectSplit.namespace][subjectSplit.name] = true;
 
-        dynamicNames[predicateSplit.namespace] = dynamicNames[predicateSplit.namespace] || {};
+        dynamicNames[predicateSplit.namespace] = dynamicNames[
+          predicateSplit.namespace] || {};
         dynamicNames[predicateSplit.namespace][predicateSplit.name] = true;
 
         dynamicNames[objectSplit.namespace] = dynamicNames[objectSplit.namespace] || {};
@@ -444,7 +459,8 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
     };
 
     var changeSyntaxCheckState = function(newState, error, force) {
-      if (newState !== state.syntaxCheck && (state.syntaxCheck !== "off" || force === true)) {
+      if (newState !== state.syntaxCheck && (state.syntaxCheck !== "off" ||
+        force === true)) {
         console.log("changeSyntaxCheckState", newState, error, force);
         syntaxCheckElements[state.syntaxCheck].hide();
         state.syntaxCheck = newState;
@@ -473,7 +489,8 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
         editor.clearGutter("breakpoints");
       });
 
-      var parser, content;
+      var parser,
+        content;
       if (state.fileIsLoaded) {
         content = editor.getValue();
         parser = N3.Parser();

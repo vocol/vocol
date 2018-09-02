@@ -97,8 +97,6 @@ router.get('/', function(req, res) {
       var output = shell.exec('fuser -v -n tcp ' + endpointPortNumber.toString(), {
         silent: false
       }).stdout;
-      console.log("I am here endpointPortNumber" + output + "  " +
-        endpointPortNumber.toString());
       if (output) {
         client.query(qOnt, function(error, results) { // query on dataset.
           if (error) {
