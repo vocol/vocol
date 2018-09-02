@@ -3,14 +3,45 @@
   <div class="ui grid">
     <div class="ui container">
       <div class="ui two column stackable grid">
-        <div class="twelve wide column">
+        <div class="ten wide column">
           <%- homePage %>
         </div>
-        <div class="four wide column">
-            <h4 class="ui header" style="rgba(243, 238, 238, 0.87)">Ontology MetaDATA</h4>
-            <table class="ui selectable inverted table" style="width:48%; position:relative;" id="response">
-              <%- metaData %>
-            </table>
-          </div>
+        <div class="six wide column">
+          <%if (metaData !="") {%>
+
+          <h3 class="ui header" style="rgba(243, 238, 238, 0.87)">
+  <i class="newspaper icon"></i>
+  <div class="content">
+    Ontology MetaData
+  </div>
+  </h3>
+          <table class="ui blue table" id="metaData">
+            <%- metaData %>
+          </table>
+          <%}%>
+          <h3 class="ui header" style="rgba(243, 238, 238, 0.87)">
+  <i class="chart bar icon"></i>
+  <div class="content">
+    Ontology Statistics
+  </div>
+</h3>
+          <table class="ui red celled  table" id="response">
+            <%- statistics %>
+          </table>
+        <h3 class="ui header" style="rgba(243, 238, 238, 0.87)">
+<i class="file outline icon"></i>
+<div class="content">
+  Project Details
+</div>
+</h3>
+        <table class="ui blue table" id="metaData">
+          <%- repoInfo %>
+        </table>
       </div>
       <% include footer.ejs %>
+        <style>
+          img {
+            width: 100%;
+            max-height: 100%
+          }
+        </style>

@@ -16,16 +16,78 @@
     height: 32px;
 }
 
+
+.form-control::placeholder{
+  font-size: 12px;
+  padding-top: 5px;
+}
+
+
+#input-message::placeholder {
+  font-size: 12px;
+  padding-top: 5px;
+
+}
+
 /* to show highlights in search process */
-.styled-background {
-  background-color: yellow;
+.searched-key {
+  background-color: #fe3;
+}
+
+/* To selec a tabbed searched key */
+.tabbed-key{
+  background-color: #192;
 }
 
 /* For hiding a tag */
 
-.searchbox{
+.hidden-element{
   display: none;
-  width: 100%;
+}
+
+/* For hiding a tag */
+
+.search-btn{
+  position:absolute;
+  top: 4px;
+  border:none;
+  height:25px;
+  width:25px;
+  border-radius:10%;
+  outline:none;
+  text-align:center;
+  font-weight:bold;
+  padding:2px;
+}
+
+#next-btn{
+
+  right: 5px;
+}
+
+#previous-btn{
+  right: 33px;
+}
+
+.search-box{
+  height:35px;
+  width:100%;
+  padding-left:20px;
+  border-radius: 4px;
+  border:none;outline:none;
+}
+
+.wrapper {
+  position:relative;
+  margin-bottom:10px;
+
+}
+
+.search-count{
+  position: absolute;
+  color: #888;
+  right:60px;
+  top:10px;
 }
 
 /* overwrite setting in codemirror.css */

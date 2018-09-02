@@ -18,7 +18,7 @@
               </div>
             </div>
             <div class="six wide field">
-              <div class="ui large floating dropdown labeled icon button" style="background:rgba(255,255,255,.5) none" onclick="getSelectedFileName(this);">
+              <div id="selectFileDroplist" class="ui large floating dropdown labeled icon button" style="background:rgba(255,255,255,.5) none" onclick="getSelectedFileName(this);">
                 <i class="filter icon"></i>
                 <span class="text" id="file_result">Choose File</span>
                 <div class="menu">
@@ -983,6 +983,7 @@
                 }
                 dataFile = getParentWithChildren(filteredData, allParentsFromFiles);
               }
+              debugger;
               return dataFile;
             }
 
@@ -1112,7 +1113,13 @@
 
             // get selected fileNames for dropDownMenu and rebuild treeview
             function getSelectedFileName() {
-              var selectedFileName = $('.ui.dropdown').dropdown('get text');
+              var selectedFileName = $('#selectFileDroplist').dropdown('get text');
+            //  $('#dropdown').val();
+              console.log($('#selectFileDroplist').val());
+              ////////
+              //Todo:
+
+             console.log("selectedFileName"+ selectedFileName+"endddd");
               selectedFileName = selectedFileName.trim();
               if (selectedFileName != "Choose File") {
                 $('#infoTabs').hide(); //hide previos infoTabs
