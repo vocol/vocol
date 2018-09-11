@@ -983,7 +983,6 @@
                 }
                 dataFile = getParentWithChildren(filteredData, allParentsFromFiles);
               }
-              debugger;
               return dataFile;
             }
 
@@ -1114,12 +1113,6 @@
             // get selected fileNames for dropDownMenu and rebuild treeview
             function getSelectedFileName() {
               var selectedFileName = $('#selectFileDroplist').dropdown('get text');
-            //  $('#dropdown').val();
-              console.log($('#selectFileDroplist').val());
-              ////////
-              //Todo:
-
-             console.log("selectedFileName"+ selectedFileName+"endddd");
               selectedFileName = selectedFileName.trim();
               if (selectedFileName != "Choose File") {
                 $('#infoTabs').hide(); //hide previos infoTabs
@@ -1597,7 +1590,6 @@
               } else if (selectedNode[0].concept != item) {
 
                 if (!$('#allTypesRadio').is(':checked'))
-                  //$('#allTypesRadio').click();
                   $('#allTypesRadio').click();;
 
                 //scrollTop if class clicked from instanceDetailsTable
@@ -1702,7 +1694,6 @@
                     });
                   }
                   // create an array with edges for graph visualization
-
                   edges.push({
                     from: 1,
                     to: i + 2,

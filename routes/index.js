@@ -10,6 +10,8 @@ var endpointPortNumber = process.argv.slice(2)[1] || 3030;
 var endpoint = 'http:\//localhost:' + endpointPortNumber.toString() +
   '/dataset/sparql';
 var client = new SparqlClient(endpoint);
+var escapeHtml = require('escape-html');
+const ejs = require('ejs');
 
 //  GET home page.
 router.get('/', function(req, res) {
@@ -73,94 +75,76 @@ router.get('/', function(req, res) {
 	    UNION {?rdfProperty a rdf:Property.}	  \
 	  }";
 
-      var qOnt = "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> \
-	  PREFIX owl: <http://www.w3.org/2002/07/owl#> \
-	  PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \
-	  PREFIX dcterms: <http://purl.org/dc/terms/> \
-	  PREFIX dc11: <http://purl.org/dc/elements/1.1/> \
-	  PREFIX doap: <http://usefulinc.com/ns/doap#> \
-	  PREFIX vann: <http://purl.org/vocab/vann/> \
-	  SELECT ?s ?Creator ?Title ?Version ?Publisher ?Repository ?Prefix ?URI ?creation_date \
-	  WHERE{ \
-	  ?s rdf:type owl:Ontology.\
-	  OPTIONAL {?s dcterms:creator ?Creator.} \
-	  OPTIONAL {?s dc11:title ?Title.} \
-	  OPTIONAL {?s owl:versionInfo ?Version.} \
-	  OPTIONAL {?s dcterms:publisher ?Publisher.} \
-	  OPTIONAL {?s doap:repository ?Repository.} \
-	  OPTIONAL {?s vann:preferredNamespacePrefix ?Prefix.} \
-	  OPTIONAL {?s vann:preferredNamespaceUri ?URI.} \
-	  OPTIONAL {?s dcterms:created ?creation_date.}\
-	  }";
+      var qOnt = "PREFIX owl: <http://www.w3.org/2002/07/owl#> \
+      SELECT ?p ?o\
+      WHERE {\
+      ?s a owl:Ontology.\
+      OPTIONAL { ?s ?p ?o.}}";
 
       // check if fuseki endpoint is running
       var output = shell.exec('fuser -v -n tcp ' + endpointPortNumber.toString(), {
         silent: false
       }).stdout;
       if (output) {
-        client.query(qOnt, function(error, results) { // query on dataset.
+        client.query(qOnt, function(error, data) { // query on dataset.
           if (error) {
             console.log(error);
           }
-          if (results) {
-            // string to hold table content
-            metaData = "";
-            for (key in results['results']['bindings'][0]) {
-              var obj = results['results']['bindings'][0][key]['value'];
-              if (key == "creation_date")
-                key = "Creation Date";
-
-              metaData += '<tr><td class="td_content">' + key +
-                '</td><td class="center aligned">' + obj + '</td></tr>';
+          var result = data.results.bindings;
+          if (result[0] != null) {
+            // json values of the query result
+            metaData = result;
+          }
+          client.query(qe, function(error, data) { // query on dataset.
+            if (error) {
+              console.log(error);
             }
-          }
-        });
+            if (data) {
+              // string to hold table content
+              statistics = "";
+              for (key in data['results']['bindings'][0]) {
+                var obj = data['results']['bindings'][0][key][
+                  'value'
+                ];
+                if (key == "RDF_Property")
+                  key = "RDF Properties";
+                if (key == "OWL_ObjectProperty")
+                  key = "OWL ObjectProperties";
+                if (key == "OWL_DatatypeProperty")
+                  key = "OWL DatatypeProperties";
+                if (key == "OWL_AnnotationProperty")
+                  key = "OWL AnnotationProperties";
 
-
-        client.query(qe, function(error, results) { // query on dataset.
-          if (error) {
-            console.log(error);
-          }
-          if (results) {
-            // string to hold table content
-            //statistics = "";
-            for (key in results['results']['bindings'][0]) {
-              var obj = results['results']['bindings'][0][key]['value'];
-              if (key == "RDF_Property")
-                key = "RDF Properties";
-              if (key == "OWL_ObjectProperty")
-                key = "OWL ObjectProperties";
-              if (key == "OWL_DatatypeProperty")
-                key = "OWL DatatypeProperties";
-              if (key == "OWL_AnnotationProperty")
-                key = "OWL AnnotationProperties";
-
-              statistics += '<tr><td class="td_content">' + key +
-                '</td><td class="center aligned">' + obj + '</td></tr>';
+                statistics += '<tr><td class="td_content">' +
+                  key +
+                  '</td><td class="right aligned">' + obj +
+                  '</td></tr>';
+              }
             }
-          }
-          // check if the userConfigurations file is exist
-          // for the first time of app running
-          var path = "jsonDataFiles/userConfigurations.json";
-          fs.exists(path, function(exists) {
-            var data = fs.readFileSync(path);
-            if (exists && data.includes('vocabularyName')) {
-              jsonfile.readFile(path, function(err, obj) {
-                if (err)
-                  console.log(err);
-                if (obj.hasOwnProperty('vocabularyName')) {
-                  // string to hold table content
-                  var repoInfo = "";
-                  repoInfo += '<tr><td class="td_content"> Instance Name</td><td class="center aligned">' +
-                    obj.vocabularyName + '</td></tr>';
-                  repoInfo += '<tr><td class="td_content"> Repository Owner </td><td class="center aligned">' +
-                    obj.repositoryOwner + '</td></tr>';
-                  repoInfo += '<tr><td class="td_content"> Repository Service </td><td class="center aligned">' +
-                    obj.repositoryService + '</td></tr>';
-                  repoInfo += '<tr><td class="td_content"> Repository Branch </td><td class="center aligned">' +
-                    obj.branchName + '</td></tr>';
+            // check if the userConfigurations file is exist
+            // for the first time of app running
+            var path = "jsonDataFiles/userConfigurations.json";
+            fs.exists(path, function(exists) {
+              var data = fs.readFileSync(path);
+              if (exists && data.includes('vocabularyName')) {
+                jsonfile.readFile(path, function(err, obj) {
+                  if (err)
+                    console.log(err);
+                  if (obj.hasOwnProperty(
+                      'vocabularyName')) {
+                    // string to hold table content
+                    var repoInfo = "";
+                    repoInfo += '<tr><td class="td_content"> Instance Name</td><td class="right aligned">' +
+                      obj.vocabularyName + '</td></tr>';
+                    repoInfo += '<tr><td class="td_content"> Repository Owner </td><td class="right aligned">' +
+                      obj.repositoryOwner +
+                      '</td></tr>';
+                    repoInfo += '<tr><td class="td_content"> Repository Service </td><td class="right aligned">' +
+                      obj.repositoryService +
+                      '</td></tr>';
+                    repoInfo += '<tr><td class="td_content"> Repository Branch </td><td class="right aligned">' +
+                      obj.branchName + '</td></tr>';
 
-                  if (metaData != "") {
                     res.render('index', {
                       title: 'Home',
                       metaData: metaData,
@@ -168,20 +152,15 @@ router.get('/', function(req, res) {
                       repoInfo: repoInfo,
                       homePage: obj.text
                     });
-                  } else {
-                    res.render('index', {
-                      title: 'Home',
-                      metaData: metaData,
-                      statistics: statistics,
-                      repoInfo: repoInfo,
-                      homePage: obj.text
-                    });
+
                   }
-                }
-              });
-            }
+                });
+              }
+            });
           });
+
         });
+
       } else {
         // check if the userConfigurations file is exist
         // for the first time of app running

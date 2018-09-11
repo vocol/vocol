@@ -69,6 +69,7 @@ app.locals.projectTitle = "MobiVoc";
 app.locals.userConfigurations = Array(6).fill(true);
 app.locals.isExistAdminAccount = false;
 app.locals.repositoryURL = "";
+app.locals.repoParam = Array(3).fill("");
 
 function readUserConfigurationFile() {
   if (fs.existsSync(userConfigurationsFile)) {
@@ -76,6 +77,7 @@ function readUserConfigurationFile() {
     if (data.includes('vocabularyName')) {
       jsonfile.readFile(userConfigurationsFile, function(err, obj) {
         var menu = Array(7).fill(false);
+        var repoParam = Array(3).fill("");
         var loginUserName = "";
         var adminAccount = "";
         Object.keys(obj).forEach(function(k) {
@@ -87,9 +89,14 @@ function readUserConfigurationFile() {
             // for first time or was changed to another repository
             repositoryURL = obj[k];
             app.locals.repositoryURL = obj[k];
+          } else if (k === "repositoryOwner") { //repoParam[0]
+            repoParam[0] = obj[k];
+          } else if (k === "repositoryName") { //repoParam[1]
+            repoParam[1] = obj[k];
+          } else if (k === "branchName") { //repoParam[2]
+            repoParam[2] = obj[k];
           } else if (k === "turtleEditor") { //menu[0]
             menu[0] = true;
-          // do more stuff
           } else if (k === "documentationGeneration") { //menu[1]
             menu[1] = true;
           } else if (k === "visualization") { //menu[2]
@@ -126,6 +133,7 @@ function readUserConfigurationFile() {
           }
         });
         app.locals.userConfigurations = menu;
+        app.locals.repoParam = repoParam;
         // check if the admin select private mode access of instace
         if (loginUserName)
           app.locals.authRequired = true;
@@ -293,6 +301,12 @@ app.get(['\/\/dataProtection', '/dataProtection'], function(req, res) {
 app.get(['\/\/checkErrors', '/checkErrors'], function(req, res, next) {
   readSyntaxErrorsFile();
   res.send(app.locals.isExistSyntaxError);
+  res.end();
+});
+
+app.get(['\/\/getRepoInfo', '/getRepoInfo'], function(req, res, next) {
+  readUserConfigurationFile();
+  res.send(app.locals.repoParam);
   res.end();
 });
 

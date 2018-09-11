@@ -20,9 +20,6 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
     var inputElements = {
       username: $("#input-username"),
       password: $("#input-password"),
-      //  owner: $("#input-owner"),
-      //  repo: $("#input-repo"),
-      //  branch: $("#input-branch"),
       file: $("#input-file"),
       contents: $("#input-contents"),
       message: $("#input-message"),
@@ -31,7 +28,8 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
       fileDisp: $(".current-filename"),
       vowlLink: $("#webvowl-link"),
       ghLink: $("#github-link"),
-      sparqlURL: $("#sparql-link")
+      sparqlURL: $("#sparql-link"),
+      search: $("#search-input")
     };
 
     var syntaxCheckElements = {
@@ -52,6 +50,28 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
       branch,
       user;
     var currentFile;
+    var currentRepoOwner,
+      currentRepoName,
+      currentRepoBranch = "",
+      currentCommit = "";
+    // get some repo. information four userConfigurations.json file to be used in this editor
+    (function setRepoInfo() {
+      $.ajax({
+        type: "GET",
+        url: document.URL.split("turtleEditorLink")[0] + "getRepoInfo",
+        headers: {
+          Accept: 'application/json;charset=UTF-8'
+        },
+        success: function(data, textStatus, jqXHR) {
+          if (data) {
+            currentRepoOwner = data[0];
+            currentRepoName = data[1];
+            currentRepoBranch = data[2];
+          }
+        },
+      });
+    })()
+
 
     var state = {
       syntaxCheck: "pending",
@@ -74,7 +94,6 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
     });
 
     // Initialization -----------------------------------------------------------
-
     editor.custom = {}; // to pass list of prefixes and names
     editor.custom.dynamicNames = {};
     editor.custom.prefixed = {};
@@ -102,31 +121,29 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
         inline: true,
         position: 'bottom left'
       });
-
+    // @ahmed
+    // when help button is clicked
+    $('.ui.fullscreen.modal').modal('attach events', '#helpButton',
+      'show');
 
     // Reenable input element (necessary for Firefox)
     for (var key in inputElements) {
       inputElements[key].prop("disabled", false);
     }
 
-    // Prefill some fields for a quick example
-    //inputElements.owner.val("ahemaid");
-    //inputElements.repo.val("vocotest");
-    //inputElements.branch.val("master");
-
     // Github Interaction -------------------------------------------------------
 
     var loadFromGitHub = function() {
       var username = inputElements.username.val().trim();
-      var ownername = "ahemaid";
+      var ownername = currentRepoOwner;
       var password = inputElements.password.val().trim();
-      var reponame = "vocotest";
-      var branchname = "master";
+      var reponame = currentRepoName;
+      var branchname = currentRepoBranch;
+      $('#search-input').attr('enabled', true);
+      enableSearchButton();
 
-      document.getElementById('search-input').style.display = 'inline';
       if (state.fileIsLoaded) {
         logger.info("File already loaded.");
-
       } else {
         if (username != "") {
           gh = new Github({
@@ -165,15 +182,12 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
             }
             readFile();
           });
-
-        inputElements.username.prop("disabled", true);
-        inputElements.password.prop("disabled", true);
-        //inputElements.owner.prop("disabled", true);
-        //inputElements.repo.prop("disabled", true);
-        //inputElements.branch.prop("disabled", true);
-
-        disableLoadButton();
-
+        //@ahmed
+        // stop disabling username and  password
+        //inputElements.username.prop("disabled", true);
+        //inputElements.password.prop("disabled", true);
+        // @ahmed
+        //  disableLoadButton();
         changeSyntaxCheckState("pending");
       }
 
@@ -181,8 +195,9 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
       //Show new commit on github------------------------------------------------
       $.ajax({ //Initializing commit with last commit of repo by loading file
         type: 'GET',
-        url: "https://api.github.com/repos/" + ownername + "/" +
-          reponame + "/commits?Accept=application/vnd.github.v3+json",
+        url: "https://api.github.com/repos/" + currentRepoOwner + "/" +
+          currentRepoName +
+          "/commits?Accept=application/vnd.github.v3+json",
 
         data: {
           get_param: 'value'
@@ -193,32 +208,18 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
         }
       });
 
-      setInterval(function() { //In every 10 seconds get last commit of repo and compare it with current commit of user
-        $.ajax({
-          type: 'GET',
-          url: "https://api.github.com/repos/" + ownername + "/" +
-            reponame +
-            "/commits?Accept=application/vnd.github.v3+json",
-          data: {
-            get_param: 'value'
-          },
-          success: function(data) {
-            if (data[0]['sha'] != currentCommit) {
-              $('.ui.modal').modal({
-                centered: false,
-                blurring: true
-              }).modal('show');
-              currentCommit = data[0]['sha'];
-            }
-          }
-        });
-      }, 10000);
+
     //------------------------------------------------------------------------
     };
 
 
     var readFile = function() {
       var filename = inputElements.file.val()
+      // when change the file hide these elements and clear searched text
+      $("#search-count").hide();
+      $("#next-btn").hide();
+      $("#previous-btn").hide();
+      $("#search-input").val("");
 
       branch.read(filename, isBinary)
         .done(function(contents) {
@@ -264,9 +265,9 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
 
     var displayCurrentFilename = function(filename) {
       var baseUri = "http://vowl.visualdataweb.org/webvowl/index.html#iri=https://raw.githubusercontent.com/";
-      var ownername = "ahemaid";
-      var reponame = "vocotest";
-      var branchname = "master";
+      var ownername = currentRepoOwner;
+      var reponame = currentRepoName;
+      var branchname = currentRepoBranch;
       var specific = ownername + "/" + reponame + "/" + branchname;
       inputElements.fileDisp.html(filename)
       inputElements.vowlLink.removeAttr("href");
@@ -307,15 +308,38 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
           var currentIndex = 0;
 
           $('#previous-btn').on("click", function() {
+
+            if (currentIndex == 0) {
+              currentIndex = marked.length;
+            }
             editor.setSelection(marked[currentIndex - 1].find()['from'],
               marked[currentIndex - 1].find()['to']);
-            editor.setCursor(marked[currentIndex].find()['from']);
+            editor.setCursor(marked[currentIndex - 1].find()['from']);
+
+            // unmark while going forward
+            var text = document.getElementById("search-input").value;
+            for (var cursor = editor.getSearchCursor(text); cursor.findNext();) {
+              editor.markText(cursor.from(), cursor.to(), {
+                css: "background-color: yellow"
+              });
+            }
+            // marked curentCurser
+            editor.markText(marked[currentIndex - 1].find()['from'],
+              marked[
+                currentIndex - 1].find()['to'], {
+                css: "background-color: orange"
+              })
+            var actualIndexValue = currentIndex;
+            if (actualIndexValue == 0)
+              actualIndexValue + 1;
+            document.getElementById('search-index').innerHTML = actualIndexValue.toString() +
+              '/';
+
             if (currentIndex == 0) {
               currentIndex = marked.length - 1;
             } else {
               currentIndex--;
             }
-            document.getElementById('search-index').innerHTML = currentIndex.toString() + '/';
           });
 
           $('#next-btn').on("click", function() {
@@ -323,12 +347,29 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
               marked[currentIndex].find()['to']);
             editor.setCursor(marked[currentIndex].find()['from']);
 
+            // unmark while going forward
+            var text = document.getElementById("search-input").value;
+            for (var cursor = editor.getSearchCursor(text); cursor.findNext();) {
+              editor.markText(cursor.from(), cursor.to(), {
+                css: "background-color: yellow"
+              });
+
+            }
+            // marked curentCurser
+            editor.markText(marked[currentIndex].find()['from'], marked[
+              currentIndex].find()['to'], {
+              css: "background-color: orange"
+            })
+            // actual value of the searched word
+            var actualIndexValue = currentIndex + 1;
+            document.getElementById('search-index').innerHTML = actualIndexValue.toString() +
+              '/';
             if (currentIndex == marked.length - 1) {
               currentIndex = 0;
             } else {
               currentIndex++;
             }
-            document.getElementById('search-index').innerHTML = currentIndex.toString() + '/';
+
 
           });
         }
@@ -352,15 +393,17 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
         document.getElementById('next-btn').style.display = 'inline-block';
         document.getElementById('previous-btn').style.display = 'inline-block';
         select();
+      } else {
+        unmark();
+        $("#search-count").hide();
+        $("#next-btn").hide();
+        $("#previous-btn").hide();
       }
     }
 
     $('#search-input').on("input", search);
 
     //Check the new commit and popup it--------------------------------------------------
-
-
-
     //-----------------------------------------------------------------------------
 
     var playChecking = function() {
@@ -377,9 +420,16 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
         console.log("-> off");
       }
     };
+    // enable checkbox function
+    $('.ui.toggle').checkbox();
 
-    $('#syntax-play').on("click", playChecking);
-    $('#syntax-pause').on("click", pauseChecking);
+    $('.ui.toggle').click(function() {
+      if ($('.ui.toggle').checkbox('is checked')) {
+        playChecking();
+      } else {
+        pauseChecking();
+      }
+    });
 
     var makeMarker = function(errorMessage) {
       debugger
@@ -403,31 +453,29 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
 
     var parserHandler = function(error, triple, prefixes) {
       if (error) {
-
         /* extract line Number, only consider the end of the string after "line" */
         var errorSubString = error.message.substr(error.message.indexOf(
             "line") + 4);
         var errorLineNumber = parseInt(errorSubString) - 1;
-
-        /* add background color, gutter + tooltip */
-        var lastPos = null,
-          lastQuery = null,
-          marked = [];
-        var text = this.value;
-        for (var cursor = editor.getSearchCursor(text); cursor.findNext();)
-          marked.push(editor.markText(cursor.from(), cursor.to(), {
-            className: "styled-background"
-          }));
-        if (lastQuery != text)
-          lastPos = null;
-        var cursor = editor.getSearchCursor(text, lastPos || editor.getCursor());
-        if (!cursor.findNext()) {
-          cursor = editor.getSearchCursor(text);
-        }
-        editor.setSelection(cursor.from(), cursor.to());
-        lastQuery = text;
-        lastPos = cursor.to();
-
+        //TODO: check what is going here
+        // /* add background color, gutter + tooltip */
+        // var lastPos = null,
+        //   lastQuery = null,
+        //   marked = [];
+        // var text = this.value;
+        // for (var cursor = editor.getSearchCursor(text); cursor.findNext();)
+        //   marked.push(editor.markText(cursor.from(), cursor.to(), {
+        //     className: "styled-background"
+        //   }));
+        // if (lastQuery != text)
+        //   lastPos = null;
+        // var cursor = editor.getSearchCursor(text, lastPos || editor.getCursor());
+        // if (!cursor.findNext()) {
+        //   cursor = editor.getSearchCursor(text);
+        // }
+        // editor.setSelection(cursor.from(), cursor.to());
+        // lastQuery = text;
+        // lastPos = cursor.to();
         editor.getDoc().addLineClass(errorLineNumber, "wrap",
           "ErrorLine-background");
         editor.setGutterMarker(errorLineNumber, "breakpoints", makeMarker(
@@ -456,6 +504,26 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
       if (prefixes) {
         editor.custom.prefixes = prefixes;
       }
+      //setInterval(function() { //In every 10 seconds get last commit of repo and compare it with current commit of user
+      $.ajax({
+        type: 'GET',
+        url: "https://api.github.com/repos/" + currentRepoOwner + "/" +
+          currentRepoName +
+          "/commits?Accept=application/vnd.github.v3+json",
+        data: {
+          get_param: 'value'
+        },
+        success: function(data) {
+          if (data[0]['sha'] != currentCommit) {
+            $('#modalNewCommit').modal({
+              centered: false,
+              blurring: true
+            }).modal('show');
+            currentCommit = data[0]['sha'];
+          }
+        }
+      });
+    //}, 10000);
     };
 
     var changeSyntaxCheckState = function(newState, error, force) {
@@ -539,9 +607,17 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
       inputElements.save.prop("disabled", true);
     };
 
+    var enableSearchButton = function() {
+      inputElements.search.prop("disabled", false);
+    };
+
+    var disableSearchButton = function() {
+      inputElements.search.prop("disabled", true);
+    };
+
     // do it
     disableSaveButton();
-
+    disableSearchButton();
     if (!String.prototype.endsWith) {
       String.prototype.endsWith = function(searchString, position) {
         var subjectString = this.toString();
