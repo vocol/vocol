@@ -302,6 +302,10 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
     }
 
     function search(select) {
+      $('#modalNewCommit').modal({
+        centered: false,
+        blurring: true
+      }).modal('show');
 
       function select() {
         if (marked.length != 0) {
