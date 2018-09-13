@@ -48,9 +48,10 @@ Finally, give "public/semantic" as the location of Sematic-Ui in VoCol Project.
 ```
 ? Where should we put Semantic UI inside your project? (semantic/) public/semantic/
 ```
-6. The last step is to start VoCol with:
+6. The last step is to start VoCol with **npm start [VocolPortNumber] [SparqlEndPointPortNumber]**. In the following command, we are going to start Vocol on port 3000 where Fuseki Server is runing at port 3030
+
 ```
-npm start
+npm start 3000 3030
 ```
 8. You can access VoCol start page with http://localhost:3000 , if the port number was not changed. If you clear old data as step 4 describes, then the configuration page will be displayed. Otherwise, you can use http://localhost:3000/config URL for configuring of the VoCol. Sometimes, the port number is also changed during our project's development, for that, you have a possibility to look-up the vocol access's port number and as well change it, by opening **bin/www** file if you are on the root path of VoCol.
 
