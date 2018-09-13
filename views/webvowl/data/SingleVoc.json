@@ -1,0 +1,6622 @@
+{
+  "_comment" : "Created with OWL2VOWL (version 0.3.3-SNAPSHOT), http://vowl.visualdataweb.org",
+  "header" : {
+    "languages" : [ "undefined" ],
+    "baseIris" : [ "http://iasis/vocab", "http://www.w3.org/2000/01/rdf-schema", "http://www.w3.org/2001/XMLSchema" ],
+    "iri" : "No IRI set"
+  },
+  "namespace" : [ ],
+  "metrics" : {
+    "classCount" : 45,
+    "objectPropertyCount" : 54,
+    "datatypePropertyCount" : 81,
+    "individualCount" : 0
+  },
+  "class" : [ {
+    "id" : "34",
+    "type" : "owl:Class"
+  }, {
+    "id" : "44",
+    "type" : "owl:Class"
+  }, {
+    "id" : "12",
+    "type" : "owl:Class"
+  }, {
+    "id" : "2",
+    "type" : "owl:Class"
+  }, {
+    "id" : "33",
+    "type" : "owl:Class"
+  }, {
+    "id" : "79",
+    "type" : "owl:Class"
+  }, {
+    "id" : "22",
+    "type" : "owl:Class"
+  }, {
+    "id" : "87",
+    "type" : "owl:Class"
+  }, {
+    "id" : "63",
+    "type" : "owl:Class"
+  }, {
+    "id" : "27",
+    "type" : "owl:Class"
+  }, {
+    "id" : "32",
+    "type" : "owl:Class"
+  }, {
+    "id" : "37",
+    "type" : "owl:Class"
+  }, {
+    "id" : "120",
+    "type" : "owl:Class"
+  }, {
+    "id" : "58",
+    "type" : "owl:Class"
+  }, {
+    "id" : "77",
+    "type" : "owl:Class"
+  }, {
+    "id" : "61",
+    "type" : "owl:Class"
+  }, {
+    "id" : "14",
+    "type" : "owl:Class"
+  }, {
+    "id" : "53",
+    "type" : "owl:Class"
+  }, {
+    "id" : "5",
+    "type" : "owl:Class"
+  }, {
+    "id" : "10",
+    "type" : "owl:Class"
+  }, {
+    "id" : "29",
+    "type" : "owl:Class"
+  }, {
+    "id" : "78",
+    "type" : "owl:Class"
+  }, {
+    "id" : "4",
+    "type" : "owl:Class"
+  }, {
+    "id" : "74",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "16",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "196",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "25",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "59",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "150",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "200",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "95",
+    "type" : "owl:Class"
+  }, {
+    "id" : "84",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "201",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "202",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "38",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "157",
+    "type" : "owl:Class"
+  }, {
+    "id" : "203",
+    "type" : "owl:Class"
+  }, {
+    "id" : "55",
+    "type" : "owl:Class"
+  }, {
+    "id" : "207",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "156",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "106",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "7",
+    "type" : "owl:Class"
+  }, {
+    "id" : "213",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "110",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "144",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "214",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "215",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "108",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "1",
+    "type" : "owl:Class"
+  }, {
+    "id" : "89",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "211",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "104",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "75",
+    "type" : "owl:Class"
+  }, {
+    "id" : "152",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "20",
+    "type" : "owl:Class"
+  }, {
+    "id" : "195",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "232",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "233",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "234",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "146",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "237",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "64",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "239",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "97",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "218",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "76",
+    "type" : "owl:Class"
+  }, {
+    "id" : "35",
+    "type" : "owl:Class"
+  }, {
+    "id" : "155",
+    "type" : "owl:Class"
+  }, {
+    "id" : "18",
+    "type" : "owl:Class"
+  }, {
+    "id" : "181",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "248",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "140",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "228",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "249",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "183",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "220",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "137",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "251",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "254",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "117",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "255",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "230",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "126",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "46",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "43",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "70",
+    "type" : "owl:Class"
+  }, {
+    "id" : "245",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "133",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "122",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "129",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "268",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "166",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "119",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "193",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "158",
+    "type" : "owl:Class"
+  }, {
+    "id" : "30",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "148",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "40",
+    "type" : "owl:Class"
+  }, {
+    "id" : "236",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "222",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "258",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "281",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "209",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "81",
+    "type" : "owl:Class"
+  }, {
+    "id" : "175",
+    "type" : "owl:Class"
+  }, {
+    "id" : "164",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "280",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "253",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "226",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "135",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "160",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "101",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "66",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "24",
+    "type" : "owl:Class"
+  }, {
+    "id" : "190",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "82",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "176",
+    "type" : "owl:Thing"
+  }, {
+    "id" : "168",
+    "type" : "owl:Thing"
+  }, {
+    "id" : "48",
+    "type" : "owl:Class"
+  }, {
+    "id" : "262",
+    "type" : "owl:Class"
+  }, {
+    "id" : "50",
+    "type" : "owl:Class"
+  }, {
+    "id" : "263",
+    "type" : "owl:Class"
+  }, {
+    "id" : "86",
+    "type" : "owl:Thing"
+  }, {
+    "id" : "8",
+    "type" : "owl:Thing"
+  }, {
+    "id" : "274",
+    "type" : "owl:Thing"
+  }, {
+    "id" : "115",
+    "type" : "owl:Thing"
+  }, {
+    "id" : "295",
+    "type" : "owl:Thing"
+  }, {
+    "id" : "172",
+    "type" : "owl:Class"
+  }, {
+    "id" : "113",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "199",
+    "type" : "owl:Class"
+  }, {
+    "id" : "162",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "41",
+    "type" : "owl:Class"
+  }, {
+    "id" : "124",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "247",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "260",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "206",
+    "type" : "rdfs:Literal"
+  } ],
+  "classAttribute" : [ {
+    "iri" : "http://iasis/vocab/Test",
+    "baseIri" : "http://iasis/vocab",
+    "instances" : 0,
+    "annotations" : {
+      "partOf" : [ {
+        "identifier" : "partOf",
+        "language" : "undefined",
+        "value" : "http://iasis/vocab/ClinicalRecord",
+        "type" : "iri"
+      } ],
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://en.wikipedia.org/wiki/Mar%C3%ADa-Esther_Vidal",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Test",
+      "undefined" : "MedicalTest"
+    },
+    "subClasses" : [ "35" ],
+    "comment" : {
+      "undefined" : "Medical procedure performed to detect, diagnose, or monitor diseases, disease processes, susceptibility, and determine a course of treatment."
+    },
+    "attributes" : [ "external" ],
+    "id" : "34",
+    "superClasses" : [ "2" ]
+  }, {
+    "iri" : "http://iasis/vocab/CGI",
+    "baseIri" : "http://iasis/vocab",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "CGI",
+      "undefined" : "CpG_island"
+    },
+    "comment" : {
+      "undefined" : "CGIs are regions of the genome that contain a large number of CpG dinucleotide repeats. Although most CGIs linked to promoters are non-methylated, majority of CGIs may be completely methylated in normal cells."
+    },
+    "attributes" : [ "external" ],
+    "id" : "44",
+    "superClasses" : [ "2" ]
+  }, {
+    "iri" : "http://iasis/vocab/PREDISPOSES",
+    "baseIri" : "http://iasis/vocab",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.tib.eu/en/research-development/scientific-data-management/staff/",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "PREDISPOSES",
+      "undefined" : "Predisposes"
+    },
+    "comment" : {
+      "undefined" : "UMLS Annotation."
+    },
+    "attributes" : [ "external" ],
+    "id" : "12",
+    "superClasses" : [ "5" ]
+  }, {
+    "iri" : "http://iasis/vocab/Concept",
+    "baseIri" : "http://iasis/vocab",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.tib.eu/en/research-development/scientific-data-management/staff/",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Concept",
+      "undefined" : "Concept"
+    },
+    "subClasses" : [ "29", "32", "75", "76", "37", "27", "77", "78", "33", "53", "55", "34", "61", "7", "44", "70", "40", "41", "48", "50", "1" ],
+    "comment" : {
+      "undefined" : "Constituents of thoughts or real world entities."
+    },
+    "attributes" : [ "external" ],
+    "id" : "2"
+  }, {
+    "iri" : "http://iasis/vocab/Protein",
+    "baseIri" : "http://iasis/vocab",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Protein",
+      "undefined" : "Protein"
+    },
+    "comment" : {
+      "undefined" : "Large and complex molecules that play many critical roles in the body. They are required for the structure, function and regulation of the body's tissues and organs."
+    },
+    "attributes" : [ "external" ],
+    "id" : "33",
+    "superClasses" : [ "2" ]
+  }, {
+    "iri" : "http://iasis/vocab/STIMULATES",
+    "baseIri" : "http://iasis/vocab",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.tib.eu/en/research-development/scientific-data-management/staff/",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "STIMULATES",
+      "undefined" : "Stimulates"
+    },
+    "comment" : {
+      "undefined" : "UMLS Annotation."
+    },
+    "attributes" : [ "external" ],
+    "id" : "79",
+    "superClasses" : [ "5" ]
+  }, {
+    "iri" : "http://iasis/vocab/INHIBITS",
+    "baseIri" : "http://iasis/vocab",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.tib.eu/en/research-development/scientific-data-management/staff/",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "INHIBITS",
+      "undefined" : "Inhibits"
+    },
+    "comment" : {
+      "undefined" : "UMLS Annotation."
+    },
+    "attributes" : [ "external" ],
+    "id" : "22",
+    "superClasses" : [ "5" ]
+  }, {
+    "iri" : "http://iasis/vocab/HPO",
+    "baseIri" : "http://iasis/vocab",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "HPO"
+    },
+    "attributes" : [ "external" ],
+    "id" : "87"
+  }, {
+    "iri" : "http://iasis/vocab/LiquidBiopsyObservation",
+    "baseIri" : "http://iasis/vocab",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "LiquidBiopsyObservation",
+      "undefined" : "LiquidBiopsyObservation"
+    },
+    "comment" : {
+      "undefined" : "Each LiquidBiopsy on a patient would be documented as a separate observation."
+    },
+    "attributes" : [ "external" ],
+    "id" : "63",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "http://iasis/vocab/GExp",
+    "baseIri" : "http://iasis/vocab",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "GExp",
+      "undefined" : "GeneExpression"
+    },
+    "comment" : {
+      "undefined" : "The phenotypic manifestation of a gene or genes by the processes of genetic transcription and genetic translation."
+    },
+    "attributes" : [ "external" ],
+    "id" : "27",
+    "superClasses" : [ "2" ]
+  }, {
+    "iri" : "http://iasis/vocab/Transcript",
+    "baseIri" : "http://iasis/vocab",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Transcript",
+      "undefined" : "Transcript"
+    },
+    "comment" : {
+      "undefined" : "Single-stranded RNA product synthesized by transcription of DNA."
+    },
+    "attributes" : [ "external" ],
+    "id" : "32",
+    "superClasses" : [ "2" ]
+  }, {
+    "iri" : "http://iasis/vocab/DrugSideEffect",
+    "baseIri" : "http://iasis/vocab",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "DrugSideEffect",
+      "undefined" : "DrugSideEffectRelation"
+    },
+    "comment" : {
+      "undefined" : "The Drug SideEffect relation should be a class since has two properties"
+    },
+    "attributes" : [ "external" ],
+    "id" : "37",
+    "superClasses" : [ "2" ]
+  }, {
+    "iri" : "http://iasis/vocab/Ecog",
+    "baseIri" : "http://iasis/vocab",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Ecog",
+      "undefined" : "Ecog"
+    },
+    "comment" : {
+      "undefined" : "ECOG Performance Status describes a patient's level of functioning in terms of her/his ability for caring her/himself, daily activities and phyical abilities."
+    },
+    "attributes" : [ "external" ],
+    "id" : "120"
+  }, {
+    "iri" : "http://iasis/vocab/TumorStage",
+    "baseIri" : "http://iasis/vocab",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "TumorStage",
+      "undefined" : "TumorStage"
+    },
+    "comment" : {
+      "undefined" : "Represents the assessment of the stage of tumor in a particular date."
+    },
+    "attributes" : [ "external" ],
+    "id" : "58"
+  }, {
+    "iri" : "http://iasis/vocab/Image",
+    "baseIri" : "http://iasis/vocab",
+    "instances" : 0,
+    "annotations" : {
+      "partOf" : [ {
+        "identifier" : "partOf",
+        "language" : "undefined",
+        "value" : "http://iasis/vocab/ClinicalRecord",
+        "type" : "iri"
+      } ],
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://en.wikipedia.org/wiki/Mar%C3%ADa-Esther_Vidal",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Image",
+      "undefined" : "MedicalImage"
+    },
+    "comment" : {
+      "undefined" : "Patient's medical images."
+    },
+    "attributes" : [ "external" ],
+    "id" : "77",
+    "superClasses" : [ "2" ]
+  }, {
+    "iri" : "http://iasis/vocab/Gene",
+    "baseIri" : "http://iasis/vocab",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Gene",
+      "undefined" : "Gene"
+    },
+    "comment" : {
+      "undefined" : "Genes, which are made up of DNA, are the basic physical and functional unit of heredity."
+    },
+    "attributes" : [ "external" ],
+    "id" : "61",
+    "superClasses" : [ "2" ]
+  }, {
+    "iri" : "http://iasis/vocab/CAUSES",
+    "baseIri" : "http://iasis/vocab",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.tib.eu/en/research-development/scientific-data-management/staff/",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "CAUSES",
+      "undefined" : "Causes"
+    },
+    "comment" : {
+      "undefined" : "UMLS Annotation."
+    },
+    "attributes" : [ "external" ],
+    "id" : "14",
+    "superClasses" : [ "5" ]
+  }, {
+    "iri" : "http://iasis/vocab/Publication",
+    "baseIri" : "http://iasis/vocab",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.tib.eu/en/research-development/scientific-data-management/staff/",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Publication",
+      "undefined" : "Publication"
+    },
+    "comment" : {
+      "undefined" : "Scientific publications."
+    },
+    "attributes" : [ "external" ],
+    "id" : "53",
+    "superClasses" : [ "2" ]
+  }, {
+    "iri" : "http://iasis/vocab/Relation",
+    "baseIri" : "http://iasis/vocab",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Relation"
+    },
+    "subClasses" : [ "4", "10", "12", "14", "18", "20", "22", "157", "158", "79" ],
+    "attributes" : [ "external" ],
+    "id" : "5"
+  }, {
+    "iri" : "http://iasis/vocab/INITERACTS_WITH",
+    "baseIri" : "http://iasis/vocab",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.tib.eu/en/research-development/scientific-data-management/staff/",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "INITERACTS_WITH",
+      "undefined" : "InteractsWith"
+    },
+    "comment" : {
+      "undefined" : "UMLS Annotation."
+    },
+    "attributes" : [ "external" ],
+    "id" : "10",
+    "superClasses" : [ "5" ]
+  }, {
+    "iri" : "http://iasis/vocab/Sample",
+    "baseIri" : "http://iasis/vocab",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Sample",
+      "undefined" : "Sample"
+    },
+    "comment" : {
+      "undefined" : "A specimen of a whole entity."
+    },
+    "attributes" : [ "external" ],
+    "id" : "29",
+    "superClasses" : [ "2" ]
+  }, {
+    "iri" : "http://iasis/vocab/Patient",
+    "baseIri" : "http://iasis/vocab",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Patient",
+      "undefined" : "Patient"
+    },
+    "subClasses" : [ "81" ],
+    "comment" : {
+      "undefined" : "A person who is receiving medical care."
+    },
+    "attributes" : [ "external" ],
+    "id" : "78",
+    "superClasses" : [ "2" ]
+  }, {
+    "iri" : "http://iasis/vocab/RBP_RNA_PhysicalInteraction",
+    "baseIri" : "http://iasis/vocab",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "RBP_RNA_PhysicalInteraction",
+      "undefined" : "RBP_RNA_interaction"
+    },
+    "comment" : {
+      "undefined" : "Interaction between RNA binding protein (the mediator factor) and RNA. "
+    },
+    "attributes" : [ "external" ],
+    "id" : "4",
+    "superClasses" : [ "5" ]
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "74",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "16",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "196",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "25",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "59",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "150",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "200",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://iasis/vocab/MutationType",
+    "baseIri" : "http://iasis/vocab",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "MutationType"
+    },
+    "attributes" : [ "external" ],
+    "id" : "95"
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "84",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#date",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "201",
+    "label" : {
+      "IRI-based" : "date"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#date",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "202",
+    "label" : {
+      "IRI-based" : "date"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "38",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://iasis/vocab/MentionedIn",
+    "baseIri" : "http://iasis/vocab",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.tib.eu/en/research-development/scientific-data-management/staff/",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "MentionedIn",
+      "undefined" : "MentionedIn"
+    },
+    "comment" : {
+      "undefined" : "A relation that shows in which publication each specific CUI term has been appeared."
+    },
+    "attributes" : [ "external" ],
+    "id" : "157",
+    "superClasses" : [ "5" ]
+  }, {
+    "iri" : "http://iasis/vocab/SNP",
+    "baseIri" : "http://iasis/vocab",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "SNP"
+    },
+    "attributes" : [ "external" ],
+    "id" : "203"
+  }, {
+    "iri" : "http://iasis/vocab/CNV",
+    "baseIri" : "http://iasis/vocab",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "CNV",
+      "undefined" : "CopyNumberVariation"
+    },
+    "comment" : {
+      "undefined" : "The genetic trait involving the variation of the number of copies of a particular gene present in the genome between individuals. "
+    },
+    "attributes" : [ "external" ],
+    "id" : "55",
+    "superClasses" : [ "2" ]
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "207",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "156",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "106",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://iasis/vocab/Mutation",
+    "baseIri" : "http://iasis/vocab",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Mutation",
+      "undefined" : "Mutation"
+    },
+    "comment" : {
+      "undefined" : "A permanent alteration in the DNA sequence that makes up a gene, such that the sequence differs from what is found in most people."
+    },
+    "attributes" : [ "external" ],
+    "id" : "7",
+    "superClasses" : [ "2" ]
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "213",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "110",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "144",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "214",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "215",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "108",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://iasis/vocab/Observation",
+    "baseIri" : "http://iasis/vocab",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Observation",
+      "undefined" : "Observation"
+    },
+    "subClasses" : [ "24", "172", "63" ],
+    "comment" : {
+      "undefined" : "Active acquisition of data from patient."
+    },
+    "attributes" : [ "external" ],
+    "id" : "1",
+    "superClasses" : [ "2" ]
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "89",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "211",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "104",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://iasis/vocab/ClinicalRecord",
+    "baseIri" : "http://iasis/vocab",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://en.wikipedia.org/wiki/Mar%C3%ADa-Esther_Vidal",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "ClinicalRecord",
+      "undefined" : "Clinical Record"
+    },
+    "comment" : {
+      "undefined" : "Systematic documentation of a single patient's medical history and care across time within one particular health care provider's jurisdiction."
+    },
+    "attributes" : [ "external" ],
+    "id" : "75",
+    "superClasses" : [ "2" ]
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "152",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://iasis/vocab/Transcription",
+    "baseIri" : "http://iasis/vocab",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Transcription",
+      "undefined" : "Transcription"
+    },
+    "comment" : {
+      "undefined" : "A process during which DNA is converted to RNA, a more portable set of instructions for the cell."
+    },
+    "attributes" : [ "external" ],
+    "id" : "20",
+    "superClasses" : [ "5" ]
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "195",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "232",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "233",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "234",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "146",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "237",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "64",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "239",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "97",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "218",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://iasis/vocab/Enzyme",
+    "baseIri" : "http://iasis/vocab",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Enzyme",
+      "undefined" : "Enzyme"
+    },
+    "comment" : {
+      "undefined" : "Macromolecular biological catalyst that accelerate chemical reactions. Most enzymes are proteins."
+    },
+    "attributes" : [ "external" ],
+    "id" : "76",
+    "superClasses" : [ "2" ]
+  }, {
+    "iri" : "http://iasis/vocab/LiquidBiopsy",
+    "baseIri" : "http://iasis/vocab",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "LiquidBiopsy",
+      "undefined" : "LiquidBiopsy"
+    },
+    "comment" : {
+      "undefined" : "A test done on a sample of blood to look for cancer cells from a tumor that are circulating in the blood or for pieces of DNA from tumor cells that are in the blood."
+    },
+    "attributes" : [ "external" ],
+    "id" : "35",
+    "superClasses" : [ "34" ]
+  }, {
+    "iri" : "http://iasis/vocab/Annotation",
+    "baseIri" : "http://iasis/vocab",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.tib.eu/en/research-development/scientific-data-management/staff/",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Annotation",
+      "undefined" : "Annotation"
+    },
+    "comment" : {
+      "undefined" : "Explanation of a concept including label, id and source of concept."
+    },
+    "attributes" : [ "external" ],
+    "id" : "155"
+  }, {
+    "iri" : "http://iasis/vocab/HasTopic",
+    "baseIri" : "http://iasis/vocab",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "HasTopic",
+      "undefined" : "HasTopic"
+    },
+    "comment" : {
+      "undefined" : "A relation that shows which CUI has been appeared in each specific publication."
+    },
+    "attributes" : [ "external" ],
+    "id" : "18",
+    "superClasses" : [ "5" ]
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "181",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "248",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "140",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "228",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "249",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "183",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "220",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "137",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "251",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "254",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "117",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "255",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#date",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "230",
+    "label" : {
+      "IRI-based" : "date"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "126",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "46",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "43",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://iasis/vocab/Tumor",
+    "baseIri" : "http://iasis/vocab",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Tumor",
+      "undefined" : "Tumor"
+    },
+    "comment" : {
+      "undefined" : "Tumor is an abnormal mass of tisuue that results when cells didive more than they should or do not die when they should."
+    },
+    "attributes" : [ "external" ],
+    "id" : "70",
+    "superClasses" : [ "2" ]
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "245",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "133",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "122",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "129",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "268",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "166",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#date",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "119",
+    "label" : {
+      "IRI-based" : "date"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#date",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "193",
+    "label" : {
+      "IRI-based" : "date"
+    }
+  }, {
+    "iri" : "http://iasis/vocab/ASSOCIATED_WITH",
+    "baseIri" : "http://iasis/vocab",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.tib.eu/en/research-development/scientific-data-management/staff/",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "ASSOCIATED_WITH",
+      "undefined" : "AssociatedWith"
+    },
+    "comment" : {
+      "undefined" : "UMLS Annotation."
+    },
+    "attributes" : [ "external" ],
+    "id" : "158",
+    "superClasses" : [ "5" ]
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "30",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "148",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://iasis/vocab/EQTL",
+    "baseIri" : "http://iasis/vocab",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "EQTL",
+      "undefined" : "eQTL"
+    },
+    "comment" : {
+      "undefined" : "An eQTL is a locus that explains a fraction of the genetic variance of a gene expression phenotype."
+    },
+    "attributes" : [ "external" ],
+    "id" : "40",
+    "superClasses" : [ "2" ]
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "236",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "222",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "258",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "281",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "209",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://iasis/vocab/LCPatient",
+    "baseIri" : "http://iasis/vocab",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "LCPatient",
+      "undefined" : "LungCancerPatient"
+    },
+    "comment" : {
+      "undefined" : "A patient who is diagnosed with Lung Cancer."
+    },
+    "attributes" : [ "external" ],
+    "id" : "81",
+    "superClasses" : [ "78" ]
+  }, {
+    "instances" : 0,
+    "union" : [ "2", "155" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "175"
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "164",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "280",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "253",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "226",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "135",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#date",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "160",
+    "label" : {
+      "IRI-based" : "date"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "101",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "66",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://iasis/vocab/EcogObservation",
+    "baseIri" : "http://iasis/vocab",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "EcogObservation",
+      "undefined" : "EcogObservation"
+    },
+    "comment" : {
+      "undefined" : "Each time patient visits the hospital, the ecog is assessed as a new ecogObservation."
+    },
+    "attributes" : [ "external" ],
+    "id" : "24",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "190",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "82",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
+    "baseIri" : "http://owl2vowl.de",
+    "id" : "176",
+    "label" : {
+      "undefined" : "Thing"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
+    "baseIri" : "http://owl2vowl.de",
+    "id" : "168",
+    "label" : {
+      "undefined" : "Thing"
+    }
+  }, {
+    "iri" : "http://iasis/vocab/SideEffect",
+    "baseIri" : "http://iasis/vocab",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "SideEffect",
+      "undefined" : "SideEffect"
+    },
+    "comment" : {
+      "undefined" : "An often harmful and unwanted effect of a drug or chemical that occurs along with the desired effect."
+    },
+    "attributes" : [ "external" ],
+    "id" : "48",
+    "superClasses" : [ "2" ]
+  }, {
+    "instances" : 0,
+    "union" : [ "120", "35", "58" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "262"
+  }, {
+    "iri" : "http://iasis/vocab/Drug",
+    "baseIri" : "http://iasis/vocab",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Drug",
+      "undefined" : "Drug"
+    },
+    "comment" : {
+      "undefined" : "A substance used as a medication or in the preparation of medication."
+    },
+    "attributes" : [ "external" ],
+    "id" : "50",
+    "superClasses" : [ "2" ]
+  }, {
+    "instances" : 0,
+    "union" : [ "24", "172", "63" ],
+    "attributes" : [ "union", "anonymous" ],
+    "id" : "263"
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
+    "baseIri" : "http://owl2vowl.de",
+    "id" : "86",
+    "label" : {
+      "undefined" : "Thing"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
+    "baseIri" : "http://owl2vowl.de",
+    "id" : "8",
+    "label" : {
+      "undefined" : "Thing"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
+    "baseIri" : "http://owl2vowl.de",
+    "id" : "274",
+    "label" : {
+      "undefined" : "Thing"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
+    "baseIri" : "http://owl2vowl.de",
+    "id" : "115",
+    "label" : {
+      "undefined" : "Thing"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
+    "baseIri" : "http://owl2vowl.de",
+    "id" : "295",
+    "label" : {
+      "undefined" : "Thing"
+    }
+  }, {
+    "iri" : "http://iasis/vocab/TumorStageObservation",
+    "baseIri" : "http://iasis/vocab",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "TumorStageObservation",
+      "undefined" : "TumorStageObservation"
+    },
+    "comment" : {
+      "undefined" : "Each tumor stage assessment will be recorded as a separate observation."
+    },
+    "attributes" : [ "external" ],
+    "id" : "172",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "113",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://iasis/vocab/SourceName",
+    "baseIri" : "http://iasis/vocab",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.tib.eu/en/research-development/scientific-data-management/staff/",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "SourceName",
+      "undefined" : "SourceName"
+    },
+    "comment" : {
+      "undefined" : "Source name."
+    },
+    "attributes" : [ "external" ],
+    "id" : "199"
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "162",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://iasis/vocab/Dbsnp",
+    "baseIri" : "http://iasis/vocab",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Dbsnp",
+      "undefined" : "dbsnp"
+    },
+    "comment" : {
+      "undefined" : "Database of single nucleotide polymorphisms (SNPs) and multiple small-scale variations that include insertions/deletions, microsatellites, and non-polymorphic variants."
+    },
+    "attributes" : [ "external" ],
+    "id" : "41",
+    "superClasses" : [ "2" ]
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "124",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "247",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "260",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "206",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  } ],
+  "property" : [ {
+    "id" : "0",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "3",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "6",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "9",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "11",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "13",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "15",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "17",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "19",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "21",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "23",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "26",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "28",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "31",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "36",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "39",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "42",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "45",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "47",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "49",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "51",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "52",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "54",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "56",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "57",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "60",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "62",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "65",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "67",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "68",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "69",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "71",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "72",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "73",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "80",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "83",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "85",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "88",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "90",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "91",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "92",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "93",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "94",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "96",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "98",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "99",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "100",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "102",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "103",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "105",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "107",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "109",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "111",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "112",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "114",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "116",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "118",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "121",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "123",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "125",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "127",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "128",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "130",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "131",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "132",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "134",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "136",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "138",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "139",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "141",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "142",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "143",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "145",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "147",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "149",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "151",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "153",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "154",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "159",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "161",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "163",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "165",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "167",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "169",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "170",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "171",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "173",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "174",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "177",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "178",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "179",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "180",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "182",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "184",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "185",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "186",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "187",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "188",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "189",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "191",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "192",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "194",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "197",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "198",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "204",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "205",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "208",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "210",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "212",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "216",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "217",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "219",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "221",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "223",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "224",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "225",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "227",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "229",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "231",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "235",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "238",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "240",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "241",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "242",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "243",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "244",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "246",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "250",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "252",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "256",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "257",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "259",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "261",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "264",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "265",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "266",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "267",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "269",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "270",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "271",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "272",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "273",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "275",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "276",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "277",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "278",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "279",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "282",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "283",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "284",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "285",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "286",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "287",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "288",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "289",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "290",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "291",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "292",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "293",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "294",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "296",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "297",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "298",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "299",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "300",
+    "type" : "owl:datatypeProperty"
+  } ],
+  "propertyAttribute" : [ {
+    "range" : "2",
+    "domain" : "1",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "0"
+  }, {
+    "range" : "5",
+    "domain" : "4",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "3"
+  }, {
+    "iri" : "http://iasis/vocab/mutation_study_id",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "8",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "mutation_study_id",
+      "undefined" : "mutationStudyID"
+    },
+    "domain" : "7",
+    "comment" : {
+      "undefined" : "The ID of the study in which the mutation is mentioned"
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "6"
+  }, {
+    "range" : "5",
+    "domain" : "10",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "9"
+  }, {
+    "range" : "5",
+    "domain" : "12",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "11"
+  }, {
+    "range" : "5",
+    "domain" : "14",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "13"
+  }, {
+    "iri" : "http://iasis/vocab/fathmm_prediction",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "16",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "fathmm_prediction",
+      "undefined" : "fathmm"
+    },
+    "domain" : "7",
+    "comment" : {
+      "undefined" : "Functional Analysis through Hidden Markov Models: predicts the functional consequences of both coding variants, i.e. non-synonymous single nucleotide variants (nsSNVs), and non-coding variants."
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "15"
+  }, {
+    "range" : "5",
+    "domain" : "18",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "17"
+  }, {
+    "range" : "5",
+    "domain" : "20",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "19"
+  }, {
+    "range" : "5",
+    "domain" : "22",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "21"
+  }, {
+    "iri" : "http://iasis/vocab/ecogValue",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "25",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "ecogValue",
+      "undefined" : "ecogValue"
+    },
+    "domain" : "24",
+    "comment" : {
+      "undefined" : "Range: [0 as fully active - 5 as Dead]."
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "23"
+  }, {
+    "iri" : "http://iasis/vocab/transcription_isExpressedAs_gexp",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "27",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "transcription_isExpressedAs_gexp",
+      "undefined" : "transcription_isExpressedAs_gexp"
+    },
+    "domain" : "20",
+    "comment" : {
+      "undefined" : "Connection between transcription and gene expression."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "26"
+  }, {
+    "iri" : "http://iasis/vocab/primaryHistology",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "30",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "primaryHistology",
+      "undefined" : "PrimaryHistology"
+    },
+    "domain" : "29",
+    "comment" : {
+      "undefined" : "Histological classification of sample."
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "28"
+  }, {
+    "iri" : "http://iasis/vocab/translates_as",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "33",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "translates_as",
+      "undefined" : "translates_as"
+    },
+    "domain" : "32",
+    "comment" : {
+      "undefined" : "connection between protein and the transcript from which it has been translated."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "31"
+  }, {
+    "iri" : "http://iasis/vocab/dse_StandardDeviation",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "38",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "commnet" : [ {
+        "identifier" : "commnet",
+        "language" : "undefined",
+        "value" : "Represents standard deviation from average frequecy of particular drug having specific side effect.",
+        "type" : "label"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "dse_StandardDeviation",
+      "undefined" : "dse_StandardDeviation"
+    },
+    "domain" : "37",
+    "attributes" : [ "datatype", "external" ],
+    "id" : "36"
+  }, {
+    "iri" : "http://iasis/vocab/dbsnp",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "41",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "dbsnp",
+      "undefined" : "dbsnpID"
+    },
+    "domain" : "40",
+    "comment" : {
+      "undefined" : "Varriation ID in dbsnp database"
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "39"
+  }, {
+    "iri" : "http://iasis/vocab/tissueSubtype1",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "43",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "tissueSubtype1",
+      "undefined" : "PrimaryTissue_1stLevelSubclassification"
+    },
+    "domain" : "29",
+    "comment" : {
+      "undefined" : "Sub classification (level 1) of the samples tissue of origin."
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "42"
+  }, {
+    "iri" : "http://iasis/vocab/tissueSubtype2",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "46",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "tissueSubtype2",
+      "undefined" : "PrimaryTissue_2ndLevelSubclassification"
+    },
+    "domain" : "29",
+    "comment" : {
+      "undefined" : "Sub classification (level 2) of the samples tissue of origin."
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "45"
+  }, {
+    "range" : "2",
+    "domain" : "48",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "47"
+  }, {
+    "iri" : "http://iasis/vocab/mutation_isResistantTo_drug",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "50",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "mutation_isResistantTo_drug",
+      "undefined" : "mutation_isResistantTo_drug"
+    },
+    "domain" : "7",
+    "comment" : {
+      "undefined" : " Yes: if reported mutation confers drug resistance. -: means resistance data is unknown; there is no evidence for resistance or it is a known primary mutation."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "49"
+  }, {
+    "range" : "2",
+    "domain" : "50",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "51"
+  }, {
+    "range" : "2",
+    "domain" : "53",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "52"
+  }, {
+    "range" : "2",
+    "domain" : "55",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "54"
+  }, {
+    "range" : "2",
+    "domain" : "34",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "56"
+  }, {
+    "iri" : "http://iasis/vocab/ecogList",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "59",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "ecogList",
+      "undefined" : "ecogList"
+    },
+    "domain" : "58",
+    "comment" : {
+      "undefined" : "Represents the list of ecogs that have been recorded from patient. Not included in the original data from WP2, but is calulated as part of in-house preprocessing."
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "57"
+  }, {
+    "range" : "2",
+    "domain" : "61",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "60"
+  }, {
+    "iri" : "http://iasis/vocab/mutationName",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "64",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "mutationName",
+      "undefined" : "mutationName"
+    },
+    "domain" : "63",
+    "comment" : {
+      "undefined" : "Name of the mutation that is being studied"
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "62"
+  }, {
+    "iri" : "http://iasis/vocab/cgi_chromosome",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "66",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "cgi_chromosome",
+      "undefined" : "CpGislandChromosome"
+    },
+    "domain" : "44",
+    "comment" : {
+      "undefined" : "Chromosome in which the CGI is loacted"
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "65"
+  }, {
+    "range" : "2",
+    "domain" : "7",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "67"
+  }, {
+    "range" : "2",
+    "domain" : "44",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "68"
+  }, {
+    "range" : "2",
+    "domain" : "70",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "69"
+  }, {
+    "range" : "2",
+    "domain" : "40",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "71"
+  }, {
+    "range" : "2",
+    "domain" : "41",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "72"
+  }, {
+    "iri" : "http://iasis/vocab/fathmm_score",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "74",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "fathmm_score",
+      "undefined" : "fathmmScore"
+    },
+    "domain" : "7",
+    "comment" : {
+      "undefined" : "A single p-value, ranging from 0 to 1. Scores above 0.5 are deleterious, but in order to highlight the most significant data in COSMIC, only scores ? 0.7 are classified as 'Pathogenic'. Mutations are classed as 'Neutral' if the score is ? 0.5."
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "73"
+  }, {
+    "iri" : "http://iasis/vocab/ageStart",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "82",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "ageStart",
+      "undefined" : "ageStart"
+    },
+    "domain" : "81",
+    "comment" : {
+      "undefined" : "Age of patient."
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "80"
+  }, {
+    "iri" : "http://iasis/vocab/dse_AvgFrequency",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "84",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "dse_AvgFrequency",
+      "undefined" : "dse_AvgFrequency"
+    },
+    "domain" : "37",
+    "comment" : {
+      "undefined" : "Represents the average frequecy of particular drug having specific side effect."
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "83"
+  }, {
+    "iri" : "http://iasis/vocab/cnv_study_id",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "86",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "cnv_study_id",
+      "undefined" : "cnvStudyID"
+    },
+    "domain" : "55",
+    "comment" : {
+      "undefined" : "The ID of the study in which the CNV is mentioned"
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "85"
+  }, {
+    "iri" : "http://iasis/vocab/cnv_chromosome",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "89",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "cnv_chromosome",
+      "undefined" : "cnvChromosome"
+    },
+    "domain" : "55",
+    "comment" : {
+      "undefined" : "Chromose in which the CNV is located on"
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "88"
+  }, {
+    "range" : "2",
+    "domain" : "77",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "90"
+  }, {
+    "range" : "2",
+    "domain" : "27",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "91"
+  }, {
+    "range" : "2",
+    "domain" : "78",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "92"
+  }, {
+    "range" : "2",
+    "domain" : "33",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "93"
+  }, {
+    "iri" : "http://iasis/vocab/mutation_isClassifiedAs_mutationType",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "95",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "mutation_isClassifiedAs_mutationType",
+      "undefined" : "mutation_isClassifiedAs_mutationType"
+    },
+    "domain" : "7",
+    "comment" : {
+      "undefined" : "The mutation type according to mutation data."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "94"
+  }, {
+    "iri" : "http://iasis/vocab/methylation",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "97",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "methylation",
+      "undefined" : "methylation"
+    },
+    "domain" : "44",
+    "comment" : {
+      "undefined" : "Methylation level: H (High) : beta-value > 0.8, L (Low) : beta-value < 0.2 "
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "96"
+  }, {
+    "iri" : "http://iasis/vocab/sideEffect_isRelatedTo_dse",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "37",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "sideEffect_isRelatedTo_dse",
+      "undefined" : "sideEffect_isRelatedTo_dse"
+    },
+    "domain" : "48",
+    "comment" : {
+      "undefined" : "Connection between sideEffect and drug-sideEffect relation."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "98"
+  }, {
+    "iri" : "http://iasis/vocab/variation_isLocatedIn_gene",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "61",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "variation_isLocatedIn_gene",
+      "undefined" : "UpstreamGene"
+    },
+    "domain" : "40",
+    "comment" : {
+      "undefined" : "The gene on which the variation is located."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "99"
+  }, {
+    "iri" : "http://iasis/vocab/cds_length",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "101",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "cds_length",
+      "undefined" : "LengthOfGene"
+    },
+    "domain" : "61",
+    "comment" : {
+      "undefined" : "Length of the gene by counting the number of base pair that are included."
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "100"
+  }, {
+    "iri" : "http://iasis/vocab/cnv_isLocatedIn_sample",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "29",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "cnv_isLocatedIn_sample",
+      "undefined" : "cnv_isLocatedIn_sample"
+    },
+    "domain" : "55",
+    "comment" : {
+      "undefined" : "Relation between CNV and Sample classes."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "102"
+  }, {
+    "iri" : "http://iasis/vocab/mutation_pepSeq",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "104",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "mutation_pepSeq",
+      "undefined" : "MutationPeptideSequece"
+    },
+    "domain" : "7",
+    "comment" : {
+      "undefined" : "A new column produced from Mutation AA column, excluding p. in mutation dataset"
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "103"
+  }, {
+    "iri" : "http://iasis/vocab/diagnosisAgeGroup",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "106",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "diagnosisAgeGroup",
+      "undefined" : "diagnosisAgeGroup"
+    },
+    "domain" : "81",
+    "comment" : {
+      "undefined" : "The age group on which the patient was diagnosed with Cancer."
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "105"
+  }, {
+    "iri" : "http://iasis/vocab/cnv_end",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "108",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "cnv_end",
+      "undefined" : "cnvEndPosition"
+    },
+    "domain" : "55",
+    "comment" : {
+      "undefined" : "Ending point of CNV"
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "107"
+  }, {
+    "iri" : "http://iasis/vocab/cnv_start",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "110",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "cnv_start",
+      "undefined" : "cnvStartPosition"
+    },
+    "domain" : "55",
+    "comment" : {
+      "undefined" : "Starting point of CNV"
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "109"
+  }, {
+    "iri" : "http://iasis/vocab/drug_interactsWith_protein",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "33",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "drug_interactsWith_protein",
+      "undefined" : "drug_interactsWith_protein"
+    },
+    "domain" : "50",
+    "comment" : {
+      "undefined" : "Represents drug-protein (as target) interactions."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "111"
+  }, {
+    "iri" : "http://iasis/vocab/zygosity",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "113",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "zygosity",
+      "undefined" : "Zygosity"
+    },
+    "domain" : "7",
+    "comment" : {
+      "undefined" : "Information on whether the mutation was reported to be homozygous or heterozygous within the sample."
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "112"
+  }, {
+    "iri" : "http://iasis/vocab/gexp_study_id",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "115",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "gexp_study_id",
+      "undefined" : "gexpStudyID"
+    },
+    "domain" : "27",
+    "comment" : {
+      "undefined" : "The ID of the srudy in which the geneExpression is mentioned"
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "114"
+  }, {
+    "iri" : "http://iasis/vocab/toxicHabit",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "117",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "toxicHabit",
+      "undefined" : "toxicHabit"
+    },
+    "domain" : "81",
+    "comment" : {
+      "undefined" : "Represents if the patient is smoker or not."
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "116"
+  }, {
+    "iri" : "http://iasis/vocab/sampleDate",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "119",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "sampleDate",
+      "undefined" : "sampleDate"
+    },
+    "domain" : "63",
+    "comment" : {
+      "undefined" : "Date on which the biopsy sample has been taken."
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "118"
+  }, {
+    "iri" : "http://iasis/vocab/tissue",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "122",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "tissue",
+      "undefined" : "tissue"
+    },
+    "domain" : "40",
+    "comment" : {
+      "undefined" : "The tissue in which variation has been observed."
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "121"
+  }, {
+    "iri" : "http://iasis/vocab/type",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "124",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "type",
+      "undefined" : "eQTLtype"
+    },
+    "domain" : "40",
+    "comment" : {
+      "undefined" : "Regulatory variants are characterized as either cis or trans acting, reflecting the predicted nature of interactions and of course depending on the physical distance from the gene they regulate."
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "123"
+  }, {
+    "iri" : "http://iasis/vocab/total_cn",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "126",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "total_cn",
+      "undefined" : "totalCopyNumber"
+    },
+    "domain" : "55",
+    "comment" : {
+      "undefined" : "Sum of the major and minor allele counts."
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "125"
+  }, {
+    "iri" : "http://iasis/vocab/drug_isPredictedToInteractWith_enzyme",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "76",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "drug_isPredictedToInteractWith_enzyme",
+      "undefined" : "drug_isPredictedToInteractWith_enzyme"
+    },
+    "domain" : "50",
+    "comment" : {
+      "undefined" : "Predicts drug-enzyme interactions using semEP."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "127"
+  }, {
+    "iri" : "http://iasis/vocab/targetTotal",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "129",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "targetTotal",
+      "undefined" : "targetTotal"
+    },
+    "domain" : "63",
+    "comment" : {
+      "undefined" : "The percentage of circulating tumor DNA in the blood"
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "128"
+  }, {
+    "iri" : "http://iasis/vocab/mentioned_in",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "53",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "mentioned_in",
+      "undefined" : "mentioned_in"
+    },
+    "domain" : "50",
+    "comment" : {
+      "undefined" : "Relation that represents what drug has been mentioned in what publication."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "130"
+  }, {
+    "iri" : "http://iasis/vocab/gexpChanges_occuredIn_gene",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "61",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "gexpChanges_occuredIn_gene",
+      "undefined" : "DownstreamGene"
+    },
+    "domain" : "40",
+    "comment" : {
+      "undefined" : "The gene where the GE level is changed."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "131"
+  }, {
+    "iri" : "http://iasis/vocab/sampleSource",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "133",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "sampleSource",
+      "undefined" : "sampleSource"
+    },
+    "domain" : "29",
+    "comment" : {
+      "undefined" : "Appears in resistanceMutation dataset"
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "132"
+  }, {
+    "iri" : "http://iasis/vocab/biopsyList",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "135",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "biopsyList",
+      "undefined" : "biopsyList"
+    },
+    "domain" : "35",
+    "comment" : {
+      "undefined" : "Represents the list of liquid biopsy test that have been taken from patient. Not included in the original data from WP2, but is calulated as part of in-house preprocessing."
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "134"
+  }, {
+    "iri" : "http://iasis/vocab/histologySubtype1",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "137",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "histologySubtype1",
+      "undefined" : "PrimaryHistology_1stLevelSubclassification"
+    },
+    "domain" : "29",
+    "comment" : {
+      "undefined" : "Histological classification (level 1) of the sample."
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "136"
+  }, {
+    "iri" : "http://iasis/vocab/cnv_isClassifiedAs_mutationType",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "95",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "cnv_isClassifiedAs_mutationType",
+      "undefined" : "cnv_isClassifiedAs_mutationType"
+    },
+    "domain" : "55",
+    "comment" : {
+      "undefined" : "The mutation type according to CNV data."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "138"
+  }, {
+    "iri" : "http://iasis/vocab/histologySubtype2",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "140",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "histologySubtype2",
+      "undefined" : "PrimaryHistology_2ndLevelSubclassification"
+    },
+    "domain" : "29",
+    "comment" : {
+      "undefined" : "Histological classification (level 2) of the sample."
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "139"
+  }, {
+    "iri" : "http://iasis/vocab/hasTumorStage",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "58",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasTumorStage",
+      "undefined" : "hasTumorStage"
+    },
+    "domain" : "81",
+    "comment" : {
+      "undefined" : "Connection between patient and tumor stage records."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "141"
+  }, {
+    "iri" : "http://iasis/vocab/mutation_isLocatedIn_transcript",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "32",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "mutation_isLocatedIn_transcript",
+      "undefined" : "mutation_isLocatedIn_transcript"
+    },
+    "domain" : "7",
+    "comment" : {
+      "undefined" : "The transcript in which the mutation occurs."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "142"
+  }, {
+    "iri" : "http://iasis/vocab/copiesMicroliterVic",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "144",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "copiesMicroliterVic",
+      "undefined" : "copiesMicroliterVic"
+    },
+    "domain" : "63",
+    "comment" : {
+      "undefined" : "Number of non-mutated copies per microliter of blood"
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "143"
+  }, {
+    "iri" : "http://iasis/vocab/monthsInTreatment",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "146",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "monthsInTreatment",
+      "undefined" : "monthsInTreatment"
+    },
+    "domain" : "81",
+    "comment" : {
+      "undefined" : "Represents the number of months patient has been under treatment. Not included in the original data from WP2, but is calulated as part of in-house preprocessing."
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "145"
+  }, {
+    "iri" : "http://iasis/vocab/omixcore",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "148",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "omixcore",
+      "undefined" : "omixcore"
+    },
+    "domain" : "4",
+    "comment" : {
+      "undefined" : "OmiXcore is an algorithm as part of catRAPID integrates the information coming from protein and >14,000 lincRNA fragments into an overall binding propensity value. It is based on a non-linear algorithm trained on the interaction propensities of protein fragments for RNA regions to predict binding affinities (i.e. read counts normalized by expression levels)."
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "147"
+  }, {
+    "iri" : "http://iasis/vocab/eqtl_chromosome",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "150",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "eqtl_chromosome",
+      "undefined" : "eqtlChromosome"
+    },
+    "domain" : "40",
+    "comment" : {
+      "undefined" : "Chromosome position of eQTL."
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "149"
+  }, {
+    "iri" : "http://iasis/vocab/mutation_end",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "152",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "mutation_end",
+      "undefined" : "mutationEndPosition"
+    },
+    "domain" : "7",
+    "comment" : {
+      "undefined" : "Ending point of the mutation"
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "151"
+  }, {
+    "iri" : "http://iasis/vocab/mutation_isLocatedIn_gene",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "61",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "mutation_isLocatedIn_gene",
+      "undefined" : "MutationIsLocatedInGene"
+    },
+    "domain" : "7",
+    "comment" : {
+      "undefined" : "The gene in which the mutation occurs."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "153"
+  }, {
+    "iri" : "http://iasis/vocab/description",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "156",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "description",
+      "undefined" : "Description"
+    },
+    "domain" : "155",
+    "comment" : {
+      "undefined" : "A property of Annotation Class"
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "154"
+  }, {
+    "iri" : "http://iasis/vocab/birthDate",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "160",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "birthDate",
+      "undefined" : "birthDate"
+    },
+    "domain" : "81",
+    "comment" : {
+      "undefined" : "Birth date of the patient."
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "159"
+  }, {
+    "iri" : "http://iasis/vocab/z_score",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "162",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "z_score",
+      "undefined" : "z-score"
+    },
+    "domain" : "27",
+    "comment" : {
+      "undefined" : "An indicative score taken from the gen_expression from different platforms."
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "161"
+  }, {
+    "iri" : "http://iasis/vocab/annLabel",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "164",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "annLabel",
+      "undefined" : "AnnotationLabel"
+    },
+    "domain" : "155",
+    "comment" : {
+      "undefined" : "Label of instances of Annotation class"
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "163"
+  }, {
+    "iri" : "http://iasis/vocab/qvalue",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "166",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "qvalue",
+      "undefined" : "q-value"
+    },
+    "domain" : "40",
+    "comment" : {
+      "undefined" : "log10q"
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "165"
+  }, {
+    "iri" : "http://iasis/vocab/cgi_study_id",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "168",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "cgi_study_id",
+      "undefined" : "CpGislandStudyID"
+    },
+    "domain" : "44",
+    "comment" : {
+      "undefined" : "The ID of the study in which the CGI is mentioned"
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "167"
+  }, {
+    "range" : "78",
+    "domain" : "81",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "169"
+  }, {
+    "range" : "1",
+    "domain" : "24",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "170"
+  }, {
+    "range" : "1",
+    "domain" : "172",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "171"
+  }, {
+    "range" : "1",
+    "domain" : "63",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "173"
+  }, {
+    "iri" : "http://iasis/vocab/id",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "176",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.tib.eu/en/research-development/scientific-data-management/staff/",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "id",
+      "undefined" : "ConceptID"
+    },
+    "domain" : "175",
+    "comment" : {
+      "undefined" : "Identification of instances of Concept class"
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "174"
+  }, {
+    "iri" : "http://iasis/vocab/cui_mentionedIn_publication",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "53",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "cui_mentionedIn_publication",
+      "undefined" : "cui_mentionedIn_publication"
+    },
+    "domain" : "155",
+    "comment" : {
+      "undefined" : "Direct connection that represents in which publication each CUI has been appeared. "
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "177"
+  }, {
+    "iri" : "http://iasis/vocab/protein_isRelatedTo_physicalInteraction",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "4",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "protein_isRelatedTo_physicalInteraction",
+      "undefined" : "protein_isRelatedTo_physicalInteraction"
+    },
+    "domain" : "33",
+    "comment" : {
+      "undefined" : "Connection between protein and RBP-RNA physical interaction relation. "
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "178"
+  }, {
+    "iri" : "http://iasis/vocab/cgi_isLocatedIn_gene",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "61",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "cgi_isLocatedIn_gene",
+      "undefined" : "cgi_isLocatedIn_gene"
+    },
+    "domain" : "44",
+    "comment" : {
+      "undefined" : "Relation between CGI and Gene classes."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "179"
+  }, {
+    "iri" : "http://iasis/vocab/label",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "181",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "label",
+      "undefined" : "ConceptLabel"
+    },
+    "domain" : "2",
+    "comment" : {
+      "undefined" : "Label of instances of Concept class"
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "180"
+  }, {
+    "iri" : "http://iasis/vocab/genomic_position",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "183",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "genomic_position",
+      "undefined" : "CpGislandGenomicPosition"
+    },
+    "domain" : "44",
+    "comment" : {
+      "undefined" : "Genomic position"
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "182"
+  }, {
+    "iri" : "http://iasis/vocab/gene_isTranscribedAs_transcription",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "20",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "gene_isTranscribedAs_transcription",
+      "undefined" : "gene_isTranscribedAs_transcription"
+    },
+    "domain" : "61",
+    "comment" : {
+      "undefined" : "As connection between Gene and Transcription Relation."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "184"
+  }, {
+    "iri" : "http://iasis/vocab/cgi_isLocatedIn_tumor",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "70",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "cgi_isLocatedIn_tumor",
+      "undefined" : "cgi_isLocatedIn_tumor"
+    },
+    "domain" : "44",
+    "comment" : {
+      "undefined" : "Relation between CGI and Tumor classes."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "185"
+  }, {
+    "iri" : "http://iasis/vocab/drug_isRelatedTo_dse",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "37",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "drug_isRelatedTo_dse",
+      "undefined" : "drug_isRelatedTo_dse"
+    },
+    "domain" : "50",
+    "comment" : {
+      "undefined" : "Connection between drug and drug-sideEffect relation."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "186"
+  }, {
+    "range" : "5",
+    "domain" : "157",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "187"
+  }, {
+    "range" : "5",
+    "domain" : "158",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "188"
+  }, {
+    "iri" : "http://iasis/vocab/age",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "190",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "age",
+      "undefined" : "AgeOfSample"
+    },
+    "domain" : "29",
+    "comment" : {
+      "undefined" : "Information about the information of sample"
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "189"
+  }, {
+    "range" : "5",
+    "domain" : "79",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "191"
+  }, {
+    "iri" : "http://iasis/vocab/resultDate",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "193",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "resultDate",
+      "undefined" : "resultDate"
+    },
+    "domain" : "63",
+    "comment" : {
+      "undefined" : "Date on which the biopsy result has been provided."
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "192"
+  }, {
+    "iri" : "http://iasis/vocab/mutation_NucleotideSeq",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "195",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "mutation_NucleotideSeq",
+      "undefined" : "MutationNucleotideSequence"
+    },
+    "domain" : "7",
+    "comment" : {
+      "undefined" : "The new column produced from Mutation CDS column, excluding c. Those including extra characters are ignored to be added to this column."
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "194"
+  }, {
+    "iri" : "http://iasis/vocab/mutation_mentionedIn_publication",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "53",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "mutation_mentionedIn_publication",
+      "undefined" : "MutationMentionedInPublication"
+    },
+    "domain" : "7",
+    "comment" : {
+      "undefined" : "Extracted from Mutation dataset."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "197"
+  }, {
+    "iri" : "http://iasis/vocab/semanticTypes",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "199",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "semanticTypes",
+      "undefined" : "semanticType"
+    },
+    "domain" : "155",
+    "comment" : {
+      "undefined" : "A list with the allowed semantic_types for this Annotation in the UMLS. "
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "198"
+  }, {
+    "iri" : "http://iasis/vocab/relation_isRelatedTo_cui",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "155",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "relation_isRelatedTo_cui",
+      "undefined" : "relation_isRelatedTo_cui"
+    },
+    "domain" : "5",
+    "comment" : {
+      "undefined" : "The connection between UMLS relation and CUI."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "204"
+  }, {
+    "iri" : "http://iasis/vocab/weeksInTreatment",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "206",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "weeksInTreatment",
+      "undefined" : "weeksInTreatment"
+    },
+    "domain" : "81",
+    "comment" : {
+      "undefined" : "Represents the number of weeks patient has been under treatment. Not included in the original data from WP2, but is calulated as part of in-house preprocessing."
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "205"
+  }, {
+    "iri" : "http://iasis/vocab/mutation_strand",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "209",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "mutation_strand",
+      "undefined" : "mutationStrand"
+    },
+    "domain" : "7",
+    "comment" : {
+      "undefined" : "Strand in which the mutation is occured"
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "208"
+  }, {
+    "iri" : "http://iasis/vocab/mutation_chromosome",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "211",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "mutation_chromosome",
+      "undefined" : "mutationChromosome"
+    },
+    "domain" : "7",
+    "comment" : {
+      "undefined" : "Chromosome in which the mutation is occured"
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "210"
+  }, {
+    "iri" : "http://iasis/vocab/mutation_isLocatedIn_tumor",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "70",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "mutation_isLocatedIn_tumor",
+      "undefined" : "mutation_isLocatedIn_tumor"
+    },
+    "domain" : "7",
+    "comment" : {
+      "undefined" : "The tumor in which the mutation occurs."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "212"
+  }, {
+    "iri" : "http://iasis/vocab/variant_affects_transcript",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "32",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "variant_affects_transcript",
+      "undefined" : "variant_affects_transcript"
+    },
+    "domain" : "203",
+    "comment" : {
+      "undefined" : "It's trans-eQTL: trans-acting expression quantitative trait loci, i.e. genomic variants that affect the expression of distant (trans) genes) from three sources: GTEx, Joehanes et al. and a Dutch group (Lude Franke)"
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "216"
+  }, {
+    "iri" : "http://iasis/vocab/loh",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "218",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "loh",
+      "undefined" : "LOH"
+    },
+    "domain" : "7",
+    "comment" : {
+      "undefined" : "LOH information on whether the gene was reported to have Loss of heterozygosity (a common genetic event in cancer development) in the sample. "
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "217"
+  }, {
+    "iri" : "http://iasis/vocab/gender",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "220",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "gender",
+      "undefined" : "gender"
+    },
+    "domain" : "81",
+    "comment" : {
+      "undefined" : "Gender of the patient."
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "219"
+  }, {
+    "iri" : "http://iasis/vocab/mutation_start",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "222",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "mutation_start",
+      "undefined" : "mutationStartPosition"
+    },
+    "domain" : "7",
+    "comment" : {
+      "undefined" : "Starting point of the mutation"
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "221"
+  }, {
+    "iri" : "http://iasis/vocab/eqtl_position",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "196",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "eqtl_position",
+      "undefined" : "eqtlPosition"
+    },
+    "domain" : "40",
+    "comment" : {
+      "undefined" : "Genomic position of eQTL."
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "223"
+  }, {
+    "iri" : "http://iasis/vocab/drug_isPredictedToInteractWith_drug",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "50",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "drug_isPredictedToInteractWith_drug",
+      "undefined" : "drug_isPredictedToInteractWith_drug"
+    },
+    "domain" : "50",
+    "comment" : {
+      "undefined" : "Predicts drug-drug interactions using semEP."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "224"
+  }, {
+    "iri" : "http://iasis/vocab/beta_value",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "226",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "beta_value",
+      "undefined" : "beta-value"
+    },
+    "domain" : "44",
+    "comment" : {
+      "undefined" : "Beta-value for the probe in the tumour sample. Only values > 0.8 (High) or < 0.2 (Low) are included."
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "225"
+  }, {
+    "iri" : "http://iasis/vocab/journal",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "228",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "journal",
+      "undefined" : "journal"
+    },
+    "domain" : "53",
+    "comment" : {
+      "undefined" : "Journal of publication"
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "227"
+  }, {
+    "iri" : "http://iasis/vocab/tumorStageDate",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "230",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "tumorStageDate",
+      "undefined" : "tumorStageDate"
+    },
+    "domain" : "172",
+    "comment" : {
+      "undefined" : "The date on which specific tumor stage has been recorded."
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "229"
+  }, {
+    "iri" : "http://iasis/vocab/gene_isRelatedTo_sample",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "29",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "gene_isRelatedTo_sample",
+      "undefined" : "gene_isRelatedTo_sample"
+    },
+    "domain" : "61",
+    "comment" : {
+      "undefined" : "Relation between Gene and Sample classes."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "231"
+  }, {
+    "iri" : "http://iasis/vocab/primaryTissue",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "236",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "primaryTissue",
+      "undefined" : "PrimaryTissue"
+    },
+    "domain" : "29",
+    "comment" : {
+      "undefined" : "Primary tissue/cancer from which the sample originated."
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "235"
+  }, {
+    "iri" : "http://iasis/vocab/transcript_isRelatedTo_transcription",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "20",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "transcript_isRelatedTo_transcription",
+      "undefined" : "transcript_isRelatedTo_transcription"
+    },
+    "domain" : "32",
+    "comment" : {
+      "undefined" : "Connection between transcription and corresponding transcript."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "238"
+  }, {
+    "iri" : "http://iasis/vocab/mutation_aa",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "234",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "mutation_aa",
+      "undefined" : "mutationAA"
+    },
+    "domain" : "7",
+    "comment" : {
+      "undefined" : "Peptide sequence of the mutation"
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "240"
+  }, {
+    "iri" : "http://iasis/vocab/diagnosisDate",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "201",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "diagnosisDate",
+      "undefined" : "diagnosisDate"
+    },
+    "domain" : "81",
+    "comment" : {
+      "undefined" : "The date on which the patient was diagnosed with Cancer."
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "241"
+  }, {
+    "iri" : "http://iasis/vocab/drug_isPredictedToHave_sideEffect",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "48",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "drug_isPredictedToHave_sideEffect",
+      "undefined" : "drug_isPredictedToHave_sideEffect"
+    },
+    "domain" : "50",
+    "comment" : {
+      "undefined" : "Predicts drug-sideEffect relations using semEP."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "242"
+  }, {
+    "iri" : "http://iasis/vocab/cnv_isLocatedIn_tumor",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "70",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "cnv_isLocatedIn_tumor",
+      "undefined" : "cnv_isLocatedIn_tumor"
+    },
+    "domain" : "55",
+    "comment" : {
+      "undefined" : "Relation between CNV and Tumor classes."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "243"
+  }, {
+    "iri" : "http://iasis/vocab/snp",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "245",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "snp",
+      "undefined" : "SNP"
+    },
+    "domain" : "7",
+    "comment" : {
+      "undefined" : "All the known SNPs are flagged as: is SNP."
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "244"
+  }, {
+    "iri" : "http://iasis/vocab/two_sided_p-value",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "247",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "two_sided_p-value",
+      "undefined" : "twoSidedP-value"
+    },
+    "domain" : "44",
+    "comment" : {
+      "undefined" : "Combining two statistical tests in a two-part model."
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "246"
+  }, {
+    "iri" : "http://iasis/vocab/hasSideEffect",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "87",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasSideEffect",
+      "undefined" : "hasSideEffect"
+    },
+    "domain" : "50",
+    "comment" : {
+      "undefined" : "Represents the side effect each drug may have."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "250"
+  }, {
+    "iri" : "http://iasis/vocab/avg_beta_value",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "253",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "avg_beta_value",
+      "undefined" : "averageBeta-value"
+    },
+    "domain" : "44",
+    "comment" : {
+      "undefined" : "Average beta-value across the normal population."
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "252"
+  }, {
+    "iri" : "http://iasis/vocab/publication_hasTopic_cui",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "155",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "publication_hasTopic_cui",
+      "undefined" : "publication_hasTopic_cui"
+    },
+    "domain" : "53",
+    "comment" : {
+      "undefined" : "Direct connection that represents the topic of publication using CUI."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "256"
+  }, {
+    "iri" : "http://iasis/vocab/mutation_somatic_status",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "258",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "mutation_somatic_status",
+      "undefined" : "mutation_somatic_status"
+    },
+    "domain" : "7",
+    "comment" : {
+      "undefined" : "Information on whether the sample was reported to be Confirmed Somatic, Previously Reported or Variant of unknown origin."
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "257"
+  }, {
+    "iri" : "http://iasis/vocab/year",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "260",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "year",
+      "undefined" : "year"
+    },
+    "domain" : "53",
+    "comment" : {
+      "undefined" : "Year of Publication"
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "259"
+  }, {
+    "iri" : "http://iasis/vocab/hasObservation",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "263",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasObservation",
+      "undefined" : "hasEcogObservation"
+    },
+    "domain" : "262",
+    "comment" : {
+      "undefined" : "Connection between TumorStage and TumorStageObservation."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "261"
+  }, {
+    "iri" : "http://iasis/vocab/hasAnnotation",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "155",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasAnnotation",
+      "undefined" : "hasAnnotation"
+    },
+    "domain" : "53",
+    "comment" : {
+      "undefined" : "Connection between mentionedIn or HasTopic relation with CUI."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "264"
+  }, {
+    "iri" : "http://iasis/vocab/mutationDescription",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "239",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "mutationDescription",
+      "undefined" : "mutationDescription"
+    },
+    "domain" : "7",
+    "comment" : {
+      "undefined" : "Is extracted from mutation dataset. "
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "265"
+  }, {
+    "iri" : "http://iasis/vocab/diagnosisAge",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "207",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "diagnosisAge",
+      "undefined" : "diagnosisAge"
+    },
+    "domain" : "81",
+    "comment" : {
+      "undefined" : "The age on which the patient was diagnosed with Cancer."
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "266"
+  }, {
+    "iri" : "http://iasis/vocab/sample_isTakenFrom_tumor",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "70",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "commnet" : [ {
+        "identifier" : "commnet",
+        "language" : "undefined",
+        "value" : "The tumor from which the sample is taken.",
+        "type" : "label"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "sample_isTakenFrom_tumor",
+      "undefined" : "sample_isTakenFrom_tumor"
+    },
+    "domain" : "29",
+    "attributes" : [ "object", "external" ],
+    "id" : "267"
+  }, {
+    "iri" : "http://iasis/vocab/cnv_isLocatedIn_gene",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "61",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "cnv_isLocatedIn_gene",
+      "undefined" : "cnv_isLocatedIn_gene"
+    },
+    "domain" : "55",
+    "comment" : {
+      "undefined" : "Relation between CNV and Gene classes."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "269"
+  }, {
+    "iri" : "http://iasis/vocab/copiesMicroliterFam",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "214",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "copiesMicroliterFam",
+      "undefined" : "copiesMicroliterFam"
+    },
+    "domain" : "63",
+    "comment" : {
+      "undefined" : "Number of mutated copies per microliter of blood"
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "270"
+  }, {
+    "iri" : "http://iasis/vocab/hasBiopsy",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "35",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasBiopsy",
+      "undefined" : "hasBiopsy"
+    },
+    "domain" : "81",
+    "comment" : {
+      "undefined" : "Connection between patient and biopsy records."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "271"
+  }, {
+    "iri" : "http://iasis/vocab/minor_allele",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "237",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "minor_allele",
+      "undefined" : "minorAllele"
+    },
+    "domain" : "55",
+    "comment" : {
+      "undefined" : "Number of copies of the least frequent allele."
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "272"
+  }, {
+    "iri" : "http://iasis/vocab/identifier",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "274",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "identifier",
+      "undefined" : "ObservationID"
+    },
+    "domain" : "1",
+    "comment" : {
+      "undefined" : "The identifier of each patient observation."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "273"
+  }, {
+    "iri" : "http://iasis/vocab/annotates",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "155",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "annotates",
+      "undefined" : "annotates"
+    },
+    "domain" : "53",
+    "comment" : {
+      "undefined" : "Connection between mentionedIn or HasTopic relation with CUI."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "275"
+  }, {
+    "iri" : "http://iasis/vocab/hasEcog",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "120",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasEcog",
+      "undefined" : "hasEcog"
+    },
+    "domain" : "81",
+    "comment" : {
+      "undefined" : "Connection between patient and ecog records."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "276"
+  }, {
+    "iri" : "http://iasis/vocab/drug_interactsWith_enzyme",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "76",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "drug_interactsWith_enzyme",
+      "undefined" : "drug_interactsWith_enzyme"
+    },
+    "domain" : "50",
+    "comment" : {
+      "undefined" : "Represents drug-enzyme (as target) interactions."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "277"
+  }, {
+    "iri" : "http://iasis/vocab/isRelatedTo",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "5",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.tib.eu/en/research-development/scientific-data-management/staff/",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "isRelatedTo",
+      "undefined" : "AnnotationOfConcept"
+    },
+    "domain" : "2",
+    "comment" : {
+      "undefined" : "Relation between superclasses Concept and Relation classes"
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "278"
+  }, {
+    "iri" : "http://iasis/vocab/authors",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "280",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "authors",
+      "undefined" : "authors"
+    },
+    "domain" : "53",
+    "comment" : {
+      "undefined" : "Authors of publication"
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "279"
+  }, {
+    "range" : "2",
+    "domain" : "75",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "282"
+  }, {
+    "range" : "2",
+    "domain" : "32",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "283"
+  }, {
+    "range" : "2",
+    "domain" : "37",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "284"
+  }, {
+    "range" : "2",
+    "domain" : "76",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "285"
+  }, {
+    "range" : "2",
+    "domain" : "29",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "286"
+  }, {
+    "range" : "34",
+    "domain" : "35",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "287"
+  }, {
+    "iri" : "http://iasis/vocab/transcript_isRelatedTo_physicalInteraction",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "4",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "transcript_isRelatedTo_physicalInteraction",
+      "undefined" : "transcript_isRelatedTo_physicalInteraction"
+    },
+    "domain" : "32",
+    "comment" : {
+      "undefined" : "Connection between transcript and RBP-RNA physical interaction relation."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "288"
+  }, {
+    "iri" : "http://iasis/vocab/drug_interactsWith_drug",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "50",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "drug_interactsWith_drug",
+      "undefined" : "drug_interactsWith_drug"
+    },
+    "domain" : "50",
+    "comment" : {
+      "undefined" : "Represents drug-drug interactions."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "289"
+  }, {
+    "iri" : "http://iasis/vocab/provenance",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "199",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.tib.eu/en/research-development/scientific-data-management/staff/",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "provenance",
+      "undefined" : "provenance"
+    },
+    "domain" : "2",
+    "comment" : {
+      "undefined" : "The name of the source from which the concept is extracted or derived"
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "290"
+  }, {
+    "iri" : "http://iasis/vocab/cgi_isLocatedIn_sample",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "29",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "cgi_isLocatedIn_sample",
+      "undefined" : "cgi_isLocatedIn_sample"
+    },
+    "domain" : "44",
+    "comment" : {
+      "undefined" : "Relation between CGI and Sample classes."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "291"
+  }, {
+    "iri" : "http://iasis/vocab/ecogDate",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "202",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "ecogDate",
+      "undefined" : "ecogDate"
+    },
+    "domain" : "24",
+    "comment" : {
+      "undefined" : "The date on which specific ecog has been recorded."
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "292"
+  }, {
+    "iri" : "http://iasis/vocab/tumorStage",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "254",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "tumorStage",
+      "undefined" : "tumorStage"
+    },
+    "domain" : "172",
+    "comment" : {
+      "undefined" : "Range: ['I','II','III','IV']."
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "293"
+  }, {
+    "iri" : "http://iasis/vocab/mutation_cds",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "233",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "mutation_cds",
+      "undefined" : "mutationCDS"
+    },
+    "domain" : "7",
+    "comment" : {
+      "undefined" : "Nucleotide sequence of the mutation"
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "294"
+  }, {
+    "iri" : "http://iasis/vocab/mutation_isLocatedIn_sample",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "29",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "mutation_isLocatedIn_sample",
+      "undefined" : "mutation_isLocatedIn_sample"
+    },
+    "domain" : "7",
+    "comment" : {
+      "undefined" : "The sample in which the mutation occurs."
+    },
+    "attributes" : [ "object", "external" ],
+    "id" : "296"
+  }, {
+    "iri" : "http://iasis/vocab/mutationType",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "232",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "mutationType",
+      "undefined" : "MutationType"
+    },
+    "domain" : "55",
+    "comment" : {
+      "undefined" : "Is extracted from CNV dataset"
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "297"
+  }, {
+    "iri" : "http://iasis/vocab/regulation",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "268",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "regulation",
+      "undefined" : "Regulation"
+    },
+    "domain" : "27",
+    "comment" : {
+      "undefined" : "It could be over or under depending on the scores from different platforms if they are above or below the threshold."
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "298"
+  }, {
+    "iri" : "http://iasis/vocab/tumor_origin",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "255",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "tumor_origin",
+      "undefined" : "tumorOrigin"
+    },
+    "domain" : "7",
+    "comment" : {
+      "undefined" : "Describes where the sample has originated from including the tumour type"
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "299"
+  }, {
+    "iri" : "http://iasis/vocab/egfrMutation",
+    "baseIri" : "http://iasis/vocab",
+    "range" : "200",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "https://www.l3s.de/de/user/jozashoori",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2017-07-24",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "egfrMutation",
+      "undefined" : "egfrMutation"
+    },
+    "domain" : "81",
+    "comment" : {
+      "undefined" : "Represents if EGFR has been mutated or not."
+    },
+    "attributes" : [ "datatype", "external" ],
+    "id" : "300"
+  } ]
+}
