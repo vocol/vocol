@@ -1,0 +1,118 @@
+{
+  "_comment" : "Created with OWL2VOWL (version 0.3.5), http://vowl.visualdataweb.org",
+  "header" : {
+    "languages" : [ "en", "undefined" ],
+    "baseIris" : [ "http://www.w3.org/1999/02/22-rdf-syntax-ns", "http://www.w3.org/2000/01/rdf-schema", "http://www.w3.org/2001/XMLSchema", "https://w3id.org/i40/sto" ],
+    "iri" : "No IRI set"
+  },
+  "namespace" : [ ],
+  "class" : [ {
+    "id" : "0",
+    "type" : "owl:Class"
+  } ],
+  "classAttribute" : [ {
+    "iri" : "https://w3id.org/i40/sto#Standard",
+    "baseIri" : "https://w3id.org/i40/sto",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Standard"
+    },
+    "individuals" : [ {
+      "iri" : "https://w3id.org/i40/sto#IEC_62541",
+      "baseIri" : "https://w3id.org/i40/sto",
+      "description" : {
+        "en" : "OPC Unified Architecture (OPC UA) is an ..."
+      },
+      "annotations" : {
+        "hasOfficialResource" : [ {
+          "identifier" : "hasOfficialResource",
+          "language" : "undefined",
+          "value" : "https://opcfoundation.org/about/opc-tech.../opc-ua/",
+          "type" : "iri"
+        } ],
+        "hasTag" : [ {
+          "identifier" : "hasTag",
+          "language" : "en",
+          "value" : "OPC UA",
+          "type" : "label"
+        } ],
+        "hasDBpediaResource" : [ {
+          "identifier" : "hasDBpediaResource",
+          "language" : "undefined",
+          "value" : "http://dbpedia.org/resource/OPC_Unified_Architecture",
+          "type" : "iri"
+        } ],
+        "hasRAMILifeCycleLayer" : [ {
+          "identifier" : "hasRAMILifeCycleLayer",
+          "language" : "undefined",
+          "value" : "https://w3id.org/i40/rami#Communication",
+          "type" : "iri"
+        } ],
+        "hasISA95Level" : [ {
+          "identifier" : "hasISA95Level",
+          "language" : "undefined",
+          "value" : "https://w3id.org/i40/sto#SCADALevel",
+          "type" : "iri"
+        } ],
+        "relatedTo" : [ {
+          "identifier" : "relatedTo",
+          "language" : "undefined",
+          "value" : "https://w3id.org/i40/sto#IEC_61499",
+          "type" : "iri"
+        }, {
+          "identifier" : "relatedTo",
+          "language" : "undefined",
+          "value" : "https://w3id.org/i40/sto#IEC_62714",
+          "type" : "iri"
+        } ],
+        "norm" : [ {
+          "identifier" : "norm",
+          "language" : "undefined",
+          "value" : "62541",
+          "type" : "label"
+        } ],
+        "hasRAMIHierarchyLevel" : [ {
+          "identifier" : "hasRAMIHierarchyLevel",
+          "language" : "undefined",
+          "value" : "https://w3id.org/i40/rami#ControlDevice",
+          "type" : "iri"
+        } ],
+        "scope" : [ {
+          "identifier" : "scope",
+          "language" : "undefined",
+          "value" : "https://w3id.org/i40/sto#Industrial_Automation",
+          "type" : "iri"
+        } ],
+        "publisher" : [ {
+          "identifier" : "publisher",
+          "language" : "undefined",
+          "value" : "https://w3id.org/i40/sto#IEC",
+          "type" : "iri"
+        } ],
+        "developer" : [ {
+          "identifier" : "developer",
+          "language" : "undefined",
+          "value" : "https://w3id.org/i40/sto#OPC_Foundation",
+          "type" : "iri"
+        } ],
+        "hasWikipediaArticle" : [ {
+          "identifier" : "hasWikipediaArticle",
+          "language" : "undefined",
+          "value" : "https://en.wikipedia.org/OPC_Unified_Architecture",
+          "type" : "iri"
+        } ],
+        "hasWikidataEntity" : [ {
+          "identifier" : "hasWikidataEntity",
+          "language" : "undefined",
+          "value" : "https://www.wikidata.org/entity/Q623244",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "IEC_62541"
+      }
+    } ],
+    "attributes" : [ "external" ],
+    "id" : "0"
+  } ]
+}
