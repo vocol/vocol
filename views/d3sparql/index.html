@@ -113,7 +113,7 @@
       } else if (selectedgraphtype == 'PieChart') {
         d3sparql.query(endpoint, sparql, piechart)
       } else if (selectedgraphtype == 'ForceGraph') {
-        d3sparql.forcegraph(); //call your function
+        d3sparql.query(endpoint, sparql, forcegraph); //call your function
       } else if (selectedgraphtype == 'Sankey') {
         d3sparql.query(endpoint, sparql, sankey)
       } else if (selectedgraphtype == 'RoundTree') {
@@ -166,8 +166,8 @@
         "width": 800,
         "height": 700,
         "selector": "#result"
-      }
-      d3sparql.forcegraph(json)*/
+      }*/
+      d3sparql.forcegraph(json)
 
     }
 
