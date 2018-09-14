@@ -1,16 +1,177 @@
 <% include header.ejs %>
-  <div style="margin-top: 8% !important;"></div>
-  <div class="ui grid">
-    <div class="ui container">
-      <div class="ui two column stackable grid">
-        <div class="twelve wide column">
-          <%- homePage %>
-        </div>
-        <div class="four wide column">
-            <h4 class="ui header" style="rgba(243, 238, 238, 0.87)">Ontology MetaDATA</h4>
-            <table class="ui selectable inverted table" style="width:48%; position:relative;" id="response">
-              <%- metaData %>
-            </table>
-          </div>
+<div style="margin-top: 3% !important;"></div>
+<div class="ui grid">
+  <div class="ui container">
+    <div class="ui two column stackable grid">
+      <div class="ten wide column">
+        <%- homePage %>
+      </div>
+      <div class="six wide column">
+        <%if (metaData !="") {%>
+
+        <h3 class="ui header" style="rgba(243, 238, 238, 0.87)">
+  <i class="newspaper icon"></i>
+  <div class="content">
+    Ontology Metadata
+  </div>
+  </h3>
+        <table class="ui blue table" id="metaData">
+        </table>
+        <%}%>
+        <h3 class="ui header" style="rgba(243, 238, 238, 0.87)">
+  <i class="chart bar icon"></i>
+  <div class="content">
+    Ontology Statistics
+  </div>
+</h3>
+        <table class="ui red  table" id="response">
+          <%- statistics %>
+        </table>
+        <h3 class="ui header" style="rgba(243, 238, 238, 0.87)">
+<i class="file outline icon"></i>
+<div class="content">
+  Project Details
+</div>
+</h3>
+        <table class="ui green table" id="metaData">
+          <%- repoInfo %>
+        </table>
       </div>
       <% include footer.ejs %>
+      <style>
+        img {
+          width: 100%;
+          max-height: 100%
+        }
+
+        tr,
+        td {
+          margin-bottom: 5px !important;
+          margin-left: 5px !important;
+          margin-right: 5px !important;
+          margin-top: 5px !important;
+          margin: 5px;
+          padding-bottom: 5px !important;
+          padding-left: 5px !important;
+          padding-right: 5px !important;
+          padding-top: 5px !important;
+          padding: 5px;
+        }
+
+        .ui.table {
+          font-size: 12px;
+        }
+
+        h3.ui.header {
+          font-size: 1.28571429rem;
+          margin-bottom: -4px;
+        }
+
+
+        .ui.blue.table {
+          width: 100px;
+          height: 50px;
+          overflow: auto;
+        }
+
+        a {
+          text-decoration: none;
+          font-weight:
+            normal;
+           !important;
+        }
+      </style>
+      <script>
+        var metaData = <%- JSON.stringify(metaData) %>;
+
+        // Get the word after slash char of a string
+        function trimSlash(str) {
+          if (str.includes("/")) {
+            var n = str.split("/").pop(-1);;
+            return n;
+          } else {
+            return str;
+          }
+        }
+
+        // Get the word after hash char of a string
+        function trimHash(str) {
+          if (str.includes("#")) {
+            var n = str.split('#');;
+            var p = n[n.length - 1];
+            return p;
+          } else {
+            return str;
+          }
+        }
+
+        // Customization of the RDF type to show as in standards
+        function replaceWithRDFType(str) {
+          if (str.includes("22-rdf-syntax-ns")) {
+            return "rdf:" + trimHash(str);
+          } else if (str.includes('rdf-schema'))
+            return "rdfs:" + trimHash(str);
+          else if (str.includes('owl'))
+            return "owl:" + trimHash(str);
+          else if (str.includes('core#Concept') || str.includes('narrower') || str.includes('broader'))
+            return "skos:" + trimHash(str);
+          else
+            return str;
+        }
+
+        var metadataTableRows = "";
+        for (var i = 0; i < metaData.length; i++) {
+          var key1 = metaData[i]['p'].value;
+          var key2 = metaData[i]['o'].value;
+          var key2URI = key2;
+          var key3 = metaData[i]['o']['xml:lang'];
+          var key4 = metaData[i]['o']['type'];
+
+          //check if object is uri end with "/"
+          if ((key2.includes("http://") || key2.includes("https://")) && key4 == "uri") {
+            if (key2[key2.length - 1] === ('/')) {
+              key2 = key2.slice(0, -1);
+              key2 = '<a href=' + key2 + '>' + key2 + '\/</a>';
+            } else
+              key2 = '<a href=' + key2 + '>' + key2 + '</a>';
+          }
+          if (key3 && key4 === "literal") {
+            key2 = key2 + '@' + key3;
+          }
+          key1 = trimHash(replaceWithRDFType(trimSlash(key1)));
+
+          metadataTableRows += '<tr><td>' + key1 + '</td><td>' + key2 + '</td></tr>';
+        }
+        $('#metaData').append(metadataTableRows);
+
+        //merge cells in key column
+        function MergeCommonRows(table) {
+          var firstColumnBrakes = [];
+          // iterate through the columns instead of passing each column as function parameter:
+          for (var i = 1; i <= table.find('tr').length; i++) {
+            var previous = null,
+              cellToExtend = null,
+              rowspan = 1;
+            table.find("td:nth-child(" + i + ")").each(function(index, e) {
+              var jthis = $(this),
+                content = jthis.text();
+              // check if current row "break" exist in the array. If not, then extend rowspan:
+              if (previous == content && content !== "" && $.inArray(index, firstColumnBrakes) === -1) {
+                // hide the row instead of remove(), so the DOM index won't "move" inside loop.
+                jthis.addClass('hidden');
+                cellToExtend.attr("rowspan", (rowspan = rowspan + 1));
+              } else {
+                // store row breaks only for the first column:
+                if (i === 1) firstColumnBrakes.push(index);
+                rowspan = 1;
+                previous = content;
+                cellToExtend = jthis;
+              }
+            });
+          }
+          // now remove hidden td's (or leave them hidden if you wish):
+          $('td.hidden').remove();
+        }
+
+        MergeCommonRows($('#metaData'));
+      </script>
