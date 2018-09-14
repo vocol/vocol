@@ -7,6 +7,9 @@
 //   Initial version: 2013-01-28
 //
 
+
+///TODO: This file is just copy of the released lib which is not complete by itself. should be clear more
+
 var d3sparql = {
   version: "d3sparql.js version 2015-11-19",
   debug: false  // set to true for showing debug information
@@ -776,6 +779,273 @@ d3sparql.scatterplot = function(json, config) {
   TODO:
     Try other d3.layout.force options.
 */
+
+//My replaced function:
+
+d3sparql.forcegraph = function(){
+
+  var nodes = [],
+    edges = [];
+
+
+  // Get the word after hash char of a string
+  function trimHash(str) {
+    if (str.includes("#")) {
+      var n = str.split('#');;
+      var p = n[n.length - 1];
+      return p;
+    } else {
+      return str;
+    }
+  }
+
+
+  // Get the word after slash char of a string
+  function trimSlash(str) {
+    if (str.includes("/")) {
+      var n = str.split("/").pop(-1);;
+      return n;
+    } else {
+      return str;
+    }
+  }
+
+
+  // Customization of the RDF type to show as in standards
+  function replaceWithRDFType(str) {
+    if (str.includes("22-rdf-syntax-ns")) {
+      return "rdf:" + trimHash(str);
+    } else if (str.includes('rdf-schema'))
+      return "rdfs:" + trimHash(str);
+    else if (str.includes('owl'))
+      return "owl:" + trimHash(str);
+    else if (str.includes('core#Concept') || str.includes('narrower') || str.includes('broader'))
+      return "skos:" + trimHash(str);
+    else
+      return str;
+  }
+
+
+  function makeNodeLabel(node) {
+    var nodeLabel = "";
+    var key2 = node.value;
+    var key3 = "";
+    if (node.hasOwnProperty("xml:lang"))
+      key3 = node['xml:lang'];
+    var key4 = node['type'];
+
+    if ((key2.includes("http://") || key2.includes("https://")) && key4 === "literal") {
+      if (key2[key2.length - 1] === ('/'))
+        key2 = key2.slice(0, -1);
+      key2 = '<a href=' + key2 + '>' + key2 + '</a>';
+    } else {
+      if (key2[key2.length - 1] === ('/'))
+        key2 = key2.slice(0, -1);
+      key2 = trimHash(replaceWithRDFType(trimSlash(key2)));
+    }
+
+    if (key3) {
+      nodeLabel = key2 + "@" + key3;
+    } else {
+      nodeLabel = key2;
+    }
+    return nodeLabel;
+  }
+
+
+  function createGraph(data) {
+
+    var lastId = 0;
+    for (var i = 0; i < data['results']['bindings'].length; i++) {
+
+      var key1 = trimHash(replaceWithRDFType(trimSlash(data['results']['bindings'][i]['predicate'].value)));
+
+      var subjectId = 0;
+      var objectId = 0;
+      var subjectLabel = makeNodeLabel(data['results']['bindings'][i]['subject']);
+      var objectLabel = makeNodeLabel(data['results']['bindings'][i]['object']);
+
+      var subjectFlag = false;
+      var objectFlag = false;
+      for (var j = 0; j < nodes.length; j++) {
+        if (subjectLabel == nodes[j]['label']) {
+          subjectFlag = true;
+          subjectId = nodes[j]['id'];
+        }
+
+        if (objectLabel != nodes[j]['label']) {
+          objectFlag = true;
+          objectId = nodes[j]['id'];
+        }
+      }
+
+      if (!subjectFlag) {
+        nodes.push({
+          id: lastId++,
+          label: subjectLabel
+        });
+        subjectId = lastId;
+      }
+
+      if (!subjectFlag) {
+        nodes.push({
+          id: lastId++,
+          label: objectLabel
+        });
+        objectId = lastId;
+      }
+
+      edges.push({
+        from: subjectId,
+        to: objectId,
+        label: key1,
+        font: {
+          color: 'green'
+        }
+      });
+    }
+    var sparqlNodes = new vis.DataSet();
+    sparqlNodes.add(nodes);
+    var sparqlEdges = new vis.DataSet();
+    sparqlEdges.add(edges);
+
+    // create a network
+    var container = document.getElementById('result');
+
+    // provide the data in the vis format
+    var graphData = {
+      nodes: sparqlNodes,
+      edges: sparqlEdges
+    };
+
+    var options = {
+      autoResize: false,
+      height: '400px',
+      width: '600px',
+      nodes: {
+        shape: 'dot',
+        size: 20
+      },
+      layout: {
+        randomSeed: undefined,
+        improvedLayout: true,
+        hierarchical: {
+          enabled: false,
+          levelSeparation: 150,
+          nodeSpacing: 100,
+          treeSpacing: 200,
+          blockShifting: true,
+          edgeMinimization: true,
+          parentCentralization: true,
+          direction: 'RL', // UD, DU, LR, RL
+          sortMethod: 'hubsize' // hubsize, directed
+        }
+      },
+      interaction: {
+        navigationButtons: true,
+        keyboard: true
+      },
+      physics: {
+        enabled: true,
+        barnesHut: {
+          gravitationalConstant: -2000,
+          centralGravity: 0.3,
+          springLength: 95,
+          springConstant: 0.04,
+          damping: 0.09,
+          avoidOverlap: 0
+        },
+        forceAtlas2Based: {
+          gravitationalConstant: -50,
+          centralGravity: 0.01,
+          springConstant: 0.08,
+          springLength: 100,
+          damping: 0.4,
+          avoidOverlap: 0
+        },
+        repulsion: {
+          centralGravity: 0.2,
+          springLength: 200,
+          springConstant: 0.05,
+          nodeDistance: 100,
+          damping: 0.09
+        },
+        hierarchicalRepulsion: {
+          centralGravity: 0.0,
+          springLength: 100,
+          springConstant: 0.01,
+          nodeDistance: 120,
+          damping: 0.09
+        },
+        maxVelocity: 50,
+        minVelocity: 0.1,
+        solver: 'barnesHut',
+        stabilization: {
+          enabled: true,
+          iterations: 1000,
+          updateInterval: 100,
+          onlyDynamicEdges: false,
+          fit: true
+        },
+        timestep: 0.5,
+        adaptiveTimestep: true
+      }
+    };
+
+    console.log(graphData);
+    // initialize your network!
+    var network = new vis.Network(container, graphData, options);
+  }
+
+
+  function myError() {
+    alert("Error in SPARQL query")
+  }
+
+  function doSparql() {
+    var myQuery =
+      "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> \
+  PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> \
+  PREFIX owl:  <http://www.w3.org/2002/07/owl#> \
+  PREFIX foaf: <http://xmlns.com/foaf/0.1/> \
+  PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#> \
+  PREFIX skos: <http://www.w3.org/2004/02/skos/core#> \
+  SELECT ?subject ?predicate ?object \
+  WHERE \
+  { \
+  ?sub ?predicate ?obj . \
+  ?sub rdfs:label ?sub_label. \
+  ?obj rdfs:label ?obj_label. \
+  Filter (Lang(?sub_label)='en') \
+  Filter (Lang(?obj_label)='en') \
+  bind( str(?sub_label) as ?subject ) \
+  bind( str(?obj_label) as ?object ) \
+  }LIMIT 100";
+
+
+    var myEndPoint = 'http://localhost:3030/newDataset/sparql';
+
+
+    $.ajax({
+      dataType: "jsonp",
+      url: myEndPoint,
+      data: {
+        "query": myQuery,
+        "output": "json"
+      },
+      success: createGraph,
+      error: myError
+    });
+    console.log('After .ajax');
+  }
+
+  doSparql();
+
+}
+
+
+
+/*
 d3sparql.forcegraph = function(json, config) {
   config = config || {}
 
@@ -847,7 +1117,7 @@ d3sparql.forcegraph = function(json, config) {
     "font-family": "sans-serif",
   })
 }
-
+*/
 /*
   Rendering sparql-results+json object into a sanky graph
 
