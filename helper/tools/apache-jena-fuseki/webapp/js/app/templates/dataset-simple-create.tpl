@@ -24,12 +24,6 @@
                   Persistent &ndash; dataset will persist across Fuseki restarts
                 </label>
               </div>
-              <div class="radio">
-                <label>
-                  <input type="radio" name="dbType" value="tdb2">
-                  Persistent (TDB2) &ndash; dataset will persist across Fuseki restarts
-                </label>
-              </div>
             </div>
           </div>
 
