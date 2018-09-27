@@ -62,8 +62,6 @@ WHERE
 ?sub ?predicate ?obj .
 ?sub rdfs:label ?sub_label.
 ?obj rdfs:label ?obj_label.
-Filter (Lang(?sub_label)='en')
-Filter (Lang(?obj_label)='en')
 bind( str(?sub_label) as ?subject )
 bind( str(?obj_label) as ?object )
 }LIMIT 100`

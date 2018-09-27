@@ -6,20 +6,20 @@
   <title></title>
   <meta name="description" />
   <link rel="stylesheet" type="text/css" href="lib/css/style.css" />
-  <link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
+  <link rel="stylesheet" type="text/css" href="../../public/semantic/dist/semantic.min.css">
   <link rel="stylesheet" href="lib/css/bootstrap-theme.min.css">
 
-  <link href="../dist/vis-timeline-graph2d.min.css" rel="stylesheet" type="text/css">
-  <link href="../dist/vis-network.min.css" rel="stylesheet" type="text/css">
-  <script src="../javascripts/bower_components/jquery/dist/jquery.min.js"></script>
-  <script src="../javascripts/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="../semantic/dist/semantic.min.js"></script>
+  <link href="../../public/dist/vis-timeline-graph2d.min.css" rel="stylesheet" type="text/css">
+  <link href="../../public/dist/vis-network.min.css" rel="stylesheet" type="text/css">
+  <script src="../../public/javascripts/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="../../public/javascripts/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="../../public/semantic/dist/semantic.min.js"></script>
   <script src="lib/d3/d3.v3.min.js"></script>
   <script src="lib/d3/sankey.js"></script>
   <script src="d3sparql.js"></script>
   <script src="queries.js"></script>
   <script src="lib/js/topojson.min.js"></script>
-  <script src="../dist/vis.min.js"></script>
+  <script src="../../public/dist/vis.min.js"></script>
 </head>
 
 <body>
@@ -31,7 +31,6 @@
 
       <div class="inline fields">
         <div class="seven wide field">
-
           <div class="ui large dropdown labeled search icon button">
             <i class="bar chart icon"></i>
             <span class="text">Select Graph Type</span>
@@ -51,14 +50,39 @@
             </div>
           </div>
         </div>
-        <div class="four wide field">
 
-          <div class="ui large button" onclick="toggle()"> Query
-          </div>
-          <div class="ui large right labeled icon button" onclick="exec()">
-            <i class="right arrow icon"></i> Show
+        <div id="rdf-skos" style="display:none">
+          <div class="ui form">
+            <div class="grouped fields">
+              <div class="ui buttons">
+                <div class="field">
+                  <div class="ui radio checkbox">
+                    <button  class="ui positive button" id="rdf" onclick="check('rdf')">
+                      <input type="radio" id="rdf-radio" name="rdf-skos" checked="checked">
+                      <label>RDF(S)</label>
+                    </button>
+                  </div>
+                </div>
+                <div class="or" data-text="or"></div>
+                <div class="field">
+                  <div class="ui radio checkbox">
+                    <button class="ui button" id="skos" onclick="check('skos')">
+                      <input type="radio" id="skos-radio" name="rdf-skos" >
+                      <label>SKOS</label>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+        <div class="one field"></div>
+        <div class="ui large button" onclick="toggle()"> Query
+        </div>
+        <div class="ui large right labeled icon button" onclick="exec()">
+          <i class="right arrow icon"></i> Show
+        </div>
+
       </div>
     </div>
 
@@ -69,6 +93,25 @@
   </div>
 
   <script>
+    function check(val) {
+      if (val == 'rdf') {
+        if (!$('#rdf-radio').checked) {
+          $('#rdf-radio').prop("checked" , true);
+          $('#skos-radio').prop("checked" , false);
+          document.getElementById('skos').classList.remove('positive');
+          document.getElementById('rdf').classList.add('positive');
+        }
+      }
+      if (val == 'skos') {
+        if (!$('#skos-radio').checked) {
+          $('#skos-radio').prop("checked" , true);
+          $('#rdf-radio').prop("checked" , false);
+          document.getElementById('rdf').classList.remove('positive');
+          document.getElementById('skos').classList.add('positive');
+        }
+      }
+    }
+
     var selectedgraphtype = "";
     $('.ui.dropdown').dropdown({
       // action: 'combo',
@@ -85,6 +128,7 @@
         } else if (selectedgraphtype == 'RoundTree') {
           $('#sparql').val(data[3]['query']);
         } else if (selectedgraphtype == 'DendroGram') {
+          document.getElementById('rdf-skos').style.display = 'inline';
           $('#sparql').val(data[3]['query']);
         } else if (selectedgraphtype == 'TreeMap') {
           $('#sparql').val(data[3]['query']);
@@ -113,13 +157,17 @@
       } else if (selectedgraphtype == 'PieChart') {
         d3sparql.query(endpoint, sparql, piechart)
       } else if (selectedgraphtype == 'ForceGraph') {
-        d3sparql.query(endpoint, sparql, forcegraph); //call your function
+        d3sparql.forcegraph(data[1]['query']); //Clean it
       } else if (selectedgraphtype == 'Sankey') {
         d3sparql.query(endpoint, sparql, sankey)
       } else if (selectedgraphtype == 'RoundTree') {
         d3sparql.query(endpoint, sparql, roundtree)
       } else if (selectedgraphtype == 'DendroGram') {
-        d3sparql.query(endpoint, sparql, dendrogram)
+        if(document.getElementById("rdf-radio").checked === true){
+          d3sparql.query(endpoint, sparql, dendrogram);
+        }else{
+          alert('Nothing to show now!');
+        }
       } else if (selectedgraphtype == 'TreeMap') {
         d3sparql.query(endpoint, sparql, treemap)
       } else if (selectedgraphtype == 'TreeMapZoom') {
@@ -166,8 +214,8 @@
         "width": 800,
         "height": 700,
         "selector": "#result"
-      }*/
-      d3sparql.forcegraph(json)
+      }
+      d3sparql.forcegraph(json)*/
 
     }
 
