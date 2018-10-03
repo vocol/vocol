@@ -76,6 +76,14 @@
             </div>
           </div>
         </div>
+
+        <div id="forcegraph-search" style="display:none">
+            <select id="forcegraph-select" class="ui search dropdown">
+              <option value="">Choose entity</option>
+            </select>
+        </div>
+
+
         <div class="one field"></div>
         <div class="ui large button" onclick="toggle()"> Query
         </div>
@@ -88,11 +96,13 @@
 
     <input id="endpoint" value="http://dbpedia.org/sparql" type="hidden" class="form-control">
     <textarea id="sparql" class="form-control" rows="15" style="margin:20px 0 30px 0;width:850px;display: inline;"> </textarea>
-    <div id="result" style=" max-height: 400px; overflow-y: scroll;"></div>
+    <div id="result" style="max-height: 400px; margin: 20px 120px 0px 120px; overflow: auto;"></div>
+
   </div>
   </div>
 
   <script>
+
     function check(val) {
       if (val == 'rdf') {
         if (!$('#rdf-radio').checked) {
@@ -123,6 +133,7 @@
           $('#sparql').val(data[0]['query']);
         } else if (selectedgraphtype == 'ForceGraph') {
           $('#sparql').val(data[1]['query']);
+          document.getElementById('forcegraph-search').style.display = 'inline';
         } else if (selectedgraphtype == 'Sankey') {
           $('#sparql').val(data[2]['query']);
         } else if (selectedgraphtype == 'RoundTree') {
@@ -157,7 +168,7 @@
       } else if (selectedgraphtype == 'PieChart') {
         d3sparql.query(endpoint, sparql, piechart)
       } else if (selectedgraphtype == 'ForceGraph') {
-        d3sparql.forcegraph(data[1]['query']); //Clean it
+        d3sparql.query(endpoint, sparql, forcegraph)
       } else if (selectedgraphtype == 'Sankey') {
         d3sparql.query(endpoint, sparql, sankey)
       } else if (selectedgraphtype == 'RoundTree') {
@@ -175,6 +186,7 @@
       } else if (selectedgraphtype == 'SunBurst') {
         d3sparql.query(endpoint, sparql, sunburst)
       } else if (selectedgraphtype == 'CirclePack') {
+        //d3sparql.query(endpoint, sparql, htmltable);
         d3sparql.query(endpoint, sparql, circlepack)
       }
     }
@@ -207,15 +219,15 @@
     }
 
 
-    function forcegraph() {
-      /*var config = {
+    function forcegraph(json) {
+      var config = {
         "charge": -400,
         "distance": 50,
         "width": 800,
         "height": 700,
         "selector": "#result"
       }
-      d3sparql.forcegraph(json)*/
+      d3sparql.forcegraph(json, config);
 
     }
 
@@ -260,6 +272,20 @@
         "selector": "#result"
       }
       d3sparql.dendrogram(json, config)
+    }
+
+    function htmltable(json) {
+      var config = {
+        "root": "root_name",
+        "parent": "parent_name",
+        "child": "child_name",
+        "width": 800,
+        "height": 750,
+        "margin": 300,
+        "radius": 10,
+        "selector": "#result"
+      }
+      d3sparql.htmltable(json, config)
     }
 
     function treemap(json) {
