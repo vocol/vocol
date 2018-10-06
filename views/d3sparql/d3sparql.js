@@ -1658,6 +1658,7 @@ function dendShow(treeData) {
         dragStarted = null;
     }
 
+$("#result").empty();
     // define the baseSvg, attaching a class for styling and the zoomListener
     var baseSvg = d3.select("#result").append("svg")
         .attr("width", viewerWidth + margin.right + margin.left)
