@@ -6,19 +6,25 @@ prefixes: {
 "owl":      "http://www.w3.org/2002/07/owl#",
 "xsd":      "http://www.w3.org/2001/XMLSchema#"
 },
-queries: [{
-      "name": "Selection of triples",
-      "query": "SELECT ?subject ?predicate ?object\nWHERE {\n" +
-        "  ?subject ?predicate ?object\n}\n" +
-        "LIMIT 25"
-    }, {
-      "name": "Selection of classes",
-      "query": "SELECT DISTINCT ?class ?label ?description\nWHERE {\n" +
-        "  ?class a owl:Class.\n" +
-        "  OPTIONAL { ?class rdfs:label ?label}\n" +
-        "  OPTIONAL { ?class rdfs:comment ?description}\n}\n" +
-        "LIMIT 25",
-      "prefixes": ["owl", "rdfs"]
-    }]
+queries: [
+      { "name": "Selection of triples",
+        "query": "SELECT ?subject ?predicate ?object"+
+"WHERE {"+
+                 "  ?subject ?predicate ?object}"+
+                  "LIMIT 25"
+      },
+      { "name": "Selection of classes",
+        "query": "SELECT DISTINCT ?class ?label ?description"+
+"WHERE {"+
+                 "  ?class a owl:Class."+
+                 "  OPTIONAL { ?class rdfs:label ?label}"+
+                 "  OPTIONAL { ?class rdfs:comment ?description}}"+
+                 "LIMIT 25",
+        "prefixes": ["owl", "rdfs"]
+      }
+, { "name" :"query_one",
+"query" :"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX owl: <http://www.w3.org/2002/07/owl#>\nPREFIX :    <http://butterbur06.iai.uni-bonn.de/> \n\nSELECT DISTINCT ?concept\nWHERE {\n    ?s a ?concept .\n} LIMIT 50\n"
+}
+]
 };
 });

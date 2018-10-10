@@ -13,5 +13,7 @@ echo "[]" > jsonDataFiles/RDFSObjects.json
 echo "[]" > jsonDataFiles/OWLIndividiuals.json
 rm -f helper/tools/serializations/SingleVoc.nt
 rm -f helper/tools/evolution/SingleVoc.nt
-rm -f helper/tools/ttl2ntConverter/temp.nt
+rm -f helper/tools/ttl2ntConverter/Output.report
 rm -f views/webvowl/data/SingleVoc.json
+rm -f helper/tools/RDF-Doctor/*.error
+rm -f helper/tools/RDF-Doctor/*.output
