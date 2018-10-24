@@ -73,9 +73,8 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
         });
       })() */
 
-
     var state = {
-      syntaxCheck: "pending",
+      syntaxCheck: "off",
       fileIsLoaded: false,
       gh: undefined,
       repo: undefined,
@@ -83,6 +82,8 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
       user: undefined,
       currentFile: undefined
     };
+
+    var activationState = true;
 
     var editor = CodeMirror.fromTextArea(inputElements.contents[0], {
       mode: "turtle",
@@ -114,7 +115,6 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
         position: 'bottom left'
       });
 
-
     $('.popup-click-show')
       .popup({
         popup: $('.custom.popup'),
@@ -133,7 +133,6 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
     }
 
     // Github Interaction -------------------------------------------------------
-
     var loadFromGitHub = function() {
       var username = inputElements.username.val().trim();
       var ownername = currentRepoOwner;
@@ -189,7 +188,7 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
         //inputElements.password.prop("disabled", true);
         // @ahmed
         //  disableLoadButton();
-        changeSyntaxCheckState("pending");
+        //changeSyntaxCheckState("pending");
       }
 
 
@@ -209,9 +208,9 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
         }
       });
 
-
-      //------------------------------------------------------------------------
     };
+    //------------------------------------------------------------------------
+
 
 
     var readFile = function() {
@@ -231,11 +230,14 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
           if (user) {
             enableSaveButton();
           }
+
+          localStorage.setItem("someVarKey", editor.getValue());
         })
         .fail(function(err) {
           logger.error("Read from GitHub failed", err);
         });
-      changeSyntaxCheckState("pending");
+
+      //changeSyntaxCheckState("pending");
     };
 
     var storeToGitHub = function() {
@@ -246,6 +248,11 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
           blurring: true
         }).modal('show');
       }
+
+      document.getElementById("enableDisbleSyntaxChecking").checked = true;
+      $('.ui.toggle').checkbox();
+      console.log("Changing"); //make alarm in the case of new commit has come
+      changeSyntaxCheckState("pending");
 
       var filename = inputElements.file.val();
       var content = editor.getValue().trim();
@@ -267,11 +274,9 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
           "Please, fill-in the commit message box, it cannot be empty..."
         );
       }
-
     };
 
     // Display current filename -------------------------------------------------
-
     var displayCurrentFilename = function(filename) {
       var baseUri = "http://vowl.visualdataweb.org/webvowl/index.html#iri=https://raw.githubusercontent.com/";
       var ownername = currentRepoOwner;
@@ -296,10 +301,40 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
 
     // "http://vowl.visualdataweb.org/webvowl/index.html#iri=https://raw.githubusercontent.com/mobivoc/mobivoc/master/"
 
+    editor.on("change", function() {
+      setInterval(function() { //In every 60 seconds get last commit of repo and compare it with current commit of user
+        $.ajax({
+          type: 'GET',
+          url: "https://api.github.com/repos/" + currentRepoOwner + "/" +
+            currentRepoName +
+            "/commits?Accept=application/vnd.github.v3+json",
+          data: {
+            get_param: 'value'
+          },
+
+          //Change the success function to logger
+          success: function(data) {
+
+            //Add it in commit button
+            if (data[0]['sha'] != currentCommit) {
+              logger.warning("New commit happened on your working repository");
+              currentCommit = data[0]['sha'];
+            }
+          }
+        });
+      }, 300000);
+
+
+      if (editor.getValue() != localStorage.getItem("someVarKey") && activationState) {
+        document.getElementById("enableDisbleSyntaxChecking").checked = true;
+        $('.ui.toggle').checkbox();
+        console.log("Changing"); //make alarm in the case of new commit has come
+        changeSyntaxCheckState("pending");
+      }
+    });
+
     // Syntax Check -------------------------------------------------------------
-
     // Search in textArea--------------------------------------------------------
-
     var marked = [],
       markedPositions = [],
       lastPos = null,
@@ -315,17 +350,17 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
     function search(select) {
       var currentIndex = 0;
 
-      function setPosition(){
+      function setPosition() {
         editor.setSelection(marked[currentIndex].find()['from'],
           marked[currentIndex].find()['to']);
         editor.setCursor(marked[currentIndex].find()['from']);
 
-        if(markedPositions.length != 0){
+        if (markedPositions.length != 0) {
           markedPositions[0].clear();
           markedPositions.pop();
         }
 
-        markedPositions.push( editor.markText(marked[currentIndex].find()['from'],
+        markedPositions.push(editor.markText(marked[currentIndex].find()['from'],
           marked[
             currentIndex].find()['to'], {
             css: "background-color: orange"
@@ -368,7 +403,7 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
             className: "searched-key",
             clearOnEnter: true
           }));
-        //  markedPositions.push(marked[marked.length-1]);
+          //  markedPositions.push(marked[marked.length-1]);
         }
         document.getElementById('search-index').innerHTML = '0/'; //change to 1?
         document.getElementById('search-total').innerHTML = marked.length;
@@ -391,6 +426,8 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
 
     var playChecking = function() {
       console.log("playChecking");
+      $('.ui.toggle').checkbox();
+      activationState = true;
       if (state.syntaxCheck === "off") {
         console.log("-> pending");
         changeSyntaxCheckState("pending", undefined, true);
@@ -398,18 +435,20 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
     };
 
     var pauseChecking = function() {
+      activationState = false;
       if (state.syntaxCheck !== "off") {
         changeSyntaxCheckState("off");
         console.log("-> off");
       }
     };
     // enable checkbox function
-    $('.ui.toggle').checkbox();
+
 
     $('.ui.toggle').click(function() {
-      if ($('.ui.toggle').checkbox('is checked')) {
+      if (!$('#enableDisbleSyntaxChecking').is(":checked")) {
         playChecking();
       } else {
+
         pauseChecking();
       }
     });
@@ -486,95 +525,64 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
       if (prefixes) {
         editor.custom.prefixes = prefixes;
       }
-    }
+    };
 
-      var changeSyntaxCheckState = function(newState, error, force) {
-        if (newState !== state.syntaxCheck && (state.syntaxCheck !== "off" ||
-            force === true)) {
-          console.log("changeSyntaxCheckState", newState, error, force);
-          syntaxCheckElements[state.syntaxCheck].hide();
-          state.syntaxCheck = newState;
+    var changeSyntaxCheckState = function(newState, error, force = false) {
+      if (newState !== state.syntaxCheck && (state.syntaxCheck !== "off" ||
+          force === true)) {
+        console.log("changeSyntaxCheckState", newState, error, force);
+        syntaxCheckElements[state.syntaxCheck].hide();
+        state.syntaxCheck = newState;
 
-          if (newState === "failed") {
-            var status = syntaxCheckElements[newState].find(".status")
-            if (error) {
-              if (error.startsWith("Syntax error:")) {
-                status.html(" " + error);
-              } else {
-                status.html(" Syntax error: " + error);
-              }
+        if (newState === "failed") {
+          var status = syntaxCheckElements[newState].find(".status")
+          if (error) {
+            if (error.startsWith("Syntax error:")) {
+              status.html(" " + error);
             } else {
-              status.html(" Syntax check failed.")
+              status.html(" Syntax error: " + error);
             }
+          } else {
+            status.html(" Syntax check failed.")
           }
-          syntaxCheckElements[newState].show();
         }
-      };
+        syntaxCheckElements[newState].show();
+      }
+    };
 
-      var checkSyntax = function() {
-        /* remove all previous errors  */
-        /* TODO: IMPROVE EFFICIENCY */
-        editor.eachLine(function(line) {
-          editor.getDoc().removeLineClass(line, "wrap");
-          editor.clearGutter("breakpoints");
-        });
-
-        var parser,
-          content;
-        if (state.fileIsLoaded) {
-          content = editor.getValue();
-          parser = N3.Parser();
-          parser.parse(content, parserHandler);
-        }
-      };
-
-      var checkForUpdates = function() {
-        if (state.syntaxCheck === "pending" && state.fileIsLoaded) {
-          changeSyntaxCheckState("working");
-          checkSyntax();
-        }
-      };
-
-      // Event listeners ----------------------------------------------------------
-      inputElements.load.on("click", loadFromGitHub);
-      inputElements.save.on("click", storeToGitHub);
-      inputElements.file.on("change", readFile);
-
-      editor.on("change", function() {
-          setInterval(function() { //In every 60 seconds get last commit of repo and compare it with current commit of user
-            $.ajax({
-              type: 'GET',
-              url: "https://api.github.com/repos/" + currentRepoOwner + "/" +
-                currentRepoName +
-                "/commits?Accept=application/vnd.github.v3+json",
-              data: {
-                get_param: 'value'
-              },
-
-              //Change the success function to logger
-              success: function(data) {
-
-                //Add it in commit button
-                if (data[0]['sha'] != currentCommit) {
-                  logger.warning("New commit happened on your working repository");
-                  currentCommit = data[0]['sha'];
-                }
-              }
-            });
-          }, 300000);
-
-
-        console.log("Changing"); //make alarm in the case of new commit has come
-        changeSyntaxCheckState("pending");
+    var checkSyntax = function() {
+      /* remove all previous errors  */
+      /* TODO: IMPROVE EFFICIENCY */
+      editor.eachLine(function(line) {
+        editor.getDoc().removeLineClass(line, "wrap");
+        editor.clearGutter("breakpoints");
       });
 
+      var parser,
+        content;
+      if (state.fileIsLoaded) {
+        content = editor.getValue();
+        parser = N3.Parser();
+        parser.parse(content, parserHandler);
+      }
+    };
+
+    var checkForUpdates = function() {
+      if (state.syntaxCheck === "pending" && state.fileIsLoaded && activationState) {
+        changeSyntaxCheckState("working");
+        checkSyntax();
+      }
+    };
+
+    // Event listeners ----------------------------------------------------------
+    inputElements.load.on("click", loadFromGitHub);
+    inputElements.save.on("click", storeToGitHub);
+    inputElements.file.on("change", readFile);
 
     // Repeated actions ---------------------------------------------------------
-
     window.setInterval(checkForUpdates, 1000);
 
     // Utility ------------------------------------------------------------------
-
     var disableLoadButton = function() {
       inputElements.load.removeClass("btn-primary");
       inputElements.load.addClass("btn-default");
