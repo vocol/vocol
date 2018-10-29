@@ -196,9 +196,252 @@ d3sparql.graph = function(json, config) {
       d3sparql.treemapzoom(json, config)
     }
 */
+
 d3sparql.tree = function(json, config) {
   config = config || {}
-  console.log(json);
+  var head = json.head.vars;
+  var data = json.results.bindings;
+  var hash_nodes = {};
+  //var nodes_hash = []; //?
+  //var lastId = 0; //?
+
+  var opts = {
+    "root": config.root || head[0],
+    "parent": config.parent || head[1],
+    "child": config.child || head[2],
+    "value": config.value || head[3] || "value",
+  }
+
+  var dummy_root = {
+    "name": "Thing",
+    "children": []
+  } // not sure about adding id for search
+
+  function look_for_position(name, children) {
+    if (children) {
+      for (var i = 0; i < children.length; i++) {
+        if (children[i].name == name) {
+          return i;
+        }
+      }
+    }
+    return -1;
+  }
+
+  function merge_node(children, node, adding_value, type, level) {
+    var ch = children;
+    var ch_index = look_for_position(adding_value, ch);
+    var initial_level = level;
+    if (ch_index != -1) {
+      if (type == "root") {
+        level++;
+        add_to_tree(children[ch_index], node, "parent", level); //add parent and child to ch_index
+        return level;
+      }
+      if (type == "parent") {
+        level++;
+        add_to_tree(children[ch_index], node, "child", level); //add parent and child to ch_index
+        return level;
+      }
+    } else
+    if (ch) {
+      for (var i = 0; i < ch.length; i++) { //If couldn't find in children, look between descendants
+        if (merge_node(ch[i].children, node, adding_value, type, level) != initial_level) {
+          return level;
+        }
+      }
+    }
+    return level;
+  }
+
+  function prune_node(node) {
+    var node_parent = hash_nodes[node.name];
+    console.log(node_parent);
+    var index = look_for_position(node.name, node_parent.children);
+    if(index !=-1){
+      node_parent.children = node_parent.children.splice(index,1);
+      console.log(node_parent);
+    }
+  }
+
+  function add_to_tree(tree, node, type = "root", level) {
+
+    var root = node[config.root];
+    var parent = node[config.parent];
+    var child = node[config.child];
+    var children = tree.children;
+    var adding_value = "";
+    var initial_level = level;
+
+    if (type == "root") {
+      if (root.value != parent.value)
+        adding_value = root.value;
+      else
+        type = "parent";
+    }
+    if (type == "parent") {
+      if (parent.value != child.value)
+        adding_value = parent.value;
+      else
+        type = "child";
+    }
+    if (type == "child") {
+      adding_value = child.value;
+    }
+
+    //Check if there is a child which has the same name with adding node between children and descendants
+    var new_level = merge_node(children, node, adding_value, type, level);
+
+    if (new_level == initial_level) {
+      //add root, parent or child as new entries.
+      var new_node = true;
+      var new_child = {
+        "name": child.value
+      };
+      var new_parent = {
+        "name": parent.value,
+        "children": [new_child]
+      };
+      var new_root = {
+        "name": root.value,
+        "children": [new_parent]
+      };
+      switch (type) {
+        case "child":
+          new_node = new_child;
+          break;
+        case "parent":
+          new_node = new_parent;
+          break;
+        case "root":
+          new_node = new_root;
+      }
+
+      if (hash_nodes.hasOwnProperty(new_node.name)) {
+        prune_node(new_node);
+      }
+      hash_nodes[new_node.name] = tree;
+      
+      if (tree.hasOwnProperty('children')) {
+        tree.children.push(new_node);
+      } else {
+        tree["children"] = [new_node];
+      }
+
+    }
+  }
+
+
+  for (var index = 0; index < data.length; index++) {
+    add_to_tree(dummy_root, data[index], "root", 0);
+  }
+
+  console.log(dummy_root);
+  return dummy_root;
+}
+
+
+
+
+/*d3sparql.tree = function(json, config) {
+  config = config || {}
+  var head = json.head.vars;
+  var data = json.results.bindings;
+  //var nodes_hash = []; //?
+  //var lastId = 0; //?
+
+  var opts = {
+    "root": config.root || head[0],
+    "parent": config.parent || head[1],
+    "child": config.child || head[2],
+    "value": config.value || head[3] || "value",
+  }
+
+  var dummy_root = {
+    "name": "Thing",
+    "children": []
+  } // not sure about adding id for search
+
+  function merge_node(node, source) {
+    var s_children = source.children;
+    var n_children = node.children;
+    var flag = false;
+    if (s_children.length > 0) {
+      for (var i = 0; i < n_children.length; i++) {
+        for (var j = 0; j < s_children.length; j++) {
+          if (s_children[j].name == n_children[i].name) {
+            source.children = merge_node(n_children[i], s_children[j]);
+            flag = true;
+            break;
+          }
+        }
+        if(!flag){
+          console.log('here')
+          s_children.push(n_children[i]);
+        }
+      }
+    } else {
+      s_children = n_children;
+    }
+
+    return s_children;
+  }
+
+  function add_node(tree, node) {
+    var children = tree.children;
+    var flag = false;
+    for (var i = 0; i < children.length; i++) {
+      if (node.name == children[i].name) {
+        merge_node(node, children[i]);
+        flag = true;
+        break;
+      }
+    }
+
+    if (!flag) {
+      tree.children.push(node);
+    }
+
+    return tree;
+  }
+
+  for (var index = 0; index < data.length; index++) {
+    //add root, parent or child as new entries.
+    var root = data[index][config.root];
+    var parent = data[index][config.parent];
+    var child = data[index][config.child];
+    var new_node = true;
+    var new_child = {
+      "name": child.value,
+      "children": []
+    };
+
+    if (child.value != parent.value) {
+      var new_parent = {
+        "name": parent.value,
+        "children": [new_child]
+      };
+      if (parent.value != root.value) {
+        var new_root = {
+          "name": root.value,
+          "children": [new_parent]
+        };
+        new_node = new_root;
+      } else
+        new_node = new_parent;
+    } else new_node = new_child;
+
+    add_node(dummy_root, new_node);
+  }
+
+  console.log(dummy_root);
+  return dummy_root;
+}
+*/
+
+/*
+d3sparql.tree = function(json, config) {
+  config = config || {}
   var head = json.head.vars;
   var data = json.results.bindings;
 
@@ -211,6 +454,8 @@ d3sparql.tree = function(json, config) {
 
   var pair = d3.map();
   var size = d3.map();
+
+
   var root = data[0][opts.root].value;
   var parent = child = children = true;
   for (var i = 0; i < data.length; i++) {
@@ -219,16 +464,20 @@ d3sparql.tree = function(json, config) {
     if (parent != child) {
       if (pair.has(parent)) {
         children = pair.get(parent);
-        children.push(child);
+        children.push(child); //suspicious
       } else {
         children = [child];
       }
       pair.set(parent, children);
+
       if (data[i][opts.value]) {
         size.set(child, data[i][opts.value].value);
       }
     }
   }
+
+  console.log(pair);
+
 
   function traverse(node) {
     var list = pair.get(node)
@@ -256,11 +505,13 @@ d3sparql.tree = function(json, config) {
   }
   var tree = traverse(root)
 
+
   if (d3sparql.debug) {
     console.log(JSON.stringify(tree))
   }
   return tree
 }
+*/
 
 /*
   Rendering sparql-results+json object containing multiple rows into a HTML table
@@ -858,7 +1109,6 @@ d3sparql.scatterplot = function(json, config) {
 //My replaced function:
 
 d3sparql.forcegraph = function(json, config) {
-
   var graph = createGraph(json);
   //console.log(graph);
   //var neighbors = {}; // Key = vertex, value = array of neighbors.
@@ -1126,7 +1376,7 @@ d3sparql.forcegraph = function(json, config) {
 
     // Enable dropdown selector for search a node on the graph.
     $.each(nodes, function(index, value) {
-      $('#forcegraph-select').append($('<option/>', {
+      $('#select-entity').append($('<option/>', {
         value: nodes[index]['id'],
         text: nodes[index]['label']
       }));
@@ -1145,8 +1395,8 @@ d3sparql.forcegraph = function(json, config) {
 
 
     // Show the change on selected node's layout.
-    $('#forcegraph-select').change(function() {
-      var entityId = document.getElementById('forcegraph-select').value;
+    $('#select-entity').change(function() {
+      var entityId = document.getElementById('select-entity').value;
       if (entityId != '') {
         changeLayout(entityId);
       }
@@ -1568,10 +1818,10 @@ d3sparql.roundtree = function(json, config) {
     </style>
 */
 
-
 d3sparql.dendrogram = function(json, config) {
 
   var tree = d3sparql.tree(json, config);
+  //console.log(tree);
   dendShow(tree);
 
   function dendShow(treeData) {
@@ -1581,7 +1831,6 @@ d3sparql.dendrogram = function(json, config) {
       bottom: 20,
       left: 120
     };
-
 
     var totalNodes = 0;
     var maxLabelLength = 0;
@@ -1597,7 +1846,7 @@ d3sparql.dendrogram = function(json, config) {
     var root;
 
     // size of the diagram
-    var viewerWidth = ($(document).width()) / 2;
+    var viewerWidth = $(document).width();
     var viewerHeight = $(document).height();
 
     var tree = d3.layout.tree()
@@ -1627,25 +1876,14 @@ d3sparql.dendrogram = function(json, config) {
 
     // Call visit function to establish maxLabelLength
     visit(treeData, function(d) {
+      console.log(d);
       totalNodes++;
       maxLabelLength = Math.max(d.name.length, maxLabelLength);
     }, function(d) {
       return d.children && d.children.length > 0 ? d.children : null;
     });
 
-
-    // sort the tree according to the node names
-
-    function sortTree() {
-      tree.sort(function(a, b) {
-        return b.name.toLowerCase() < a.name.toLowerCase() ? 1 : -1;
-      });
-    }
-    // Sort the tree initially incase the JSON isn't in a sorted order.
-    //sortTree();
-
     // TODO: Pan function, can be better implemented.
-
     function pan(domNode, direction) {
       var speed = panSpeed;
       if (panTimer) {
@@ -1672,14 +1910,14 @@ d3sparql.dendrogram = function(json, config) {
     }
 
     // Define the zoom function for the zoomable tree
-    var zoomListener = d3.behavior.zoom().scale(0.7).scaleExtent([0.1, 3]).on('zoom', zoomed);
+    var zoomListener = d3.behavior.zoom().scaleExtent([0.5, 1.5]).on('zoom', zoomed);
 
     function zoomed() {
       svgGroup.attr("transform", "translate(" + zoomListener.translate() + ")scale(" + zoomListener.scale() + ")");
     }
 
 
-    function interpolateZoom(translate, scale) {
+    function interpolateZoom(translate, scale, center) {
       var self = this;
       return d3.transition().duration().tween("zoom", function() {
         var iTranslate = d3.interpolate(zoomListener.translate(), translate),
@@ -1693,13 +1931,14 @@ d3sparql.dendrogram = function(json, config) {
       });
     }
 
-
-    function zoomClick() {
+    function zoomOperator(node = root) {
       var clicked = d3.event.target,
         direction = 1,
         factor = 0.1,
         target_zoom = 1,
-        center = [viewerWidth / 2, viewerHeight / 2],
+        max_x = viewerWidth / 3,
+        max_y = viewerHeight / 3,
+        center = [node.x0, node.y0],
         extent = zoomListener.scaleExtent(),
         translate = zoomListener.translate(),
         translate0 = [],
@@ -1707,7 +1946,7 @@ d3sparql.dendrogram = function(json, config) {
         view = {
           x: translate[0],
           y: translate[1],
-          k: zoomListener.scale()
+          k: zoomListener.scale(),
         };
 
       d3.event.preventDefault();
@@ -1730,36 +1969,24 @@ d3sparql.dendrogram = function(json, config) {
       view.x += center[0] - l[0];
       view.y += center[1] - l[1];
 
+      //if(view.x > max_x || view.y > max_y){
+      //  alert('here!')
+      //  return false;
+      //}
+
       interpolateZoom([view.x, view.y], view.k);
-      //centerNode(0, 0);
+      centerNode(node);
     }
 
-    d3.selectAll('button').on('click', zoomClick);
 
+    d3.selectAll('button.zoom').on('click', zoomOperator);
 
-
-
-    //function zoom() {
-    //  svgGroup.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
-    //  }
-
-
-    // define the zoomListener which calls the zoom function on the "zoom" event constrained within the scaleExtents
-    //var zoomListener = d3.behavior.zoom().scale([0.5]).scaleExtent([0.1, 3]).on("zoom", zoom);
-
-    //var zoomButton = d3.select("#zoom").style('display', 'inline').on('click', zoom); //TODO: shape of button and zoom in and out.
 
     function initiateDrag(d, domNode) {
       draggingNode = d;
       d3.select(domNode).select('.ghostCircle').attr('pointer-events', 'none');
       d3.selectAll('.ghostCircle').attr('class', 'ghostCircle show');
       d3.select(domNode).attr('class', 'node activeDrag');
-
-      //svgGroup.selectAll("g.node").sort(function(a, b) { // select the parent and sort the path's
-
-      //if (a.id != draggingNode.id) return 1; // a is not the hovered element, send "a" to the back
-      //else return -1; // a is the hovered element, bring "a" to the front
-      //});
 
       // if nodes has children, remove the links and nodes
       if (nodes.length > 1) {
@@ -1794,23 +2021,20 @@ d3sparql.dendrogram = function(json, config) {
     }
 
     $("#result").empty();
-    var resultTag = d3.select("#result")
-      .style('height', '800px')
-      .style('width', viewerWidth);
-
+    $("#result").height(viewerHeight).width(viewerWidth);
 
     // define the baseSvg, attaching a class for styling and the zoomListener
-    baseSvg = d3.select("#result").append("svg")
+    svgGroup = d3.select("#result").append("svg")
       .attr("width", viewerWidth + margin.right + margin.left)
-      .attr("height", viewerHeight).append('g')
-         .attr("transform", "translate(" + 0 + "," + 0 + ")")
+      .attr("height", viewerHeight + margin.top + margin.bottom)
+      .append('g')
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
       .attr("class", "overlay")
       .call(zoomListener);
 
+    // Append a group which holds all nodes and which the zoom Listener can act upon.
 
 
-
-    //document.getElementById("#result").style.height = viewerHeight/2;
     // Define the drag listeners for drag/drop behaviour of nodes.
     dragListener = d3.behavior.drag()
       .on("dragstart", function(d) {
@@ -1882,7 +2106,6 @@ d3sparql.dendrogram = function(json, config) {
           }
           // Make sure that the node being added to is expanded so user can see added node is correctly moved
           expand(selectedNode);
-          //sortTree();
           endDrag();
         } else {
           endDrag();
@@ -1963,13 +2186,13 @@ d3sparql.dendrogram = function(json, config) {
       scale = zoomListener.scale();
       x = -source.y0;
       y = -source.x0;
-      x = x * scale + viewerWidth / 3;
+      x = x * scale + viewerWidth / 2;
       y = y * scale + viewerHeight / 2;
       d3.select('g').transition()
         .duration(duration)
         .attr("transform", "translate(" + x + "," + y + ")scale(" + scale + ")");
       zoomListener.scale(scale);
-      zoomListener.translate([x, y]);
+      zoomListener.translate();
     }
 
     // Toggle children function
@@ -1994,6 +2217,8 @@ d3sparql.dendrogram = function(json, config) {
     }
 
     function update(source) {
+
+
       // Compute the new height, function counts total children of root node and sets tree height accordingly.
       // This prevents the layout looking squashed when new nodes are made visible or looking sparse when nodes are removed
       // This makes the layout more consistent.
@@ -2010,8 +2235,12 @@ d3sparql.dendrogram = function(json, config) {
           });
         }
       };
+
       childCount(0, root);
       var newHeight = d3.max(levelWidth) * 25; // 25 pixels per line
+      d3.select("#result svg")
+        .attr("width", viewerWidth + margin.right + margin.left)
+        .attr("height", newHeight + margin.top + margin.bottom);
       tree = tree.size([newHeight, viewerWidth]);
       // Compute the new tree layout.
       var nodes = tree.nodes(root).reverse(),
@@ -2019,7 +2248,7 @@ d3sparql.dendrogram = function(json, config) {
 
       // Set widths between levels based on maxLabelLength.
       nodes.forEach(function(d) {
-        d.y = (d.depth * (maxLabelLength * 10));
+        d.y = (d.depth * (maxLabelLength * 5));
       });
 
       // Update the nodes…
@@ -2164,18 +2393,59 @@ d3sparql.dendrogram = function(json, config) {
       });
     }
 
-    // Append a group which holds all nodes and which the zoom Listener can act upon.
-    svgGroup = baseSvg.append("g");
+
+
+    //svgGroup = baseSvg.append("g");
 
     // Define the root
     root = treeData;
-    root.x0 = viewerWidth;
+    //  console.log(treeData);
+    root.x0 = viewerHeight / 2;
     root.y0 = 0;
 
     // Layout the tree initially and center on the root node.
     root.children.forEach(collapse);
     update(root);
-    centerNode(root);
+
+
+
+    //TODO: for adding search functionality
+    //It seems is needed to read tree depthly
+    //Check visit function
+
+
+
+
+    // Enable dropdown selector for search a node on the graph.
+
+
+
+
+    // A recursive helper function for performing some setup by walking through all nodes
+
+
+
+    // Call visit function to establish maxLabelLength
+    visit(treeData, function(d) {
+      //  console.log(d.id);
+    }, function(d) {
+      return d.children && d.children.length > 0 ? d.children : null;
+    });
+
+
+
+    // Show the change on selected node's layout.
+    //$('#select-entity').change(function() {
+    //  var entityId = document.getElementById('select-entity').value;
+    //  if (entityId != '') {
+    //    changeLayout(entityId);
+    //  }
+    //});
+
+    //console.log(root.id);
+
+
+
 
   }
 

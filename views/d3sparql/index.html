@@ -77,21 +77,19 @@
           </div>
         </div>
 
-        <div id="forcegraph-search" style="display:none">
-          <select id="forcegraph-select" class="ui search dropdown">
+        <div id="search-entity" style="display:none" class="form-group">
+          <select id="select-entity" class="ui search dropdown popup-show">
               <option value="">Choose entity</option>
             </select>
+          <div class="ui special popup">
+            <div class="header">To focus on your favourite entity, click here to choose it or fill in its name. </div>
+          </div>
         </div>
-
 
         <div class="one field"></div>
 
-
-
-
         <div class="ui large button" data-toggle="modal" class="modal_message" data-target="#sparqlModal" onclick="toggle()"> Query
         </div>
-
 
         <div id="sparqlModal" class="fullscreen modal" role="dialog">
           <div class="modal-dialog" style="width:800px;">
@@ -126,10 +124,6 @@
 
         </div>
 
-
-
-
-
         <div class="ui large right labeled icon button" onclick="exec()">
           <i class="right arrow icon"></i> Show
         </div>
@@ -141,14 +135,20 @@
     <!--  <textarea id="sparql" class="form-control" rows="15" style="margin:20px 0 30px 0;width:850px;display: inline;"> </textarea>-->
 
     <div>
-      <div id="result" style="margin: 20px 10px 20px 20px; overflow-x: hidden; overflow-y: auto;"></div>
+      <div id="result"></div>
       <!--<div id="shortest-path" style="max-height: 400px; margin: 20px 30px 0px 30px; overflow: auto;"></div>-->
-    </div>
-
-    <button id="zoom_in">+</button>
-    <button id="zoom_out">-</button>
-
   </div>
+  <div id="dendro-zoom" style=" margin-left: 50px; display:none" class="form-group">
+    <button id="zoom_in" class="zoom popup-show" ><i class="plus icon"></i></button>
+    <div class="ui special popup">
+      <div class="header">Click to zoom in </div>
+    </div>
+    <button id="zoom_out" class="zoom popup-show"><i class="minus icon"></i></button>
+    <div class="ui special popup">
+      <div class="header">Click to zoom out </div>
+    </div>
+  </div>
+</div>
   </div>
 
   <script>
@@ -187,6 +187,8 @@
         } else if (selectedgraphtype == 'RoundTree') {
           $('#sparql').val(data[3]['query']);
         } else if (selectedgraphtype == 'DendroGram') {
+          document.getElementById('rdf-skos').style.display = 'inline';
+          document.getElementById('dendro-zoom').style.display = 'inline';
           $('#sparql').val(data[3]['query']);
         } else if (selectedgraphtype == 'TreeMap') {
           $('#sparql').val(data[3]['query']);
@@ -198,25 +200,37 @@
       }
     });
 
-
     $(function() {
       loadQueries();
     });
 
     function exec() {
 
+      //User guide for popup show
+      var resizePopup = function() {
+        $('.ui.popup').css('max-height', $(window).height());
+      };
+
+      $(window).resize(function(e) {
+        resizePopup();
+      });
+
+      $('.popup-show')
+        .popup({
+          lastResort: 'bottom left',
+          onShow: function() {
+            resizePopup();
+          },
+        });
+
       ///// TODO: clean this function to just one call
       // var selectedgraphtype = d3.select("#graphtype").property("value")
       if (selectedgraphtype == 'ForceGraph') {
-        document.getElementById('forcegraph-search').style.display = 'inline';
+        document.getElementById('search-entity').style.display = 'inline';
       } else {
-        document.getElementById('forcegraph-search').style.display = 'none';
+        document.getElementById('search-entity').style.display = 'none';
       }
-      if (selectedgraphtype == 'DendroGram') {
-        document.getElementById('rdf-skos').style.display = 'inline';
-      } else {
-        document.getElementById('rdf-skos').style.display = 'none';
-      }
+
 
       var endpoint = d3.select("#endpoint").property("value")
       var sparql = d3.select("#sparql").property("value")
@@ -456,6 +470,10 @@
     }
   </script>
   <style>
+    .ui.popup {
+      overflow: auto;
+    }
+
     .ui.dropdown .menu>.item {
       font-size: 1.2rem;
     }
@@ -493,6 +511,11 @@
     circle.child {
       pointer-events: none;
     }
+
+    #result {
+			overflow: auto;
+			text-align: center;
+		}
   </style>
 
 </body>
