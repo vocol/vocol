@@ -121,7 +121,7 @@ WHERE
   bind( str(?child_name1) as ?child_name )
   bind( str(?parent_name1) as ?parent_name )
 
-}LIMIT 50
+}LIMIT 500
 `
 }
 ,

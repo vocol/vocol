@@ -15,12 +15,12 @@ var referenceRoutes = require('./routes/referenceRoutes');
 var listener = require('./routes/listener');
 var config = require('./routes/config');
 var fs = require('fs');
-var  jsonfile  =  require('jsonfile');
+var jsonfile = require('jsonfile');
 var app = express();
 var watch = require('node-watch');
 var shell = require('shelljs');
 var router = express.Router();
-var  proxy  =  require('express-http-proxy');
+var proxy = require('express-http-proxy');
 var shell = require('shelljs');
 var session = require('express-session');
 var escapeHtml = require('escape-html');
@@ -38,7 +38,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 // no caching
 app.use(function(req, res, next) {
-  res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+  res.header('Cache-Control',
+    'private, no-cache, no-store, must-revalidate');
   res.header('Expires', '-1');
   res.header('Pragma', 'no-cache');
   next()
@@ -61,18 +62,22 @@ function readSyntaxErrorsFile() {
 readSyntaxErrorsFile();
 // check if the userConfigurations file is exist
 // for the first time of app running
-var userConfigurationsFile = __dirname + '/jsonDataFiles/userConfigurations.json';
+var userConfigurationsFile = __dirname +
+  '/jsonDataFiles/userConfigurations.json';
 var repositoryURL = "";
 app.locals.projectTitle = "MobiVoc";
 app.locals.userConfigurations = Array(6).fill(true);
 app.locals.isExistAdminAccount = false;
-app.locals.repositoryURL ="";
+app.locals.repositoryURL = "";
+app.locals.repoParam = Array(3).fill("");
+
 function readUserConfigurationFile() {
   if (fs.existsSync(userConfigurationsFile)) {
     var data = fs.readFileSync(userConfigurationsFile);
     if (data.includes('vocabularyName')) {
       jsonfile.readFile(userConfigurationsFile, function(err, obj) {
         var menu = Array(7).fill(false);
+        var repoParam = Array(3).fill("");
         var loginUserName = "";
         var adminAccount = "";
         Object.keys(obj).forEach(function(k) {
@@ -84,9 +89,14 @@ function readUserConfigurationFile() {
             // for first time or was changed to another repository
             repositoryURL = obj[k];
             app.locals.repositoryURL = obj[k];
+          } else if (k === "repositoryOwner") { //repoParam[0]
+            repoParam[0] = obj[k];
+          } else if (k === "repositoryName") { //repoParam[1]
+            repoParam[1] = obj[k];
+          } else if (k === "branchName") { //repoParam[2]
+            repoParam[2] = obj[k];
           } else if (k === "turtleEditor") { //menu[0]
             menu[0] = true;
-            // do more stuff
           } else if (k === "documentationGeneration") { //menu[1]
             menu[1] = true;
           } else if (k === "visualization") { //menu[2]
@@ -98,15 +108,23 @@ function readUserConfigurationFile() {
           } else if (k === "analytics") { //menu[5]
             menu[5] = true;
           } else if (k === "infomationProtectionAgreement") {
-            if(obj['text2'] != ""){
+            if (obj['text2'] != "") {
               var dataProtectionHtmlPage = '<% include header.ejs %><div style="margin-top: 3% !important;"></div><div class="ui grid"><div class="ui container">'
               dataProtectionHtmlPage += obj['text2'];
               dataProtectionHtmlPage += '</div></div><% include footer .ejs%>';
-            fs.writeFileSync(__dirname + '/views/dataProtection.ejs',dataProtectionHtmlPage,{encoding:'utf8',flag:'w'});
-             }
-             if(obj['text3'] != ""){
-             fs.writeFileSync(__dirname + '/views/dataProtectionScript.ejs',obj['text3'],{encoding:'utf8',flag:'w'});
-              }
+              fs.writeFileSync(__dirname + '/views/dataProtection.ejs',
+                dataProtectionHtmlPage, {
+                  encoding: 'utf8',
+                  flag: 'w'
+                });
+            }
+            if (obj['text3'] != "") {
+              fs.writeFileSync(__dirname +
+                '/views/dataProtectionScript.ejs', obj['text3'], {
+                  encoding: 'utf8',
+                  flag: 'w'
+                });
+            }
             menu[6] = true;
           } else if (k === "loginUserName") {
             loginUserName = obj[k];
@@ -115,6 +133,7 @@ function readUserConfigurationFile() {
           }
         });
         app.locals.userConfigurations = menu;
+        app.locals.repoParam = repoParam;
         // check if the admin select private mode access of instace
         if (loginUserName)
           app.locals.authRequired = true;
@@ -150,16 +169,19 @@ app.use(session({
   secret: 'secretC44-4D44-WppQ38S',
   resave: true,
   saveUninitialized: true,
-    cookie: { path: '/', maxAge: 10 * 30 * 1000}
-}
-));
+  cookie: {
+    path: '/',
+    maxAge: 10 * 30 * 1000
+  }
+}));
 
 
 // redirect to /config for first time if userConfigurations.json does not exsit
 app.get('*', function(req, res, next) {
-var userConfigurationsFile2 = __dirname + '/jsonDataFiles/userConfigurations.json';
-    var data = fs.readFileSync(userConfigurationsFile2, "utf8");
-    if (!data.includes("adminUserName"))
+  var userConfigurationsFile2 = __dirname +
+    '/jsonDataFiles/userConfigurations.json';
+  var data = fs.readFileSync(userConfigurationsFile2, "utf8");
+  if (!data.includes("adminUserName"))
     res.render('config', {
       title: 'Configuration Page',
       inputComponentsValues: "",
@@ -174,9 +196,12 @@ var userConfigurationsFile2 = __dirname + '/jsonDataFiles/userConfigurations.jso
 // routing to the available routes on the app
 app.use(['\/\/', '/'], routes);
 app.use(['\/\/documentation', '/documentation'], documentation);
-app.use(['\/\/webvowlLink', '/webvowlLink'], express.static(path.join(__dirname, "views/webvowl")));
-app.use(['\/\/turtleEditorLink', '/turtleEditorLink'], express.static(path.join(__dirname, "views/editor")));
-app.use(['\/\/analyticsLink', '/analyticsLink'], express.static(path.join(__dirname, "views/d3sparql")));
+app.use(['\/\/webvowlLink', '/webvowlLink'], express.static(path.join(__dirname,
+  "views/webvowl")));
+app.use(['\/\/turtleEditorLink', '/turtleEditorLink'], express.static(path.join(
+  __dirname, "views/editor")));
+app.use(['\/\/analyticsLink', '/analyticsLink'], express.static(path.join(
+  __dirname, "views/d3sparql")));
 app.use(['\/\/evolution', '/evolution'], evolution);
 app.use(['\/\/startup', '/startup'], startup);
 app.use(['\/\/validation', '/validation'], validation);
@@ -187,20 +212,22 @@ app.use(['\/\/adminLogin', '/adminLogin'], adminLogin);
 app.use(['\/\/config', '/config'], config);
 
 
-app.use(['\/\/fuseki/', '/fuseki/'],  proxy('localhost:'+process.argv.slice(2)[1] || 3030+'/',   {  
-  proxyReqPathResolver:   function(req)  {
-    if (req.method === 'POST')
-      return  require('url').parse(req.url).path + "?query=" + escape(req.body.query);
-    else
-      return  require('url').parse(req.url).path;
-  }
-}));
+app.use(['\/\/fuseki/', '/fuseki/'], proxy('localhost:' + process.argv.slice(2)[
+    1] || 3030 + '/', {
+    proxyReqPathResolver: function(req) {
+      if (req.method === 'POST')
+        return require('url').parse(req.url).path + "?query=" + escape(
+            req.body.query);
+      else
+        return require('url').parse(req.url).path;
+    }
+  }));
 
 app.get(['\/\/analytics', '/analytics'], function(req, res) {
   if (!req.session.isAuthenticated && req.app.locals.authRequired)
     res.render('login', {
       title: 'login',
-      hash : ""
+      hash: ""
     });
   else
     res.render('analytics', {
@@ -212,7 +239,7 @@ app.get(['\/\/editor', '/editor'], function(req, res) {
   if (!req.session.isAuthenticated && req.app.locals.authRequired)
     res.render('login', {
       title: 'login',
-      hash : ""
+      hash: ""
     });
   else
     res.render('editor', {
@@ -224,7 +251,7 @@ app.get(['\/\/visualization', '/visualization'], function(req, res) {
   if (!req.session.isAuthenticated && req.app.locals.authRequired)
     res.render('login', {
       title: 'login',
-      hash : ""
+      hash: ""
     });
   else
     res.render('visualization', {
@@ -236,7 +263,7 @@ app.get(['\/\/querying', '/querying'], function(req, res) {
   if (!req.session.isAuthenticated && req.app.locals.authRequired)
     res.render('login', {
       title: 'login',
-      hash : ""
+      hash: ""
     });
   else
     res.render('querying', {
@@ -249,7 +276,7 @@ app.get(['\/\/Imprint', '/Imprint'], function(req, res) {
   if (!req.session.isAuthenticated && req.app.locals.authRequired)
     res.render('login', {
       title: 'login',
-      hash : ""
+      hash: ""
     });
   else
     res.render('Imprint', {
@@ -262,7 +289,7 @@ app.get(['\/\/dataProtection', '/dataProtection'], function(req, res) {
   if (!req.session.isAuthenticated && req.app.locals.authRequired)
     res.render('login', {
       title: 'login',
-      hash : ""
+      hash: ""
     });
   else
     res.render('dataProtection', {
@@ -273,8 +300,13 @@ app.get(['\/\/dataProtection', '/dataProtection'], function(req, res) {
 
 app.get(['\/\/checkErrors', '/checkErrors'], function(req, res, next) {
   readSyntaxErrorsFile();
-  console.log(req.body);
   res.send(app.locals.isExistSyntaxError);
+  res.end();
+});
+
+app.get(['\/\/getRepoInfo', '/getRepoInfo'], function(req, res, next) {
+  readUserConfigurationFile();
+  res.send(app.locals.repoParam);
   res.end();
 });
 
@@ -338,3 +370,4 @@ app.use(function(err, req, res, next) {
 
 
 module.exports = app;
+

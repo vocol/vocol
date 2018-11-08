@@ -59,7 +59,7 @@ var d3sparql = {
     </html>
 */
 d3sparql.query = function(endpoint, sparql, callback) {
-
+  //'http://localhost:3030/newDataset/sparql'
   var url = 'http://localhost:3030/newDataset/sparql' + "?query=" + encodeURIComponent(sparql) + '&output=json'
   if (d3sparql.debug) {
     console.log(endpoint)
@@ -202,6 +202,7 @@ d3sparql.tree = function(json, config) {
   var head = json.head.vars;
   var data = json.results.bindings;
   var hash_nodes = {};
+
   //var nodes_hash = []; //?
   //var lastId = 0; //?
 
@@ -258,8 +259,8 @@ d3sparql.tree = function(json, config) {
     var node_parent = hash_nodes[node.name];
     console.log(node_parent);
     var index = look_for_position(node.name, node_parent.children);
-    if(index !=-1){
-      node_parent.children = node_parent.children.splice(index,1);
+    if (index != -1) {
+      node_parent.children = node_parent.children.splice(index, 1);
       console.log(node_parent);
     }
   }
@@ -317,30 +318,25 @@ d3sparql.tree = function(json, config) {
           new_node = new_root;
       }
 
-      if (hash_nodes.hasOwnProperty(new_node.name)) {
-        prune_node(new_node);
-      }
-      hash_nodes[new_node.name] = tree;
-      
+      //if (hash_nodes.hasOwnProperty(new_node.name)) {
+      //prune_node(new_node);
+      //}
+      //hash_nodes[new_node.name] = tree;
+
       if (tree.hasOwnProperty('children')) {
         tree.children.push(new_node);
       } else {
         tree["children"] = [new_node];
       }
-
     }
   }
-
 
   for (var index = 0; index < data.length; index++) {
     add_to_tree(dummy_root, data[index], "root", 0);
   }
 
-  console.log(dummy_root);
   return dummy_root;
 }
-
-
 
 
 /*d3sparql.tree = function(json, config) {
@@ -1113,14 +1109,15 @@ d3sparql.forcegraph = function(json, config) {
   //console.log(graph);
   //var neighbors = {}; // Key = vertex, value = array of neighbors.
   $("#result").empty();
+
   showGraph(graph.nodes, graph.edges, 'result');
+
 
 
   //bfs(neighborsSet, 56);
   //  var path = shortestPath(19, 17);
   //  var graphPath = pathToGraph(path, graph);
   //  showGraph(graphPath.nodes, graphPath.edges, 'shortest-path');
-
 
   // Get the word after hash char of a string
   function trimHash(str) {
@@ -1133,7 +1130,6 @@ d3sparql.forcegraph = function(json, config) {
     }
   }
 
-
   // Get the word after slash char of a string
   function trimSlash(str) {
     if (str.includes("/")) {
@@ -1143,7 +1139,6 @@ d3sparql.forcegraph = function(json, config) {
       return str;
     }
   }
-
 
   // Customization of the RDF type to show as in standards
   function replaceWithRDFType(str) {
@@ -1158,7 +1153,6 @@ d3sparql.forcegraph = function(json, config) {
     else
       return str;
   }
-
 
   function makeNodeLabel(node) {
     var nodeLabel = "";
@@ -1186,7 +1180,6 @@ d3sparql.forcegraph = function(json, config) {
     return nodeLabel;
   }
 
-
   function createGraph(data) {
     var nodes = [];
     var edges = [];
@@ -1194,18 +1187,14 @@ d3sparql.forcegraph = function(json, config) {
     var edgesId = {};
 
     for (var i = 0; i < data['results']['bindings'].length; i++) {
-
       //Edge labels:
       var key1 = trimHash(replaceWithRDFType(trimSlash(data['results']['bindings'][i]['predicate'].value)));
-
       var subjectId = 0;
       var objectId = 0;
       var subjectLabel = makeNodeLabel(data['results']['bindings'][i]['subject']);
       var objectLabel = makeNodeLabel(data['results']['bindings'][i]['object']);
-
       var subjectFlag = false;
       var objectFlag = false;
-
 
       //Check if the node is added in nodes before.
       for (var j = 0; j < nodes.length; j++) { //TODO: It takes much time
@@ -1213,7 +1202,6 @@ d3sparql.forcegraph = function(json, config) {
           subjectFlag = true;
           subjectId = nodes[j]['id'];
         }
-
         if (objectLabel === nodes[j]['label']) {
           objectFlag = true;
           objectId = nodes[j]['id'];
@@ -1227,7 +1215,6 @@ d3sparql.forcegraph = function(json, config) {
         });
         subjectId = lastId;
       }
-
       if (!objectFlag) {
         nodes.push({
           id: ++lastId,
@@ -1235,7 +1222,6 @@ d3sparql.forcegraph = function(json, config) {
         });
         objectId = lastId;
       }
-
       edges.push({
         from: subjectId,
         to: objectId,
@@ -1244,16 +1230,13 @@ d3sparql.forcegraph = function(json, config) {
           color: 'green'
         }
       });
-
     }
-
     return {
       'nodes': nodes,
       'edges': edges,
       //'neighbors': neighbors
     };
   }
-
 
   function showGraph(nodes, edges, containerName) {
     // Preparing nodes and eddges to be shown.
@@ -1262,13 +1245,11 @@ d3sparql.forcegraph = function(json, config) {
     var sparqlEdges = new vis.DataSet();
     sparqlEdges.add(edges);
 
-
     // Provide the data in the vis format
     var graphData = {
       nodes: sparqlNodes,
       edges: sparqlEdges
     };
-
 
     // Layout of the graph and its container
     var options = {
@@ -1365,14 +1346,11 @@ d3sparql.forcegraph = function(json, config) {
       }
     };
 
-
     // Make a container of network(graph)
     var container = document.getElementById(containerName);
 
-
     // Initialize your network!
     var network = new vis.Network(container, graphData, options);
-
 
     // Enable dropdown selector for search a node on the graph.
     $.each(nodes, function(index, value) {
@@ -1381,7 +1359,6 @@ d3sparql.forcegraph = function(json, config) {
         text: nodes[index]['label']
       }));
     });
-
 
     // Scale up a part of the graph(selected node) for search operation
     var focusOptions = {
@@ -1393,7 +1370,6 @@ d3sparql.forcegraph = function(json, config) {
       locked: true
     };
 
-
     // Show the change on selected node's layout.
     $('#select-entity').change(function() {
       var entityId = document.getElementById('select-entity').value;
@@ -1402,7 +1378,6 @@ d3sparql.forcegraph = function(json, config) {
       }
     });
 
-
     // Apply changes of the layout of selected node.
     function changeLayout(id) {
       network.selectNodes([id], true)
@@ -1410,9 +1385,7 @@ d3sparql.forcegraph = function(json, config) {
     }
   }
 
-
   function exploreGraph(s) {
-
     var edges = graph.edges;
     neighbors[s] = [];
     for (var i = 0; i < edges.length; i++) {
@@ -1426,7 +1399,6 @@ d3sparql.forcegraph = function(json, config) {
       }
     }
   }
-
 
   // Find bfs tree, not needed anymore.
   function bfs(neighbors, source) {
@@ -1456,7 +1428,6 @@ d3sparql.forcegraph = function(json, config) {
       }
     }
   }
-
 
   function shortestPath(source, target) {
 
@@ -1517,7 +1488,6 @@ d3sparql.forcegraph = function(json, config) {
     console.log('there is no path from ' + source + ' to ' + target);
   }
 
-
   // Retreive a graph network from path.
   function pathToGraph(path, graph) {
     var nodes = [],
@@ -1548,7 +1518,6 @@ d3sparql.forcegraph = function(json, config) {
       'edges': edges
     };
   }
-
 }
 
 
@@ -1844,13 +1813,19 @@ d3sparql.dendrogram = function(json, config) {
     var i = 0;
     var duration = 750;
     var root;
+    var hash_nodes = {};
+    var hash_ids = {};
+    var selected_id = [];
 
     // size of the diagram
-    var viewerWidth = $(document).width();
-    var viewerHeight = $(document).height();
+    var viewerWidth = $(document).width() / 2;
+    var viewerHeight = $(document).height() / 2;
 
     var tree = d3.layout.tree()
       .size([viewerHeight, viewerWidth]);
+
+    var treeHeight = viewerHeight;
+    var treeWidth = viewerWidth;
 
     // define a d3 diagonal projection for use by the node paths later on.
     var diagonal = d3.svg.diagonal()
@@ -1876,11 +1851,28 @@ d3sparql.dendrogram = function(json, config) {
 
     // Call visit function to establish maxLabelLength
     visit(treeData, function(d) {
-      console.log(d);
       totalNodes++;
+      d.index = totalNodes;
+      if (!(d.index in hash_nodes)) {
+        hash_nodes[d.index] = d;
+      }
+
+      if (!(d.name in hash_ids)) {
+        hash_ids[d.name] = [d.index];
+      } else {
+        hash_ids[d.name].push(d.index);
+      }
+
       maxLabelLength = Math.max(d.name.length, maxLabelLength);
     }, function(d) {
-      return d.children && d.children.length > 0 ? d.children : null;
+      if(d.children && d.children.length > 0){
+        for(var i = 0; i < d.children.length; i++){
+          d.children[i].parent_id = d.index;
+        }
+        return d.children;
+      }else {
+        return null;
+      }
     });
 
     // TODO: Pan function, can be better implemented.
@@ -1914,14 +1906,19 @@ d3sparql.dendrogram = function(json, config) {
 
     function zoomed() {
       svgGroup.attr("transform", "translate(" + zoomListener.translate() + ")scale(" + zoomListener.scale() + ")");
-    }
+      var svgTag = d3.select("#result svg");
 
+      svgTag.attr("width", treeWidth + margin.right + margin.left)
+        .attr("height", treeHeight + margin.top + margin.bottom); //TODO: make a flexibile size
+    }
 
     function interpolateZoom(translate, scale, center) {
       var self = this;
       return d3.transition().duration().tween("zoom", function() {
         var iTranslate = d3.interpolate(zoomListener.translate(), translate),
           iScale = d3.interpolate(zoomListener.scale(), scale);
+        treeHeight *= scale;
+        treeWidth *= scale;
         return function(t) {
           zoomListener
             .scale(iScale(t))
@@ -1936,8 +1933,6 @@ d3sparql.dendrogram = function(json, config) {
         direction = 1,
         factor = 0.1,
         target_zoom = 1,
-        max_x = viewerWidth / 3,
-        max_y = viewerHeight / 3,
         center = [node.x0, node.y0],
         extent = zoomListener.scaleExtent(),
         translate = zoomListener.translate(),
@@ -1965,22 +1960,16 @@ d3sparql.dendrogram = function(json, config) {
       translate0 = [(center[0] - view.x) / view.k, (center[1] - view.y) / view.k];
       view.k = target_zoom;
       l = [translate0[0] * view.k + view.x, translate0[1] * view.k + view.y];
-
       view.x += center[0] - l[0];
       view.y += center[1] - l[1];
 
-      //if(view.x > max_x || view.y > max_y){
-      //  alert('here!')
-      //  return false;
-      //}
-
       interpolateZoom([view.x, view.y], view.k);
-      centerNode(node);
+
+      //  console.log('XxY', bBox.x + 'x' + bBox.y);
+      //console.log('size', bBox.width + 'x' + bBox.height);
     }
 
-
     d3.selectAll('button.zoom').on('click', zoomOperator);
-
 
     function initiateDrag(d, domNode) {
       draggingNode = d;
@@ -2024,7 +2013,7 @@ d3sparql.dendrogram = function(json, config) {
     $("#result").height(viewerHeight).width(viewerWidth);
 
     // define the baseSvg, attaching a class for styling and the zoomListener
-    svgGroup = d3.select("#result").append("svg")
+    baseSvg = d3.select("#result").append("svg")
       .attr("width", viewerWidth + margin.right + margin.left)
       .attr("height", viewerHeight + margin.top + margin.bottom)
       .append('g')
@@ -2033,8 +2022,6 @@ d3sparql.dendrogram = function(json, config) {
       .call(zoomListener);
 
     // Append a group which holds all nodes and which the zoom Listener can act upon.
-
-
     // Define the drag listeners for drag/drop behaviour of nodes.
     dragListener = d3.behavior.drag()
       .on("dragstart", function(d) {
@@ -2074,7 +2061,7 @@ d3sparql.dendrogram = function(json, config) {
           try {
             clearTimeout(panTimer);
           } catch (e) {
-
+            console.log(e);
           }
         }
 
@@ -2186,8 +2173,8 @@ d3sparql.dendrogram = function(json, config) {
       scale = zoomListener.scale();
       x = -source.y0;
       y = -source.x0;
-      x = x * scale + viewerWidth / 2;
-      y = y * scale + viewerHeight / 2;
+      x = x * scale + viewerWidth / 4;
+      y = y * scale + viewerHeight / 3;
       d3.select('g').transition()
         .duration(duration)
         .attr("transform", "translate(" + x + "," + y + ")scale(" + scale + ")");
@@ -2196,7 +2183,6 @@ d3sparql.dendrogram = function(json, config) {
     }
 
     // Toggle children function
-
     function toggleChildren(d) {
       if (d.children) {
         d._children = d.children;
@@ -2208,8 +2194,55 @@ d3sparql.dendrogram = function(json, config) {
       return d;
     }
 
-    // Toggle children on click.
+    //Search the nodes with selected name.
+    function searchNode(nodeName) {
+      if (selected_id.length > 0){
+        for (var i = 0; i < selected_id.length; i++){
+          hash_nodes[selected_id[i]].select = 0;
+        }
+        selected_id = [];
+      }
 
+      if (nodeName in hash_ids) {
+        var found_nodes = hash_ids[nodeName];
+        for (var i = 0; i < found_nodes.length; i++){
+          focus(hash_nodes[found_nodes[i]]);
+        }
+      }
+    }
+
+    //Collapse parent of searched entity
+    function collapseParent(d){
+      if(d.parent_id){
+        var parent = hash_nodes[d.parent_id];
+        if (parent._children) {
+          collapseParent(parent);
+          parent.children = parent._children;
+          parent._children = null;
+        }
+        //collapseParent(parent);
+      }
+      else {
+        return;
+      }
+    }
+
+    //Focus on a specific node.
+    function focus(d) {
+      collapse(d);
+      collapseParent(d);
+      d.select = 1;
+      selected_id.push(d.index);
+      update(d);
+
+      //TODO: change the color and radius of selected node and if possible the focus of display.
+    }
+
+    document.getElementById("focus").onclick = function() {
+      searchNode("Book");
+    };
+
+    // Toggle children on click.
     function click(d) {
       if (d3.event.defaultPrevented) return; // click suppressed
       d = toggleChildren(d);
@@ -2217,18 +2250,14 @@ d3sparql.dendrogram = function(json, config) {
     }
 
     function update(source) {
-
-
       // Compute the new height, function counts total children of root node and sets tree height accordingly.
       // This prevents the layout looking squashed when new nodes are made visible or looking sparse when nodes are removed
       // This makes the layout more consistent.
       var levelWidth = [1]; // Number of tree levels.
       var childCount = function(level, n) {
-
         if (n.children && n.children.length > 0) {
           if (levelWidth.length <= level + 1) levelWidth.push(0); //Represents the new node, which is added
           //in its level in the case the level is biger than the last level of tree.
-
           levelWidth[level + 1] += n.children.length; // Add #children of new node in its level.
           n.children.forEach(function(d) {
             childCount(level + 1, d);
@@ -2238,31 +2267,38 @@ d3sparql.dendrogram = function(json, config) {
 
       childCount(0, root);
       var newHeight = d3.max(levelWidth) * 25; // 25 pixels per line
+      var newWidth = d3.max(levelWidth) * maxLabelLength * 1.5;
+      treeHeight = newHeight;
+      treeWidth = newWidth;
       d3.select("#result svg")
-        .attr("width", viewerWidth + margin.right + margin.left)
+        .attr("width", newWidth + margin.right + margin.left)
         .attr("height", newHeight + margin.top + margin.bottom);
-      tree = tree.size([newHeight, viewerWidth]);
+      tree = tree.size([newHeight, newWidth]);
+
       // Compute the new tree layout.
       var nodes = tree.nodes(root).reverse(),
         links = tree.links(nodes);
-
       // Set widths between levels based on maxLabelLength.
       nodes.forEach(function(d) {
-        d.y = (d.depth * (maxLabelLength * 5));
+        d.y = (d.depth * (maxLabelLength * 4));
       });
 
       // Update the nodes…
       var node = svgGroup.selectAll("g.node")
         .data(nodes, function(d) {
-          return d.id || (d.id = ++i);
+          var ret_val = d.id || (d.id = ++i);
+
+
+          return ret_val;
         });
+
 
       // Enter any new nodes at the parent's previous position.
       var nodeEnter = node.enter().append("g")
         .call(dragListener)
         .attr("class", "node")
         .attr("transform", function(d) {
-          return "translate(" + source.y0 + "," + source.x0 + ")";
+          return "translate(" + (source.y0 || 0) + "," + (source.x0 || 0) + ")";
         })
         .on('click', click);
 
@@ -2288,18 +2324,19 @@ d3sparql.dendrogram = function(json, config) {
         .style("fill-opacity", 0);
 
       // phantom node to give us mouseover in a radius around it
-      nodeEnter.append("circle")
-        .attr('class', 'ghostCircle')
-        .attr("r", 30)
-        .attr("opacity", 0.2) // change this to zero to hide the target area
-        .style("fill", "red")
-        .attr('pointer-events', 'mouseover')
-        .on("mouseover", function(node) {
-          overCircle(node);
-        })
-        .on("mouseout", function(node) {
-          outCircle(node);
-        });
+      /*  nodeEnter.append("circle")
+          .attr('class', 'ghostCircle')
+          .attr("r", 30)
+          .attr("opacity", 0.2) // change this to zero to hide the target area
+          .style("fill", "red")
+          .attr('pointer-events', 'mouseover')
+          .on("mouseover", function(node) {
+            overCircle(node);
+          })
+          .on("mouseout", function(node) {
+            outCircle(node);
+          });
+          */
 
       // Update the text to reflect whether node has children or not.
       node.select('text')
@@ -2309,21 +2346,25 @@ d3sparql.dendrogram = function(json, config) {
         .attr("text-anchor", function(d) {
           return d.children || d._children ? "end" : "start";
         })
+        .style("font-size", function(d) {
+          return d.select == 1 ? 14 : 10;
+        })
         .text(function(d) {
           return d.name;
         });
 
       // Change the circle fill depending on whether it has children and is collapsed
       node.select("circle.nodeCircle")
-        .attr("r", 4.5)
+        .attr("r", function(d){return d.select == 1 ? 8 : 4.5})
         .style("fill", function(d) {
-          return d._children ? "lightsteelblue" : "#fff";
+          if (d.select == 1) {
+            return "#DA3";
+          } else
+            return d._children ? "lightsteelblue" : "#fff";
         });
 
       // Transition nodes to their new position.
       var nodeUpdate = node.transition().duration(duration);
-
-
       nodeUpdate.attr("transform", function(d) {
         return "translate(" + d.y + "," + d.x + ")";
       });
@@ -2357,8 +2398,8 @@ d3sparql.dendrogram = function(json, config) {
         .attr("class", "link")
         .attr("d", function(d) {
           var o = {
-            x: source.x0,
-            y: source.y0
+            x: source.x0 || 0,
+            y: source.y0 || 0
           };
           return diagonal({
             source: o,
@@ -2393,13 +2434,10 @@ d3sparql.dendrogram = function(json, config) {
       });
     }
 
-
-
-    //svgGroup = baseSvg.append("g");
+    svgGroup = baseSvg.append("g");
 
     // Define the root
     root = treeData;
-    //  console.log(treeData);
     root.x0 = viewerHeight / 2;
     root.y0 = 0;
 
@@ -2407,48 +2445,22 @@ d3sparql.dendrogram = function(json, config) {
     root.children.forEach(collapse);
     update(root);
 
-
-
-    //TODO: for adding search functionality
-    //It seems is needed to read tree depthly
-    //Check visit function
-
-
-
-
-    // Enable dropdown selector for search a node on the graph.
-
-
-
-
-    // A recursive helper function for performing some setup by walking through all nodes
-
-
-
-    // Call visit function to establish maxLabelLength
-    visit(treeData, function(d) {
-      //  console.log(d.id);
-    }, function(d) {
-      return d.children && d.children.length > 0 ? d.children : null;
-    });
-
-
+    // Fill in dropdown selector for search a node on the graph.
+    for (key in hash_ids){
+      $('#select-entity').append($('<option/>', {
+        value: key,
+        text: key
+      }));
+    }
 
     // Show the change on selected node's layout.
-    //$('#select-entity').change(function() {
-    //  var entityId = document.getElementById('select-entity').value;
-    //  if (entityId != '') {
-    //    changeLayout(entityId);
-    //  }
-    //});
-
-    //console.log(root.id);
-
-
-
-
+    $('#select-entity').change(function() {
+      var nodeName = document.getElementById('select-entity').value;
+      if (nodeName != '') {
+        searchNode(nodeName);
+      }
+    });
   }
-
 }
 
 

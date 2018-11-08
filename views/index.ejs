@@ -139,6 +139,12 @@
             key2 = key2 + '@' + key3;
           }
           key1 = trimHash(replaceWithRDFType(trimSlash(key1)));
+          if (key1 == "rdfs:comment")
+            key1 = "comment";
+          if (key1 == "rdf:type")
+            key1 = "type";
+          if (key1 == "owl:versionInfo")
+            key1 = "version information";
 
           metadataTableRows += '<tr><td>' + key1 + '</td><td>' + key2 + '</td></tr>';
         }
