@@ -143,28 +143,30 @@ Show Files</button>
           <div class="col-md-9">
             <div class="form-group">
               <br><br>
-              <div class="form-group">
-                <label for="search-input">Search</label>
-                <div class="wrapper">
+
+              <div style="display:inline-block; width: 35%">
+                <b>Content editor: </b> <span class="current-filename"></span>
+              </div>
+
+                <div class="wrapper" style="display:inline-block; width:60%">
                   <div class="ui form">
-                    <div class="inline field">
-                      <input type='text' id='search-input' placeholder='Keyword...' class="form-control" enabled="true" style="width: 250px;">
+                      <label for="search-input" style="display:inline-block; float:left; margin-left:30%; padding-top:10px;">Search</label>
+                      <input type='text' id='search-input' placeholder='Keyword...' class="form-control" enabled="true" style="width: 60%; margin-left:40%;">
                       <span id='search-count' class='hidden-element search-count'><span id='search-index'></span><span id='search-total'></span></span>
 
-                    </div>
-
                     <button type="button" id="next-btn" class="search-btn hidden-element" style="display:none">
-                  <i class="angle double right icon"></i>
-                </button>
+                      <i class="angle double right icon"></i>
+                    </button>
                     <button type="button" id="previous-btn" class="search-btn hidden-element" style="display:none">
-                  <i class="angle double  left icon"></i>
-                </button>
+                      <i class="angle double  left icon"></i>
+                    </button>
                   </div>
                 </div>
-              </div>
-              <label for="input-contents">Content editor: <span class="current-filename"></span></label>
-              <textarea id="input-contents" placeholder="File content will appear here" rows="40" wrap="hard"></textarea>
+
+
+
             </div>
+            <textarea id="input-contents" placeholder="File content will appear here" rows="40" wrap="hard"></textarea>
 
             <div class="ui small modal" id="modalNewCommit" style="font-size:16px">
               <i class="close icon"></i>

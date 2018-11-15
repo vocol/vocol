@@ -145,6 +145,32 @@ WHERE {
 
 Limit 1000
        `
-	}
+	},
+
+  {
+          "name": "Hierachy of the Concepts",
+          "endpoint": `domain/fuseki/dataset/query`,
+          "query": `PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+SELECT DISTINCT ?root_name ?parent_name ?child_name
+WHERE
+{
+  ?root rdfs:label ?root_name1 .
+  ?child skos:narrower+ ?root .
+  ?child skos:narrower ?parent .
+  ?child rdfs:label ?child_name1.
+  ?parent rdfs:label ?parent_name1.
+  bind( str(?root_name1) as ?root_name )
+  bind( str(?child_name1) as ?child_name )
+  bind( str(?parent_name1) as ?parent_name )
+
+}LIMIT 500
+  `
+  }
 
     ]

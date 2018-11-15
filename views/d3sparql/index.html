@@ -19,6 +19,8 @@
   <script src="queries.js"></script>
   <script src="lib/js/topojson.min.js"></script>
   <script src="../../public/dist/vis.min.js"></script>
+
+
 </head>
 
 <body>
@@ -134,21 +136,27 @@
 
     <input id="endpoint" value="http://dbpedia.org/sparql" type="hidden" class="form-control">
 
-    <div>
-      <div id="result"></div><br/>
-      <div id="dendro-zoom" style=" margin-left: 50px; display:none" class="form-group">
-        <button id="zoom_in" class="zoom popup-show" ><i class="plus icon"></i></button>
-        <div class="ui special popup">
-          <div class="header">Click to zoom in </div>
-        </div>
-        <button id="zoom_out" class="zoom popup-show"><i class="minus icon"></i></button>
-        <div class="ui special popup">
-          <div class="header">Click to zoom out </div>
-        </div>
-        <button id="focus"> focus </button>
+
+    <div id="result">
+
+    </div>
+    <br/>
+
+
+    <div id="dendro-zoom" style=" margin-left: 50px; display:none" class="form-group">
+      <button id="zoom_in" class="zoom popup-show" ><i class="plus icon"></i></button>
+      <div class="ui special popup">
+        <div class="header">Click to zoom in </div>
+      </div>
+      <button id="zoom_out" class="zoom popup-show"><i class="minus icon"></i></button>
+      <div class="ui special popup">
+        <div class="header">Click to zoom out </div>
       </div>
     </div>
   </div>
+  </div>
+
+
   </div>
 
   <script>
@@ -159,6 +167,7 @@
           $('#skos-radio').prop("checked", false);
           document.getElementById('skos').classList.remove('positive');
           document.getElementById('rdf').classList.add('positive');
+          $('#sparql').val(data[3]['query']);
         }
       }
       if (val == 'skos') {
@@ -167,35 +176,58 @@
           $('#rdf-radio').prop("checked", false);
           document.getElementById('rdf').classList.remove('positive');
           document.getElementById('skos').classList.add('positive');
+          $('#sparql').val(data[5]['query']);
         }
       }
     }
+
 
     var selectedgraphtype = "";
     $('.ui.dropdown').dropdown({
       // action: 'combo',
       onChange: function(value, text) {
         selectedgraphtype = text;
-
         if (selectedgraphtype == 'BarChart') {
           $('#sparql').val(data[0]['query']);
+          exec();
         } else if (selectedgraphtype == 'PieChart') {
           $('#sparql').val(data[0]['query']);
+          exec();
         } else if (selectedgraphtype == 'ForceGraph') {
           $('#sparql').val(data[1]['query']);
+          var height = $(document).height()
+          var width = $(document).width() * (2 / 3);
+          $("#result").height(height).width(width);
+          exec();
         } else if (selectedgraphtype == 'Sankey') {
           $('#sparql').val(data[2]['query']);
+          exec();
         } else if (selectedgraphtype == 'RoundTree') {
           $('#sparql').val(data[3]['query']);
+          exec();
         } else if (selectedgraphtype == 'DendroGram') {
+          $("#select-entity").empty();
+          $('#select-entity').append($('<option/>', {
+            value: 'Choose entity',
+            text: 'Choose entity'
+          }));
           document.getElementById('rdf-skos').style.display = 'inline';
-          $('#sparql').val(data[3]['query']);
+          if (document.getElementById("rdf-radio").checked === true) {
+            $('#sparql').val(data[3]['query']);
+          } else {
+            $('#sparql').val(data[5]['query']);
+          }
+
+          exec(); //TODO: It should be checked that why some nodes are hidden when selected.
         } else if (selectedgraphtype == 'TreeMap') {
           $('#sparql').val(data[3]['query']);
+          exec();
         } else if (selectedgraphtype == 'SunBurst') {
           $('#sparql').val(data[3]['query']);
+          exec();
         } else if (selectedgraphtype == 'CirclePack') {
           $('#sparql').val(data[3]['query']);
+          exec();
         }
       }
     });
@@ -205,17 +237,17 @@
     });
 
     function exec() {
-      if (selectedgraphtype != 'DendroGram'){
+      if (selectedgraphtype != 'DendroGram') {
         document.getElementById('rdf-skos').style.display = 'none';
         document.getElementById('dendro-zoom').style.display = 'none';
       }
 
-      if(selectedgraphtype != ('ForceGraph' || 'DendroGram'))
+      if (selectedgraphtype != ('ForceGraph' || 'DendroGram'))
         $('#search-entity').css('display', 'none');
-      if(selectedgraphtype != 'ForceGraph'){
+      if (selectedgraphtype != 'ForceGraph') {
         document.getElementById('result').classList.add('showGraph');
       }
-      if(selectedgraphtype == 'ForceGraph'){
+      if (selectedgraphtype == 'ForceGraph') {
         document.getElementById('result').classList.remove('showGraph');
       }
 
@@ -254,12 +286,13 @@
         d3sparql.query(endpoint, sparql, roundtree)
       } else if (selectedgraphtype == 'DendroGram') {
         $('#search-entity').css('display', 'inline');
-        if (document.getElementById("rdf-radio").checked === true) {
-          d3sparql.query(endpoint, sparql, dendrogram);
-          document.getElementById('dendro-zoom').style.display = 'inline';
-        } else {
-          alert('Nothing to show now!');
-        }
+        $("#select-entity").empty();
+        $('#select-entity').append($('<option/>', {
+          value: 'Choose entity',
+          text: 'Choose entity'
+        }));
+        d3sparql.query(endpoint, sparql, dendrogram);
+        document.getElementById('dendro-zoom').style.display = 'inline';
       } else if (selectedgraphtype == 'TreeMap') {
         d3sparql.query(endpoint, sparql, treemap)
       } else if (selectedgraphtype == 'TreeMapZoom') {
@@ -295,8 +328,175 @@
         "hole": 200, // doughnut hole: 0 for pie, r > 0 for doughnut
         "selector": "#result"
       }
-      d3sparql.piechart(json, config)
+      console.log(json);
+      var pieConcepts = [];
+      var pieValues = {};
+
+      var jsonData = json.results.bindings;
+      for (var i = 0; i < jsonData.length; i++) {
+        var newEntry = jsonData[i].conceptType.value;
+        pieConcepts.push(newEntry);
+        pieValues[newEntry] = jsonData[i].value.value;
+      }
+
+      $("#result").empty();
+      $("#result").height(500).width(960);
+      var svg = d3.select("#result")
+      	.append("svg")
+      	.append("g")
+
+      svg.append("g")
+      	.attr("class", "slices");
+      svg.append("g")
+      	.attr("class", "labels");
+      svg.append("g")
+      	.attr("class", "lines");
+
+      var width = 960, //TODO: should be flexibile
+          height = 450,
+      	radius = Math.min(width, height) / 2;
+
+      var pie = d3.layout.pie()
+      	.sort(null)
+      	.value(function(d) {
+      		return d.value;
+      	});
+
+      var arc = d3.svg.arc()
+      	.outerRadius(radius * 0.8)
+      	.innerRadius(radius * 0.4);
+
+      var outerArc = d3.svg.arc()
+      	.innerRadius(radius * 0.9)
+      	.outerRadius(radius * 0.9);
+
+      svg.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+      var key = function(d){ return d.data.label; };
+
+      var color = d3.scale.ordinal() //TODO: Here should manage colors
+      	.domain(pieConcepts)
+      	.range(["#2484c1", "#65a620", "#7b6888", "#a05d56", "#961a1a", "#d8d23a", "#e98125", "#d0743c", "#635222", "#6ada6a",
+				"#0c6197", "#7d9058", "#207f33", "#44b9b0", "#bca44a", "#e4a14b", "#a3acb2", "#8cc3e9", "#69a6f9", "#5b388f",
+				"#546e91", "#8bde95", "#d2ab58", "#273c71", "#98bf6e", "#4daa4b", "#98abc5", "#cc1010", "#31383b", "#006391",
+				"#c2643f", "#b0a474", "#a5a39c", "#a9c2bc", "#22af8c", "#7fcecf", "#987ac6", "#3d3b87", "#b77b1c", "#c9c2b6",
+				"#807ece", "#8db27c", "#be66a2", "#9ed3c6", "#00644b", "#005064", "#77979f", "#77e079", "#9c73ab", "#1f79a7"]);
+
+      function randomData (){
+      	var labels = color.domain(); //TODO: Here should manage labels and values
+      	return labels.map(function(label){
+      		return { label: label, value: pieValues[label] }
+      	});
+      }
+
+      change(randomData());
+
+      d3.select(".randomize")
+      	.on("click", function(){
+      		change(randomData());
+      	});
+
+
+      function change(data) {
+
+      	/* ------- PIE SLICES -------*/
+      	var slice = svg.select(".slices").selectAll("path.slice")
+      		.data(pie(data), key);
+
+      	slice.enter()
+      		.insert("path")
+      		.style("fill", function(d) { return color(d.data.label); })
+      		.attr("class", "slice");
+
+      	slice
+      		.transition().duration(1000)
+      		.attrTween("d", function(d) {
+      			this._current = this._current || d;
+      			var interpolate = d3.interpolate(this._current, d);
+      			this._current = interpolate(0);
+      			return function(t) {
+      				return arc(interpolate(t));
+      			};
+      		})
+
+
+      	slice.exit()
+      		.remove();
+
+      	/* ------- TEXT LABELS -------*/
+
+      	var text = svg.select(".labels").selectAll("text")
+      		.data(pie(data), key);
+
+      	text.enter()
+      		.append("text")
+      		.attr("dy", ".35em")
+      		.text(function(d) {
+      			return (d.data.label);
+      		});
+
+      	function midAngle(d){
+      		return d.startAngle + (d.endAngle - d.startAngle)/2;
+      	}
+
+      	text.transition().duration(1000)
+      		.attrTween("transform", function(d) {
+      			this._current = this._current || d;
+      			var interpolate = d3.interpolate(this._current, d);
+      			this._current = interpolate(0);
+      			return function(t) {
+      				var d2 = interpolate(t);
+      				var pos = outerArc.centroid(d2);
+      				pos[0] = radius * (midAngle(d2) < Math.PI ? 1 : -1);
+      				return "translate("+ pos +")";
+      			};
+      		})
+      		.styleTween("text-anchor", function(d){
+      			this._current = this._current || d;
+      			var interpolate = d3.interpolate(this._current, d);
+      			this._current = interpolate(0);
+      			return function(t) {
+      				var d2 = interpolate(t);
+      				return midAngle(d2) < Math.PI ? "start":"end";
+      			};
+      		});
+
+      	text.exit()
+      		.remove();
+
+      	/* ------- SLICE TO TEXT POLYLINES -------*/
+
+      	var polyline = svg.select(".lines").selectAll("polyline")
+      		.data(pie(data), key);
+
+      	polyline.enter()
+      		.append("polyline");
+
+      	polyline.transition().duration(1000)
+      		.attrTween("points", function(d){
+      			this._current = this._current || d;
+      			var interpolate = d3.interpolate(this._current, d);
+      			this._current = interpolate(0);
+      			return function(t) {
+      				var d2 = interpolate(t);
+      				var pos = outerArc.centroid(d2);
+      				pos[0] = radius * 0.95 * (midAngle(d2) < Math.PI ? 1 : -1);
+      				return [arc.centroid(d2), outerArc.centroid(d2), pos];
+      			};
+      		});
+
+      	polyline.exit()
+      		.remove();
+      };
+
+
     }
+
+
+
+
+
+
 
     function forcegraph(json) {
       var config = {
@@ -522,7 +722,8 @@
       overflow-y: auto;
       text-align: center;
       margin-left: 50px;
-      margin-top:50px;
+      margin-top: 50px;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     }
 
     .showGraph {
@@ -536,6 +737,28 @@
     .item-hidden {
       display: none;
     }
+
+    <!--Pie Chart style -->
+    path.slice{
+    	stroke-width:2px;
+    }
+
+    polyline{
+    	opacity: .3;
+    	stroke: black;
+    	stroke-width: 2px;
+    	fill: none;
+    }
+
+    .slice text {
+        font-size: 16pt;
+        font-family: Arial;
+    }
+
+
+
+
+
   </style>
 
 </body>
