@@ -927,10 +927,6 @@ d3sparql.forcegraph = function(json, config) {
     });
 
 
-
-
-
-
     // Enable dropdown selector for search a node on the graph.
     $.each(nodes, function(index, value) {
       $('#select-entity').append($('<option/>', {
@@ -959,8 +955,8 @@ d3sparql.forcegraph = function(json, config) {
 
     // Apply changes of the layout of selected node.
     function changeLayout(id) {
-      display.selectNodes([id], true)
-      display.focus(id, focusOptions);
+      network.selectNodes([id], true)
+      network.focus(id, focusOptions);
     }
   }
 

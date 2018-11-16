@@ -32,24 +32,20 @@
 
       <div class="inline fields">
         <div class="seven wide field">
-          <div class="ui large dropdown labeled search icon button">
+          <select id="graph-names" class="ui large dropdown search icon button" style="width: 40%; font-weight: bold; font-size: 13px;" onchange="changeGraph()">
             <i class="bar chart icon"></i>
-            <span class="text">Select Graph Type</span>
-            <div class="menu">
-              <div class="header">Chart</div>
-              <div class=" item" data-text="BarChart">BarChart</div>
-              <div class=" large item" data-text="PieChart">PieChart</div>
-              <div class="header">Graph</div>
-              <div class=" item" data-text="ForceGraph">ForceGraph</div>
-              <div class=" item" data-text="Sankey">Sankey</div>
-              <div class="header">Tree</div>
-              <div class=" item" data-text="RoundTree">RoundTree</div>
-              <div class=" item" data-text="DendroGram">DendroGram</div>
-              <div class=" item" data-text="TreeMap">TreeMap</div>
-              <div class=" item" data-text="SunBurst">SunBurst</div>
-              <div class=" item" data-text="CirclePack">CirclePack</div>
-            </div>
-          </div>
+            <option class="text">Select Graph Type
+              <option  value="BarChart">BarChart
+              <option value="PieChart">PieChart
+              <option value="ForceGraph">ForceGraph
+              <option value="Sankey">Sankey
+              <option value="RoundTree">RoundTree
+              <option value="DendroGram">DendroGram
+              <option  value="TreeMap">TreeMap
+              <option value="SunBurst">SunBurst
+              <option value="CirclePack">CirclePack
+
+          </select>
         </div>
 
         <div id="search-entity" style="margin-top: 10px; height: 100%" class="form-group item-hidden">
@@ -136,7 +132,6 @@
 
     <input id="endpoint" value="http://dbpedia.org/sparql" type="hidden" class="form-control">
 
-
     <div id="result">
 
     </div>
@@ -183,10 +178,11 @@
 
 
     var selectedgraphtype = "";
-    $('.ui.dropdown').dropdown({
+
+
       // action: 'combo',
-      onChange: function(value, text) {
-        selectedgraphtype = text;
+      function changeGraph() {
+        selectedgraphtype = document.getElementById('graph-names').value;
         if (selectedgraphtype == 'BarChart') {
           $('#sparql').val(data[0]['query']);
           exec();
@@ -194,6 +190,11 @@
           $('#sparql').val(data[0]['query']);
           exec();
         } else if (selectedgraphtype == 'ForceGraph') {
+          $("#select-entity").empty();
+          $('#select-entity').append($('<option/>', {
+            value: 'Choose entity',
+            text: 'Choose entity'
+          }));
           $('#sparql').val(data[1]['query']);
           var height = $(document).height()
           var width = $(document).width() * (2 / 3);
@@ -217,7 +218,6 @@
           } else {
             $('#sparql').val(data[5]['query']);
           }
-
           exec(); //TODO: It should be checked that why some nodes are hidden when selected.
         } else if (selectedgraphtype == 'TreeMap') {
           $('#sparql').val(data[3]['query']);
@@ -229,8 +229,7 @@
           $('#sparql').val(data[3]['query']);
           exec();
         }
-      }
-    });
+    };
 
     $(function() {
       loadQueries();
@@ -286,11 +285,6 @@
         d3sparql.query(endpoint, sparql, roundtree)
       } else if (selectedgraphtype == 'DendroGram') {
         $('#search-entity').css('display', 'inline');
-        $("#select-entity").empty();
-        $('#select-entity').append($('<option/>', {
-          value: 'Choose entity',
-          text: 'Choose entity'
-        }));
         d3sparql.query(endpoint, sparql, dendrogram);
         document.getElementById('dendro-zoom').style.display = 'inline';
       } else if (selectedgraphtype == 'TreeMap') {
@@ -488,13 +482,7 @@
       	polyline.exit()
       		.remove();
       };
-
-
     }
-
-
-
-
 
 
 
@@ -646,11 +634,10 @@
       $(document).ready(function() {
         jQuery("button#executeQuery").click(function() {
           var msg = $(this).parent().children().closest('textarea').val();
-          alert(msg);
-          loadQueries();
+          $('#sparql').val(msg);
+          exec();
         });
       });
-
     }
 
     function exec_offline() {
@@ -663,10 +650,6 @@
       if (pathName.split('/').length === 4)
         dynamicPath = '/' + pathName.split('/')[1];
       for (var i = 0; i < data.length; i++) {
-        $('#queries').append($("<option/>", {
-          value: i,
-          text: data[i]['name']
-        }));
         if (i == 0) {
           $('#sparql').val(data[i]['query']);
           $('#endpoint').val(data[i]['endpoint'].replace('domain', window.location.origin + dynamicPath));
