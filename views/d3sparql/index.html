@@ -32,7 +32,9 @@
 
       <div class="inline fields">
         <div class="seven wide field">
-          <select id="graph-names" class="ui large dropdown search icon button" style="width: 40%; font-weight: bold; font-size: 13px;" onchange="changeGraph()">
+          <select id="graph-names" class="ui large dropdown search icon button"
+          style="width: 40%; font-weight: bold; font-size: 13px;"
+          onchange="changeGraph()">
             <i class="bar chart icon"></i>
             <option class="text">Select Graph Type
               <option  value="BarChart">BarChart
@@ -44,11 +46,10 @@
               <option  value="TreeMap">TreeMap
               <option value="SunBurst">SunBurst
               <option value="CirclePack">CirclePack
-
           </select>
         </div>
 
-        <div id="search-entity" style="margin-top: 10px; height: 100%" class="form-group item-hidden">
+        <div id="search-entity" style="margin-top: 10px; height: 100%; width: 20%" class="form-group item-hidden">
           <select id="select-entity" class="ui search dropdown popup-show">
               <option value="">Choose entity</option>
             </select>
@@ -163,6 +164,8 @@
           document.getElementById('skos').classList.remove('positive');
           document.getElementById('rdf').classList.add('positive');
           $('#sparql').val(data[3]['query']);
+          $("#select-entity").empty();
+          exec();
         }
       }
       if (val == 'skos') {
@@ -172,13 +175,12 @@
           document.getElementById('rdf').classList.remove('positive');
           document.getElementById('skos').classList.add('positive');
           $('#sparql').val(data[5]['query']);
+          $("#select-entity").empty();
+          exec();
         }
       }
     }
-
-
     var selectedgraphtype = "";
-
 
       // action: 'combo',
       function changeGraph() {
@@ -191,10 +193,6 @@
           exec();
         } else if (selectedgraphtype == 'ForceGraph') {
           $("#select-entity").empty();
-          $('#select-entity').append($('<option/>', {
-            value: 'Choose entity',
-            text: 'Choose entity'
-          }));
           $('#sparql').val(data[1]['query']);
           var height = $(document).height()
           var width = $(document).width() * (2 / 3);
@@ -208,10 +206,6 @@
           exec();
         } else if (selectedgraphtype == 'DendroGram') {
           $("#select-entity").empty();
-          $('#select-entity').append($('<option/>', {
-            value: 'Choose entity',
-            text: 'Choose entity'
-          }));
           document.getElementById('rdf-skos').style.display = 'inline';
           if (document.getElementById("rdf-radio").checked === true) {
             $('#sparql').val(data[3]['query']);

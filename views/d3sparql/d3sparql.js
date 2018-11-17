@@ -646,12 +646,7 @@ d3sparql.forcegraph = function(json, config) {
   //console.log(graph);
   //var neighbors = {}; // Key = vertex, value = array of neighbors.
   $("#result").empty();
-
-
   showGraph(graph.nodes, graph.edges, 'result');
-
-
-
 
   //bfs(neighborsSet, 56);
   //  var path = shortestPath(19, 17);
@@ -897,7 +892,6 @@ d3sparql.forcegraph = function(json, config) {
     // Make a container of network(graph)
     var container = document.getElementById(containerName);
 
-
     // Initialize your network!
     var network = new vis.Network(container, graphData, options);
     network.fit();
@@ -934,6 +928,8 @@ d3sparql.forcegraph = function(json, config) {
         text: nodes[index]['label']
       }));
     });
+
+    sortSelect(document.getElementById('select-entity'));
 
     // Scale up a part of the graph(selected node) for search operation
     var focusOptions = {
@@ -1307,6 +1303,7 @@ d3sparql.dendrogram = function(json, config) {
     var hash_nodes = {};
     var hash_ids = {};
     var selected_id = [];
+    var treeLevel = 0;
 
     // size of the diagram
     var viewerWidth = $(document).width() * (2 / 3);
@@ -1342,14 +1339,15 @@ d3sparql.dendrogram = function(json, config) {
 
     // Call visit function to establish maxLabelLength
     visit(treeData, function(d) {
+      treeData.level = 0;
       totalNodes++;
       d.index = totalNodes;
       if (!(d.index in hash_nodes)) {
-        hash_nodes[d.index] = d;
+        hash_nodes[d.index] = d; //map each node with it's id
       }
 
       if (!(d.name in hash_ids)) {
-        hash_ids[d.name] = [d.index];
+        hash_ids[d.name] = [d.index]; //map each node's name with node's id
       } else {
         hash_ids[d.name].push(d.index);
       }
@@ -1359,6 +1357,7 @@ d3sparql.dendrogram = function(json, config) {
       if (d.children && d.children.length > 0) {
         for (var i = 0; i < d.children.length; i++) {
           d.children[i].parent_id = d.index;
+          d.children[i].level = d.level + 1;
         }
         return d.children;
       } else {
@@ -1725,7 +1724,6 @@ d3sparql.dendrogram = function(json, config) {
       selected_id.push(d.index);
       update(d);
 
-      //TODO: change the color and radius of selected node and if possible the focus of display.
     }
 
     // Toggle children on click.
@@ -1744,6 +1742,7 @@ d3sparql.dendrogram = function(json, config) {
         if (n.children && n.children.length > 0) {
           if (levelWidth.length <= level + 1) levelWidth.push(0); //Represents the new node, which is added
           //in its level in the case the level is biger than the last level of tree.
+
           levelWidth[level + 1] += n.children.length; // Add #children of new node in its level.
           n.children.forEach(function(d) {
             childCount(level + 1, d);
@@ -1752,10 +1751,10 @@ d3sparql.dendrogram = function(json, config) {
       };
 
       childCount(0, root);
-      var newHeight = d3.max(levelWidth) * 25; // 25 pixels per line
-      var newWidth = d3.max(levelWidth) * maxLabelLength * 1.5;
-      treeHeight = newHeight;
-      treeWidth = newWidth;
+      treeLevel = Math.max(source.level, treeLevel);
+      var newHeight = treeHeight = d3.max(levelWidth) * 25; // 25 pixels per line
+      var newWidth = treeWidth = (treeLevel + 1) * maxLabelLength * 4;
+
       d3.select("#result svg")
         .attr("width", newWidth + margin.right + margin.left)
         .attr("height", newHeight + margin.top + margin.bottom);
@@ -1924,6 +1923,8 @@ d3sparql.dendrogram = function(json, config) {
       }));
     }
 
+    sortSelect(document.getElementById('select-entity'));
+
     // Show the change on selected node's layout.
     $('#select-entity').change(function() {
       var nodeName = document.getElementById('select-entity').value;
@@ -1932,6 +1933,25 @@ d3sparql.dendrogram = function(json, config) {
       }
     });
   }
+}
+
+function sortSelect(selElem) {
+    var tmpAry = new Array();
+    for (var i=0;i<selElem.options.length;i++) {
+        tmpAry[i] = new Array();
+        tmpAry[i][0] = selElem.options[i].text;
+        tmpAry[i][1] = selElem.options[i].value;
+    }
+    tmpAry.sort();
+    tmpAry.splice(0, 0,['choose entity','choose entity']);
+    while (selElem.options.length > 0) {
+        selElem.options[0] = null;
+    }
+    for (var i=0;i<tmpAry.length;i++) {
+        var op = new Option(tmpAry[i][0], tmpAry[i][1]);
+        selElem.options[i] = op;
+    }
+    return;
 }
 
 
