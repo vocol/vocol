@@ -5,11 +5,11 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <title></title>
   <meta name="description" />
-  <link href="../dist/vis-timeline-graph2d.min.css" rel="stylesheet" type="text/css">
-  <link href="../dist/vis-network.min.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" type="text/css" href="lib/css/style.css" />
   <link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
   <link rel="stylesheet" href="lib/css/bootstrap-theme.min.css">
+  <link href="../dist/vis-timeline-graph2d.min.css" rel="stylesheet" type="text/css">
+  <link href="../dist/vis-network.min.css" rel="stylesheet" type="text/css">
   <script src="../javascripts/bower_components/jquery/dist/jquery.min.js"></script>
   <script src="../javascripts/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="../semantic/dist/semantic.min.js"></script>
@@ -18,8 +18,9 @@
   <script src="d3sparql.js"></script>
   <script src="queries.js"></script>
   <script src="lib/js/topojson.min.js"></script>
-
   <script src="../dist/vis.min.js"></script>
+
+
 </head>
 
 <body>
@@ -30,80 +31,239 @@
     <div class="ui form">
 
       <div class="inline fields">
-        <div class="seven wide field">
-
-          <div class="ui large dropdown labeled search icon button">
+        <div class="three wide field">
+          <select id="graph-names" class="ui large dropdown search icon button"
+          style=" font-weight: bold; font-size: 13px;"
+          onchange="changeGraph()">
             <i class="bar chart icon"></i>
-            <span class="text">Select Graph Type</span>
-            <div class="menu">
-              <div class="header">Chart</div>
-              <div class=" item" data-text="BarChart">BarChart</div>
-              <div class=" large item" data-text="PieChart">PieChart</div>
-              <div class="header">Graph</div>
-              <div class=" item" data-text="ForceGraph">ForceGraph</div>
-              <div class=" item" data-text="Sankey">Sankey</div>
-              <div class="header">Tree</div>
-              <div class=" item" data-text="RoundTree">RoundTree</div>
-              <div class=" item" data-text="DendroGram">DendroGram</div>
-              <div class=" item" data-text="TreeMap">TreeMap</div>
-              <div class=" item" data-text="SunBurst">SunBurst</div>
-              <div class=" item" data-text="CirclePack">CirclePack</div>
+            <option class="text">Select Graph Type
+              <option  value="BarChart">BarChart
+              <option value="PieChart">PieChart
+              <option value="ForceGraph">ForceGraph
+              <option value="Sankey">Sankey
+              <option value="RoundTree">RoundTree
+              <option value="DendroGram">DendroGram
+              <option  value="TreeMap">TreeMap
+              <option value="SunBurst">SunBurst
+              <option value="CirclePack">CirclePack
+          </select>
+        </div>
+        <div class="ui large button" data-toggle="modal" class="modal_message" data-target="#sparqlModal" onclick="toggle()"> Query
+        </div>
+        <div id="search-entity" style="margin-top: 10px; height: 100%; width: 20%" class="form-group item-hidden">
+          <select id="select-entity" class="ui search dropdown popup-show">
+              <option value="">Choose entity</option>
+            </select>
+          <div class="ui special popup">
+            <div class="header">To focus on your favourite entity, click here to choose it or fill in its name. </div>
+          </div>
+        </div>
+
+        <div class="one field"></div>
+
+        <div id="rdf-skos" style="display:none">
+          <div class="ui form">
+            <div class="grouped fields">
+              <div class="ui buttons">
+                <div class="field">
+                  <div class="ui radio checkbox">
+                    <button  class="ui positive button" id="rdf" onclick="check('rdf')">
+                      <input type="radio" id="rdf-radio" name="rdf-skos" checked="checked">
+                      <label>RDF(S)</label>
+                    </button>
+                  </div>
+                </div>
+                <div class="or" data-text="or"></div>
+                <div class="field">
+                  <div class="ui radio checkbox">
+                    <button class="ui button" id="skos" onclick="check('skos')">
+                      <input type="radio" id="skos-radio" name="rdf-skos" >
+                      <label>SKOS</label>
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="four wide field">
 
-          <div class="ui large button" onclick="toggle()"> Query
+        <div class="one field"></div>
+
+
+
+        <div id="sparqlModal" class="fullscreen modal" role="dialog">
+          <div class="modal-dialog" style="width:800px;">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close home_close" data-dismiss="modal">&times;</button>
+                <h3 class="modal-title">Query</h3>
+              </div>
+              <div class="modal-body">
+
+                <p>
+                  <form class="msg_form" onsubmit="return false;" role="form">
+                    <div class="modal-footer">
+                      <textarea class="msg_home" id="sparql" ></textarea>
+                      <br><br>
+
+                      <div class="ui red cancel inverted button" id="cancleQuery" data-dismiss="modal" style="align:right">
+                        <i class="remove icon"></i>
+                        Cancle
+                      </div>
+                      <button type="button" class="sendmsg ui green ok inverted button" id="executeQuery" data-dismiss="modal">
+                    <i class="checkmark icon"></i>
+                    Run
+                  </button>
+                    </div>
+                  </form>
+                </p>
+
+              </div>
+            </div>
           </div>
-          <div class="ui large right labeled icon button" onclick="exec()">
-            <i class="right arrow icon"></i> Show
-          </div>
+
         </div>
+
+        <!-- <div class="ui large right labeled icon button" onclick="exec()">
+          <i class="right arrow icon"></i> Show
+        </div> -->
+
       </div>
     </div>
 
     <input id="endpoint" value="http://dbpedia.org/sparql" type="hidden" class="form-control">
-    <textarea id="sparql" class="form-control" rows="15" style="margin:20px 0 30px 0;width:850px;display: inline;"> </textarea>
-    <div id="result"></div>
+
+    <div id="result" style="border: none;">
+
+    </div>
+    <br/>
+
+
+    <div id="dendro-zoom" style=" margin-left: 50px; display:none" class="form-group">
+      <button id="zoom_in" class="zoom popup-show" ><i class="plus icon"></i></button>
+      <div class="ui special popup">
+        <div class="header">Click to zoom in </div>
+      </div>
+      <button id="zoom_out" class="zoom popup-show"><i class="minus icon"></i></button>
+      <div class="ui special popup">
+        <div class="header">Click to zoom out </div>
+      </div>
+    </div>
   </div>
+  </div>
+
+
   </div>
 
   <script>
-    var selectedgraphtype = "";
-    $('.ui.dropdown').dropdown({
-      // action: 'combo',
-      onChange: function(value, text) {
-        selectedgraphtype = text;
-        if (selectedgraphtype == 'BarChart') {
-          $('#sparql').val(data[0]['query']);
-        } else if (selectedgraphtype == 'PieChart') {
-          $('#sparql').val(data[0]['query']);
-        } else if (selectedgraphtype == 'ForceGraph') {
-          $('#sparql').val(data[1]['query']);
-        } else if (selectedgraphtype == 'Sankey') {
-          $('#sparql').val(data[2]['query']);
-        } else if (selectedgraphtype == 'RoundTree') {
+    function check(val) {
+      if (val == 'rdf') {
+        if (!$('#rdf-radio').checked) {
+          $('#rdf-radio').prop("checked", true);
+          $('#skos-radio').prop("checked", false);
+          document.getElementById('skos').classList.remove('positive');
+          document.getElementById('rdf').classList.add('positive');
           $('#sparql').val(data[3]['query']);
-        } else if (selectedgraphtype == 'DendroGram') {
-          $('#sparql').val(data[3]['query']);
-        } else if (selectedgraphtype == 'TreeMap') {
-          $('#sparql').val(data[3]['query']);
-        } else if (selectedgraphtype == 'SunBurst') {
-          $('#sparql').val(data[3]['query']);
-        } else if (selectedgraphtype == 'CirclePack') {
-          $('#sparql').val(data[3]['query']);
+          $("#select-entity").empty();
+          exec();
         }
       }
-    });
+      if (val == 'skos') {
+        if (!$('#skos-radio').checked) {
+          $('#skos-radio').prop("checked", true);
+          $('#rdf-radio').prop("checked", false);
+          document.getElementById('rdf').classList.remove('positive');
+          document.getElementById('skos').classList.add('positive');
+          $('#sparql').val(data[5]['query']);
+          $("#select-entity").empty();
+          exec();
+        }
+      }
+    }
+    var selectedgraphtype = "";
 
+      // action: 'combo',
+      function changeGraph() {
+        selectedgraphtype = document.getElementById('graph-names').value;
+        if (selectedgraphtype == 'BarChart') {
+          $('#sparql').val(data[0]['query']);
+          exec();
+        } else if (selectedgraphtype == 'PieChart') {
+          $('#sparql').val(data[0]['query']);
+          exec();
+        } else if (selectedgraphtype == 'ForceGraph') {
+          $("#select-entity").empty();
+          $('#sparql').val(data[1]['query']);
+          var height = $(document).height()
+          var width = $(document).width() * (2 / 3);
+          $("#result").height(height).width(width);
+          exec();
+        } else if (selectedgraphtype == 'Sankey') {
+          $('#sparql').val(data[2]['query']);
+          exec();
+        } else if (selectedgraphtype == 'RoundTree') {
+          $('#sparql').val(data[3]['query']);
+          exec();
+        } else if (selectedgraphtype == 'DendroGram') {
+          $("#select-entity").empty();
+          document.getElementById('rdf-skos').style.display = 'inline';
+          if (document.getElementById("rdf-radio").checked === true) {
+            $('#sparql').val(data[3]['query']);
+          } else {
+            $('#sparql').val(data[5]['query']);
+          }
+          exec(); //TODO: It should be checked that why some nodes are hidden when selected.
+        } else if (selectedgraphtype == 'TreeMap') {
+          $('#sparql').val(data[3]['query']);
+          exec();
+        } else if (selectedgraphtype == 'SunBurst') {
+          $('#sparql').val(data[3]['query']);
+          exec();
+        } else if (selectedgraphtype == 'CirclePack') {
+          $('#sparql').val(data[3]['query']);
+          exec();
+        }
+    };
 
     $(function() {
       loadQueries();
-      d3sparql.toggle();
     });
 
     function exec() {
+      if (selectedgraphtype != 'DendroGram') {
+        document.getElementById('rdf-skos').style.display = 'none';
+        document.getElementById('dendro-zoom').style.display = 'none';
+      }
+
+      if (selectedgraphtype != ('ForceGraph' || 'DendroGram'))
+        $('#search-entity').css('display', 'none');
+      if (selectedgraphtype != 'ForceGraph') {
+        document.getElementById('result').classList.add('showGraph');
+      }
+      if (selectedgraphtype == 'ForceGraph') {
+        document.getElementById('result').classList.remove('showGraph');
+      }
+
+      //User guide for popup show
+      var resizePopup = function() {
+        $('.ui.popup').css('max-height', $(window).height());
+      };
+
+      $(window).resize(function(e) {
+        resizePopup();
+      });
+
+      $('.popup-show')
+        .popup({
+          lastResort: 'bottom left',
+          onShow: function() {
+            resizePopup();
+          },
+        });
+
+      ///// TODO: clean this function to just one call
       // var selectedgraphtype = d3.select("#graphtype").property("value")
+
       var endpoint = d3.select("#endpoint").property("value")
       var sparql = d3.select("#sparql").property("value")
       if (selectedgraphtype == 'BarChart') {
@@ -111,13 +271,16 @@
       } else if (selectedgraphtype == 'PieChart') {
         d3sparql.query(endpoint, sparql, piechart)
       } else if (selectedgraphtype == 'ForceGraph') {
+        $('#search-entity').css('display', 'inline');
         d3sparql.query(endpoint, sparql, forcegraph)
       } else if (selectedgraphtype == 'Sankey') {
         d3sparql.query(endpoint, sparql, sankey)
       } else if (selectedgraphtype == 'RoundTree') {
         d3sparql.query(endpoint, sparql, roundtree)
       } else if (selectedgraphtype == 'DendroGram') {
-        d3sparql.query(endpoint, sparql, dendrogram)
+        $('#search-entity').css('display', 'inline');
+        d3sparql.query(endpoint, sparql, dendrogram);
+        document.getElementById('dendro-zoom').style.display = 'inline';
       } else if (selectedgraphtype == 'TreeMap') {
         d3sparql.query(endpoint, sparql, treemap)
       } else if (selectedgraphtype == 'TreeMapZoom') {
@@ -153,8 +316,169 @@
         "hole": 200, // doughnut hole: 0 for pie, r > 0 for doughnut
         "selector": "#result"
       }
-      d3sparql.piechart(json, config)
+      console.log(json);
+      var pieConcepts = [];
+      var pieValues = {};
+
+      var jsonData = json.results.bindings;
+      for (var i = 0; i < jsonData.length; i++) {
+        var newEntry = jsonData[i].conceptType.value;
+        pieConcepts.push(newEntry);
+        pieValues[newEntry] = jsonData[i].value.value;
+      }
+
+      $("#result").empty();
+      $("#result").height(500).width(960);
+      var svg = d3.select("#result")
+      	.append("svg")
+      	.append("g")
+
+      svg.append("g")
+      	.attr("class", "slices");
+      svg.append("g")
+      	.attr("class", "labels");
+      svg.append("g")
+      	.attr("class", "lines");
+
+      var width = 960, //TODO: should be flexibile
+          height = 450,
+      	radius = Math.min(width, height) / 2;
+
+      var pie = d3.layout.pie()
+      	.sort(null)
+      	.value(function(d) {
+      		return d.value;
+      	});
+
+      var arc = d3.svg.arc()
+      	.outerRadius(radius * 0.8)
+      	.innerRadius(radius * 0.4);
+
+      var outerArc = d3.svg.arc()
+      	.innerRadius(radius * 0.9)
+      	.outerRadius(radius * 0.9);
+
+      svg.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+      var key = function(d){ return d.data.label; };
+
+      var color = d3.scale.ordinal() //TODO: Here should manage colors
+      	.domain(pieConcepts)
+      	.range(["#2484c1", "#65a620", "#7b6888", "#a05d56", "#961a1a", "#d8d23a", "#e98125", "#d0743c", "#635222", "#6ada6a",
+				"#0c6197", "#7d9058", "#207f33", "#44b9b0", "#bca44a", "#e4a14b", "#a3acb2", "#8cc3e9", "#69a6f9", "#5b388f",
+				"#546e91", "#8bde95", "#d2ab58", "#273c71", "#98bf6e", "#4daa4b", "#98abc5", "#cc1010", "#31383b", "#006391",
+				"#c2643f", "#b0a474", "#a5a39c", "#a9c2bc", "#22af8c", "#7fcecf", "#987ac6", "#3d3b87", "#b77b1c", "#c9c2b6",
+				"#807ece", "#8db27c", "#be66a2", "#9ed3c6", "#00644b", "#005064", "#77979f", "#77e079", "#9c73ab", "#1f79a7"]);
+
+      function randomData (){
+      	var labels = color.domain(); //TODO: Here should manage labels and values
+      	return labels.map(function(label){
+      		return { label: label, value: pieValues[label] }
+      	});
+      }
+
+      change(randomData());
+
+      d3.select(".randomize")
+      	.on("click", function(){
+      		change(randomData());
+      	});
+
+
+      function change(data) {
+
+      	/* ------- PIE SLICES -------*/
+      	var slice = svg.select(".slices").selectAll("path.slice")
+      		.data(pie(data), key);
+
+      	slice.enter()
+      		.insert("path")
+      		.style("fill", function(d) { return color(d.data.label); })
+      		.attr("class", "slice");
+
+      	slice
+      		.transition().duration(1000)
+      		.attrTween("d", function(d) {
+      			this._current = this._current || d;
+      			var interpolate = d3.interpolate(this._current, d);
+      			this._current = interpolate(0);
+      			return function(t) {
+      				return arc(interpolate(t));
+      			};
+      		})
+
+
+      	slice.exit()
+      		.remove();
+
+      	/* ------- TEXT LABELS -------*/
+
+      	var text = svg.select(".labels").selectAll("text")
+      		.data(pie(data), key);
+
+      	text.enter()
+      		.append("text")
+      		.attr("dy", ".35em")
+      		.text(function(d) {
+      			return (d.data.label);
+      		});
+
+      	function midAngle(d){
+      		return d.startAngle + (d.endAngle - d.startAngle)/2;
+      	}
+
+      	text.transition().duration(1000)
+      		.attrTween("transform", function(d) {
+      			this._current = this._current || d;
+      			var interpolate = d3.interpolate(this._current, d);
+      			this._current = interpolate(0);
+      			return function(t) {
+      				var d2 = interpolate(t);
+      				var pos = outerArc.centroid(d2);
+      				pos[0] = radius * (midAngle(d2) < Math.PI ? 1 : -1);
+      				return "translate("+ pos +")";
+      			};
+      		})
+      		.styleTween("text-anchor", function(d){
+      			this._current = this._current || d;
+      			var interpolate = d3.interpolate(this._current, d);
+      			this._current = interpolate(0);
+      			return function(t) {
+      				var d2 = interpolate(t);
+      				return midAngle(d2) < Math.PI ? "start":"end";
+      			};
+      		});
+
+      	text.exit()
+      		.remove();
+
+      	/* ------- SLICE TO TEXT POLYLINES -------*/
+
+      	var polyline = svg.select(".lines").selectAll("polyline")
+      		.data(pie(data), key);
+
+      	polyline.enter()
+      		.append("polyline");
+
+      	polyline.transition().duration(1000)
+      		.attrTween("points", function(d){
+      			this._current = this._current || d;
+      			var interpolate = d3.interpolate(this._current, d);
+      			this._current = interpolate(0);
+      			return function(t) {
+      				var d2 = interpolate(t);
+      				var pos = outerArc.centroid(d2);
+      				pos[0] = radius * 0.95 * (midAngle(d2) < Math.PI ? 1 : -1);
+      				return [arc.centroid(d2), outerArc.centroid(d2), pos];
+      			};
+      		});
+
+      	polyline.exit()
+      		.remove();
+      };
     }
+
+
 
     function forcegraph(json) {
       var config = {
@@ -164,7 +488,7 @@
         "height": 700,
         "selector": "#result"
       }
-      d3sparql.forcegraph(json, config)
+      d3sparql.forcegraph(json, config);
     }
 
     function sankey(json) {
@@ -178,6 +502,7 @@
         "margin": 10,
         "selector": "#result"
       }
+      console.log(json);
       d3sparql.sankey(json, config)
     }
 
@@ -200,13 +525,25 @@
         "root": "root_name",
         "parent": "parent_name",
         "child": "child_name",
+        "margin": 300,
+        "radius": 10,
+        "selector": "#result"
+      }
+      d3sparql.dendrogram(json, config)
+    }
+
+    function htmltable(json) {
+      var config = {
+        "root": "root_name",
+        "parent": "parent_name",
+        "child": "child_name",
         "width": 800,
         "height": 750,
         "margin": 300,
         "radius": 10,
         "selector": "#result"
       }
-      d3sparql.dendrogram(json, config)
+      d3sparql.htmltable(json, config)
     }
 
     function treemap(json) {
@@ -286,8 +623,16 @@
       d3sparql.namedmap(json, config)
     }
 
+    /* Helper function only for the d3sparql web site */
     function toggle() {
-      d3sparql.toggle()
+      var elem = d3.select("#sparql")
+      $(document).ready(function() {
+        jQuery("button#executeQuery").click(function() {
+          var msg = $(this).parent().children().closest('textarea').val();
+          $('#sparql').val(msg);
+          exec();
+        });
+      });
     }
 
     function exec_offline() {
@@ -300,10 +645,6 @@
       if (pathName.split('/').length === 4)
         dynamicPath = '/' + pathName.split('/')[1];
       for (var i = 0; i < data.length; i++) {
-        $('#queries').append($("<option/>", {
-          value: i,
-          text: data[i]['name']
-        }));
         if (i == 0) {
           $('#sparql').val(data[i]['query']);
           $('#endpoint').val(data[i]['endpoint'].replace('domain', window.location.origin + dynamicPath));
@@ -312,6 +653,10 @@
     }
   </script>
   <style>
+    .ui.popup {
+      overflow: auto;
+    }
+
     .ui.dropdown .menu>.item {
       font-size: 1.2rem;
     }
@@ -349,6 +694,49 @@
     circle.child {
       pointer-events: none;
     }
+
+    #result {
+      overflow-x: auto;
+      overflow-y: auto;
+      text-align: center;
+      margin-left: 50px;
+      margin-top: 50px;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    .showGraph {
+      border-style: ridge;
+    }
+
+    .item-show {
+      display: inline;
+    }
+
+    .item-hidden {
+      display: none;
+    }
+
+    <!--Pie Chart style -->
+    path.slice{
+    	stroke-width:2px;
+    }
+
+    polyline{
+    	opacity: .3;
+    	stroke: black;
+    	stroke-width: 2px;
+    	fill: none;
+    }
+
+    .slice text {
+        font-size: 16pt;
+        font-family: Arial;
+    }
+
+
+
+
+
   </style>
 
 </body>
