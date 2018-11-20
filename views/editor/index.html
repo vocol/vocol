@@ -43,8 +43,8 @@
         </div>
         <div class="form-group">
           <button type="button" id="button-load" class="ui big button popup-show" style="width:100%">
-            <i class="upload icon"></i>
-Load Files</button>
+            <i class="undo icon"></i>
+Show Files</button>
           <div class="ui special popup">
             <div class="header">For a quick tour leave the fields Username and Password blank and just click the Load Files button.</div>
           </div>
@@ -56,140 +56,140 @@ Load Files</button>
             <div class="header">Select individual files for viewing or editing.</div>
           </div>
         </div>
-        <div class="form-group">
-          <div class="wrapper">
-            <div class="ui form">
-              <div class="inline field">
-                <input type='text' id='search-input' placeholder='search in the file...' class="form-control" >
-                <span id='search-count' class='hidden-element search-count'><span id='search-index'></span><span id='search-total'></span></span>
 
-              </div>
 
-              <button type="button" id="next-btn" class="search-btn hidden-element">
-                <i class="angle double right icon"></i>
-              </button>
-              <button type="button" id="previous-btn" class="search-btn hidden-element">
-                <i class="angle double  left icon"></i>
-              </button>
-            </div>
-          </div>
-        </div>
 
         <label  for="syntax-play" >Syntax checking</label>
 
         <div class="form-group">
           <div class="ui form">
             <div class="inline field">
-              <div class="ui  toggle checkbox popup-show">
+              <div class="ui toggle checkbox popup-show">
                 <label for="enableDisbleSyntaxChecking">Deactivate/Activate</label>
-                <input type="checkbox" name="mySliders" id="enableDisbleSyntaxChecking" checked>
-
-
-
-
-
+                <input type="checkbox" name="mySliders" id="enableDisbleSyntaxChecking">
 
 
           </div>
 
-              <div class="ui special popup">
-                <div class="header">Click to activate/deactivate syntax checking.</div>
+                <div class="ui special popup">
+                  <div class="header">Click to activate/deactivate syntax checking.</div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="form-group">
-          <label for="input-message">Commit message</label>
-          <input type="text" class="form-control" id="input-message" placeholder="Turtle file edited, just as an example."/>
+          <div class="form-group">
+            <label for="input-message">Commit message</label>
+            <input type="text" class="form-control" id="input-message" placeholder="Turtle file edited, just as an example."/>
 
 
 
           </div>
-        <div class="form-group">
-          <button class="ui big vk button"  id="button-save" style="width:100%">
+            <div class="form-group">
+              <button class="ui big vk button"  id="button-save" style="width:100%">
   <i class="save icon"></i>
   Commit changes
 </button>
-        </div>
+            </div>
 
-        <div id="syntax-check" style="padding-bottom:12px">
-          <p id="syntax-check-failed" style="display: none">
-            <img src="img/red_orb.png" alt="A red orb." class="status-icon">
-            <span class="status">Syntax check failed.</span>
-          </p>
-          <p id="syntax-check-working" style="display: none">
-            <img src="img/yellow_orb.png" alt="A yellow orb." class="status-icon">
-            <span class="status">Syntax checker working.</span>
-          </p>
-          <p id="syntax-check-pending">
-            <img src="img/yellow_orb.png" alt="A yellow orb." class="status-icon">
-            <span class="status">Syntax check pending...</span>
-          </p>
-          <p id="syntax-check-off" style="display: none">
-            <img src="img/yellow_orb.png" alt="A yellow orb." class="status-icon">
-            <span class="status">Syntax checking is disabled. Click to enable.</span>
-          </p>
-          <p id="syntax-check-passed" style="display: none">
-            <img src="img/green_orb.png" alt="A green orb." class="status-icon">
-            <span class="status">Syntax check passed.</span>
-          </p>
-        </div>
-        <div class="form-group">
-          <div class="ui big button popup-show" id="helpButton" style="padding-top: 6px; width:100%">
-            <i class="hand paper icon"></i> Help
-          </div>
-          <div class="ui special popup">
-            <div class="header">Click Me! to get some details about the editor usage.</div>
-          </div>
-        </div>
+            <div id="syntax-check" style="padding-bottom:12px">
+              <p id="syntax-check-failed" style="display: none">
+                <img src="img/red_orb.png" alt="A red orb." class="status-icon">
+                <span class="status">Syntax check failed.</span>
+              </p>
+              <p id="syntax-check-working" style="display: none">
+                <img src="img/yellow_orb.png" alt="A yellow orb." class="status-icon">
+                <span class="status">Syntax checker working.</span>
+              </p>
+              <p id="syntax-check-pending">
+                <img src="img/yellow_orb.png" alt="A yellow orb." class="status-icon">
+                <span class="status">Syntax check pending...</span>
+              </p>
+              <p id="syntax-check-off" style="display: none">
+                <img src="img/yellow_orb.png" alt="A yellow orb." class="status-icon">
+                <span class="status">Syntax checking is disabled. Click to enable.</span>
+              </p>
+              <p id="syntax-check-passed" style="display: none">
+                <img src="img/green_orb.png" alt="A green orb." class="status-icon">
+                <span class="status">Syntax check passed.</span>
+              </p>
+            </div>
+            <div class="form-group">
+              <div class="ui big button popup-show" id="helpButton" style="padding-top: 6px; width:100%">
+                <i class="hand paper icon"></i> Help
+              </div>
+              <div class="ui special popup">
+                <div class="header">Click Me! to get some details about the editor usage.</div>
+              </div>
+            </div>
 
-        <div class="ui fullscreen modal">
-          <i class="close icon"></i>
-          <div class="header">
-            Help for using the editor
-          </div>
-          <div class="content" style="font-size:16px">
-            <ul>
-              <li>For a quick tour leave the fields <em>Username</em> and <em>Password</em> blank and just click the <em>Load Files</em> button.
-              <li>Select individual files for viewing/editing in the field <em>Filename</em>.
-              <li>To use the autocomplete function, type <em>Ctrl+Space</em>.
-              <li>Click the colored sphere to temporarily disable syntax checking.
-              <li>You need to provide your username and password only if you want to save the files after editing, or if the repository is private.
-              <li>To authenticate with a GitHub personal access token, leave the fields <em>Username</em> empty and paste the token into the field <em>Password or Token</em>.
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-9">
-        <div class="form-group">
-          <br><br>
-          <label for="input-contents">Content editor: <span class="current-filename"></span></label>
-          <textarea id="input-contents" placeholder="File content will appear here" rows="40" wrap="hard"></textarea>
-        </div>
-
-        <div class="ui small modal" id="modalNewCommit" style="font-size:16px">
-          <i class="close icon"></i>
-          <div class="header">
-            Warning! New commit
-          </div>
-          <div class="content"  >
-            <p>
-              There is a new commit on your working repository.
-            </p>
-            <div class="description">
-              Save your data or reload without saving
+            <div class="ui tiny modal" id="helpModal">
+              <i class="close icon"></i>
+              <div class="header">
+                Help for using the editor
+              </div>
+              <div class="content" style="font-size:16px">
+                <ul>
+                  <li>For a quick tour leave the fields <em>Username</em> and <em>Password</em> blank and just click the <em>Load Files</em> button.
+                  <li>Select individual files for viewing/editing in the field <em>Filename</em>.
+                  <li>To use the autocomplete function, type <em>Ctrl+Space</em>.
+                  <li>Click the colored sphere to temporarily disable syntax checking.
+                  <li>You need to provide your username and password only if you want to save the files after editing, or if the repository is private.
+                  <li>To authenticate with a GitHub personal access token, leave the fields <em>Username</em> empty and paste the token into the field <em>Password or Token</em>.
+                </ul>
+              </div>
             </div>
           </div>
-          <div class="actions">
-            <div class="ui big button">Reload without saving</div>
-            <div class="ui vk big button">Save my data</div>
+
+          <div class="col-md-9">
+            <div class="form-group">
+              <br><br>
+
+              <div style="display:inline-block; width: 35%">
+                <b>Content editor: </b> <span class="current-filename"></span>
+              </div>
+
+                <div class="wrapper" style="display:inline-block; width:60%">
+                  <div class="ui form">
+                      <label for="search-input" style="display:inline-block; float:left; margin-left:30%; padding-top:10px;">Search</label>
+                      <input type='text' id='search-input' placeholder='Keyword...' class="form-control" enabled="true" style="width: 60%; margin-left:40%;">
+                      <span id='search-count' class='hidden-element search-count'><span id='search-index'></span><span id='search-total'></span></span>
+
+                    <button type="button" id="next-btn" class="search-btn hidden-element" style="display:none">
+                      <i class="angle double right icon"></i>
+                    </button>
+                    <button type="button" id="previous-btn" class="search-btn hidden-element" style="display:none">
+                      <i class="angle double  left icon"></i>
+                    </button>
+                  </div>
+                </div>
+
+
+
+            </div>
+            <textarea id="input-contents" placeholder="File content will appear here" rows="40" wrap="hard"></textarea>
+
+            <div class="ui small modal" id="modalNewCommit" style="font-size:16px">
+              <i class="close icon"></i>
+              <div class="header">
+                Warning! New commit
+              </div>
+              <div class="content">
+                <p>
+                  There is a new commit on your working repository.
+                </p>
+                <div class="description">
+                  Save your data or reload without saving
+                </div>
+              </div>
+              <div class="actions">
+                <div class="ui big button">Reload without saving</div>
+                <div class="ui vk big button">Save my data</div>
+              </div>
+            </div>
+
           </div>
         </div>
-
       </div>
-    </div>
-  </div>
 </body>
 
 </html>
