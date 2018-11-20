@@ -6,19 +6,19 @@
   <title></title>
   <meta name="description" />
   <link rel="stylesheet" type="text/css" href="lib/css/style.css" />
-  <link rel="stylesheet" type="text/css" href="../../public/semantic/dist/semantic.min.css">
+  <link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
   <link rel="stylesheet" href="lib/css/bootstrap-theme.min.css">
-  <link href="../../public/dist/vis-timeline-graph2d.min.css" rel="stylesheet" type="text/css">
-  <link href="../../public/dist/vis-network.min.css" rel="stylesheet" type="text/css">
-  <script src="../../public/javascripts/bower_components/jquery/dist/jquery.min.js"></script>
-  <script src="../../public/javascripts/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="../../public/semantic/dist/semantic.min.js"></script>
+  <link href="../dist/vis-timeline-graph2d.min.css" rel="stylesheet" type="text/css">
+  <link href="../dist/vis-network.min.css" rel="stylesheet" type="text/css">
+  <script src="../javascripts/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="../javascripts/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="../semantic/dist/semantic.min.js"></script>
   <script src="lib/d3/d3.v3.min.js"></script>
   <script src="lib/d3/sankey.js"></script>
   <script src="d3sparql.js"></script>
   <script src="queries.js"></script>
   <script src="lib/js/topojson.min.js"></script>
-  <script src="../../public/dist/vis.min.js"></script>
+  <script src="../dist/vis.min.js"></script>
 
 
 </head>
@@ -31,59 +31,16 @@
     <div class="ui form">
 
       <div class="inline fields">
-        <div class="seven wide field">
+        <div class="three wide field">
           <select id="graph-names" class="ui large dropdown search icon button"
-          style="width: 40%; font-weight: bold; font-size: 13px;"
+          style="font-weight: bold; font-size: 13px;"
           onchange="changeGraph()">
             <i class="bar chart icon"></i>
             <option class="text">Select Graph Type
               <option  value="BarChart">BarChart
-              <option value="PieChart">PieChart
               <option value="ForceGraph">ForceGraph
-              <option value="Sankey">Sankey
-              <option value="RoundTree">RoundTree
               <option value="DendroGram">DendroGram
-              <option  value="TreeMap">TreeMap
-              <option value="SunBurst">SunBurst
-              <option value="CirclePack">CirclePack
           </select>
-        </div>
-
-        <div id="search-entity" style="margin-top: 10px; height: 100%; width: 20%" class="form-group item-hidden">
-          <select id="select-entity" class="ui search dropdown popup-show">
-              <option value="">Choose entity</option>
-            </select>
-          <div class="ui special popup">
-            <div class="header">To focus on your favourite entity, click here to choose it or fill in its name. </div>
-          </div>
-        </div>
-
-        <div class="one field"></div>
-
-        <div id="rdf-skos" style="display:none">
-          <div class="ui form">
-            <div class="grouped fields">
-              <div class="ui buttons">
-                <div class="field">
-                  <div class="ui radio checkbox">
-                    <button  class="ui positive button" id="rdf" onclick="check('rdf')">
-                      <input type="radio" id="rdf-radio" name="rdf-skos" checked="checked">
-                      <label>RDF(S)</label>
-                    </button>
-                  </div>
-                </div>
-                <div class="or" data-text="or"></div>
-                <div class="field">
-                  <div class="ui radio checkbox">
-                    <button class="ui button" id="skos" onclick="check('skos')">
-                      <input type="radio" id="skos-radio" name="rdf-skos" >
-                      <label>SKOS</label>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
 
         <div class="one field"></div>
@@ -124,16 +81,51 @@
 
         </div>
 
-        <div class="ui large right labeled icon button" onclick="exec()">
-          <i class="right arrow icon"></i> Show
+        <div id="search-entity" style="margin-top: 10px; height: 100%; width: 20%" class="form-group item-hidden">
+          <select id="select-entity" class="ui search dropdown popup-show">
+              <option value="">Choose entity</option>
+            </select>
+          <div class="ui special popup">
+            <div class="header">To focus on your favourite entity, click here to choose it or fill in its name. </div>
+          </div>
         </div>
+
+        <div class="one field"></div>
+
+        <div id="rdf-skos" style="display:none">
+          <div class="ui form">
+            <div class="grouped fields">
+              <div class="ui buttons">
+                <div class="field">
+                  <div class="ui radio checkbox">
+                    <button  class="ui positive button" id="rdf" onclick="check('rdf')">
+                      <input type="radio" id="rdf-radio" name="rdf-skos" checked="checked">
+                      <label>RDF(S)</label>
+                    </button>
+                  </div>
+                </div>
+                <div class="or" data-text="or"></div>
+                <div class="field">
+                  <div class="ui radio checkbox">
+                    <button class="ui button" id="skos" onclick="check('skos')">
+                      <input type="radio" id="skos-radio" name="rdf-skos" >
+                      <label>SKOS</label>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
 
       </div>
     </div>
 
     <input id="endpoint" value="http://dbpedia.org/sparql" type="hidden" class="form-control">
 
-    <div id="result">
+    <div id="result" style="border:none">
 
     </div>
     <br/>
@@ -164,7 +156,6 @@
           document.getElementById('skos').classList.remove('positive');
           document.getElementById('rdf').classList.add('positive');
           $('#sparql').val(data[3]['query']);
-          $("#select-entity").empty();
           exec();
         }
       }
@@ -175,7 +166,6 @@
           document.getElementById('rdf').classList.remove('positive');
           document.getElementById('skos').classList.add('positive');
           $('#sparql').val(data[5]['query']);
-          $("#select-entity").empty();
           exec();
         }
       }
@@ -477,8 +467,6 @@
       		.remove();
       };
     }
-
-
 
     function forcegraph(json) {
       var config = {
