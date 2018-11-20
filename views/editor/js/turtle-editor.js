@@ -5,10 +5,10 @@
 
 
 define(['jquery', 'github', 'N3', 'lib/codemirror',
-    'addon/hint/show-hint', 'mode/turtle/turtle', 'hint/turtle-hint',
-    'logger', 'addon/search/search', 'addon/search/searchcursor',
-    'addon/selection/mark-selection', 'semanticUI/semantic'
-  ],
+  'addon/hint/show-hint', 'mode/turtle/turtle', 'hint/turtle-hint',
+  'logger', 'addon/search/search', 'addon/search/searchcursor',
+  'addon/selection/mark-selection', 'semanticUI/semantic'
+],
 
   function($, Github, N3, CodeMirror, ShowHint, ModeTurtle, HintTurtle,
     logger, Search, SearchCursor, MarkSelection, SemanticUI) {
@@ -124,7 +124,7 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
       });
     // @ahmed
     // when help button is clicked
-    $('.ui.fullscreen.modal').modal('attach events', '#helpButton',
+    $('#helpModal').modal('attach events', '#helpButton',
       'show');
 
     // Reenable input element (necessary for Firefox)
@@ -182,13 +182,13 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
             }
             readFile();
           });
-        //@ahmed
-        // stop disabling username and  password
-        //inputElements.username.prop("disabled", true);
-        //inputElements.password.prop("disabled", true);
-        // @ahmed
-        //  disableLoadButton();
-        //changeSyntaxCheckState("pending");
+      //@ahmed
+      // stop disabling username and  password
+      //inputElements.username.prop("disabled", true);
+      //inputElements.password.prop("disabled", true);
+      // @ahmed
+      //  disableLoadButton();
+      //changeSyntaxCheckState("pending");
       }
 
 
@@ -237,7 +237,7 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
           logger.error("Read from GitHub failed", err);
         });
 
-      //changeSyntaxCheckState("pending");
+    //changeSyntaxCheckState("pending");
     };
 
     var storeToGitHub = function() {
@@ -305,7 +305,8 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
       setInterval(function() { //In every 60 seconds get last commit of repo and compare it with current commit of user
         $.ajax({
           type: 'GET',
-          url: "https://api.github.com/repos/" + currentRepoOwner + "/" +
+          url: "https://api.github.com/repos/" + currentRepoOwner +
+            "/" +
             currentRepoName +
             "/commits?Accept=application/vnd.github.v3+json",
           data: {
@@ -317,7 +318,9 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
 
             //Add it in commit button
             if (data[0]['sha'] != currentCommit) {
-              logger.warning("New commit happened on your working repository");
+              logger.warning(
+                "New commit happened on your working repository"
+              );
               currentCommit = data[0]['sha'];
             }
           }
@@ -325,7 +328,8 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
       }, 300000);
 
 
-      if (editor.getValue() != localStorage.getItem("someVarKey") && activationState) {
+      if (editor.getValue() != localStorage.getItem("someVarKey") &&
+        activationState) {
         document.getElementById("enableDisbleSyntaxChecking").checked = true;
         $('.ui.toggle').checkbox();
         console.log("Changing"); //make alarm in the case of new commit has come
@@ -360,11 +364,12 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
           markedPositions.pop();
         }
 
-        markedPositions.push(editor.markText(marked[currentIndex].find()['from'],
-          marked[
-            currentIndex].find()['to'], {
-            css: "background-color: orange"
-          }));
+        markedPositions.push(editor.markText(marked[currentIndex].find()[
+          'from'],
+            marked[
+              currentIndex].find()['to'], {
+              css: "background-color: orange"
+            }));
         var actualIndexValue = currentIndex + 1;
         document.getElementById('search-index').innerHTML = actualIndexValue.toString() +
           '/';
@@ -403,7 +408,7 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
             className: "searched-key",
             clearOnEnter: true
           }));
-          //  markedPositions.push(marked[marked.length-1]);
+        //  markedPositions.push(marked[marked.length-1]);
         }
         document.getElementById('search-index').innerHTML = '0/'; //change to 1?
         document.getElementById('search-total').innerHTML = marked.length;
@@ -476,7 +481,7 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
       if (error) {
         /* extract line Number, only consider the end of the string after "line" */
         var errorSubString = error.message.substr(error.message.indexOf(
-          "line") + 4);
+            "line") + 4);
         var errorLineNumber = parseInt(errorSubString) - 1;
         //TODO: check what is going here
         // /* add background color, gutter + tooltip */
@@ -529,7 +534,7 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
 
     var changeSyntaxCheckState = function(newState, error, force = false) {
       if (newState !== state.syntaxCheck && (state.syntaxCheck !== "off" ||
-          force === true)) {
+        force === true)) {
         console.log("changeSyntaxCheckState", newState, error, force);
         syntaxCheckElements[state.syntaxCheck].hide();
         state.syntaxCheck = newState;
@@ -568,7 +573,8 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
     };
 
     var checkForUpdates = function() {
-      if (state.syntaxCheck === "pending" && state.fileIsLoaded && activationState) {
+      if (state.syntaxCheck === "pending" && state.fileIsLoaded &&
+        activationState) {
         changeSyntaxCheckState("working");
         checkSyntax();
       }

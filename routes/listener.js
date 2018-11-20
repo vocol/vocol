@@ -5,7 +5,7 @@ var exec = require('child_process').exec;
 var router = express.Router();
 var fs = require('fs');
 var app = express();
-var  jsonfile  =  require('jsonfile');
+var jsonfile = require('jsonfile');
 var http = require('http');
 var path = require('path');
 var spawn = require('child_process').spawn;
@@ -14,9 +14,9 @@ router.post('/', function(req, res) {
   var path = "jsonDataFiles/userConfigurations.json";
   fs.exists(path, function(exists) {
     if (exists) {
-      jsonfile.readFile(path, function(err, obj)  {
+      jsonfile.readFile(path, function(err, obj) {
         if (err)
-          console.log(err); 
+          console.log(err);
         var repositoryService = obj.repositoryService;
         var repositoryNameParam = obj.repositoryName;
         var branchNameParam = obj.branchName;
@@ -59,13 +59,17 @@ router.post('/', function(req, res) {
             branchName = data.refChanges[0].refId.split('/')[2];
             commitMessage = data.changesets.values[0].toCommit.message;
             pusher = data.changesets.values[0].toCommit.committer.name;
-            var commitTimeInMilliseconds = data.changesets.values[0].toCommit.authorTimestamp;
+            var commitTimeInMilliseconds = data.changesets.values[0]
+              .toCommit.authorTimestamp;
             var event = new Date(commitTimeInMilliseconds);
             commitTimestamp = event.toJSON();
-            console.log("data are " + branchName + " " + commitMessage + " " + pusher + "timestap" + commitTimeInMilliseconds + " " + commitTimestamp);
+            console.log("data are " + branchName + " " +
+              commitMessage + " " + pusher + "timestap" +
+              commitTimeInMilliseconds + " " + commitTimestamp);
           }
 
-          if (branchName == branchNameParam && repositoryNameParam === repositoryName && !commitMessage.includes("merge")) {
+          if (branchName == branchNameParam && repositoryNameParam ===
+            repositoryName && !commitMessage.includes("merge")) {
             console.log('contains');
 
             commitMessage = commitMessage.replace(/\n/g, '');
@@ -87,80 +91,131 @@ router.post('/', function(req, res) {
             shell.exec('git pull', {
               silent: false
             }).stdout;
+            shell.exec(
+              'echo "[]" > ../vocol/jsonDataFiles/syntaxErrors.json'
+            ).stdout;
 
-            shell.exec('echo "[]" > ../vocol/jsonDataFiles/syntaxErrors.json').stdout;
+
+
             var pass = true;
-            var data = shell.exec('find . -type f -name \'*.ttl\'', {
-              silent: false
-            });
-
             // result of searched file of .ttl
-            var files = data.split(/[\n]/);
             var k = 1;
             var errors = [];
             // delete oldData if something is there
             shell.mkdir('../vocol/helper/tools/serializations');
-            shell.exec('rm -f   ../vocol/helper/tools/serializations/SingleVoc.nt', {
-              silent: false
-            }).stdout;
-            shell.exec('rm -f   ../vocol/helper/tools/ttl2ntConverter/temp.nt', {
-              silent: false
-            }).stdout;
-            for (var i = 0; i < files.length - 1; i++) {
-              var errorType = "";
-              var errorSource = "";
-              shell.cd('../vocol/helper/tools/ttl2ntConverter/').stdout;
+            shell.exec(
+              'rm -f   ../vocol/helper/tools/serializations/SingleVoc.nt', {
+                silent: false
+              }).stdout;
+            shell.exec(
+              'rm -f   ../vocol/helper/tools/ttl2ntConverter/Output.report', {
+                silent: false
+              }).stdout;
+            shell.exec(
+              'rm -f   ../vocol/helper/tools/RDFDoctor/*.error', {
+                silent: false
+              }).stdout;
+            shell.exec(
+              'rm -f   ../vocol/helper/tools/RDFDoctor/*.output', {
+                silent: false
+              }).stdout;
+            shell.cd('../vocol/helper/tools/ttl2ntConverter/').stdout;
+            // converting file from turtle to ntriples format
+            var disableConsistenyChecking = true;
+            if (obj.hasOwnProperty("consistenyChecking")) {
+              disableConsistenyChecking = (obj.consistenyChecking ==
+              "true") ?
+                true : false;
+            }
 
-              // converting file from turtle to ntriples format
-              var output = shell.exec('java -jar ttl2ntConverter.jar ../../../../repoFolder' + files[i].substring(1) + ' temp.nt ', {
-                silent: true
+            shell.exec(
+              'java -jar ttl2ntConverter.jar ../../../../repoFolder/ ../serializations/SingleVoc.nt ' +
+              disableConsistenyChecking, {
+                silent: false
               });
-              shell.exec('cat  temp.nt', {
-                silent: false
-              }).stdout;
 
-              shell.exec('cat  temp.nt | tee -a  ../serializations/SingleVoc.nt', {
-                silent: false
-              }).stdout;
-
-
-              shell.cd('../../../../repoFolder/').stdout;
-
-              // check if there are syntax errors of turtle format
-              if (output.stdout.includes("an error is found") || output.stdout.includes("(KB is inconsistent!):")) {
-                var errorMessage = "";
-                if (output.stdout.includes("an error is found")) {
-                  errorMessage = output.split("an error is found \n")[1];
-                  errorType = "Syntax";
-                  errorSource = "Jena Riot Parser";
-                } else {
-                  errorMessage = output.split("(KB is inconsistent!):")[1];
-                  errorType = "Inconsistency";
-                  errorSource = "Pellet";
+            var pass = function() {
+              if (fs.existsSync('Output.report')) {
+                var outputReport = fs.readFileSync(
+                  'Output.report');
+                var jsonContent = JSON.parse(outputReport);
+                for (var i = 0, l = jsonContent.length; i < l; i++) {
+                  var errorType = "";
+                  if (jsonContent[i].source == "JenaRiot") {
+                    pass = false;
+                    errorType = "Syntax";
+                  } else {
+                    errorType = "Inconsistency";
+                  }
+                  var errorObject = {
+                    id: k.toString(),
+                    file: jsonContent[i].fileName,
+                    errType: errorType,
+                    errMessege: jsonContent[i].Message,
+                    errSource: jsonContent[i].source,
+                    pusher: pusher,
+                    date: commitTimestamp.split("T")[0] | new Date()
+                        .toISOString().slice(0, 10)
+                  };
+                  errors.push(errorObject)
+                  k++;
                 }
+              }
+            }
+            pass();
+            shell.cd('../RDFDoctor/').stdout;
+            var fileData = shell.exec(
+              'find ../../../../repoFolder/ -type f -name "*.ttl"', {
+                silent: false
+              });
+            // result of searched file of .ttl
+            var filesnamesArray = fileData.split(/[\n]/);
+            filesnamesArray.pop();
+            for (var i = 0; i < filesnamesArray.length - 1; i++) {
+              shell.exec(
+                'java -jar RDFDoctor.jar -j -i ' +
+                filesnamesArray[i], {
+                  silent: false
+                });
+            }
+            var errorFileData = shell.exec(
+              'find  -type f -name "*.error"', {
+                silent: false
+              });
+            var errorFilesnamesArray = errorFileData.split(/[\n]/);
+            errorFilesnamesArray.pop();
 
+            for (var i = 0; i < errorFilesnamesArray.length; i++) {
+              var errReport = fs.readFileSync(errorFilesnamesArray[
+                i]);
+              var errJSONContent = JSON.parse(errReport);
+              for (var j = 0, l = errJSONContent.length; j < l; j++) {
                 var errorObject = {
                   id: k.toString(),
-                  file: files[i],
-                  errType: errorType,
-                  errMessege: errorMessage,
-                  errSource: errorSource,
+                  file: errorFilesnamesArray[i].split("/")[1].split(
+                      ".")[0] +
+                    ".ttl",
+                  errType: "Syntax",
+                  errMessege: errJSONContent[j].errorMessage,
+                  errSource: "RDF-Doctor",
                   pusher: pusher,
-                  date: commitTimestamp.split("T")[0]
+                  date: commitTimestamp.split("T")[0] | new Date()
+                      .toISOString().slice(0, 10)
                 };
                 errors.push(errorObject)
                 k++;
-                pass = false;
               }
             }
+
+            shell.cd('../../../../repoFolder/').stdout;
             if (!pass) {
               if (errors) {
                 // display syntax errors
-                console.log("Errors:\n" + JSON.stringify(errors));
                 shell.cd('../vocol/jsonDataFiles/').stdout;
                 var pathErrorFile = shell.exec('pwd').stdout;
                 shell.cd('../.').stdout;
-                var filePath = pathErrorFile.trim() + '/' + 'syntaxErrors.json';
+                var filePath = pathErrorFile.trim() + '/' +
+                  'syntaxErrors.json';
                 shell.exec('pwd').stdout;
                 jsonfile.writeFile(filePath, errors, {
                   spaces: 2,
@@ -171,21 +226,37 @@ router.post('/', function(req, res) {
                   console.log("Errors file is generated\n");
                 })
               }
+              shell.exec('pwd');
+              res.redirect('./validation');
             } else // continue the process
             {
               // delete previous data if there is any
-              shell.exec('rm -f ../vocol/views/webvowl/data/SingleVoc.json').stdout;
-              shell.exec('rm -f ../vocol/jsonDataFiles/RDFSConcepts.json').stdout;
-              shell.exec('rm -f ../vocol/jsonDataFiles/SKOSConcepts.json').stdout;
-              shell.exec('rm -f ../vocol/jsonDataFiles/SKOSObjects.json').stdout;
-              shell.exec('rm -f ../vocol/jsonDataFiles/RDFSObjects.json').stdout;
-              shell.exec('rm -f ../vocol/jsonDataFiles/OWLIndividuals.json').stdout;
-              shell.exec('rm -f ../vocol/helper/tools/ttl2ntConverter/temp.nt').stdout;
+              shell.exec(
+                'rm -f ../vocol/views/webvowl/data/SingleVoc.json'
+              ).stdout;
+              shell.exec(
+                'rm -f ../vocol/jsonDataFiles/RDFSConcepts.json')
+                .stdout;
+              shell.exec(
+                'rm -f ../vocol/jsonDataFiles/SKOSConcepts.json')
+                .stdout;
+              shell.exec(
+                'rm -f ../vocol/jsonDataFiles/SKOSObjects.json').stdout;
+              shell.exec(
+                'rm -f ../vocol/jsonDataFiles/RDFSObjects.json').stdout;
+              shell.exec(
+                'rm -f ../vocol/jsonDataFiles/OWLIndividuals.json'
+              ).stdout;
+              shell.exec(
+                'rm -f ../vocol/helper/tools/ttl2ntConverter/temp.nt'
+              ).stdout;
               // Kill fuseki if it is running
-              shell.cd('-P', '../vocol/helper/tools/apache-jena-fuseki');
-              shell.exec('fuser -k ' + process.argv.slice(2)[1] || 3030 + '/tcp', {
-                silent: false
-              }).stdout;
+              shell.cd('-P',
+                '../vocol/helper/tools/apache-jena-fuseki');
+              shell.exec('fuser -k ' + process.argv.slice(2)[1] ||
+                3030 + '/tcp', {
+                  silent: false
+                }).stdout;
               shell.exec('rm run/system/tdb.lock', {
                 silent: false
               }).stdout;
@@ -198,28 +269,38 @@ router.post('/', function(req, res) {
               // update fuseki queries file with some user-defined queries if there is any
               var fusekiQueriesFilePath = 'webapp/js/app/qonsole-config.js';
               // read contents of the file with the filePathgetTree
-              var fusekiQuerieFileContent = fs.readFileSync(fusekiQueriesFilePath, 'utf8');
-              var queriesContents = fusekiQuerieFileContent.split("queries:")[1];
+              var fusekiQuerieFileContent = fs.readFileSync(
+                fusekiQueriesFilePath, 'utf8');
+              var queriesContents = fusekiQuerieFileContent.split(
+                "queries:")[1];
               var index = queriesContents.lastIndexOf(']');
-              var data = shell.exec('find ../../../../repoFolder/ -type f -name "*.rq"', {
-                silent: false
-              });
+              var data = shell.exec(
+                'find ../../../../repoFolder/ -type f -name "*.rq"', {
+                  silent: false
+                });
               var files = data.split(/[\n]/);
               // remove last element, it is empty
               files.pop();
               // start the content of fusekiQueries with the following:
-              queriesContents = 'queries:' + queriesContents.substring(0, index);
+              queriesContents = 'queries:' + queriesContents.substring(
+                0, index);
               // loop for all the files with the extension of ".rq"
               for (key in files) {
-                var fileName = files[key].substring(2).split(".rq")[0];
+                var fileName = files[key].substring(2).split(".rq")[
+                  0];
                 if (fileName.includes('/')) {
                   var slachLocation = fileName.lastIndexOf('/');
-                  fileName = fileName.substring(slachLocation + 1, fileName.length);
+                  fileName = fileName.substring(slachLocation + 1,
+                    fileName.length);
                 }
-                if (!fusekiQuerieFileContent.split("queries:")[1].includes(fileName)) {
-                  var currentQueryFileContent = fs.readFileSync(files[key], 'utf8');
-                  queriesContents += ', { "name" :"' + fileName + '",\n';
-                  queriesContents += '"query" :' + JSON.stringify(currentQueryFileContent) + '\n}\n';
+                if (!fusekiQuerieFileContent.split("queries:")[1].includes(
+                    fileName)) {
+                  var currentQueryFileContent = fs.readFileSync(
+                    files[key], 'utf8');
+                  queriesContents += ', { "name" :"' + fileName +
+                    '",\n';
+                  queriesContents += '"query" :' + JSON.stringify(
+                      currentQueryFileContent) + '\n}\n';
                 }
               }
               // end the content of fusekiQueries with the following:
@@ -232,9 +313,11 @@ router.post('/', function(req, res) {
                 '"owl":      "http://www.w3.org/2002/07/owl#",\n' +
                 '"xsd":      "http://www.w3.org/2001/XMLSchema#"\n' +
                 '},\n';
-              console.log(upperFusekiQueriesFileContent + queriesContents);
+              console.log(upperFusekiQueriesFileContent +
+                queriesContents);
               // combine the upper upperFusekiQueriesFileContent with the new queries if there is any
-              fs.writeFileSync(fusekiQueriesFilePath, upperFusekiQueriesFileContent + queriesContents)
+              fs.writeFileSync(fusekiQueriesFilePath,
+                upperFusekiQueriesFileContent + queriesContents)
 
               // generation the Json files
               shell.cd("../JenaJsonFilesGenrator/").stdout;
@@ -245,13 +328,16 @@ router.post('/', function(req, res) {
               if (obj.visualization === "true") {
                 shell.exec('pwd');
                 shell.cd('../owl2vowl/').stdout;
-                shell.exec('java -jar owl2vowl.jar -file ../serializations/SingleVoc.nt', {
-                  silent: false
-                }).stdout;
-                shell.mv('SingleVoc.json', '../../../views/webvowl/data/').stdout;
+                shell.exec(
+                  'java -jar owl2vowl.jar -file ../serializations/SingleVoc.nt', {
+                    silent: false
+                  }).stdout;
+                shell.mv('SingleVoc.json',
+                  '../../../views/webvowl/data/').stdout;
               }
 
-              if (obj.turtleEditor === "true" && obj.repositoryService === "gitHub") {
+              if (obj.turtleEditor === "true" && obj.repositoryService ===
+                "gitHub") {
                 shell.exec('pwd', {
                   silent: false
                 }).stdout;
@@ -259,8 +345,12 @@ router.post('/', function(req, res) {
                 var filePath = '../../../views/editor/js/turtle-editor.js';
                 // read contents of the file with the filePath
                 var contents = fs.readFileSync(filePath, 'utf8');
-                contents = contents.replace(/(owner\.val\(")(.*?)"/mg, "owner.val(\"" + obj.repositoryOwner + "\"");
-                contents = contents.replace(/(repo\.val\(")(.*?)"/mg, "repo.val(\"" + obj.repositoryName + "\"");
+                contents = contents.replace(
+                  /(owner\.val\(")(.*?)"/mg, "owner.val(\"" + obj
+                    .repositoryOwner + "\"");
+                contents = contents.replace(
+                  /(repo\.val\(")(.*?)"/mg, "repo.val(\"" + obj.repositoryName +
+                  "\"");
                 // write back to the file with the filePath
                 fs.writeFileSync(filePath, contents);
               }
@@ -274,23 +364,32 @@ router.post('/', function(req, res) {
                   // add commit details when user make new commit
                   var commitDetails = "";
                   if (commitTimestamp != "")
-                    commitDetails = "commitTimestamp:" + commitTimestamp + "\n" + "pusher:" + pusher + "\n" + "commitMessage:" + commitMessage + "\n";
-                  var evolutionReport = shell.exec('java -jar owl2vcs.jar  ../evolution/SingleVoc.nt ../serializations/SingleVoc.nt', {
-                    silent: false
-                  }).stdout;
-                  if (evolutionReport.includes('+') || evolutionReport.includes('-')) {
-                    fs.appendFileSync('../evolution/evolutionReport.txt', commitDetails + evolutionReport);
+                    commitDetails = "commitTimestamp:" +
+                      commitTimestamp + "\n" + "pusher:" + pusher +
+                      "\n" + "commitMessage:" + commitMessage + "\n";
+                  var evolutionReport = shell.exec(
+                    'java -jar owl2vcs.jar  ../evolution/SingleVoc.nt ../serializations/SingleVoc.nt', {
+                      silent: false
+                    }).stdout;
+                  if (evolutionReport.includes('+') ||
+                    evolutionReport.includes('-')) {
+                    fs.appendFileSync(
+                      '../evolution/evolutionReport.txt',
+                      commitDetails + evolutionReport);
                   }
                 }
                 shell.exec('pwd', {
                   silent: false
                 }).stdout;
                 shell.mkdir('../evolution').stdout;
-                shell.cp('../serializations/SingleVoc.nt', '../evolution/SingleVoc.nt').stdout;
+                shell.cp('../serializations/SingleVoc.nt',
+                  '../evolution/SingleVoc.nt').stdout;
               }
 
               // run external bash script to start up both fuseki-server and vocol
-              const child = spawn('sh', ['../../scripts/run.sh', '&']);
+              const child = spawn('sh', ['../../scripts/run.sh',
+                '&'
+              ]);
               // show output live of process on std
               child.stdout.pipe(process.stdout);
               shell.exec('pwd');
