@@ -50,13 +50,13 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
       branch,
       user;
     var currentFile;
-    var currentRepoOwner = "ahemaid",
-      currentRepoName = "vocotest",
-      currentRepoBranch = "master",
+    var currentRepoOwner = "",
+      currentRepoName = "",
+      currentRepoBranch = "",
       currentCommit = "";
     initialCommit = "";
     // get some repo. information four userConfigurations.json file to be used in this editor
-    /*  (function setRepoInfo() {
+      (function setRepoInfo() {
         $.ajax({
           type: "GET",
           url: document.URL.split("turtleEditorLink")[0] + "getRepoInfo",
@@ -71,7 +71,7 @@ define(['jquery', 'github', 'N3', 'lib/codemirror',
             }
           },
         });
-      })() */
+      })() 
 
     var state = {
       syntaxCheck: "off",
