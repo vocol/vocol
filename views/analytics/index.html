@@ -33,23 +33,54 @@
       <div class="inline fields">
         <div class="three wide field">
           <select id="graph-names" class="ui large dropdown search icon button"
-          style=" font-weight: bold; font-size: 13px;"
+          style="font-weight: bold; font-size: 13px;"
           onchange="changeGraph()">
             <i class="bar chart icon"></i>
             <option class="text">Select Graph Type
               <option  value="BarChart">BarChart
-              <option value="PieChart">PieChart
               <option value="ForceGraph">ForceGraph
-              <option value="Sankey">Sankey
-              <option value="RoundTree">RoundTree
               <option value="DendroGram">DendroGram
-              <option  value="TreeMap">TreeMap
-              <option value="SunBurst">SunBurst
-              <option value="CirclePack">CirclePack
           </select>
         </div>
+
+        <div class="one field"></div>
+
         <div class="ui large button" data-toggle="modal" class="modal_message" data-target="#sparqlModal" onclick="toggle()"> Query
         </div>
+
+        <div id="sparqlModal" class="fullscreen modal" role="dialog">
+          <div class="modal-dialog" style="width:800px;">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close home_close" data-dismiss="modal">&times;</button>
+                <h3 class="modal-title">Query</h3>
+              </div>
+              <div class="modal-body">
+
+                <p>
+                  <form class="msg_form" onsubmit="return false;" role="form">
+                    <div class="modal-footer">
+                      <textarea class="msg_home" id="sparql" ></textarea>
+                      <br><br>
+
+                      <div class="ui red cancel inverted button" id="cancleQuery" data-dismiss="modal" style="align:right">
+                        <i class="remove icon"></i>
+                        Cancle
+                      </div>
+                      <button type="button" class="sendmsg ui green ok inverted button" id="executeQuery" data-dismiss="modal">
+                    <i class="checkmark icon"></i>
+                    Run
+                  </button>
+                    </div>
+                  </form>
+                </p>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
         <div id="search-entity" style="margin-top: 10px; height: 100%; width: 20%" class="form-group item-hidden">
           <select id="select-entity" class="ui search dropdown popup-show">
               <option value="">Choose entity</option>
@@ -87,53 +118,14 @@
           </div>
         </div>
 
-        <div class="one field"></div>
 
-
-
-        <div id="sparqlModal" class="fullscreen modal" role="dialog">
-          <div class="modal-dialog" style="width:800px;">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close home_close" data-dismiss="modal">&times;</button>
-                <h3 class="modal-title">Query</h3>
-              </div>
-              <div class="modal-body">
-
-                <p>
-                  <form class="msg_form" onsubmit="return false;" role="form">
-                    <div class="modal-footer">
-                      <textarea class="msg_home" id="sparql" ></textarea>
-                      <br><br>
-
-                      <div class="ui red cancel inverted button" id="cancleQuery" data-dismiss="modal" style="align:right">
-                        <i class="remove icon"></i>
-                        Cancle
-                      </div>
-                      <button type="button" class="sendmsg ui green ok inverted button" id="executeQuery" data-dismiss="modal">
-                    <i class="checkmark icon"></i>
-                    Run
-                  </button>
-                    </div>
-                  </form>
-                </p>
-
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- <div class="ui large right labeled icon button" onclick="exec()">
-          <i class="right arrow icon"></i> Show
-        </div> -->
 
       </div>
     </div>
 
     <input id="endpoint" value="http://dbpedia.org/sparql" type="hidden" class="form-control">
 
-    <div id="result" style="border: none;">
+    <div id="result" style="border:none">
 
     </div>
     <br/>
@@ -164,7 +156,6 @@
           document.getElementById('skos').classList.remove('positive');
           document.getElementById('rdf').classList.add('positive');
           $('#sparql').val(data[3]['query']);
-          $("#select-entity").empty();
           exec();
         }
       }
@@ -175,7 +166,6 @@
           document.getElementById('rdf').classList.remove('positive');
           document.getElementById('skos').classList.add('positive');
           $('#sparql').val(data[5]['query']);
-          $("#select-entity").empty();
           exec();
         }
       }
@@ -478,8 +468,6 @@
       };
     }
 
-
-
     function forcegraph(json) {
       var config = {
         "charge": -400,
@@ -502,7 +490,6 @@
         "margin": 10,
         "selector": "#result"
       }
-      console.log(json);
       d3sparql.sankey(json, config)
     }
 

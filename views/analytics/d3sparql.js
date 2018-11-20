@@ -18,8 +18,8 @@ var d3sparql = {
 
 d3sparql.query = function(endpoint, sparql, callback) {
   //'http://localhost:3030/newDataset/sparql'
-  var url = 'http://localhost:3030/dataset/sparql' + "?query=" +
-    encodeURIComponent(sparql) + '&output=json'
+  var url = endpoint + "?query=" + encodeURIComponent(sparql) +
+    '&output=json'
   if (d3sparql.debug) {
     console.log(endpoint)
   }
@@ -805,8 +805,8 @@ d3sparql.forcegraph = function(json, config) {
     // Layout of the graph and its container
     var options = {
       autoResize: false,
-      height: '600px',
-      width: '700px',
+      height: '400px',
+      width: '600px',
       nodes: {
         shape: 'dot',
         size: 20,
@@ -939,6 +939,7 @@ d3sparql.forcegraph = function(json, config) {
 
 
     // Enable dropdown selector for search a node on the graph.
+    $('#select-entity').html("");
     $.each(nodes, function(index, value) {
       $('#select-entity').append($('<option/>', {
         value: nodes[index]['id'],
@@ -1948,6 +1949,7 @@ d3sparql.dendrogram = function(json, config) {
     update(root);
 
     // Fill in dropdown selector for search a node on the graph.
+    $('#select-entity').html("");
     for (key in hash_ids) {
       $('#select-entity').append($('<option/>', {
         value: key,
