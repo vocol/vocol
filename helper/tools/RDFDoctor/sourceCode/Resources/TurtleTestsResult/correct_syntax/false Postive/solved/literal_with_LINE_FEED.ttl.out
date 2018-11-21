@@ -1,0 +1,33 @@
+Processing is going on line 1  <http://a.example/s> <http://a.example/p> '''
+line 2  ''' .
+
+error 1: line 1:44 token recognition error at: ''\n'
+<http://a.example/s> <http://a.example/p> '''
+
+                                            ^ 
+error 2: line 2:2 token recognition error at: '' .\n'
+''' .
+
+  ^   
+error 3: line 1:42 Object of a triple is missing
+<http://a.example/s> <http://a.example/p> '''
+
+                                          ^   
+error 4: line 1:42 Missing '.' at the end of a triple
+<http://a.example/s> <http://a.example/p> '''
+
+                                          ^   
+error 5: line 2:0 Subject cannot be a string
+''' .
+
+^     
+error 6: line 3:0 Predicate cannot be a literal
+error 7: line 3:0 Object of a triple is missing
+error 8: line 3:0 Missing '.' at the end of a triple
+
+
+
+
+Total elapsed time: 12 ms
+
+Number of processed lines:3

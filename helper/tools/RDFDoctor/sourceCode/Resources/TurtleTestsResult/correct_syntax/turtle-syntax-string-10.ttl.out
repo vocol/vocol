@@ -1,0 +1,10 @@
+Processing is going on line 1  <http://www.w3.org/2013/TurtleTests/s> <http://www.w3.org/2013/TurtleTests/p> """abc
+line 2  def"""@en .
+
+
+
+
+
+Total elapsed time: 11 ms
+
+Number of processed lines:3

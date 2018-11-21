@@ -1,0 +1,15 @@
+Processing is going on line 1  @prefix p: <http://a.example/s>.
+line 2  p: <http://a.example/p> <http://a.example/o> .
+
+error 1: line 2:24 Missing Prefix keyword, use 'PREFIX'
+p: <http://a.example/p> <http://a.example/o> .
+
+                        ^                      
+error 2: line 3:0 no viable alternative at input '<http://a.example/o>.'
+
+
+
+
+Total elapsed time: 25 ms
+
+Number of processed lines:3

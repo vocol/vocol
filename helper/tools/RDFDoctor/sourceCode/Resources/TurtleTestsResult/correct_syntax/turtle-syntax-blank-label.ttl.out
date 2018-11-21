@@ -1,0 +1,12 @@
+Processing is going on line 1  @prefix : <http://www.w3.org/2013/TurtleTests/> .
+line 2  _:0b :p :o . # Starts with digit
+line 3  _:_b :p :o . # Starts with underscore
+line 4  _:b.0 :p :o . # Contains dot, ends with digit
+
+
+
+
+
+Total elapsed time: 12 ms
+
+Number of processed lines:5

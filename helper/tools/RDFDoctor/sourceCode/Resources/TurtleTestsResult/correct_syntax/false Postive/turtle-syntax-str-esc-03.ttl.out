@@ -1,0 +1,17 @@
+Processing is going on line 1  <http://www.w3.org/2013/TurtleTests/s> <http://www.w3.org/2013/TurtleTests/p> "a\U00000020b" .
+
+error 1: line 1:78 token recognition error at: '"a\U00000020b" '
+<http://www.w3.org/2013/TurtleTests/s> <http://www.w3.org/2013/TurtleTests/p> "a\U00000020b" .
+
+                                                                              ^                
+error 2: line 1:93 Object of a triple is missing
+<http://www.w3.org/2013/TurtleTests/s> <http://www.w3.org/2013/TurtleTests/p> "a\U00000020b" .
+
+                                                                                             ^ 
+
+
+
+
+Total elapsed time: 10 ms
+
+Number of processed lines:2

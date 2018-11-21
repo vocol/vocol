@@ -1,0 +1,10 @@
+
+/home/ahmed/Desktop/eclipse-projects/RDF-Doctor/Resources/TurtleTests/repeated_semis_not_at_end.ttlProcessing is going on line 1  <http://a.example/s> <http://a.example/p1> <http://a.example/o1>;; .
+
+
+
+
+
+Total elapsed time: 10 ms
+
+Number of processed lines:2

@@ -1,0 +1,12 @@
+Processing is going on line 1  # colon is a legal pname character
+line 2  @prefix : <http://www.w3.org/2013/TurtleTests/> .
+line 3  @prefix x: <http://www.w3.org/2013/TurtleTests/> .
+line 4  :a:b:c  x:d:e:f :::: .
+
+
+
+
+
+Total elapsed time: 12 ms
+
+Number of processed lines:5

@@ -1,0 +1,12 @@
+Processing is going on line 1  # percents
+line 2  @prefix : <http://www.w3.org/2013/TurtleTests/> .
+line 3  @prefix x: <http://www.w3.org/2013/TurtleTests/> .
+line 4  :a%3E  x:%25 :a%3Eb .
+
+
+
+
+
+Total elapsed time: 12 ms
+
+Number of processed lines:5

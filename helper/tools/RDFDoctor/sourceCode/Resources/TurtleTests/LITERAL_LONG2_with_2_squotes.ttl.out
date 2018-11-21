@@ -1,0 +1,10 @@
+
+/home/ahmed/Desktop/eclipse-projects/RDF-Doctor/Resources/TurtleTests/LITERAL_LONG2_with_2_squotes.ttlProcessing is going on line 1  <http://a.example/s> <http://a.example/p> """x""y""" .
+
+
+
+
+
+Total elapsed time: 14 ms
+
+Number of processed lines:2

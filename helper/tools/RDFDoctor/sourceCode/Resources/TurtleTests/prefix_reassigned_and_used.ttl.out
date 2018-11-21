@@ -1,0 +1,12 @@
+
+/home/ahmed/Desktop/eclipse-projects/RDF-Doctor/Resources/TurtleTests/prefix_reassigned_and_used.ttlProcessing is going on line 1  @prefix p: <http://a.example/>.
+line 2  @prefix p: <http://b.example/>.
+line 3  p:s <http://a.example/p> <http://a.example/o> .
+
+
+
+
+
+Total elapsed time: 10 ms
+
+Number of processed lines:4

@@ -1,0 +1,12 @@
+
+/home/ahmed/Desktop/eclipse-projects/RDF-Doctor/Resources/TurtleTests/number_sign_following_localName.ttlProcessing is going on line 1  @prefix p: <http://a.example/> .
+line 2  <http://a.example/s> <http://a.example/p> p:o\#numbersign
+line 3  .
+
+
+
+
+
+Total elapsed time: 35 ms
+
+Number of processed lines:4

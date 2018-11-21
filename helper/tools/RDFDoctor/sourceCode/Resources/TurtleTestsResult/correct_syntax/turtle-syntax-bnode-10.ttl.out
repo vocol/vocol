@@ -1,0 +1,13 @@
+Processing is going on line 1  @prefix : <http://www.w3.org/2013/TurtleTests/> .
+line 2  
+line 3  :s1 :p :o .
+line 4  [ :p1  :o1 ; :p2 :o2 ] .
+line 5  :s2 :p :o .
+
+
+
+
+
+Total elapsed time: 11 ms
+
+Number of processed lines:6

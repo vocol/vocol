@@ -1,0 +1,26 @@
+Processing is going on line 1  <http://www.w3.org/2013/TurtleTests/s> <http://www.w3.org/2013/TurtleTests/p> '''abc
+line 2  def''' .
+
+error 1: line 1:80 token recognition error at: ''abc\n'
+<http://www.w3.org/2013/TurtleTests/s> <http://www.w3.org/2013/TurtleTests/p> '''abc
+
+                                                                                ^    
+error 2: line 2:0 Missing '.' at the end of a triple
+def''' .
+
+^        
+error 3: line 2:3 extraneous input '''' expecting {'a', '@a', CHARS}
+def''' .
+
+   ^     
+error 4: line 2:5 token recognition error at: '' .\n'
+def''' .
+
+     ^   
+
+
+
+
+Total elapsed time: 12 ms
+
+Number of processed lines:3

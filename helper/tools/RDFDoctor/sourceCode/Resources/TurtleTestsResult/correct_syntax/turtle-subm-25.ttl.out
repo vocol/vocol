@@ -1,0 +1,13 @@
+Processing is going on line 1  @prefix foo: <http://example.org/foo#>  .
+line 2  @prefix foo: <http://example.org/bar#>  .
+line 3  
+line 4  foo:blah foo:blah foo:blah .
+line 5  
+
+
+
+
+
+Total elapsed time: 10 ms
+
+Number of processed lines:6

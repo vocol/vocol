@@ -1,0 +1,14 @@
+
+/home/ahmed/Desktop/eclipse-projects/RDF-Doctor/Resources/TurtleTests/turtle-syntax-prefix-02.ttlProcessing is going on line 1  PreFIX : <http://www.w3.org/2013/TurtleTests/>
+
+error 1: line 1:7 extraneous input ':' expecting {'a', '@a', CHARS}
+PreFIX : <http://www.w3.org/2013/TurtleTests/>
+
+       ^                                       
+
+
+
+
+Total elapsed time: 11 ms
+
+Number of processed lines:2

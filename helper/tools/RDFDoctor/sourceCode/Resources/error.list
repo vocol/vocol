@@ -1,0 +1,127 @@
+error 1: line 1:47 incorrect quotes of a literal
+error 2: line 1:47 Missing '.' at the end of a triple
+error 3: line 1:48 extraneous input '''' expecting {'a', '@a', CHARS}
+error 4: line 1:50 token recognition error at: '' .\n'
+./LITERAL_LONG1_with_1_squote.ttl.out
+error 1: line 1:78 token recognition error at: '"a\n" '
+error 2: line 1:84 Object of a triple is missing
+./turtle-syntax-str-esc-01.ttl.out
+error 1: line 3:0 token recognition error at: '<scheme:!'
+error 2: line 3:9 token recognition error at: '$'
+error 3: line 3:10 Object of a triple is missing
+error 4: line 3:10 Missing '.' at the end of a triple
+./turtle-syntax-uri-04.ttl.out
+error 1: line 1:78 token recognition error at: '"a\U00000020b" '
+error 2: line 1:93 Object of a triple is missing
+./turtle-syntax-str-esc-03.ttl.out
+error 1: line 2:16 Object of a triple is missing
+error 2: line 2:16 Missing '.' at the end of a triple
+./turtle-syntax-pname-esc-03.ttl.out
+error 1: line 1:78 token recognition error at: '"a\u0020b" '
+error 2: line 1:89 Object of a triple is missing
+./turtle-syntax-str-esc-02.ttl.out
+error 1: line 99:0 extraneous input '<EOF>' expecting {'a', '[', '(', ')', NumericLiteral, BooleanLiteral, BadLiteral, String, BlankNode, IRIREF, PNAME_NS, PrefixedName, BAD_PNAME_LN_STARTS_WITH_DOT, BAD_PNAME_LN_ENDS_WITH_DOT, BAD_IRIREF_WITH_SPACE, BAD_IRIREF_WITH_MULTIPLE_ANGLE_BRACKETS, BAD_IRIREF_WITH_PARENTHESES, BAD_STRING_LITERAL_SINGLE_QUOTE, BAD_STRING_LITERAL_QUOTE, BAD_STRING_LITERAL_LONG_SINGLE_QUOTE, BAD_STRING_LITERAL_LONG_QUOTE, BAD_STRING_LITERAL_LONG_QUOTE_TOO_MANY, BAD_STRING_LITERAL_LONG_SINGLE_QUOTE_TOO_MANY}
+error 2: line 99:0 Extraneous ';' at the end of a triple
+./manifest.ttl.out
+error 1: line 2:70 token recognition error at: '?'
+error 2: line 2:71 token recognition error at: '?'
+error 3: line 2:72 token recognition error at: '?'
+error 4: line 2:73 token recognition error at: '?'
+./localName_with_nfc_PN_CHARS_BASE_character_boundaries.ttl.out
+error 1: line 1:42 Object of a triple is missing
+error 2: line 1:42 Missing '.' at the end of a triple
+error 3: line 1:47 incorrect quotes of a literal
+error 4: line 1:47 Subject cannot be a string
+error 5: line 1:50 Predicate cannot be a literal
+error 6: line 1:50 Object of a triple is missing
+./LITERAL_LONG1.ttl.out
+error 1: line 1:80 token recognition error at: ''abc\n'
+error 2: line 2:0 Missing '.' at the end of a triple
+error 3: line 2:3 extraneous input '''' expecting {'a', '@a', CHARS}
+error 4: line 2:5 token recognition error at: ''@en .\n'
+./turtle-syntax-string-11.ttl.out
+error 1: line 1:44 token recognition error at: ''\n'
+error 2: line 2:2 token recognition error at: '' .\n'
+error 3: line 1:42 Object of a triple is missing
+error 4: line 1:42 Missing '.' at the end of a triple
+error 5: line 2:0 Subject cannot be a string
+error 6: line 3:0 Predicate cannot be a literal
+error 7: line 3:0 Object of a triple is missing
+error 8: line 3:0 Missing '.' at the end of a triple
+./literal_with_LINE_FEED.ttl.out
+error 1: line 1:7 no viable alternative at input 'PREFIX:'
+error 2: line 2:3 Object of a triple is missing
+error 3: line 2:3 Missing '.' at the end of a triple
+error 4: line 2:11 Object of a triple is missing
+./turtle-syntax-prefix-03.ttl.out
+error 1: line 4:3 no viable alternative at input '[]:'
+./turtle-subm-14.ttl.out
+error 1: line 1:42 Object of a triple is missing
+error 2: line 1:42 Missing '.' at the end of a triple
+error 3: line 1:47 incorrect quotes of a literal
+error 4: line 1:47 Subject cannot be a string
+error 5: line 1:53 incorrect quotes of a literal
+error 6: line 1:53 Predicate cannot be a literal
+error 7: line 1:53 Object of a triple is missing
+./LITERAL_LONG1_with_2_squotes.ttl.out
+error 1: line 2:24 Missing Prefix keyword, use 'PREFIX'
+error 2: line 3:0 no viable alternative at input '<http://a.example/o>.'
+./prefix_only_IRI.ttl.out
+error 1: line 1:5 extraneous input '<http://www.w3.org/2013/TurtleTests/>' expecting {'a', '@a', CHARS}
+error 2: line 2:4 Object of a triple is missing
+error 3: line 2:4 Missing '.' at the end of a triple
+error 4: line 2:12 Object of a triple is missing
+./turtle-syntax-base-04.ttl.out
+error 1: line 1:7 extraneous input ':' expecting {'a', '@a', CHARS}
+./turtle-syntax-prefix-02.ttl.out
+error 1: line 1:44 token recognition error at: ''\n'
+error 2: line 2:2 token recognition error at: '' .\n'
+error 3: line 1:42 Object of a triple is missing
+error 4: line 1:42 Missing '.' at the end of a triple
+error 5: line 2:0 Subject cannot be a string
+error 6: line 3:0 Predicate cannot be a literal
+error 7: line 3:0 Object of a triple is missing
+error 8: line 3:0 Missing '.' at the end of a triple
+./literal_with_CARRIAGE_RETURN.ttl.out
+error 1: line 1:42 Object of a triple is missing
+error 2: line 1:42 Missing '.' at the end of a triple
+error 3: line 1:68 incorrect quotes of a literal
+error 4: line 1:68 Subject cannot be a string
+error 5: line 1:71 Predicate cannot be a literal
+error 6: line 1:71 Object of a triple is missing
+./LITERAL_LONG1_with_UTF8_boundaries.ttl.out
+error 1: line 1:0 token recognition error at: '<scheme:!'
+error 2: line 1:9 token recognition error at: '$'
+./IRI_with_all_punctuation.ttl.out
+error 1: line 2:70 token recognition error at: '?'
+error 2: line 2:71 token recognition error at: '?'
+error 3: line 2:72 token recognition error at: '?'
+error 4: line 2:73 token recognition error at: '?'
+./localName_with_assigned_nfc_PN_CHARS_BASE_character_boundaries.ttl.out
+error 1: line 2:42 Object of a triple is missing
+error 2: line 2:42 Missing '.' at the end of a triple
+error 3: line 3:0 no viable alternative at input 'p:.'
+./comment_following_PNAME_NS.ttl.out
+error 1: line 1:34 token recognition error at: '?'
+error 2: line 1:35 token recognition error at: '?'
+error 3: line 1:36 token recognition error at: '?'
+error 4: line 1:37 token recognition error at: '?'
+error 5: line 2:68 token recognition error at: '?'
+error 6: line 2:69 token recognition error at: '?'
+error 7: line 2:70 token recognition error at: '?'
+error 8: line 2:71 token recognition error at: '?'
+error 9: line 1:8 no viable alternative at input '@prefixAZazÀÖØöø˿ͰͽͿ῿‌‍⁰↏Ⰰ⿯、퟿豈﷏ﷰ�'
+error 10: line 2:42 Object of a triple is missing
+error 11: line 2:42 Missing '.' at the end of a triple
+./prefix_with_PN_CHARS_BASE_character_boundaries.ttl.out
+error 1: line 1:70 token recognition error at: '?'
+error 2: line 1:71 token recognition error at: '?'
+error 3: line 1:72 token recognition error at: '?'
+error 4: line 1:73 token recognition error at: '?'
+./labeled_blank_node_with_PN_CHARS_BASE_character_boundaries.ttl.out
+error 1: line 1:80 token recognition error at: ''abc\n'
+error 2: line 2:0 Missing '.' at the end of a triple
+error 3: line 2:3 extraneous input '''' expecting {'a', '@a', CHARS}
+error 4: line 2:5 token recognition error at: '' .\n'
+./turtle-syntax-string-09.ttl.out
+

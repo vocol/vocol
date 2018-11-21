@@ -1,0 +1,10 @@
+Processing is going on line 1  @prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+line 2  <s> <p> "123"^^xsd:byte .
+
+
+
+
+
+Total elapsed time: 10 ms
+
+Number of processed lines:3

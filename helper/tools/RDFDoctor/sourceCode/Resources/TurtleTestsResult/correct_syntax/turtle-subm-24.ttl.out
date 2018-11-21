@@ -1,0 +1,12 @@
+Processing is going on line 1  # comment line with no final newline test
+line 2  @prefix : <http://example.org/#> .
+line 3  :a :b :c .
+line 4  #foo
+
+
+
+
+
+Total elapsed time: 22 ms
+
+Number of processed lines:5

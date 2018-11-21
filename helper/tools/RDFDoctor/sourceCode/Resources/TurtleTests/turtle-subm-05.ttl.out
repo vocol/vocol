@@ -1,0 +1,13 @@
+
+/home/ahmed/Desktop/eclipse-projects/RDF-Doctor/Resources/TurtleTests/turtle-subm-05.ttlProcessing is going on line 1  # Test empty [] operator; not allowed as predicate
+line 2  @prefix : <http://example.org/base#> .
+line 3  [] :a :b .
+line 4  :c :d [] .
+
+
+
+
+
+Total elapsed time: 12 ms
+
+Number of processed lines:5

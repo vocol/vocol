@@ -1,0 +1,16 @@
+
+/home/ahmed/Desktop/eclipse-projects/RDF-Doctor/Resources/TurtleTests/turtle-subm-02.ttlProcessing is going on line 1  # Test @prefix and qnames
+line 2  @prefix :  <http://example.org/base1#> .
+line 3  @prefix a: <http://example.org/base2#> .
+line 4  @prefix b: <http://example.org/base3#> .
+line 5  :a :b :c .
+line 6  a:a a:b a:c .
+line 7  :a a:a b:a .
+
+
+
+
+
+Total elapsed time: 12 ms
+
+Number of processed lines:8

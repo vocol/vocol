@@ -1,0 +1,13 @@
+Processing is going on line 1  # Test , operator
+line 2  @prefix : <http://example.org/base#> .
+line 3  :a :b :c,
+line 4        :d,
+line 5        :e .
+
+
+
+
+
+Total elapsed time: 12 ms
+
+Number of processed lines:6

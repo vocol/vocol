@@ -1,0 +1,18 @@
+
+/home/ahmed/Desktop/eclipse-projects/RDF-Doctor/Resources/TurtleTests/turtle-subm-13.ttlProcessing is going on line 1  # Tests for rdf:_<numbers> and other qnames starting with _
+line 2  @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+line 3  @prefix ex:  <http://example.org/ex#> .
+line 4  @prefix :    <http://example.org/myprop#> .
+line 5  
+line 6  ex:foo rdf:_1 "1" .
+line 7  ex:foo rdf:_2 "2" .
+line 8  ex:foo :_abc "def" .
+line 9  ex:foo :_345 "678" .
+
+
+
+
+
+Total elapsed time: 14 ms
+
+Number of processed lines:10

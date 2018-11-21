@@ -1,0 +1,12 @@
+
+/home/ahmed/Desktop/eclipse-projects/RDF-Doctor/Resources/TurtleTests/turtle-subm-21.ttlProcessing is going on line 1  # Test long literal
+line 2  @prefix :  <http://example.org/ex#> .
+line 3  :a :b """John said: "Hello World!\"""" .
+
+
+
+
+
+Total elapsed time: 11 ms
+
+Number of processed lines:4

@@ -1,0 +1,11 @@
+Processing is going on line 1  @prefix : <http://example.org#> .
+line 2  :a :b true .
+line 3  :c :d false .
+
+
+
+
+
+Total elapsed time: 40 ms
+
+Number of processed lines:4

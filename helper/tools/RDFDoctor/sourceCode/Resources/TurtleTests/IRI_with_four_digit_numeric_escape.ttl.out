@@ -1,0 +1,10 @@
+
+/home/ahmed/Desktop/eclipse-projects/RDF-Doctor/Resources/TurtleTests/IRI_with_four_digit_numeric_escape.ttlProcessing is going on line 1  <http://a.example/\u0073> <http://a.example/p> <http://a.example/o> .
+
+
+
+
+
+Total elapsed time: 11 ms
+
+Number of processed lines:2

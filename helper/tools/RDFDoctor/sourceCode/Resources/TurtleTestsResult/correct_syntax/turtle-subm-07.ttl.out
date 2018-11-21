@@ -1,0 +1,11 @@
+Processing is going on line 1  # 'a' only allowed as a predicate
+line 2  @prefix : <http://example.org/base#> .
+line 3  :a a :b .
+
+
+
+
+
+Total elapsed time: 12 ms
+
+Number of processed lines:4

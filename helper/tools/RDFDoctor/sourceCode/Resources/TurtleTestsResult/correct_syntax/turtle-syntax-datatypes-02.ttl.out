@@ -1,0 +1,11 @@
+Processing is going on line 1  @prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+line 2  @prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+line 3  <s> <p> "123"^^xsd:string .
+
+
+
+
+
+Total elapsed time: 12 ms
+
+Number of processed lines:4

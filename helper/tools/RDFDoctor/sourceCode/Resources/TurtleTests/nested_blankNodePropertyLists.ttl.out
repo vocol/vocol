@@ -1,0 +1,10 @@
+
+/home/ahmed/Desktop/eclipse-projects/RDF-Doctor/Resources/TurtleTests/nested_blankNodePropertyLists.ttlProcessing is going on line 1  [ <http://a.example/p1> [ <http://a.example/p2> <http://a.example/o2> ] ; <http://a.example/p> <http://a.example/o> ].
+
+
+
+
+
+Total elapsed time: 11 ms
+
+Number of processed lines:2

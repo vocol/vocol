@@ -1,0 +1,11 @@
+Processing is going on line 1  # Test long literal with lang tag
+line 2  @prefix :  <http://example.org/ex#> .
+line 3  :a :b """Cheers"""@en-UK .
+
+
+
+
+
+Total elapsed time: 11 ms
+
+Number of processed lines:4
