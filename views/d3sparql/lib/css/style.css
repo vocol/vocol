@@ -6922,3 +6922,8 @@ padding-left: 21px
    margin-left:3px;
    padding-top:16px;
 }
+
+#results {
+	overflow: auto;
+	text-align: center;
+}
