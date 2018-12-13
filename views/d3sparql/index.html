@@ -6,19 +6,19 @@
   <title></title>
   <meta name="description" />
   <link rel="stylesheet" type="text/css" href="lib/css/style.css" />
-  <link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
+  <link rel="stylesheet" type="text/css" href="../../public/semantic/dist/semantic.min.css">
   <link rel="stylesheet" href="lib/css/bootstrap-theme.min.css">
-  <link href="../dist/vis-timeline-graph2d.min.css" rel="stylesheet" type="text/css">
-  <link href="../dist/vis-network.min.css" rel="stylesheet" type="text/css">
-  <script src="../javascripts/bower_components/jquery/dist/jquery.min.js"></script>
-  <script src="../javascripts/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="../semantic/dist/semantic.min.js"></script>
+  <link href="../../public/dist/vis-timeline-graph2d.min.css" rel="stylesheet" type="text/css">
+  <link href="../../public/dist/vis-network.min.css" rel="stylesheet" type="text/css">
+  <script src="../../public/javascripts/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="../../public/javascripts/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="../../public/semantic/dist/semantic.min.js"></script>
   <script src="lib/d3/d3.v3.min.js"></script>
   <script src="lib/d3/sankey.js"></script>
   <script src="d3sparql.js"></script>
   <script src="queries.js"></script>
   <script src="lib/js/topojson.min.js"></script>
-  <script src="../dist/vis.min.js"></script>
+  <script src="../../public/dist/vis.min.js"></script>
 
 
 </head>
@@ -37,7 +37,8 @@
           onchange="changeGraph()">
             <i class="bar chart icon"></i>
             <option class="text">Select Graph Type
-              <option  value="BarChart">BarChart
+              <option value="PieChart">PieChart
+              <option value="BarChart">BarChart
               <option value="ForceGraph">ForceGraph
               <option value="DendroGram">DendroGram
           </select>
@@ -117,19 +118,14 @@
             </div>
           </div>
         </div>
-
-
-
       </div>
     </div>
 
     <input id="endpoint" value="http://dbpedia.org/sparql" type="hidden" class="form-control">
 
     <div id="result" style="border:none">
-
     </div>
     <br/>
-
 
     <div id="dendro-zoom" style=" margin-left: 50px; display:none" class="form-group">
       <button id="zoom_in" class="zoom popup-show" ><i class="plus icon"></i></button>
@@ -141,9 +137,9 @@
         <div class="header">Click to zoom out </div>
       </div>
     </div>
-  </div>
-  </div>
 
+  </div>
+  </div>
 
   </div>
 
@@ -172,47 +168,48 @@
     }
     var selectedgraphtype = "";
 
-      // action: 'combo',
-      function changeGraph() {
-        selectedgraphtype = document.getElementById('graph-names').value;
-        if (selectedgraphtype == 'BarChart') {
-          $('#sparql').val(data[0]['query']);
-          exec();
-        } else if (selectedgraphtype == 'PieChart') {
-          $('#sparql').val(data[0]['query']);
-          exec();
-        } else if (selectedgraphtype == 'ForceGraph') {
-          $("#select-entity").empty();
-          $('#sparql').val(data[1]['query']);
-          var height = $(document).height()
-          var width = $(document).width() * (2 / 3);
-          $("#result").height(height).width(width);
-          exec();
-        } else if (selectedgraphtype == 'Sankey') {
-          $('#sparql').val(data[2]['query']);
-          exec();
-        } else if (selectedgraphtype == 'RoundTree') {
+    // action: 'combo',
+    function changeGraph() {
+      $("#result").empty();
+      selectedgraphtype = document.getElementById('graph-names').value;
+      if (selectedgraphtype == 'BarChart') {
+        $('#sparql').val(data[0]['query']);
+        exec();
+      } else if (selectedgraphtype == 'PieChart') {
+        $('#sparql').val(data[0]['query']);
+        exec();
+      } else if (selectedgraphtype == 'ForceGraph') {
+        $("#select-entity").empty();
+        $('#sparql').val(data[1]['query']);
+        var height = $(document).height()
+        var width = $(document).width() * (2 / 3);
+        $("#result").height(height).width(width);
+        exec();
+      } else if (selectedgraphtype == 'Sankey') {
+        $('#sparql').val(data[2]['query']);
+        exec();
+      } else if (selectedgraphtype == 'RoundTree') {
+        $('#sparql').val(data[3]['query']);
+        exec();
+      } else if (selectedgraphtype == 'DendroGram') {
+        $("#select-entity").empty();
+        document.getElementById('rdf-skos').style.display = 'inline';
+        if (document.getElementById("rdf-radio").checked === true) {
           $('#sparql').val(data[3]['query']);
-          exec();
-        } else if (selectedgraphtype == 'DendroGram') {
-          $("#select-entity").empty();
-          document.getElementById('rdf-skos').style.display = 'inline';
-          if (document.getElementById("rdf-radio").checked === true) {
-            $('#sparql').val(data[3]['query']);
-          } else {
-            $('#sparql').val(data[5]['query']);
-          }
-          exec(); //TODO: It should be checked that why some nodes are hidden when selected.
-        } else if (selectedgraphtype == 'TreeMap') {
-          $('#sparql').val(data[3]['query']);
-          exec();
-        } else if (selectedgraphtype == 'SunBurst') {
-          $('#sparql').val(data[3]['query']);
-          exec();
-        } else if (selectedgraphtype == 'CirclePack') {
-          $('#sparql').val(data[3]['query']);
-          exec();
+        } else {
+          $('#sparql').val(data[5]['query']);
         }
+        exec(); //TODO: It should be checked that why some nodes are hidden when selected.
+      } else if (selectedgraphtype == 'TreeMap') {
+        $('#sparql').val(data[3]['query']);
+        exec();
+      } else if (selectedgraphtype == 'SunBurst') {
+        $('#sparql').val(data[3]['query']);
+        exec();
+      } else if (selectedgraphtype == 'CirclePack') {
+        $('#sparql').val(data[3]['query']);
+        exec();
+      }
     };
 
     $(function() {
@@ -220,7 +217,7 @@
     });
 
     function exec() {
-      if (selectedgraphtype != 'DendroGram') {
+      if (selectedgraphtype != ('DendroGram'|| 'PieChart')) {
         document.getElementById('rdf-skos').style.display = 'none';
         document.getElementById('dendro-zoom').style.display = 'none';
       }
@@ -251,15 +248,14 @@
           },
         });
 
-      ///// TODO: clean this function to just one call
-      // var selectedgraphtype = d3.select("#graphtype").property("value")
-
       var endpoint = d3.select("#endpoint").property("value")
       var sparql = d3.select("#sparql").property("value")
+
       if (selectedgraphtype == 'BarChart') {
         d3sparql.query(endpoint, sparql, barchart)
       } else if (selectedgraphtype == 'PieChart') {
-        d3sparql.query(endpoint, sparql, piechart)
+        d3sparql.query(endpoint, sparql , piechart)
+        document.getElementById('dendro-zoom').style.display = 'inline';
       } else if (selectedgraphtype == 'ForceGraph') {
         $('#search-entity').css('display', 'inline');
         d3sparql.query(endpoint, sparql, forcegraph)
@@ -306,166 +302,7 @@
         "hole": 200, // doughnut hole: 0 for pie, r > 0 for doughnut
         "selector": "#result"
       }
-      console.log(json);
-      var pieConcepts = [];
-      var pieValues = {};
-
-      var jsonData = json.results.bindings;
-      for (var i = 0; i < jsonData.length; i++) {
-        var newEntry = jsonData[i].conceptType.value;
-        pieConcepts.push(newEntry);
-        pieValues[newEntry] = jsonData[i].value.value;
-      }
-
-      $("#result").empty();
-      $("#result").height(500).width(960);
-      var svg = d3.select("#result")
-      	.append("svg")
-      	.append("g")
-
-      svg.append("g")
-      	.attr("class", "slices");
-      svg.append("g")
-      	.attr("class", "labels");
-      svg.append("g")
-      	.attr("class", "lines");
-
-      var width = 960, //TODO: should be flexibile
-          height = 450,
-      	radius = Math.min(width, height) / 2;
-
-      var pie = d3.layout.pie()
-      	.sort(null)
-      	.value(function(d) {
-      		return d.value;
-      	});
-
-      var arc = d3.svg.arc()
-      	.outerRadius(radius * 0.8)
-      	.innerRadius(radius * 0.4);
-
-      var outerArc = d3.svg.arc()
-      	.innerRadius(radius * 0.9)
-      	.outerRadius(radius * 0.9);
-
-      svg.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-
-      var key = function(d){ return d.data.label; };
-
-      var color = d3.scale.ordinal() //TODO: Here should manage colors
-      	.domain(pieConcepts)
-      	.range(["#2484c1", "#65a620", "#7b6888", "#a05d56", "#961a1a", "#d8d23a", "#e98125", "#d0743c", "#635222", "#6ada6a",
-				"#0c6197", "#7d9058", "#207f33", "#44b9b0", "#bca44a", "#e4a14b", "#a3acb2", "#8cc3e9", "#69a6f9", "#5b388f",
-				"#546e91", "#8bde95", "#d2ab58", "#273c71", "#98bf6e", "#4daa4b", "#98abc5", "#cc1010", "#31383b", "#006391",
-				"#c2643f", "#b0a474", "#a5a39c", "#a9c2bc", "#22af8c", "#7fcecf", "#987ac6", "#3d3b87", "#b77b1c", "#c9c2b6",
-				"#807ece", "#8db27c", "#be66a2", "#9ed3c6", "#00644b", "#005064", "#77979f", "#77e079", "#9c73ab", "#1f79a7"]);
-
-      function randomData (){
-      	var labels = color.domain(); //TODO: Here should manage labels and values
-      	return labels.map(function(label){
-      		return { label: label, value: pieValues[label] }
-      	});
-      }
-
-      change(randomData());
-
-      d3.select(".randomize")
-      	.on("click", function(){
-      		change(randomData());
-      	});
-
-
-      function change(data) {
-
-      	/* ------- PIE SLICES -------*/
-      	var slice = svg.select(".slices").selectAll("path.slice")
-      		.data(pie(data), key);
-
-      	slice.enter()
-      		.insert("path")
-      		.style("fill", function(d) { return color(d.data.label); })
-      		.attr("class", "slice");
-
-      	slice
-      		.transition().duration(1000)
-      		.attrTween("d", function(d) {
-      			this._current = this._current || d;
-      			var interpolate = d3.interpolate(this._current, d);
-      			this._current = interpolate(0);
-      			return function(t) {
-      				return arc(interpolate(t));
-      			};
-      		})
-
-
-      	slice.exit()
-      		.remove();
-
-      	/* ------- TEXT LABELS -------*/
-
-      	var text = svg.select(".labels").selectAll("text")
-      		.data(pie(data), key);
-
-      	text.enter()
-      		.append("text")
-      		.attr("dy", ".35em")
-      		.text(function(d) {
-      			return (d.data.label);
-      		});
-
-      	function midAngle(d){
-      		return d.startAngle + (d.endAngle - d.startAngle)/2;
-      	}
-
-      	text.transition().duration(1000)
-      		.attrTween("transform", function(d) {
-      			this._current = this._current || d;
-      			var interpolate = d3.interpolate(this._current, d);
-      			this._current = interpolate(0);
-      			return function(t) {
-      				var d2 = interpolate(t);
-      				var pos = outerArc.centroid(d2);
-      				pos[0] = radius * (midAngle(d2) < Math.PI ? 1 : -1);
-      				return "translate("+ pos +")";
-      			};
-      		})
-      		.styleTween("text-anchor", function(d){
-      			this._current = this._current || d;
-      			var interpolate = d3.interpolate(this._current, d);
-      			this._current = interpolate(0);
-      			return function(t) {
-      				var d2 = interpolate(t);
-      				return midAngle(d2) < Math.PI ? "start":"end";
-      			};
-      		});
-
-      	text.exit()
-      		.remove();
-
-      	/* ------- SLICE TO TEXT POLYLINES -------*/
-
-      	var polyline = svg.select(".lines").selectAll("polyline")
-      		.data(pie(data), key);
-
-      	polyline.enter()
-      		.append("polyline");
-
-      	polyline.transition().duration(1000)
-      		.attrTween("points", function(d){
-      			this._current = this._current || d;
-      			var interpolate = d3.interpolate(this._current, d);
-      			this._current = interpolate(0);
-      			return function(t) {
-      				var d2 = interpolate(t);
-      				var pos = outerArc.centroid(d2);
-      				pos[0] = radius * 0.95 * (midAngle(d2) < Math.PI ? 1 : -1);
-      				return [arc.centroid(d2), outerArc.centroid(d2), pos];
-      			};
-      		});
-
-      	polyline.exit()
-      		.remove();
-      };
+      d3sparql.piechart(json, config);
     }
 
     function forcegraph(json) {
@@ -703,27 +540,45 @@
       display: none;
     }
 
-    <!--Pie Chart style -->
-    path.slice{
-    	stroke-width:2px;
+    < !--Pie Chart style -->
+
+    .label-text {
+      alignment-baseline: middle;
+      font-size: 12px;
+      font-family: arial, helvetica, "sans-serif";
+      fill: #393939;
     }
 
-    polyline{
-    	opacity: .3;
-    	stroke: black;
-    	stroke-width: 2px;
-    	fill: none;
+    .label-line {
+      stroke-width: 1;
+      stroke: #393939;
     }
 
-    .slice text {
-        font-size: 16pt;
-        font-family: Arial;
+    .label-circle {
+      fill: #393939;
     }
 
+    .toolTip {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      position: absolute;
+      display: none;
+      width: auto;
+      height: auto;
+      background: none repeat scroll 0 0 white;
+      border: 0 none;
+      border-radius: 8px 8px 8px 8px;
+      box-shadow: -3px 3px 15px #888888;
+      color: black;
+      font: 12px sans-serif;
+      padding: 5px;
+      text-align: center;
+    }
 
-
-
-
+    path {
+        stroke: steelblue;
+        stroke-width: 2;
+        fill: none;
+    }
   </style>
 
 </body>

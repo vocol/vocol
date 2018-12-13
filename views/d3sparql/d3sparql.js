@@ -18,7 +18,7 @@ var d3sparql = {
 
 d3sparql.query = function(endpoint, sparql, callback) {
   //'http://localhost:3030/newDataset/sparql'
-  var url = endpoint + "?query=" + encodeURIComponent(sparql) + '&output=json'
+  var url = 'http://localhost:3030/newDataset/sparql' + "?query=" + encodeURIComponent(sparql) + '&output=json'
   if (d3sparql.debug) {
     console.log(endpoint)
   }
@@ -27,10 +27,12 @@ d3sparql.query = function(endpoint, sparql, callback) {
   }
   var mime = "application/sparql-results+json"
   d3.xhr(url, mime, function(request) {
+    console.log(request)
     var json = request.responseText
     if (d3sparql.debug) {
       console.log(json);
     }
+
     callback(JSON.parse(json))
   })
 }
@@ -375,6 +377,7 @@ d3sparql.barchart = function(json, config) {
   var bar = svg.selectAll(".bar")
     .data(data)
     .enter()
+    .append('g')
     .append("rect")
     .attr("transform", "translate(" + opts.margin + "," + 0 + ")")
     .attr("class", "bar")
@@ -388,6 +391,10 @@ d3sparql.barchart = function(json, config) {
     .attr("height", function(d) {
       return opts.height - scale_y(parseInt(d[opts.var_y].value)) - opts.margin
     })
+
+
+
+
   /*
       .call(function(e) {
         e.each(function(d) {
@@ -395,6 +402,7 @@ d3sparql.barchart = function(json, config) {
         })
       })
   */
+var div = d3.select("#result").append("div").attr("class", "toolTip");
   ax.selectAll("text")
     .attr("dy", ".35em")
     .attr("x", 10)
@@ -406,13 +414,17 @@ d3sparql.barchart = function(json, config) {
     .text(opts.label_x)
     .style("text-anchor", "middle")
     .attr("transform", "translate(" + ((opts.width - opts.margin) / 2) + "," + (opts.margin - 5) + ")")
+
   ay.append("text")
     .attr("class", "label")
     .text(opts.label_y)
     .style("text-anchor", "middle")
     .attr("transform", "rotate(-90)")
-    .attr("x", 0 - (opts.height / 2))
-    .attr("y", 0 - (opts.margin - 20))
+    .attr("x", 0 - (opts.height / 2.5))
+    .attr("y", 0 - (opts.margin - 100))
+
+    
+
 
   // default CSS/SVG
   bar.attr({
@@ -429,115 +441,338 @@ d3sparql.barchart = function(json, config) {
     "font-size": "8pt",
     "font-family": "sans-serif",
   })
+
+
+  var margin = 40,
+  valueMargin = 4;
+
+
+
+
+  bar
+    .on("mousemove", function(d) {
+      div.style("left", d3.event.pageX + 10 + "px");
+      div.style("top", d3.event.pageY - 25 + "px");
+      div.style("display", "inline-block");
+      div.html((d[opts.var_x].value) + "<br>" + (d[opts.var_y].value));
+    });
+  bar
+    .on("mouseout", function(d) {
+      div.style("display", "none");
+    });
 }
 
 
-d3sparql.piechart = function(json, config){
-
-  var pieData = [];
-  var jsonData = json.results.bindings;
-
-  for (var i = 0; i < jsonData.length; i++) {
-    var newEntry = {label: jsonData[i].conceptType.value,
-       value: jsonData[i].value.value};
-    pieData.push(newEntry);
-  }
-
-  var pie = new d3pie("result", {
-    header: {
-      title: {
-        text: "Another Pie"
-      }
-    },
-    data: {
-      content: pieData
-    },
-    callbacks: {
-      onClickSegment: function(a) {
-        console.log(a);
-      }
-    }
-  });
-
-
-
-}
-
-/*
-//Pie chart
 d3sparql.piechart = function(json, config) {
   config = config || {}
+  var myJson = json;
+  // size of the diagram
+  var viewerWidth = $(document).width() * (2 / 3);
+  var viewerHeight = $(document).height() * (2 / 3);
 
-  var head = json.head.vars
-  var data = json.results.bindings
+  $("#result").empty();
+  $("#result").height(600).width(800);
+  var e = $('<svg><g id="canvas">\
+      <g id="art" />\
+      <g id="labels" /></g></svg>')
+  $("#result").append(e);
 
-  var opts = {
-    "label": config.label || head[0],
-    "size": config.size || head[1],
-    "width": config.width || 700,
-    "height": config.height || 700,
-    "margin": config.margin || 10,
-    "hole": config.hole || 100,
-    "selector": config.selector || null
+  function makeData(pieJson) {
+    var pieDataSet = [];
+
+    var jsonData = pieJson.results.bindings; //Read json data and represent it in appropriate way
+    for (var i = 0; i < jsonData.length; i++) {
+      var newEntry = {
+        "label": jsonData[i].conceptType.value,
+        "instances": jsonData[i].value.value
+      };
+      pieDataSet.push(newEntry);
+    }
+    return pieDataSet
   }
 
-  var radius = Math.min(opts.width, opts.height) / 2 - opts.margin
-  var hole = Math.max(Math.min(radius - 50, opts.hole), 0)
-  var color = d3.scale.category20()
+  pieData = makeData(myJson);
 
-  var arc = d3.svg.arc()
-    .outerRadius(radius)
-    .innerRadius(hole)
+  var totalValues = 0;
 
-  var pie = d3.layout.pie()
-    //.sort(null)
-    .value(function(d) {
-      return d[opts.size].value
-    })
+  for (var i = 0; i < pieData.length; i++) {
+    totalValues += parseInt(pieData[i].instances);
+  }
 
-  var svg = d3sparql.select(opts.selector, "piechart").append("svg")
-    .attr("width", opts.width)
-    .attr("height", opts.height)
-    .append("g")
-    .attr("transform", "translate(" + opts.width / 2 + "," + opts.height / 2 + ")")
+  var divTag = d3.select("#result").append("div").attr("class", "toolTip");
+
+  svg = d3.select("svg");
+  canvas = d3.select("#canvas");
+  art = d3.select("#art");
+  labels = d3.select("#labels");
+
+  // Create the pie layout function.
+  // This function will add convenience
+  // data to our existing data, like
+  // the start angle and end angle
+  // for each data element.
+  jhw_pie = d3.layout.pie()
+  jhw_pie.value(function(d, i) {
+    // Tells the layout function what
+    // property of our data object to
+    // use as the value.
+    return d.instances;
+  });
+
+  // Store our chart dimensions
+  cDim = {
+    height: 600,
+    width: 800,
+    innerRadius: 40,
+    outerRadius: 150,
+    labelRadius: 180
+  }
+
+  // Set the size of our SVG element
+  svg.attr({
+    height: cDim.height,
+    width: cDim.width
+  });
+
+  // This translate property moves the origin of the group's coordinate
+  // space to the center of the SVG element, saving us translating every
+  // coordinate individually.
+  canvas.attr("transform", "translate(" + (cDim.width / 2) + "," + (cDim.height / 2) + ")");
+
+  pied_data = jhw_pie(pieData);
+
+  // The pied_arc function we make here will calculate the path
+  // information for each wedge based on the data set. This is
+  // used in the "d" attribute.
+  pied_arc = d3.svg.arc()
+    .innerRadius(cDim.innerRadius)
+    .outerRadius(cDim.outerRadius);
+
+  // This is an ordinal scale that returns 10 predefined colors.
+  // It is part of d3 core.
+  pied_colors = d3.scale.category20();
+
+  // Let's start drawing the arcs.
+  enteringArcs = art.selectAll(".wedge").data(pied_data).enter();
 
   var g = svg.selectAll(".arc")
-    .data(pie(data))
+    .data(jhw_pie(pied_data))
+    .enter().append("g")
+    .attr("class", "arc");
+
+  count = 0;
+  enteringArcs.append("path")
+    .attr("class", "wedge")
+    .attr("d", pied_arc)
+    .attr("id", function(d) {
+      return "arc-" + (count++);
+    })
+    .style("opacity", function(d) {
+      return d.data["op"];
+    })
+    .style("fill", function(d, i) {
+      return pied_colors(i);
+    }).on("mousemove", function(d) {
+      divTag.style("left", d3.event.pageX + 10 + "px");
+      divTag.style("top", d3.event.pageY - 25 + "px");
+      divTag.style("display", "inline-block");
+      divTag.html((d.data.label) + "<br>" + (100 * (parseInt(d.data.instances)) / totalValues) + "%");
+      d3.select(this)
+        .attr("stroke", "white")
+        .transition()
+        .duration(200)
+        .attr("d", arcOver)
+        .attr("stroke-width", 1);
+    }).on("mouseout", function(d) {
+      divTag.style("display", "none");
+      d3.select(this).transition()
+        .duration(200)
+        .attr("d", arc)
+        .attr("stroke", "none");
+    });
+
+  var arc = d3.svg.arc()
+    .outerRadius(cDim.outerRadius)
+    .innerRadius(cDim.innerRadius);
+
+  var arcOver = d3.svg.arc().outerRadius(cDim.outerRadius + 150).innerRadius(cDim.outerRadius - 100);
+  // Now we'll draw our label lines, etc.
+  enteringLabels = labels.selectAll(".label").data(pied_data).enter();
+  labelGroups = enteringLabels.append("g").attr("class", "label");
+  labelGroups.append("circle").attr({
+    x: 0,
+    y: 0,
+    r: 2,
+    fill: "#000",
+    transform: function(d, i) {
+      centroid = pied_arc.centroid(d);
+      return "translate(" + pied_arc.centroid(d) + ")";
+    },
+    'class': "label-circle"
+  });
+
+  var legendRectSize = cDim.innerRadius * 0.5;
+  var legendSpacing = cDim.innerRadius * 0.2;
+
+  var zoomSize = cDim.innerRadius * 0.8;
+
+  count = 0;
+  var legendG = svg.selectAll(".legend") // note appending it to mySvg and not svg to make positioning easier
+    .data(pied_data)
     .enter()
     .append("g")
-    .attr("class", "arc")
-  var slice = g.append("path")
-    .attr("d", arc)
+    .attr("class", "legend")
+    .attr("legend-id", function(d) {
+      return count++;
+    })
+    .attr("transform", function(d, i) {
+      return "translate(" + (cDim.width - 165) + "," + (i * 15) + ")"; // place each legend on the right and bump each one down 15 pixels
+    })
+    .style("cursor", "pointer")
+    .on("mousemove", function(d) {
+      divTag.style("left", d3.event.pageX + 10 + "px");
+      divTag.style("top", d3.event.pageY - 25 + "px");
+      divTag.style("display", "inline-block");
+      divTag.html((d.data.label) + "<br>" + (100 * (parseInt(d.data.instances)) / totalValues) + "%");
+    }).on("mouseout", function(d) {
+      divTag.style("display", "none");
+    }).on("click", function() {
+      var oarc = d3.select("#art" + " #arc-" + $(this).attr("legend-id"));
+      oarc.style("opacity", 0.3)
+        .attr("stroke", "white")
+        .transition()
+        .duration(200)
+        .attr("d", arcOver)
+        .attr("stroke-width", 1);
+      setTimeout(function() {
+        oarc.style("opacity", function(d) {
+            return d.data["op"];
+          })
+          .attr("d", arc)
+          .transition()
+          .duration(200)
+          .attr("stroke", "none");
+      }, 1000);
+    });;
+
+  legendG.append("rect") // make a matching color rect
+    .attr("width", 10)
+    .attr("height", 10)
     .attr("fill", function(d, i) {
-      return color(i)
-    })
-  var text = g.append("text")
-    .attr("class", "label")
-    .attr("transform", function(d) {
-      return "translate(" + arc.centroid(d) + ")"
-    })
-    .attr("dy", ".35em")
-    .attr("text-anchor", "middle")
+      return pied_colors(i);
+    });
+
+  legendG.append("text") // add the text
     .text(function(d) {
-      return d.data[opts.label].value
+      return d.data.label + "  " + d.data.instances;
     })
+    .style("font-size", 12)
+    .attr("y", 10)
+    .attr("x", 11);
 
-  // default CSS/SVG
-  slice.attr({
-    "stroke": "#ffffff",
-  })
-  // TODO: not working?
-  svg.selectAll("text").attr({
-    "stroke": "none",
-    "fill": "black",
-    "font-size": "20px",
-    "font-family": "sans-serif",
-  })
+  // "When am I ever going to use this?" I said in
+  // 10th grade trig.
+  textLines = labelGroups.append("line").attr({
+    x1: function(d, i) {
+      return pied_arc.centroid(d)[0];
+    },
+    y1: function(d, i) {
+      return pied_arc.centroid(d)[1];
+    },
+    x2: function(d, i) {
+      centroid = pied_arc.centroid(d);
+      midAngle = Math.atan2(centroid[1], centroid[0]);
+      x = Math.cos(midAngle) * cDim.labelRadius;
+      return x;
+    },
+    y2: function(d, i) {
+      centroid = pied_arc.centroid(d);
+      midAngle = Math.atan2(centroid[1], centroid[0]);
+      y = Math.sin(midAngle) * cDim.labelRadius;
+      return y;
+    },
+    'class': "label-line"
+  });
+
+  textLabels = labelGroups.append("text").attr({
+    x: function(d, i) {
+      centroid = pied_arc.centroid(d);
+      midAngle = Math.atan2(centroid[1], centroid[0]);
+      x = Math.cos(midAngle) * cDim.labelRadius;
+      sign = (x > 0) ? 1 : -1
+      labelX = x + (5 * sign)
+      return labelX;
+    },
+    y: function(d, i) {
+      centroid = pied_arc.centroid(d);
+      midAngle = Math.atan2(centroid[1], centroid[0]);
+      y = Math.sin(midAngle) * cDim.labelRadius;
+      return y;
+    },
+    'text-anchor': function(d, i) {
+      centroid = pied_arc.centroid(d);
+      midAngle = Math.atan2(centroid[1], centroid[0]);
+      x = Math.cos(midAngle) * cDim.labelRadius;
+      return (x > 0) ? "start" : "end";
+    },
+    'class': 'label-text'
+  }).text(function(d) {
+    return d.data.label
+  });
+
+  alpha = 0.5;
+  spacing = 12;
+
+  function relax() {
+    again = false;
+    textLabels.each(function(d, i) {
+      a = this;
+      da = d3.select(a);
+      y1 = da.attr("y");
+      textLabels.each(function(d, j) {
+        b = this;
+        // a & b are the same element and don't collide.
+        if (a == b) return;
+        db = d3.select(b);
+        // a & b are on opposite sides of the chart and
+        // don't collide
+        if (da.attr("text-anchor") != db.attr("text-anchor")) return;
+        // Now let's calculate the distance between
+        // these elements.
+        y2 = db.attr("y");
+        deltaY = y1 - y2;
+
+        // Our spacing is greater than our specified spacing,
+        // so they don't collide.
+        if (Math.abs(deltaY) > spacing) return;
+
+        // If the labels collide, we'll push each
+        // of the two labels up and down a little bit.
+        again = true;
+        sign = deltaY > 0 ? 1 : -1;
+        adjust = sign * alpha;
+        da.attr("y", +y1 + adjust);
+        db.attr("y", +y2 - adjust);
+      });
+    });
+    // Adjust our line leaders here
+    // so that they follow the labels.
+    if (again) {
+      labelElements = textLabels[0];
+      textLines.attr("y2", function(d, i) {
+        labelForLine = d3.select(labelElements[i]);
+        return labelForLine.attr("y");
+      });
+      setTimeout(relax, 20)
+    }
+  }
+
+  relax();
+
+  //var zoomPie = pied_arc.outerRadius(cDim.outerRadius + 20).innerRadius(cDim.outerRadius - 100);
+
+  //d3.selectAll('button.zoom').on('click', pied_arc.outerRadius(cDim.outerRadius + 20).innerRadius(cDim.outerRadius - 100));
 }
-*/
-
-
-
 
 
 //Scatterplot
@@ -645,6 +880,7 @@ d3sparql.forcegraph = function(json, config) {
   var graph = createGraph(json);
   //console.log(graph);
   //var neighbors = {}; // Key = vertex, value = array of neighbors.
+
   $("#result").empty();
   showGraph(graph.nodes, graph.edges, 'result');
 
@@ -788,8 +1024,8 @@ d3sparql.forcegraph = function(json, config) {
     // Layout of the graph and its container
     var options = {
       autoResize: false,
-      height: '400px',
-      width: '600px',
+      height: '600px',
+      width: '800px',
       nodes: {
         shape: 'dot',
         size: 20,
@@ -1307,8 +1543,8 @@ d3sparql.dendrogram = function(json, config) {
     var treeLevel = 0;
 
     // size of the diagram
-    var viewerWidth = $(document).width() * (2 / 3);
-    var viewerHeight = $(document).height() / 2;
+    var viewerWidth = 800 //$(document).width() * (2 / 3);
+    var viewerHeight = 600 //$(document).height() * (2 / 3);
 
     var tree = d3.layout.tree()
       .size([viewerHeight, viewerWidth]);
@@ -1323,7 +1559,6 @@ d3sparql.dendrogram = function(json, config) {
       });
 
     // A recursive helper function for performing some setup by walking through all nodes
-
     function visit(parent, visitFn, childrenFn) {
       if (!parent) return;
 
@@ -1397,19 +1632,26 @@ d3sparql.dendrogram = function(json, config) {
 
     function zoomed() {
       svgGroup.attr("transform", "translate(" + zoomListener.translate() + ")scale(" + zoomListener.scale() + ")");
-      var svgTag = d3.select("#result svg");
-
-      svgTag.attr("width", treeWidth + margin.right + margin.left)
-        .attr("height", treeHeight + margin.top + margin.bottom); //TODO: make a flexibile size
     }
 
-    function interpolateZoom(translate, scale, center) {
+    function interpolateZoom(translate, scale, center, zoomFlag) {
       var self = this;
       return d3.transition().duration().tween("zoom", function() {
         var iTranslate = d3.interpolate(zoomListener.translate(), translate),
           iScale = d3.interpolate(zoomListener.scale(), scale);
-        treeHeight *= scale;
-        treeWidth *= scale;
+
+        if (zoomFlag) {
+          treeHeight *= 1 + (scale / 10);
+        } else {
+          treeHeight *= 1 - (scale / 10);
+        }
+        tree = tree.size([treeHeight, treeWidth]);
+        var svgTag = d3.select("#result svg");
+        svgTag.attr("height", treeHeight + margin.top + margin.bottom); //TODO: make a flexibile size
+
+        //svgTag[0][0].height.baseVal.value *= scale;
+        //svgTag[0][0].width.baseVal.value *= scale;
+        console.log(svgTag[0][0])
         return function(t) {
           zoomListener
             .scale(iScale(t))
@@ -1435,10 +1677,13 @@ d3sparql.dendrogram = function(json, config) {
           k: zoomListener.scale(),
         };
 
+      var in_out = false;
       d3.event.preventDefault();
       if (this.id === 'zoom_in') {
+        in_out = true;
         direction = 1;
       } else if (this.id === 'zoom_out') {
+        in_out = false;
         direction = -1;
       }
 
@@ -1451,13 +1696,17 @@ d3sparql.dendrogram = function(json, config) {
       translate0 = [(center[0] - view.x) / view.k, (center[1] - view.y) / view.k];
       view.k = target_zoom;
       l = [translate0[0] * view.k + view.x, translate0[1] * view.k + view.y];
-      view.x += center[0] - l[0];
+
+      if (in_out) {
+        view.x += center[0] - l[0] + 20;
+      } else {
+        view.x += center[0] - l[0] - 20;
+      }
+
       view.y += center[1] - l[1];
+      interpolateZoom([view.x, view.y], view.k, node, in_out);
 
-      interpolateZoom([view.x, view.y], view.k);
-
-      //  console.log('XxY', bBox.x + 'x' + bBox.y);
-      //console.log('size', bBox.width + 'x' + bBox.height);
+      //TODO: not working well when zoom in and out
     }
 
     d3.selectAll('button.zoom').on('click', zoomOperator);
@@ -1599,7 +1848,7 @@ d3sparql.dendrogram = function(json, config) {
       updateTempConnector();
       if (draggingNode !== null) {
         update(root);
-        centerNode(draggingNode);
+        //centerNode(draggingNode);
         draggingNode = null;
       }
     }
@@ -1659,7 +1908,6 @@ d3sparql.dendrogram = function(json, config) {
     };
 
     // Function to center node when clicked/dropped so node doesn't get lost when collapsing/moving with large amount of children.
-
     function centerNode(source) {
       scale = zoomListener.scale();
       x = -source.y0;
@@ -1724,7 +1972,6 @@ d3sparql.dendrogram = function(json, config) {
       d.select = 1;
       selected_id.push(d.index);
       update(d);
-
     }
 
     // Toggle children on click.
@@ -1734,7 +1981,7 @@ d3sparql.dendrogram = function(json, config) {
       update(d);
     }
 
-    function update(source) {
+    function update(source, zoom_in = false, zoom_out = false) {
       // Compute the new height, function counts total children of root node and sets tree height accordingly.
       // This prevents the layout looking squashed when new nodes are made visible or looking sparse when nodes are removed
       // This makes the layout more consistent.
@@ -1753,6 +2000,7 @@ d3sparql.dendrogram = function(json, config) {
 
       childCount(0, root);
       treeLevel = Math.max(source.level, treeLevel);
+
       var newHeight = treeHeight = d3.max(levelWidth) * 25; // 25 pixels per line
       var newWidth = treeWidth = (treeLevel + 1) * maxLabelLength * 4;
 
@@ -1775,7 +2023,6 @@ d3sparql.dendrogram = function(json, config) {
           var ret_val = d.id || (d.id = ++i);
           return ret_val;
         });
-
 
       // Enter any new nodes at the parent's previous position.
       var nodeEnter = node.enter().append("g")
@@ -1916,6 +2163,7 @@ d3sparql.dendrogram = function(json, config) {
     root.children.forEach(collapse);
     update(root);
 
+
     // Fill in dropdown selector for search a node on the graph.
     $('#select-entity').html("");
     for (key in hash_ids) {
@@ -1938,22 +2186,22 @@ d3sparql.dendrogram = function(json, config) {
 }
 
 function sortSelect(selElem) {
-    var tmpAry = new Array();
-    for (var i=0;i<selElem.options.length;i++) {
-        tmpAry[i] = new Array();
-        tmpAry[i][0] = selElem.options[i].text;
-        tmpAry[i][1] = selElem.options[i].value;
-    }
-    tmpAry.sort();
-    tmpAry.splice(0, 0,['choose entity','choose entity']);
-    while (selElem.options.length > 0) {
-        selElem.options[0] = null;
-    }
-    for (var i=0;i<tmpAry.length;i++) {
-        var op = new Option(tmpAry[i][0], tmpAry[i][1]);
-        selElem.options[i] = op;
-    }
-    return;
+  var tmpAry = new Array();
+  for (var i = 0; i < selElem.options.length; i++) {
+    tmpAry[i] = new Array();
+    tmpAry[i][0] = selElem.options[i].text;
+    tmpAry[i][1] = selElem.options[i].value;
+  }
+  tmpAry.sort();
+  tmpAry.splice(0, 0, ['choose entity', 'choose entity']);
+  while (selElem.options.length > 0) {
+    selElem.options[0] = null;
+  }
+  for (var i = 0; i < tmpAry.length; i++) {
+    var op = new Option(tmpAry[i][0], tmpAry[i][1]);
+    selElem.options[i] = op;
+  }
+  return;
 }
 
 
