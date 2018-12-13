@@ -18,7 +18,7 @@ var d3sparql = {
 
 d3sparql.query = function(endpoint, sparql, callback) {
   //'http://localhost:3030/newDataset/sparql'
-  var url = 'http://localhost:3030/newDataset/sparql' + "?query=" + encodeURIComponent(sparql) + '&output=json'
+  var url = endpoint + "?query=" + encodeURIComponent(sparql) + '&output=json'
   if (d3sparql.debug) {
     console.log(endpoint)
   }
@@ -336,7 +336,7 @@ d3sparql.barchart = function(json, config) {
   config = config || {}
 
   var head = json.head.vars
-  var data = json.results.bindings
+  var dataBar = json.results.bindings
 
   var opts = {
     "label_x": config.label_x || head[0],
@@ -353,29 +353,40 @@ d3sparql.barchart = function(json, config) {
   var scale_y = d3.scale.linear().range([opts.height - opts.margin, 0])
   var axis_x = d3.svg.axis().scale(scale_x).orient("bottom")
   var axis_y = d3.svg.axis().scale(scale_y).orient("left") // .ticks(10, "%")
-  scale_x.domain(data.map(function(d) {
+  scale_x.domain(dataBar.map(function(d) {
     return d[opts.var_x].value
   }))
-  scale_y.domain(d3.extent(data, function(d) {
+  scale_y.domain(d3.extent(dataBar, function(d) {
     return parseInt(d[opts.var_y].value)
-  }))
+    }))
 
   var svg = d3sparql.select(opts.selector, "barchart").append("svg")
     .attr("width", opts.width)
     .attr("height", opts.height)
-  //    .append("g")
-  //    .attr("transform", "translate(" + opts.margin + "," + 0 + ")")
+    .attr("transform", "translate(" + (-5 * (opts.margin) + 80) + "," + 20 + ")")
 
-  var ax = svg.append("g")
-    .attr("class", "axis x")
-    .attr("transform", "translate(" + opts.margin + "," + (opts.height - opts.margin) + ")")
-    .call(axis_x)
-  var ay = svg.append("g")
-    .attr("class", "axis y")
-    .attr("transform", "translate(" + opts.margin + ",0)")
-    .call(axis_y)
+  svg.selectAll("text")
+    .data(dataBar)
+    .enter()
+    .append("text")
+    .text(function(d) {
+      //console.log(d[opts.var_y].value);
+      return d[opts.var_y].value;
+    })
+    .attr({
+      "text-anchor": "middle",
+      x: function(d, i) {
+        return i * ((opts.width - opts.margin - 10) / dataBar.length) + (opts.width / dataBar.length) / 2 + opts.margin;
+      },
+      y: function(d, i) {
+        label_value = scale_y(parseInt(d[opts.var_y].value)) - 5
+        return label_value
+      }
+    })
+
+
   var bar = svg.selectAll(".bar")
-    .data(data)
+    .data(dataBar)
     .enter()
     .append('g')
     .append("rect")
@@ -389,20 +400,21 @@ d3sparql.barchart = function(json, config) {
       return scale_y(d[opts.var_y].value)
     })
     .attr("height", function(d) {
+      // console.log(opts.height - scale_y(parseInt(d[opts.var_y].value)) - opts.margin);
       return opts.height - scale_y(parseInt(d[opts.var_y].value)) - opts.margin
     })
 
+  var ax = svg.append("g")
+    .attr("class", "axis x")
+    .attr("transform", "translate(" + opts.margin + "," + (opts.height - opts.margin) + ")")
+    .call(axis_x)
 
+  var ay = svg.append("g")
+    .attr("class", "axis y")
+    .attr("transform", "translate(" + opts.margin + "," + 0 + ")")
+    .call(axis_y)
 
-
-  /*
-      .call(function(e) {
-        e.each(function(d) {
-          console.log(parseInt(d[opts.var_y].value))
-        })
-      })
-  */
-var div = d3.select("#result").append("div").attr("class", "toolTip");
+  var div = d3.select("#result").append("div").attr("class", "toolTip");
   ax.selectAll("text")
     .attr("dy", ".35em")
     .attr("x", 10)
@@ -414,17 +426,6 @@ var div = d3.select("#result").append("div").attr("class", "toolTip");
     .text(opts.label_x)
     .style("text-anchor", "middle")
     .attr("transform", "translate(" + ((opts.width - opts.margin) / 2) + "," + (opts.margin - 5) + ")")
-
-  ay.append("text")
-    .attr("class", "label")
-    .text(opts.label_y)
-    .style("text-anchor", "middle")
-    .attr("transform", "rotate(-90)")
-    .attr("x", 0 - (opts.height / 2.5))
-    .attr("y", 0 - (opts.margin - 100))
-
-    
-
 
   // default CSS/SVG
   bar.attr({
@@ -441,13 +442,6 @@ var div = d3.select("#result").append("div").attr("class", "toolTip");
     "font-size": "8pt",
     "font-family": "sans-serif",
   })
-
-
-  var margin = 40,
-  valueMargin = 4;
-
-
-
 
   bar
     .on("mousemove", function(d) {
@@ -595,7 +589,7 @@ d3sparql.piechart = function(json, config) {
     .outerRadius(cDim.outerRadius)
     .innerRadius(cDim.innerRadius);
 
-  var arcOver = d3.svg.arc().outerRadius(cDim.outerRadius + 150).innerRadius(cDim.outerRadius - 100);
+  var arcOver = d3.svg.arc().outerRadius(cDim.outerRadius + 100).innerRadius(cDim.outerRadius - 100);
   // Now we'll draw our label lines, etc.
   enteringLabels = labels.selectAll(".label").data(pied_data).enter();
   labelGroups = enteringLabels.append("g").attr("class", "label");
