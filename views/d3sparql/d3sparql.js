@@ -18,7 +18,7 @@ var d3sparql = {
 
 d3sparql.query = function(endpoint, sparql, callback) {
   //'http://localhost:3030/newDataset/sparql'
-  var url = endpoint + "?query=" + encodeURIComponent(sparql) + '&output=json'
+  var url = 'http://localhost:3030/newDataset/sparql' + "?query=" + encodeURIComponent(sparql) + '&output=json'
   if (d3sparql.debug) {
     console.log(endpoint)
   }
@@ -363,7 +363,7 @@ d3sparql.barchart = function(json, config) {
   var svg = d3sparql.select(opts.selector, "barchart").append("svg")
     .attr("width", opts.width)
     .attr("height", opts.height)
-    .attr("transform", "translate(" + (-5 * (opts.margin) + 80) + "," + 20 + ")")
+  //  .attr("transform", "translate(" + (-5 * (opts.margin) + 80) + "," + 20 + ")")
 
   svg.selectAll("text")
     .data(dataBar)
@@ -421,11 +421,19 @@ d3sparql.barchart = function(json, config) {
     .attr("y", 0)
     .attr("transform", "rotate(90)")
     .style("text-anchor", "start")
-  ax.append("text")
-    .attr("class", "label")
-    .text(opts.label_x)
-    .style("text-anchor", "middle")
-    .attr("transform", "translate(" + ((opts.width - opts.margin) / 2) + "," + (opts.margin - 5) + ")")
+
+    ax.append("text")
+      .attr("class", "label")
+      .text(opts.label_x)
+      .style("text-anchor", "middle")
+      .attr("transform", "translate(" + ((opts.width - opts.margin) / 2) + "," + (opts.margin - 5) + ")")
+    ay.append("text")
+      .attr("class", "label")
+      .text(opts.label_y)
+      .style("text-anchor", "middle")
+      .attr("transform", "rotate(-90)")
+      .attr("x", 0 - (opts.height / 2)+ 40)
+      .attr("y", -40 )
 
   // default CSS/SVG
   bar.attr({
