@@ -19,7 +19,6 @@
     "jsonfile": "^4.0.0",
     "morgan": "^1.9.0",
     "node-watch": "^0.5.5",
-    "semantic-ui": "^2.3.3",
     "serve-favicon": "^2.5.0",
     "shelljs": "^0.7.8",
     "sparql-client": "^0.2.0"
