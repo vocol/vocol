@@ -28,7 +28,6 @@ cd vocol
 ```
 5. Install the dependent packages (assuming that node package manager is installed already):
 ```
-sudo npm install -g turtle-validator
 sudo npm install
 ```
 Semantic-Ui framework is used in VoCol development, a couple of selections need to be given while installing it. 
