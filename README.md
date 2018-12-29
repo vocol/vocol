@@ -60,7 +60,7 @@ For more details about VoCol repository, please have a look on our [VoColWiki](h
     
 Check out a list of projects that are currently using [VoCol](http://vocol.iais.fraunhofer.de/).
 
-Moreover, you can use the **docker image** of VoCol [here](https://hub.docker.com/r/ahemid/newvocol/).
+Moreover, you can use the **docker image** of VoCol [here](https://hub.docker.com/r/ahemid/newvocol/) or use the included Dockerfile to build the docker image.
 
 ## License
 
