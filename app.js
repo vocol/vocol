@@ -200,8 +200,8 @@ app.use(['\/\/webvowlLink', '/webvowlLink'], express.static(path.join(__dirname,
   "views/webvowl")));
 app.use(['\/\/turtleEditorLink', '/turtleEditorLink'], express.static(path.join(
   __dirname, "views/editor")));
-app.use(['\/\/analyticsLink', '/analyticsLink'], express.static(path.join(
-  __dirname, "views/d3sparql")));
+// app.use(['\/\/analyticsLink', '/analyticsLink'], express.static(path.join(
+//   __dirname, "views/d3sparql")));
 app.use(['\/\/evolution', '/evolution'], evolution);
 app.use(['\/\/startup', '/startup'], startup);
 app.use(['\/\/validation', '/validation'], validation);

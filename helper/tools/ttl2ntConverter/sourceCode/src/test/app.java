@@ -71,10 +71,11 @@ public class app {
 		String turtleFolderPath = args[0];
 		System.out.println(args.length);
 		// check arg[1] which true or false for disable consistency checking
-		if(args.length > 3) {
+		if(args.length > 2) {
 			if(args[2].contains("true"))
 				disableConsistency = true ; 
 			System.out.println(args[0] + "  " + args[1]+ "  "+ disableConsistency);
+			System.out.println("ddddddddddddddddddddddddddddddddd");
 
 		}
 		File dir = new File(turtleFolderPath);
@@ -89,13 +90,14 @@ public class app {
 				System.out.println(filee.getName());
 				// read the input stream of the input file
 				onModel.read(new FileInputStream(filee), null, "TTL");
-				// read a single input file to a global model to be globally checked against cosistency 
+				// read a single input file to a global model to be globally checked against consistency 
 				onModel4AllFiles.read(new FileInputStream(filee), null, "TTL");
 				//fop = new FileOutputStream(new File("SingleVoc.nt"),true);	
-				// check for consistency for each file
-				ValidityReport report = onModel.validate();
+
 				// write the default graph of dataModel to the output file
 				if(!disableConsistency) {
+					// check for consistency for each file
+					ValidityReport report = onModel.validate();
 					if( getMessages(report.getReports()) != "") {
 						JSONObject JSONObject = new JSONObject();
 						JSONObject.put("fileName", filee.getName());
@@ -106,23 +108,27 @@ public class app {
 					}
 				}	
 			}
-			catch(Exception rXE) {
+			catch(JenaException jXE) {
 				System.out.print("\nResult of syntax validtion is: an error is found \n");
-				System.out.print(rXE.getMessage());
+				System.out.print(jXE.getMessage());
 				JSONObject JSONObject = new JSONObject();
 				JSONObject.put("fileName", filee.getName());
 				JSONObject.put("source", "JenaRiot");
 
 				// print the validation report
-				JSONObject.put("Message", rXE.getMessage() );
+				JSONObject.put("Message", jXE.getMessage() );
 				errorJSONArray.put(JSONObject);
 
+			}
+			catch(IOException ioe) {
+				System.out.print("\nInput or Output Exception... \n");
+				System.out.print(ioe.getMessage());
 			}
 		}
 		// check consistency using Pellet and generate a validation report
 		try {
 			String outFilename = "SingleVoc.nt";
-			if(args.length > 2)
+			if(args.length > 1)
 				outFilename = args[1];
 			File outFile = new File(outFilename);
 			outFile.createNewFile();
@@ -131,8 +137,6 @@ public class app {
 		} catch(IOException ioe ) {
 			System.out.println(ioe.getMessage());
 		}
-
-		System.out.println("disableConsistency  " + disableConsistency) ;
 
 		if(!disableConsistency){
 			// check for consistency for each file
@@ -147,7 +151,6 @@ public class app {
 
 				errorJSONArray.put(JSONObj);
 			}
-
 			System.out.println(errorJSONArray.toString());
 		}
 
