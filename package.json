@@ -18,7 +18,6 @@
     "express-session": "^1.15.6",
     "jsonfile": "^4.0.0",
     "morgan": "^1.9.1",
-    "node-watch": "^0.5.5",
     "serve-favicon": "^2.5.0",
     "shelljs": "^0.7.8",
     "sparql-client": "^0.2.0"

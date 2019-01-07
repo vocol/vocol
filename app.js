@@ -17,7 +17,7 @@ var config = require('./routes/config');
 var fs = require('fs');
 var jsonfile = require('jsonfile');
 var app = express();
-var watch = require('node-watch');
+// var watch = require('node-watch');
 var shell = require('shelljs');
 var router = express.Router();
 var proxy = require('express-http-proxy');
@@ -314,24 +314,25 @@ app.get(['\/\/getRepoInfo', '/getRepoInfo'], function(req, res, next) {
 app.use(['//*', '*'], referenceRoutes);
 
 // monitor ErrorsFilePath
-watch(ErrorsFilePath, {
-  recursive: true
-}, function(evt, name) {
-  if (evt == 'update') {
-    // call if SyntaxErrors file was changed
-    readSyntaxErrorsFile();
-  }
-});
+//TODO: stop monitor of jsonfiles changes
+// watch(ErrorsFilePath, {
+//   recursive: true
+// }, function(evt, name) {
+//   if (evt == 'update') {
+//     // call if SyntaxErrors file was changed
+//     readSyntaxErrorsFile();
+//   }
+// });
 
 // monitor change of userConfigurationsFile
-watch(userConfigurationsFile, {
-  recursive: true
-}, function(evt, name) {
-  if (evt == 'update') {
-    // call if userConfigurations file was changed
-    readUserConfigurationFile();
-  }
-});
+// watch(userConfigurationsFile, {
+//   recursive: true
+// }, function(evt, name) {
+//   if (evt == 'update') {
+//     // call if userConfigurations file was changed
+//     readUserConfigurationFile();
+//   }
+// });
 
 
 function isEmptyObject(obj) {
