@@ -1,20 +1,8 @@
 {
-  "_comment" : "Created with OWL2VOWL (version 0.3.6), http://vowl.visualdataweb.org",
+  "_comment" : "Created with OWL2VOWL (version 0.3.5), http://vowl.visualdataweb.org",
   "header" : {
     "languages" : [ "en", "undefined" ],
     "baseIris" : [ "http://purl.org/muto/core", "http://www.w3.org/1999/02/22-rdf-syntax-ns", "http://www.w3.org/2000/01/rdf-schema", "http://purl.org/dc/terms", "http://www.w3.org/2001/XMLSchema", "http://rdfs.org/sioc/ns", "http://www.w3.org/2004/02/skos/core" ],
-    "prefixList" : {
-      "owl" : "http://www.w3.org/2002/07/owl#",
-      "rdf" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-      "sioc" : "http://rdfs.org/sioc/ns#",
-      "dcterms" : "http://purl.org/dc/terms/",
-      "skos" : "http://www.w3.org/2004/02/skos/core#",
-      "xsd" : "http://www.w3.org/2001/XMLSchema#",
-      "dc" : "http://purl.org/dc/elements/1.1/",
-      "xml" : "http://www.w3.org/XML/1998/namespace",
-      "foaf" : "http://xmlns.com/foaf/0.1/",
-      "rdfs" : "http://www.w3.org/2000/01/rdf-schema#"
-    },
     "title" : {
       "undefined" : "Modular Unified Tagging Ontology (MUTO)"
     },
@@ -67,12 +55,12 @@
       "depiction" : [ {
         "identifier" : "depiction",
         "language" : "undefined",
-        "value" : "http://purl.org/muto/core/muto-UML.png",
+        "value" : "http://purl.org/muto/core/muto-compact.png",
         "type" : "label"
       }, {
         "identifier" : "depiction",
         "language" : "undefined",
-        "value" : "http://purl.org/muto/core/muto-compact.png",
+        "value" : "http://purl.org/muto/core/muto-UML.png",
         "type" : "label"
       } ],
       "homepage" : [ {
@@ -116,10 +104,10 @@
     "type" : "owl:Class"
   }, {
     "id" : "24",
-    "type" : "rdfs:Literal"
+    "type" : "rdfs:Datatype"
   }, {
     "id" : "25",
-    "type" : "rdfs:Datatype"
+    "type" : "rdfs:Literal"
   }, {
     "id" : "6",
     "type" : "owl:Class"
@@ -242,19 +230,19 @@
     "id" : "21",
     "superClasses" : [ "1" ]
   }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#dateTime",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "24",
+    "label" : {
+      "IRI-based" : "dateTime"
+    }
+  }, {
     "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
     "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
-    "id" : "24",
+    "id" : "25",
     "label" : {
       "IRI-based" : "Literal",
       "undefined" : "Literal"
-    }
-  }, {
-    "iri" : "http://www.w3.org/2001/XMLSchema#dateTime",
-    "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "25",
-    "label" : {
-      "IRI-based" : "dateTime"
     }
   }, {
     "iri" : "http://purl.org/muto/core#AutoTag",
@@ -435,7 +423,7 @@
       "IRI-based" : "modified"
     },
     "domain" : "9",
-    "attributes" : [ "external", "datatype" ],
+    "attributes" : [ "datatype", "external" ],
     "id" : "8"
   }, {
     "iri" : "http://purl.org/muto/core#creatorOf",
@@ -493,7 +481,7 @@
   }, {
     "range" : "4",
     "domain" : "6",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "20"
   }, {
     "iri" : "http://purl.org/muto/core#meaningOf",
@@ -527,7 +515,7 @@
     },
     "domain" : "9",
     "subproperty" : [ "13" ],
-    "attributes" : [ "external", "object" ],
+    "attributes" : [ "object", "external" ],
     "id" : "26"
   }, {
     "iri" : "http://purl.org/muto/core#tagOf",
@@ -657,7 +645,7 @@
   }, {
     "iri" : "http://purl.org/muto/core#tagLabel",
     "baseIri" : "http://purl.org/muto/core",
-    "range" : "24",
+    "range" : "25",
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
@@ -691,7 +679,7 @@
     },
     "domain" : "9",
     "subproperty" : [ "11" ],
-    "attributes" : [ "external", "object" ],
+    "attributes" : [ "object", "external" ],
     "id" : "14"
   }, {
     "iri" : "http://purl.org/muto/core#tagMeaning",
@@ -719,7 +707,7 @@
   }, {
     "iri" : "http://purl.org/muto/core#taggingModified",
     "baseIri" : "http://purl.org/muto/core",
-    "range" : "7",
+    "range" : "15",
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
@@ -770,7 +758,7 @@
     },
     "domain" : "9",
     "subproperty" : [ "0" ],
-    "attributes" : [ "external", "object" ],
+    "attributes" : [ "object", "external" ],
     "id" : "3"
   }, {
     "iri" : "http://purl.org/muto/core#nextTag",
@@ -803,7 +791,7 @@
   }, {
     "iri" : "http://purl.org/muto/core#taggingCreated",
     "baseIri" : "http://purl.org/muto/core",
-    "range" : "15",
+    "range" : "7",
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
@@ -830,12 +818,12 @@
       "IRI-based" : "created"
     },
     "domain" : "9",
-    "attributes" : [ "external", "datatype" ],
+    "attributes" : [ "datatype", "external" ],
     "id" : "36"
   }, {
     "range" : "5",
     "domain" : "4",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "37"
   }, {
     "iri" : "http://purl.org/muto/core#taggedWith",
@@ -863,7 +851,7 @@
   }, {
     "iri" : "http://purl.org/muto/core#tagCreated",
     "baseIri" : "http://purl.org/muto/core",
-    "range" : "25",
+    "range" : "24",
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
@@ -885,12 +873,12 @@
   }, {
     "range" : "1",
     "domain" : "21",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "40"
   }, {
     "range" : "32",
     "domain" : "1",
-    "attributes" : [ "object", "anonymous" ],
+    "attributes" : [ "anonymous", "object" ],
     "id" : "41"
   } ]
 }
