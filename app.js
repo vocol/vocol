@@ -119,13 +119,13 @@ function readUserConfigurationFile() {
                 });
             }
             if (obj['text3'] != "") {
+              menu[6] = true;
               fs.writeFileSync(__dirname +
                 '/views/dataProtectionScript.ejs', obj['text3'], {
                   encoding: 'utf8',
                   flag: 'w'
                 });
             }
-            menu[6] = true;
           } else if (k === "loginUserName") {
             loginUserName = obj[k];
           } else if (k === "adminUserName") {

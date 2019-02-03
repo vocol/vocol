@@ -160,7 +160,7 @@ router.get('/', function(req, res) {
             silent: false
           }).stdout;
         shell.exec(
-          'rm -f   ../vocol/helper/tools/ttl2ntConverter/Output.report', {
+          'echo "[]" >   ../vocol/helper/tools/ttl2ntConverter/Output.report', {
             silent: false
           }).stdout;
         shell.exec(

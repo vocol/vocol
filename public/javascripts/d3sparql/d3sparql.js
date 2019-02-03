@@ -1616,6 +1616,7 @@ d3sparql.dendrogram = function(json, config) {
         return;
       }
       domNode = this;
+      alert(selectedNode)
       if (selectedNode) {
         // now remove the element from the parent, and insert it into the new elements children
         var index = draggingNode.parent.children.indexOf(
