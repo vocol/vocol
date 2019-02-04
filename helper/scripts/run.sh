@@ -1,5 +1,5 @@
 #!/bin/bash
-portNumber=3030
+portNumber=4040
 fuser -k $portNumber/tcp
 rm -f run/system/tdb.lock
 numofFiles=$(find ../../../../repoFolder/ -type f -name "*.ttl"| wc -l )

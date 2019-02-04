@@ -17,23 +17,23 @@
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Title> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Patentfamilie> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Title> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Erfindung> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fb7 <http://www.w3.org/2002/07/owl#unionOf> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fb6 .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fb7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Vorname> <http://www.w3.org/2000/01/rdf-schema#label> "Vorname" .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Vorname> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Vorname> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Erfinder> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Vorname> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f9d <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f9c .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f9d <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "B2" .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f9d <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7faa <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fa9 .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7faa <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Drittmittelprojekt> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fb8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fb8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#StrukturiertesPromotionsprogramm> .
 <http://kerndatensatz-forschung.de/version1/technisches_datenmodell/owl/Basis#Publikation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Ergebnis> .
 <http://kerndatensatz-forschung.de/owl/Basis#GruppeMitHerausgeberfunktion> <http://www.w3.org/2000/01/rdf-schema#label> "Gruppe mit Herausgeberfunktion" .
 <http://kerndatensatz-forschung.de/owl/Basis#GruppeMitHerausgeberfunktion> <http://kerndatensatz-forschung.de/owl/Meta#pgbid> "kds.creator.editor.GroupName" .
 <http://kerndatensatz-forschung.de/owl/Basis#GruppeMitHerausgeberfunktion> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Pu61" .
 <http://kerndatensatz-forschung.de/owl/Basis#GruppeMitHerausgeberfunktion> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#Schoepfertyp> .
 <http://kerndatensatz-forschung.de/owl/Basis#GruppeMitHerausgeberfunktion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fab <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7faa .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fab <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Beschaeftigung> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f9e <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f9d .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f9e <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "B11" .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f9e <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatMittelgeber> <http://www.w3.org/2000/01/rdf-schema#label> "hat Mittelgeber"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatMittelgeber> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Dr12" .
 <http://kerndatensatz-forschung.de/owl/Basis#hatMittelgeber> <http://www.w3.org/2000/01/rdf-schema#range> <http://kerndatensatz-forschung.de/owl/Basis#Mittelgeber> .
@@ -63,13 +63,13 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7faa <http://www.w3.org/1999/02/22-rdf-syn
 <http://kerndatensatz-forschung.de/owl/Basis#hatVerlag> <http://www.w3.org/2000/01/rdf-schema#range> <http://kerndatensatz-forschung.de/owl/Basis#Verlag> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatVerlag> <http://www.w3.org/2000/01/rdf-schema#domain> <http://kerndatensatz-forschung.de/owl/Basis#Publikation> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatVerlag> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fbc <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fbb .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fbc <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Beschaeftigung> .
 <http://kerndatensatz-forschung.de/owl/Basis#Befristet> <http://www.w3.org/2000/01/rdf-schema#label> "Befristet"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://kerndatensatz-forschung.de/owl/Basis#Befristet> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Be33" .
 <http://kerndatensatz-forschung.de/owl/Basis#Befristet> <http://www.w3.org/2002/07/owl#disjointWith> <http://kerndatensatz-forschung.de/owl/Basis#Unbefristet> .
 <http://kerndatensatz-forschung.de/owl/Basis#Befristet> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#Befristung> .
 <http://kerndatensatz-forschung.de/owl/Basis#Befristet> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fbd <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fbc .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fbd <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Ausgruendung> .
 <http://kerndatensatz-forschung.de/owl/Basis#QuelleneditionDokumenttyp> <http://www.w3.org/2000/01/rdf-schema#label> "Quellenedition [Dokumenttyp]" .
 <http://kerndatensatz-forschung.de/owl/Basis#QuelleneditionDokumenttyp> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Pu130" .
 <http://kerndatensatz-forschung.de/owl/Basis#QuelleneditionDokumenttyp> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#Dokumenttyp> .
@@ -78,12 +78,6 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fbc <http://www.w3.org/1999/02/22-rdf-syn
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#endDatum> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#date> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#endDatum> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Dienstreise> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#endDatum> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fa0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f9f .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fa0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "B1" .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fa0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f93 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f92 .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f93 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "W2/C3" .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f93 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 <http://kerndatensatz-forschung.de/owl/Basis#Drittmittel> <http://www.w3.org/2000/01/rdf-schema#label> "Drittmittel"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://kerndatensatz-forschung.de/owl/Basis#Drittmittel> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Na30" .
 <http://kerndatensatz-forschung.de/owl/Basis#Drittmittel> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Be14" .
@@ -94,6 +88,11 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f93 <http://www.w3.org/1999/02/22-rdf-syn
 <http://kerndatensatz-forschung.de/owl/Basis#hatZugangsart> <http://www.w3.org/2000/01/rdf-schema#range> <http://kerndatensatz-forschung.de/owl/Basis#Zugangsart> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatZugangsart> <http://www.w3.org/2000/01/rdf-schema#domain> <http://kerndatensatz-forschung.de/owl/Basis#Forschungsinfrastruktur> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatZugangsart> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fa1 <http://www.w3.org/2002/07/owl#oneOf> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fa0 .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fa1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f94 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f93 .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f94 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "W1" .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f94 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 <http://kerndatensatz-forschung.de/owl/Basis#VertragslaufzeitInMonaten> <http://www.w3.org/2000/01/rdf-schema#label> "Vertragslaufzeit in Monaten"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://kerndatensatz-forschung.de/owl/Basis#VertragslaufzeitInMonaten> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Be39" .
 <http://kerndatensatz-forschung.de/owl/Basis#VertragslaufzeitInMonaten> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
@@ -129,16 +128,14 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f93 <http://www.w3.org/1999/02/22-rdf-syn
 <http://kerndatensatz-forschung.de/owl/Basis#Promotionskooperationspartner> <http://www.w3.org/2000/01/rdf-schema#label> "Promotionskooperationspartner" .
 <http://kerndatensatz-forschung.de/owl/Basis#Promotionskooperationspartner> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Na86" .
 <http://kerndatensatz-forschung.de/owl/Basis#Promotionskooperationspartner> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fb1 .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Beschaeftigung> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatOrganisationseinheit> <http://www.w3.org/2000/01/rdf-schema#label> "hat Organisationseinheit" .
 <http://kerndatensatz-forschung.de/owl/Basis#hatOrganisationseinheit> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Pu140" .
 <http://kerndatensatz-forschung.de/owl/Basis#hatOrganisationseinheit> <http://www.w3.org/2000/01/rdf-schema#comment> "Zuordnung von Projekten, Programmen, Patenten, Ausgr\u00FCndungen, Publikationen zu Organisationseinheiten" .
-<http://kerndatensatz-forschung.de/owl/Basis#hatOrganisationseinheit> <http://www.w3.org/2000/01/rdf-schema#domain> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fad .
 <http://kerndatensatz-forschung.de/owl/Basis#hatOrganisationseinheit> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Na92" .
 <http://kerndatensatz-forschung.de/owl/Basis#hatOrganisationseinheit> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Dr121" .
 <http://kerndatensatz-forschung.de/owl/Basis#hatOrganisationseinheit> <http://www.w3.org/2000/01/rdf-schema#range> <http://kerndatensatz-forschung.de/owl/Basis#Organisationseinheit> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatOrganisationseinheit> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Be75" .
+<http://kerndatensatz-forschung.de/owl/Basis#hatOrganisationseinheit> <http://www.w3.org/2000/01/rdf-schema#domain> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fad .
 <http://kerndatensatz-forschung.de/owl/Basis#hatOrganisationseinheit> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Pa35" .
 <http://kerndatensatz-forschung.de/owl/Basis#hatOrganisationseinheit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#PatentPublikationsnummer> <http://www.w3.org/2000/01/rdf-schema#label> "Patent Publikationsnummer" .
@@ -153,6 +150,8 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fb2 <http://www.w3.org/1999/02/22-rdf-syn
 <http://kerndatensatz-forschung.de/owl/Basis#Schoepfertyp> <http://kerndatensatz-forschung.de/owl/Meta#pgbid> "kds.creator" .
 <http://kerndatensatz-forschung.de/owl/Basis#Schoepfertyp> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Pu55" .
 <http://kerndatensatz-forschung.de/owl/Basis#Schoepfertyp> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fb3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fb2 .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fb3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Ausgruendung> .
 <http://kerndatensatz-forschung.de/owl/Basis#NameAusgruendung> <http://www.w3.org/2000/01/rdf-schema#label> "Name der Ausgr\u00FCndung" .
 <http://kerndatensatz-forschung.de/owl/Basis#NameAusgruendung> <http://www.w3.org/2000/01/rdf-schema#comment> "Wesentliche Eigenschaft einer Ausgr\u00FCndung" .
 <http://kerndatensatz-forschung.de/owl/Basis#NameAusgruendung> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
@@ -173,6 +172,8 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fb2 <http://www.w3.org/1999/02/22-rdf-syn
 <http://kerndatensatz-forschung.de/owl/Basis#WissenschaftlicherArtikel> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Pu112" .
 <http://kerndatensatz-forschung.de/owl/Basis#WissenschaftlicherArtikel> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#Dokumenttyp> .
 <http://kerndatensatz-forschung.de/owl/Basis#WissenschaftlicherArtikel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7ff5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7ff5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Projektbericht> .
 <http://kerndatensatz-forschung.de/owl/Basis#SonstigesPersonal> <http://www.w3.org/2000/01/rdf-schema#label> "Sonstiges Personal"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://kerndatensatz-forschung.de/owl/Basis#SonstigesPersonal> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Fi30" .
 <http://kerndatensatz-forschung.de/owl/Basis#SonstigesPersonal> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Be73" .
@@ -217,7 +218,7 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fb2 <http://www.w3.org/1999/02/22-rdf-syn
 <http://kerndatensatz-forschung.de/owl/Basis#Finanzierungsform> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#istAutorVon> <http://www.w3.org/2000/01/rdf-schema#comment> "Nur bestimmte Arten von Ergebnissen haben \u201EAutoren\u201C.  Z.B. bei Produkten spricht man eher nicht von Autoren."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#istAutorVon> <http://www.w3.org/2000/01/rdf-schema#label> "ist Autor von"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://www.fraunhofer.de/fraunhofer-digital/infomodell#istAutorVon> <http://www.w3.org/2000/01/rdf-schema#range> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7ff8 .
+<http://www.fraunhofer.de/fraunhofer-digital/infomodell#istAutorVon> <http://www.w3.org/2000/01/rdf-schema#range> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7ff8 .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#istAutorVon> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Person> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#istAutorVon> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <http://kerndatensatz-forschung.de/owl/Basis#OpenAccess> <http://www.w3.org/2000/01/rdf-schema#label> "Open Access" .
@@ -229,11 +230,6 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fb2 <http://www.w3.org/1999/02/22-rdf-syn
 <http://kerndatensatz-forschung.de/owl/Basis#hatArt> <http://www.w3.org/2000/01/rdf-schema#range> <http://kerndatensatz-forschung.de/owl/Basis#Forschungsinfrastrukturart> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatArt> <http://www.w3.org/2000/01/rdf-schema#domain> <http://kerndatensatz-forschung.de/owl/Basis#Forschungsinfrastruktur> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatArt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fa6 <http://www.w3.org/2002/07/owl#unionOf> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fa5 .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fa6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f99 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f98 .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f99 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "B6" .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f99 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 <http://kerndatensatz-forschung.de/owl/Basis#IdentifierName> <http://www.w3.org/2000/01/rdf-schema#label> "Name des Identifiers" .
 <http://kerndatensatz-forschung.de/owl/Basis#IdentifierName> <http://kerndatensatz-forschung.de/owl/Meta#pgbid> "dcterms.identifier.name" .
 <http://kerndatensatz-forschung.de/owl/Basis#IdentifierName> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Pu133" .
@@ -259,9 +255,10 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f99 <http://www.w3.org/1999/02/22-rdf-syn
 <http://kerndatensatz-forschung.de/owl/Basis#Forschungsinfrastrukturtyp> <http://www.w3.org/2000/01/rdf-schema#label> "Typ der Forschungsinfrastruktur" .
 <http://kerndatensatz-forschung.de/owl/Basis#Forschungsinfrastrukturtyp> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Fi4" .
 <http://kerndatensatz-forschung.de/owl/Basis#Forschungsinfrastrukturtyp> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f8c <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f8b .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f8c <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "Audio" .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f8c <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fa7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fa7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#StrukturiertesPromotionsprogramm> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f8d <http://www.w3.org/2002/07/owl#oneOf> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f8c .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f8d <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Budget> <http://www.w3.org/2000/01/rdf-schema#label> "Budget" .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Budget> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Budget> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Projekt> .
@@ -270,17 +267,10 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f8c <http://www.w3.org/1999/02/22-rdf-syn
 <http://kerndatensatz-forschung.de/owl/Basis#Habilitationsschrift> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Pu35" .
 <http://kerndatensatz-forschung.de/owl/Basis#Habilitationsschrift> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#Qualifikationsschrift> .
 <http://kerndatensatz-forschung.de/owl/Basis#Habilitationsschrift> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fb8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fb8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#StrukturiertesPromotionsprogramm> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#VertraglicheBindungen> <http://www.w3.org/2000/01/rdf-schema#label> "Vertragliche Bindungen" .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#VertraglicheBindungen> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#VertraglicheBindungen> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Erfindung> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#VertraglicheBindungen> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fab <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7faa .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fab <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Beschaeftigung> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f9e <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f9d .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f9e <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "B11" .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f9e <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 <http://kerndatensatz-forschung.de/owl/Basis#FoerderkennzeichenPublikation> <http://www.w3.org/2000/01/rdf-schema#label> "F\u00F6rderkennzeichen der Publikation"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://kerndatensatz-forschung.de/owl/Basis#FoerderkennzeichenPublikation> <http://kerndatensatz-forschung.de/owl/Meta#pgbid> "kds.funding.grantnumber" .
 <http://kerndatensatz-forschung.de/owl/Basis#FoerderkennzeichenPublikation> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Pu90" .
@@ -288,6 +278,8 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f9e <http://www.w3.org/1999/02/22-rdf-syn
 <http://kerndatensatz-forschung.de/owl/Basis#FoerderkennzeichenPublikation> <http://www.w3.org/2000/01/rdf-schema#domain> <http://kerndatensatz-forschung.de/owl/Basis#Publikation> .
 <http://kerndatensatz-forschung.de/owl/Basis#FoerderkennzeichenPublikation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
 <http://kerndatensatz-forschung.de/owl/Basis#FoerderkennzeichenPublikation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fb9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fb8 .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fb9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Publikation> .
 <http://kerndatensatz-forschung.de/owl/Basis#BezeichnungDerForschungsinfrastruktur> <http://www.w3.org/2000/01/rdf-schema#label> "Bezeichnung der Forschungsinfrastruktur" .
 <http://kerndatensatz-forschung.de/owl/Basis#BezeichnungDerForschungsinfrastruktur> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Fi3" .
 <http://kerndatensatz-forschung.de/owl/Basis#BezeichnungDerForschungsinfrastruktur> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
@@ -309,6 +301,7 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f9e <http://www.w3.org/1999/02/22-rdf-syn
 <http://kerndatensatz-forschung.de/owl/Basis#Besoldung> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Be40" .
 <http://kerndatensatz-forschung.de/owl/Basis#Besoldung> <http://www.w3.org/2000/01/rdf-schema#label> "Besoldung"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://kerndatensatz-forschung.de/owl/Basis#Besoldung> <http://www.w3.org/2000/01/rdf-schema#domain> <http://kerndatensatz-forschung.de/owl/Basis#Professoren> .
+<http://kerndatensatz-forschung.de/owl/Basis#Besoldung> <http://www.w3.org/2000/01/rdf-schema#range> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fa1 .
 <http://kerndatensatz-forschung.de/owl/Basis#Besoldung> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Be100" .
 <http://kerndatensatz-forschung.de/owl/Basis#Besoldung> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Be90" .
 <http://kerndatensatz-forschung.de/owl/Basis#Besoldung> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
@@ -323,10 +316,14 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f9e <http://www.w3.org/1999/02/22-rdf-syn
 <http://kerndatensatz-forschung.de/owl/Basis#Besoldung> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Be98" .
 <http://kerndatensatz-forschung.de/owl/Basis#Besoldung> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Be95" .
 <http://kerndatensatz-forschung.de/owl/Basis#Besoldung> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Be42" .
-<http://kerndatensatz-forschung.de/owl/Basis#Besoldung> <http://www.w3.org/2000/01/rdf-schema#range> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fa1 .
 <http://kerndatensatz-forschung.de/owl/Basis#Besoldung> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Be43" .
 <http://kerndatensatz-forschung.de/owl/Basis#Besoldung> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Be96" .
 <http://kerndatensatz-forschung.de/owl/Basis#Besoldung> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Be44" .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fac <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fab .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fac <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Ausgruendung> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f9f <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f9e .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f9f <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "B10" .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f9f <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 <http://kerndatensatz-forschung.de/owl/Basis#AnzahlGenutzteStunden> <http://www.w3.org/2000/01/rdf-schema#label> "Anzahl genutzte Stunden" .
 <http://kerndatensatz-forschung.de/owl/Basis#AnzahlGenutzteStunden> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Fi28" .
 <http://kerndatensatz-forschung.de/owl/Basis#AnzahlGenutzteStunden> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
@@ -355,8 +352,6 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f9e <http://www.w3.org/1999/02/22-rdf-syn
 <http://kerndatensatz-forschung.de/owl/Basis#StrukturiertesPromotionsprogramm> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Na48" .
 <http://kerndatensatz-forschung.de/owl/Basis#StrukturiertesPromotionsprogramm> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Na3" .
 <http://kerndatensatz-forschung.de/owl/Basis#StrukturiertesPromotionsprogramm> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fbd <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fbc .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fbd <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Ausgruendung> .
 <http://kerndatensatz-forschung.de/owl/Basis#Projektende> <http://www.w3.org/2000/01/rdf-schema#label> "Projektende"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://kerndatensatz-forschung.de/owl/Basis#Projektende> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Dr14a" .
 <http://kerndatensatz-forschung.de/owl/Basis#Projektende> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
@@ -368,15 +363,12 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fbd <http://www.w3.org/1999/02/22-rdf-syn
 <http://kerndatensatz-forschung.de/owl/Basis#WissenschaftsunterstuetzendesPersonal> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Be63" .
 <http://kerndatensatz-forschung.de/owl/Basis#WissenschaftsunterstuetzendesPersonal> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#Personalkategorie> .
 <http://kerndatensatz-forschung.de/owl/Basis#WissenschaftsunterstuetzendesPersonal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fbe <http://www.w3.org/2002/07/owl#unionOf> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fbd .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fbe <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://kerndatensatz-forschung.de/owl/Basis#InformationsUndKommunikationsinfrastrukturen> <http://www.w3.org/2000/01/rdf-schema#label> "Informations- und Kommunikationsinfrastrukturen" .
 <http://kerndatensatz-forschung.de/owl/Basis#InformationsUndKommunikationsinfrastrukturen> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Fi17" .
 <http://kerndatensatz-forschung.de/owl/Basis#InformationsUndKommunikationsinfrastrukturen> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#Forschungsinfrastrukturtyp> .
 <http://kerndatensatz-forschung.de/owl/Basis#InformationsUndKommunikationsinfrastrukturen> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fa1 <http://www.w3.org/2002/07/owl#oneOf> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fa0 .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fa1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f94 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f93 .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f94 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "W1" .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f94 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 <http://kerndatensatz-forschung.de/owl/Basis#WissenschaftlichesUndKuenstlerischesPersonal> <http://www.w3.org/2000/01/rdf-schema#label> "Wissenschaftliches und k\u00FCnstlerisches Personal"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://kerndatensatz-forschung.de/owl/Basis#WissenschaftlichesUndKuenstlerischesPersonal> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Be68" .
 <http://kerndatensatz-forschung.de/owl/Basis#WissenschaftlichesUndKuenstlerischesPersonal> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#Personalkategorie> .
@@ -395,11 +387,16 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f94 <http://www.w3.org/1999/02/22-rdf-syn
 <http://kerndatensatz-forschung.de/owl/Basis#Verteilt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Kompetenz> <http://www.w3.org/2000/01/rdf-schema#label> "Kompetenz" .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Kompetenz> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fa2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fa2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#StrukturiertesPromotionsprogramm> .
 <http://kerndatensatz-forschung.de/owl/Basis#NameDerQuelle> <http://www.w3.org/2000/01/rdf-schema#label> "Name der Quelle"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://kerndatensatz-forschung.de/owl/Basis#NameDerQuelle> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Pu143" .
 <http://kerndatensatz-forschung.de/owl/Basis#NameDerQuelle> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
 <http://kerndatensatz-forschung.de/owl/Basis#NameDerQuelle> <http://www.w3.org/2000/01/rdf-schema#domain> <http://kerndatensatz-forschung.de/owl/Basis#Publikation> .
 <http://kerndatensatz-forschung.de/owl/Basis#NameDerQuelle> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f95 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f94 .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f95 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "C2" .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f95 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Person> <http://www.w3.org/2002/07/owl#equivalentClass> <http://kerndatensatz-forschung.de/version1/technisches_datenmodell/owl/Basis#Person> .
 <http://kerndatensatz-forschung.de/owl/Basis#DFG> <http://www.w3.org/2000/01/rdf-schema#label> "DFG"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://kerndatensatz-forschung.de/owl/Basis#DFG> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Dr21" .
@@ -416,14 +413,12 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f94 <http://www.w3.org/1999/02/22-rdf-syn
 <http://kerndatensatz-forschung.de/owl/Basis#hatForschungsfeld> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Dr124" .
 <http://kerndatensatz-forschung.de/owl/Basis#hatForschungsfeld> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Be77" .
 <http://kerndatensatz-forschung.de/owl/Basis#hatForschungsfeld> <http://www.w3.org/2000/01/rdf-schema#range> <http://kerndatensatz-forschung.de/owl/Basis#Forschungsfeld> .
-<http://kerndatensatz-forschung.de/owl/Basis#hatForschungsfeld> <http://www.w3.org/2000/01/rdf-schema#domain> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fb4 .
+<http://kerndatensatz-forschung.de/owl/Basis#hatForschungsfeld> <http://www.w3.org/2000/01/rdf-schema#domain> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fb4 .
 <http://kerndatensatz-forschung.de/owl/Basis#hatForschungsfeld> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#hatErarbeitet> <http://www.w3.org/2000/01/rdf-schema#label> "hat erarbeitet"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#hatErarbeitet> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Ergebnis> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#hatErarbeitet> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Mitarbeiter> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#hatErarbeitet> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fb3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fb2 .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fb3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Ausgruendung> .
 <http://kerndatensatz-forschung.de/owl/Basis#BeschreibungDerForschungsinfrastruktur> <http://www.w3.org/2000/01/rdf-schema#label> "Beschreibung der Forschungsinfrastruktur" .
 <http://kerndatensatz-forschung.de/owl/Basis#BeschreibungDerForschungsinfrastruktur> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Fi27" .
 <http://kerndatensatz-forschung.de/owl/Basis#BeschreibungDerForschungsinfrastruktur> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
@@ -444,6 +439,8 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fb3 <http://www.w3.org/1999/02/22-rdf-syn
 <http://kerndatensatz-forschung.de/owl/Basis#Verlagsort> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
 <http://kerndatensatz-forschung.de/owl/Basis#Verlagsort> <http://www.w3.org/2000/01/rdf-schema#domain> <http://kerndatensatz-forschung.de/owl/Basis#Verlag> .
 <http://kerndatensatz-forschung.de/owl/Basis#Verlagsort> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fb4 <http://www.w3.org/2002/07/owl#unionOf> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fb3 .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fb4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatQualifikation> <http://www.w3.org/2000/01/rdf-schema#label> "hat Qualifikation"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatQualifikation> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Be9" .
 <http://kerndatensatz-forschung.de/owl/Basis#hatQualifikation> <http://www.w3.org/2000/01/rdf-schema#range> <http://kerndatensatz-forschung.de/owl/Basis#Qualifikation> .
@@ -460,8 +457,9 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fb3 <http://www.w3.org/1999/02/22-rdf-syn
 <http://kerndatensatz-forschung.de/owl/Basis#Organisationseinheit> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Dr121" .
 <http://kerndatensatz-forschung.de/owl/Basis#Organisationseinheit> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Be75" .
 <http://kerndatensatz-forschung.de/owl/Basis#Organisationseinheit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7ff5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7ff5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Projektbericht> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f9a <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f99 .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f9a <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "B5" .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f9a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 <http://kerndatensatz-forschung.de/owl/Basis#Seitenbereich> <http://www.w3.org/2000/01/rdf-schema#label> "Seitenbereich"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://kerndatensatz-forschung.de/owl/Basis#Seitenbereich> <http://kerndatensatz-forschung.de/owl/Meta#pgbid> "kds.format.pagerange" .
 <http://kerndatensatz-forschung.de/owl/Basis#Seitenbereich> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Pu145" .
@@ -476,6 +474,8 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7ff5 <http://www.w3.org/1999/02/22-rdf-syn
 <http://kerndatensatz-forschung.de/owl/Basis#hatBetriebspersonal> <http://www.w3.org/2000/01/rdf-schema#range> <http://kerndatensatz-forschung.de/owl/Basis#Beschaeftigter> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatBetriebspersonal> <http://www.w3.org/2000/01/rdf-schema#domain> <http://kerndatensatz-forschung.de/owl/Basis#Forschungsinfrastruktur> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatBetriebspersonal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7ff6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7ff5 .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7ff6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Publikation> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Strasse> <http://www.w3.org/2000/01/rdf-schema#label> "Strasse" .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Strasse> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Strasse> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Erfinder> .
@@ -508,6 +508,9 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7ff5 <http://www.w3.org/1999/02/22-rdf-syn
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#hatErgebnis> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Ergebnis> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#hatErgebnis> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Projekt> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#hatErgebnis> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f89 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f89 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "Text" .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f89 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 <http://kerndatensatz-forschung.de/owl/Basis#Mischfinanzierung> <http://www.w3.org/2000/01/rdf-schema#label> "Mischfinanzierung" .
 <http://kerndatensatz-forschung.de/owl/Basis#Mischfinanzierung> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Na90" .
 <http://kerndatensatz-forschung.de/owl/Basis#Mischfinanzierung> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Be86" .
@@ -519,8 +522,9 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7ff5 <http://www.w3.org/1999/02/22-rdf-syn
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Veranstaltung> <http://www.w3.org/2000/01/rdf-schema#label> "Veranstaltung" .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Veranstaltung> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Mitarbeiter> <http://www.w3.org/2002/07/owl#equivalentClass> <http://kerndatensatz-forschung.de/version1/technisches_datenmodell/owl/Basis#Beschaeftigter> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fa7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fa7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#StrukturiertesPromotionsprogramm> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f90 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f8f .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f90 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "Maennlich" .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f90 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 <http://kerndatensatz-forschung.de/owl/Basis#Verlag> <http://www.w3.org/2000/01/rdf-schema#label> "Verlag" .
 <http://kerndatensatz-forschung.de/owl/Basis#Verlag> <http://kerndatensatz-forschung.de/owl/Meta#pgbid> "dcterms.publisher" .
 <http://kerndatensatz-forschung.de/owl/Basis#Verlag> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Pu67" .
@@ -545,16 +549,19 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fa7 <http://www.w3.org/1999/02/22-rdf-syn
 <http://kerndatensatz-forschung.de/owl/Basis#StartDerPromotionNachAnnahmeAmFachbereichAnDerFakultaet> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
 <http://kerndatensatz-forschung.de/owl/Basis#StartDerPromotionNachAnnahmeAmFachbereichAnDerFakultaet> <http://www.w3.org/2000/01/rdf-schema#domain> <http://kerndatensatz-forschung.de/owl/Basis#Promotion> .
 <http://kerndatensatz-forschung.de/owl/Basis#StartDerPromotionNachAnnahmeAmFachbereichAnDerFakultaet> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f8d <http://www.w3.org/2002/07/owl#oneOf> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f8c .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f8d <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
 <http://kerndatensatz-forschung.de/owl/Basis#GemeinsameBerufung> <http://www.w3.org/2000/01/rdf-schema#label> "Gemeinsame Berufung"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://kerndatensatz-forschung.de/owl/Basis#GemeinsameBerufung> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Be4a" .
 <http://kerndatensatz-forschung.de/owl/Basis#GemeinsameBerufung> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fa8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fa7 .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fa8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Publikation> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatUebergeordnetesProjekt> <http://www.w3.org/2000/01/rdf-schema#label> "hat \u00FCbergeordnetes Projekt"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatUebergeordnetesProjekt> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Dr10" .
 <http://kerndatensatz-forschung.de/owl/Basis#hatUebergeordnetesProjekt> <http://www.w3.org/2000/01/rdf-schema#range> <http://kerndatensatz-forschung.de/owl/Basis#Drittmittelprojekt> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatUebergeordnetesProjekt> <http://www.w3.org/2000/01/rdf-schema#domain> <http://kerndatensatz-forschung.de/owl/Basis#Drittmittelprojekt> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatUebergeordnetesProjekt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f8e <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f8e <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "Weiblich" .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f8e <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 <http://kerndatensatz-forschung.de/owl/Basis#NameDerOrganisationseinheit> <http://www.w3.org/2000/01/rdf-schema#label> "Name der Organisationseinheit"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://kerndatensatz-forschung.de/owl/Basis#NameDerOrganisationseinheit> <http://www.w3.org/2000/01/rdf-schema#comment> "Wesentliche Eigenschaft einer Organisationseinheit" .
 <http://kerndatensatz-forschung.de/owl/Basis#NameDerOrganisationseinheit> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
@@ -589,13 +596,6 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f8d <http://www.w3.org/1999/02/22-rdf-syn
 <http://kerndatensatz-forschung.de/owl/Basis#hatStrukturiertesPromotionsprogramm> <http://www.w3.org/2000/01/rdf-schema#range> <http://kerndatensatz-forschung.de/owl/Basis#StrukturiertesPromotionsprogramm> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatStrukturiertesPromotionsprogramm> <http://www.w3.org/2000/01/rdf-schema#domain> <http://kerndatensatz-forschung.de/owl/Basis#Professor> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatStrukturiertesPromotionsprogramm> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fb9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fb8 .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fb9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Publikation> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fac <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fab .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fac <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Ausgruendung> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f9f <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f9e .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f9f <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "B10" .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f9f <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#geburtsDatum> <http://www.w3.org/2000/01/rdf-schema#label> "Geburtsdatum"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#geburtsDatum> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#date> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#geburtsDatum> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Person> .
@@ -615,6 +615,8 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f9f <http://www.w3.org/1999/02/22-rdf-syn
 <http://kerndatensatz-forschung.de/owl/Basis#Drittmitteleinnahmen> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#float> .
 <http://kerndatensatz-forschung.de/owl/Basis#Drittmitteleinnahmen> <http://www.w3.org/2000/01/rdf-schema#domain> <http://kerndatensatz-forschung.de/owl/Basis#Drittmittelprojekt> .
 <http://kerndatensatz-forschung.de/owl/Basis#Drittmitteleinnahmen> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fad <http://www.w3.org/2002/07/owl#unionOf> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fac .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fad <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://kerndatensatz-forschung.de/owl/Basis#UserAccess> <http://www.w3.org/2000/01/rdf-schema#label> "User Access" .
 <http://kerndatensatz-forschung.de/owl/Basis#UserAccess> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Fi22" .
 <http://kerndatensatz-forschung.de/owl/Basis#UserAccess> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#Zugangsart> .
@@ -648,8 +650,6 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f9f <http://www.w3.org/1999/02/22-rdf-syn
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#hatKompetenz> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Kompetenz> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#hatKompetenz> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Person> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#hatKompetenz> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fbe <http://www.w3.org/2002/07/owl#unionOf> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fbd .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fbe <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://kerndatensatz-forschung.de/owl/Basis#Unbefristet> <http://www.w3.org/2000/01/rdf-schema#label> "Unbefristet"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://kerndatensatz-forschung.de/owl/Basis#Unbefristet> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Be34" .
 <http://kerndatensatz-forschung.de/owl/Basis#Unbefristet> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#Befristung> .
@@ -684,20 +684,20 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fbe <http://www.w3.org/1999/02/22-rdf-syn
 <http://kerndatensatz-forschung.de/owl/Basis#Promoviert> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Produkt> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Ergebnis> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Produkt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fa2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fa2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#StrukturiertesPromotionsprogramm> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f95 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f94 .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f95 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "C2" .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f95 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 <http://kerndatensatz-forschung.de/owl/Basis#Hauptberuflich> <http://www.w3.org/2000/01/rdf-schema#label> "Hauptberuflich"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://kerndatensatz-forschung.de/owl/Basis#Hauptberuflich> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Be35" .
 <http://kerndatensatz-forschung.de/owl/Basis#Hauptberuflich> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#Taetigkeitsart> .
 <http://kerndatensatz-forschung.de/owl/Basis#Hauptberuflich> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fa3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fa2 .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fa3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#FoerderkennzeichenDrittmittelprojekt> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Vertragsstaaten> <http://www.w3.org/2000/01/rdf-schema#label> "Vertragsstaaten" .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Vertragsstaaten> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Vertragsstaaten> <http://www.w3.org/2000/01/rdf-schema#domain> <http://kerndatensatz-forschung.de/version1/technisches_datenmodell/owl/Basis#Patent> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Vertragsstaaten> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Patentfamilie> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Vertragsstaaten> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f96 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f95 .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f96 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "B9" .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f96 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Organisation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatPersonalkategorie> <http://www.w3.org/2000/01/rdf-schema#label> "hat Personalkategorie"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatPersonalkategorie> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Be11" .
@@ -714,8 +714,6 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f95 <http://www.w3.org/1999/02/22-rdf-syn
 <http://kerndatensatz-forschung.de/owl/Basis#Habilitation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#Qualifizierungsverfahren> .
 <http://kerndatensatz-forschung.de/owl/Basis#Habilitation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Vertrag> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fb4 <http://www.w3.org/2002/07/owl#unionOf> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fb3 .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fb4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://kerndatensatz-forschung.de/owl/Basis#FoerderkennzeichenDrittmittelprojekt> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Dr13" .
 <http://kerndatensatz-forschung.de/owl/Basis#FoerderkennzeichenDrittmittelprojekt> <http://www.w3.org/2000/01/rdf-schema#label> "F\u00F6rderkennzeichen des Drittmittelprojekts" .
 <http://kerndatensatz-forschung.de/owl/Basis#FoerderkennzeichenDrittmittelprojekt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
@@ -733,15 +731,14 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fb4 <http://www.w3.org/1999/02/22-rdf-syn
 <http://kerndatensatz-forschung.de/owl/Basis#hatDokumenttyp> <http://www.w3.org/2000/01/rdf-schema#range> <http://kerndatensatz-forschung.de/owl/Basis#Dokumenttyp> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatDokumenttyp> <http://www.w3.org/2000/01/rdf-schema#domain> <http://kerndatensatz-forschung.de/owl/Basis#Publikation> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatDokumenttyp> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f9a <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f99 .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f9a <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "B5" .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f9a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
-<http://www.fraunhofer.de/fraunhofer-digital/infomodell#Patentfamilie> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://kerndatensatz-forschung.de/owl/Basis#Staatsangehoerigkeit> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Na58" .
 <http://kerndatensatz-forschung.de/owl/Basis#Staatsangehoerigkeit> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Be72" .
 <http://kerndatensatz-forschung.de/owl/Basis#Staatsangehoerigkeit> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
 <http://kerndatensatz-forschung.de/owl/Basis#Staatsangehoerigkeit> <http://www.w3.org/2000/01/rdf-schema#domain> <http://kerndatensatz-forschung.de/owl/Basis#Person> .
 <http://kerndatensatz-forschung.de/owl/Basis#Staatsangehoerigkeit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.fraunhofer.de/fraunhofer-digital/infomodell#Patentfamilie> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fb5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fb5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#StrukturiertesPromotionsprogramm> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Projektmeeting> <http://www.w3.org/2000/01/rdf-schema#label> "Projektmeeting" .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Projektmeeting> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Veranstaltung> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Projektmeeting> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
@@ -757,8 +754,9 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f9a <http://www.w3.org/1999/02/22-rdf-syn
 <http://kerndatensatz-forschung.de/owl/Basis#Rezension> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Pu30" .
 <http://kerndatensatz-forschung.de/owl/Basis#Rezension> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#Dokumenttyp> .
 <http://kerndatensatz-forschung.de/owl/Basis#Rezension> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7ff6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7ff5 .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7ff6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Publikation> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f9b <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f9a .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f9b <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "B4" .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f9b <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 <http://kerndatensatz-forschung.de/owl/Basis#Ausgruendung> <http://www.w3.org/2000/01/rdf-schema#label> "Ausgr\u00FCndung" .
 <http://kerndatensatz-forschung.de/owl/Basis#Ausgruendung> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Pa39" .
 <http://kerndatensatz-forschung.de/owl/Basis#Ausgruendung> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
@@ -777,13 +775,12 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7ff6 <http://www.w3.org/1999/02/22-rdf-syn
 <http://kerndatensatz-forschung.de/owl/Basis#Forschungsfeld> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Dr124" .
 <http://kerndatensatz-forschung.de/owl/Basis#Forschungsfeld> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Be77" .
 <http://kerndatensatz-forschung.de/owl/Basis#Forschungsfeld> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7ff7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7ff6 .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7ff7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Patent> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#PLZ> <http://www.w3.org/2000/01/rdf-schema#label> "PLZ" .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#PLZ> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#PLZ> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Erfinder> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#PLZ> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f89 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f89 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "Text" .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f89 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Thema> <http://www.w3.org/2000/01/rdf-schema#label> "Thema" .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Thema> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Thema> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Projekt> .
@@ -792,9 +789,8 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f89 <http://www.w3.org/1999/02/22-rdf-syn
 <http://kerndatensatz-forschung.de/owl/Basis#Forschungsdaten> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Pu38" .
 <http://kerndatensatz-forschung.de/owl/Basis#Forschungsdaten> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#Publikationstyp> .
 <http://kerndatensatz-forschung.de/owl/Basis#Forschungsdaten> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f90 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f8f .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f90 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "Maennlich" .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f90 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fba <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fb9 .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fba <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Patent> .
 <http://kerndatensatz-forschung.de/owl/Basis#KoordinatorEinrichtung> <http://www.w3.org/2000/01/rdf-schema#label> "Name des Konsortialf\u00FChrers"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://kerndatensatz-forschung.de/owl/Basis#KoordinatorEinrichtung> <http://www.w3.org/2000/01/rdf-schema#label> "Name der Sprechereinrichtung"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://kerndatensatz-forschung.de/owl/Basis#KoordinatorEinrichtung> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Dr19a" .
@@ -816,8 +812,6 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f90 <http://www.w3.org/1999/02/22-rdf-syn
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#GeraeteSpezifikation> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#GeraeteSpezifikation> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Geraet> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#GeraeteSpezifikation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fa8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fa7 .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fa8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Publikation> .
 <http://kerndatensatz-forschung.de/owl/Basis#BibliographiePublikationstyp> <http://www.w3.org/2000/01/rdf-schema#label> "Bibliographie [Publikationstyp]"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://kerndatensatz-forschung.de/owl/Basis#BibliographiePublikationstyp> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Pu24" .
 <http://kerndatensatz-forschung.de/owl/Basis#BibliographiePublikationstyp> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#Buch> .
@@ -828,16 +822,17 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fa8 <http://www.w3.org/1999/02/22-rdf-syn
 <http://kerndatensatz-forschung.de/owl/Basis#hatBefristung> <http://www.w3.org/2000/01/rdf-schema#domain> <http://kerndatensatz-forschung.de/owl/Basis#Beschaeftigung> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatBefristung> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatBefristung> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f91 <http://www.w3.org/2002/07/owl#oneOf> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f90 .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f91 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
 <http://kerndatensatz-forschung.de/owl/Basis#Qualifikation> <http://www.w3.org/2000/01/rdf-schema#label> "Qualifikation"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://kerndatensatz-forschung.de/owl/Basis#Qualifikation> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Be9" .
 <http://kerndatensatz-forschung.de/owl/Basis#Qualifikation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f8e <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f8e <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "Weiblich" .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f8e <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#GebaeudeSpezifikation> <http://www.w3.org/2000/01/rdf-schema#label> "Gebaeude Spezifikation" .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#GebaeudeSpezifikation> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#GebaeudeSpezifikation> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Gebaeude> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#GebaeudeSpezifikation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fa9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fa8 .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fa9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Patent> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#VerbundeneB9Recherchen> <http://www.w3.org/2000/01/rdf-schema#label> "Verbundene B9 recherchen" .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#VerbundeneB9Recherchen> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#VerbundeneB9Recherchen> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Erfindung> .
@@ -846,15 +841,18 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f8e <http://www.w3.org/1999/02/22-rdf-syn
 <http://kerndatensatz-forschung.de/owl/Basis#Schoepfer> <http://kerndatensatz-forschung.de/owl/Meta#pgbid> "dcterms.creator" .
 <http://kerndatensatz-forschung.de/owl/Basis#Schoepfer> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Pu2" .
 <http://kerndatensatz-forschung.de/owl/Basis#Schoepfer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://kerndatensatz-forschung.de/owl/Basis#NichtErklaertOeffentlicheMittelgeber> <http://www.w3.org/2000/01/rdf-schema#label> "Nicht erkl\u00E4rt (\u00D6ffentliche Mittelgeber)" .
+<http://kerndatensatz-forschung.de/owl/Basis#NichtErklaertOeffentlicheMittelgeber> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Dr136" .
+<http://kerndatensatz-forschung.de/owl/Basis#NichtErklaertOeffentlicheMittelgeber> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#NichtErklaert> .
+<http://kerndatensatz-forschung.de/owl/Basis#NichtErklaertOeffentlicheMittelgeber> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://kerndatensatz-forschung.de/owl/Basis#Herausgeber> <http://www.w3.org/2000/01/rdf-schema#label> "Herausgeber" .
 <http://kerndatensatz-forschung.de/owl/Basis#Herausgeber> <http://kerndatensatz-forschung.de/owl/Meta#pgbid> "kds.creator.editor" .
 <http://kerndatensatz-forschung.de/owl/Basis#Herausgeber> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Pu53" .
 <http://kerndatensatz-forschung.de/owl/Basis#Herausgeber> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#Schoepfertyp> .
 <http://kerndatensatz-forschung.de/owl/Basis#Herausgeber> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-<http://kerndatensatz-forschung.de/owl/Basis#NichtErklaertOeffentlicheMittelgeber> <http://www.w3.org/2000/01/rdf-schema#label> "Nicht erkl\u00E4rt (\u00D6ffentliche Mittelgeber)" .
-<http://kerndatensatz-forschung.de/owl/Basis#NichtErklaertOeffentlicheMittelgeber> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Dr136" .
-<http://kerndatensatz-forschung.de/owl/Basis#NichtErklaertOeffentlicheMittelgeber> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#NichtErklaert> .
-<http://kerndatensatz-forschung.de/owl/Basis#NichtErklaertOeffentlicheMittelgeber> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f8f <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f8e .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f8f <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "Ohne Angabe" .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f8f <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 <http://kerndatensatz-forschung.de/owl/Basis#Name> <http://www.w3.org/2000/01/rdf-schema#label> "Name"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://kerndatensatz-forschung.de/owl/Basis#Name> <http://www.w3.org/2000/01/rdf-schema#comment> "Wesentliche Eigenschaft einer Person" .
 <http://kerndatensatz-forschung.de/owl/Basis#Name> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
@@ -880,6 +878,10 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f8e <http://www.w3.org/1999/02/22-rdf-syn
 <http://kerndatensatz-forschung.de/owl/Basis#QuelleneditionPublikationstyp> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Pu47" .
 <http://kerndatensatz-forschung.de/owl/Basis#QuelleneditionPublikationstyp> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#Buch> .
 <http://kerndatensatz-forschung.de/owl/Basis#QuelleneditionPublikationstyp> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://kerndatensatz-forschung.de/owl/Basis#Vollzeit> <http://www.w3.org/2000/01/rdf-schema#label> "Vollzeit"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://kerndatensatz-forschung.de/owl/Basis#Vollzeit> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Be55" .
+<http://kerndatensatz-forschung.de/owl/Basis#Vollzeit> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#Hauptberuflich> .
+<http://kerndatensatz-forschung.de/owl/Basis#Vollzeit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#OEKurzname> <http://www.w3.org/2000/01/rdf-schema#label> "Organisationseinheit Kurzname" .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#OEKurzname> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#OEKurzname> <http://www.w3.org/2000/01/rdf-schema#domain> <http://kerndatensatz-forschung.de/version1/technisches_datenmodell/owl/Basis#Patent> .
@@ -890,18 +892,14 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f8e <http://www.w3.org/1999/02/22-rdf-syn
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Laufzeit> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Laufzeit> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Projekt> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Laufzeit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-<http://kerndatensatz-forschung.de/owl/Basis#Vollzeit> <http://www.w3.org/2000/01/rdf-schema#label> "Vollzeit"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://kerndatensatz-forschung.de/owl/Basis#Vollzeit> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Be55" .
-<http://kerndatensatz-forschung.de/owl/Basis#Vollzeit> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#Hauptberuflich> .
-<http://kerndatensatz-forschung.de/owl/Basis#Vollzeit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7faf .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Patent> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Industriekunde> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Kunde> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Industriekunde> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://kerndatensatz-forschung.de/owl/Basis#Teilzeit> <http://www.w3.org/2000/01/rdf-schema#label> "Teilzeit"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://kerndatensatz-forschung.de/owl/Basis#Teilzeit> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Be56" .
 <http://kerndatensatz-forschung.de/owl/Basis#Teilzeit> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#Hauptberuflich> .
 <http://kerndatensatz-forschung.de/owl/Basis#Teilzeit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fad <http://www.w3.org/2002/07/owl#unionOf> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fac .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fad <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://kerndatensatz-forschung.de/owl/Basis#Konferenzposter> <http://www.w3.org/2000/01/rdf-schema#label> "Konferenzposter"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://kerndatensatz-forschung.de/owl/Basis#Konferenzposter> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Pu26" .
 <http://kerndatensatz-forschung.de/owl/Basis#Konferenzposter> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#Publikationstyp> .
@@ -914,6 +912,8 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fad <http://www.w3.org/1999/02/22-rdf-syn
 <http://kerndatensatz-forschung.de/owl/Basis#Lokal> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Fi19" .
 <http://kerndatensatz-forschung.de/owl/Basis#Lokal> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#Forschungsinfrastrukturart> .
 <http://kerndatensatz-forschung.de/owl/Basis#Lokal> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fae <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fae <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#StrukturiertesPromotionsprogramm> .
 <http://kerndatensatz-forschung.de/owl/Basis#SonstigeDrittmittelgeber> <http://www.w3.org/2000/01/rdf-schema#label> "Sonstige Drittmittelgeber" .
 <http://kerndatensatz-forschung.de/owl/Basis#SonstigeDrittmittelgeber> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Dr141" .
 <http://kerndatensatz-forschung.de/owl/Basis#SonstigeDrittmittelgeber> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#Mittelgeber> .
@@ -953,11 +953,6 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fad <http://www.w3.org/1999/02/22-rdf-syn
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#name> <http://www.w3.org/2000/01/rdf-schema#label> "Name"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#name> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fa3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fa2 .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fa3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#FoerderkennzeichenDrittmittelprojekt> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f96 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f95 .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f96 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "B9" .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f96 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 <http://kerndatensatz-forschung.de/owl/Basis#Vertretungsprofessoren> <http://www.w3.org/2000/01/rdf-schema#label> "Vertretungsprofessoren / Lehrstuhlvertreter" .
 <http://kerndatensatz-forschung.de/owl/Basis#Vertretungsprofessoren> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Be58" .
 <http://kerndatensatz-forschung.de/owl/Basis#Vertretungsprofessoren> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#SonstigeProfessoren> .
@@ -982,7 +977,7 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f96 <http://www.w3.org/1999/02/22-rdf-syn
 <http://kerndatensatz-forschung.de/owl/Basis#Geschlecht> <http://www.w3.org/2000/01/rdf-schema#label> "Geschlecht"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://kerndatensatz-forschung.de/owl/Basis#Geschlecht> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Na7" .
 <http://kerndatensatz-forschung.de/owl/Basis#Geschlecht> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Be7" .
-<http://kerndatensatz-forschung.de/owl/Basis#Geschlecht> <http://www.w3.org/2000/01/rdf-schema#range> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f91 .
+<http://kerndatensatz-forschung.de/owl/Basis#Geschlecht> <http://www.w3.org/2000/01/rdf-schema#range> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f91 .
 <http://kerndatensatz-forschung.de/owl/Basis#Geschlecht> <http://www.w3.org/2000/01/rdf-schema#domain> <http://kerndatensatz-forschung.de/owl/Basis#Person> .
 <http://kerndatensatz-forschung.de/owl/Basis#Geschlecht> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
 <http://kerndatensatz-forschung.de/owl/Basis#Geschlecht> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
@@ -990,6 +985,11 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f96 <http://www.w3.org/1999/02/22-rdf-syn
 <http://kerndatensatz-forschung.de/owl/Basis#ePaper> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Pu29" .
 <http://kerndatensatz-forschung.de/owl/Basis#ePaper> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#Artikel> .
 <http://kerndatensatz-forschung.de/owl/Basis#ePaper> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fa4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fa3 .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fa4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Foerderer> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f97 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f96 .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f97 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "B8" .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f97 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 <http://kerndatensatz-forschung.de/owl/Basis#Stiftungsprofessoren> <http://www.w3.org/2000/01/rdf-schema#label> "Stiftungsprofessoren" .
 <http://kerndatensatz-forschung.de/owl/Basis#Stiftungsprofessoren> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Be59" .
 <http://kerndatensatz-forschung.de/owl/Basis#Stiftungsprofessoren> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#SonstigeProfessoren> .
@@ -1014,6 +1014,9 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f96 <http://www.w3.org/1999/02/22-rdf-syn
 <http://kerndatensatz-forschung.de/owl/Basis#Projektbeginn> <http://www.w3.org/2000/01/rdf-schema#domain> <http://kerndatensatz-forschung.de/owl/Basis#Drittmittelprojekt> .
 <http://kerndatensatz-forschung.de/owl/Basis#Projektbeginn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
 <http://kerndatensatz-forschung.de/owl/Basis#Projektbeginn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f8a <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f89 .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f8a <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "Bild" .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f8a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 <http://kerndatensatz-forschung.de/owl/Basis#Taetigkeitsart> <http://www.w3.org/2000/01/rdf-schema#label> "T\u00E4tigkeitsart"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://kerndatensatz-forschung.de/owl/Basis#Taetigkeitsart> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Be32" .
 <http://kerndatensatz-forschung.de/owl/Basis#Taetigkeitsart> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
@@ -1021,23 +1024,20 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f96 <http://www.w3.org/1999/02/22-rdf-syn
 <http://kerndatensatz-forschung.de/owl/Basis#hatFinanzierungsform> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Na14" .
 <http://kerndatensatz-forschung.de/owl/Basis#hatFinanzierungsform> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Be8" .
 <http://kerndatensatz-forschung.de/owl/Basis#hatFinanzierungsform> <http://www.w3.org/2000/01/rdf-schema#range> <http://kerndatensatz-forschung.de/owl/Basis#Finanzierungsform> .
-<http://kerndatensatz-forschung.de/owl/Basis#hatFinanzierungsform> <http://www.w3.org/2000/01/rdf-schema#domain> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fb7 .
+<http://kerndatensatz-forschung.de/owl/Basis#hatFinanzierungsform> <http://www.w3.org/2000/01/rdf-schema#domain> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fb7 .
 <http://kerndatensatz-forschung.de/owl/Basis#hatFinanzierungsform> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatKoordinator> <http://www.w3.org/2000/01/rdf-schema#label> "hat Koordinator" .
 <http://kerndatensatz-forschung.de/owl/Basis#hatKoordinator> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Fi12" .
 <http://kerndatensatz-forschung.de/owl/Basis#hatKoordinator> <http://www.w3.org/2000/01/rdf-schema#range> <http://kerndatensatz-forschung.de/owl/Basis#Organisationseinheit> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatKoordinator> <http://www.w3.org/2000/01/rdf-schema#domain> <http://kerndatensatz-forschung.de/owl/Basis#Forschungsinfrastruktur> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatKoordinator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fb5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fb5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#StrukturiertesPromotionsprogramm> .
 <http://kerndatensatz-forschung.de/owl/Basis#HauptberuflicheGastprofessoren> <http://www.w3.org/2000/01/rdf-schema#label> "Hauptberufliche Gastprofessoren" .
 <http://kerndatensatz-forschung.de/owl/Basis#HauptberuflicheGastprofessoren> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Be30" .
 <http://kerndatensatz-forschung.de/owl/Basis#HauptberuflicheGastprofessoren> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#SonstigeProfessoren> .
 <http://kerndatensatz-forschung.de/owl/Basis#HauptberuflicheGastprofessoren> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#CRMSystem> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f9b <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f9a .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f9b <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "B4" .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f9b <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fb6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fb5 .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fb6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Beschaeftigung> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Dienstreise> <http://www.w3.org/2000/01/rdf-schema#label> "Dienstreise" .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Dienstreise> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://kerndatensatz-forschung.de/owl/Basis#DatumDerPrioritaetsbegruendendenErstanmeldung> <http://www.w3.org/2000/01/rdf-schema#label> "Datum der priorit\u00E4tsbegr\u00FCndenden Erstanmeldung"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -1059,8 +1059,9 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f9b <http://www.w3.org/1999/02/22-rdf-syn
 <http://kerndatensatz-forschung.de/owl/Basis#Koordinationsrolle> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
 <http://kerndatensatz-forschung.de/owl/Basis#Koordinationsrolle> <http://www.w3.org/2000/01/rdf-schema#domain> <http://kerndatensatz-forschung.de/owl/Basis#Drittmittelprojekt> .
 <http://kerndatensatz-forschung.de/owl/Basis#Koordinationsrolle> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7ff7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7ff6 .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7ff7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Patent> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f9c <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f9b .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f9c <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "B3" .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f9c <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#wirdPraesentiert> <http://www.w3.org/2000/01/rdf-schema#label> "wird praesentiert"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#wirdPraesentiert> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Praesentation> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#wirdPraesentiert> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Ergebnis> .
@@ -1076,6 +1077,8 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7ff7 <http://www.w3.org/1999/02/22-rdf-syn
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#praesentiertVon> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Mitarbeiter> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#praesentiertVon> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Praesentation> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#praesentiertVon> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7ff8 <http://www.w3.org/2002/07/owl#unionOf> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7ff7 .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7ff8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#reiseNummer> <http://www.w3.org/2000/01/rdf-schema#label> "Reisenummer"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#reiseNummer> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#reiseNummer> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Dienstreise> .
@@ -1087,21 +1090,19 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7ff7 <http://www.w3.org/1999/02/22-rdf-syn
 <http://kerndatensatz-forschung.de/owl/Basis#Befristung> <http://www.w3.org/2000/01/rdf-schema#label> "Befristung"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://kerndatensatz-forschung.de/owl/Basis#Befristung> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Be10" .
 <http://kerndatensatz-forschung.de/owl/Basis#Befristung> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fba <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fb9 .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fba <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Patent> .
 <http://kerndatensatz-forschung.de/version1/technisches_datenmodell/owl/Basis> <http://www.w3.org/2002/07/owl#versionIRI> <http://kerndatensatz-forschung.de/version1/technisches_datenmodell/owl/Basis/version1> .
 <http://kerndatensatz-forschung.de/version1/technisches_datenmodell/owl/Basis> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
 <http://kerndatensatz-forschung.de/owl/Basis#Juniorprofessoren> <http://www.w3.org/2000/01/rdf-schema#label> "Juniorprofessoren" .
 <http://kerndatensatz-forschung.de/owl/Basis#Juniorprofessoren> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Be29" .
 <http://kerndatensatz-forschung.de/owl/Basis#Juniorprofessoren> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#SonstigeProfessoren> .
 <http://kerndatensatz-forschung.de/owl/Basis#Juniorprofessoren> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fbb <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fba .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fbb <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Drittmittelprojekt> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatPublikation> <http://www.w3.org/2000/01/rdf-schema#label> "hat Publikation" .
 <http://kerndatensatz-forschung.de/owl/Basis#hatPublikation> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Fi14" .
 <http://kerndatensatz-forschung.de/owl/Basis#hatPublikation> <http://www.w3.org/2000/01/rdf-schema#range> <http://kerndatensatz-forschung.de/owl/Basis#Publikation> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatPublikation> <http://www.w3.org/2000/01/rdf-schema#domain> <http://kerndatensatz-forschung.de/owl/Basis#Forschungsinfrastruktur> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatPublikation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f91 <http://www.w3.org/2002/07/owl#oneOf> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f90 .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f91 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
 <http://kerndatensatz-forschung.de/owl/Basis#Bewilligungssumme> <http://www.w3.org/2000/01/rdf-schema#label> "Bewilligungssumme"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://kerndatensatz-forschung.de/owl/Basis#Bewilligungssumme> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Dr88" .
 <http://kerndatensatz-forschung.de/owl/Basis#Bewilligungssumme> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
@@ -1117,14 +1118,12 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f91 <http://www.w3.org/1999/02/22-rdf-syn
 <http://kerndatensatz-forschung.de/owl/Basis#Bund> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Dr22" .
 <http://kerndatensatz-forschung.de/owl/Basis#Bund> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#Mittelgeber> .
 <http://kerndatensatz-forschung.de/owl/Basis#Bund> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fa9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fa8 .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fa9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Patent> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f92 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f92 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "W3/C4" .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f92 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Konferenz> <http://www.w3.org/2000/01/rdf-schema#label> "Konferenz" .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Konferenz> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Veranstaltung> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Konferenz> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f8f <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f8e .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f8f <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "Ohne Angabe" .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f8f <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 <http://kerndatensatz-forschung.de/owl/Basis#PeerReviewed> <http://www.w3.org/2000/01/rdf-schema#label> "ist Peer Reviewed"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://kerndatensatz-forschung.de/owl/Basis#PeerReviewed> <http://kerndatensatz-forschung.de/owl/Meta#pgbid> "kds.type.peerreviewed" .
 <http://kerndatensatz-forschung.de/owl/Basis#PeerReviewed> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Pu150" .
@@ -1138,8 +1137,6 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f8f <http://www.w3.org/1999/02/22-rdf-syn
 <http://kerndatensatz-forschung.de/owl/Basis#AltersgruppeBeiAbschluss> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
 <http://kerndatensatz-forschung.de/owl/Basis#AltersgruppeBeiAbschluss> <http://www.w3.org/2000/01/rdf-schema#domain> <http://kerndatensatz-forschung.de/owl/Basis#Qualifizierungsverfahren> .
 <http://kerndatensatz-forschung.de/owl/Basis#AltersgruppeBeiAbschluss> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7faf .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Patent> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatSchoepfertyp> <http://www.w3.org/2000/01/rdf-schema#label> "hat Sch\u00F6pfertyp" .
 <http://kerndatensatz-forschung.de/owl/Basis#hatSchoepfertyp> <http://kerndatensatz-forschung.de/owl/Meta#pgbid> "kds.creator" .
 <http://kerndatensatz-forschung.de/owl/Basis#hatSchoepfertyp> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Pu55" .
@@ -1168,8 +1165,10 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fb0 <http://www.w3.org/1999/02/22-rdf-syn
 <http://kerndatensatz-forschung.de/owl/Basis#hatFach> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Dr28" .
 <http://kerndatensatz-forschung.de/owl/Basis#hatFach> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Be38" .
 <http://kerndatensatz-forschung.de/owl/Basis#hatFach> <http://www.w3.org/2000/01/rdf-schema#range> <http://kerndatensatz-forschung.de/owl/Basis#Fach> .
-<http://kerndatensatz-forschung.de/owl/Basis#hatFach> <http://www.w3.org/2000/01/rdf-schema#domain> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fbe .
+<http://kerndatensatz-forschung.de/owl/Basis#hatFach> <http://www.w3.org/2000/01/rdf-schema#domain> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fbe .
 <http://kerndatensatz-forschung.de/owl/Basis#hatFach> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fb0 .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Drittmittelprojekt> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Abteilung> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#FhG_intern> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Abteilung> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://kerndatensatz-forschung.de/owl/Basis#Qualifikationsschrift> <http://www.w3.org/2000/01/rdf-schema#label> "Qualifikationsschrift"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -1184,8 +1183,6 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fb0 <http://www.w3.org/1999/02/22-rdf-syn
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#erarbeitetErgebnis> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Ergebnis> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#erarbeitetErgebnis> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Mitarbeiter> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#erarbeitetErgebnis> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fae <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fae <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#StrukturiertesPromotionsprogramm> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#hatAntrag> <http://www.w3.org/2000/01/rdf-schema#label> "hat Antrag"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#hatAntrag> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#AngebotAntrag> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#hatAntrag> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Vertrag> .
@@ -1193,12 +1190,12 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fae <http://www.w3.org/1999/02/22-rdf-syn
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#hatAntrag> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <http://kerndatensatz-forschung.de/owl/Basis#Ressource> <http://www.w3.org/2000/01/rdf-schema#label> "Ressource"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://kerndatensatz-forschung.de/owl/Basis#Ressource> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Pu108" .
-<http://kerndatensatz-forschung.de/owl/Basis#Ressource> <http://www.w3.org/2000/01/rdf-schema#range> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f8d .
 <http://kerndatensatz-forschung.de/owl/Basis#Ressource> <http://www.w3.org/2000/01/rdf-schema#domain> <http://kerndatensatz-forschung.de/owl/Basis#Publikation> .
 <http://kerndatensatz-forschung.de/owl/Basis#Ressource> <http://kerndatensatz-forschung.de/owl/Meta#pgbid> "kds.type.resource" .
 <http://kerndatensatz-forschung.de/owl/Basis#Ressource> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Pu107" .
 <http://kerndatensatz-forschung.de/owl/Basis#Ressource> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Pu109" .
 <http://kerndatensatz-forschung.de/owl/Basis#Ressource> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Pu106" .
+<http://kerndatensatz-forschung.de/owl/Basis#Ressource> <http://www.w3.org/2000/01/rdf-schema#range> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f8d .
 <http://kerndatensatz-forschung.de/owl/Basis#Ressource> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Pu102" .
 <http://kerndatensatz-forschung.de/owl/Basis#Ressource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatPromotionsberechtigungAus> <http://www.w3.org/2000/01/rdf-schema#label> "hat Promotionsberechtigung aus"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -1206,6 +1203,8 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fae <http://www.w3.org/1999/02/22-rdf-syn
 <http://kerndatensatz-forschung.de/owl/Basis#hatPromotionsberechtigungAus> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatPromotionsberechtigungAus> <http://www.w3.org/2000/01/rdf-schema#domain> <http://kerndatensatz-forschung.de/owl/Basis#Person> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatPromotionsberechtigungAus> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7faf <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fae .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7faf <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Publikation> .
 <http://kerndatensatz-forschung.de/owl/Basis#SonstigeKooperationspartner> <http://www.w3.org/2000/01/rdf-schema#label> "Sonstige Kooperationspartner" .
 <http://kerndatensatz-forschung.de/owl/Basis#SonstigeKooperationspartner> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Na97" .
 <http://kerndatensatz-forschung.de/owl/Basis#SonstigeKooperationspartner> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#Promotionskooperationspartner> .
@@ -1225,7 +1224,7 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fae <http://www.w3.org/1999/02/22-rdf-syn
 <http://kerndatensatz-forschung.de/owl/Basis#hatUnterstuetzungDurch> <http://kerndatensatz-forschung.de/owl/Meta#pgbid> "dcterms.funding" .
 <http://kerndatensatz-forschung.de/owl/Basis#hatUnterstuetzungDurch> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Pu90" .
 <http://kerndatensatz-forschung.de/owl/Basis#hatUnterstuetzungDurch> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Pu86" .
-<http://kerndatensatz-forschung.de/owl/Basis#hatUnterstuetzungDurch> <http://www.w3.org/2000/01/rdf-schema#range> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fa6 .
+<http://kerndatensatz-forschung.de/owl/Basis#hatUnterstuetzungDurch> <http://www.w3.org/2000/01/rdf-schema#range> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fa6 .
 <http://kerndatensatz-forschung.de/owl/Basis#hatUnterstuetzungDurch> <http://www.w3.org/2000/01/rdf-schema#domain> <http://kerndatensatz-forschung.de/owl/Basis#Publikation> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatUnterstuetzungDurch> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#OE> <http://www.w3.org/2000/01/rdf-schema#label> "Organistationseinheit" .
@@ -1277,11 +1276,6 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fae <http://www.w3.org/1999/02/22-rdf-syn
 <http://kerndatensatz-forschung.de/owl/Basis#Virtuell> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Fi21" .
 <http://kerndatensatz-forschung.de/owl/Basis#Virtuell> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#Forschungsinfrastrukturart> .
 <http://kerndatensatz-forschung.de/owl/Basis#Virtuell> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fa4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fa3 .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fa4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Foerderer> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f97 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f96 .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f97 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "B8" .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f97 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Geraet> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Produkt> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Geraet> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Infrastruktur> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Geraet> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
@@ -1290,9 +1284,11 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f97 <http://www.w3.org/1999/02/22-rdf-syn
 <http://kerndatensatz-forschung.de/owl/Basis#Patentfamilie> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
 <http://kerndatensatz-forschung.de/owl/Basis#Patentfamilie> <http://www.w3.org/2000/01/rdf-schema#domain> <http://kerndatensatz-forschung.de/owl/Basis#Patent> .
 <http://kerndatensatz-forschung.de/owl/Basis#Patentfamilie> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f8a <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f89 .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f8a <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "Bild" .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f8a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fa5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fa4 .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fa5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Drittmittelprojekt> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f98 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f97 .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f98 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "B7" .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f98 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 <http://kerndatensatz-forschung.de/owl/Basis#Person> <http://www.w3.org/2000/01/rdf-schema#label> "Person"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://kerndatensatz-forschung.de/owl/Basis#Person> <http://www.w3.org/2000/01/rdf-schema#comment> "Zusammenfassendes Konzept f\u00FCr die Darstellung aller personenbezogenen Eigenschaften und Attribute" .
 <http://kerndatensatz-forschung.de/owl/Basis#Person> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
@@ -1304,9 +1300,10 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f8a <http://www.w3.org/1999/02/22-rdf-syn
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#PatentErteilungsnummer> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#PatentErteilungsnummer> <http://www.w3.org/2000/01/rdf-schema#domain> <http://kerndatensatz-forschung.de/version1/technisches_datenmodell/owl/Basis#Patent> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#PatentErteilungsnummer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f8b <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f8a .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f8b <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "Bewegte Bilder" .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f8b <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 <http://kerndatensatz-forschung.de/owl/Meta#pgbid> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fb6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fb5 .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fb6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Beschaeftigung> .
 <http://kerndatensatz-forschung.de/owl/Basis#Konferenzname> <http://www.w3.org/2000/01/rdf-schema#label> "Name der Konferenz"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://kerndatensatz-forschung.de/owl/Basis#Konferenzname> <http://kerndatensatz-forschung.de/owl/Meta#pgbid> "kds.format.ConferenceName" .
 <http://kerndatensatz-forschung.de/owl/Basis#Konferenzname> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Pu94" .
@@ -1324,13 +1321,15 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fb6 <http://www.w3.org/1999/02/22-rdf-syn
 <http://kerndatensatz-forschung.de/owl/Basis#Beschaeftigung> <http://www.w3.org/2000/01/rdf-schema#comment> "Konzept zur Darstellung der Eigenschaften, die mit einer Besch\u00E4ftigung zusammenh\u00E4ngen (z.B. Befristung, Dauer, Voll/Teilzeit, etc.)" .
 <http://kerndatensatz-forschung.de/owl/Basis#Beschaeftigung> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://kerndatensatz-forschung.de/version1/technisches_datenmodell/owl/Basis#Forschungsdaten> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Ergebnis> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f9c <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f9b .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f9c <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "B3" .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f9c <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Technologie> <http://www.w3.org/2000/01/rdf-schema#label> "Technologie" .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Technologie> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7ff8 <http://www.w3.org/2002/07/owl#unionOf> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7ff7 .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7ff8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fb7 <http://www.w3.org/2002/07/owl#unionOf> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fb6 .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fb7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7faa <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fa9 .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7faa <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Drittmittelprojekt> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f9d <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f9c .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f9d <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "B2" .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f9d <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 <http://kerndatensatz-forschung.de/owl/Basis#Abschlusszeitpunkt> <http://www.w3.org/2000/01/rdf-schema#label> "Abschlusszeitpunkt"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://kerndatensatz-forschung.de/owl/Basis#Abschlusszeitpunkt> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Na72" .
 <http://kerndatensatz-forschung.de/owl/Basis#Abschlusszeitpunkt> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Na70" .
@@ -1346,8 +1345,6 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7ff8 <http://www.w3.org/1999/02/22-rdf-syn
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#hatInfrastructure> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Infrastruktur> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#hatInfrastructure> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Organisation> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#hatInfrastructure> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fbb <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fba .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fbb <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Drittmittelprojekt> .
 <http://kerndatensatz-forschung.de/owl/Basis#KoerperschaftMitHerausgeberfunktion> <http://www.w3.org/2000/01/rdf-schema#label> "K\u00F6rperschaft mit Herausgeberfunktion" .
 <http://kerndatensatz-forschung.de/owl/Basis#KoerperschaftMitHerausgeberfunktion> <http://kerndatensatz-forschung.de/owl/Meta#pgbid> "kds.creator.editor.CorporateName" .
 <http://kerndatensatz-forschung.de/owl/Basis#KoerperschaftMitHerausgeberfunktion> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Pu60" .
@@ -1367,6 +1364,8 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fbb <http://www.w3.org/1999/02/22-rdf-syn
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#hatKunden> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Erfindung> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Ergebnis> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Erfindung> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fbc <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fbb .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fbc <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Beschaeftigung> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#startDatum> <http://www.w3.org/2000/01/rdf-schema#label> "Startdatum"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#startDatum> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#date> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#startDatum> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Dienstreise> .
@@ -1390,9 +1389,6 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fbb <http://www.w3.org/1999/02/22-rdf-syn
 <http://kerndatensatz-forschung.de/owl/Basis#Professoren> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Be19" .
 <http://kerndatensatz-forschung.de/owl/Basis#Professoren> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#WissenschaftlichesUndKuenstlerischesPersonal> .
 <http://kerndatensatz-forschung.de/owl/Basis#Professoren> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f92 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f92 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "W3/C4" .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f92 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 <http://kerndatensatz-forschung.de/owl/Basis#Verwaltungspersonal> <http://www.w3.org/2000/01/rdf-schema#label> "Verwaltungspersonal"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://kerndatensatz-forschung.de/owl/Basis#Verwaltungspersonal> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Be28" .
 <http://kerndatensatz-forschung.de/owl/Basis#Verwaltungspersonal> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#Personalkategorie> .
@@ -1414,6 +1410,12 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f92 <http://www.w3.org/1999/02/22-rdf-syn
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#hatProjekt> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Organisation> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#hatProjekt> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Kunde> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#hatProjekt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fa0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f9f .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fa0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "B1" .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fa0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f93 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f92 .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f93 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "W2/C3" .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f93 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 <http://kerndatensatz-forschung.de/owl/Basis#ArbeitspapierForschungsbericht> <http://www.w3.org/2000/01/rdf-schema#label> "Arbeitspapier/Forschungsbericht"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://kerndatensatz-forschung.de/owl/Basis#ArbeitspapierForschungsbericht> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Pu37" .
 <http://kerndatensatz-forschung.de/owl/Basis#ArbeitspapierForschungsbericht> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#Publikationstyp> .
@@ -1437,8 +1439,6 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f92 <http://www.w3.org/1999/02/22-rdf-syn
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Kurzname> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Kurzname> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Erfinder> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Kurzname> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fb0 .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Drittmittelprojekt> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatErstbetreuer> <http://www.w3.org/2000/01/rdf-schema#label> "hat Erstbetreuerin / Erstbetreuer"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://kerndatensatz-forschung.de/owl/Basis#hatErstbetreuer> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Na47" .
 <http://kerndatensatz-forschung.de/owl/Basis#hatErstbetreuer> <http://www.w3.org/2000/01/rdf-schema#range> <http://kerndatensatz-forschung.de/owl/Basis#Person> .
@@ -1460,12 +1460,12 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fb1 <http://www.w3.org/1999/02/22-rdf-syn
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Branche> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Kunde> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Branche> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#geschlecht> <http://www.w3.org/2002/07/owl#equivalentProperty> <http://kerndatensatz-forschung.de/version1/technisches_datenmodell/owl/Basis#Geschlecht> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fb1 .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Beschaeftigung> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#funktion> <http://www.w3.org/2000/01/rdf-schema#label> "Funktion"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#funktion> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#funktion> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Mitarbeiter> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#funktion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7faf <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fae .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7faf <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Publikation> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#TelefonPrivat> <http://www.w3.org/2000/01/rdf-schema#label> "Telefonnummer Privat" .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#TelefonPrivat> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#TelefonPrivat> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Erfinder> .
@@ -1554,18 +1554,15 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7faf <http://www.w3.org/1999/02/22-rdf-syn
 <http://kerndatensatz-forschung.de/owl/Basis#KoerperschaftMitAutorenfunktion> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Pu59" .
 <http://kerndatensatz-forschung.de/owl/Basis#KoerperschaftMitAutorenfunktion> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#Schoepfertyp> .
 <http://kerndatensatz-forschung.de/owl/Basis#KoerperschaftMitAutorenfunktion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fa5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7fa4 .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7fa5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://kerndatensatz-forschung.de/owl/Basis#Drittmittelprojekt> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f98 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f97 .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f98 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "B7" .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f98 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 <http://kerndatensatz-forschung.de/owl/Basis#Mittelgeber> <http://www.w3.org/2000/01/rdf-schema#label> "Mittelgeber"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://kerndatensatz-forschung.de/owl/Basis#Mittelgeber> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Dr12" .
 <http://kerndatensatz-forschung.de/owl/Basis#Mittelgeber> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f8b <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f8a .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f8b <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "Bewegte Bilder" .
-_:AX2dX5191986fX3aX168b106e689X3aXX2dX7f8b <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f99 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f98 .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f99 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "B6" .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f99 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 <http://www.fraunhofer.de/fraunhofer-digital/infomodell#Infrastruktur> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fa6 <http://www.w3.org/2002/07/owl#unionOf> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fa5 .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7fa6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://kerndatensatz-forschung.de/owl/Basis#GrundmittelUndInstitutionelleMittel> <http://www.w3.org/2000/01/rdf-schema#label> "Grundmittel und institutionelle Mittel"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://kerndatensatz-forschung.de/owl/Basis#GrundmittelUndInstitutionelleMittel> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Na29" .
 <http://kerndatensatz-forschung.de/owl/Basis#GrundmittelUndInstitutionelleMittel> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Be13" .
@@ -1587,6 +1584,9 @@ _:AX2dX5191986fX3aX168b106e689X3aXX2dX7f8b <http://www.w3.org/1999/02/22-rdf-syn
 <http://kerndatensatz-forschung.de/owl/Basis#TitelPublikation> <http://www.w3.org/2000/01/rdf-schema#domain> <http://kerndatensatz-forschung.de/owl/Basis#Publikation> .
 <http://kerndatensatz-forschung.de/owl/Basis#TitelPublikation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
 <http://kerndatensatz-forschung.de/owl/Basis#TitelPublikation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f8c <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f8b .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f8c <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "Audio" .
+_:AX2dX646b1416X3aX168b93de2fdX3aXX2dX7f8c <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
 <http://kerndatensatz-forschung.de/owl/Basis#BibliographieDokumenttyp> <http://www.w3.org/2000/01/rdf-schema#label> "Bibliographie [Dokumenttyp]" .
 <http://kerndatensatz-forschung.de/owl/Basis#BibliographieDokumenttyp> <http://kerndatensatz-forschung.de/owl/Meta#inhaltlicheDefinition> "Pu129" .
 <http://kerndatensatz-forschung.de/owl/Basis#BibliographieDokumenttyp> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://kerndatensatz-forschung.de/owl/Basis#Dokumenttyp> .

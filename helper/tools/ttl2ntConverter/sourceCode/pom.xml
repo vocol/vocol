@@ -45,6 +45,12 @@
   </exclusions>
 </dependency>
 
+<dependency>
+    <groupId>net.logstash.log4j</groupId>
+    <artifactId>jsonevent-layout</artifactId>
+    <version>1.7</version>  
+</dependency>
+
 <!-- https://mvnrepository.com/artifact/org.apache.thrift/libthrift -->
 <dependency>
     <groupId>org.apache.thrift</groupId>

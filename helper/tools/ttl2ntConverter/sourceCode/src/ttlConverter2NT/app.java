@@ -47,7 +47,8 @@ import org.mindswap.pellet.jena.PelletReasonerFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.reasoner.ValidityReport;
@@ -62,7 +63,7 @@ public class app {
 		return report; 
 	}
 
-//    private static final Logger log = Logger.getLogger(FileUtils.class.getName()); 
+	//    private static final Logger log = Logger.getLogger(FileUtils.class.getName()); 
 	protected static final Logger log = LoggerFactory.getLogger(app.class);
 
 
@@ -70,7 +71,7 @@ public class app {
 		FileOutputStream fop = null;
 		JSONArray errorJSONArray = new JSONArray();
 		boolean disableConsistency = false ; 
-        PropertyConfigurator.configure("log4j.properties");
+		//PropertyConfigurator.configure("main/resources/log4j.properties");
 
 		//PrintStream prStr = new PrintStream(( log); 
 		//StreamHandler streamHandler = new StreamHandler(prStr, new SimpleFormatter());
@@ -165,27 +166,26 @@ public class app {
 		}
 
 		try {
-			
-		    // pass the path to the file as a parameter 
-		    File file = 
-		      new File("logging.log"); 
-		    Scanner sc = new Scanner(file); 
-		    List<String> errorMessages = new ArrayList<>();
 
-		    while (sc.hasNextLine()) {
-		    	if (sc.nextLine().startsWith("ERROR -$$$-") )
-		    		//errorMessages.add(sc.nextLine());
-			          System.out.println("----"+sc.nextLine()); 		
+			// pass the path to the file as a parameter 
+			File file = 
+					new File("logging.log"); 
+			Scanner sc = new Scanner(file); 
+			List<String> errorMessages = new ArrayList<>();
 
-		    }
-		
-	          System.out.println(errorMessages); 		
-//
-//		     for (int counter = 0; counter < errorMessages.size(); counter++) { 		      
-//		          System.out.println(errorMessages); 		
-//		      }  
-//		     
-		     
+			while (sc.hasNextLine()) {
+				//errorMessages.add(sc.nextLine());
+				JSONObject JSONObject = new JSONObject();
+				JSONObject errorlog=(new JSONObject(sc.nextLine()));
+				JSONObject.put("Message",errorlog.getString("@message"));  
+				JSONObject.put("fileName", "Unknow");
+				JSONObject.put("source", "Jena");
+				errorJSONArray.put(JSONObject);
+
+			}
+			System.out.println(errorMessages); 		
+
+
 			FileWriter fr = new FileWriter("Output.report");
 			fr.write(errorJSONArray.toString());
 			fr.close();
