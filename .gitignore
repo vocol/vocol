@@ -1,4 +1,2 @@
 node_modules/
 views/Imprint.ejs
-views/dataProtection.ejs
-views/dataProtectionScript.ejs

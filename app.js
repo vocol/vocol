@@ -17,7 +17,7 @@ var config = require('./routes/config');
 var fs = require('fs');
 var jsonfile = require('jsonfile');
 var app = express();
-var watch = require('node-watch');
+// var watch = require('node-watch');
 var shell = require('shelljs');
 var router = express.Router();
 var proxy = require('express-http-proxy');
@@ -119,13 +119,13 @@ function readUserConfigurationFile() {
                 });
             }
             if (obj['text3'] != "") {
+              menu[6] = true;
               fs.writeFileSync(__dirname +
                 '/views/dataProtectionScript.ejs', obj['text3'], {
                   encoding: 'utf8',
                   flag: 'w'
                 });
             }
-            menu[6] = true;
           } else if (k === "loginUserName") {
             loginUserName = obj[k];
           } else if (k === "adminUserName") {
@@ -200,8 +200,8 @@ app.use(['\/\/webvowlLink', '/webvowlLink'], express.static(path.join(__dirname,
   "views/webvowl")));
 app.use(['\/\/turtleEditorLink', '/turtleEditorLink'], express.static(path.join(
   __dirname, "views/editor")));
-app.use(['\/\/analyticsLink', '/analyticsLink'], express.static(path.join(
-  __dirname, "views/d3sparql")));
+// app.use(['\/\/analyticsLink', '/analyticsLink'], express.static(path.join(
+//   __dirname, "views/d3sparql")));
 app.use(['\/\/evolution', '/evolution'], evolution);
 app.use(['\/\/startup', '/startup'], startup);
 app.use(['\/\/validation', '/validation'], validation);
@@ -314,24 +314,25 @@ app.get(['\/\/getRepoInfo', '/getRepoInfo'], function(req, res, next) {
 app.use(['//*', '*'], referenceRoutes);
 
 // monitor ErrorsFilePath
-watch(ErrorsFilePath, {
-  recursive: true
-}, function(evt, name) {
-  if (evt == 'update') {
-    // call if SyntaxErrors file was changed
-    readSyntaxErrorsFile();
-  }
-});
+//TODO: stop monitor of jsonfiles changes
+// watch(ErrorsFilePath, {
+//   recursive: true
+// }, function(evt, name) {
+//   if (evt == 'update') {
+//     // call if SyntaxErrors file was changed
+//     readSyntaxErrorsFile();
+//   }
+// });
 
 // monitor change of userConfigurationsFile
-watch(userConfigurationsFile, {
-  recursive: true
-}, function(evt, name) {
-  if (evt == 'update') {
-    // call if userConfigurations file was changed
-    readUserConfigurationFile();
-  }
-});
+// watch(userConfigurationsFile, {
+//   recursive: true
+// }, function(evt, name) {
+//   if (evt == 'update') {
+//     // call if userConfigurations file was changed
+//     readUserConfigurationFile();
+//   }
+// });
 
 
 function isEmptyObject(obj) {

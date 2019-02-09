@@ -12,9 +12,9 @@ shell.exec('echo "{}" > ../vocol/jsonDataFiles/syntaxErrors.json').stdout;
 // check if the userConfigurations file is exist
 // for the first time of app running
 var path = "../vocol/jsonDataFiles/userConfigurations.json";
-fs.exists(path, function(exists) {
+fs.exists(path, function (exists) {
   if (exists) {
-    jsonfile.readFile(path, function(err, obj) {
+    jsonfile.readFile(path, function (err, obj) {
       if (err)
         console.log(err);
 
@@ -29,7 +29,11 @@ fs.exists(path, function(exists) {
           silent: false
         }).stdout;
       shell.exec(
-        'rm -f   ../vocol/helper/tools/ttl2ntConverter/Output.report', {
+        'rm -f    ../vocol/helper/tools/ttl2ntConverter/Output.report', {
+          silent: false
+        }).stdout;
+      shell.exec(
+        'rm -f   ../vocol/helper/tools/ttl2ntConverter/logging.log', {
           silent: false
         }).stdout;
       shell.exec(
@@ -54,28 +58,31 @@ fs.exists(path, function(exists) {
           silent: false
         });
 
-      var pass = function() {
-        var outputReport = fs.readFileSync('Output.report');
-        var jsonContent = JSON.parse(outputReport);
-        for (var i = 0, l = jsonContent.length; i < l; i++) {
-          var errorType = "";
-          if (jsonContent[i].source == "JenaRiot") {
-            pass = false;
-            errorType = "Syntax";
-          } else {
-            errorType = "Inconsistency";
+      var pass = function () {
+        if (fs.existsSync('Output.report')) {
+          var outputReport = fs.readFileSync('Output.report');
+          var jsonContent = JSON.parse(outputReport);
+          for (var i = 0, l = jsonContent.length; i < l; i++) {
+            var errorType = "";
+            if (jsonContent[i].source == "JenaRiot" || jsonContent[i].source == "Jena") {
+              pass = false;
+              errorType = "Syntax";
+            } else {
+              errorType = "Inconsistency";
+            }
+            var errorObject = {
+              id: k.toString(),
+              file: jsonContent[i].fileName,
+              errType: errorType,
+              errMessege: jsonContent[i].Message,
+              errSource: jsonContent[i].source,
+              pusher: "",
+              date: new Date().toISOString().slice(0, 10)
+            };
+            errors.push(errorObject)
+            console.log(errorObject);
+            k++;
           }
-          var errorObject = {
-            id: k.toString(),
-            file: jsonContent[i].fileName,
-            errType: errorType,
-            errMessege: jsonContent[i].Message,
-            errSource: jsonContent[i].source,
-            pusher: "",
-            date: new Date().toISOString().slice(0, 10)
-          };
-          errors.push(errorObject)
-          k++;
         }
       }
       pass();
@@ -133,7 +140,7 @@ fs.exists(path, function(exists) {
           jsonfile.writeFile(filePath, errors, {
             spaces: 2,
             EOL: '\r\n'
-          }, function(err) {
+          }, function (err) {
             if (err)
               throw err;
             console.log("Errors file is generated\n");
@@ -207,7 +214,7 @@ fs.exists(path, function(exists) {
               'utf8');
             addedQueriesContents += ', { "name":"' + fileName + '",\n';
             addedQueriesContents += '"query" :' + JSON.stringify(
-                currentQueryFileContent) + '\n}\n';
+              currentQueryFileContent) + '\n}\n';
           }
         }
         // end the content of fusekiQueries with the following:

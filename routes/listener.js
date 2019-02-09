@@ -111,6 +111,10 @@ router.post('/', function(req, res) {
               'rm -f   ../vocol/helper/tools/ttl2ntConverter/Output.report', {
                 silent: false
               }).stdout;
+              shell.exec(
+                'rm -f   ../vocol/helper/tools/ttl2ntConverter/logging.log', {
+                  silent: false
+                }).stdout;
             shell.exec(
               'rm -f   ../vocol/helper/tools/RDFDoctor/*.error', {
                 silent: false

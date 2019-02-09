@@ -7,7 +7,7 @@ var shell = require('shelljs');
 var CryptoJS = require("crypto-js");
 // this for creating hash for password
 var bcrypt = require('bcrypt');
-const saltRounds = 10;
+var salt = bcrypt.genSaltSync();
 var escapeHtml = require('escape-html');
 
 // http post when  a user configurations is submitted
@@ -49,7 +49,7 @@ router.post('/', function(req, res) {
 
 
               if (isAdminPasswordModified || isPrivateLoginPasswordModified) {
-                bcrypt.genSalt(saltRounds, function(err, salt) {
+               
                   if (isPrivateLoginPasswordModified)
                     bcrypt.hash(userData.loginPassword, salt, function(err, hash) {
                       // Store hash in your password DB.
@@ -74,7 +74,7 @@ router.post('/', function(req, res) {
                           throw err;
                       })
                     });
-                });
+                
                 // wait till the configurations is finished
                 res.render('userConfigurationsUpdated', {
                   title: 'Preparation'
@@ -98,7 +98,7 @@ router.post('/', function(req, res) {
     } else {
 
       if (isAdminPasswordModified || isPrivateLoginPasswordModified) {
-        bcrypt.genSalt(saltRounds, function(err, salt) {
+       
           if (isPrivateLoginPasswordModified)
             bcrypt.hash(userData.loginPassword, salt, function(err, hash) {
               // Store hash in your password DB.
@@ -123,7 +123,7 @@ router.post('/', function(req, res) {
                   throw err;
               })
             });
-        });
+        
         // wait till the configurations is finished
         res.render('userConfigurationsUpdated', {
           title: 'Preparation'
@@ -164,3 +164,4 @@ router.get('/', function(req, res) {
 });
 
 module.exports = router;
+

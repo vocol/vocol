@@ -35,7 +35,7 @@
         var array = [];
         for (var i = 0; i < dataTable.length; i++) {
           var arr = [];
-          arr.push(dataTable[i].id.trim(), dataTable[i].pusher.trim(), dataTable[i].file.trim(), dataTable[i].errType.trim(), dataTable[i].errSource.trim(), dataTable[i].date.trim(), dataTable[i].errMessege.trim());
+          arr.push(dataTable[i].id, dataTable[i].pusher, dataTable[i].file, dataTable[i].errType, dataTable[i].errSource, dataTable[i].date, dataTable[i].errMessege);
           array.push(arr);
         }
         return array;
