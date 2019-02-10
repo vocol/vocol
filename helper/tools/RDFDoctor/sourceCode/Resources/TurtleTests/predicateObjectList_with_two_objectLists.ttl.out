@@ -1,0 +1,10 @@
+
+/home/ahmed/Desktop/eclipse-projects/RDF-Doctor/Resources/TurtleTests/predicateObjectList_with_two_objectLists.ttlProcessing is going on line 1  <http://a.example/s> <http://a.example/p1> <http://a.example/o1>; <http://a.example/p2> <http://a.example/o2> .
+
+
+
+
+
+Total elapsed time: 12 ms
+
+Number of processed lines:2

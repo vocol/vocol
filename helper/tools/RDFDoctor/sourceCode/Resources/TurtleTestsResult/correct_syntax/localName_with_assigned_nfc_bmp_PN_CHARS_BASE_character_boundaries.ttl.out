@@ -1,0 +1,10 @@
+Processing is going on line 1  @prefix p: <http://a.example/> .
+line 2  <http://a.example/s> <http://a.example/p> p:AZazÀÖØöø˿Ͱͽ΄῾‌‍⁰↉Ⰰ⿕、ퟻ﨎ﷇﷰ￯ .
+
+
+
+
+
+Total elapsed time: 12 ms
+
+Number of processed lines:3

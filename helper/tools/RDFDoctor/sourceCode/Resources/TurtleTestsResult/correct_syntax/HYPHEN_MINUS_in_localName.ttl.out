@@ -1,0 +1,10 @@
+Processing is going on line 1  @prefix p: <http://a.example/>.
+line 2  p:s- <http://a.example/p> <http://a.example/o> .
+
+
+
+
+
+Total elapsed time: 15 ms
+
+Number of processed lines:3

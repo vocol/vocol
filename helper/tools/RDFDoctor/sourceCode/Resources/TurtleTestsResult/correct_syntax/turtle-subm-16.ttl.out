@@ -1,0 +1,28 @@
+Processing is going on line 1  @prefix : <http://example.org/foo#> .
+line 2  
+line 3  ## \U00015678 is a not a legal codepoint
+line 4  ## :a :b """\nthis \ris a \U00015678long\t
+line 5  ## literal\uABCD
+line 6  ## """ .
+line 7  ## 
+line 8  ## :d :e """\tThis \uABCDis\r \U00015678another\n
+line 9  ## one
+line 10  ## """ .
+line 11  
+line 12  # \U00015678 is a not a legal codepoint
+line 13  # \U00012451 in Cuneiform numeric ban 3
+line 14  :a :b """\nthis \ris a \U00012451long\t
+line 15  literal\uABCD
+line 16  """ .
+line 17  
+line 18  :d :e """\tThis \uABCDis\r \U00012451another\n
+line 19  one
+line 20  """ .
+
+
+
+
+
+Total elapsed time: 13 ms
+
+Number of processed lines:21

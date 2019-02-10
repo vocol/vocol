@@ -1,0 +1,20 @@
+Processing is going on line 1  # In-scope base URI is <http://www.w3.org/2013/TurtleTests/turtle-subm-27.ttl> at this point
+line 2  <a1> <b1> <c1> .
+line 3  @base <http://example.org/ns/> .
+line 4  # In-scope base URI is http://example.org/ns/ at this point
+line 5  <a2> <http://example.org/ns/b2> <c2> .
+line 6  @base <foo/> .
+line 7  # In-scope base URI is http://example.org/ns/foo/ at this point
+line 8  <a3> <b3> <c3> .
+line 9  @prefix : <bar#> .
+line 10  :a4 :b4 :c4 .
+line 11  @prefix : <http://example.org/ns2#> .
+line 12  :a5 :b5 :c5 .
+
+
+
+
+
+Total elapsed time: 13 ms
+
+Number of processed lines:13

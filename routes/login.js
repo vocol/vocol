@@ -20,7 +20,14 @@ router.post('/', function(req, res) {
           if (err)
             console.log(err);
           if (obj.loginUserName) {
+		console.log(obj.loginUserName);
+                console.log(req.body.password);
+                console.log(obj.loginPassword);
+
+
             bcrypt.compare(req.body.password, obj.loginPassword, function(err, result) {
+      if (err) { throw (err); }
+
               if (result) {
                 req.session.isAuthenticated = true;
                 req.session.username = obj.loginUserName;
@@ -45,3 +52,4 @@ router.get('/', function(req, res) {
 });
 
 module.exports = router;
+

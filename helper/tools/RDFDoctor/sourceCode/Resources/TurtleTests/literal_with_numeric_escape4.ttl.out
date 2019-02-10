@@ -1,0 +1,10 @@
+
+/home/ahmed/Desktop/eclipse-projects/RDF-Doctor/Resources/TurtleTests/literal_with_numeric_escape4.ttlProcessing is going on line 1  <http://a.example/s> <http://a.example/p> '\u006F' .
+
+
+
+
+
+Total elapsed time: 11 ms
+
+Number of processed lines:2

@@ -1,130 +1,230 @@
 <% include header %>
-  <div class="ui grid">
-    <div class="ui container" style="padding-bottom : 1cm;">
-      <div class="ui segment" style="padding-top: 1cm;padding-bottom: 0px;">
-        <div class="ui form">
-          <div class="three fields" style="margin-bottom: 0px;">
-            <div class="twelve wide field">
-              <div class="ui big icon input">
-                <label for="input-search" class="sr-only">Search Tree:</label>
-                <i class="search icon"></i>
-                <input type="input" id="input-search" placeholder="Type a concept to search..." value="">
+<div class="ui grid">
+  <div class="ui container" style="padding-bottom : 1cm;">
+    <div class="ui segment" style="padding-top: 1cm;padding-bottom: 0px;">
+      <div class="ui form">
+        <div class="three fields" style="margin-bottom: 0px;">
+          <div class="twelve wide field">
+            <div class="ui big icon input">
+              <label for="input-search" class="sr-only">Search Tree:</label>
+              <i class="search icon"></i>
+              <input type="input" id="input-search" placeholder="Type a concept to search..." value="">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
               </div>
+          </div>
+          <div class="three wide field">
+            <div class="ui checkbox" style="margin-top: 15px;">
+              <input type="checkbox" id="chk-ignore-case" name="searchOptions" checked="checked" value="false">
+              <label>Ignore Case</label>
             </div>
-            <div class="three wide field">
-              <div class="ui checkbox" style="margin-top: 15px;">
-                <input type="checkbox" id="chk-ignore-case" name="searchOptions" checked="checked" value="false">
-                <label>Ignore Case</label>
-              </div>
-            </div>
-            <div class="six wide field">
-              <div id="selectFileDroplist" class="ui large floating dropdown labeled icon button" style="background:rgba(255,255,255,.5) none" onclick="getSelectedFileName(this);">
-                <i class="filter icon"></i>
-                <span class="text" id="file_result">Choose File</span>
-                <div class="menu">
-                  <div class="ui icon search input">
-                    <i class="search icon"></i>
-                    <input type="text" placeholder="Select File(s)...">
+          </div>
+          <div class="six wide field">
+            <div class="ui large floating dropdown labeled icon button" id="filesDroplist" style="background:rgba(255,255,255,.5) none" onclick="getSelectedFileName(this);">
+              <i class="filter icon"></i>
+              <span class="text" >Choose File</span>
+              <div class="menu">
+                <div class="ui icon search input">
+                  <i class="search icon"></i>
+                  <input type="text" placeholder="Select File(s)...">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                   </div>
-                  <div class="divider"></div>
-                  <div id="itemFiles" class="scrolling menu">
-                    <div class="item">
-                      <div class="ui red empty circular label"></div>
-                      ALL Files
-                    </div>
-                    <%if (fileNames != null) {%>
-                      <%fileNames.forEach(function (item) {%>
-                        <div class="item">
-                          <div class="ui blue empty circular label"></div>
-                          <%= item %>
-                        </div>
-                        <%});%>
-                          <%}%>
+                <div class="divider"></div>
+                <div id="itemFiles" class="scrolling menu">
+                  <div class="item">
+                    <div class="ui red empty circular label"></div>
+                    ALL Files
                   </div>
+                  <%if (fileNames != null) {%>
+                  <%fileNames.forEach(function (item) {%>
+                  <div class="item">
+                    <div class="ui blue empty circular label"></div>
+                    <%= item %>
+                  </div>
+                  <%});%>
+                  <%}%>
                 </div>
               </div>
             </div>
           </div>
-          <div class="ui vertical stripe segment" style="padding-top: 0px; padding-left: 3%;padding-bottom: 0px;">
-            <div class="ui grid stackable container">
-              <div class="row">
-                <div class="ui three column stackable divided grid">
-                  <div class="row">
-                    <div class="ui segments" style="margin-right: 15px; text-align: center; margin-top: 0;">
-                      <div class="ui blue segment">
-                        <h3 class="ui header">
+        </div>
+        <div class="ui vertical stripe segment" style="padding-top: 0px; padding-left: 3%;padding-bottom: 0px;">
+          <div class="ui grid stackable container">
+            <div class="row">
+              <div class="ui three column stackable divided grid">
+                <div class="row">
+                  <div class="ui segments" style="margin-right: 15px; text-align: center; margin-top: 0;">
+                    <div class="ui blue segment">
+                      <h3 class="ui header">
                       <i class="grey options icon"></i>Type
                     </h3>
-                      </div>
-                      <div class="ui segment">
-                        <div class="fields">
-                          <div class="ui radio checkbox">
-                            <input type="radio" name="typesRadio" id="allTypesRadio" value="1" checked="checked">
-                            <label>All</label>
-                          </div>
-                          <div class="ui radio checkbox">
-                            <input type="radio" name="typesRadio" id="classRadio" value="2">
-                            <label>Classes</label>
-                          </div>
-                          <div class="ui radio checkbox">
-                            <input type="radio" name="typesRadio" id="propertyRadio" value="2">
-                            <label>Properties</label>
-                          </div>
-                          <div class="ui item">
-                            <div class="ui fluid selection dropdown" id="propertyTypeDropdown" style="width:180px; margin-top: -9px;; margin-left: 8px;">
-                              <div class="text"> Select Property ... </div>
-                              <i class="dropdown icon"></i>
-                              <div class="menu">
-                                <div class="item">All</div>
-                                <div class="item">RDF Property</div>
-                                <div class="item">Object Property</div>
-                                <div class="item">Datatype Property</div>
-                                <div class="item">Annotation Property</div>
-                              </div>
+                    </div>
+                    <div class="ui segment">
+                      <div class="fields">
+                        <div class="ui radio checkbox">
+                          <input type="radio" name="typesRadio" id="allTypesRadio" value="1" checked="checked">
+                          <label>All</label>
+                          <div class="floating ui blue label" id="allTypesNumberlbl" style="font-size: 0.65rem;top: 3em; margin: -6px 0px 0px -4.5em!important">0</div>
+
+                        </div>
+                        <div class="ui radio checkbox">
+                          <input type="radio" name="typesRadio" id="classRadio" value="2">
+                          <label>Classes</label>
+                          <div class="floating ui blue label" id="classesNumberlbl" style="font-size: 0.65rem;top: 3em; margin: -6px 0px 0px -4.5em!important">0</div>
+                        </div>
+                        <div class="ui radio checkbox">
+                          <input type="radio" name="typesRadio" id="propertyRadio" value="2">
+                          <label>Properties</label>
+                          <div class="floating ui blue label" id="propertiesNumberlbl" style="font-size: 0.65rem;top: 3em; margin: -6px 0px 0px -5.5em!important">0</div>
+                        </div>
+                        <div class="ui item">
+                          <div class="ui fluid selection dropdown" id="propertyTypeDropdown" style="width:180px; margin-top: -9px;; margin-left: 8px;">
+                            <div class="text"> Select Property ... </div>
+                            <i class="dropdown icon"></i>
+                            <div class="menu">
+                              <div class="item">All</div>
+                              <div class="item">RDF Property</div>
+                              <div class="item">Object Property</div>
+                              <div class="item">Datatype Property</div>
+                              <div class="item">Annotation Property</div>
                             </div>
                           </div>
-                          <div class="ui radio checkbox" style="padding-right:5px">
-                            <input type="radio" name="typesRadio" id="individualsPropertyRadio">
-                            <label>Individuals</label>
-                          </div>
+                        </div>
+                        <div class="ui radio checkbox" style="padding-right:5px">
+                          <input type="radio" name="typesRadio" id="individualsPropertyRadio">
+                          <label>Individuals</label>
+                          <div class="floating ui green label" id="individualsNumberlbl" style="font-size: 0.65rem;top: 3em; margin: -6px 0px 0px -6.5em!important">0</div>
                         </div>
                       </div>
                     </div>
-                    <div class="ui segments" style="margin-right: 15px; text-align: center; margin-top: 0;">
-                      <div class="ui blue segment">
-                        <h3 class="ui header">
+                  </div>
+                  <div class="ui segments" style="margin-right: 15px; text-align: center; margin-top: 0;">
+                    <div class="ui blue segment">
+                      <h3 class="ui header">
                       <i class="grey unhide icon"></i>View
                     </h3>
-                      </div>
-                      <div class="ui segment">
-                        <div class="field">
-                          <div class="ui radio checkbox">
-                            <input type="radio" name="myRadios" id="RDFSViewCheckBox" value="1" checked="checked">
-                            <label>RDF(S) </label>
-                          </div>
-                          <div class="ui radio checkbox">
-                            <input type="radio" name="myRadios" id="SKOSViewCheckBox" value="2">
-                            <label>SKOS </label>
-                          </div>
+                    </div>
+                    <div class="ui segment">
+                      <div class="field">
+                        <div class="ui radio checkbox">
+                          <input type="radio" name="myRadios" id="RDFSViewCheckBox" value="1" checked="checked">
+                          <label>RDF(S) </label>
+                        </div>
+                        <div class="ui radio checkbox">
+                          <input type="radio" name="myRadios" id="SKOSViewCheckBox" value="2">
+                          <label>SKOS </label>
                         </div>
                       </div>
                     </div>
-                    <div class="ui segments" style=" text-align: center; margin-top: 0; margin-bottom: 14px;">
-                      <div class="ui blue segment">
-                        <h3 class="ui header">
+                  </div>
+                  <div class="ui segments" style=" text-align: center; margin-top: 0; margin-bottom: 14px;">
+                    <div class="ui blue segment">
+                      <h3 class="ui header">
                       <i class="grey puzzle piece icon"></i>Show others
                     </h3>
-                      </div>
-                      <div class="ui segment">
-                        <div class="field">
-                          <div class="ui slider checkbox">
-                            <input type="checkbox" name="mySliders" id="showTypesCheckBox" tabindex="0">
-                            <label>Show Type</label>
-                          </div>
-                          <div class="ui slider checkbox">
-                            <input type="checkbox" name="mySliders" id="showFilesCheckBox" tabindex="1">
-                            <label>Show File</label>
-                          </div>
+                    </div>
+                    <div class="ui segment">
+                      <div class="field">
+                        <div class="ui slider checkbox">
+                          <input type="checkbox" name="mySliders" id="showTypesCheckBox" tabindex="0">
+                          <label>Show Type</label>
+                        </div>
+                        <div class="ui slider checkbox">
+                          <input type="checkbox" name="mySliders" id="showFilesCheckBox" tabindex="1">
+                          <label>Show File</label>
                         </div>
                       </div>
                     </div>
@@ -135,512 +235,634 @@
           </div>
         </div>
       </div>
-      <div id="treeContainer" class="col-sm-12  col-md-6" style="display: none;overflow-x: hidden; overflow-y: auto; height: 500px;border-style: outset; border-radius: 10px;">
-        <br/>
-        <div id="notFoundMessage" style="display:none">
-        </div>
-        <div id="tree" style=" overflow-x: hidden;"></div>
+    </div>
+    <div id="treeContainer" class="col-sm-12  col-md-6" style="display: none;overflow-x: hidden; overflow-y: auto; height: 500px;border-style: outset; border-radius: 10px;">
+      <br/>
+      <div id="notFoundMessage" style="display:none">
       </div>
-      <div id="infoTabs" class="col-sm-12 col-md-6" style="display: none;overflow-x: hidden; overflow-y: auto; height:500px;border-style: outset;border-radius: 10px;">
-        <div id="externalInfo"></div>
-        <ul id="viewList" class="nav nav-tabs" style="display: none">
-          <li class="active"><a class="nav-link active" data-toggle="tab" id="documentationTab" href="#documentation">Documentation</a></li>
-          <li><a class="nav-link" data-toggle="tab" id="sourceCodeTab" href="#sourceCode">Source</a></li>
-          <li><a class="nav-link" data-toggle="tab" id="graphTab" href="#showGraph">Graphical Depiction</a></li>
-          <li class="nav-item">
-            <div id="fullScreenButton" class="ui basic icon button" style="margin-left: 85px; margin-top: 2px;" data-tooltip="Add users to your feed">
-              <a href="#" onmousedown="getFullScreenConcept(); return false; ">  <i class="expand icon"></i> </a>
-            </div>
-          </li>
-        </ul>
-        <div class="tab-content">
-          <div class="tab-pane active" id="documentation" role="tabpanel">
-            <div id="infoDetails">
-              <h2 id="conceptHead" style="display: none; margin-top:9px"> Details: </h2>
-              <div id="detailTable" style="padding-bottom:20px"></div>
-              <div id="domainTable" style="display: none; padding-bottom:20px"></div>
-              <div id="domainPropertyTable" style="display: none; padding-bottom:20px"></div>
-              <div id="rangePropertyTable" style="display: none; padding-bottom:20px"></div>
-              <div id="rangeTable" style="display: none; padding-bottom:20px"></div>
-              <div id="instancesTable" style="display: none"></div>
-              <h4 id="instanceHead" style="display: none; margin-top:9px"></h4>
-              <div id="instanceDetailsTable" style="display: none"></div>
-            </div>
+      <div id="tree" style=" overflow-x: hidden;"></div>
+    </div>
+    <div id="infoTabs" class="col-sm-12 col-md-6" style="display: none;overflow-x: hidden; overflow-y: auto; height:500px;border-style: outset;border-radius: 10px;">
+      <div id="externalInfo"></div>
+      <ul id="viewList" class="nav nav-tabs" style="display: none">
+        <li class="active"><a class="nav-link active" data-toggle="tab" id="documentationTab" href="#documentation">Documentation</a></li>
+        <li><a class="nav-link" data-toggle="tab" id="sourceCodeTab" href="#sourceCode">Source</a></li>
+        <li><a class="nav-link" data-toggle="tab" id="graphTab" href="#showGraph">Graphical Depiction</a></li>
+        <li class="nav-item">
+          <div id="fullScreenButton" class="ui basic icon button" style="margin-left: 85px; margin-top: 2px;" data-tooltip="Add users to your feed">
+            <a href="#" onmousedown="getFullScreenConcept(); return false; ">  <i class="expand icon"></i> </a>
           </div>
-          <div class="tab-pane" class="tabContent" id="sourceCode" role="tabpanel">
-            <div class="ui buttons">
-              <button class="ui red basic button" id="turtleCodeBnt" value="text/turtle">Turtle</button>
-              <button class="ui olive basic button" id="ntriplesCodeBnt" value="text/ntriples">N-Triples</button>
-              <button class="ui teal basic button" id="ldJsonCodeBnt" value="application/ld+json">JSON-LD</button>
-              <button class="ui blue basic button" id="rdfxmlCodeBnt" value="application/rdf+xml">RDF/XML</button>
-            </div>
-            <div id="yasqe" style="overflow: hidden;display: none"></div>
-            <div id="xmlCodeDiv" style="display: none">
-              <pre><code  id="xmlCode" ></code></pre>
-            </div>
-            <div id="jsonCodeDiv" style="display: none"><pre><code  id="jsonCode" ></code></pre></div>
-          </div>
-          <div class="tab-pane" class="tabContent" id="showGraph" role="tabpanel">
-            <div id="mynetwork"></div>
-            <p id="selection"></p>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane active" id="documentation" role="tabpanel">
+          <div id="infoDetails">
+            <h2 id="conceptHead" style="display: none; margin-top:9px"> Details: </h2>
+            <div id="detailTable" style="padding-bottom:20px"></div>
+            <div id="domainTable" style="display: none; padding-bottom:20px"></div>
+            <div id="domainPropertyTable" style="display: none; padding-bottom:20px"></div>
+            <div id="rangePropertyTable" style="display: none; padding-bottom:20px"></div>
+            <div id="rangeTable" style="display: none; padding-bottom:20px"></div>
+            <div id="instancesTable" style="display: none"></div>
+            <h4 id="instanceHead" style="display: none; margin-top:9px"></h4>
+            <div id="instanceDetailsTable" style="display: none"></div>
           </div>
         </div>
+        <div class="tab-pane" class="tabContent" id="sourceCode" role="tabpanel">
+          <div class="ui buttons" id="sourceCodeFormats">
+            <button class="ui red basic button" id="turtleCodeBnt" value="text/turtle">Turtle</button>
+            <button class="ui olive basic button" id="ntriplesCodeBnt" value="text/ntriples">N-Triples</button>
+            <button class="ui teal basic button" id="ldJsonCodeBnt" value="application/ld+json">JSON-LD</button>
+            <button class="ui blue basic button" id="rdfxmlCodeBnt" value="application/rdf+xml">RDF/XML</button>
+          </div>
+          <div id="yasqe" style="overflow: hidden;display: none"></div>
+          <div id="xmlCodeDiv" style="display: none">
+            <pre><code  id="xmlCode" ></code></pre>
+          </div>
+          <div id="jsonCodeDiv" style="display: none"><pre><code  id="jsonCode" ></code></pre>
+          </div>
+        </div>
+        <div class="tab-pane" class="tabContent" id="showGraph" role="tabpanel">
+          <div id="mynetwork"></div>
+          <p id="selection"></p>
+        </div>
       </div>
-      <% include footer %>
-        <!-- End of expressJS coding-->
+    </div>
+    <% include footer %>
+    <!-- End of expressJS coding-->
 
-        <!-- Start of javascript coding-->
-        <script>
-          if (<%- emptyData %> == true) {
-            console.log(<%- emptyData %>);
+    <!-- Start of javascript coding-->
+    <script>
+      if (<%- emptyData %> == true) {
+        console.log(<%- emptyData %>);
+      } else {
+        // get all the data from route.tree.js
+        var RDFSData = <%- JSON.stringify(data) %>;
+        var SKOSData = <%- JSON.stringify(SKOSData) %>;
+        var mixRDFConcepts = <%- JSON.stringify(allRDFObjects) %>;
+        var mixSKOSConcepts = <%- JSON.stringify(allSKOSObjects) %>;
+        var isfileNameSelected = false;
+        var currentFiles = <%- JSON.stringify(fileNames) %>;
+        var RDFObjPlusURI = <%- JSON.stringify(RDFObjectsPlusURI) %>;
+        var SKOSObjPlusURI = <%- JSON.stringify(SKOSObjectsPlusURI) %>;
+        var individiualsData = <%- JSON.stringify(OWLIndividuals) %>;
+        // store the selected concept
+        var currentSelectedConcept = "",
+          currentSelectedIndividualURI = "";
+        // store current elements in the tree, it has RDFS concepts initially
+        var currentTreeData = RDFSData;
+        // store which file is selected from the dropdown menuSize
+        var currentSelectedFile = "ALL Files";
+        // store SKOS URI of the selected node
+        var currentSelectedSKOSURI = "";
+        // store RDF type filter if it is selcted
+        var currentSelectedRDFType = "";
+        // initilaiztion of ui elements
+        $('.ui.radio.checkbox').checkbox();
+        $('.ui.dropdown').dropdown();
+        $('.ui.checkbox').checkbox();
+
+        // disable propertyTypeDropdown at the start
+        $('#propertyTypeDropdown').addClass("disabled");
+
+
+        // filter treeData based on type
+        function getViewDataBasedOnType(data, str) {
+          return data.filter(function(element) {
+            if (element.RDFType.includes(str))
+              return element
+          })
+        }
+
+        // redirect to getFullScreen of the concept
+        function getFullScreenConcept() {
+          if (currentSelectedConcept)
+            location.href = "./" + currentSelectedConcept;
+        }
+
+        // show SKOS concepts on treeview
+        function showIndividualTree(data, file) {
+          if (data === individiualsData || data.length === 0) {
+            var viewData = individiualsData;
+            currentTreeData = individiualsData;
           } else {
-            // get all the data from route.tree.js
-            var RDFSData = <%- JSON.stringify(data) %>;
-            var SKOSData = <%- JSON.stringify(SKOSData) %>;
-            var mixRDFConcepts = <%- JSON.stringify(allRDFObjects) %>;
-            var mixSKOSConcepts = <%- JSON.stringify(allSKOSObjects) %>;
-            var isfileNameSelected = false;
-            var currentFiles = <%- JSON.stringify(fileNames) %>;
-            var RDFObjPlusURI = <%- JSON.stringify(RDFObjectsPlusURI) %>;
-            var SKOSObjPlusURI = <%- JSON.stringify(SKOSObjectsPlusURI) %>;
-            var individiualsData = <%- JSON.stringify(OWLIndividuals) %>;
-            // store the selected concept
-            var currentSelectedConcept = "",
-              currentSelectedIndividualURI = "";
-            // store current elements in the tree, it has RDFS concepts initially
-            var currentTreeData = RDFSData;
-            // store which file is selected from the dropdown menuSize
-            var currentSelectedFile = "ALL Files";
-            // store SKOS URI of the selected node
-            var currentSelectedSKOSURI = "";
-            // store RDF type filter if it is selcted
-            var currentSelectedRDFType = "";
-            // initilaiztion of ui elements
-            $('.ui.radio.checkbox').checkbox();
-            $('.ui.dropdown').dropdown();
-            $('.ui.checkbox').checkbox();
-            //
-            $('#propertyTypeDropdown').addClass("disabled");
+            var viewData = data;
+            currentTreeData = data;
+          }
+
+          // Just one check is on not both
+          if (isCheckedshowTypesCheckBox)
+            $('#showFilesCheckBox').prop('checked', false);
+          if (isCheckedshowFilesCheckBox)
+            $('#showTypesCheckBox').prop('checked', false);
+          if ($('#showTypesCheckBox').is(':checked')) {
+            for (var i = 0; i < viewData.length; i++) {
+              viewData[i].text = viewData[i].subject;
+              viewData[i].tags = ['<a  class="ui tiny teal tag label">' + viewData[i].RDFType + '</a>'];
+            }
+          } else if ($('#showFilesCheckBox').is(':checked')) {
+            for (var i = 0; i < viewData.length; i++) {
+              viewData[i].text = viewData[i].subject;
+              viewData[i].tags = ['<a  class="ui tiny pink tag label">' + viewData[i].fileName + '</a>'];
+            }
+          } else {
+            for (var i = 0; i < viewData.length; i++) {
+              viewData[i].text = viewData[i].subject;
+              viewData[i].tags = [''];
+            }
+          }
+          var data = [];
+          data = viewData;
+          if (file !== "ALL Files") {
+            currentTreeData = getIndividualsFileData(data, file);
+            data = getIndividualsFileData(data, file);
+          }
+          if (data) {
+            $('#notFoundMessage').hide();
+            treeContainer
+            $("#treeContainer").show();
+            $("#tree").show();
+          } else {
+            $("#treeContainer").hide();
+            $("#tree").hide();
+          } // make array unique
+          data = uniqueArray(data);
+          // sorting the tree before viewing
+          data.sort(function(a, b) {
+            return ((a.text.toLowerCase() == b.text.toLowerCase()) ? 0 : ((a.text.toLowerCase() > b.text.toLowerCase()) ? 1 : -1));
+          });
+          // rebuild tree with the new SKOS data
+          buildTree(data);
+        }
 
 
-            // filter treeData based on type
-            function getViewDataBasedOnType(data, str) {
-              return data.filter(function(element) {
-                if (element.RDFType.includes(str))
-                  return element
+
+        // show SKOS concepts on treeview
+        function showSKOSTree(data, file, str) {
+
+          if (data === SKOSData || data.length === 0) {
+            var viewData = SKOSData;
+            currentTreeData = SKOSData;
+          } else {
+            var viewData = data;
+            currentTreeData = data;
+          }
+
+          // Just one check is on not both
+          if (isCheckedshowTypesCheckBox)
+            $('#showFilesCheckBox').prop('checked', false);
+          if (isCheckedshowFilesCheckBox)
+            $('#showTypesCheckBox').prop('checked', false);
+
+          if (str) {
+            viewData = getViewDataBasedOnType(viewData, str);
+            currentTreeData = viewData;
+          }
+
+          var allParents = getUniqueParents(viewData);
+          var data = [];
+          var parentNodes = [];
+          if ($('#showTypesCheckBox').is(':checked')) {
+            for (var i = 0; i < viewData.length; i++) {
+              viewData[i].text = viewData[i].concept;
+              // check for multiple types
+              const allTypes = _(SKOSData)
+                .filter(o => {
+                  return o.concept === viewData[i].concept
+                })
+                .map(o => {
+                  return '<a  class="ui tiny teal tag label">' + o.RDFType + '</a>';
+                })
+                .valueOf();
+              var allUniqueTypes = allTypes;
+              viewData[i].tags = uniqueArray(allUniqueTypes, "RDFType");
+            }
+            parentNodes = getParentWithChildren(viewData, allParents, 'typeTag');
+
+          } else if ($('#showFilesCheckBox').is(':checked')) {
+            for (var i = 0; i < viewData.length; i++) {
+              viewData[i].text = viewData[i].concept;
+              viewData[i].tags = ['<a  class="ui tiny pink tag label">' + viewData[i].fileName + '</a>'];
+            }
+            parentNodes = getParentWithChildren(viewData, allParents, 'fileTag');
+
+          } else {
+            for (var i = 0; i < viewData.length; i++) {
+              viewData[i].text = viewData[i].concept;
+              viewData[i].tags = [''];
+            }
+            parentNodes = getParentWithChildren(viewData, allParents);
+
+          }
+          data = parentNodes;
+
+          if (file !== "ALL Files") {
+            currentTreeData = getSKOSFileData(data, file);
+            data = getSKOSFileData(data, file);
+          }
+          if (data.length > 0) {
+            $('#notFoundMessage').hide();
+            $("#treeContainer").show();
+            $("#tree").show();
+          } else {
+            $("#treeContainer").hide();
+            $("#tree").hide();
+          }
+          // make array unique
+          data = uniqueArray(data);
+          // update numbers of classes, properties, individual .. etc
+          updateTypeNumbers();
+          // sorting the tree before viewing
+          data.sort(function(a, b) {
+            return ((a.text.toLowerCase() == b.text.toLowerCase()) ? 0 : ((a.text.toLowerCase() > b.text.toLowerCase()) ? 1 : -1));
+          });
+
+          // rebuild tree with the new SKOS data
+          buildTree(data);
+        }
+
+        // get ExternalsConcepts for either SKOS or RFS(S)
+        function getExternalsConcepts() {
+          var externalConcepts = [];
+          if ($('#SKOSViewCheckBox').is(':checked')) {
+            var internals = [];
+            mixSKOSConcepts.forEach(function(item) {
+              for (var i = 0; i < SKOSData.length; i++) {
+                if (item === SKOSData[i].child || item === SKOSData[i].concept || item === SKOSData[i].parent || SKOSData[i].RDFType.includes("NamedIndividual")) {
+                  internals.push(item);
+                }
+              }
+            });
+            externalConcepts = $(mixSKOSConcepts).not(internals).get();
+          }
+          if ($('#RDFSViewCheckBox').is(':checked')) {
+            var internals = [];
+            mixRDFConcepts.forEach(function(item) {
+              for (var i = 0; i < RDFSData.length; i++) {
+                if (item === RDFSData[i].concept) {
+                  internals.push(item);
+                }
+              }
+            });
+            externalConcepts = $(mixRDFConcepts).not(internals).get();
+          }
+          return externalConcepts;
+        }
+
+        // show full tree for the first time
+        // since RDFS checkbox is clicked by default
+        showRDFSTree(RDFSData, currentSelectedFile);
+        // make unique concept in  tree
+        function uniqueArray(array, str) {
+          var a = array.concat();
+          for (var i = 0; i < a.length; i++) {
+            for (var j = i + 1; j < a.length; j++) {
+              switch (str) {
+                case "RDFType":
+                  if (a[i] === a[j])
+                    a.splice(j--, 1);
+                  break;
+                case "subject":
+                  if (a[i].subject === a[j].subject)
+                    a.splice(j--, 1);
+                  break;
+                default:
+                  if (a[i].text === a[j].text)
+                    a.splice(j--, 1);
+              }
+            }
+          }
+          return a;
+        }
+
+        // update the  numbers of classes, properties, individuals .. etc
+        function updateTypeNumbers(currentSelectedIndividual) {
+          var individualsCount = 0,
+            propertiesCount = 0,
+            classesCount = 0,
+            skosCount = 0,
+            allTypesCount = 0;
+          var array = [];
+          if (currentSelectedFile != "ALL Files") {
+            array = _.filter(individiualsData, function(o) {
+              if (o.fileName === currentSelectedFile)
+                return o;
+            });
+            if (array) {
+              array = uniqueArray(array, "subject");
+              individualsCount = _.size(array);
+            }
+          } else if (currentSelectedIndividual) {
+            array = uniqueArray(currentSelectedIndividual, "subject");
+            individualsCount = _.size(array);
+          } else {
+            array = uniqueArray(individiualsData, "subject");
+            individualsCount = _.size(array);
+          }
+
+          var filterTypes = function(arr, term) {
+            var matches = [];
+            var counter = 0;
+            if (Array.isArray(arr) && arr.length > 0) {
+              arr.forEach(function(i) {
+                if (i.RDFType.includes(term)) {
+                  matches.push(i);
+                } else if (i.hasOwnProperty("nodes")) {
+                  let childResults = filterTypes(i.nodes, term);
+                  if (childResults.length) {
+                    matches.push(Object.assign({}, i, {
+                      nodes: childResults
+                    }));
+                  }
+                }
               })
             }
-
-            // redirect to getFullScreen of the concept
-            function getFullScreenConcept() {
-              if (currentSelectedConcept)
-                location.href = "./" + currentSelectedConcept;
+            return matches;
+          }
+          var array2 = [];
+          if (currentSelectedFile != "ALL Files") {
+            var dataFileToBeFiltered = "";
+            if ($('#SKOSViewCheckBox').is(':checked')) {
+              dataFileToBeFiltered = SKOSData;
+            } else if ($('#RDFSViewCheckBox').is(':checked')) {
+              dataFileToBeFiltered = RDFSData;
             }
-
-            // show SKOS concepts on treeview
-            function showIndividualTree(data, file) {
-              if (data === individiualsData || data.length === 0) {
-                var viewData = individiualsData;
-                currentTreeData = individiualsData;
-              } else {
-                var viewData = data;
-                currentTreeData = data;
-              }
-
-              // Just one check is on not both
-              if (isCheckedshowTypesCheckBox)
-                $('#showFilesCheckBox').prop('checked', false);
-              if (isCheckedshowFilesCheckBox)
-                $('#showTypesCheckBox').prop('checked', false);
-              if ($('#showTypesCheckBox').is(':checked')) {
-                for (var i = 0; i < viewData.length; i++) {
-                  viewData[i].text = viewData[i].subject;
-                  viewData[i].tags = ['<a  class="ui tiny teal tag label">' + viewData[i].RDFType + '</a>'];
-                }
-              } else if ($('#showFilesCheckBox').is(':checked')) {
-                for (var i = 0; i < viewData.length; i++) {
-                  viewData[i].text = viewData[i].subject;
-                  viewData[i].tags = ['<a  class="ui tiny pink tag label">' + viewData[i].fileName + '</a>'];
-                }
-              } else {
-                for (var i = 0; i < viewData.length; i++) {
-                  viewData[i].text = viewData[i].subject;
-                  viewData[i].tags = [''];
-                }
-              }
-              var data = [];
-              data = viewData;
-              if (file !== "ALL Files") {
-                currentTreeData = getIndividualsFileData(data, file);
-                data = getIndividualsFileData(data, file);
-              }
-              if (data) {
-                $('#notFoundMessage').hide();
-                treeContainer
-                $("#treeContainer").show();
-                $("#tree").show();
-              } else {
-                $("#treeContainer").hide();
-                $("#tree").hide();
-              } // make array unique
-              data = uniqueArray(data);
-              // sorting the tree before viewing
-              data.sort(function(a, b) {
-                return ((a.text.toLowerCase() == b.text.toLowerCase()) ? 0 : ((a.text.toLowerCase() > b.text.toLowerCase()) ? 1 : -1));
-              });
-              // rebuild tree with the new SKOS data
-              buildTree(data);
+            dataFileToBeFiltered = _.filter(dataFileToBeFiltered, function(obj) {
+              if (obj.fileName === currentSelectedFile)
+                return obj;
+            });
+            if ($('#SKOSViewCheckBox').is(':checked')) {
+              skosCount = filterTypes(dataFileToBeFiltered, "Concept").length;
+              allTypesCount = skosCount;
+            } else if ($('#RDFSViewCheckBox').is(':checked')) {
+              propertiesCount = filterTypes(dataFileToBeFiltered, "Property").length;
+              classesCount = filterTypes(dataFileToBeFiltered, "Class").length;
+              allTypesCount = propertiesCount + classesCount;
             }
-
-
-
-            // show SKOS concepts on treeview
-            function showSKOSTree(data, file, str) {
-
-              if (data === SKOSData || data.length === 0) {
-                var viewData = SKOSData;
-                currentTreeData = SKOSData;
-              } else {
-                var viewData = data;
-                currentTreeData = data;
-              }
-
-              // Just one check is on not both
-              if (isCheckedshowTypesCheckBox)
-                $('#showFilesCheckBox').prop('checked', false);
-              if (isCheckedshowFilesCheckBox)
-                $('#showTypesCheckBox').prop('checked', false);
-
-              if (str) {
-                viewData = getViewDataBasedOnType(viewData, str);
-                currentTreeData = viewData;
-              }
-
-              var allParents = getUniqueParents(viewData);
-              var data = [];
-              var parentNodes = [];
-              if ($('#showTypesCheckBox').is(':checked')) {
-                for (var i = 0; i < viewData.length; i++) {
-                  viewData[i].text = viewData[i].concept;
-                  // check for multiple types
-                  const allTypes = _(SKOSData)
-                    .filter(o => {
-                      return o.concept === viewData[i].concept
-                    })
-                    .map(o => {
-                      return '<a  class="ui tiny teal tag label">' + o.RDFType + '</a>';
-                    })
-                    .valueOf();
-                  var allUniqueTypes = allTypes;
-                  viewData[i].tags = uniqueArray(allUniqueTypes, "RDFType");
-                }
-                parentNodes = getParentWithChildren(viewData, allParents, 'typeTag');
-
-              } else if ($('#showFilesCheckBox').is(':checked')) {
-                for (var i = 0; i < viewData.length; i++) {
-                  viewData[i].text = viewData[i].concept;
-                  viewData[i].tags = ['<a  class="ui tiny pink tag label">' + viewData[i].fileName + '</a>'];
-                }
-                parentNodes = getParentWithChildren(viewData, allParents, 'fileTag');
-
-              } else {
-                for (var i = 0; i < viewData.length; i++) {
-                  viewData[i].text = viewData[i].concept;
-                  viewData[i].tags = [''];
-                }
-                parentNodes = getParentWithChildren(viewData, allParents);
-
-              }
-              data = parentNodes;
-
-              if (file !== "ALL Files") {
-                currentTreeData = getSKOSFileData(data, file);
-                data = getSKOSFileData(data, file);
-              }
-              if (data.length > 0) {
-                $('#notFoundMessage').hide();
-                $("#treeContainer").show();
-                $("#tree").show();
-              } else {
-                $("#treeContainer").hide();
-                $("#tree").hide();
-              }
-              // make array unique
-              data = uniqueArray(data);
-              // sorting the tree before viewing
-              data.sort(function(a, b) {
-                return ((a.text.toLowerCase() == b.text.toLowerCase()) ? 0 : ((a.text.toLowerCase() > b.text.toLowerCase()) ? 1 : -1));
-              });
-              // rebuild tree with the new SKOS data
-              buildTree(data);
+          } else if (currentTreeData.length > 0) {
+            if ($('#SKOSViewCheckBox').is(':checked')) {
+              skosCount = filterTypes(currentTreeData, "Concept").length;
+              allTypesCount = skosCount;
+            } else if ($('#RDFSViewCheckBox').is(':checked')) {
+              propertiesCount = filterTypes(currentTreeData, "Property").length;
+              classesCount = filterTypes(currentTreeData, "Class").length;
+              allTypesCount = propertiesCount + classesCount;
             }
+          } else {
+            propertiesCount = 0;
+            classesCount = 0;
+            skosCount = 0;
+            allTypesCount = 0;
+          }
+          $('#individualsNumberlbl').text(individualsCount.toString());
+          $('#propertiesNumberlbl').text(propertiesCount.toString());
+          $('#classesNumberlbl').text(classesCount.toString());
+          $('#allTypesNumberlbl').text(allTypesCount.toString());
+        }
 
-            // get ExternalsConcepts for either SKOS or RFS(S)
-            function getExternalsConcepts() {
-              var externalConcepts = [];
-              if ($('#SKOSViewCheckBox').is(':checked')) {
-                var internals = [];
-                mixSKOSConcepts.forEach(function(item) {
-                  for (var i = 0; i < SKOSData.length; i++) {
-                    if (item === SKOSData[i].child || item === SKOSData[i].concept || item === SKOSData[i].parent || SKOSData[i].RDFType.includes("NamedIndividual")) {
-                      internals.push(item);
-                    }
+        // show info. for external Concepts and thier instaces
+        function showExternalInfo(str) {
+          var ExteralURI = getExternalURI(str);
+          // check if hideExternalConceptsCheckBox is checked
+          if ($('#hideExternalConceptsCheckBox').is(':checked')) {
+            $('#hideExternalConceptsCheckBox').prop('checked', false);
+            if ($('#SKOSViewCheckBox').is(':checked')) {
+              $('#documentation').tab('show')
+              showSKOSTree(SKOSData, currentSelectedFile);
+            } else {
+              $('#documentation').tab('show')
+              showRDFSTree(RDFSData, currentSelectedFile);
+            }
+          }
+          // check if URI for external concept is exist
+          if (ExteralURI) {
+            //scrollTop if class clicked from instanceDetailsTable
+            $("#infoTabs").animate({
+              scrollTop: 0
+            }, "fast");
+            $("#instanceHead").hide();
+            $("#instanceDetailsTable").hide();
+            $("#instancesTable").hide();
+            var externalURITable = '<div class="ui attached error message">' +
+              '<div class="header"> This concept is external </div></div>';
+            // check if it URL ends with "/"
+            if (ExteralURI[ExteralURI.length - 1] === ('/')) {
+              var link = '<a href=' + ExteralURI.slice(0, -1) + '>' + ExteralURI.slice(0, -1) + '</a>';
+            } else {
+              var link = '<a href=' + ExteralURI + '>' + ExteralURI + '</a>';
+            }
+            //show info. about the external concept
+            externalURITable += '<div class="ui bottom attached fluid segment"> For more details, please click the following link: <br/><br/> ' + link;
+            externalURITable += '</div>';
+            $('#infoTabs').show();
+            $('a[href="#documentation"]').click();
+            $('#sourceCodeTab').hide();
+            $('#graphTab').hide();
+            $('#infoDetails').show();
+            $("#domainTable").hide();
+            $("#domainPropertyTable").hide();
+            $("#rangePropertyTable").hide();
+            $("#rangeTable").hide();
+            $("#instancesTable").hide();
+            $("#instanceHead").hide();
+            $("#instanceDetailsTable").hide();
+            $("#conceptHead").show();
+            if (ExteralURI[ExteralURI.length - 1] === ('/')) {
+              var str = ExteralURI.slice(0, -1);
+              $("#conceptHead").html('<p>  Details: <code>' + trimHash(trimSlash(str)) + '</code></p>');
+            } else {
+              $("#conceptHead").html('<p>  Details: <code>' + trimHash(replaceWithRDFType(trimSlash(ExteralURI))) + '</code></p>');
+            }
+            $('#detailTable').html(externalURITable);
+            $('#detailTable').transition('shake')
+            var endpoint = "./fuseki/dataset/sparql?query=";
+            var querystring = 'SELECT  ?s WHERE { ?s  a <' + encodeURIComponent(ExteralURI) + '> }';
+            $.ajax({
+              type: 'GET',
+              url: endpoint + querystring,
+              headers: {
+                Accept: 'application/sparql-results+json;charset=UTF-8'
+              },
+              success: function(data, textStatus, jqXHR) {
+                var instances = data.results.bindings;
+                if (instances[0] != null) {
+                  var instancesTable = '<table class="ui pink table" style="table-layout:fixed;>' +
+                    '<colgroup> <col class="col-md-4"> </colgroup>' +
+                    '<tr>' +
+                    '<th>Individuals</th>' +
+                    '</tr>';
+                  for (var i = 0; i < instances.length; i++) {
+                    var instanceURI = instances[i]["s"].value;
+                    var key1 = trimHash(trimSlash(instanceURI));
+                    key1 = '<a href="#" onmousedown="showInstanceDetails(&quot;' + instanceURI + '&quot;); return false; ">' + key1 + '</a>';
+                    instancesTable += '<tr>    <td>' + key1 + '</td>  </tr>';
                   }
-                });
-                externalConcepts = $(mixSKOSConcepts).not(internals).get();
-              }
-              if ($('#RDFSViewCheckBox').is(':checked')) {
-                var internals = [];
-                mixRDFConcepts.forEach(function(item) {
-                  for (var i = 0; i < RDFSData.length; i++) {
-                    if (item === RDFSData[i].concept) {
-                      internals.push(item);
-                    }
-                  }
-                });
-                externalConcepts = $(mixRDFConcepts).not(internals).get();
-              }
-              return externalConcepts;
-            }
-
-            // show full tree for the first time
-            // since RDFS checkbox is clicked by default
-            showRDFSTree(RDFSData, currentSelectedFile);
-            // make unique concept in  tree
-            function uniqueArray(array, str) {
-              var a = array.concat();
-              for (var i = 0; i < a.length; i++) {
-                for (var j = i + 1; j < a.length; j++) {
-                  switch (str) {
-                    case "RDFType":
-                      if (a[i] === a[j])
-                        a.splice(j--, 1);
-                      break;
-                    default:
-                      if (a[i].text === a[j].text)
-                        a.splice(j--, 1);
-                  }
-                }
-              }
-              return a;
-            }
-
-            // show info. for external Concepts and thier instaces
-            function showExternalInfo(str) {
-              var ExteralURI = getExternalURI(str);
-              // check if hideExternalConceptsCheckBox is checked
-              if ($('#hideExternalConceptsCheckBox').is(':checked')) {
-                $('#hideExternalConceptsCheckBox').prop('checked', false);
-                if ($('#SKOSViewCheckBox').is(':checked')) {
-                  $('#documentation').tab('show')
-                  showSKOSTree(SKOSData, currentSelectedFile);
+                  instancesTable += '</table> ';
+                  $("#instancesTable").show();
+                  $("#instancesTable").html(instancesTable);
                 } else {
-                  $('#documentation').tab('show')
-                  showRDFSTree(RDFSData, currentSelectedFile);
+                  $("#instancesTable").hide();
+                  $("#instanceHead").hide();
+                  $("#instanceDetailsTable").hide();
+                }
+                if (instances[0] != null) {
+                  var instancesTable = '<table class="ui red table" style="table-layout:fixed;>' +
+                    '<colgroup> <col class="col-md-4"> </colgroup>' +
+                    '<tr>' +
+                    '<th>Individuals</th>' +
+                    '</tr>';
+                  for (var i = 0; i < instances.length; i++) {
+                    var instanceURI = instances[i]["s"].value;
+                    var key1 = trimHash(trimSlash(instances[i]["s"].value));
+                    key1 = '<a href="#" onmousedown="showInstanceDetails(&quot;' + instanceURI + '&quot;); return false; ">' + key1 + '</a>';
+                    instancesTable += '<tr>    <td>' + key1 + '</td>  </tr>';
+                  }
+                  instancesTable += '</table> ';
+                  $("#instancesTable").show();
+                  $("#instancesTable").html(instancesTable);
+                } else {
+                  $("#instancesTable").html("");
+                  $("#instancesTable").hide();
+                  $("#instanceHead").hide();
+                  $("#instanceDetailsTable").hide();
                 }
               }
-              // check if URI for external concept is exist
-              if (ExteralURI) {
-                //scrollTop if class clicked from instanceDetailsTable
-                $("#infoTabs").animate({
-                  scrollTop: 0
-                }, "fast");
-                $("#instanceHead").hide();
-                $("#instanceDetailsTable").hide();
-                $("#instancesTable").hide();
-                var externalURITable = '<div class="ui attached error message">' +
-                  '<div class="header"> This concept is external </div></div>';
-                // check if it URL ends with "/"
-                if (ExteralURI[ExteralURI.length - 1] === ('/')) {
-                  var link = '<a href=' + ExteralURI.slice(0, -1) + '>' + ExteralURI.slice(0, -1) + '</a>';
-                } else {
-                  var link = '<a href=' + ExteralURI + '>' + ExteralURI + '</a>';
-                }
-                //show info. about the external concept
-                externalURITable += '<div class="ui bottom attached fluid segment"> For more details, please click the following link: <br/><br/> ' + link;
-                externalURITable += '</div>';
-                $('#infoTabs').show();
-                $('a[href="#documentation"]').click();
-                $('#sourceCodeTab').hide();
-                $('#graphTab').hide();
+            });
+          } else {
+            infoTabs
+            $('#infoTabs').hide();
+            $('#infoDetails').hide();
+            $("#externalInfo").show();
+            $("#externalInfo").html('<p > Concept is External still has no URI</p>');
+          }
+        }
+
+        //show treeview with types or files
+        function showRDFSTree(data, file, str) {
+          // set currentTreeData to RDFS data
+          if (data === RDFSData || data.length === 0) {
+            var viewData = RDFSData;
+            currentTreeData = RDFSData;
+          } else {
+            var viewData = data;
+            currentTreeData = data;
+          }
+          // check if typesRadio is checked and update current data
+          if (str) {
+            viewData = getViewDataBasedOnType(viewData, str);
+          }
+          // only one is checked but not both
+          if (isCheckedshowTypesCheckBox)
+            $('#showFilesCheckBox').prop('checked', false);
+          if (isCheckedshowFilesCheckBox)
+            $('#showTypesCheckBox').prop('checked', false);
+          var allParents = getUniqueParents(viewData);
+          var data = [];
+          var parentNodes = [];
+          if ($('#showFilesCheckBox').is(':checked')) {
+            for (var i = 0; i < viewData.length; i++) {
+              viewData[i].text = viewData[i].concept;
+              viewData[i].tags = ['<a  class="ui tiny pink tag label">' + viewData[i].fileName + '</a>'];
+            }
+            parentNodes = getParentWithChildren(viewData, allParents, 'fileTag');
+          } else if ($('#showTypesCheckBox').is(':checked')) {
+            for (var i = 0; i < viewData.length; i++) {
+              viewData[i].text = viewData[i].concept;
+              // check for multiple types
+              const allTypes = _(RDFSData)
+                .filter(o => {
+                  return o.concept === viewData[i].concept
+                })
+                .map(o => {
+                  return '<a  class="ui tiny teal tag label">' + o.RDFType + '</a>';
+                })
+                .valueOf();
+              var allUniqueTypes = allTypes;
+              viewData[i].tags = uniqueArray(allUniqueTypes, "RDFType");
+            }
+            parentNodes = getParentWithChildren(viewData, allParents, 'typeTag');
+          } else {
+            for (var i = 0; i < viewData.length; i++) {
+              viewData[i].text = viewData[i].concept;
+              viewData[i].tags = [''];
+            }
+            parentNodes = getParentWithChildren(viewData, allParents);
+          }
+          data = parentNodes;
+
+          if (file !== "ALL Files") {
+            currentTreeData = getRDFSFileData(data, file);
+            data = getRDFSFileData(data, file);
+          }
+          if (data) {
+            $('#notFoundMessage').hide();
+            $("#treeContainer").show();
+            $("#tree").show();
+          } else {
+            $("#treeContainer").hide();
+            $("#tree").hide();
+          } // make array unique
+          data = uniqueArray(data);
+          // update numbers of classes, properties, individual .. etc
+          updateTypeNumbers();
+          // sorting the tree before viewing
+          data.sort(function(a, b) {
+            if (a.text && b.text) {
+              return ((a.text.toLowerCase() == b.text.toLowerCase()) ? 0 : ((a.text.toLowerCase() > b.text.toLowerCase()) ? 1 : -1));
+            }
+          });
+          // rebuild tree with the new data
+          buildTree(data);
+        }
+
+        // regenerate the tree according to the new data
+        function buildTree(data) {
+          $('#tree').treeview({
+            data: data, // data is not optional
+            levels: 5,
+            showTags: true,
+            enableLinks: true,
+            icon: "glyphicon glyphicon-chevron-right",
+            selectedIcon: "glyphicon glyphicon-chevron-right",
+            onNodeSelected: function(event, node) {
+              // catch the individuals if it has "subject" property
+              if (node.hasOwnProperty('subject')) {
+                event.stopPropagation();
+                $('#externalInfo').hide();
                 $('#infoDetails').show();
-                $("#domainTable").hide();
-                $("#domainPropertyTable").hide();
-                $("#rangePropertyTable").hide();
-                $("#rangeTable").hide();
-                $("#instancesTable").hide();
-                $("#instanceHead").hide();
-                $("#instanceDetailsTable").hide();
-                $("#conceptHead").show();
-                if (ExteralURI[ExteralURI.length - 1] === ('/')) {
-                  var str = ExteralURI.slice(0, -1);
-                  $("#conceptHead").html('<p>  Details: <code>' + trimHash(trimSlash(str)) + '</code></p>');
-                } else {
-                  $("#conceptHead").html('<p>  Details: <code>' + trimHash(replaceWithRDFType(trimSlash(ExteralURI))) + '</code></p>');
-                }
-                $('#detailTable').html(externalURITable);
-                $('#detailTable').transition('shake')
-                var endpoint = "./fuseki/dataset/sparql?query=";
-                var querystring = 'SELECT  ?s WHERE { ?s  a <' + encodeURIComponent(ExteralURI) + '> }';
-                $.ajax({
-                  type: 'GET',
-                  url: endpoint + querystring,
-                  headers: {
-                    Accept: 'application/sparql-results+json;charset=UTF-8'
-                  },
-                  success: function(data, textStatus, jqXHR) {
-                    var instances = data.results.bindings;
-                    if (instances[0] != null) {
-                      var instancesTable = '<table class="ui pink table" style="table-layout:fixed;>' +
-                        '<colgroup> <col class="col-md-4"> </colgroup>' +
-                        '<tr>' +
-                        '<th>Individuals</th>' +
-                        '</tr>';
-                      for (var i = 0; i < instances.length; i++) {
-                        var instanceURI = instances[i]["s"].value;
-                        var key1 = trimHash(trimSlash(instanceURI));
-                        key1 = '<a href="#" onmousedown="showInstanceDetails(&quot;' + instanceURI + '&quot;); return false; ">' + key1 + '</a>';
-                        instancesTable += '<tr>    <td>' + key1 + '</td>  </tr>';
-                      }
-                      instancesTable += '</table> ';
-                      $("#instancesTable").show();
-                      $("#instancesTable").html(instancesTable);
-                    } else {
-                      $("#instancesTable").hide();
-                      $("#instanceHead").hide();
-                      $("#instanceDetailsTable").hide();
-                    }
-                    if (instances[0] != null) {
-                      var instancesTable = '<table class="ui red table" style="table-layout:fixed;>' +
-                        '<colgroup> <col class="col-md-4"> </colgroup>' +
-                        '<tr>' +
-                        '<th>Individuals</th>' +
-                        '</tr>';
-                      for (var i = 0; i < instances.length; i++) {
-                        var instanceURI = instances[i]["s"].value;
-                        var key1 = trimHash(trimSlash(instances[i]["s"].value));
-                        key1 = '<a href="#" onmousedown="showInstanceDetails(&quot;' + instanceURI + '&quot;); return false; ">' + key1 + '</a>';
-                        instancesTable += '<tr>    <td>' + key1 + '</td>  </tr>';
-                      }
-                      instancesTable += '</table> ';
-                      $("#instancesTable").show();
-                      $("#instancesTable").html(instancesTable);
-                    } else {
-                      $("#instancesTable").html("");
-                      $("#instancesTable").hide();
-                      $("#instanceHead").hide();
-                      $("#instanceDetailsTable").hide();
-                    }
-                  }
+                $('#viewList').show();
+                getConceptInfo(node.subjectURI, "Individuals");
+                showTurtleSource(node.subjectURI, "Individuals");
+                currentSelectedConcept = node.subject;
+                currentSelectedIndividualURI = node.subjectURI;
+              }
+              // child right now only a property for SKOS object
+              else if (node.hasOwnProperty('child')) {
+                var str;
+                currentSelectedSKOSURI = node.URI;
+                $('#externalInfo').hide();
+                // display infoTabs and graph and documentation
+                getConceptInfo(currentSelectedSKOSURI, "SKOS");
+                // show source code
+                showTurtleSource(currentSelectedSKOSURI, "SKOS");
+                $('#tree li').each(function() {
+                  $(this).append('<div class="tag-cont"></div>');
+                  $(this).find('.tag-cont').html($(this).find('.badge'));
                 });
               } else {
-                infoTabs
-                $('#infoTabs').hide();
-                $('#infoDetails').hide();
-                $("#externalInfo").show();
-                $("#externalInfo").html('<p > Concept is External still has no URI</p>');
-              }
-            }
-
-            //show treeview with types or files
-            function showRDFSTree(data, file, str) {
-              // set currentTreeData to RDFS data
-              if (data === RDFSData || data.length === 0) {
-                var viewData = RDFSData;
-              } else {
-                var viewData = data;
-              }
-              // check if typesRadio is checked and update current data
-              if (str) {
-                viewData = getViewDataBasedOnType(viewData, str);
-              }
-              // only one is checked but not both
-              if (isCheckedshowTypesCheckBox)
-                $('#showFilesCheckBox').prop('checked', false);
-              if (isCheckedshowFilesCheckBox)
-                $('#showTypesCheckBox').prop('checked', false);
-              var allParents = getUniqueParents(viewData);
-              var data = [];
-              var parentNodes = [];
-              if ($('#showFilesCheckBox').is(':checked')) {
-                for (var i = 0; i < viewData.length; i++) {
-                  viewData[i].text = viewData[i].concept;
-                  viewData[i].tags = ['<a  class="ui tiny pink tag label">' + viewData[i].fileName + '</a>'];
-                }
-                parentNodes = getParentWithChildren(viewData, allParents, 'fileTag');
-              } else if ($('#showTypesCheckBox').is(':checked')) {
-                for (var i = 0; i < viewData.length; i++) {
-                  viewData[i].text = viewData[i].concept;
-                  // check for multiple types
-                  const allTypes = _(RDFSData)
-                    .filter(o => {
-                      return o.concept === viewData[i].concept
-                    })
-                    .map(o => {
-                      return '<a  class="ui tiny teal tag label">' + o.RDFType + '</a>';
-                    })
-                    .valueOf();
-                  var allUniqueTypes = allTypes;
-                  viewData[i].tags = uniqueArray(allUniqueTypes, "RDFType");
-                }
-                parentNodes = getParentWithChildren(viewData, allParents, 'typeTag');
-              } else {
-                for (var i = 0; i < viewData.length; i++) {
-                  viewData[i].text = viewData[i].concept;
-                  viewData[i].tags = [''];
-                }
-                parentNodes = getParentWithChildren(viewData, allParents);
-              }
-              data = parentNodes;
-
-              if (file !== "ALL Files") {
-                currentTreeData = getRDFSFileData(data, file);
-                data = getRDFSFileData(data, file);
-              }
-              if (data) {
-                $('#notFoundMessage').hide();
-                $("#treeContainer").show();
-                $("#tree").show();
-              } else {
-                $("#treeContainer").hide();
-                $("#tree").hide();
-              } // make array unique
-              data = uniqueArray(data);
-              // sorting the tree before viewing
-              data.sort(function(a, b) {
-                if (a.text && b.text) {
-                  return ((a.text.toLowerCase() == b.text.toLowerCase()) ? 0 : ((a.text.toLowerCase() > b.text.toLowerCase()) ? 1 : -1));
-                }
-              });
-              // rebuild tree with the new data
-              buildTree(data);
-            }
-
-            // regenerate the tree according to the new data
-            function buildTree(data) {
-              $('#tree').treeview({
-                data: data, // data is not optional
-                levels: 5,
-                showTags: true,
-                enableLinks: true,
-                icon: "glyphicon glyphicon-chevron-right",
-                selectedIcon: "glyphicon glyphicon-chevron-right",
-                onNodeSelected: function(event, node) {
-                  // catch the individuals if it has "subject" property
-                  if (node.hasOwnProperty('subject')) {
-                    event.stopPropagation();
-                    $('#externalInfo').hide();
-                    $('#infoDetails').show();
-                    $('#viewList').show();
-                    getConceptInfo(node.subjectURI, "Individuals");
-                    showTurtleSource(node.subjectURI, "Individuals");
-                    currentSelectedConcept = node.subject;
-                    currentSelectedIndividualURI = node.subjectURI;
-                  }
-                  // child right now only a property for SKOS object
-                  else if (node.hasOwnProperty('child')) {
-                    var str;
-                    currentSelectedSKOSURI = node.URI;
+                if (node.concept) {
+                  event.stopPropagation();
+                  $('#externalInfo').hide();
+                  $('#infoDetails').show();
+                  $('#viewList').show();
+                  getConceptInfo(node.concept);
+                  showInstances(node.concept);
+                  showTurtleSource(node.concept);
+                  currentSelectedConcept = node.concept;
+                } //check for SKOS parents nodes
+                else if (node.hasOwnProperty('nodes')) {
+                  if (node.nodes[0].hasOwnProperty('child')) {
+                    currentSelectedSKOSURI = node.nodes[0].parentURI;
                     $('#externalInfo').hide();
                     // display infoTabs and graph and documentation
                     getConceptInfo(currentSelectedSKOSURI, "SKOS");
@@ -650,504 +872,575 @@
                       $(this).append('<div class="tag-cont"></div>');
                       $(this).find('.tag-cont').html($(this).find('.badge'));
                     });
-                  } else {
-                    if (node.concept) {
-                      event.stopPropagation();
-                      $('#externalInfo').hide();
-                      $('#infoDetails').show();
-                      $('#viewList').show();
-                      getConceptInfo(node.concept);
-                      showInstances(node.concept);
-                      showTurtleSource(node.concept);
-                      currentSelectedConcept = node.concept;
-                    } //check for SKOS parents nodes
-                    else if (node.hasOwnProperty('nodes')) {
-                      if (node.nodes[0].hasOwnProperty('child')) {
-                        currentSelectedSKOSURI = node.nodes[0].parentURI;
-                        $('#externalInfo').hide();
-                        // display infoTabs and graph and documentation
-                        getConceptInfo(currentSelectedSKOSURI, "SKOS");
-                        // show source code
-                        showTurtleSource(currentSelectedSKOSURI, "SKOS");
-                        $('#tree li').each(function() {
-                          $(this).append('<div class="tag-cont"></div>');
-                          $(this).find('.tag-cont').html($(this).find('.badge'));
-                        });
-                      } else if (isConceptInside(node.text)) { //check for RDFS parents nodes
-                        event.stopPropagation();
-                        $('#externalInfo').hide();
-                        $('#infoDetails').show();
-                        $('#viewList').show();
-                        getConceptInfo(node.text);
-                        showInstances(node.text);
-                        showTurtleSource(node.text);
-                        currentSelectedConcept = node.text;
-                      }
-                    } else if (isConceptInside(node.text)) //parent node inside our ontology
-                    {
-                      event.stopPropagation();
-                      $('#externalInfo').hide();
-                      $('#infoDetails').show();
-                      $('#viewList').show();
-                      getConceptInfo(node.text);
-                      showInstances(node.text);
-                      showTurtleSource(node.text);
-                      currentSelectedConcept = node.text;
-                    }
+                  } else if (isConceptInside(node.text)) { //check for RDFS parents nodes
+                    event.stopPropagation();
+                    $('#externalInfo').hide();
+                    $('#infoDetails').show();
+                    $('#viewList').show();
+                    getConceptInfo(node.text);
+                    showInstances(node.text);
+                    showTurtleSource(node.text);
+                    currentSelectedConcept = node.text;
                   }
+                } else if (isConceptInside(node.text)) //parent node inside our ontology
+                {
+                  event.stopPropagation();
+                  $('#externalInfo').hide();
+                  $('#infoDetails').show();
+                  $('#viewList').show();
+                  getConceptInfo(node.text);
+                  showInstances(node.text);
+                  showTurtleSource(node.text);
+                  currentSelectedConcept = node.text;
                 }
-              });
-            }
-
-            var isCheckedshowFilesCheckBox, isCheckedshowTypesCheckBox;
-            // check if showType or showfile checkboxes were clicked
-            $('input:checkbox')
-              .on('change', function(event) {
-                event.preventDefault();
-                var inputType = "";
-                inputType = getClickedTypeRadio();
-                isCheckedshowFilesCheckBox = ($(this).prop('checked') && $(this).attr('id') == 'showFilesCheckBox') ? true : false;
-                isCheckedshowTypesCheckBox = ($(this).prop('checked') && $(this).attr('id') == 'showTypesCheckBox') ? true : false;
-                if (($(this).prop('checked') || !$(this).prop('checked')) && $('#individualsPropertyRadio').is(':checked')) {
-                  if ($('#input-search').val() !== "")
-                    showIndividualTree(currentTreeData, currentSelectedFile);
-                  else
-                    showIndividualTree(individiualsData, currentSelectedFile);
-                } else if (($(this).prop('checked') || !$(this).prop('checked')) && $('#SKOSViewCheckBox').is(':checked')) {
-                  if ($('#input-search').val() !== "") {
-                    showSKOSTree(currentTreeData, currentSelectedFile);
-                  } else
-                    showSKOSTree(SKOSData, currentSelectedFile, currentSelectedRDFType);
-                } else if (($(this).prop('checked') || !$(this).prop('checked')) && $('#RDFSViewCheckBox').is(':checked')) {
-                  if ($('#input-search').val() !== "") {
-                      showRDFSTree(currentTreeData, currentSelectedFile);
-                  } else {
-                    showRDFSTree(RDFSData, currentSelectedFile, currentSelectedRDFType);
-                  }
-                }
-              });
-
-            $('input:radio')
-              .on('change', function(event) {
-                event.preventDefault();
-                $('#input-search').val("");
-                var inputType = "";
-                inputType = getClickedTypeRadio();
-                $("#infoTabs").hide();
-                if ($('#individualsPropertyRadio').is(':checked')) {
-                  $('#propertyTypeDropdown').removeClass("enabled");
-                  $('#propertyTypeDropdown').addClass("disabled");
-                  showIndividualTree(individiualsData, currentSelectedFile);
-                } else if ($('#SKOSViewCheckBox').is(':checked')) {
-                  showSKOSTree(SKOSData, currentSelectedFile, inputType);
-                } else if ($('#RDFSViewCheckBox').is(':checked')) {
-                  showRDFSTree(RDFSData, currentSelectedFile, inputType);
-                }
-              });
-
-            function getClickedTypeRadio() {
-              var type = "";
-              if ($('#classRadio').is(':checked')) {
-                type = "Class";
-                currentSelectedRDFType = "Class";
-                $('#propertyTypeDropdown').removeClass("enabled");
-                $('#propertyTypeDropdown').addClass("disabled");
-              } else if ($('#allTypesRadio').is(':checked')) {
-                currentSelectedRDFType = "";
-                $('#propertyTypeDropdown').removeClass("enabled");
-                $('#propertyTypeDropdown').addClass("disabled");
-              } else if ($('#propertyRadio').is(':checked')) {
-                //type = "Property";
-                if (! currentSelectedRDFType.includes("Property"))
-                  type = currentSelectedRDFType = "Property";
-                $('#propertyTypeDropdown').removeClass("disabled");
-                $('#propertyTypeDropdown').addClass("enabled");
-              }
-              return type;
-            }
-
-            // filter based on property types
-            $('#propertyTypeDropdown')
-              .dropdown({
-                onChange: function(value) {
-                  if (value == "object property")
-                    type = currentSelectedRDFType = "ObjectProperty";
-                  else if (value == "rdf property")
-                    type = currentSelectedRDFType = "rdf:Property";
-                  else if (value == "annotation property")
-                    type = currentSelectedRDFType = "AnnotationProperty";
-                  else if (value == "datatype property")
-                    type = currentSelectedRDFType = "DatatypeProperty";
-                  else
-                    type = currentSelectedRDFType = "Property";
-
-                  // build tree based on selected type
-                  if ($('#SKOSViewCheckBox').is(':checked')) {
-                    if ($('#input-search').val() !== "") {
-                      showSKOSTree(currentTreeData, currentSelectedFile);
-                    } else
-                      showSKOSTree(SKOSData, currentSelectedFile, type);
-                  } else if ($('#RDFSViewCheckBox').is(':checked')) {
-                    if ($('#input-search').val() !== "")
-                      showRDFSTree(currentTreeData, currentSelectedFile);
-                    else
-                      showRDFSTree(RDFSData, currentSelectedFile, type);
-                  }
-                }
-              });
-
-            //show concept was not found as a message
-            function conceptNotFoundMessage() {
-              <% include notFoundMessage %> // import from notFoundMessage.ejs file
-            }
-
-            var search = function(e) {
-              var pattern = $('#input-search').val();
-              var ignoreCase = $('#chk-ignore-case').is(':checked');
-              var array = [];
-              // search pattern in individuals
-              if ($('#individualsPropertyRadio').is(':checked')) {
-                if (currentSelectedFile != "ALL Files") {
-                  array = _.filter(individiualsData, function(o) {
-                    if (o.fileName === currentSelectedFile)
-                      return o;
-                  });
-                } else {
-                  array = individiualsData;
-                }
-                showIndividualTree(array, currentSelectedFile);
-                var result = $('#tree').treeview('search', [pattern, {
-                  ignoreCase: ignoreCase, // case insensitive
-                  exactMatch: false, // like or equals
-                  revealResults: false, // reveal matching nodes
-                }]);
-                currentTreeData = result;
-                buildTree(result);
-              }
-              // search pattern in SKOS concepts
-              else if ($('#SKOSViewCheckBox').is(':checked')) {
-                if (currentSelectedFile != "ALL Files") {
-                  array = _.filter(SKOSData, function(o) {
-                    if (o.fileName === currentSelectedFile)
-                      return o;
-                  });
-                } else {
-                  array = SKOSData;
-                }
-                // check if the RDF type is selected
-                if (currentSelectedRDFType)
-                  showSKOSTree(array, currentSelectedFile, currentSelectedRDFType);
-                else
-                  showSKOSTree(array, currentSelectedFile);
-                var result = $('#tree').treeview('search', [pattern, {
-                  ignoreCase: ignoreCase, // case insensitive
-                  exactMatch: false, // like or equals
-                  revealResults: false, // reveal matching nodes
-                }]);
-                currentTreeData = result;
-                buildTree(result);
-              }
-              // search pattern in RDFS concepts
-              else if ($('#RDFSViewCheckBox').is(':checked')) {
-                if (currentSelectedFile != "ALL Files") {
-                  array = _.filter(RDFSData, function(o) {
-                    if (o.fileName === currentSelectedFile)
-                      return o;
-                  });
-                } else {
-                  array = RDFSData;
-                }
-                // check if the RDF type is selected
-                if (currentSelectedRDFType)
-                  showRDFSTree(array, currentSelectedFile, currentSelectedRDFType);
-                else
-                  showRDFSTree(array, currentSelectedFile);
-                var result = $("#tree").treeview('search', [pattern, {
-                  ignoreCase: ignoreCase, // case insensitive
-                  exactMatch: false, // like or equals
-                  revealResults: false, // reveal matching nodes
-                }]);
-                currentTreeData = result;
-                buildTree(result);
-              }
-              // if no result is returned with the searchString
-              if (result.length === 0 && $('#input-search').val() !== "") {
-                conceptNotFoundMessage();
-              } else if ($('#input-search').val() === "") {
-                $('#infoTabs').hide();
-                $('#tree').show();
-                if ($('#individualsPropertyRadio').is(':checked'))
-                  showIndividualTree(array, currentSelectedFile);
-                else if ($('#RDFSViewCheckBox').is(':checked')) {
-                  // check if the RDF type is selected
-                  if (currentSelectedRDFType)
-                    showRDFSTree(array, currentSelectedFile, currentSelectedRDFType);
-                  else
-                    showRDFSTree(array, currentSelectedFile);
-                } else {
-                  // check if the RDF type is selected
-                  if (currentSelectedRDFType)
-                    showSKOSTree(array, currentSelectedFile, currentSelectedRDFType);
-                  else
-                    showSKOSTree(array, currentSelectedFile);
-                }
-                $('#notFoundMessage').html('');
-                $('#notFoundMessage').hide();
               }
             }
+          });
+        }
 
-            // check search input on keyup
-            $('#input-search').on('keyup', search);
-
-            // remove redundant parents from tree
-            function getUniqueParents(data) {
-              var out = [];
-              var unique = [...new Set(data.map(item => item.parent))];
-              unique.forEach(function(item) {
-                if (item)
-                  out.push(item);
-              });
-              return out;
+        var isCheckedshowFilesCheckBox, isCheckedshowTypesCheckBox;
+        // check if showType or showfile checkboxes were clicked
+        $('input:checkbox')
+          .on('change', function(event) {
+            event.preventDefault();
+            var inputType = "";
+            inputType = getClickedTypeRadio();
+            isCheckedshowFilesCheckBox = ($(this).prop('checked') && $(this).attr('id') == 'showFilesCheckBox') ? true : false;
+            isCheckedshowTypesCheckBox = ($(this).prop('checked') && $(this).attr('id') == 'showTypesCheckBox') ? true : false;
+            if (($(this).prop('checked') || !$(this).prop('checked')) && $('#individualsPropertyRadio').is(':checked')) {
+              if ($('#input-search').val() !== "")
+                showIndividualTree(currentTreeData, currentSelectedFile);
+              else
+                showIndividualTree(individiualsData, currentSelectedFile);
+            } else if (($(this).prop('checked') || !$(this).prop('checked')) && $('#SKOSViewCheckBox').is(':checked')) {
+              if ($('#input-search').val() !== "") {
+                showSKOSTree(currentTreeData, currentSelectedFile);
+              } else
+                showSKOSTree(SKOSData, currentSelectedFile, currentSelectedRDFType);
+            } else if (($(this).prop('checked') || !$(this).prop('checked')) && $('#RDFSViewCheckBox').is(':checked')) {
+              if ($('#input-search').val() !== "") {
+                showRDFSTree(currentTreeData, currentSelectedFile);
+              } else {
+                showRDFSTree(RDFSData, currentSelectedFile, currentSelectedRDFType);
+              }
             }
+          });
 
-            // get nodes which are parents and have children
-            function getParentWithChildren(data, allParents) {
+        $('input:radio')
+          .on('change', function(event) {
+            event.preventDefault();
+            $('#input-search').val("");
+            var inputType = "";
+            inputType = getClickedTypeRadio();
+            $("#infoTabs").hide();
+            if ($('#individualsPropertyRadio').is(':checked')) {
+              $('#propertyTypeDropdown').removeClass("enabled");
+              $('#propertyTypeDropdown').addClass("disabled");
+              showIndividualTree(individiualsData, currentSelectedFile);
+            } else if ($('#SKOSViewCheckBox').is(':checked')) {
+              showSKOSTree(SKOSData, currentSelectedFile, inputType);
+            } else if ($('#RDFSViewCheckBox').is(':checked')) {
+              showRDFSTree(RDFSData, currentSelectedFile, inputType);
+            }
+          });
+
+        function getClickedTypeRadio() {
+          var type = "";
+          if ($('#classRadio').is(':checked')) {
+            type = "Class";
+            currentSelectedRDFType = "Class";
+            $('#propertyTypeDropdown').removeClass("enabled");
+            $('#propertyTypeDropdown').addClass("disabled");
+          } else if ($('#allTypesRadio').is(':checked')) {
+            currentSelectedRDFType = "";
+            $('#propertyTypeDropdown').removeClass("enabled");
+            $('#propertyTypeDropdown').addClass("disabled");
+          } else if ($('#propertyRadio').is(':checked')) {
+            //type = "Property";
+            if (!currentSelectedRDFType.includes("Property"))
+              type = currentSelectedRDFType = "Property";
+            $('#propertyTypeDropdown').removeClass("disabled");
+            $('#propertyTypeDropdown').addClass("enabled");
+          }
+          return type;
+        }
+
+        // filter based on property types
+        $('#propertyTypeDropdown')
+          .dropdown({
+            onChange: function(value) {
+              if (value == "object property")
+                type = currentSelectedRDFType = "ObjectProperty";
+              else if (value == "rdf property")
+                type = currentSelectedRDFType = "rdf:Property";
+              else if (value == "annotation property")
+                type = currentSelectedRDFType = "AnnotationProperty";
+              else if (value == "datatype property")
+                type = currentSelectedRDFType = "DatatypeProperty";
+              else
+                type = currentSelectedRDFType = "Property";
+
+              // build tree based on selected type
               if ($('#SKOSViewCheckBox').is(':checked')) {
-                var allChildren = $.grep(data, function(element) {
-                  return element.child !== '';
-                });
-                var allChildrenArrary = _.map(allChildren, function(o) {
-                  return o.child;
-                });
-                var allParents = $.grep(data, function(o) {
-                  return !allChildrenArrary.includes(o.concept);
-                });
-              } else {
-                var allParents = $.grep(data, function(o) {
-                  return o.parent === ''
-                });
+                if ($('#input-search').val() !== "") {
+                  showSKOSTree(currentTreeData, currentSelectedFile);
+                } else
+                  showSKOSTree(SKOSData, currentSelectedFile, type);
+              } else if ($('#RDFSViewCheckBox').is(':checked')) {
+                if ($('#input-search').val() !== "")
+                  showRDFSTree(currentTreeData, currentSelectedFile);
+                else
+                  showRDFSTree(RDFSData, currentSelectedFile, type);
               }
-              var all = function(parentNode) {
-                child = $.grep(data, function(element) {
-                  return element.parent == parentNode.concept
-                });
-                if (child.length > 0)
-                  parentNode.nodes = child;
-                $(child).each(function() {
-                  return all(this);
-                });
-              }
+            }
+          });
 
-              $(allParents).each(function() {
-                all(this);
+        //show concept was not found as a message
+        function conceptNotFoundMessage() {
+          <% include notFoundMessage %> // import from notFoundMessage.ejs file
+        }
+
+        var search = function(e) {
+          var pattern = $('#input-search').val();
+          var ignoreCase = $('#chk-ignore-case').is(':checked');
+          var array = [];
+          // search pattern in individuals
+          if ($('#individualsPropertyRadio').is(':checked')) {
+            if (currentSelectedFile != "ALL Files") {
+              array = _.filter(individiualsData, function(o) {
+                if (o.fileName === currentSelectedFile)
+                  return o;
               });
-              return allParents;
+            } else {
+              array = individiualsData;
             }
+            showIndividualTree(array, currentSelectedFile);
+            var result = $('#tree').treeview('search', [pattern, {
+              ignoreCase: ignoreCase, // case insensitive
+              exactMatch: false, // like or equals
+              revealResults: false, // reveal matching nodes
+            }]);
+            currentTreeData = result;
+            updateTypeNumbers(currentTreeData);
+            buildTree(result);
+          }
+          // search pattern in SKOS concepts
+          else if ($('#SKOSViewCheckBox').is(':checked')) {
+            if (currentSelectedFile != "ALL Files") {
+              array = _.filter(SKOSData, function(o) {
+                if (o.fileName === currentSelectedFile)
+                  return o;
+              });
+            } else {
+              array = SKOSData;
+            }
+            // check if the RDF type is selected
+            if (currentSelectedRDFType)
+              showSKOSTree(array, currentSelectedFile, currentSelectedRDFType);
+            else
+              showSKOSTree(array, currentSelectedFile);
+            var result = $('#tree').treeview('search', [pattern, {
+              ignoreCase: ignoreCase, // case insensitive
+              exactMatch: false, // like or equals
+              revealResults: false, // reveal matching nodes
+            }]);
+            currentTreeData = result;
+            updateTypeNumbers();
+            buildTree(result);
+          }
+          // search pattern in RDFS concepts
+          else if ($('#RDFSViewCheckBox').is(':checked')) {
+            if (currentSelectedFile != "ALL Files") {
+              array = _.filter(RDFSData, function(o) {
+                if (o.fileName === currentSelectedFile)
+                  return o;
+              });
+            } else {
+              array = RDFSData;
+            }
+            // check if the RDF type is selected
+            if (currentSelectedRDFType)
+              showRDFSTree(array, currentSelectedFile, currentSelectedRDFType);
+            else
+              showRDFSTree(array, currentSelectedFile);
+            var result = $("#tree").treeview('search', [pattern, {
+              ignoreCase: ignoreCase, // case insensitive
+              exactMatch: false, // like or equals
+              revealResults: false, // reveal matching nodes
+            }]);
+            currentTreeData = result;
+            updateTypeNumbers();
+            buildTree(result);
+          }
+          // if no result is returned with the searchString
+          if (result.length === 0 && $('#input-search').val() !== "") {
+            conceptNotFoundMessage();
+          } else if ($('#input-search').val() === "") {
+            $('#infoTabs').hide();
+            $('#tree').show();
+            if ($('#individualsPropertyRadio').is(':checked'))
+              showIndividualTree(array, currentSelectedFile);
+            else if ($('#RDFSViewCheckBox').is(':checked')) {
+              // check if the RDF type is selected
+              if (currentSelectedRDFType)
+                showRDFSTree(array, currentSelectedFile, currentSelectedRDFType);
+              else
+                showRDFSTree(array, currentSelectedFile);
+            } else {
+              // check if the RDF type is selected
+              if (currentSelectedRDFType)
+                showSKOSTree(array, currentSelectedFile, currentSelectedRDFType);
+              else
+                showSKOSTree(array, currentSelectedFile);
+            }
+            $('#notFoundMessage').html('');
+            $('#notFoundMessage').hide();
+          }
+        }
 
-            // get RDFS elements of the tree to display  filtered by file
-            function getRDFSFileData(data, selectedFileName) {
-              var inputType = getClickedTypeRadio();
-              var viewData = [];
-              viewData = getViewDataBasedOnType(data, inputType);
-              if (selectedFileName) {
-                var filteredData = [];
-                var k = 0;
-                for (var i = 0; i < viewData.length; i++) {
-                  if (viewData[i].hasOwnProperty('fileName')) {
-                    if (viewData[i].fileName.trim() === selectedFileName) {
-                      filteredData[k] = viewData[i];
-                      k++;
-                    }
-                  }
+        // check search input on keyup
+        $('#input-search').on('keyup', search);
+
+        // remove redundant parents from tree
+        function getUniqueParents(data) {
+          var out = [];
+          var unique = [...new Set(data.map(item => item.parent))];
+          unique.forEach(function(item) {
+            if (item)
+              out.push(item);
+          });
+          return out;
+        }
+
+        // get nodes which are parents and have children
+        function getParentWithChildren(data, allParents) {
+          if ($('#SKOSViewCheckBox').is(':checked')) {
+            var allChildren = $.grep(data, function(element) {
+              return element.child !== '';
+            });
+            var allChildrenArrary = _.map(allChildren, function(o) {
+              return o.child;
+            });
+            var allParents = $.grep(data, function(o) {
+              return !allChildrenArrary.includes(o.concept);
+            });
+          } else {
+            var allParents = $.grep(data, function(o) {
+              return o.parent === ''
+            });
+          }
+          var all = function(parentNode) {
+            child = $.grep(data, function(element) {
+              return element.parent == parentNode.concept
+            });
+            if (child.length > 0)
+              parentNode.nodes = child;
+            $(child).each(function() {
+              return all(this);
+            });
+          }
+
+          $(allParents).each(function() {
+            all(this);
+          });
+          debugger;
+          return allParents;
+        }
+
+        // get RDFS elements of the tree to display  filtered by file
+        function getRDFSFileData(data, selectedFileName) {
+          var inputType = getClickedTypeRadio();
+          var viewData = [];
+          viewData = getViewDataBasedOnType(data, inputType);
+          if (selectedFileName) {
+            var filteredData = [];
+            var k = 0;
+            for (var i = 0; i < viewData.length; i++) {
+              if (viewData[i].hasOwnProperty('fileName')) {
+                if (viewData[i].fileName.trim() === selectedFileName) {
+                  filteredData[k] = viewData[i];
+                  k++;
                 }
               }
-              var allParentsFromFiles = getUniqueParents(filteredData);
-              var dataFile = [];
-
-              if ($('#showTypesCheckBox').is(':checked')) {
-                for (var i = 0; i < filteredData.length; i++) {
-                  filteredData[i].text = filteredData[i].concept;
-                  filteredData[i].tags = ['<a  class="ui tiny teal tag label">' + filteredData[i].RDFType + '</a>'];
-                }
-                dataFile = getParentWithChildren(filteredData, allParentsFromFiles, 'typeTag');
-              } else if ($('#showFilesCheckBox').is(':checked')) {
-                for (var i = 0; i < filteredData.length; i++) {
-                  filteredData[i].text = filteredData[i].concept;
-                  filteredData[i].tags = ['<a  class="ui tiny pink tag label">' + filteredData[i].fileName + '</a>'];
-                }
-                dataFile = getParentWithChildren(filteredData, allParentsFromFiles, 'fileTag');
-              } else {
-                for (var i = 0; i < filteredData.length; i++) {
-                  filteredData[i].text = filteredData[i].concept;
-                  filteredData[i].tags = [''];
-                }
-                dataFile = getParentWithChildren(filteredData, allParentsFromFiles);
-              }
-              return dataFile;
             }
+          }
+          var allParentsFromFiles = getUniqueParents(filteredData);
+          var dataFile = [];
 
-            // get SKOS elements of the tree to display filtered by file
-            function getSKOSFileData(result, selectedFileName) {
-              var data = result;
-              var filteredData = [];
-              var k = 0;
-              if (selectedFileName) {
-                for (var i = 0; i < data.length; i++) {
-                  if (data[i].hasOwnProperty('nodes')) {
-                    for (var j = 0; j < data[i].nodes.length; j++)
-                      if (data[i].nodes[j]['fileName'].trim() === selectedFileName) {
-                        filteredData[k] = data[i];
-                        k++;
-                      }
+          if ($('#showTypesCheckBox').is(':checked')) {
+            for (var i = 0; i < filteredData.length; i++) {
+              filteredData[i].text = filteredData[i].concept;
+              filteredData[i].tags = ['<a  class="ui tiny teal tag label">' + filteredData[i].RDFType + '</a>'];
+            }
+            dataFile = getParentWithChildren(filteredData, allParentsFromFiles, 'typeTag');
+          } else if ($('#showFilesCheckBox').is(':checked')) {
+            for (var i = 0; i < filteredData.length; i++) {
+              filteredData[i].text = filteredData[i].concept;
+              filteredData[i].tags = ['<a  class="ui tiny pink tag label">' + filteredData[i].fileName + '</a>'];
+            }
+            dataFile = getParentWithChildren(filteredData, allParentsFromFiles, 'fileTag');
+          } else {
+            for (var i = 0; i < filteredData.length; i++) {
+              filteredData[i].text = filteredData[i].concept;
+              filteredData[i].tags = [''];
+            }
+            dataFile = getParentWithChildren(filteredData, allParentsFromFiles);
+          }
+          return dataFile;
+        }
+
+        // get SKOS elements of the tree to display filtered by file
+        function getSKOSFileData(result, selectedFileName) {
+          var data = result;
+          var filteredData = [];
+          var k = 0;
+          if (selectedFileName) {
+            for (var i = 0; i < data.length; i++) {
+              if (data[i].hasOwnProperty('nodes')) {
+                for (var j = 0; j < data[i].nodes.length; j++)
+                  if (data[i].nodes[j]['fileName'].trim() === selectedFileName) {
+                    filteredData[k] = data[i];
+                    k++;
                   }
-                }
               } else {
                 if (data[i]['fileName'].trim() === selectedFileName) {
                   filteredData[k] = data[i];
                   k++;
                 }
               }
-              return filteredData;
             }
+          }
+          return filteredData;
+        }
 
-            // get Individuals of the tree to display filtered by file
-            function getIndividualsFileData(result, selectedFileName) {
-              if (selectedFileName) {
-                var filteredData = [];
-                var k = 0;
-                for (var i = 0; i < result.length; i++) {
-                  if (result[i].hasOwnProperty('fileName')) {
-                    if (result[i].fileName.trim() === selectedFileName) {
-                      filteredData[k] = result[i];
-                      k++;
-                    }
-                  }
+        // get Individuals of the tree to display filtered by file
+        function getIndividualsFileData(result, selectedFileName) {
+          if (selectedFileName) {
+            var filteredData = [];
+            var k = 0;
+            for (var i = 0; i < result.length; i++) {
+              if (result[i].hasOwnProperty('fileName')) {
+                if (result[i].fileName.trim() === selectedFileName) {
+                  filteredData[k] = result[i];
+                  k++;
                 }
               }
-              return filteredData;
             }
+          }
+          return filteredData;
+        }
 
-            // Get the word after slash char of a string
-            function trimSlash(str) {
-              if (str.includes("/")) {
-                var n = str.split("/").pop(-1);;
-                return n;
-              } else {
-                return str;
-              }
+        // Get the word after slash char of a string
+        function trimSlash(str) {
+          if (str.includes("/")) {
+            var n = str.split("/").pop(-1);;
+            return n;
+          } else {
+            return str;
+          }
+        }
+
+        // Get the word after hash char of a string
+        function trimHash(str) {
+          if (str.includes("#")) {
+            var n = str.split('#');;
+            var p = n[n.length - 1];
+            return p;
+          } else {
+            return str;
+          }
+        }
+
+        // Customization of the RDF type to show as in standards
+        function replaceWithRDFType(str) {
+          if (str.includes("22-rdf-syntax-ns")) {
+            return "rdf:" + trimHash(str);
+          } else if (str.includes('rdf-schema'))
+            return "rdfs:" + trimHash(str);
+          else if (str.includes('owl'))
+            return "owl:" + trimHash(str);
+          else if (str.includes('core#Concept') || str.includes('narrower') || str.includes('broader'))
+            return "skos:" + trimHash(str);
+          else
+            return str;
+        }
+
+        //check if concept is OWLIndividiual
+        function isOWLIndividiual(str) {
+          if (individiualsData.find(x => x.subject === str)) {
+            return true;
+          } else
+            return false;
+        }
+
+        // check if the concept is external
+        function isConceptExternal(str) {
+          var externalConcepts = getExternalsConcepts();
+          for (var i = 0; i < externalConcepts.length; i++) {
+            if (str === externalConcepts[i]) {
+              return true;
             }
+          }
+          return false;
+        }
 
-            // Get the word after hash char of a string
-            function trimHash(str) {
-              if (str.includes("#")) {
-                var n = str.split('#');;
-                var p = n[n.length - 1];
-                return p;
-              } else {
-                return str;
-              }
+        //check if concept is in our ontology or external
+        function isConceptInside(str) {
+          if ($('#SKOSViewCheckBox').is(':checked')) {
+            if (SKOSData.find(x => x.child === str) || SKOSData.find(x => x.parent === str)) {
+              return true;
             }
-
-            // Customization of the RDF type to show as in standards
-            function replaceWithRDFType(str) {
-              if (str.includes("22-rdf-syntax-ns")) {
-                return "rdf:" + trimHash(str);
-              } else if (str.includes('rdf-schema'))
-                return "rdfs:" + trimHash(str);
-              else if (str.includes('owl'))
-                return "owl:" + trimHash(str);
-              else if (str.includes('core#Concept') || str.includes('narrower') || str.includes('broader'))
-                return "skos:" + trimHash(str);
-              else
-                return str;
+          } else if ($('#RDFSViewCheckBox').is(':checked')) {
+            if (RDFSData.find(x => x.concept === str)) {
+              return true;
             }
+          }
+          return false;
+        }
 
-            //check if concept is OWLIndividiual
-            function isOWLIndividiual(str) {
-              if (individiualsData.find(x => x.subject === str)) {
-                return true;
-              } else
-                return false;
-            }
+        // get externalURI
+        function getExternalURI(str) {
+          var array = [];
+          if ($('#SKOSViewCheckBox').is(':checked')) {
+            array = SKOSObjPlusURI;
+          } else if ($('#RDFSViewCheckBox').is(':checked')) {
+            array = RDFObjPlusURI;
+          }
+          for (var i = 0; i < array.length; i++) {
+            if (str === array[i].object)
+              return array[i].URI;
+          }
+          return;
+        }
 
-            // check if the concept is external
-            function isConceptExternal(str) {
-              var externalConcepts = getExternalsConcepts();
-              for (var i = 0; i < externalConcepts.length; i++) {
-                if (str === externalConcepts[i]) {
-                  return true;
-                }
-              }
-              return false;
-            }
-
-            //check if concept is in our ontology or external
-            function isConceptInside(str) {
-              if ($('#SKOSViewCheckBox').is(':checked')) {
-                if (SKOSData.find(x => x.child === str) || SKOSData.find(x => x.parent === str)) {
-                  return true;
-                }
-              } else if ($('#RDFSViewCheckBox').is(':checked')) {
-                if (RDFSData.find(x => x.concept === str)) {
-                  return true;
-                }
-              }
-              return false;
-            }
-
-            // get externalURI
-            function getExternalURI(str) {
-              var array = [];
-              if ($('#SKOSViewCheckBox').is(':checked')) {
-                array = SKOSObjPlusURI;
-              } else if ($('#RDFSViewCheckBox').is(':checked')) {
-                array = RDFObjPlusURI;
-              }
-              for (var i = 0; i < array.length; i++) {
-                if (str === array[i].object)
-                  return array[i].URI;
-              }
-              return;
-            }
-
-            // get selected fileNames for dropDownMenu and rebuild treeview
-            function getSelectedFileName() {
-              var selectedFileName = $('#selectFileDroplist').dropdown('get text');
-              selectedFileName = selectedFileName.trim();
-              if (selectedFileName != "Choose File") {
+        // get selected fileNames for dropDownMenu and rebuild treeview
+        function getSelectedFileName() {
+          var selectedFileName = $('#filesDroplist').dropdown('get text');
+          selectedFileName = selectedFileName.trim();
+          if (selectedFileName != "Choose File") {
+            $('#infoTabs').hide(); //hide previos infoTabs
+            if (selectedFileName === "ALL Files") {
+              if ($('#individualsPropertyRadio').is(':checked')) {
                 $('#infoTabs').hide(); //hide previos infoTabs
-                if (selectedFileName === "ALL Files") {
-                  if ($('#individualsPropertyRadio').is(':checked')) {
-                    $('#infoTabs').hide(); //hide previos infoTabs
-                    showIndividualTree(individiualsData, "ALL Files");
-                  } else if ($('#SKOSViewCheckBox').is(':checked')) {
-                    showSKOSTree(SKOSData, "ALL Files");
-                  } else if ($('#RDFSViewCheckBox').is(':checked')) {
-                    showRDFSTree(RDFSData, "ALL Files");
-                  }
-                } else {
-                  currentSelectedFile = selectedFileName;
-                  if ($('#individualsPropertyRadio').is(':checked')) {
-                    $('#infoTabs').hide(); //hide previos infoTabs
-                    currentTreeData = individiualsData;
-                    showIndividualTree(individiualsData, selectedFileName);
-                  } else if ($('#SKOSViewCheckBox').is(':checked')) {
-                    currentTreeData = SKOSData;
-                    $('#infoTabs').hide(); //hide previos infoTabs
-                    showSKOSTree(SKOSData, selectedFileName);
-                  } else {
-                    $('#infoTabs').hide(); //hide previos infoTabs
-                    currentTreeData = RDFSData;
-                    showRDFSTree(RDFSData, selectedFileName);
-                  }
-                }
+                showIndividualTree(individiualsData, "ALL Files");
+              } else if ($('#SKOSViewCheckBox').is(':checked')) {
+                showSKOSTree(SKOSData, "ALL Files");
+              } else if ($('#RDFSViewCheckBox').is(':checked')) {
+                showRDFSTree(RDFSData, "ALL Files");
+              }
+              currentSelectedFile = "ALL Files";
+            } else {
+              if (selectedFileName.includes("/"))
+                selectedFileName = selectedFileName.slice(selectedFileName.lastIndexOf("/") + 1, selectedFileName.length);
+              currentSelectedFile = selectedFileName;
+              if ($('#individualsPropertyRadio').is(':checked')) {
+                $('#infoTabs').hide(); //hide previos infoTabs
+                currentTreeData = individiualsData;
+                showIndividualTree(individiualsData, selectedFileName);
+              } else if ($('#SKOSViewCheckBox').is(':checked')) {
+                currentTreeData = SKOSData;
+                $('#infoTabs').hide(); //hide previos infoTabs
+                showSKOSTree(SKOSData, selectedFileName);
+              } else {
+                $('#infoTabs').hide(); //hide previos infoTabs
+                currentTreeData = RDFSData;
+                showRDFSTree(RDFSData, selectedFileName);
               }
             }
+            // update numbers of classes, properties, individual .. etc
+            updateTypeNumbers();
+          }
 
-            // show info. details of clicked instance
-            function showInstanceDetails(instanceURI) {
+        }
+
+        // show info. details of clicked instance
+        function showInstanceDetails(instanceURI) {
+          var endpoint = "./fuseki/dataset/sparql?query=";
+          var querystring = 'SELECT  ?p ?o WHERE {  <' + encodeURIComponent(instanceURI) + '> ?p ?o }';
+          $.ajax({
+            type: 'GET',
+            url: endpoint + querystring,
+            headers: {
+              Accept: 'application/sparql-results+json;charset=UTF-8'
+            },
+            success: function(data, textStatus, jqXHR) {
+              var instances = data.results.bindings;
+              if (instances[0] != null) {
+                var instancesDetailsTable = '<table class="ui blue celled table" style="table-layout:fixed;>' +
+                  '<thead><tr class="info">' +
+                  '<th>Predicate</th>' +
+                  '<th>Object</th>' +
+                  '</tr></thead>';
+                for (var i = 0; i < instances.length; i++) {
+                  var key1 = instances[i]['p'].value;
+                  var key2 = instances[i]['o'].value;
+                  var key2URI = key2;
+                  var key3 = instances[i]['o']['xml:lang'];
+                  var key4 = instances[i]['o']['type'];
+
+                  //check if object is uri end with "/"
+                  if ((key2.includes("http://") || key2.includes("https://")) && key4 === "literal") {
+                    if (key2[key2.length - 1] === ('/'))
+                      key2 = key2.slice(0, -1);
+                    key2 = '<a href=' + key2 + '>' + key2 + '</a>';
+                    key1 = trimHash(replaceWithRDFType(trimSlash(instances[i]['p'].value)));
+                  } else {
+                    key1 = trimHash(replaceWithRDFType(trimSlash(instances[i]['p'].value)));
+                    key2 = trimHash(replaceWithRDFType(trimSlash(instances[i]['o'].value)));
+                  }
+
+                  if (key1.includes("broader") || key1.includes("narrower")) {
+                    key2 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key2URI + '&quot;,&quot;SKOS&quot;); return false; ">' + key2 + '</a>';
+                  }
+                  if (isConceptExternal(key2) && !key1.includes("label") && key4 === "uri") {
+                    key2 = '<a href="#" onmousedown="showExternalInfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
+                  }
+                  if (isOWLIndividiual(key2) && !key1.includes("label") && key4 === "uri") {
+                    key2 = '<a href="#" onmousedown="showInstanceDetails(&quot;' + key2URI + '&quot;); return false; ">' + key2 + '</a>';
+                  }
+                  if (isConceptInside(key2) && !key1.includes("label") && key4 === "uri") {
+                    key2 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
+                  }
+                  if (key3 && key4 === "literal") {
+                    key2 = key2 + '@' + key3;
+                  }
+                  instancesDetailsTable += '<tr><td>' + key1 + '</td>    <td>' + key2 + '</td>  </tr>';
+                }
+                instancesDetailsTable += '</table> ';
+                $("#instanceHead").show();
+                $("#instanceHead").html('<h3> Individual: <code>' + trimHash(replaceWithRDFType(trimSlash(instanceURI))) + '</code></h3>');
+                $("#instanceDetailsTable").show();
+                $("#instanceDetailsTable").html(instancesDetailsTable);
+                document.getElementById("instanceHead").scrollIntoView()
+
+              } else {
+                $("#instanceHead").hide();
+                $("#instanceDetailsTable").hide();
+              }
+            }
+          });
+        }
+
+        // To display instances of  the selected node
+        function showInstances(item) {
+          var conceptURI;
+          var isURIExist = false;
+          var data = [];
+          if ($('#SKOSViewCheckBox').is(':checked'))
+            data = SKOSData;
+          else
+            data = RDFSData;
+          if (item) {
+            for (var i = 0; i < data.length; i++) {
+              if (item.toLowerCase() === data[i].concept.toLowerCase()) {
+                conceptURI = data[i].URI;
+                isURIExist = true;
+                break;
+              }
+            }
+            if (isURIExist) {
               var endpoint = "./fuseki/dataset/sparql?query=";
-              var querystring = 'SELECT  ?p ?o WHERE {  <' + encodeURIComponent(instanceURI) + '> ?p ?o }';
+              var querystring = 'SELECT  ?s WHERE { ?s  a <' + encodeURIComponent(conceptURI) + '> }';
               $.ajax({
                 type: 'GET',
                 url: endpoint + querystring,
@@ -1157,790 +1450,706 @@
                 success: function(data, textStatus, jqXHR) {
                   var instances = data.results.bindings;
                   if (instances[0] != null) {
-                    var instancesDetailsTable = '<table class="ui blue celled table" style="table-layout:fixed;>' +
-                      '<thead><tr class="info">' +
-                      '<th>Predicate</th>' +
-                      '<th>Object</th>' +
-                      '</tr></thead>';
+                    var instancesTable = '<table class="ui red table" style="table-layout:fixed;>' +
+                      '<colgroup> <col class="col-md-4"> </colgroup>' +
+                      '<tr>' +
+                      '<th>Individuals</th>' +
+                      '</tr>';
                     for (var i = 0; i < instances.length; i++) {
-                      var key1 = instances[i]['p'].value;
-                      var key2 = instances[i]['o'].value;
-                      var key2URI = key2;
-                      var key3 = instances[i]['o']['xml:lang'];
-                      var key4 = instances[i]['o']['type'];
-
-                      //check if object is uri end with "/"
-                      if ((key2.includes("http://") || key2.includes("https://")) && key4 === "literal") {
-                        if (key2[key2.length - 1] === ('/'))
-                          key2 = key2.slice(0, -1);
-                        key2 = '<a href=' + key2 + '>' + key2 + '</a>';
-                        key1 = trimHash(replaceWithRDFType(trimSlash(instances[i]['p'].value)));
-                      } else {
-                        key1 = trimHash(replaceWithRDFType(trimSlash(instances[i]['p'].value)));
-                        key2 = trimHash(replaceWithRDFType(trimSlash(instances[i]['o'].value)));
-                      }
-
-                      if (key1.includes("broader") || key1.includes("narrower")) {
-                        key2 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key2URI + '&quot;,&quot;SKOS&quot;); return false; ">' + key2 + '</a>';
-                      }
-                      if (isConceptExternal(key2) && !key1.includes("label") && key4 === "uri") {
-                        key2 = '<a href="#" onmousedown="showExternalInfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
-                      }
-                      if (isOWLIndividiual(key2) && !key1.includes("label") && key4 === "uri") {
-                        key2 = '<a href="#" onmousedown="showInstanceDetails(&quot;' + key2URI + '&quot;); return false; ">' + key2 + '</a>';
-                      }
-                      if (isConceptInside(key2) && !key1.includes("label") && key4 === "uri") {
-                        key2 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
-                      }
-                      if (key3 && key4 === "literal") {
-                        key2 = key2 + '@' + key3;
-                      }
-                      instancesDetailsTable += '<tr><td>' + key1 + '</td>    <td>' + key2 + '</td>  </tr>';
+                      var instanceURI = instances[i]["s"].value;
+                      var key1 = trimHash(trimSlash(instances[i]["s"].value));
+                      key1 = '<a href="#" onmousedown="showInstanceDetails(&quot;' + instanceURI + '&quot;); return false; ">' + key1 + '</a>';
+                      instancesTable += '<tr>    <td>' + key1 + '</td>  </tr>';
                     }
-                    instancesDetailsTable += '</table> ';
-                    $("#instanceHead").show();
-                    $("#instanceHead").html('<h3> Individual: <code>' + trimHash(replaceWithRDFType(trimSlash(instanceURI))) + '</code></h3>');
-                    $("#instanceDetailsTable").show();
-                    $("#instanceDetailsTable").html(instancesDetailsTable);
-                    document.getElementById("instanceHead").scrollIntoView()
-
+                    instancesTable += '</table> ';
+                    $("#instancesTable").show();
+                    $("#instancesTable").html(instancesTable);
                   } else {
+                    $("#instancesTable").html("");
+                    $("#instancesTable").hide();
                     $("#instanceHead").hide();
                     $("#instanceDetailsTable").hide();
                   }
                 }
               });
             }
-
-            // To display instances of  the selected node
-            function showInstances(item) {
-              var conceptURI;
-              var isURIExist = false;
-              var data = [];
-              if ($('#SKOSViewCheckBox').is(':checked'))
-                data = SKOSData;
-              else
-                data = RDFSData;
-              if (item) {
-                for (var i = 0; i < data.length; i++) {
-                  if (item.toLowerCase() === data[i].concept.toLowerCase()) {
-                    conceptURI = data[i].URI;
-                    isURIExist = true;
-                    break;
-                  }
-                }
-                if (isURIExist) {
-                  var endpoint = "./fuseki/dataset/sparql?query=";
-                  var querystring = 'SELECT  ?s WHERE { ?s  a <' + encodeURIComponent(conceptURI) + '> }';
-                  $.ajax({
-                    type: 'GET',
-                    url: endpoint + querystring,
-                    headers: {
-                      Accept: 'application/sparql-results+json;charset=UTF-8'
-                    },
-                    success: function(data, textStatus, jqXHR) {
-                      var instances = data.results.bindings;
-                      if (instances[0] != null) {
-                        var instancesTable = '<table class="ui red table" style="table-layout:fixed;>' +
-                          '<colgroup> <col class="col-md-4"> </colgroup>' +
-                          '<tr>' +
-                          '<th>Individuals</th>' +
-                          '</tr>';
-                        for (var i = 0; i < instances.length; i++) {
-                          var instanceURI = instances[i]["s"].value;
-                          var key1 = trimHash(trimSlash(instances[i]["s"].value));
-                          key1 = '<a href="#" onmousedown="showInstanceDetails(&quot;' + instanceURI + '&quot;); return false; ">' + key1 + '</a>';
-                          instancesTable += '<tr>    <td>' + key1 + '</td>  </tr>';
-                        }
-                        instancesTable += '</table> ';
-                        $("#instancesTable").show();
-                        $("#instancesTable").html(instancesTable);
-                      } else {
-                        $("#instancesTable").html("");
-                        $("#instancesTable").hide();
-                        $("#instanceHead").hide();
-                        $("#instanceDetailsTable").hide();
-                      }
-                    }
-                  });
-                }
-              }
-            }
-
-            // Conversion from xml to string
-            function xml_to_string(xml_node) {
-              if (xml_node.xml)
-                return xml_node.xml;
-              else if (XMLSerializer) {
-                var xml_serializer = new XMLSerializer();
-                return xml_serializer.serializeToString(xml_node);
-              } else {
-                alert("ERROR: Extremely old browser");
-                return "";
-              }
-            }
-
-
-            var acceptHeader4SourceCode = "text/turtle";
-            // set Accept Header based on clicked button to show the reference Code
-            $(function() {
-              $(".ui.button").click(function(event) {
-                event.preventDefault();
-                acceptHeader4SourceCode = this.value;
-                if ($('#individualsPropertyRadio').is(':checked'))
-                  showTurtleSource(currentSelectedIndividualURI, "Individuals");
-                else if ($('#SKOSViewCheckBox').is(':checked')) {
-                  if (justOneTimeExectuted)
-                    showTurtleSource(currentSelectedSKOSURI, "SKOS", "queryAsObject");
-                  else
-                    showTurtleSource(currentSelectedSKOSURI, "SKOS");
-                } else if ($('#RDFSViewCheckBox').is(':checked')) {
-                  showTurtleSource(currentSelectedConcept);
-                }
-              });
-            });
-
-            // To display Turtle source for the selected node
-            function showTurtleSource(item, view, anotherQuery) {
-              var conceptURI;
-              var isURIExist = false;
-              if (view == "SKOS" || view == "Individuals") {
-                conceptURI = item;
-                isURIExist = true;
-              } else {
-                if (item) {
-                  for (var i = 0; i < RDFSData.length; i++) {
-                    if (item.toLowerCase() === RDFSData[i].concept.toLowerCase()) {
-                      conceptURI = RDFSData[i].URI;
-                      isURIExist = true;
-                      break;
-                    }
-                  }
-                } else if (currentSelectedConcept) {
-                  for (var i = 0; i < RDFSData.length; i++) {
-                    if (currentSelectedConcept.toLowerCase() === RDFSData[i].concept.toLowerCase()) {
-                      conceptURI = RDFSData[i].URI;
-                      isURIExist = true;
-                      break;
-                    }
-                  }
-                } else
-                  isURIExist = false;
-              }
-              if (isURIExist) {
-                var endpoint = "./fuseki/dataset/sparql?query="
-                if (!anotherQuery)
-                  var querystring = 'CONSTRUCT{<' + encodeURIComponent(conceptURI) + '> ?p ?o .}WHERE {<' + encodeURIComponent(conceptURI) + '> ?p ?o .}';
-                else
-                  var querystring = 'CONSTRUCT{ ?s ?p <' + encodeURIComponent(conceptURI) + '> .}WHERE { ?s ?p <' + encodeURIComponent(conceptURI) + '> .}';
-                $('div.yasqe').empty();
-                $.ajax({
-                  type: 'GET',
-                  url: endpoint + querystring,
-                  headers: {
-                    Accept: acceptHeader4SourceCode
-                  },
-                  success: function(data, textStatus, jqXHR) {
-                    $('#sourceCodeTab').show();
-                    $('div.yasqe').remove();
-                    var config = {
-                      createShareLink: false,
-                      readOnly: true,
-                      syntaxErrorCheck: false,
-                      lineNumbers: false
-                    };
-                    if (acceptHeader4SourceCode == "text/turtle" || acceptHeader4SourceCode == "text/ntriples") {
-                      $("#jsonCodeDiv").hide();
-                      $("#xmlCodeDiv").hide();
-                      $("#yasqe").show();
-                      // use yasqe library to display turtle format
-                      var yasqe = YASQE(document.getElementById("yasqe"), config);
-                      $("div.CodeMirror-gutters").remove();
-                      $("div.yasqe_buttons").remove();
-                      yasqe.setValue(data);
-                      $("div.yasqe").transition('pulse');
-                    } else {
-                      hljs.initHighlightingOnLoad();
-                      if (acceptHeader4SourceCode == "application/ld+json") {
-                        $("#jsonCodeDiv").show();
-                        $("#xmlCodeDiv").hide();
-                        $("#yasqe").hide();
-                        $("#jsonCode").html(JSON.stringify(data));
-                        $("jsonCode").transition('pulse');
-                      } else {
-                        $("#xmlCodeDiv").show();
-                        $("#jsonCodeDiv").hide();
-                        $("#yasqe").hide();
-                        // set xml code to a web element
-                        $("#xmlCode").text(xml_to_string(data));
-                        $("#xmlCode").transition('pulse');
-
-                      }
-                    }
-                  },
-                  error: function(e) {
-                    console.log(e);
-                  }
-                });
-              }
-            }
-
-            // call to showTurtleSource to display the turtle format
-            // when checkbox is clicked
-            $("#sourceCodeTab").on('click', function() {
-              if ($('#individualsPropertyRadio').is(':checked'))
-                showTurtleSource(currentSelectedIndividualURI, "Individuals");
-              else if ($('#SKOSViewCheckBox').is(':checked')) {
-                if (justOneTimeExectuted)
-                  showTurtleSource(currentSelectedSKOSURI, "SKOS", "queryAsObject");
-                else
-                  showTurtleSource(currentSelectedSKOSURI, "SKOS");
-              } else if ($('#RDFSViewCheckBox').is(':checked')) {
-                showTurtleSource(currentSelectedConcept);
-              }
-            });
-
-            //check if concept used either as domain or range by other conceptsget
-            function getValuesUseditAsProperty(conceptURI, type) {
-              var hasdomainPropertyValues = false;
-              var hasRangePropertyValues = false;
-
-              // make both rangePropertyTable and domainPropertyTable  empty
-              $("#rangePropertyTable").hide();
-              $("#domainPropertyTable").hide();
-              if (type === "range") {
-                var propertyType = "rdfs:range";
-              } else {
-                var propertyType = "rdfs:domain";
-              }
-              var endpoint = "./fuseki/dataset/sparql?query=";
-              var querystring = 'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>' +
-                'SELECT  ?s ?property ?comment ' +
-                'WHERE {' +
-                ' ?s ' + propertyType + ' <' + conceptURI + '>.' +
-                '?s ' + propertyType + '?property.' +
-                'OPTIONAL{?s rdfs:comment ?comment.}}';
-              $.ajax({
-                type: 'GET',
-                url: endpoint + encodeURIComponent(querystring),
-                'async': true,
-                headers: {
-                  Accept: 'application/sparql-results+json;charset=UTF-8'
-                },
-                success: function(data, textStatus, jqXHR) {
-                  var result = data.results.bindings;
-                  hasdomainPropertyValues = false;
-                  hasRangePropertyValues = false;
-
-                  if (result[0] != null) {
-                    var rangePropertyTable = '<table class="ui yellow celled table" style="table-layout:fixed;" >' +
-                      '<thead>' +
-                      '<colgroup> <col class="col-md-2"><col class="col-md-2"><col class="col-md-2"> </colgroup>' +
-                      '<tr>' +
-                      '<th colspan="3">Terms use it as range</th></thead>' +
-                      '<tbody></tr><tr><th>Property</th><th>On Types</th><th>Description</th></tr>';
-
-                    var domainPropertyTable = '<table class="ui brown celled striped table"style="table-layout:fixed;" >' +
-                      '<thead>' +
-                      '<colgroup> <col class="col-md-2"><col class="col-md-2"><col class="col-md-2"> </colgroup>' +
-                      '<tr>' +
-                      '<th colspan="3">Terms use it as domain</th></thead>' +
-                      '<tbody></tr><tr><th>Property</th><th>Expected Type</th><th>Description</th></tr>';
-                    var perviousKey1DomainProperty = "",
-                      perviousKey2DomainProperty = "";
-                    if (type === 'domain') {
-                      var domianPropertyResult = result;
-                      if (domianPropertyResult) {
-                        hasdomainPropertyValues = true;
-                        for (var i = 0; i < domianPropertyResult.length; i++) {
-                          var key1 = trimHash(replaceWithRDFType(trimSlash(domianPropertyResult[i]['s'].value)));
-                          var key2 = trimHash(replaceWithRDFType(trimSlash(domianPropertyResult[i]['property'].value)));
-                          var key3 = "";
-                          if (domianPropertyResult[i].hasOwnProperty("comment"))
-                            key3 = domianPropertyResult[i]['comment'].value;
-                          var key4 = "";
-                          if (domianPropertyResult[i]['comment'].hasOwnProperty("xml:lang"))
-                            key4 = domianPropertyResult[i]['comment']['xml:lang'];
-
-                          var key5 = domianPropertyResult[i]['comment']['type'];
-                          if (isConceptInside(key1) && domianPropertyResult[i]['s'].type === "uri")
-                            key1 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key1 + '&quot;); return false; ">' + key1 + '</a>';
-                          if (isConceptInside(key2) && domianPropertyResult[i]['property'].type === "uri")
-                            key2 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
-                          // check if rows share same values of subject and property, then combine the last comment in the same table cell
-                          if (perviousKey1DomainProperty === key1 && perviousKey2DomainProperty === key2 && key4 && key5 === "literal") {
-                            domainPropertyTable = domainPropertyTable.substring(0, domainPropertyTable.lastIndexOf('</td> </tr>'))
-                            domainPropertyTable += '<br/><br/>' + key3 + '@' + key4 + '</td> </tr>';
-                          } else if (perviousKey1DomainProperty === key1 && perviousKey2DomainProperty === key2) {
-                            domainPropertyTable = domainPropertyTable.substring(0, domainPropertyTable.lastIndexOf('</td> </tr>'))
-                            domainPropertyTable += '<br/><br/>' + key3 + '</td> </tr>';
-                          } else if (key4 && key5 === "literal")
-                            domainPropertyTable += '<tr><td style="vertical-align:middle;">' + key1 + '</td>    <td style="vertical-align:middle; text-align: center;">' + key2 + '</td>   <td>' + key3 + '@' + key4 + '</td> </tr>';
-                          else
-                            domainPropertyTable += '<tr><td style="vertical-align:middle;">' + key1 + '</td>    <td style="vertical-align:middle; text-align: center;">' + key2 + '</td>   <td>' + key3 + '</td> </tr>';
-                          //save pervious values of key1 and key2
-                          perviousKey1DomainProperty = key1;
-                          perviousKey2DomainProperty = key2;
-
-                        }
-                      }
-                    } else if (type === 'range') {
-                      var rangePropertyResult = result;
-                      var perviousKey1RangeProperty = "",
-                        perviousKey2RangeProperty = "";
-                      if (rangePropertyResult) {
-                        hasRangePropertyValues = true;
-                        for (var i = 0; i < rangePropertyResult.length; i++) {
-                          var key1 = trimHash(replaceWithRDFType(trimSlash(rangePropertyResult[i]['s'].value)));
-                          var key2 = trimHash(replaceWithRDFType(trimSlash(rangePropertyResult[i]['property'].value)));
-                          var key3 = "";
-                          if (rangePropertyResult[i].hasOwnProperty("comment"))
-                            key3 = rangePropertyResult[i]['comment'].value;
-                          var key4 = "";
-                          if (rangePropertyResult[i]['comment'].hasOwnProperty("xml:lang"))
-                            key4 = rangePropertyResult[i]['comment']['xml:lang'];
-                          var key5 = rangePropertyResult[i]['comment']['type'];
-
-                          if (isConceptInside(key1) && rangePropertyResult[i]['s'].type === "uri")
-                            key1 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key1 + '&quot;); return false; ">' + key1 + '</a>';
-                          if (isConceptInside(key2) && rangePropertyResult[i]['property'].type === "uri")
-                            key2 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
-                          // check if rows share same values of subject and property, then combine the last comment in the same table cell
-                          if (perviousKey1RangeProperty === key1 && perviousKey2RangeProperty === key2 && key4 && key5 === "literal") {
-                            rangePropertyTable = rangePropertyTable.substring(0, rangePropertyTable.lastIndexOf('</td> </tr>'))
-                            rangePropertyTable += '<br/><br/>' + key3 + '@' + key4 + '</td> </tr>';
-                          } else if (perviousKey1RangeProperty === key1 && perviousKey2RangeProperty === key2) {
-                            rangePropertyTable = rangePropertyTable.substring(0, rangePropertyTable.lastIndexOf('</td> </tr>'))
-                            rangePropertyTable += '<br/><br/>' + key3 + '</td> </tr>';
-                          } else if (key4 && key5 === "literal")
-                            rangePropertyTable += '<tr ><td style="vertical-align:middle;">' + key1 + '</td>    <td style="vertical-align:middle; text-align: center;">' + key2 + '</td>   <td>' + key3 + '@' + key4 + '</td> </tr>';
-                          else
-                            rangePropertyTable += '<tr><td style="vertical-align:middle;">' + key1 + '</td>    <td style="vertical-align:middle; text-align: center;">' + key2 + '</td>   <td>' + key3 + '</td> </tr>';
-
-                          perviousKey1RangeProperty = key1;
-                          perviousKey2RangeProperty = key2;
-                        }
-                      }
-                    }
-                    domainPropertyTable += '</tbody></table> ';
-                    rangePropertyTable += '</tbody></table> ';
-                    // show domainPropertyTable if it has Values
-                    if (hasdomainPropertyValues) {
-                      $("#domainPropertyTable").show();
-                      $("#domainPropertyTable").html(domainPropertyTable);
-                    }
-                    // show rangePropertyTable if it has Values
-                    if (hasRangePropertyValues) {
-                      $("#rangePropertyTable").show();
-                      $("#rangePropertyTable").html(rangePropertyTable);
-                    }
-                  }
-                }
-              });
-            };
-
-
-            // to query sparql endpoint return graph and queryResult
-            function getConceptInfo(item, view, anotherQuery) {
-              var str = "";
-              var isURIExist = false;
-              var conceptURI;
-              currentSelectedConcept = item;
-
-              if (view === "SKOS") {
-                conceptURI = item;
-                isURIExist = true;
-              } else if (view === "Individuals") {
-                conceptURI = item;
-                isURIExist = true;
-              } else {
-                for (var i = 0; i < RDFSData.length; i++) {
-                  if (item.toLowerCase() === RDFSData[i].concept.toLowerCase()) {
-                    conceptURI = RDFSData[i].URI;
-                    isURIExist = true;
-                    break;
-                  }
-                }
-              }
-              // highlight the selected node
-              var selectedNode = $('#tree').treeview('getSelected');
-              if (view === "SKOS" || view === "Individuals") {
-                //scrollTop if class clicked from instanceDetailsTable
-                $("#infoTabs").animate({
-                  scrollTop: 0
-                }, "fast");
-                $("#instanceHead").hide();
-                $("#instanceDetailsTable").hide();
-                $("#instancesTable").hide();
-
-                // scroll to the clicked node from documentation and select the node
-                const callback = element => element.innerHTML == trimHash(replaceWithRDFType(trimSlash(item)));
-                const elements = Array.from(document.getElementsByTagName('a'));
-                const result = elements.filter(callback);
-                var $s = $('#treeContainer');
-                //  get nodeid of string node.text
-                var liTop = $s.find('[data-nodeid=' + parseInt(result["0"].firstChild.parentNode.offsetParent.dataset.nodeid) + ']').offset().top;
-                var ulTop = $s.offset().top;
-                // scroll to the selected node
-                //  $s.scrollTop($s.scrollTop() + (liTop - ulTop));
-                // select the node of the treeview
-                $('#tree').treeview('selectNode', [parseInt(result["0"].firstChild.parentNode.offsetParent.dataset.nodeid), {
-                  silent: true
-                }]);
-              } else if (selectedNode[0].concept != item) {
-
-                if (!$('#allTypesRadio').is(':checked'))
-                  $('#allTypesRadio').click();;
-
-                //scrollTop if class clicked from instanceDetailsTable
-                $("#infoTabs").animate({
-                  scrollTop: 0
-                }, "fast");
-                $("#instanceHead").hide();
-                $("#instanceDetailsTable").hide();
-                $("#instancesTable").hide();
-                // scroll to the clicked node from documentation and select the node
-                const callback = element => element.innerHTML == item;
-                const elements = Array.from(document.getElementsByTagName('a'));
-                const result = elements.filter(callback);
-                var $s = $('#treeContainer');
-                //  get nodeid of string node.text
-                var liTop = $s.find('[data-nodeid=' + parseInt(result[0].parentNode.dataset.nodeid) + ']').offset().top;
-                var ulTop = $s.offset().top;
-                // scroll to the selected node
-                $s.scrollTop($s.scrollTop() + (liTop - ulTop));
-                // select the node of the treeview
-                $('#tree').treeview('selectNode', [parseInt(result[0].parentNode.dataset.nodeid), {
-                  silent: true
-                }]);
-              }
-
-              if (isURIExist) {
-                var endpoint = "./fuseki/dataset/sparql"
-                if (!anotherQuery)
-                  var sparql = 'SELECT  ?p ?o WHERE {  <' + conceptURI + '> ?p ?o }'
-                else
-                  var sparql = 'SELECT  ?o ?p WHERE { ?o ?p <' + conceptURI + '> }'
-                d3sparql.query(endpoint, sparql, render)
-              }
-            }
-            var justOneTimeExectuted = false;
-            // Function to display data in tables on the page
-            function render(json) {
-              var objectOrSubject = "Object";
-              var dataSPARQL = json.results.bindings;
-              // check for spec case of skos concepts
-              if (dataSPARQL.length === 0 && $('#SKOSViewCheckBox').is(':checked')) {
-                getConceptInfo(currentSelectedSKOSURI, "SKOS", "queryAsObject");
-                showTurtleSource(currentSelectedSKOSURI, "SKOS", "queryAsObject", false);
-                justOneTimeExectuted = true;
-              } else {
-                if (justOneTimeExectuted)
-                  objectOrSubject = "Subject";
-                if (justOneTimeExectuted && objectOrSubject === "Subject")
-                  justOneTimeExectuted = false;
-
-                // needed local variables
-                var conceptHasRange = "";
-                var conceptHasDomain = "";
-                var conceptLabel;
-                var nodes = [],
-                  edges = [];
-                var table = '<table class="ui green celled striped table" style="table-layout:fixed;">' +
-                  '<colgroup> <col class="col-md-auto"><col class="col-md-7"> </colgroup>' +
-                  '<tr class="positive">' +
-                  '<th>Predicate</th>' +
-                  '<th>' + objectOrSubject + '</th>' +
-                  '</tr>';
-                var rangeTable = '<table class="ui yellow celled striped table" style="table-layout:fixed;" >' +
-                  '<colgroup> <col class="col-md-6"> </colgroup>' +
-                  '<tr class="warning">' +
-                  '<th>Values expected to be one of these types</th>' +
-                  '</tr>';
-                var domainTable = '<table class="ui brown celled striped table" style="table-layout:fixed;">' +
-                  '<colgroup> <col class="col-md-6"> </colgroup>' +
-                  '<tr class="negative">' +
-                  '<th>Used on these types</th>' +
-                  '</tr>';
-
-                for (var i = 0; i < dataSPARQL.length; i++) {
-                  var key1 = trimHash(replaceWithRDFType(trimSlash(dataSPARQL[i]['p'].value)));
-                  var key2 = dataSPARQL[i]['o'].value;
-                  var key2URI = key2;
-                  var key3 = "";
-                  if (dataSPARQL[i]['o'].hasOwnProperty("xml:lang"))
-                    key3 = dataSPARQL[i]['o']['xml:lang'];
-                  var key4 = dataSPARQL[i]['o']['type'];
-
-                  if ((key2.includes("http://") || key2.includes("https://")) && key4 === "literal") {
-                    if (key2[key2.length - 1] === ('/'))
-                      key2 = key2.slice(0, -1);
-                    key2 = '<a href=' + key2 + '>' + key2 + '</a>';
-                  } else {
-                    if (key2[key2.length - 1] === ('/'))
-                      key2 = key2.slice(0, -1);
-                    key2 = trimHash(replaceWithRDFType(trimSlash(key2)));
-                  }
-                  // create an array with nodes for graph visualization
-                  if (key3) {
-                    nodes.push({
-                      id: i + 2,
-                      label: key2 + "@" + key3
-                    });
-                  } else {
-                    nodes.push({
-                      id: i + 2,
-                      label: key2
-                    });
-                  }
-                  // create an array with edges for graph visualization
-                  edges.push({
-                    from: 1,
-                    to: i + 2,
-                    label: key1,
-                    font: {
-                      color: 'green'
-                    }
-                  });
-
-                  if (key1.includes("domain")) {
-                    conceptHasDomain = key1;
-                    if (isConceptInside(key2) && key4 === "uri")
-                      key2 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
-                    else if (!isOWLIndividiual(key2) && !isConceptInside(key2) && key4 === "uri")
-                      key2 = '<a href="#" onmousedown="showExternalInfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
-                    domainTable += '<tr>    <td>' + key2 + '</td>  </tr>';
-                  } else if (key1.includes("range")) {
-                    conceptHasRange = key1;
-                    if (isConceptInside(key2) && key4 === "uri")
-                      key2 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
-                    else if (!isOWLIndividiual(key2) && !isConceptInside(key2) && key4 === "uri")
-                      key2 = '<a href="#" onmousedown="showExternalInfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
-                    rangeTable += '<tr>    <td>' + key2 + '</td>  </tr>';
-                  } else {
-                    if (key1.includes("broader") || key1.includes("narrower")) {
-                      key2 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key2URI + '&quot;,&quot;SKOS&quot;); return false; ">' + key2 + '</a>';
-                    } else if (isOWLIndividiual(key2) && !key1.includes("label") && key4 === "uri") {
-                      key2 = '<a href="#" onclick="showInstanceDetails(&quot;' + key2URI + '&quot;); ">' + key2 + '</a>';
-                    } else if (!isOWLIndividiual(key2) && !isConceptInside(key2) && !key1.includes("label") && key4 === "uri") {
-                      key2 = '<a href="#" onmousedown="showExternalInfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
-                    }
-                    if (isConceptInside(key2) && !key1.includes("label") && key4 === "uri") {
-                      key2 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
-                    }
-                    if (key3 && key4 === "literal") {
-                      key2 = key2 + '@' + key3;
-                    }
-                    table += '<tr><td>' + key1 + '</td>    <td>' + key2 + '</td>  </tr>';
-                  }
-                }
-
-                // close HTML tables with thier tags
-                table += '</table> ';
-                domainTable += '</table> ';
-                rangeTable += '</table> ';
-              }
-
-              $('#infoTabs').show();
-              $("#infoTabs").animate({
-                scrollTop: 0
-              }, "fast");
-
-              //display returned data on the Html tables
-              $("#conceptHead").show();
-              if (currentSelectedConcept.includes("http://") || currentSelectedConcept.includes("https://")) { //check if it skosURI
-                currentSelectedConcept = trimHash(trimSlash(currentSelectedConcept));
-              }
-              nodes.push({
-                id: 1,
-                label: currentSelectedConcept,
-                font: {
-                  size: 20,
-                  color: 'red',
-                  face: 'sans'
-                },
-                color: '#e9d4df'
-              });
-
-              $("#conceptHead ").html('<p >  Details: <code>' + currentSelectedConcept + '</code></p>');
-              $("#infoDetails").show();
-              $('#viewList').show();
-              // domainTable has some values to show
-              if (!conceptHasDomain == "")
-                $("#domainTable").show();
-              else
-                $("#domainTable").hide();
-              // rangeTable has some values to show
-              if (!conceptHasRange == "")
-                $("#rangeTable").show();
-              else {
-                $("#rangeTable").hide();
-              }
-
-              $("#detailTable").html(table);
-              $("#domainTable").html(domainTable);
-              $("#rangeTable").html(rangeTable);
-              var dataToBeChecked = [];
-              if ($('#individualsPropertyRadio').is(':checked')) {
-                // make both rangePropertyTable and domainPropertyTable  empty
-                $("#rangePropertyTable").hide();
-                $("#domainPropertyTable").hide();
-              } else {
-                if ($('#SKOSViewCheckBox').is(':checked'))
-                  dataToBeChecked = SKOSData;
-                else
-                  dataToBeChecked = RDFSData;
-                // get currentSelectedURI for domainPropertyTable and rangePropertyTable
-                var conceptURI = _.find(dataToBeChecked, function(o) {
-                  if (o.concept === currentSelectedConcept)
-                    return o;
-                }).URI;
-                $("#rangePropertyTable").hide();
-                $("#domainPropertyTable").hide();
-                // check if other concepts use this word as domain
-                getValuesUseditAsProperty(conceptURI, 'domain');
-                // check if other concepts use this word as range
-                getValuesUseditAsProperty(conceptURI, 'range');
-              }
-              $("#sourceCodeTab").show();
-              $('#graphTab').show();
-
-              // create a network
-              var container = document.getElementById('mynetwork');
-              var data = {
-                nodes: nodes,
-                edges: edges
-              };
-              var options = {
-                autoResize: false,
-                height: '400px',
-                width: '500px',
-                nodes: {
-                  shape: 'dot',
-                  size: 20
-                },
-                layout: {
-                  randomSeed: undefined,
-                  improvedLayout: true,
-                  hierarchical: {
-                    enabled: false,
-                    levelSeparation: 150,
-                    nodeSpacing: 100,
-                    treeSpacing: 200,
-                    blockShifting: true,
-                    edgeMinimization: true,
-                    parentCentralization: true,
-                    direction: 'RL', // UD, DU, LR, RL
-                    sortMethod: 'hubsize' // hubsize, directed
-                  }
-                },
-                interaction: {
-                  navigationButtons: true,
-                  keyboard: true
-                },
-                physics: {
-                  enabled: true,
-                  barnesHut: {
-                    gravitationalConstant: -2000,
-                    centralGravity: 0.3,
-                    springLength: 95,
-                    springConstant: 0.04,
-                    damping: 0.09,
-                    avoidOverlap: 0
-                  },
-                  forceAtlas2Based: {
-                    gravitationalConstant: -50,
-                    centralGravity: 0.01,
-                    springConstant: 0.08,
-                    springLength: 100,
-                    damping: 0.4,
-                    avoidOverlap: 0
-                  },
-                  repulsion: {
-                    centralGravity: 0.2,
-                    springLength: 200,
-                    springConstant: 0.05,
-                    nodeDistance: 100,
-                    damping: 0.09
-                  },
-                  hierarchicalRepulsion: {
-                    centralGravity: 0.0,
-                    springLength: 100,
-                    springConstant: 0.01,
-                    nodeDistance: 120,
-                    damping: 0.09
-                  },
-                  maxVelocity: 50,
-                  minVelocity: 0.1,
-                  solver: 'barnesHut',
-                  stabilization: {
-                    enabled: true,
-                    iterations: 1000,
-                    updateInterval: 100,
-                    onlyDynamicEdges: false,
-                    fit: true
-                  },
-                  timestep: 0.5,
-                  adaptiveTimestep: true
-                }
-              };
-              var network = new vis.Network(container, data, options);
-              var fitNetworkFirstTime = false;
-              // add event listeners
-              network.on('select', function(params) {
-                document.getElementById('selection').innerHTML = 'Selection: ' + params.nodes;
-              });
-
-              network.on('afterDrawing', function() {
-                if (!fitNetworkFirstTime) {
-                  network.fit();
-                }
-                fitNetworkFirstTime = true;
-              });
-              network.once('stabilized', function() {
-                if (network.getScale() < 0.2)
-                  var scaleOption = {
-                    scale: 0.3
-                  };
-                network.moveTo(scaleOption);
-              })
-
-
-
-              // To render oncemore the graph id the graphTab is clicked
-              $('#graphTab').on('click', function() {
-                network = new vis.Network(container, data, options);
-                network.once('stabilized', function() {
-                  if (network.getScale() < 0.2)
-                    var scaleOption = {
-                      scale: 0.3
-                    };
-                  network.moveTo(scaleOption);
-                })
-                network.on('afterDrawing', function() {
-                  if (!fitNetworkFirstTime)
-                    network.fit();
-                  fitNetworkFirstTime = true;
-
-                });
-              });
-              // To reset fitNetworkFirstTime when user click other than graphTab
-              $('#documentationTab').on('click', function() {
-                fitNetworkFirstTime = false;
-              });
-              $('#sourceCodeTab').on('click', function() {
-                fitNetworkFirstTime = false;
-              });
-
-            }
-
-            // Call when document is ready
-            $(document).ready(function(e) {
-              $(document).on('click', 'a[href="#"]', function(e) {
-                e.preventDefault();
-              });
-            });
-
           }
-        </script>
-        <!-- End of JavaScript coding-->
+        }
+
+        // Conversion from xml to string
+        function xml_to_string(xml_node) {
+          if (xml_node.xml)
+            return xml_node.xml;
+          else if (XMLSerializer) {
+            var xml_serializer = new XMLSerializer();
+            return xml_serializer.serializeToString(xml_node);
+          } else {
+            alert("ERROR: Extremely old browser");
+            return "";
+          }
+        }
+
+
+        var acceptHeader4SourceCode = "text/turtle";
+        // set Accept Header based on clicked button to show the reference Code
+        $("#turtleCodeBnt,#ntriplesCodeBnt,#rdfxmlCodeBnt,#ldJsonCodeBnt").on('click', function() {
+          event.preventDefault();
+          acceptHeader4SourceCode = this.value;
+          if ($('#individualsPropertyRadio').is(':checked'))
+            showTurtleSource(currentSelectedIndividualURI, "Individuals");
+          else if ($('#SKOSViewCheckBox').is(':checked')) {
+            if (justOneTimeExectuted)
+              showTurtleSource(currentSelectedSKOSURI, "SKOS", "queryAsObject");
+            else
+              showTurtleSource(currentSelectedSKOSURI, "SKOS");
+          } else if ($('#RDFSViewCheckBox').is(':checked')) {
+            showTurtleSource(currentSelectedConcept);
+          }
+        });
+
+        // To display Turtle source for the selected node
+        function showTurtleSource(item, view, anotherQuery) {
+          var conceptURI;
+          var isURIExist = false;
+          if (view == "SKOS" || view == "Individuals") {
+            conceptURI = item;
+            isURIExist = true;
+          } else {
+            if (item) {
+              for (var i = 0; i < RDFSData.length; i++) {
+                if (item.toLowerCase() === RDFSData[i].concept.toLowerCase()) {
+                  conceptURI = RDFSData[i].URI;
+                  isURIExist = true;
+                  break;
+                }
+              }
+            } else if (currentSelectedConcept) {
+              for (var i = 0; i < RDFSData.length; i++) {
+                if (currentSelectedConcept.toLowerCase() === RDFSData[i].concept.toLowerCase()) {
+                  conceptURI = RDFSData[i].URI;
+                  isURIExist = true;
+                  break;
+                }
+              }
+            } else
+              isURIExist = false;
+          }
+          if (isURIExist) {
+            var endpoint = "./fuseki/dataset/sparql?query="
+            if (!anotherQuery)
+              var querystring = 'CONSTRUCT{<' + encodeURIComponent(conceptURI) + '> ?p ?o .}WHERE {<' + encodeURIComponent(conceptURI) + '> ?p ?o .}';
+            else
+              var querystring = 'CONSTRUCT{ ?s ?p <' + encodeURIComponent(conceptURI) + '> .}WHERE { ?s ?p <' + encodeURIComponent(conceptURI) + '> .}';
+            $('div.yasqe').empty();
+            $.ajax({
+              type: 'GET',
+              url: endpoint + querystring,
+              headers: {
+                Accept: acceptHeader4SourceCode
+              },
+              success: function(data, textStatus, jqXHR) {
+                $('#sourceCodeTab').show();
+                $('div.yasqe').remove();
+                var config = {
+                  createShareLink: false,
+                  readOnly: true,
+                  syntaxErrorCheck: false,
+                  lineNumbers: false
+                };
+                if (acceptHeader4SourceCode == "text/turtle" || acceptHeader4SourceCode == "text/ntriples") {
+                  $("#jsonCodeDiv").hide();
+                  $("#xmlCodeDiv").hide();
+                  $("#yasqe").show();
+                  // use yasqe library to display turtle format
+                  var yasqe = YASQE(document.getElementById("yasqe"), config);
+                  $("div.CodeMirror-gutters").remove();
+                  $("div.yasqe_buttons").remove();
+                  yasqe.setValue(data);
+                  $("div.yasqe").transition('pulse');
+                } else {
+                  hljs.initHighlightingOnLoad();
+                  if (acceptHeader4SourceCode == "application/ld+json") {
+                    $("#jsonCodeDiv").show();
+                    $("#xmlCodeDiv").hide();
+                    $("#yasqe").hide();
+                    $("#jsonCode").html(JSON.stringify(data));
+                    $("jsonCode").transition('pulse');
+                  } else {
+                    $("#xmlCodeDiv").show();
+                    $("#jsonCodeDiv").hide();
+                    $("#yasqe").hide();
+                    // set xml code to a web element
+                    $("#xmlCode").text(xml_to_string(data));
+                    $("#xmlCode").transition('pulse');
+
+                  }
+                }
+              },
+              error: function(e) {
+                console.log(e);
+              }
+            });
+          }
+        }
+
+        // call to showTurtleSource to display the turtle format
+        // when checkbox is clicked
+        $("#sourceCodeTab").on('click', function() {
+          if ($('#individualsPropertyRadio').is(':checked'))
+            showTurtleSource(currentSelectedIndividualURI, "Individuals");
+          else if ($('#SKOSViewCheckBox').is(':checked')) {
+            if (justOneTimeExectuted)
+              showTurtleSource(currentSelectedSKOSURI, "SKOS", "queryAsObject");
+            else
+              showTurtleSource(currentSelectedSKOSURI, "SKOS");
+          } else if ($('#RDFSViewCheckBox').is(':checked')) {
+            showTurtleSource(currentSelectedConcept);
+          }
+        });
+
+        //check if concept used either as domain or range by other conceptsget
+        function getValuesUseditAsProperty(conceptURI, type) {
+          var hasdomainPropertyValues = false;
+          var hasRangePropertyValues = false;
+
+          // make both rangePropertyTable and domainPropertyTable  empty
+          $("#rangePropertyTable").hide();
+          $("#domainPropertyTable").hide();
+          if (type === "range") {
+            var propertyType = "rdfs:range";
+          } else {
+            var propertyType = "rdfs:domain";
+          }
+          var endpoint = "./fuseki/dataset/sparql?query=";
+          var querystring = 'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>' +
+            'SELECT  ?s ?property ?comment ' +
+            'WHERE {' +
+            ' ?s ' + propertyType + ' <' + conceptURI + '>.' +
+            '?s ' + propertyType + '?property.' +
+            'OPTIONAL{?s rdfs:comment ?comment.}}';
+          $.ajax({
+            type: 'GET',
+            url: endpoint + encodeURIComponent(querystring),
+            'async': true,
+            headers: {
+              Accept: 'application/sparql-results+json;charset=UTF-8'
+            },
+            success: function(data, textStatus, jqXHR) {
+              var result = data.results.bindings;
+              hasdomainPropertyValues = false;
+              hasRangePropertyValues = false;
+
+              if (result[0] != null) {
+                var rangePropertyTable = '<table class="ui yellow celled table" style="table-layout:fixed;" >' +
+                  '<thead>' +
+                  '<colgroup> <col class="col-md-2"><col class="col-md-2"><col class="col-md-2"> </colgroup>' +
+                  '<tr>' +
+                  '<th colspan="3">Terms use it as range</th></thead>' +
+                  '<tbody></tr><tr><th>Property</th><th>On Types</th><th>Description</th></tr>';
+
+                var domainPropertyTable = '<table class="ui brown celled striped table"style="table-layout:fixed;" >' +
+                  '<thead>' +
+                  '<colgroup> <col class="col-md-2"><col class="col-md-2"><col class="col-md-2"> </colgroup>' +
+                  '<tr>' +
+                  '<th colspan="3">Terms use it as domain</th></thead>' +
+                  '<tbody></tr><tr><th>Property</th><th>Expected Type</th><th>Description</th></tr>';
+                var perviousKey1DomainProperty = "",
+                  perviousKey2DomainProperty = "";
+                if (type === 'domain') {
+                  var domianPropertyResult = result;
+                  if (domianPropertyResult) {
+                    hasdomainPropertyValues = true;
+                    for (var i = 0; i < domianPropertyResult.length; i++) {
+                      var key1 = trimHash(replaceWithRDFType(trimSlash(domianPropertyResult[i]['s'].value)));
+                      var key2 = trimHash(replaceWithRDFType(trimSlash(domianPropertyResult[i]['property'].value)));
+                      var key3 = "";
+                      if (domianPropertyResult[i].hasOwnProperty("comment"))
+                        key3 = domianPropertyResult[i]['comment'].value;
+                      var key4 = "";
+                      if (domianPropertyResult[i]['comment'].hasOwnProperty("xml:lang"))
+                        key4 = domianPropertyResult[i]['comment']['xml:lang'];
+
+                      var key5 = domianPropertyResult[i]['comment']['type'];
+                      if (isConceptInside(key1) && domianPropertyResult[i]['s'].type === "uri")
+                        key1 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key1 + '&quot;); return false; ">' + key1 + '</a>';
+                      if (isConceptInside(key2) && domianPropertyResult[i]['property'].type === "uri")
+                        key2 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
+                      // check if rows share same values of subject and property, then combine the last comment in the same table cell
+                      if (perviousKey1DomainProperty === key1 && perviousKey2DomainProperty === key2 && key4 && key5 === "literal") {
+                        domainPropertyTable = domainPropertyTable.substring(0, domainPropertyTable.lastIndexOf('</td> </tr>'))
+                        domainPropertyTable += '<br/><br/>' + key3 + '@' + key4 + '</td> </tr>';
+                      } else if (perviousKey1DomainProperty === key1 && perviousKey2DomainProperty === key2) {
+                        domainPropertyTable = domainPropertyTable.substring(0, domainPropertyTable.lastIndexOf('</td> </tr>'))
+                        domainPropertyTable += '<br/><br/>' + key3 + '</td> </tr>';
+                      } else if (key4 && key5 === "literal")
+                        domainPropertyTable += '<tr><td style="vertical-align:middle;">' + key1 + '</td>    <td style="vertical-align:middle; text-align: center;">' + key2 + '</td>   <td>' + key3 + '@' + key4 + '</td> </tr>';
+                      else
+                        domainPropertyTable += '<tr><td style="vertical-align:middle;">' + key1 + '</td>    <td style="vertical-align:middle; text-align: center;">' + key2 + '</td>   <td>' + key3 + '</td> </tr>';
+                      //save pervious values of key1 and key2
+                      perviousKey1DomainProperty = key1;
+                      perviousKey2DomainProperty = key2;
+
+                    }
+                  }
+                } else if (type === 'range') {
+                  var rangePropertyResult = result;
+                  var perviousKey1RangeProperty = "",
+                    perviousKey2RangeProperty = "";
+                  if (rangePropertyResult) {
+                    hasRangePropertyValues = true;
+                    for (var i = 0; i < rangePropertyResult.length; i++) {
+                      var key1 = trimHash(replaceWithRDFType(trimSlash(rangePropertyResult[i]['s'].value)));
+                      var key2 = trimHash(replaceWithRDFType(trimSlash(rangePropertyResult[i]['property'].value)));
+                      var key3 = "";
+                      if (rangePropertyResult[i].hasOwnProperty("comment"))
+                        key3 = rangePropertyResult[i]['comment'].value;
+                      var key4 = "";
+                      if (rangePropertyResult[i]['comment'].hasOwnProperty("xml:lang"))
+                        key4 = rangePropertyResult[i]['comment']['xml:lang'];
+                      var key5 = rangePropertyResult[i]['comment']['type'];
+
+                      if (isConceptInside(key1) && rangePropertyResult[i]['s'].type === "uri")
+                        key1 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key1 + '&quot;); return false; ">' + key1 + '</a>';
+                      if (isConceptInside(key2) && rangePropertyResult[i]['property'].type === "uri")
+                        key2 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
+                      // check if rows share same values of subject and property, then combine the last comment in the same table cell
+                      if (perviousKey1RangeProperty === key1 && perviousKey2RangeProperty === key2 && key4 && key5 === "literal") {
+                        rangePropertyTable = rangePropertyTable.substring(0, rangePropertyTable.lastIndexOf('</td> </tr>'))
+                        rangePropertyTable += '<br/><br/>' + key3 + '@' + key4 + '</td> </tr>';
+                      } else if (perviousKey1RangeProperty === key1 && perviousKey2RangeProperty === key2) {
+                        rangePropertyTable = rangePropertyTable.substring(0, rangePropertyTable.lastIndexOf('</td> </tr>'))
+                        rangePropertyTable += '<br/><br/>' + key3 + '</td> </tr>';
+                      } else if (key4 && key5 === "literal")
+                        rangePropertyTable += '<tr ><td style="vertical-align:middle;">' + key1 + '</td>    <td style="vertical-align:middle; text-align: center;">' + key2 + '</td>   <td>' + key3 + '@' + key4 + '</td> </tr>';
+                      else
+                        rangePropertyTable += '<tr><td style="vertical-align:middle;">' + key1 + '</td>    <td style="vertical-align:middle; text-align: center;">' + key2 + '</td>   <td>' + key3 + '</td> </tr>';
+
+                      perviousKey1RangeProperty = key1;
+                      perviousKey2RangeProperty = key2;
+                    }
+                  }
+                }
+                domainPropertyTable += '</tbody></table> ';
+                rangePropertyTable += '</tbody></table> ';
+                // show domainPropertyTable if it has Values
+                if (hasdomainPropertyValues) {
+                  $("#domainPropertyTable").show();
+                  $("#domainPropertyTable").html(domainPropertyTable);
+                }
+                // show rangePropertyTable if it has Values
+                if (hasRangePropertyValues) {
+                  $("#rangePropertyTable").show();
+                  $("#rangePropertyTable").html(rangePropertyTable);
+                }
+              }
+            }
+          });
+        };
+
+
+        // to query sparql endpoint return graph and queryResult
+        function getConceptInfo(item, view, anotherQuery) {
+          var str = "";
+          var isURIExist = false;
+          var conceptURI;
+          currentSelectedConcept = item;
+
+          if (view === "SKOS") {
+            conceptURI = item;
+            isURIExist = true;
+          } else if (view === "Individuals") {
+            conceptURI = item;
+            isURIExist = true;
+          } else {
+            for (var i = 0; i < RDFSData.length; i++) {
+              if (item.toLowerCase() === RDFSData[i].concept.toLowerCase()) {
+                conceptURI = RDFSData[i].URI;
+                isURIExist = true;
+                break;
+              }
+            }
+          }
+          // highlight the selected node
+          var selectedNode = $('#tree').treeview('getSelected');
+          if (view === "SKOS" || view === "Individuals") {
+            //scrollTop if class clicked from instanceDetailsTable
+            $("#infoTabs").animate({
+              scrollTop: 0
+            }, "fast");
+            $("#instanceHead").hide();
+            $("#instanceDetailsTable").hide();
+            $("#instancesTable").hide();
+
+            // scroll to the clicked node from documentation and select the node
+            const callback = element => element.innerHTML == trimHash(replaceWithRDFType(trimSlash(item)));
+            const elements = Array.from(document.getElementsByTagName('a'));
+            const result = elements.filter(callback);
+            var $s = $('#treeContainer');
+            //  get nodeid of string node.text
+            var liTop = $s.find('[data-nodeid=' + parseInt(result["0"].firstChild.parentNode.offsetParent.dataset.nodeid) + ']').offset().top;
+            var ulTop = $s.offset().top;
+            // scroll to the selected node
+            //  $s.scrollTop($s.scrollTop() + (liTop - ulTop));
+            // select the node of the treeview
+            $('#tree').treeview('selectNode', [parseInt(result["0"].firstChild.parentNode.offsetParent.dataset.nodeid), {
+              silent: true
+            }]);
+          } else if (selectedNode[0].concept != item) {
+
+            if (!$('#allTypesRadio').is(':checked'))
+              //$('#allTypesRadio').click();
+              $('#allTypesRadio').click();;
+
+            //scrollTop if class clicked from instanceDetailsTable
+            $("#infoTabs").animate({
+              scrollTop: 0
+            }, "fast");
+            $("#instanceHead").hide();
+            $("#instanceDetailsTable").hide();
+            $("#instancesTable").hide();
+            // scroll to the clicked node from documentation and select the node
+            const callback = element => element.innerHTML == item;
+            const elements = Array.from(document.getElementsByTagName('a'));
+            const result = elements.filter(callback);
+            var $s = $('#treeContainer');
+            //  get nodeid of string node.text
+            var liTop = $s.find('[data-nodeid=' + parseInt(result[0].parentNode.dataset.nodeid) + ']').offset().top;
+            var ulTop = $s.offset().top;
+            // scroll to the selected node
+            $s.scrollTop($s.scrollTop() + (liTop - ulTop));
+            // select the node of the treeview
+            $('#tree').treeview('selectNode', [parseInt(result[0].parentNode.dataset.nodeid), {
+              silent: true
+            }]);
+          }
+
+          if (isURIExist) {
+            var endpoint = "./fuseki/dataset/sparql"
+            if (!anotherQuery)
+              var sparql = 'SELECT  ?p ?o WHERE {  <' + conceptURI + '> ?p ?o }'
+            else
+              var sparql = 'SELECT  ?o ?p WHERE { ?o ?p <' + conceptURI + '> }'
+            d3sparql.query(endpoint, sparql, render)
+          }
+        }
+        var justOneTimeExectuted = false;
+        // Function to display data in tables on the page
+        function render(json) {
+          var objectOrSubject = "Object";
+          var dataSPARQL = json.results.bindings;
+          // check for spec case of skos concepts
+          if (dataSPARQL.length === 0 && $('#SKOSViewCheckBox').is(':checked')) {
+            getConceptInfo(currentSelectedSKOSURI, "SKOS", "queryAsObject");
+            showTurtleSource(currentSelectedSKOSURI, "SKOS", "queryAsObject", false);
+            justOneTimeExectuted = true;
+          } else {
+            if (justOneTimeExectuted)
+              objectOrSubject = "Subject";
+            if (justOneTimeExectuted && objectOrSubject === "Subject")
+              justOneTimeExectuted = false;
+
+            // needed local variables
+            var conceptHasRange = "";
+            var conceptHasDomain = "";
+            var conceptLabel;
+            var nodes = [],
+              edges = [];
+            var table = '<table class="ui green celled striped table" style="table-layout:fixed;">' +
+              '<colgroup> <col class="col-md-auto"><col class="col-md-7"> </colgroup>' +
+              '<tr class="positive">' +
+              '<th>Predicate</th>' +
+              '<th>' + objectOrSubject + '</th>' +
+              '</tr>';
+            var rangeTable = '<table class="ui yellow celled striped table" style="table-layout:fixed;" >' +
+              '<colgroup> <col class="col-md-6"> </colgroup>' +
+              '<tr class="warning">' +
+              '<th>Values expected to be one of these types</th>' +
+              '</tr>';
+            var domainTable = '<table class="ui brown celled striped table" style="table-layout:fixed;">' +
+              '<colgroup> <col class="col-md-6"> </colgroup>' +
+              '<tr class="negative">' +
+              '<th>Used on these types</th>' +
+              '</tr>';
+
+            for (var i = 0; i < dataSPARQL.length; i++) {
+              var key1 = trimHash(replaceWithRDFType(trimSlash(dataSPARQL[i]['p'].value)));
+              var key2 = dataSPARQL[i]['o'].value;
+              var key2URI = key2;
+              var key3 = "";
+              if (dataSPARQL[i]['o'].hasOwnProperty("xml:lang"))
+                key3 = dataSPARQL[i]['o']['xml:lang'];
+              var key4 = dataSPARQL[i]['o']['type'];
+
+              if ((key2.includes("http://") || key2.includes("https://")) && key4 === "literal") {
+                if (key2[key2.length - 1] === ('/'))
+                  key2 = key2.slice(0, -1);
+                key2 = '<a href=' + key2 + '>' + key2 + '</a>';
+              } else {
+                if (key2[key2.length - 1] === ('/'))
+                  key2 = key2.slice(0, -1);
+                key2 = trimHash(replaceWithRDFType(trimSlash(key2)));
+              }
+              // create an array with nodes for graph visualization
+              if (key3) {
+                nodes.push({
+                  id: i + 2,
+                  label: key2 + "@" + key3
+                });
+              } else {
+                nodes.push({
+                  id: i + 2,
+                  label: key2
+                });
+              }
+              // create an array with edges for graph visualization
+
+              edges.push({
+                from: 1,
+                to: i + 2,
+                label: key1,
+                font: {
+                  color: 'green'
+                }
+              });
+
+              if (key1.includes("domain")) {
+                conceptHasDomain = key1;
+                if (isConceptInside(key2) && key4 === "uri")
+                  key2 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
+                else if (!isOWLIndividiual(key2) && !isConceptInside(key2) && key4 === "uri")
+                  key2 = '<a href="#" onmousedown="showExternalInfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
+                domainTable += '<tr>    <td>' + key2 + '</td>  </tr>';
+              } else if (key1.includes("range")) {
+                conceptHasRange = key1;
+                if (isConceptInside(key2) && key4 === "uri")
+                  key2 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
+                else if (!isOWLIndividiual(key2) && !isConceptInside(key2) && key4 === "uri")
+                  key2 = '<a href="#" onmousedown="showExternalInfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
+                rangeTable += '<tr>    <td>' + key2 + '</td>  </tr>';
+              } else {
+                if (key1.includes("broader") || key1.includes("narrower")) {
+                  key2 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key2URI + '&quot;,&quot;SKOS&quot;); return false; ">' + key2 + '</a>';
+                } else if (isOWLIndividiual(key2) && !key1.includes("label") && key4 === "uri") {
+                  key2 = '<a href="#" onclick="showInstanceDetails(&quot;' + key2URI + '&quot;); ">' + key2 + '</a>';
+                } else if (!isOWLIndividiual(key2) && !isConceptInside(key2) && !key1.includes("label") && key4 === "uri") {
+                  key2 = '<a href="#" onmousedown="showExternalInfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
+                }
+                if (isConceptInside(key2) && !key1.includes("label") && key4 === "uri") {
+                  key2 = '<a href="#" onmousedown="getConceptInfo(&quot;' + key2 + '&quot;); return false; ">' + key2 + '</a>';
+                }
+                if (key3 && key4 === "literal") {
+                  key2 = key2 + '@' + key3;
+                }
+                table += '<tr><td>' + key1 + '</td>    <td>' + key2 + '</td>  </tr>';
+              }
+            }
+
+            // close HTML tables with thier tags
+            table += '</table> ';
+            domainTable += '</table> ';
+            rangeTable += '</table> ';
+          }
+
+          $('#infoTabs').show();
+          $("#infoTabs").animate({
+            scrollTop: 0
+          }, "fast");
+
+          //display returned data on the Html tables
+          $("#conceptHead").show();
+          if (currentSelectedConcept.includes("http://") || currentSelectedConcept.includes("https://")) { //check if it skosURI
+            currentSelectedConcept = trimHash(trimSlash(currentSelectedConcept));
+          }
+          nodes.push({
+            id: 1,
+            label: currentSelectedConcept,
+            font: {
+              size: 20,
+              color: 'red',
+              face: 'sans'
+            },
+            color: '#e9d4df'
+          });
+
+          $("#conceptHead ").html('<p >  Details: <code>' + currentSelectedConcept + '</code></p>');
+          $("#infoDetails").show();
+          $('#viewList').show();
+          // domainTable has some values to show
+          if (!conceptHasDomain == "")
+            $("#domainTable").show();
+          else
+            $("#domainTable").hide();
+          // rangeTable has some values to show
+          if (!conceptHasRange == "")
+            $("#rangeTable").show();
+          else {
+            $("#rangeTable").hide();
+          }
+
+          $("#detailTable").html(table);
+          $("#domainTable").html(domainTable);
+          $("#rangeTable").html(rangeTable);
+          var dataToBeChecked = [];
+          if ($('#individualsPropertyRadio').is(':checked')) {
+            // make both rangePropertyTable and domainPropertyTable  empty
+            $("#rangePropertyTable").hide();
+            $("#domainPropertyTable").hide();
+          } else {
+            if ($('#SKOSViewCheckBox').is(':checked'))
+              dataToBeChecked = SKOSData;
+            else
+              dataToBeChecked = RDFSData;
+            // get currentSelectedURI for domainPropertyTable and rangePropertyTable
+            var conceptURI = _.find(dataToBeChecked, function(o) {
+              if (o.concept === currentSelectedConcept)
+                return o;
+            }).URI;
+            $("#rangePropertyTable").hide();
+            $("#domainPropertyTable").hide();
+            // check if other concepts use this word as domain
+            getValuesUseditAsProperty(conceptURI, 'domain');
+            // check if other concepts use this word as range
+            getValuesUseditAsProperty(conceptURI, 'range');
+          }
+          $("#sourceCodeTab").show();
+          $('#graphTab').show();
+
+          // create a network
+          var container = document.getElementById('mynetwork');
+          var data = {
+            nodes: nodes,
+            edges: edges
+          };
+          var options = {
+            autoResize: false,
+            height: '400px',
+            width: '500px',
+            nodes: {
+              shape: 'dot',
+              size: 20
+            },
+            layout: {
+              randomSeed: undefined,
+              improvedLayout: true,
+              hierarchical: {
+                enabled: false,
+                levelSeparation: 150,
+                nodeSpacing: 100,
+                treeSpacing: 200,
+                blockShifting: true,
+                edgeMinimization: true,
+                parentCentralization: true,
+                direction: 'RL', // UD, DU, LR, RL
+                sortMethod: 'hubsize' // hubsize, directed
+              }
+            },
+            interaction: {
+              navigationButtons: true,
+              keyboard: true
+            },
+            physics: {
+              enabled: true,
+              barnesHut: {
+                gravitationalConstant: -2000,
+                centralGravity: 0.3,
+                springLength: 95,
+                springConstant: 0.04,
+                damping: 0.09,
+                avoidOverlap: 0
+              },
+              forceAtlas2Based: {
+                gravitationalConstant: -50,
+                centralGravity: 0.01,
+                springConstant: 0.08,
+                springLength: 100,
+                damping: 0.4,
+                avoidOverlap: 0
+              },
+              repulsion: {
+                centralGravity: 0.2,
+                springLength: 200,
+                springConstant: 0.05,
+                nodeDistance: 100,
+                damping: 0.09
+              },
+              hierarchicalRepulsion: {
+                centralGravity: 0.0,
+                springLength: 100,
+                springConstant: 0.01,
+                nodeDistance: 120,
+                damping: 0.09
+              },
+              maxVelocity: 50,
+              minVelocity: 0.1,
+              solver: 'barnesHut',
+              stabilization: {
+                enabled: true,
+                iterations: 1000,
+                updateInterval: 100,
+                onlyDynamicEdges: false,
+                fit: true
+              },
+              timestep: 0.5,
+              adaptiveTimestep: true
+            }
+          };
+          var network = new vis.Network(container, data, options);
+          var fitNetworkFirstTime = false;
+          // add event listeners
+          network.on('select', function(params) {
+            document.getElementById('selection').innerHTML = 'Selection: ' + params.nodes;
+          });
+
+          network.on('afterDrawing', function() {
+            if (!fitNetworkFirstTime) {
+              network.fit();
+            }
+            fitNetworkFirstTime = true;
+          });
+          network.once('stabilized', function() {
+            if (network.getScale() < 0.2)
+              var scaleOption = {
+                scale: 0.3
+              };
+            network.moveTo(scaleOption);
+          })
+
+
+
+          // To render oncemore the graph id the graphTab is clicked
+          $('#graphTab').on('click', function() {
+            network = new vis.Network(container, data, options);
+            network.once('stabilized', function() {
+              if (network.getScale() < 0.2)
+                var scaleOption = {
+                  scale: 0.3
+                };
+              network.moveTo(scaleOption);
+            })
+            network.on('afterDrawing', function() {
+              if (!fitNetworkFirstTime)
+                network.fit();
+              fitNetworkFirstTime = true;
+
+            });
+          });
+          // To reset fitNetworkFirstTime when user click other than graphTab
+          $('#documentationTab').on('click', function() {
+            fitNetworkFirstTime = false;
+          });
+          $('#sourceCodeTab').on('click', function() {
+            fitNetworkFirstTime = false;
+          });
+
+        }
+
+        // Call when document is ready
+        $(document).ready(function(e) {
+          $(document).on('click', 'a[href="#"]', function(e) {
+            e.preventDefault();
+          });
+        });
+
+      }
+    </script>
+    <!-- End of JavaScript coding-->

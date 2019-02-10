@@ -1,0 +1,27 @@
+
+/home/ahmed/Desktop/eclipse-projects/RDF-Doctor/Resources/TurtleTests/localName_with_assigned_nfc_PN_CHARS_BASE_character_boundaries.ttlProcessing is going on line 1  @prefix p: <http://a.example/> .
+line 2  <http://a.example/s> <http://a.example/p> p:AZazÀÖØöø˿Ͱͽ΄῾‌‍⁰↉Ⰰ⿕、ퟻ﨎ﷇﷰ￯𐀀󠇯 .
+
+error 1: line 2:70 token recognition error at: '?'
+<http://a.example/s> <http://a.example/p> p:AZazÀÖØöø˿Ͱͽ΄῾‌‍⁰↉Ⰰ⿕、ퟻ﨎ﷇﷰ￯𐀀󠇯 .
+
+                                                                      ^      
+error 2: line 2:71 token recognition error at: '?'
+<http://a.example/s> <http://a.example/p> p:AZazÀÖØöø˿Ͱͽ΄῾‌‍⁰↉Ⰰ⿕、ퟻ﨎ﷇﷰ￯𐀀󠇯 .
+
+                                                                       ^     
+error 3: line 2:72 token recognition error at: '?'
+<http://a.example/s> <http://a.example/p> p:AZazÀÖØöø˿Ͱͽ΄῾‌‍⁰↉Ⰰ⿕、ퟻ﨎ﷇﷰ￯𐀀󠇯 .
+
+                                                                        ^    
+error 4: line 2:73 token recognition error at: '?'
+<http://a.example/s> <http://a.example/p> p:AZazÀÖØöø˿Ͱͽ΄῾‌‍⁰↉Ⰰ⿕、ퟻ﨎ﷇﷰ￯𐀀󠇯 .
+
+                                                                         ^   
+
+
+
+
+Total elapsed time: 12 ms
+
+Number of processed lines:3

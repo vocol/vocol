@@ -1,0 +1,12 @@
+
+/home/ahmed/Desktop/eclipse-projects/RDF-Doctor/Resources/TurtleTests/turtle-subm-07.ttlProcessing is going on line 1  # 'a' only allowed as a predicate
+line 2  @prefix : <http://example.org/base#> .
+line 3  :a a :b .
+
+
+
+
+
+Total elapsed time: 13 ms
+
+Number of processed lines:4

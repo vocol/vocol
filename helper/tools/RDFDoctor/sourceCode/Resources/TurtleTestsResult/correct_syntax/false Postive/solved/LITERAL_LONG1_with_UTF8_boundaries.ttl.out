@@ -1,0 +1,33 @@
+Processing is going on line 1  <http://a.example/s> <http://a.example/p> '''߿ࠀ࿿က쿿퀀퟿�𐀀𿿽񀀀󿿽􀀀􏿽''' .
+
+error 1: line 1:42 Object of a triple is missing
+<http://a.example/s> <http://a.example/p> '''߿ࠀ࿿က쿿퀀퟿�𐀀𿿽񀀀󿿽􀀀􏿽''' .
+
+                                          ^                              
+error 2: line 1:42 Missing '.' at the end of a triple
+<http://a.example/s> <http://a.example/p> '''߿ࠀ࿿က쿿퀀퟿�𐀀𿿽񀀀󿿽􀀀􏿽''' .
+
+                                          ^                              
+error 3: line 1:68 incorrect quotes of a literal
+<http://a.example/s> <http://a.example/p> '''߿ࠀ࿿က쿿퀀퟿�𐀀𿿽񀀀󿿽􀀀􏿽''' .
+
+                                                                    ^    
+error 4: line 1:68 Subject cannot be a string
+<http://a.example/s> <http://a.example/p> '''߿ࠀ࿿က쿿퀀퟿�𐀀𿿽񀀀󿿽􀀀􏿽''' .
+
+                                                                    ^    
+error 5: line 1:71 Predicate cannot be a literal
+<http://a.example/s> <http://a.example/p> '''߿ࠀ࿿က쿿퀀퟿�𐀀𿿽񀀀󿿽􀀀􏿽''' .
+
+                                                                       ^ 
+error 6: line 1:71 Object of a triple is missing
+<http://a.example/s> <http://a.example/p> '''߿ࠀ࿿က쿿퀀퟿�𐀀𿿽񀀀󿿽􀀀􏿽''' .
+
+                                                                       ^ 
+
+
+
+
+Total elapsed time: 14 ms
+
+Number of processed lines:2

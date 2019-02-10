@@ -1,0 +1,6 @@
+task goes here
+errors to catch 
+1- NS as Integer value
+2- Space before directives 
+3- using dot instead of NS in directives 
+4- NS is an empty string

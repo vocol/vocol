@@ -1,0 +1,27 @@
+Processing is going on line 1  # IRI with all chars in it.
+line 2  <http://www.w3.org/2013/TurtleTests/s> <http://www.w3.org/2013/TurtleTests/p>
+line 3  <scheme:!$%25&'()*+,-./0123456789:/@ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz~?#> .
+
+error 1: line 3:0 token recognition error at: '<scheme:!'
+<scheme:!$%25&'()*+,-./0123456789:/@ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz~?#> .
+
+^                                                                                               
+error 2: line 3:9 token recognition error at: '$'
+<scheme:!$%25&'()*+,-./0123456789:/@ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz~?#> .
+
+         ^                                                                                      
+error 3: line 3:10 Object of a triple is missing
+<scheme:!$%25&'()*+,-./0123456789:/@ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz~?#> .
+
+          ^                                                                                     
+error 4: line 3:10 Missing '.' at the end of a triple
+<scheme:!$%25&'()*+,-./0123456789:/@ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz~?#> .
+
+          ^                                                                                     
+
+
+
+
+Total elapsed time: 17 ms
+
+Number of processed lines:4

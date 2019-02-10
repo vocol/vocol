@@ -1,0 +1,38 @@
+
+/home/ahmed/Desktop/eclipse-projects/RDF-Doctor/Resources/TurtleTests/LITERAL_LONG1_with_2_squotes.ttlProcessing is going on line 1  <http://a.example/s> <http://a.example/p> '''x''y''' .
+
+error 1: line 1:42 Object of a triple is missing
+<http://a.example/s> <http://a.example/p> '''x''y''' .
+
+                                          ^            
+error 2: line 1:42 Missing '.' at the end of a triple
+<http://a.example/s> <http://a.example/p> '''x''y''' .
+
+                                          ^            
+error 3: line 1:47 incorrect quotes of a literal
+<http://a.example/s> <http://a.example/p> '''x''y''' .
+
+                                               ^       
+error 4: line 1:47 Subject cannot be a string
+<http://a.example/s> <http://a.example/p> '''x''y''' .
+
+                                               ^       
+error 5: line 1:53 incorrect quotes of a literal
+<http://a.example/s> <http://a.example/p> '''x''y''' .
+
+                                                     ^ 
+error 6: line 1:53 Predicate cannot be a literal
+<http://a.example/s> <http://a.example/p> '''x''y''' .
+
+                                                     ^ 
+error 7: line 1:53 Object of a triple is missing
+<http://a.example/s> <http://a.example/p> '''x''y''' .
+
+                                                     ^ 
+
+
+
+
+Total elapsed time: 11 ms
+
+Number of processed lines:2

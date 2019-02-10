@@ -1,0 +1,22 @@
+Processing is going on line 1  # comment test
+line 2  @prefix : <http://example.org/#> .
+line 3  :a :b :c . # end of line comment
+line 4  :d # ignore me
+line 5    :e # and me
+line 6        :f # and me
+line 7          .
+line 8  :g :h #ignore me
+line 9       :i,  # and me
+line 10       :j . # and me
+line 11  
+line 12  :k :l :m ; #ignore me
+line 13     :n :o ; # and me
+line 14     :p :q . # and me
+
+
+
+
+
+Total elapsed time: 14 ms
+
+Number of processed lines:15

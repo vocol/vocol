@@ -1,0 +1,13 @@
+
+/home/ahmed/Desktop/eclipse-projects/RDF-Doctor/Resources/TurtleTests/turtle-syntax-ln-dots.ttlProcessing is going on line 1  @prefix : <http://www.w3.org/2013/TurtleTests/> .
+line 2  :s.1 :p.1 :o.1 .
+line 3  :s..2 :p..2 :o..2.
+line 4  :3.s :3.p :3.
+
+
+
+
+
+Total elapsed time: 36 ms
+
+Number of processed lines:5

@@ -1,0 +1,19 @@
+
+/home/ahmed/Desktop/eclipse-projects/RDF-Doctor/Resources/TurtleTests/turtle-subm-12.ttlProcessing is going on line 1  # Tests for - and _ in names, qnames
+line 2  @prefix ex1: <http://example.org/ex1#> .
+line 3  @prefix ex-2: <http://example.org/ex2#> .
+line 4  @prefix ex3_: <http://example.org/ex3#> .
+line 5  @prefix ex4-: <http://example.org/ex4#> .
+line 6  
+line 7  ex1:foo-bar ex1:foo_bar "a" .
+line 8  ex-2:foo-bar ex-2:foo_bar "b" .
+line 9  ex3_:foo-bar ex3_:foo_bar "c" .
+line 10  ex4-:foo-bar ex4-:foo_bar "d" .
+
+
+
+
+
+Total elapsed time: 13 ms
+
+Number of processed lines:11

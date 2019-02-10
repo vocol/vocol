@@ -1,0 +1,11 @@
+Processing is going on line 1  # dash is a legal pname character
+line 2  @prefix x: <http://www.w3.org/2013/TurtleTests/> .
+line 3  x:a-b-c  x:p x:o .
+
+
+
+
+
+Total elapsed time: 11 ms
+
+Number of processed lines:4

@@ -1,0 +1,11 @@
+
+/home/ahmed/Desktop/eclipse-projects/RDF-Doctor/Resources/TurtleTests/HYPHEN_MINUS_in_localName.ttlProcessing is going on line 1  @prefix p: <http://a.example/>.
+line 2  p:s- <http://a.example/p> <http://a.example/o> .
+
+
+
+
+
+Total elapsed time: 11 ms
+
+Number of processed lines:3

@@ -1,0 +1,18 @@
+
+/home/ahmed/Desktop/eclipse-projects/RDF-Doctor/Resources/TurtleTests/turtle-syntax-str-esc-01.ttlProcessing is going on line 1  <http://www.w3.org/2013/TurtleTests/s> <http://www.w3.org/2013/TurtleTests/p> "a\n" .
+
+error 1: line 1:78 token recognition error at: '"a\n" '
+<http://www.w3.org/2013/TurtleTests/s> <http://www.w3.org/2013/TurtleTests/p> "a\n" .
+
+                                                                              ^       
+error 2: line 1:84 Object of a triple is missing
+<http://www.w3.org/2013/TurtleTests/s> <http://www.w3.org/2013/TurtleTests/p> "a\n" .
+
+                                                                                    ^ 
+
+
+
+
+Total elapsed time: 20 ms
+
+Number of processed lines:2

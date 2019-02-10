@@ -1,0 +1,27 @@
+
+/home/ahmed/Desktop/eclipse-projects/RDF-Doctor/Resources/TurtleTests/turtle-syntax-prefix-03.ttlProcessing is going on line 1  PREFIX : <http://www.w3.org/2013/TurtleTests/>
+line 2  :s :p :123 .
+
+error 1: line 1:7 no viable alternative at input 'PREFIX:'
+PREFIX : <http://www.w3.org/2013/TurtleTests/>
+
+       ^                                       
+error 2: line 2:3 Object of a triple is missing
+:s :p :123 .
+
+   ^         
+error 3: line 2:3 Missing '.' at the end of a triple
+:s :p :123 .
+
+   ^         
+error 4: line 2:11 Object of a triple is missing
+:s :p :123 .
+
+           ^ 
+
+
+
+
+Total elapsed time: 17 ms
+
+Number of processed lines:3

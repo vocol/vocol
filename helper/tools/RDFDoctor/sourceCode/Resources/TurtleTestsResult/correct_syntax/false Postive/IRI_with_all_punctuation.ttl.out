@@ -1,0 +1,17 @@
+Processing is going on line 1  <scheme:!$%25&amp;'()*+,-./0123456789:/@ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz~?#> <http://a.example/p> <http://a.example/o> .
+
+error 1: line 1:0 token recognition error at: '<scheme:!'
+<scheme:!$%25&amp;'()*+,-./0123456789:/@ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz~?#> <http://a.example/p> <http://a.example/o> .
+
+^                                                                                                                                             
+error 2: line 1:9 token recognition error at: '$'
+<scheme:!$%25&amp;'()*+,-./0123456789:/@ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz~?#> <http://a.example/p> <http://a.example/o> .
+
+         ^                                                                                                                                    
+
+
+
+
+Total elapsed time: 11 ms
+
+Number of processed lines:2

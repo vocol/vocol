@@ -1,0 +1,19 @@
+
+/home/ahmed/Desktop/eclipse-projects/RDF-Doctor/Resources/TurtleTests/turtle-subm-10.ttlProcessing is going on line 1  # Test integer datatyped literals using an OWL cardinality constraint
+line 2  @prefix owl: <http://www.w3.org/2002/07/owl#> .
+line 3  
+line 4  # based on examples in the OWL Reference
+line 5  
+line 6  _:hasParent a owl:ObjectProperty .
+line 7  
+line 8  [] a owl:Restriction ;
+line 9    owl:onProperty _:hasParent ;
+line 10    owl:maxCardinality 2 .
+
+
+
+
+
+Total elapsed time: 15 ms
+
+Number of processed lines:11

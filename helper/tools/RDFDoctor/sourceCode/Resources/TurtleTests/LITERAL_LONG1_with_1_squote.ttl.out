@@ -1,0 +1,26 @@
+
+/home/ahmed/Desktop/eclipse-projects/RDF-Doctor/Resources/TurtleTests/LITERAL_LONG1_with_1_squote.ttlProcessing is going on line 1  <http://a.example/s> <http://a.example/p> '''x'y''' .
+
+error 1: line 1:47 incorrect quotes of a literal
+<http://a.example/s> <http://a.example/p> '''x'y''' .
+
+                                               ^      
+error 2: line 1:47 Missing '.' at the end of a triple
+<http://a.example/s> <http://a.example/p> '''x'y''' .
+
+                                               ^      
+error 3: line 1:48 extraneous input '''' expecting {'a', '@a', CHARS}
+<http://a.example/s> <http://a.example/p> '''x'y''' .
+
+                                                ^     
+error 4: line 1:50 token recognition error at: '' .\n'
+<http://a.example/s> <http://a.example/p> '''x'y''' .
+
+                                                  ^   
+
+
+
+
+Total elapsed time: 12 ms
+
+Number of processed lines:2

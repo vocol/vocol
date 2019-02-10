@@ -1,0 +1,11 @@
+
+/home/ahmed/Desktop/eclipse-projects/RDF-Doctor/Resources/TurtleTests/localName_with_assigned_nfc_bmp_PN_CHARS_BASE_character_boundaries.ttlProcessing is going on line 1  @prefix p: <http://a.example/> .
+line 2  <http://a.example/s> <http://a.example/p> p:AZazÀÖØöø˿Ͱͽ΄῾‌‍⁰↉Ⰰ⿕、ퟻ﨎ﷇﷰ￯ .
+
+
+
+
+
+Total elapsed time: 11 ms
+
+Number of processed lines:3

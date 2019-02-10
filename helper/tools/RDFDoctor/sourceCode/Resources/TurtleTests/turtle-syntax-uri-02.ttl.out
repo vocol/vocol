@@ -1,0 +1,11 @@
+
+/home/ahmed/Desktop/eclipse-projects/RDF-Doctor/Resources/TurtleTests/turtle-syntax-uri-02.ttlProcessing is going on line 1  # x53 is capital S
+line 2  <http://www.w3.org/2013/TurtleTests/\u0053> <http://www.w3.org/2013/TurtleTests/p> <http://www.w3.org/2013/TurtleTests/o> .
+
+
+
+
+
+Total elapsed time: 18 ms
+
+Number of processed lines:3

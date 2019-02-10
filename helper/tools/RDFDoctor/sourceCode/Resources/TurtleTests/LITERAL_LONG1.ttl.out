@@ -1,0 +1,34 @@
+
+/home/ahmed/Desktop/eclipse-projects/RDF-Doctor/Resources/TurtleTests/LITERAL_LONG1.ttlProcessing is going on line 1  <http://a.example/s> <http://a.example/p> '''x''' .
+
+error 1: line 1:42 Object of a triple is missing
+<http://a.example/s> <http://a.example/p> '''x''' .
+
+                                          ^         
+error 2: line 1:42 Missing '.' at the end of a triple
+<http://a.example/s> <http://a.example/p> '''x''' .
+
+                                          ^         
+error 3: line 1:47 incorrect quotes of a literal
+<http://a.example/s> <http://a.example/p> '''x''' .
+
+                                               ^    
+error 4: line 1:47 Subject cannot be a string
+<http://a.example/s> <http://a.example/p> '''x''' .
+
+                                               ^    
+error 5: line 1:50 Predicate cannot be a literal
+<http://a.example/s> <http://a.example/p> '''x''' .
+
+                                                  ^ 
+error 6: line 1:50 Object of a triple is missing
+<http://a.example/s> <http://a.example/p> '''x''' .
+
+                                                  ^ 
+
+
+
+
+Total elapsed time: 12 ms
+
+Number of processed lines:2

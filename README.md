@@ -12,7 +12,7 @@ All VoCol components, even the repository engine, can be exchanged with little e
 
 The following steps are needed to setup the VoCol Environment either on a local machine or a web server. These steps are valid in the Linux-based operating systems and with slight modifications can be used in Windows-based as well.
 
-1. You should have the following libraries installed: Java JDK, NodeJS, NPM, Git, and Turtle-validator packages with their respective versions or higher. For more info see in **[Required libraries and tools](https://github.com/vocol/vocol/wiki/Required-libraries-and-tools)**. 
+1. You should have the following libraries installed: Java JDK, NodeJS, NPM, and Git packages with their respective versions or higher. For more info see in **[Required libraries and tools](https://github.com/vocol/vocol/wiki/Required-libraries-and-tools)**. 
 
 2. Create a new directory e.g. "newFolder", clone the VoCol repository, and give the execution permissions as follows:
 ```
@@ -28,7 +28,6 @@ cd vocol
 ```
 5. Install the dependent packages (assuming that node package manager is installed already):
 ```
-sudo npm install -g turtle-validator
 sudo npm install
 ```
 Semantic-Ui framework is used in VoCol development, a couple of selections need to be given while installing it. 
@@ -61,7 +60,7 @@ For more details about VoCol repository, please have a look on our [VoColWiki](h
     
 Check out a list of projects that are currently using [VoCol](http://vocol.iais.fraunhofer.de/).
 
-Moreover, you can use the **docker image** of VoCol [here](https://hub.docker.com/r/ahemid/newvocol/).
+Moreover, you can use the **docker image** of VoCol [here](https://hub.docker.com/r/ahemid/newvocol/) or use the included Dockerfile to build the docker image.
 
 ## License
 

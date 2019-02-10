@@ -1,0 +1,27 @@
+
+/home/ahmed/Desktop/eclipse-projects/RDF-Doctor/Resources/TurtleTests/turtle-syntax-base-04.ttlProcessing is going on line 1  base <http://www.w3.org/2013/TurtleTests/>
+line 2  <s> <p> <o> .
+
+error 1: line 1:5 extraneous input '<http://www.w3.org/2013/TurtleTests/>' expecting {'a', '@a', CHARS}
+base <http://www.w3.org/2013/TurtleTests/>
+
+     ^                                     
+error 2: line 2:4 Object of a triple is missing
+<s> <p> <o> .
+
+    ^         
+error 3: line 2:4 Missing '.' at the end of a triple
+<s> <p> <o> .
+
+    ^         
+error 4: line 2:12 Object of a triple is missing
+<s> <p> <o> .
+
+            ^ 
+
+
+
+
+Total elapsed time: 12 ms
+
+Number of processed lines:3

@@ -1,0 +1,14 @@
+
+/home/ahmed/Desktop/eclipse-projects/RDF-Doctor/Resources/TurtleTests/turtle-subm-04.ttlProcessing is going on line 1  # Test ; operator
+line 2  @prefix : <http://example.org/base#> .
+line 3  :a :b :c ;
+line 4     :d :e ;
+line 5     :f :g .
+
+
+
+
+
+Total elapsed time: 25 ms
+
+Number of processed lines:6

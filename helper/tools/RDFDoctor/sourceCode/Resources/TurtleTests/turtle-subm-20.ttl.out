@@ -1,0 +1,13 @@
+
+/home/ahmed/Desktop/eclipse-projects/RDF-Doctor/Resources/TurtleTests/turtle-subm-20.ttlProcessing is going on line 1  @prefix : <http://example.org#> .
+line 2  :a :b -1.0 .
+line 3  :c :d -1 .
+line 4  :e :f -1.0e0 .
+
+
+
+
+
+Total elapsed time: 12 ms
+
+Number of processed lines:5

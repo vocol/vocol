@@ -1,0 +1,13 @@
+
+/home/ahmed/Desktop/eclipse-projects/RDF-Doctor/Resources/TurtleTests/two_LITERAL_LONG2s.ttlProcessing is going on line 1  # Test long literal twice to ensure it does not over-quote
+line 2  @prefix :  <http://example.org/ex#> .
+line 3  :a :b """first long literal""" .
+line 4  :c :d """second long literal""" .
+
+
+
+
+
+Total elapsed time: 20 ms
+
+Number of processed lines:5

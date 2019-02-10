@@ -8,34 +8,35 @@
       </div>
       <div class="six wide column">
         <%if (metaData !="") {%>
-
-        <h3 class="ui header" style="rgba(243, 238, 238, 0.87)">
-  <i class="newspaper icon"></i>
-  <div class="content">
-    Ontology Metadata
-  </div>
-  </h3>
-        <table class="ui blue table" id="metaData">
-        </table>
-        <%}%>
-        <h3 class="ui header" style="rgba(243, 238, 238, 0.87)">
-  <i class="chart bar icon"></i>
-  <div class="content">
-    Ontology Statistics
-  </div>
-</h3>
-        <table class="ui red  table" id="response">
-          <%- statistics %>
-        </table>
-        <h3 class="ui header" style="rgba(243, 238, 238, 0.87)">
-<i class="file outline icon"></i>
-<div class="content">
-  Project Details
-</div>
-</h3>
-        <table class="ui green table" id="metaData">
-          <%- repoInfo %>
-        </table>
+        <div class="row">
+          <h3 class="ui header" style="rgba(243, 238, 238, 0.87)">
+            <i class="newspaper icon"></i>
+            <div class="content">
+              Ontology Metadata
+            </div>
+          </h3>
+          <table class="ui blue fixed table" id="metaData">
+          </table>
+          <%}%>
+          <h3 class="ui header" style="rgba(243, 238, 238, 0.87)">
+            <i class="chart bar icon"></i>
+            <div class="content">
+              Ontology Statistics
+            </div>
+          </h3>
+          <table class="ui red  table" id="response">
+            <%- statistics %>
+          </table>
+          <h3 class="ui header" style="rgba(243, 238, 238, 0.87)">
+            <i class="info circle icon"></i>
+            <div class="content">
+              Project Details
+            </div>
+          </h3>
+          <table class="ui green table" id="metaData">
+            <%- repoInfo %>
+          </table>
+        </div>
       </div>
       <% include footer.ejs %>
       <style>
@@ -68,9 +69,10 @@
         }
 
 
-        .ui.table {
-          width: 415px;
-          table-layout: fixed;
+        .ui.blue.table {
+
+          height: 50px;
+          overflow: auto;
         }
 
         a {
@@ -78,7 +80,7 @@
           font-weight:
             normal;
            !important;
-        }
+        } 
       </style>
       <script>
         var metaData = <%- JSON.stringify(metaData) %>;
@@ -138,8 +140,14 @@
             key2 = key2 + '@' + key3;
           }
           key1 = trimHash(replaceWithRDFType(trimSlash(key1)));
+          if (key1 == "rdfs:comment")
+            key1 = "comment";
+          if (key1 == "rdf:type")
+            key1 = "type";
+          if (key1 == "owl:versionInfo")
+            key1 = "version information";
 
-          metadataTableRows += '<tr><td>' + key1 + '</td><td>' + key2 + '</td></tr>';
+          metadataTableRows += '<tr><td class="content">' + key1 + '</td><td>' + key2 + '</td></tr>';
         }
         $('#metaData').append(metadataTableRows);
 
@@ -151,7 +159,7 @@
             var previous = null,
               cellToExtend = null,
               rowspan = 1;
-            table.find("td:nth-child(" + i + ")").each(function(index, e) {
+            table.find("td:nth-child(" + i + ")").each(function (index, e) {
               var jthis = $(this),
                 content = jthis.text();
               // check if current row "break" exist in the array. If not, then extend rowspan:
@@ -171,6 +179,5 @@
           // now remove hidden td's (or leave them hidden if you wish):
           $('td.hidden').remove();
         }
-
-        MergeCommonRows($('#metaData'));
+        //MergeCommonRows($('#metaData'));
       </script>

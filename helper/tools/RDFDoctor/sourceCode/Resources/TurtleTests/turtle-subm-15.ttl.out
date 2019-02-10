@@ -1,0 +1,15 @@
+
+/home/ahmed/Desktop/eclipse-projects/RDF-Doctor/Resources/TurtleTests/turtle-subm-15.ttlProcessing is going on line 1  # Test long literal
+line 2  @prefix :  <http://example.org/ex#> .
+line 3  :a :b """a long
+line 4  	literal
+line 5  with
+line 6  newlines""" .
+
+
+
+
+
+Total elapsed time: 19 ms
+
+Number of processed lines:7

@@ -1,0 +1,11 @@
+
+/home/ahmed/Desktop/eclipse-projects/RDF-Doctor/Resources/TurtleTests/turtle-syntax-struct-01.ttlProcessing is going on line 1  @prefix : <http://www.w3.org/2013/TurtleTests/> .
+line 2  :s :p :o1 , :o2 .
+
+
+
+
+
+Total elapsed time: 10 ms
+
+Number of processed lines:3

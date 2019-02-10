@@ -1,0 +1,25 @@
+Processing is going on line 1  <http://a.example/s> <http://a.example/p> _:AZazÀÖØöø˿ͰͽͿ῿‌‍⁰↏Ⰰ⿯、퟿豈﷏ﷰ�𐀀󯿽 .
+
+error 1: line 1:70 token recognition error at: '?'
+<http://a.example/s> <http://a.example/p> _:AZazÀÖØöø˿ͰͽͿ῿‌‍⁰↏Ⰰ⿯、퟿豈﷏ﷰ�𐀀󯿽 .
+
+                                                                      ^      
+error 2: line 1:71 token recognition error at: '?'
+<http://a.example/s> <http://a.example/p> _:AZazÀÖØöø˿ͰͽͿ῿‌‍⁰↏Ⰰ⿯、퟿豈﷏ﷰ�𐀀󯿽 .
+
+                                                                       ^     
+error 3: line 1:72 token recognition error at: '?'
+<http://a.example/s> <http://a.example/p> _:AZazÀÖØöø˿ͰͽͿ῿‌‍⁰↏Ⰰ⿯、퟿豈﷏ﷰ�𐀀󯿽 .
+
+                                                                        ^    
+error 4: line 1:73 token recognition error at: '?'
+<http://a.example/s> <http://a.example/p> _:AZazÀÖØöø˿ͰͽͿ῿‌‍⁰↏Ⰰ⿯、퟿豈﷏ﷰ�𐀀󯿽 .
+
+                                                                         ^   
+
+
+
+
+Total elapsed time: 11 ms
+
+Number of processed lines:2
