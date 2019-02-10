@@ -2,11 +2,6 @@ FROM ubuntu:18.04
 
 MAINTAINER  Fraunhofer IAIS , https://vocol.iais.fraunhofer.de
 
-RUN apt-get update \
- && apt-get -y install nodejs npm git \
- && apt-get clean
-
-
 # Install JAVA 8
 RUN apt-get update && \
     apt-get upgrade -y && \
@@ -18,6 +13,12 @@ RUN apt-get update && \
     apt-get clean
 
 
+
+# Install Nodejs , git
+RUN  apt-get update -yq \
+    && apt-get install curl gnupg git -yq \
+    && curl -sL https://deb.nodesource.com/setup_11.x  | bash \
+    && apt-get install nodejs -yq
 
 # Build application
 RUN mkdir /home/project
@@ -32,3 +33,25 @@ EXPOSE 3030
 
 ENV PORT=3000
 CMD [ "npm", "start","3000","3030"]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
