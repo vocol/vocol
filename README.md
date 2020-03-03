@@ -67,5 +67,5 @@ Moreover, you can use the **docker image** of VoCol [here](https://hub.docker.co
 VoCol is licensed under the MIT License. See LICENSE.txt for more details. For respective licenses of individual components and libraries please refer to the **[Required libraries and tools](https://github.com/vocol/vocol/wiki/Required-libraries-and-tools)** section. 
 
 ## Current Work 
-We have extened this VoCol version to work As A Service. Please, visit us on the following link: https://vocoreg.org or https://vocoreg.com
+We have extened this VoCol version to work As A Service. Please, visit us on the following link: https://www.vocoreg.org or https://www.vocoreg.com
 
