@@ -2,21 +2,22 @@ FROM ubuntu:18.04
 
 MAINTAINER  Fraunhofer IAIS , https://vocol.iais.fraunhofer.de
 
-# Install JAVA 8
+# Install OpenJDK-8
 RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y  software-properties-common && \
-    add-apt-repository ppa:webupd8team/java -y && \
-    apt-get update && \
-    echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections && \
-    apt-get install -y oracle-java8-installer && \
-    apt-get clean
+    apt-get install -y openjdk-8-jdk && \
+    apt-get clean;
+
+# Setup JAVA_HOME -- useful for docker commandline
+ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
+RUN export JAVA_HOME
 
 
 
 # Install Nodejs , git
 RUN  apt-get update -yq \
-    && apt-get install curl gnupg git -yq \
+    && apt-get install curl gnupg git ruby psmisc -yq \
     && curl -sL https://deb.nodesource.com/setup_11.x  | bash \
     && apt-get install nodejs -yq
 
