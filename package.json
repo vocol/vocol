@@ -19,7 +19,7 @@
     "jsonfile": "^4.0.0",
     "morgan": "^1.9.1",
     "serve-favicon": "^2.5.0",
-    "shelljs": "^0.7.8",
+    "shelljs": "^0.8.5",
     "sparql-client": "^0.2.0"
   },
   "devDependencies": {
